@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,138 +16,226 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Nástroj k instalaci balíčků"</string>
-    <string name="next" msgid="3057143178373252333">"Další"</string>
-    <string name="install" msgid="5896438203900042068">"Instalovat"</string>
-    <string name="done" msgid="3889387558374211719">"Hotovo"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Povolit aplikaci:"</string>
-    <string name="cancel" msgid="8360346460165114585">"Zrušit"</string>
-    <string name="unknown" msgid="4742479012767208045">"Neznámé"</string>
-    <string name="installing" msgid="8613631001631998372">"Probíhá instalace..."</string>
-    <string name="installing_app" msgid="4097935682329028894">"Instalace balíčku <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="install_done" msgid="3682715442154357097">"Aplikace je nainstalována."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Chcete tuto aplikaci nainstalovat? Aplikace získá přístup k těmto oprávněním:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Chcete tuto aplikaci nainstalovat? Aplikace nevyžaduje žádná zvláštní oprávnění."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Chcete nainstalovat aktualizaci této existující aplikace? Stávající data nebudou ztracena. Aktualizovaná aplikace získá přístup k následujícímu:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Chcete nainstalovat aktualizaci této integrované aplikace? Stávající data nebudou ztracena. Aktualizovaná aplikace získá přístup k následujícímu:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Chcete nainstalovat aktualizaci této existující aplikace? Vaše existující data nebudou ztracena. Není vyžadován žádný zvláštní přístup."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Chcete nainstalovat aktualizaci této integrované aplikace? Vaše existující data nebudou ztracena. Není vyžadován žádný zvláštní přístup."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Aplikaci nelze nainstalovat."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"Instalace balíčku byla zablokována."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"Aplikaci nelze nainstalovat, protože balíček je v konfliktu se stávajícím balíčkem."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Aplikaci nelze nainstalovat, protože s tabletem není kompatibilní."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Tato aplikace s vaší televizí není kompatibilní."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Aplikaci nelze nainstalovat, protože s telefonem není kompatibilní."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Aplikaci nelze nainstalovat, protože balíček zřejmě není platný."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> do tohoto tabletu nelze nainstalovat."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> se do televize nepodařilo nainstalovat."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> do tohoto telefonu nelze nainstalovat."</string>
-    <string name="launch" msgid="4826921505917605463">"Otevřít"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Váš administrátor nedovoluje instalaci aplikací z neznámých zdrojů"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Tento uživatel nemůže instalovat neznámé aplikace"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Tento uživatel nesmí instalovat aplikace"</string>
-    <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="settings" msgid="6743583734099755409">"Nastavení"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Spravovat aplikace"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Chcete aplikaci nahradit?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplikace, kterou instalujete, nahradí jinou aplikaci.\n\nVšechny předchozí uživatelské údaje budou uloženy."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Toto je systémová aplikace.\n\nVšechny předchozí uživatelské údaje budou uloženy."</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Nedostatek místa"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze nainstalovat. Uvolněte místo v paměti a zkuste to znovu."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplikace nebyla nalezena"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Aplikaci se nepodařilo najít na seznamu nainstalovaných aplikací."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Není povoleno"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Aktuální uživatel nemá k odinstalaci oprávnění."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Chyba"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Aplikaci nelze odinstalovat."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Odinstalovat aplikaci"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Odinstalovat aktualizaci"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"Činnost <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> je součástí následující aplikace:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Chcete tuto aplikaci odinstalovat?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Chcete  tuto aplikaci odinstalovat "<b>"všem"</b>" uživatelům? Aplikace a její údaje budou odstraněny "<b>"všem"</b>" uživatelům tohoto zařízení."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Chcete tuto aplikaci pro uživatele <xliff:g id="USERNAME">%1$s</xliff:g> odinstalovat?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"Chcete tuto aplikaci nahradit tovární verzí? Všechna data budou odstraněna."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Chcete tuto aplikaci nahradit tovární verzí? Všechna data budou odstraněna. Tato akce ovlivní všechny uživatele zařízení, včetně uživatelů s pracovním profilem."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Probíhající odinstalace"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Neúspěšné odinstalace"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"Probíhá odinstalace..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"Odinstalace balíčku <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"Odinstalace byla dokončena."</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"Balíček <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> byl odinstalován"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"Odinstalace se nezdařila."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"Odinstalace balíčku <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> se nezdařila."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Aktivní aplikaci pro správu zařízení nelze odinstalovat"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Aktivní aplikaci pro správu zařízení uživatele <xliff:g id="USERNAME">%1$s</xliff:g> nelze odinstalovat"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Tato aplikace je u některých uživatelů nebo profilů požadována, u ostatních byla odinstalována."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Tato aplikace je pro váš profil požadována a nelze ji odinstalovat."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Tato aplikace je administrátorem zařízení vyžadována a nelze ji odinstalovat."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Přejít do nastavení aplikací pro správu zařízení"</string>
-    <string name="manage_users" msgid="3125018886835668847">"Správa uživatelů"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze odinstalovat."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Při analýze balíčku došlo k chybě."</string>
-    <string name="newPerms" msgid="6039428254474104210">"Nově"</string>
-    <string name="allPerms" msgid="1024385515840703981">"Vše"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Ochrana soukromí"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"Přístup k zařízení"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"Tato aktualizace nevyžaduje žádná nová oprávnění."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Chcete udělit následující oprávnění? Získáte přístup k:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Odmítnout"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Další informace"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Zamítnout"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> z <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Povolit aplikaci &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"zakázáno (<xliff:g id="COUNT">%1$d</xliff:g>)"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"vše zakázáno"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"nic nezakázáno"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Povolit"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplikace"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Oprávnění aplikací"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Příště se neptat"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Žádná oprávnění"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Další oprávnění"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Správce oprávnění"</string>
+    <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"oprávnění"</string>
+    <string name="cancel" msgid="7279939269964834974">"Zrušit"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplikace nebyla nalezena"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Zakázat"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Odmítnout a už se neptat"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Další informace"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Zamítnout"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> z <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Povolit aplikaci &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Vždy povolit aplikaci &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Pouze při používání aplikace"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Vždy"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Odmítnout a už se neptat"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"zakázáno (<xliff:g id="COUNT">%1$d</xliff:g>)"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"vše zakázáno"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"nic nezakázáno"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Povolit"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Povolit vždy"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Povolit jen během používání aplikace"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplikace"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Oprávnění aplikací"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Správce oprávnění"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Již se neptat"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Žádná oprávnění"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Další oprávnění"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Otevřít informace o aplikaci"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="few">Ještě <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="many">Ještě <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="other">Ještě <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">Ještě <xliff:g id="COUNT_0">%1$d</xliff:g></item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Tato aplikace byla vytvořena pro starší verzi platformy Android. Pokud oprávnění neudělíte, může přestat fungovat podle původního záměru."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"provést neznámou akci"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Povoleno u <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikací"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Zobrazit systémové aplikace"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Skrýt systémové aplikace"</string>
-    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> – oprávnění"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Žádné aplikace"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Nastavení polohy"</string>
-    <string name="location_warning" msgid="8778701356292735971">"Služby určování polohy v tomto zařízení poskytuje aplikace <xliff:g id="APP_NAME">%1$s</xliff:g>. Přístup k poloze lze upravit v nastavení polohy."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Pokud toto oprávnění zamítnete, základní funkce zařízení nemusejí fungovat správně."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Vynuceno zásadami"</string>
-    <string name="loading" msgid="7811651799620593731">"Načítání…"</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Všechna oprávnění"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Ostatní oprávnění aplikace"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Žádost o oprávnění"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Byla zjištěna překryvná vrstva obrazovky"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Chcete-li změnit nastavení tohoto oprávnění, v Nastavení &gt; Aplikace je třeba nejprve vypnout překryvnou vrstvu obrazovky"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Otevřít nastavení"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Akce instalace/odinstalace nejsou v zařízení Wear podporovány."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Aplikace <xliff:g id="APP_NAME_0">%1$s</xliff:g> byla aktualizována. Chcete aplikaci <xliff:g id="APP_NAME_1">%1$s</xliff:g> povolit přístup k následujícím položkám?"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Určete, k čemu aplikaci &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; povolíte přístup"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"Aplikace &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; byla aktualizována. Určete, k čemu jí povolíte přístup."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Zrušit"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Pokračovat"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Nová oprávnění"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Aktuální oprávnění"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Příprava instalace…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Neznámá aplikace"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Z bezpečnostních důvodů do tabletu není dovoleno instalovat neznámé aplikace z tohoto zdroje."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Z bezpečnostních důvodů do televize není dovoleno instalovat neznámé aplikace z tohoto zdroje."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Z bezpečnostních důvodů do telefonu není dovoleno instalovat neznámé aplikace z tohoto zdroje."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Telefon a osobní údaje jsou zranitelnější vůči útoku ze strany neznámých aplikací. Instalací této aplikace přijímáte odpovědnost za případné škody na telefonu nebo ztrátu dat, která může být používáním aplikace způsobena."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Tablet a osobní údaje jsou zranitelnější vůči útoku ze strany neznámých aplikací. Instalací této aplikace přijímáte odpovědnost za případné škody na tabletu nebo ztrátu dat, která může být používáním aplikace způsobena."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Televize a osobní údaje jsou zranitelnější vůči útoku ze strany neznámých aplikací. Instalací této aplikace přijímáte odpovědnost za případné škody na televizi nebo ztrátu dat, která může být používáním aplikace způsobena."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"Pokračovat"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"Nastavení"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"Instalace/odinstalace aplikací pro Wear"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Tato aplikace byla vytvořena pro starší verzi platformy Android. Pokud oprávnění neudělíte, může přestat fungovat podle původního záměru."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"provést neznámou akci"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Povoleno u <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikací"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"Nedávné využití"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Zobrazit panel oprávnění"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Zobrazit systémové aplikace"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Skrýt systémové aplikace"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Žádné aplikace"</string>
+    <string name="location_settings" msgid="547378321761364906">"Nastavení polohy"</string>
+    <string name="location_warning" msgid="4687406043150343369">"Služby určování polohy v tomto zařízení poskytuje aplikace <xliff:g id="APP_NAME">%1$s</xliff:g>. Přístup k poloze lze upravit v nastavení polohy."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Pokud toto oprávnění zamítnete, základní funkce zařízení nemusejí fungovat správně."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Vynuceno zásadami"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Přístup na pozadí byl zakázán zásadami"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Přístup na pozadí byl povolen zásadami"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Přístup na popředí byl povolen zásadami"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Spravováno administrátorem"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Přístup na pozadí byl zakázán administrátorem"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Přístup na pozadí byl povolen administrátorem"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Přístup na popředí byl povolen administrátorem"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"Oprávnění nastavená systémem"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Vždy"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Pouze při používání aplikace"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Nikdy"</string>
+    <string name="loading" msgid="323483393167148377">"Načítání…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Všechna oprávnění"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Ostatní oprávnění aplikace"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Žádost o oprávnění"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Byla zjištěna překryvná vrstva obrazovky"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Chcete-li změnit nastavení tohoto oprávnění, v Nastavení &gt; Aplikace je třeba nejprve vypnout překryvnou vrstvu obrazovky"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Otevřít nastavení"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Akce instalace/odinstalace nejsou v zařízení Wear podporovány."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Určete, k čemu aplikaci &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; povolíte přístup"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"Aplikace &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; byla aktualizována. Určete, k čemu jí povolíte přístup."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Zrušit"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Pokračovat"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Nová oprávnění"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Aktuální oprávnění"</string>
+    <string name="message_staging" msgid="641286607664721291">"Příprava instalace…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Neznámé"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Panel"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="few">Poslední přístup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> přístupy</item>
+      <item quantity="many">Poslední přístup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> přístupu</item>
+      <item quantity="other">Poslední přístup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> přístupů</item>
+      <item quantity="one">Poslední přístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> přístup</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="few">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupy (<xliff:g id="NUM_5">%3$s</xliff:g> na pozadí)</item>
+      <item quantity="many">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupu (<xliff:g id="NUM_5">%3$s</xliff:g> na pozadí)</item>
+      <item quantity="other">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupů (<xliff:g id="NUM_5">%3$s</xliff:g> na pozadí)</item>
+      <item quantity="one">Poslední přístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> přístup (<xliff:g id="NUM_2">%3$s</xliff:g> na pozadí)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="few">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupy\nTrvání: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="many">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupu\nTrvání: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupů\nTrvání: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Poslední přístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> přístup\nTrvání: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="few">Poslední přístup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> přístupy (<xliff:g id="NUM_6">%3$s</xliff:g> na pozadí)\nTrvání: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="many">Poslední přístup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> přístupu (<xliff:g id="NUM_6">%3$s</xliff:g> na pozadí)\nTrvání: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Poslední přístup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> přístupů (<xliff:g id="NUM_6">%3$s</xliff:g> na pozadí)\nTrvání: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Poslední přístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> přístup (<xliff:g id="NUM_2">%3$s</xliff:g> na pozadí)\nTrvání: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Všechna oprávnění"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Kdykoli"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Posledních 7 dnů"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Posledních 24 hodin"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Poslední hodina"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Posledních 15 minut"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Poslední minuta"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Žádné využití oprávnění"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Použití kdykoliv"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Použití za posledních 7 dní"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Použití za posledních 24 hodin"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Použití za poslední hodinu"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Použití za posledních 15 minut"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Přístup za poslední minutu"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Nejpoužívanější oprávnění (kdykoliv)"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Nejpoužívanější oprávnění za posledních 7 dní"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Nejpoužívanější oprávnění za posledních 24 hodin"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Nejpoužívanější oprávnění za poslední 1 hodinu"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Nejpoužívanější oprávnění za posledních 15 minut"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Nejpoužívanější oprávnění za poslední 1 minutu"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Aplikace"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrováno podle: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Odstranit filtr"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Filtrovat podle"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrovat podle oprávnění"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Nejvíce oprávnění"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Nejvíce použití"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Nedávné"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Obnovit"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Využití oprávnění aplikace"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Přístup: <xliff:g id="NUM">%1$s</xliff:g>×. Celkový čas: <xliff:g id="DURATION">%2$s</xliff:g>. Naposledy použito před <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Přístup: <xliff:g id="NUM">%1$s</xliff:g>×. Naposledy použito před <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"Povolit"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Povolit vždy"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Povolit jen během používání aplikace"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"Zakázat"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Oprávnění <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"Přístup k údajům <xliff:g id="PERM">%1$s</xliff:g> pro aplikaci <xliff:g id="APP">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"Aplikace <xliff:g id="APP">%1$s</xliff:g> získala před <xliff:g id="TIME">%3$s</xliff:g> přístup k těmto údajům: <xliff:g id="PERM">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k oprávnění <xliff:g id="PERM">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Zobrazit podrobné využití oprávnění"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Poslední přístup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Žádný přístup"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Povoleno"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Povoleno pouze během používání"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Zamítnuto"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Zobrazit podrobné údaje o využití"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> dny</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> dne</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dnů</item>
+      <item quantity="one">1 den</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> hodiny</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> hodiny</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> hodin</item>
+      <item quantity="one">1 hodina</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> minuty</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> minuty</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minut</item>
+      <item quantity="one">1 minuta</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> sekundy</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> sekundy</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekund</item>
+      <item quantity="one">1 sekunda</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"Použít aplikaci &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; jako <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"Použít aplikaci &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; namísto aplikace &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; jako <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"Připomenutí o oprávněních"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Aplikace <xliff:g id="APP_NAME">%s</xliff:g> využívá vaši polohu"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Tato aplikace má neomezený přístup k poloze. Klepnutím to změníte."</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Jen během používání aplikace"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Nejsou povolena žádná oprávnění"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Nejsou zakázána žádná oprávnění"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Nejsou povoleny žádné aplikace"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Nejsou zakázány žádné aplikace"</string>
+    <string name="launch_app" msgid="5641437562665039291">"Otevřít"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"Odinstalovat"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"Vynutit ukončení"</string>
+    <string name="settings" msgid="2884124136779508907">"Nastavení"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"Služba <xliff:g id="SERVICE_NAME">%s</xliff:g> má plný přístup k vašemu zařízení"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"Služby přístupnosti, které mají plný přístup k vašemu zařízení: <xliff:g id="NUM_SERVICES">%s</xliff:g>"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"Služba <xliff:g id="SERVICE_NAME">%s</xliff:g> může zobrazit vaši obrazovku, akce a vstup, provádět akce a ovládat obrazovku."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Tyto služby mohou zobrazit vaši obrazovku, akce a vstup, provádět akce a ovládat obrazovku."</string>
+    <string name="default_apps" msgid="8554530939151957828">"Výchozí aplikace"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Žádné výchozí aplikace"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"Výchozí pracovní"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Žádné"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Žádné aplikace"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Přístup ke spec. aplikacím"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Žádný přístup ke spec. aplik."</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Žádné aplikace"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Asistenční aplikace"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"Prohlížeč"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"Aplikace Telefon"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"Aplikace pro SMS"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"Nouzová aplikace"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"Domácí aplikace"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Aplikace Hudba"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Aplikace Galerie"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Telefonování v autě"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Aplikace k přesměrování hovorů"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"Ohlašování jména volajícího"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"Doprovod. aplikace na volání"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Aplikace na promítání do auta"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Nepodporuje pracovní profil"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Poznámka: Pokud restartujete zařízení a máte nastavený zámek obrazovky, tato aplikace se nespustí, dokud zařízení neodemknete."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Asistent bude moci číst informace o aplikacích používaných v systému, včetně údajů viditelných na obrazovce a přístupných v rámci aplikací."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Sdílet data ladění"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Sdílet podrobná data pro ladění?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"Aplikace <xliff:g id="APP_NAME">%1$s</xliff:g> chce nahrát informace pro ladění."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Sdílet data ladění"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"Aplikace <xliff:g id="APP_NAME_0">%1$s</xliff:g> chce nahrát zprávu o chybě tohoto zařízení, která byla pořízena <xliff:g id="DATE">%2$s</xliff:g> v <xliff:g id="TIME">%3$s</xliff:g>. Zprávy o chybě zahrnují osobní údaje o zařízení a údaje z aplikací, např. uživatelská jména, údaje o poloze, identifikátory zařízení a informace o sítích. Zprávy o chybách sdílejte jen s lidmi a aplikacemi, kterým důvěřujete. Chcete aplikaci <xliff:g id="APP_NAME_1">%4$s</xliff:g> povolit nahrát zprávu o chybě?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Povolit"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Zamítnout"</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.android.packageinstaller.permission.ui.television;
 
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON;
+
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Icon;
@@ -14,8 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
+import com.android.permissioncontroller.R;
 
 /**
  * TV-specific view handler for the grant permissions activity.
@@ -80,7 +82,9 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
 
     @Override
     public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, boolean showDoNotAsk) {
+            CharSequence message, CharSequence detailMessage, CharSequence[] buttonLabels) {
+        // TODO: Handle detailMessage
+
         mGroupName = groupName;
 
         mMessageView.setText(message);
@@ -89,7 +93,9 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
             mIconView.setImageIcon(icon);
         }
 
-        mHardDenyButton.setVisibility(showDoNotAsk ? View.VISIBLE : View.GONE);
+        mHardDenyButton.setVisibility(
+                buttonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] != null ? View.VISIBLE
+                        : View.GONE);
         if (groupCount > 1) {
             mCurrentGroupView.setVisibility(View.VISIBLE);
             mCurrentGroupView.setText(mContext.getString(R.string.current_permission_template,
@@ -111,25 +117,23 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
 
     @Override
     public void onClick(View view) {
-        boolean granted = false;
-        boolean doNotAskAgain = false;
         switch (view.getId()) {
             case R.id.permission_allow_button:
-                granted = true;
+                mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ALWAYS);
+                break;
+            case R.id.permission_deny_button:
+                mResultListener.onPermissionGrantResult(mGroupName, DENIED);
                 break;
             case R.id.permission_deny_dont_ask_again_button:
-                doNotAskAgain = true;
+                mResultListener.onPermissionGrantResult(mGroupName, DENIED_DO_NOT_ASK_AGAIN);
                 break;
-        }
-        if (mResultListener != null) {
-            mResultListener.onPermissionGrantResult(mGroupName, granted, doNotAskAgain);
         }
     }
 
     @Override
     public void onBackPressed() {
         if (mResultListener != null) {
-            mResultListener.onPermissionGrantResult(mGroupName, false, false);
+            mResultListener.onPermissionGrantResult(mGroupName, DENIED);
         }
     }
 }

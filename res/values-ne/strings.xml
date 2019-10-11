@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,136 +16,208 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"प्याकेज स्थापनकर्ता"</string>
-    <string name="next" msgid="3057143178373252333">"अर्को"</string>
-    <string name="install" msgid="5896438203900042068">"स्थापना गर्नुहोस्"</string>
-    <string name="done" msgid="3889387558374211719">"भयो"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"यस अनुप्रयोगलाई अनुमति दिनुहोस्:"</string>
-    <string name="cancel" msgid="8360346460165114585">"रद्द गर्नुहोस्"</string>
-    <string name="unknown" msgid="4742479012767208045">"अज्ञात"</string>
-    <string name="installing" msgid="8613631001631998372">"स्थापित हुँदै…"</string>
-    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> स्थापना गर्दै…"</string>
-    <string name="install_done" msgid="3682715442154357097">"अनुप्रयोग स्थापना भयो।"</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"के तपाईं यो अनुप्रयोग स्थापन गर्न चाहनु हुन्छ? यसले पहुँच प्राप्त गर्ने छ:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"के तपाईं यस अनुप्रयोगलाई जडान गर्न चाहनु हुन्छ? यसको लागि कुनै विशेष पहुँचको आवश्यकता पर्दैन।"</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"के तपाईँसँग अहिले भईरहेको अनुप्रयोगको एक अपडेट लाई स्थापित गर्न चाहानुहुन्छ? तपाईँको अहिलेको डेटा हराउने छैन। अपडेट भएको अनुप्रयोग पहुँच पाउनेछ मा:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"के तपाईं यस पूर्व-निर्मित अनुप्रयोगमा अपडेट स्थापित गर्न चाहनु हुन्छ? तपाईंको रहेको डेटा हराउने छैन। अपडेट गरिएको अनुप्रयोगले पहुँच पाउने छ:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"के तपाईँसँग अहिले भइरहेको अनुप्रयोगको एउटा अपडेटलाई स्थापित गर्न चाहनु हुन्छ? तपाईँको अहिलेको डेटा हराउने छैन। यसलाई कुनै विशेष पहुँचको आवश्यकता छैन।"</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"के तपाईं यस जोडिएको अनुप्रयोगको एउटा अपडेटलाई स्थापित गर्न चाहनुहुन्छ? तपाईंको अहिलेको डेटा हराउने छैन। यसलाई कुनै विशेष पहुँचको आवश्यकता छैन।"</string>
-    <string name="install_failed" msgid="6579998651498970899">"अनुप्रयोग स्थापना भएन।"</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"यो प्याकेज स्थापना हुनबाट अवरुद्ध भएको थियो।"</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"प्याकेजका रूपमा स्थापना नगरिएको अनुप्रयोग विद्यमान प्याकेजसँग मेल खाँदैन।"</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"अनुप्रयोगका रूपमा स्थापना नगरिएको अनुप्रयोग तपाईंको ट्याब्लेटसँग मिल्दो छैन।"</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"यो अनुप्रयोग तपाईँको TV को लागि उपयुक्त छैन।"</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"अनुप्रयोगका रूपमा स्थापना नगरिएको अनुप्रयोग तपाईंको फोनसँग मिल्दो छैन।"</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"प्याकेजका रूपमा स्थापना नगरिएको अनुप्रयोग अमान्य जस्तो देखिन्छ।"</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> तपाईँको ट्याब्लेटमा स्थापित हुन सकेन।"</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"तपाईँको TVमा<xliff:g id="APP_NAME">%1$s</xliff:g>स्थापना गर्न सकिएन।"</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"तपाईँको फोनमा <xliff:g id="APP_NAME">%1$s</xliff:g> जडान हुन सकेन।"</string>
-    <string name="launch" msgid="4826921505917605463">"खोल्नुहोस्"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"तपाईंका प्रशासकले अज्ञात स्रोतहरूबाट प्राप्त अनुप्रयोगहरूलाई स्थापना गर्ने अनुमति दिनुहुन्न"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"यस प्रयोगकर्ताले अज्ञात अनुप्रयोगहरू स्थापना गर्न सक्नुहुन्न"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"यो प्रयोगकर्तालाई अनुप्रयोगहरूको स्थापना गर्ने अनुमति छैन"</string>
-    <string name="ok" msgid="3468756155452870475">"ठीक छ"</string>
-    <string name="settings" msgid="6743583734099755409">"सेटिङहरू"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"अनुप्रयोगहरूको व्यवस्थापन गर्नुहोस्"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"अनुप्रयोग विस्थापन गर्ने?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"तपाईँले स्थापना गरिरहनु भएको अनुप्रयोगले अर्कोलाई प्रतिस्थापन गर्ने छ।\n\nतपाईँको पहिलेको सबै प्रयोगकर्ता डेटा बचत हुने छ।"</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"यो एउटा प्रणाली अनुप्रयोग हो।\n\n तपाईँको पहिलेको सबै डेटा बचत हुने छ।"</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"ठाउँभन्दा बाहिर"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> स्थापन गर्न सकिएन। केही ठाउँ खाली गर्नुहोस् र फेरि कोसिस गर्नुहोस्"</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"ठीक छ"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"अनुप्रयोग फेला परेन"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"स्थापना भएको अनुप्रयोगहरू सूचीमा अनुप्रयोग फेला परेको थिएन।"</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"अनुमति छैन"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"हालको प्रयोगकर्तालाई यो स्थापना रद्द गर्ने कार्य गर्ने अनुमति छैन।"</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"त्रुटि"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"अनुप्रयोगको स्थापना रद्द गर्न सकिएन।"</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"अनुप्रयोग अस्थापना गर्नुहोस्"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"परिस्कारहरू अस्थापना गर्नुहोस्"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> निम्न अनुप्रयोगको अंश हो:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"के तपाईं यो अनुप्रयोग अस्थापना गर्न चाहनु हुन्छ?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"के तपाईं यो अनुप्रयोग "<b>"सबै"</b>" प्रयोगकर्ताहरूको लागि स्थापना रद्द गर्न चाहनु हुन्छ? अनुप्रयोग र यसको डेटा "<b>"सबै"</b>" प्रयोगकर्ताहरूबाट उपकरणमा हटाइने छ।"</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"के तपाईं प्रयोगकर्ता <xliff:g id="USERNAME">%1$s</xliff:g> को लागि यो अनुप्रयोग स्थापना रद्द गर्न चाहनुहुन्छ?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"यस अनुप्रयोगलाई फ्याक्ट्रीको संस्करणले बदल्ने हो? सबै डेटा हटाइनेछ।"</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"यस अनुप्रयोगलाई फ्याक्ट्रीको संस्करणले बदल्ने हो? सबै डेटा हटाइनेछ। यसले यस यन्त्रका कार्य प्रोफाइल भएका लगायत सबै प्रयोगकर्ताहरूमा असर पार्छ।"</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"चलिरहेका स्थापना रद्द गर्ने कार्यहरू"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"असफल भएका स्थापना रद्द गर्ने कार्यहरू"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"अस्थापना गर्दै..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को स्थापना रद्द गर्दै…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"स्थापना रद्द गर्न सकियो।"</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को स्थापना रद्द गरियो"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"अस्थापना गर्न असफल"</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को स्थापना रद्द गर्ने कार्य असफल भयो।"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"यन्त्रको सक्रिय प्रशासकीय अनुप्रयोगको स्थापना रद्द गर्न मिल्दैन"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> को यन्त्रको सक्रिय प्रशासकीय अनुप्रयोगको स्थापना रद्द गर्न मिल्दैन"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"अन्य प्रयोगकर्ताहरूका लागि यस अनु्प्रयोगको स्थापना रद्द गरे पनि केही प्रयोगकर्ता वा प्रोफाइलहरूलाई यसको आवश्यकता पर्दछ"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"यो अनुप्रयोग तपाईँको प्रोफाइलका लागि आवश्यक छ र यसको स्थापनालाई रद्द गर्न सकिँदैन।"</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"यो अनुप्रयोग तपाईँको उपकरण प्रशासकलाई आवश्यक छ र स्थापना रद्द गर्न सकिँदैन।"</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"यन्त्रका प्रशासकीय अनुप्रयोगहरूको व्यवस्थापन गर्नुहोस्"</string>
-    <string name="manage_users" msgid="3125018886835668847">"प्रयोगकर्ताहरूलाई व्यवस्थापन गर्नुहोस्"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> स्थापना रद्द गर्न सकिँदैन।"</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"प्याकेजलाई पार्सिङ गर्दा एउटा समस्या आयो।"</string>
-    <string name="newPerms" msgid="6039428254474104210">"नयाँ"</string>
-    <string name="allPerms" msgid="1024385515840703981">"सबै"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"गोपनीयता"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"उपकरण पहुँच"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"यस अपडेटलाई नयाँ अनुमति आवश्यक पर्दैन।"</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"के तपाईं निम्न अनुमति प्रदान गर्न चाहनु हुन्छ? यसले पहुँच पाउने छ:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"अस्वीकार गर्नुहोस्"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"थप जानकारी"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"जे भए पनि अस्वीकार गर्नुहोस्"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> को <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई <xliff:g id="ACTION">%2$s</xliff:g> गर्न अनुमति दिने हो?"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> अनुमतिहरूलाई असक्षम पारिएको छ"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"सबै अनुमतिहरूलाई असक्षम पारिएको छ"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"कुनै पनि अनुमतिलाई असक्षम पारिएको छैन"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"अनुमति दिनुहोस्"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"अनुप्रयोगहरू"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"अनुप्रयोग अनुमतिहरू"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"फेरि नसोध्नुहोस्"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"कुनै अनुमतिहरू छैनन्"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"अतिरिक्त अनुमतिहरू"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> थप</item>
-      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> थप</item>
+    <string name="app_name" msgid="2792757108872430971">"अनुमति नियन्त्रक"</string>
+    <string name="ok" msgid="4417794827535157922">"ठिक छ"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"अनुमतिहरू"</string>
+    <string name="cancel" msgid="7279939269964834974">"रद्द गर्नुहोस्"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"अनुप्रयोग फेला परेन"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"अस्वीकार गर्नु…"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"अस्वीकार गर्नुहोस् र अब उप्रान्त नसोध्नुहोला"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"थप जानकारी"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"जे भए पनि अस्वीकार गर्नु…"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> मध्ये <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई <xliff:g id="ACTION">%2$s</xliff:g> अनुमति दिने हो?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई सधैँ <xliff:g id="ACTION">%2$s</xliff:g> अनुमति दिने हो?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"अनुप्रयोग प्रयोग गर्दा मात्र"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"सधैँ"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"अस्वीकार गर्नुहोस् र अब उप्रान्त नसोध्नुहोला"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> अनुमति असक्षम पारिएको छ"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"सबै अनुमति असक्षम पारिएको छ"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"कुनै पनि असक्षम पारिएको छैन"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"अनुमति दिनुहोस्"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"सधैँ अनुमति दिनुहोस्"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"अनुप्रयोग प्रयोगमा भएको बेलामा मात्र अनुमति दिनुहोस्‌"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"अनुप्रयोगहरू"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"अनुप्रयोगसम्बन्धी अनुमति"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"अनुमतिका प्रबन्धक"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"फेरि नसोध्नुहोला"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"अनुमति दिन भनी कुनै अनुरोध छैन"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"अतिरिक्त अनुमति"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"अनुप्रयोगसम्बन्धी जानकारी खोल्नुहोस्"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
+      <item quantity="other">थप <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">थप <xliff:g id="COUNT_0">%1$d</xliff:g></item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"यो अनुप्रयोग Android को पुरानो संस्करणका लागि डिजाइन गरिएको थियो। अनुमति अस्वीकृत गर्नाले यसले चाहिएको जस्तो कार्य नगर्न सक्छ।"</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"एउटा अज्ञात कार्य गर्नुहोस्"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g> को <xliff:g id="COUNT_0">%1$d</xliff:g> अनुप्रयोगहरूलाई अनुमति छ"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"प्रणाली देखाउनुहोस्"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"प्रणाली लुकाउनुहोस्"</string>
-    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> अनुमतिहरु"</string>
-    <string name="no_apps" msgid="1965493419005012569">"कुनै अनुप्रयोगहरू छैनन्।"</string>
-    <string name="location_settings" msgid="1774875730854491297">"स्थान सेटिङहरू"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> यो यन्त्रका लागि स्थान सेवाहरूको एउटा प्रदायक हो। स्थान पहुँच स्थान सेटिङहरूबाट परिमार्जन गर्न सकिन्छ।"</string>
-    <string name="system_warning" msgid="7103819124542305179">"तपाईँले यो अनुमति अस्वीकार गर्नुभयो भने तपाईँको यन्त्रका मूल विशेषताहरू अब चाहेअनुसार कार्य नगर्न सक्छ।"</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"नीतिद्वारा लागू गरियो"</string>
-    <string name="loading" msgid="7811651799620593731">"लोड हुँदैछ..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"सबै अनुमतिहरू"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"अन्य अनुप्रयोग क्षमताहरू"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"अनुमति अनुरोध"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"स्क्रिन ओभरले पत्ता लाग्यो"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"यो अनुमति सेटिङ परिवर्तन गर्न, तपाईँले पहिला सेटिङ अनुप्रयोगबाट स्क्रिन ओभरले बन्द गर्नु पर्दछ।"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"सेटिङहरू खोल्नुहोस्"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear मा स्थापना/स्थापना रद्द गर्ने कारबाहीहरू समर्थित छैनन्।"</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> अद्यावधिक गरिएको छ। <xliff:g id="APP_NAME_1">%1$s</xliff:g> लाई निम्न वस्तु पहुँच गर्न अनुमति दिने हो?"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई के माथि पहुँच राख्न दिने भन्ने कुरा छनौट गर्नुहोस्"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई अद्यावधिक गरिएको छ। यस अनुप्रयोगलाई के माथि पहुँच राख्न दिने भन्ने कुरा छनौट गर्नुहोस्।"</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"रद्द गर्नुहोस्"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"जारी राख्नुहोस्"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"नयाँ अनुमतिहरू"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"वर्तमान अनुमतिहरू"</string>
-    <string name="message_staging" msgid="6151794817691100003">"अनुप्रयोगलाई तयार पार्दै…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"अज्ञात"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"तपाईंको सुरक्षाको लागि, तपाईंको ट्याब्लेटलाई यो स्रोतबाट प्राप्त हुने अज्ञात अनुप्रयोगहरू स्थापना गर्ने अनुमति छैन।"</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"तपाईंको सुरक्षाको लागि, तपाईंको TV लाई यो स्रोतबाट प्राप्त हुने अज्ञात अनुप्रयोगहरू स्थापना गर्ने अनुमति छैन।"</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"तपाईंको सुरक्षाको लागि, तपाईंको फोनलाई यो स्रोतबाट प्राप्त हुने अज्ञात अनुप्रयोगहरू स्थापना गर्ने अनुमति छैन।"</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"तपाईंको फोन र व्यक्तिगत डेटा अज्ञात अनुप्रयोगहरूबाट हुने आक्रमणको चपेटामा पर्ने बढी जोखिममा हुन्छन्। यो अनुप्रयोग स्थापना गरेर तपाईं यसको प्रयोगबाट तपाईंको फोनलाई हुनसक्ने क्षति वा डेटाको नोक्सानीका लागि स्वयं जिम्मेवार हुनुहुन्छ भन्ने कुरामा सहमत हुनुहुन्छ।"</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"तपाईंको ट्याब्लेट र व्यक्तिगत डेटा अज्ञात अनुप्रयोगहरूबाट हुने आक्रमणको चपेटामा पर्ने बढी जोखिममा हुन्छन्। यो अनुप्रयोग स्थापना गरेर तपाईं यसको प्रयोगबाट तपाईंको ट्याब्लेटलाई हुनसक्ने क्षति वा डेटाको नोक्सानीका लागि स्वयं जिम्मेवार हुनुहुन्छ भन्ने कुरामा सहमत हुनुहुन्छ।"</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"तपाईंको TV र व्यक्तिगत डेटा अज्ञात अनुप्रयोगहरूबाट हुने आक्रमणको चपेटामा पर्ने बढी जोखिममा हुन्छन्। यो अनुप्रयोग स्थापना गरेर तपाईं यसको प्रयोगबाट तपाईंको TV लाई हुनसक्ने क्षति वा डेटाको नोक्सानीका लागि स्वयं जिम्मेवार हुनुहुन्छ भन्ने कुरामा सहमत हुनुहुन्छ।"</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"जारी राख्नुहोस्"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"सेटिङहरू"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"वेयर एपहरूको स्थापना/स्थापना रद्द गर्दै"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"यो अनुप्रयोग Android को कुनै पुरानो संस्करणका लागि डिजाइन गरिएको थियो। अनुमति नदिइनुले यसलाई अब उप्रान्त चाहेअनुसार काम गर्न नसक्ने बनाउन पनि सक्छ।"</string>
+    <string name="default_permission_description" msgid="692254823411049573">"कुनै अज्ञात कारबाही गर्नुहोस्"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> मध्ये <xliff:g id="COUNT_0">%1$d</xliff:g> अनुप्रयोगहरूलाई अनुमति दिइएको छ"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"हालसालैको उपयोग"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"अनुमतिसम्बन्धी ड्यासबोर्ड हेर्नुहोस्"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"प्रणाली देखाउनुहोस्"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"प्रणाली लुकाउनुहोस्"</string>
+    <string name="no_apps" msgid="2377153782338039463">"कुनै पनि अनुप्रयोग छैन"</string>
+    <string name="location_settings" msgid="547378321761364906">"स्थानसम्बन्धी सेटिङहरू"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> यस यन्त्रको स्थानसम्बन्धी सेवा प्रदायक हो। स्थानसम्बन्धी सेटिङहरूमा गई स्थानसम्बन्धी पहुँच परिमार्जन गर्न सकिन्छ।"</string>
+    <string name="system_warning" msgid="6868290533389195836">"तपाईंले यो अनुमति अस्वीकार गर्नुभएमा तपाईंको यन्त्रका मूल सुविधाहरूले अब चाहेअनुसार कार्य नगर्न पनि सक्छन्।"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"नीतिले लागू गरेको"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"नीतिले पृष्ठभूमिको प‍हुँच असक्षम पारेको छ"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"नीतिले पृष्ठभूमिको प‍हुँच सक्षम पारेको छ"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"नीतिले अग्रभूमिको पहुँच सक्षम पारेको छ"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"प्रशासकले नियन्त्रण गर्नुभएको"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"प्रशासकले पृष्ठभूमिको प‍हुँच असक्षम पार्नुभएको छ"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"प्रशासकले पृष्ठभूमिको प‍हुँच सक्षम पार्नुभएको छ"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"प्रशासकले अग्रभूमिको पहुँच सक्षम पार्नुभएको छ"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"प्रणालीले सेट गरेको अनुमति"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"सधैँ"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"अनुप्रयोग प्रयोग गर्दा मात्र"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"कहिल्यै होइन"</string>
+    <string name="loading" msgid="323483393167148377">"लोड गर्दै…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"सबै अनुमति"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"अनुप्रयोगका अन्य क्षमताहरू"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"अनुमति दिन भनी गरिएको अनुरोध"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"स्क्रिन ओभरले पत्ता लाग्यो"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"यो अनुमतिसम्बन्धी सेटिङ बदल्न तपाईंले पहिला सेटिङ &gt; अनुप्रयोगमा गई स्क्रिन ओभरले निष्क्रिय पार्नु पर्छ।"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"सेटिङहरू खोल्नुहोस्"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Wear मा स्थापना/स्थापना रद्द गर्ने कारबाहीहरू समर्थित छैनन्।"</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई केमाथि पहुँच राख्न दिने हो छनौट गर्नुहोस्"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; अद्यावधिक गरिएको छ। यस अनुप्रयोगलाई केमाथि पहुँच राख्न दिने हो छनौट गर्नुहोस्।"</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"रद्द गर्नुहोस्"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"जारी राख्नुहोस्"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"नयाँ अनुमति"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"एपले हाल प्रयोग गर्ने अनुमति"</string>
+    <string name="message_staging" msgid="641286607664721291">"अनुप्रयोग स्थापना गर्न तयारी गर्दै…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"अज्ञात"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ड्यासबोर्ड"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> पहुँच</item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_3">%1$s</xliff:g> <xliff:g id="NUM_4">%2$s</xliff:g> \n पहुँचहरू (<xliff:g id="NUM_5">%3$s</xliff:g>पृष्ठभूमिमा)</item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच (<xliff:g id="NUM_2">%3$s</xliff:g> पृष्ठभूमिमा)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> पहुँच\nअवधि: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच\nअवधि: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> पहुँचहरू (<xliff:g id="NUM_6">%3$s</xliff:g> पृष्ठभूमिमा)\nअवधि: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच (<xliff:g id="NUM_2">%3$s</xliff:g> पृष्ठभूमिमा)\nअवधि: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"कुनै पनि अनुमति"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"कुनै पनि समय"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"पछिल्ला ७ दिन"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"पछिल्लो २४ घन्टा"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"पछिल्लो १ घन्टा"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"पछिल्लो १५ मिनेट"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"पछिल्लो १ मिनेट"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"उपयोगको अनुमति छैन"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"जुनसुकै बेला राखिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"पछिल्लो ७ दिनमा राखिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"पछिल्लो २४ घन्टामा राखिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"अन्तिम क्षणमा राखिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"पछिल्लो १५ मिनेटमा राखिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"पछिल्लो १ मिनेटमा पहुँच राखिएको अनुमति"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"जुनसुकै बेला सबैभन्दा बढी प्रयोग गरिएको अनुमति"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"पछिल्लो ७ दिनमा सबैभन्दा बढी प्रयोग गरिएको अनुमति"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"पछिल्लो २४ घन्टामा सबैभन्दा बढी प्रयोग गरिएको अनुमति"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"पछिल्लो १ घन्टामा सबैभन्दा बढी प्रयोग गरिएको अनुमति"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"पछिल्लो १५ मिनेटमा सबैभन्दा बढी प्रयोग गरिएको अनुमति"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"पछिल्लो १ मिनेटमा सबैभन्दा बढी प्रयोग गरिएको अनुमति"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"अनुप्रयोगहरू"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"यसअनुसार फिल्टर गरिएको: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"फिल्टर हटाउनुहोस्"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"यसअनुसार फिल्टर गर्नुहोस्"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"अनुमतिअनुसार फिल्टर गर्नुहोस्"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"सबैभन्दा धेेरै प्रयोग गरिएको अनुमति"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"सबैभन्दा धेरै पटक पहुँच राखिएको"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"हालसालैका"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"पुनः ताजा गर्नुहोस्"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"अनुप्रयोगको अनुमतिको उपयोग"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"पहुँच: <xliff:g id="NUM">%1$s</xliff:g> पटक। कुल समय: <xliff:g id="DURATION">%2$s</xliff:g>। पछिल्लो पटक <xliff:g id="TIME">%3$s</xliff:g> अघि प्रयोग गरिएको।"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"पहुँच: <xliff:g id="NUM">%1$s</xliff:g> पटक। पछिल्लो पटक <xliff:g id="TIME">%2$s</xliff:g> अघि प्रयोग गरिएको।"</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"अनुमति दिनुहोस्"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"सधैँ अनुमति दिनुहोस्"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"अनुप्रयोग प्रयोग भएको बेलामा मात्र अनुमति दिनुहोस्‌"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"अस्वीकार गर्नुहोस्‌"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> अनुमति"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="APP">%2$s</xliff:g> का लागि <xliff:g id="PERM">%1$s</xliff:g> को पहुँँच"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> ले <xliff:g id="TIME">%3$s</xliff:g> पहिले तपाईंको <xliff:g id="PERM">%2$s</xliff:g> माथि पहुँच राख्यो।"</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g>तपाईंको <xliff:g id="PERM">%2$s</xliff:g>माथि पहुँच राखेको छैन।"</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"अनुमतिको विस्तृत उपयोग हेर्नुहोस्"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"पछिल्लो पटक पहुँच राखिएको समय: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"कहिल्यै पहुँच गरिएन"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"अनुमति दिइएको"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"प्रयोगमा भएका बेला मात्र अनुमति दिइन्छ"</string>
+    <string name="denied_header" msgid="2277998574238617699">"अस्वीकार गरिएको"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"उयोगसम्बन्धी विस्तृत जानकारी हेर्नुहोस्"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> दिन</item>
+      <item quantity="one">१ दिन</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> घन्टा</item>
+      <item quantity="one">१ घन्टा</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> मिनेट</item>
+      <item quantity="one">१ मिनेट</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> सेकेन्ड</item>
+      <item quantity="one">१ सेकेन्ड</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; तपाईंको <xliff:g id="ROLE_NAME">%2$s</xliff:g> का रूपमा प्रयोग गर्ने हो?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"&lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; को सट्टा तपाईंको <xliff:g id="ROLE_NAME">%2$s</xliff:g> का रूपमा &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; प्रयोग गर्ने हो?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"अनुमतिसम्बन्धी रिमाइन्डरहरू"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ले तपाईंको स्थान प्रयोग गरिरहेको छ"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"यो अनुप्रयोगले सधैँ तपाईंको स्थान प्रयोग गर्न सक्छ। बदल्न ट्याप गर्नुहोस्‌।"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"अनुप्रयोग प्रयोगमा भएको बेला मात्र"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"कुनै पनि अनुमति छैन"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"कुनै पनि अनुमति अस्वीकार गरिएको छैन"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"कुनै पनि अनुप्रयोगलाई अनुमति छैन"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"कुनै पनि अनुप्रयोगको अनुमति अस्वीकार गरिएको छैन"</string>
+    <string name="launch_app" msgid="5641437562665039291">"खोल्नुहोस्"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"स्थापना रद्द गर्नुहोस्"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"जबरजस्ती रोक्नुहोस्"</string>
+    <string name="settings" msgid="2884124136779508907">"सेटिङहरू"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ले तपाईंको यन्त्रमाथि पूर्ण रूपमा पहुँच राख्न सक्छ"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"पहुँचसम्बन्धी <xliff:g id="NUM_SERVICES">%s</xliff:g> सेवाहरूले तपाईंको यन्त्रमाथि पूर्ण रूपमा पहुँच राख्न सक्छन्"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ले तपाईंको स्क्रिन, कारबाही र इनपुट हेर्न, कारबाहीहरू गर्न र डिस्प्ले नियन्त्रण गर्न सक्छ।"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"यी सेवाहरूले तपाईंको स्क्रिन, कारबाही र इनपुट हेर्न, कारबाहीहरू गर्न र डिस्प्ले नियन्त्रण गर्न सक्छन्।"</string>
+    <string name="default_apps" msgid="8554530939151957828">"पूर्वनिर्धारित अनुप्रयोगहरू"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"कुनै पनि पूर्वनिर्धारित अनुप्रयोग छैन"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"कार्यका लागि पूर्वनिर्धारित"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"कुनै पनि होइन"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"कुनै पनि अनुप्रयोग छैन"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"अनुप्रयोगसम्बन्धी विशेष पहुँच"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"एपसम्बन्धी कुनै विशेष पहुँच छैन"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"कुनै पनि अनुप्रयोग छैन"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"सहायक अनुप्रयोग"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"ब्राउजर अनुप्रयोग"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"फोन अनुप्रयोग"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"SMS अनुप्रयोग"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"आपतकालीन अनुप्रयोग"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"Home अनुप्रयोग"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"सङ्गीत अनुप्रयोग"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"ग्यालरी अनुप्रयोग"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"कार मोड नामक फोन अनुप्रयोग"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"कल रिडिरेक्ट गर्ने अनुप्रयोग"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"कललाई स्क्रिनमा देखाउने अनुप्रयोग"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"सहयोगी अनुप्रयोगलाई कल गर्नु…"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"कारको प्रोजेक्सनको अनुप्रयोग"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"कार्य प्रोफाइल समर्थन गर्दैन"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"टिपोट: तपाईंले आफ्नो यन्त्र पुनः सुरु गर्नुभयो र त्यसमा स्क्रिन लक सेट गरिएको छ भने तपाईंले आफ्नो यन्त्र अनलक नगरेसम्म यो अनुप्रयोग सुरु हुन सक्दैन।"</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"सहायकले तपाईंको स्क्रिनमा देखिने वा अनुप्रयोगभित्रबाट पहुँच राख्न सकिने जानकारीलगायत तपाईंको प्रणालीमा प्रयोगमा रहेका अनुप्रयोगसम्बन्धी जानकारी पढ्न सक्ने छ।"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"डिबग प्रक्रियासम्बन्धी डेटा आदान प्रदान गर्नुहोस्"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"डिबग प्रक्रियाको विस्तृत डेटा आदान प्रदान गर्ने?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> डिबग प्रक्रियासम्बन्धी जानकारी अपलोड गर्न चाहन्छ।"</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"डिबग प्रक्रियासम्बन्धी डेटा आदान प्रदान गर्नुहोस्"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ले <xliff:g id="DATE">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> मा यो यन्त्रबाट लिएको बगको रिपोर्ट अपलोड गर्ने अनुरोध गर्दै छ। बग रिपोर्टमा प्रयोगकर्ताका नाम, स्ठानसम्बन्धी डेटा, यन्त्रका पहिचानकर्ता र नेटवर्कसम्बन्धी जानकारी जस्ता तपाईंको यन्त्रको व्यक्तिगत जानकारी वा अनुप्रयोगले लग गरेको जानकारी समावेश छ। तपाईंलाई यो जानकारी दिँदा फरक पर्दैन जस्तो लाग्ने विश्वसनीय मान्छे वा अनुप्रयोगसँग मात्र बग रिपोर्टहरू आदान प्रदान गर्नुहोस्। <xliff:g id="APP_NAME_1">%4$s</xliff:g> लाई बग रिपोर्ट अपलोड गर्न दिने हो?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"अनुमति दिनुहोस्"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"अनुमति नदिनुहोस्"</string>
 </resources>

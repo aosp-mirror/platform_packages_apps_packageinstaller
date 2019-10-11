@@ -16,23 +16,36 @@
 
 package com.android.packageinstaller.permission.ui;
 
+import static java.lang.annotation.RetentionPolicy.SOURCE;
+
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+
+import androidx.annotation.IntDef;
+
+import java.lang.annotation.Retention;
 
 /**
  * Class for managing the presentation and user interaction of the "grant
  * permissions" user interface.
  */
 public interface GrantPermissionsViewHandler {
+    @Retention(SOURCE)
+    @IntDef({GRANTED_ALWAYS, GRANTED_FOREGROUND_ONLY, DENIED, DENIED_DO_NOT_ASK_AGAIN})
+    @interface Result {}
+    int GRANTED_ALWAYS = 0;
+    int GRANTED_FOREGROUND_ONLY = 1;
+    int DENIED = 2;
+    int DENIED_DO_NOT_ASK_AGAIN = 3;
 
     /**
      * Listener interface for getting notified when the user responds to a
      * permissions grant request.
      */
     interface ResultListener {
-        void onPermissionGrantResult(String groupName, boolean granted, boolean doNotAskAgain);
+        void onPermissionGrantResult(String groupName, @Result int result);
     }
 
     /**
@@ -59,10 +72,12 @@ public interface GrantPermissionsViewHandler {
      * @param groupIndex the index of the current group being requested
      * @param icon the icon representation of the current group
      * @param message the message to display the user
-     * @param showDoNotAsk whether to show the "do not ask again" option
+     * @param detailMessage another message to display to the user. This clarifies "message" in more
+     *                      detail
+     * @param buttonLabels labels for each button. Use null to make the button gone
      */
     void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, boolean showDoNotAsk);
+            CharSequence message, CharSequence detailMessage, CharSequence[] buttonLabels);
 
     /**
      * Sets the result listener that will be notified when the user responds

@@ -27,7 +27,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 
 public class OverlayWarningDialog extends Activity implements OnClickListener, OnDismissListener {
 

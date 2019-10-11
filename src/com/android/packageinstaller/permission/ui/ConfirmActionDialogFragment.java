@@ -19,17 +19,18 @@ package com.android.packageinstaller.permission.ui;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import com.android.packageinstaller.R;
+
+import androidx.fragment.app.DialogFragment;
+
+import com.android.permissioncontroller.R;
 
 public final class ConfirmActionDialogFragment extends DialogFragment {
     public static final String ARG_MESSAGE = "MESSAGE";
     public static final String ARG_ACTION = "ACTION";
 
-    public static interface OnActionConfirmedListener {
-        public void onActionConfirmed(String action);
+    public interface OnActionConfirmedListener {
+        void onActionConfirmed(String action);
     }
 
     public static ConfirmActionDialogFragment newInstance(CharSequence message, String action) {
@@ -47,17 +48,14 @@ public final class ConfirmActionDialogFragment extends DialogFragment {
                 .setMessage(getArguments().getString(ARG_MESSAGE))
                 .setNegativeButton(R.string.cancel, null)
                 .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
-                        new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Activity activity = getActivity();
-                        if (activity instanceof OnActionConfirmedListener) {
-                            String groupName = getArguments().getString(ARG_ACTION);
-                            ((OnActionConfirmedListener) activity)
-                                    .onActionConfirmed(groupName);
-                        }
-                    }
-                })
+                        (dialog, which) -> {
+                            Activity activity = getActivity();
+                            if (activity instanceof OnActionConfirmedListener) {
+                                String groupName = getArguments().getString(ARG_ACTION);
+                                ((OnActionConfirmedListener) activity)
+                                        .onActionConfirmed(groupName);
+                            }
+                        })
         .create();
     }
 }
