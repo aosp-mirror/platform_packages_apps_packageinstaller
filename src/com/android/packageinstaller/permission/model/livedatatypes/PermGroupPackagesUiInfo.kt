@@ -16,53 +16,18 @@
 
 package com.android.packageinstaller.permission.model.livedatatypes
 
-import android.graphics.drawable.Drawable
-import android.os.UserHandle
-
-const val DATA_NOT_LOADED = -1
 /**
- * Represents the UI information about a permission group and the packages in it.
+ * Represents the UI information of a permission group as a whole- the number of granted non-system
+ * apps, and the total number of non-system apps.
  *
  * @param name: The name of the permission group whose UI data this represents
- * @param packages: A map representing all packages in this group, and whether they should
- * be shown on the UI. Key is package name and user, value is the whether the package should be
- * shown, if it is a system package, and the granted state of the package permissions for this
- * particular group.
- * @param label: The label of this permission group
- * @param icon: The Icon of this permission group
- *
- * TODO ntmyren: revisit to see if icons and labels are necessary
+ * @param nonSystemTotal: The total number of non-system applications that request permissions in
+ * this group
+ * @param nonSystemGranted: The total number of non-system applications that request permissions in
+ * this group, and have at least one permission in this group granted.
  */
 data class PermGroupPackagesUiInfo(
     val name: String,
-    val packages: Map<Pair<String, UserHandle>, AppPermGroupUiInfo>?,
-    val label: CharSequence,
-    val icon: Drawable?
-) {
-    fun getNonSystemTotal(): Int {
-        if (packages == null) {
-            return DATA_NOT_LOADED
-        }
-        var shownNonSystem = 0
-        for ((_, appPermGroup) in packages) {
-            if (appPermGroup.shouldShow && !appPermGroup.isSystem) {
-                shownNonSystem++
-            }
-        }
-        return shownNonSystem
-    }
-
-    fun getNonSystemGranted(): Int {
-        if (packages == null) {
-            return DATA_NOT_LOADED
-        }
-        var granted = 0
-        for ((_, appPermGroup) in packages) {
-            if (appPermGroup.shouldShow && !appPermGroup.isSystem &&
-                appPermGroup.isGranted != AppPermGroupUiInfo.PermGrantState.PERMS_DENIED) {
-                granted++
-            }
-        }
-        return granted
-    }
-}
+    val nonSystemTotal: Int,
+    val nonSystemGranted: Int
+)

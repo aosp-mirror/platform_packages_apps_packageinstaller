@@ -17,7 +17,6 @@ package com.android.packageinstaller.permission.ui.handheld;
 
 import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
 import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
-import static com.android.packageinstaller.permission.model.livedatatypes.PermGroupPackagesUiInfoKt.DATA_NOT_LOADED;
 
 import android.app.ActionBar;
 import android.content.ActivityNotFoundException;
@@ -32,6 +31,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceViewHolder;
 
 import com.android.packageinstaller.permission.model.livedatatypes.PermGroupPackagesUiInfo;
+import com.android.packageinstaller.permission.utils.KotlinUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
@@ -39,6 +39,8 @@ import java.text.Collator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import kotlin.Pair;
 
 /**
  * Superclass for fragments allowing the user to manage permissions.
@@ -103,8 +105,14 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         if (mPermissionGroups == null) {
             return null;
         }
-        ArrayList<PermGroupPackagesUiInfo> groups = new ArrayList<>(mPermissionGroups.values());
-        groups.sort((x, y) -> mCollator.compare(x.getLabel(), y.getLabel()));
+
+        ArrayList<Pair<String, CharSequence>> nameLabelPairs = new ArrayList<>();
+        for (String groupName : mPermissionGroups.keySet()) {
+            nameLabelPairs.add(new Pair<>(groupName,
+                    KotlinUtils.INSTANCE.getPermGroupLabel(context, groupName)));
+        }
+
+        nameLabelPairs.sort((x, y) -> mCollator.compare(x.getSecond(), y.getSecond()));
 
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
@@ -117,18 +125,23 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
 
         // Use this to speed up getting the info for all of the PermissionAppsInfos below.
         // Create a new one for each refresh to make sure it has fresh data.
-        for (int i = 0; i < groups.size(); i++) {
-            PermGroupPackagesUiInfo group = groups.get(i);
+        for (int i = 0; i < nameLabelPairs.size(); i++) {
+            Pair<String, CharSequence> nameLabelPair = nameLabelPairs.get(i);
+            String groupName = nameLabelPair.getFirst();
+            CharSequence label = nameLabelPair.getSecond();
 
-            Preference preference = findPreference(group.getName());
+            PermGroupPackagesUiInfo group = mPermissionGroups.get(groupName);
+
+            Preference preference = findPreference(groupName);
 
             if (preference == null) {
                 preference = new FixedSizeIconPreference(context);
                 preference.setOnPreferenceClickListener(this);
-                preference.setKey(group.getName());
-                preference.setIcon(Utils.applyTint(context, group.getIcon(),
+                preference.setKey(groupName);
+                preference.setIcon(Utils.applyTint(context,
+                        KotlinUtils.INSTANCE.getPermGroupIcon(context, groupName),
                         android.R.attr.colorControlNormal));
-                preference.setTitle(group.getLabel());
+                preference.setTitle(label);
                 // Set blank summary so that no resizing/jumping happens when the summary is
                 // loaded.
                 preference.setSummary(" ");
@@ -136,7 +149,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
                 screen.addPreference(preference);
             }
             String summary;
-            if (group.getNonSystemTotal() != DATA_NOT_LOADED) {
+            if (group != null) {
                 summary = getString(R.string.app_permissions_group_summary,
                         group.getNonSystemGranted(), group.getNonSystemTotal());
             } else {
