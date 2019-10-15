@@ -76,6 +76,7 @@ import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -596,7 +597,12 @@ public class GrantPermissionsActivity extends Activity
         }
 
         int currentIndex = 0;
-        for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
+        List<GroupState> groupStates = new ArrayList<>(mRequestGrantPermissionGroups.values());
+        Collections.sort(groupStates, (s1, s2) -> {
+            return -Boolean.compare(s1.mGroup.supportsOneTimeGrant(),
+                    s2.mGroup.supportsOneTimeGrant());
+        });
+        for (GroupState groupState : groupStates) {
             if (!shouldShowRequestForGroupState(groupState)) {
                 continue;
             }
