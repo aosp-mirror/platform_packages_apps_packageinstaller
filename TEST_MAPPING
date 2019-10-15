@@ -22,6 +22,9 @@
             "options": [
                 {
                     "include-filter": "android.appsecurity.cts.PermissionsHostTest"
+                },
+                {
+                    "exclude-annotation": "android.platform.test.annotations.FlakyTest"
                 }
             ]
         }

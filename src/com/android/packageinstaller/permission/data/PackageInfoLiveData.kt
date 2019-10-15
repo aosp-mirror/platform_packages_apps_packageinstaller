@@ -78,9 +78,8 @@ class PackageInfoLiveData(
                 PackageManager.GET_PERMISSIONS))
         } catch (e: PackageManager.NameNotFoundException) {
             Log.w(LOG_TAG, "Package \"$packageName\" not found")
-            value = null
+            return null
         }
-        return null
     }
 
     /**
