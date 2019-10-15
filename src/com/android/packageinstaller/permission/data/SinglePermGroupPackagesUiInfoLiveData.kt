@@ -134,7 +134,7 @@ object PermGroupPackagesUiInfoRepository
      * @param app: The current application
      * @param groupName: The name of the permission group desired
      *
-     * @return the cached or newly generated PermissionAppsInfoLiveData
+     * @return the cached or newly generated SinglePermGroupPackagesUiInfoLiveData
      */
     fun getSinglePermGroupPackagesUiInfoLiveData(app: Application, groupName: String):
         SinglePermGroupPackagesUiInfoLiveData {
