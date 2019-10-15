@@ -154,4 +154,9 @@ public class Constants {
      * Invalid session id.
      */
     public static final long INVALID_SESSION_ID = 0;
+
+    /**
+     * File name for persisted one-time permissions that will need to be revoked
+     */
+    public static final String ONE_TIME_NEED_TO_REVOKE_FILE_NAME = "one_time_to_revoke";
 }

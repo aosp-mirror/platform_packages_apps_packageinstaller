@@ -33,12 +33,14 @@ import java.lang.annotation.Retention;
  */
 public interface GrantPermissionsViewHandler {
     @Retention(SOURCE)
-    @IntDef({GRANTED_ALWAYS, GRANTED_FOREGROUND_ONLY, DENIED, DENIED_DO_NOT_ASK_AGAIN})
+    @IntDef({GRANTED_ALWAYS, GRANTED_FOREGROUND_ONLY, DENIED, DENIED_DO_NOT_ASK_AGAIN,
+            GRANTED_ONE_TIME})
     @interface Result {}
     int GRANTED_ALWAYS = 0;
     int GRANTED_FOREGROUND_ONLY = 1;
     int DENIED = 2;
     int DENIED_DO_NOT_ASK_AGAIN = 3;
+    int GRANTED_ONE_TIME = 4;
 
     /**
      * Listener interface for getting notified when the user responds to a
