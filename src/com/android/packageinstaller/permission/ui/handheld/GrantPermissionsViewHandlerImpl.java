@@ -19,6 +19,7 @@ package com.android.packageinstaller.permission.ui.handheld;
 import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_ALLOW_ALWAYS_BUTTON;
 import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_ALLOW_BUTTON;
 import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_ALLOW_FOREGROUND_BUTTON;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_ALLOW_ONE_TIME;
 import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON;
 import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_DENY_BUTTON;
 
@@ -83,6 +84,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private Button mAllowButton;
     private Button mAllowAlwaysButton;
     private Button mAllowForegroundButton;
+    private Button mAllowOneTimeButton;
     private Button mDenyButton;
     private Button mDenyAndDontAskAgainButton;
     private ViewGroup mRootView;
@@ -176,6 +178,9 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mAllowForegroundButton =
                 (Button) mRootView.findViewById(R.id.permission_allow_foreground_only_button);
         mAllowForegroundButton.setOnClickListener(this);
+        mAllowOneTimeButton =
+                (Button) mRootView.findViewById(R.id.permission_allow_one_time_button);
+        mAllowOneTimeButton.setOnClickListener(this);
         mDenyButton = (Button) mRootView.findViewById(R.id.permission_deny_button);
         mDenyButton.setOnClickListener(this);
         mDenyAndDontAskAgainButton =
@@ -213,41 +218,22 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     }
 
     private void updateButtons() {
-        if (mButtonLabels[LABEL_ALLOW_BUTTON] == null) {
-            mAllowButton.setVisibility(View.GONE);
-        } else {
-            mAllowButton.setVisibility(View.VISIBLE);
-            mAllowButton.setText(mButtonLabels[LABEL_ALLOW_BUTTON]);
-        }
+        updateButton(mAllowButton, mButtonLabels[LABEL_ALLOW_BUTTON]);
+        updateButton(mAllowAlwaysButton, mButtonLabels[LABEL_ALLOW_ALWAYS_BUTTON]);
+        updateButton(mAllowForegroundButton, mButtonLabels[LABEL_ALLOW_FOREGROUND_BUTTON]);
+        updateButton(mAllowOneTimeButton, mButtonLabels[LABEL_ALLOW_ONE_TIME]);
+        updateButton(mDenyButton, mButtonLabels[LABEL_DENY_BUTTON]);
+        updateButton(mDenyAndDontAskAgainButton,
+                mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON]);
+    }
 
-        if (mButtonLabels[LABEL_ALLOW_ALWAYS_BUTTON] == null) {
-            mAllowAlwaysButton.setVisibility(View.GONE);
+    private void updateButton(Button button, CharSequence label) {
+        if (label == null) {
+            button.setVisibility(View.GONE);
         } else {
-            mAllowAlwaysButton.setVisibility(View.VISIBLE);
-            mAllowAlwaysButton.setText(mButtonLabels[LABEL_ALLOW_ALWAYS_BUTTON]);
+            button.setVisibility(View.VISIBLE);
+            button.setText(label);
         }
-
-        if (mButtonLabels[LABEL_ALLOW_FOREGROUND_BUTTON] == null) {
-            mAllowForegroundButton.setVisibility(View.GONE);
-        } else {
-            mAllowForegroundButton.setVisibility(View.VISIBLE);
-            mAllowForegroundButton.setText(mButtonLabels[LABEL_ALLOW_FOREGROUND_BUTTON]);
-        }
-
-        if (mButtonLabels[LABEL_DENY_BUTTON] == null) {
-            mDenyButton.setVisibility(View.GONE);
-        } else {
-            mDenyButton.setVisibility(View.VISIBLE);
-            mDenyButton.setText(mButtonLabels[LABEL_DENY_BUTTON]);
-        }
-
-        if (mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] == null) {
-            mDenyAndDontAskAgainButton.setVisibility(View.GONE);
-        } else {
-            mDenyAndDontAskAgainButton.setVisibility(View.VISIBLE);
-            mDenyAndDontAskAgainButton.setText(mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON]);
-        }
-
     }
 
     @Override
@@ -273,6 +259,13 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
                     mResultListener.onPermissionGrantResult(mGroupName,
                             GRANTED_FOREGROUND_ONLY);
+                }
+                break;
+            case R.id.permission_allow_one_time_button:
+                if (mResultListener != null) {
+                    view.performAccessibilityAction(
+                            AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
+                    mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ONE_TIME);
                 }
                 break;
             case R.id.permission_deny_button:
