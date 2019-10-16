@@ -35,6 +35,9 @@
 
             <include layout="@layout/header_large" />
 
+            <View
+                style="@style/LargeHeaderDivider"/>
+
             <LinearLayout
                 style="@style/AppPermissionSelection">
 

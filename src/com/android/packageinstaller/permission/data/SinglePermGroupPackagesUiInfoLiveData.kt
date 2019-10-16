@@ -104,9 +104,9 @@ class SinglePermGroupPackagesUiInfoLiveData(
                         removeSource(appPermGroupUiInfoLiveData)
                         appPermGroupLiveDatas.remove(key)
                     }
+                } else {
+                    shownPackages[key] = appPermGroupUiInfo
                 }
-
-                shownPackages[key] = appPermGroupUiInfo
 
                 if (appPermGroupLiveDatas.all { entry -> entry.value.isInitialized }) {
                     permGroupLiveData.value?.groupInfo?.let {
