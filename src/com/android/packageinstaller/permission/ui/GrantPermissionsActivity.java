@@ -29,6 +29,7 @@ import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSI
 import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED;
 import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_WITH_PREJUDICE;
 import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED_ONE_TIME;
 import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler.DENIED;
 import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler.DENIED_DO_NOT_ASK_AGAIN;
 import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler.GRANTED_ALWAYS;
@@ -833,8 +834,9 @@ public class GrantPermissionsActivity extends Activity
                         groupState.affectedPermissions);
                 groupState.mState = GroupState.STATE_ALLOWED;
 
-                reportRequestResult(groupState.affectedPermissions,
-                        PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED);
+                int permissionGrantRequestResult =
+                        PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED;
+
                 if (isOneTime) {
                     OneTimePermissionRevoker permissionRevoker =
                             OneTimePermissionRevoker.Companion.getInstance(this);
@@ -842,7 +844,10 @@ public class GrantPermissionsActivity extends Activity
                     for (String permission : groupState.affectedPermissions) {
                         permissionRevoker.addPackagePermission(packageName, permission);
                     }
+                    permissionGrantRequestResult =
+                            PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED_ONE_TIME;
                 }
+                reportRequestResult(groupState.affectedPermissions, permissionGrantRequestResult);
             } else {
                 groupState.mGroup.revokeRuntimePermissions(doNotAskAgain,
                         groupState.affectedPermissions);
