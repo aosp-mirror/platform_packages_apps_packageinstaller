@@ -16,6 +16,7 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -28,6 +29,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.PreferenceViewHolder;
 
 import com.android.packageinstaller.DeviceUtils;
 import com.android.permissioncontroller.R;
@@ -36,8 +40,11 @@ import com.android.permissioncontroller.R;
  * A class that contains a header.
  */
 public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  {
+    private static final String HEADER_KEY = " HEADER_PREFERENCE";
 
     private View mHeader;
+    private LargeHeaderPreference mHeaderPreference;
+    private int mHeaderType;
     protected Intent mInfoIntent;
     protected UserHandle mUserHandle;
     protected Drawable mIcon;
@@ -50,18 +57,24 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
         ViewGroup root = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
 
         if (!DeviceUtils.isTelevision(getContext())) {
-            if (mHeader == null) {
-                mHeader = inflater.inflate(R.layout.header_large, root, false);
-                getPreferencesContainer().addView(mHeader, 0);
-            } else if (mHeader.getVisibility() == View.VISIBLE) {
-                ((ViewGroup) mHeader.getParent()).removeView(mHeader);
-                getPreferencesContainer().addView(mHeader, 0);
+            if (mHeader != null && mHeader.getVisibility() == View.VISIBLE) {
                 updateHeader(mHeader);
                 mHeader.requireViewById(R.id.header_link).setVisibility(View.VISIBLE);
             }
         }
 
         return root;
+    }
+
+    @Override
+    public void setPreferenceScreen(PreferenceScreen screen) {
+        if (mHeaderPreference == null) {
+            mHeaderPreference = new LargeHeaderPreference(getContext(), this);
+        }
+        if (screen.findPreference(HEADER_KEY) == null) {
+            screen.addPreference(mHeaderPreference);
+        }
+        super.setPreferenceScreen(screen);
     }
 
     /**
@@ -79,7 +92,9 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
         mInfoIntent = infoIntent;
         mUserHandle = userHandle;
         mSmallIcon = smallIcon;
-        updateHeader(mHeader);
+        if (mHeader != null) {
+            updateHeader(mHeader);
+        }
     }
 
     /**
@@ -87,7 +102,7 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
      *
      * @param header the View that contains the components.
      */
-    protected void updateHeader(@NonNull View header) {
+    protected void updateHeader(@Nullable View header) {
         if (header != null) {
             header.setVisibility(View.VISIBLE);
 
@@ -128,6 +143,10 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
      * @param listener the click listener if the summary should be clickable
      */
     public void setSummary(@NonNull CharSequence summary, @Nullable View.OnClickListener listener) {
+        if (mHeader == null) {
+            mHeaderPreference.delayedSetSummary(summary, listener);
+            return;
+        }
         TextView textView = mHeader.requireViewById(R.id.header_text);
         TextView linkView = mHeader.requireViewById(R.id.header_link);
         if (listener != null) {
@@ -139,6 +158,52 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
             textView.setVisibility(View.VISIBLE);
             textView.setText(summary);
             linkView.setVisibility(View.GONE);
+        }
+    }
+
+    private static class LargeHeaderPreference extends PreferenceCategory {
+        private SettingsWithLargeHeader mFragment;
+        private View.OnClickListener mListener;
+        private CharSequence mSummary;
+
+        private LargeHeaderPreference(Context context, SettingsWithLargeHeader fragment) {
+            super(context);
+            mFragment = fragment;
+            setSelectable(false);
+            setLayoutResource(R.layout.header_large);
+            setKey(HEADER_KEY);
+
+            // display the header first (lower numbers are ordered higher)
+            setOrder(-1);
+        }
+
+        @Override
+        public void onBindViewHolder(PreferenceViewHolder holder) {
+            super.onBindViewHolder(holder);
+
+            View view = holder.itemView;
+            if (view == mFragment.mHeader) {
+                return;
+            }
+            mFragment.mHeader = view;
+            if (mFragment.mIcon != null) {
+                mFragment.updateHeader(view);
+            }
+            if (mSummary != null) {
+                mFragment.setSummary(mSummary, mListener);
+            }
+            holder.setIsRecyclable(false);
+        }
+
+        /**
+         * Will set this preference's summary and listener on the next call to onBindViewHolder
+         * @param summary The summary to be set
+         * @param listener The listener to be set
+         */
+        private void delayedSetSummary(@NonNull CharSequence summary,
+                @Nullable View.OnClickListener listener) {
+            mSummary = summary;
+            mListener = listener;
         }
     }
 }
