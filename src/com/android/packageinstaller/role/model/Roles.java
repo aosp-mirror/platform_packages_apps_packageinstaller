@@ -76,6 +76,7 @@ public class Roles {
     private static final String ATTRIBUTE_REQUEST_TITLE = "requestTitle";
     private static final String ATTRIBUTE_REQUEST_DESCRIPTION = "requestDescription";
     private static final String ATTRIBUTE_REQUESTABLE = "requestable";
+    private static final String ATTRIBUTE_SEARCH_KEYWORDS = "searchKeywords";
     private static final String ATTRIBUTE_SHORT_LABEL = "shortLabel";
     private static final String ATTRIBUTE_SHOW_NONE = "showNone";
     private static final String ATTRIBUTE_SYSTEM_ONLY = "systemOnly";
@@ -327,6 +328,13 @@ public class Roles {
             requestTitleResource = 0;
         }
 
+        // 0 is not a valid resource identifier.
+        Integer searchKeywordsResource = getAttributeResourceValue(parser,
+                ATTRIBUTE_SEARCH_KEYWORDS, 0);
+        if (searchKeywordsResource == 0) {
+            searchKeywordsResource = null;
+        }
+
         Integer shortLabelResource = requireAttributeResourceValue(parser, ATTRIBUTE_SHORT_LABEL, 0,
                 TAG_ROLE);
         if (shortLabelResource == null) {
@@ -410,8 +418,9 @@ public class Roles {
             preferredActivities = Collections.emptyList();
         }
         return new Role(name, behavior, descriptionResource, exclusive, labelResource,
-                requestDescriptionResource, requestTitleResource, requestable, shortLabelResource,
-                showNone, systemOnly, requiredComponents, permissions, appOps, preferredActivities);
+                requestDescriptionResource, requestTitleResource, requestable,
+                searchKeywordsResource, shortLabelResource, showNone, systemOnly,
+                requiredComponents, permissions, appOps, preferredActivities);
     }
 
     @NonNull
