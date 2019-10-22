@@ -77,6 +77,7 @@ import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -597,7 +598,12 @@ public class GrantPermissionsActivity extends Activity
         }
 
         int currentIndex = 0;
-        for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
+        List<GroupState> groupStates = new ArrayList<>(mRequestGrantPermissionGroups.values());
+        Collections.sort(groupStates, (s1, s2) -> {
+            return -Boolean.compare(s1.mGroup.supportsOneTimeGrant(),
+                    s2.mGroup.supportsOneTimeGrant());
+        });
+        for (GroupState groupState : groupStates) {
             if (!shouldShowRequestForGroupState(groupState)) {
                 continue;
             }
@@ -651,8 +657,7 @@ public class GrantPermissionsActivity extends Activity
                 mButtonLabels[LABEL_ALLOW_BUTTON] = getString(R.string.grant_dialog_button_allow);
                 mButtonLabels[LABEL_ALLOW_ALWAYS_BUTTON] = null;
                 mButtonLabels[LABEL_ALLOW_FOREGROUND_BUTTON] = null;
-                mButtonLabels[LABEL_ALLOW_ONE_TIME] = getString(
-                        R.string.grant_dialog_button_allow_one_time);
+                mButtonLabels[LABEL_ALLOW_ONE_TIME] = null;
                 mButtonLabels[LABEL_DENY_BUTTON] = getString(R.string.grant_dialog_button_deny);
                 if (isForegroundPermissionUserSet || isBackgroundPermissionUserSet) {
                     mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
@@ -661,6 +666,10 @@ public class GrantPermissionsActivity extends Activity
                     mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] = null;
                 }
 
+                if (groupState.mGroup.supportsOneTimeGrant()) {
+                    mButtonLabels[LABEL_ALLOW_ONE_TIME] =
+                            getString(R.string.grant_dialog_button_allow_one_time);
+                }
                 int messageId;
                 int detailMessageId = 0;
                 if (needForegroundPermission) {

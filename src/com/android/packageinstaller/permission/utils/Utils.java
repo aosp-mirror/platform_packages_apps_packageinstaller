@@ -121,6 +121,9 @@ public final class Utils {
     /** Mapping group -> permissions for all dangerous platform permissions */
     private static final ArrayMap<String, ArrayList<String>> PLATFORM_PERMISSION_GROUPS;
 
+    /** Set of groups that will be able to receive one-time grant */
+    private static final ArraySet<String> ONE_TIME_PERMISSION_GROUPS;
+
     private static final Intent LAUNCHER_INTENT = new Intent(Intent.ACTION_MAIN, null)
             .addCategory(Intent.CATEGORY_LAUNCHER);
 
@@ -188,6 +191,11 @@ public final class Utils {
 
             permissionsOfThisGroup.add(permission);
         }
+
+        ONE_TIME_PERMISSION_GROUPS = new ArraySet<>();
+        ONE_TIME_PERMISSION_GROUPS.add(LOCATION);
+        ONE_TIME_PERMISSION_GROUPS.add(CAMERA);
+        ONE_TIME_PERMISSION_GROUPS.add(MICROPHONE);
     }
 
     private Utils() {
@@ -996,5 +1004,14 @@ public final class Utils {
             // cannot happen
             throw new IllegalStateException("Could not switch to parent user " + parentUser, e);
         }
+    }
+
+    /**
+     * Whether the permission group supports one-time
+     * @param permissionGroup The permission group to check
+     * @return {@code true} iff the group supports one-time
+     */
+    public static boolean supportsOneTimeGrant(String permissionGroup) {
+        return ONE_TIME_PERMISSION_GROUPS.contains(permissionGroup);
     }
 }

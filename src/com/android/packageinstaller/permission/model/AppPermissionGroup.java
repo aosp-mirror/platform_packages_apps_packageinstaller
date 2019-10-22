@@ -1102,6 +1102,14 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return mPermissions.valueAt(0).isBackgroundPermission();
     }
 
+    /**
+     * Whether this group supports one-time permissions
+     * @return {@code true} iff this group supports one-time permissions
+     */
+    public boolean supportsOneTimeGrant() {
+        return Utils.supportsOneTimeGrant(getName());
+    }
+
     public int getFlags() {
         int flags = 0;
         final int permissionCount = mPermissions.size();
