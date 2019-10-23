@@ -61,12 +61,15 @@ public class RoleSearchIndexablesProvider extends BaseSearchIndexablesProvider {
             }
 
             String label = context.getString(role.getLabelResource());
+            Integer searchKeywordsResource = role.getSearchKeywordsResource();
             boolean isExclusive = role.isExclusive();
             cursor.newRow()
                     .add(SearchIndexablesContract.RawData.COLUMN_RANK, 0)
                     .add(SearchIndexablesContract.RawData.COLUMN_TITLE, label)
-                    .add(SearchIndexablesContract.RawData.COLUMN_KEYWORDS, label + ", "
-                            + getContext().getString(isExclusive
+                    .add(SearchIndexablesContract.RawData.COLUMN_KEYWORDS, label
+                            + (searchKeywordsResource != null ? ", " + context.getString(
+                            searchKeywordsResource) : "")
+                            + ", " + context.getString(isExclusive
                             ? R.string.default_app_search_keyword
                             : R.string.special_app_access_search_keyword))
                     .add(SearchIndexablesContract.RawData.COLUMN_KEY, createRawDataKey(

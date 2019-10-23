@@ -167,6 +167,7 @@
         label="@string/role_dialer_label"
         requestDescription="@string/role_dialer_request_description"
         requestTitle="@string/role_dialer_request_title"
+        searchKeywords="@string/role_dialer_search_keywords"
         shortLabel="@string/role_dialer_short_label">
         <required-components>
             <activity>
@@ -236,6 +237,7 @@
         label="@string/role_sms_label"
         requestDescription="@string/role_sms_request_description"
         requestTitle="@string/role_sms_request_title"
+        searchKeywords="@string/role_sms_search_keywords"
         shortLabel="@string/role_sms_short_label">
         <required-components>
             <receiver permission="android.permission.BROADCAST_SMS">
@@ -321,6 +323,7 @@
         label="@string/role_emergency_label"
         requestDescription="@string/role_emergency_request_description"
         requestTitle="@string/role_emergency_request_title"
+        searchKeywords="@string/role_emergency_search_keywords"
         shortLabel="@string/role_emergency_short_label"
         systemOnly="true">
         <required-components>
@@ -345,6 +348,7 @@
         label="@string/role_home_label"
         requestDescription="@string/role_home_request_description"
         requestTitle="@string/role_home_request_title"
+        searchKeywords="@string/role_home_search_keywords"
         shortLabel="@string/role_home_short_label">
         <!-- Also used by HomeRoleBehavior.getFallbackHolder(). -->
         <required-components>
