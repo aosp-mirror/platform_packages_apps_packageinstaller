@@ -24,7 +24,7 @@ import com.android.packageinstaller.permission.model.livedatatypes.LightPackageI
 import com.android.packageinstaller.permission.utils.Utils
 
 /**
- * LiveData for PackageInfo.
+ * LiveData for a LightPackageInfo.
  *
  * @param app: The current Application
  * @param packageName: The name of the package this LiveData will watch for mode changes for

@@ -22,7 +22,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
@@ -56,7 +56,7 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
 
         ManageStandardPermissionsViewModelFactory factory =
                 new ManageStandardPermissionsViewModelFactory(getActivity().getApplication());
-        mViewModel = ViewModelProviders.of(this, factory)
+        mViewModel = new ViewModelProvider(this, factory)
                 .get(ManageStandardPermissionsViewModel.class);
         mPermissionGroups = mViewModel.getUiDataLiveData().getValue();
 

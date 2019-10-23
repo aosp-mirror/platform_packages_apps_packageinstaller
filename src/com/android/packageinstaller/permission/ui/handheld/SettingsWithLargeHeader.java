@@ -164,7 +164,10 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
         }
     }
 
-    private static class LargeHeaderPreference extends PreferenceCategory {
+    /**
+     * A Preference that will act as the "Large Header" for "SettingsWithLargeHeader" fragments.
+     */
+    public static class LargeHeaderPreference extends PreferenceCategory {
         private SettingsWithLargeHeader mFragment;
         private View.OnClickListener mListener;
         private CharSequence mSummary;
