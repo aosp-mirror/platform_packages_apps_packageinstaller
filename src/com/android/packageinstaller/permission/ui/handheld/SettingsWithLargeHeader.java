@@ -44,7 +44,6 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
 
     private View mHeader;
     private LargeHeaderPreference mHeaderPreference;
-    private int mHeaderType;
     protected Intent mInfoIntent;
     protected UserHandle mUserHandle;
     protected Drawable mIcon;
@@ -133,7 +132,11 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
      * Hide the entire header.
      */
     public void hideHeader() {
-        mHeader.setVisibility(View.GONE);
+        if (mHeaderPreference == null) {
+            mHeaderPreference = new LargeHeaderPreference(getContext(), this);
+        }
+        mHeaderPreference.setVisible(false);
+        mHeader = null;
     }
 
     /**
@@ -179,6 +182,9 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
 
         @Override
         public void onBindViewHolder(PreferenceViewHolder holder) {
+            if (!isVisible()) {
+                return;
+            }
             super.onBindViewHolder(holder);
 
             View view = holder.itemView;
@@ -192,7 +198,6 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
             if (mSummary != null) {
                 mFragment.setSummary(mSummary, mListener);
             }
-            holder.setIsRecyclable(false);
         }
 
         /**
