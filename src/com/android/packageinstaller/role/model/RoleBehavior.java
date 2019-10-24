@@ -36,6 +36,11 @@ import java.util.List;
 public interface RoleBehavior {
 
     /**
+     * @see Role#onRoleAdded(Context)
+     */
+    default void onRoleAdded(@NonNull Role role, @NonNull Context context) {}
+
+    /**
      * @see Role#isAvailableAsUser(UserHandle, Context)
      */
     default boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
