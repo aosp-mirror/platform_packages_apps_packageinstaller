@@ -254,6 +254,17 @@ public class Role {
     }
 
     /**
+     * Callback when this role is added to the system for the first time.
+     *
+     * @param context the {@code Context} to retrieve system services
+     */
+    public void onRoleAdded(@NonNull Context context) {
+        if (mBehavior != null) {
+            mBehavior.onRoleAdded(this, context);
+        }
+    }
+
+    /**
      * Check whether this role is available.
      *
      * @param user the user to check for
