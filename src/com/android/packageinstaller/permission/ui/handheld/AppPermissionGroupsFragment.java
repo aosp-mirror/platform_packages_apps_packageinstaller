@@ -27,7 +27,6 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -49,11 +48,8 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.packageinstaller.PermissionControllerStatsLog;
-import com.android.packageinstaller.permission.data.PackageInfoRepository;
-import com.android.packageinstaller.permission.model.livedatatypes.LightPackageInfo;
 import com.android.packageinstaller.permission.ui.Category;
 import com.android.packageinstaller.permission.utils.KotlinUtils;
-import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
 
@@ -69,13 +65,13 @@ import kotlin.Triple;
  *
  * <p>Shows the list of permission groups the app has requested at one permission for.
  */
-public final class AppPermissionsFragment extends SettingsWithLargeHeader {
+public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
 
     private static final String LOG_TAG = "ManagePermsFragment";
 
     static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
-    private AppPermissionsViewModel mViewModel;
+    private AppPermissionGroupsViewModel mViewModel;
     private PreferenceScreen mExtraScreen;
     private String mPackageName;
     private UserHandle mUser;
@@ -85,10 +81,10 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
     /**
      * @return A new fragment
      */
-    public static AppPermissionsFragment newInstance(@NonNull String packageName,
+    public static AppPermissionGroupsFragment newInstance(@NonNull String packageName,
             @NonNull UserHandle userHandle, long sessionId) {
         return setPackageNameAndUserHandleAndSessionId(
-                new AppPermissionsFragment(), packageName, userHandle, sessionId);
+                new AppPermissionGroupsFragment(), packageName, userHandle, sessionId);
     }
 
     private static <T extends Fragment> T setPackageNameAndUserHandleAndSessionId(
@@ -115,10 +111,10 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         mPackageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
         mUser = getArguments().getParcelable(Intent.EXTRA_USER);
 
-        AppPermissionsViewModelFactory factory = new AppPermissionsViewModelFactory(
+        AppPermissionGroupsViewModelFactory factory = new AppPermissionGroupsViewModelFactory(
                 getActivity().getApplication(), mPackageName, mUser);
 
-        mViewModel = new ViewModelProvider(this, factory).get(AppPermissionsViewModel.class);
+        mViewModel = new ViewModelProvider(this, factory).get(AppPermissionGroupsViewModel.class);
         mViewModel.getPackagePermGroupsLiveData().observe(this, this::updatePreferences);
 
         addPreferencesFromResource(R.xml.allowed_denied);
@@ -239,7 +235,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
                 boolean isForegroundOnly = groupTriple.getThird();
 
                 PermissionControlPreference preference = new PermissionControlPreference(context,
-                        mPackageName, groupName, mUser, AppPermissionsFragment.class.getName(),
+                        mPackageName, groupName, mUser, AppPermissionGroupsFragment.class.getName(),
                         sessionId);
                 preference.setTitle(KotlinUtils.INSTANCE.getPermGroupLabel(context, groupName));
                 preference.setIcon(KotlinUtils.INSTANCE.getPermGroupIcon(context, groupName));
@@ -295,7 +291,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
                     getArguments().getString(Intent.EXTRA_PACKAGE_NAME),
                     getArguments().getParcelable(Intent.EXTRA_USER),
                     getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID));
-            frag.setTargetFragment(AppPermissionsFragment.this, 0);
+            frag.setTargetFragment(AppPermissionGroupsFragment.this, 0);
             getFragmentManager().beginTransaction()
                     .replace(android.R.id.content, frag)
                     .addToBackStack(null)
@@ -362,19 +358,11 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
 
     private void logAppPermissionsFragmentViewEntry(
             long sessionId, long viewId, String permissionGroupName, int category) {
-        int uid;
-        LightPackageInfo info = PackageInfoRepository.INSTANCE.getPackageInfoLiveData(
-                getActivity().getApplication(), mPackageName, mUser).getValue();
-        if (info != null) {
-            uid = info.getUid();
-        } else {
-            Context userContext;
-            try {
-                userContext = Utils.getUserContext(getActivity().getApplication(), mUser);
-                uid = userContext.getPackageManager().getApplicationInfo(mPackageName, 0).uid;
-            } catch (PackageManager.NameNotFoundException e) {
-                return;
-            }
+
+        Integer uid = KotlinUtils.INSTANCE.getPackageUid(getActivity().getApplication(),
+                mPackageName, mUser);
+        if (uid == null) {
+            return;
         }
         PermissionControllerStatsLog.write(APP_PERMISSIONS_FRAGMENT_VIEWED, sessionId, viewId,
                 permissionGroupName, uid, mPackageName, category);
@@ -388,11 +376,11 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
      * Class that shows additional permissions.
      */
     public static class AdditionalPermissionsFragment extends SettingsWithLargeHeader {
-        AppPermissionsFragment mOuterFragment;
+        AppPermissionGroupsFragment mOuterFragment;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
-            mOuterFragment = (AppPermissionsFragment) getTargetFragment();
+            mOuterFragment = (AppPermissionGroupsFragment) getTargetFragment();
             mOuterFragment.mViewModel.getPackagePermGroupsLiveData().observe(this,
                     mOuterFragment::updatePreferences);
             super.onCreate(savedInstanceState);

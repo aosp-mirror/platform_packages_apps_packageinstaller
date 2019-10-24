@@ -26,6 +26,7 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
+import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageItemInfo;
@@ -171,6 +172,38 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
 
         return create(context, packageInfo, groupInfo, permissionInfos, delayChanges);
+    }
+
+    /**
+     * Create the app permission group.
+     *
+     * @param app the current application
+     * @param packageName the name of the package
+     * @param permissionGroupName the name of the permission group
+     * @param user the user of the package
+     * @param delayChanges whether to delay changes until {@link #persistChanges} is called.
+     *
+     * @return the AppPermissionGroup.
+     */
+    public static AppPermissionGroup create(Application app, String packageName,
+            String permissionGroupName, UserHandle user, boolean delayChanges) {
+        try {
+            PackageInfo packageInfo = Utils.getUserContext(app, user).getPackageManager()
+                    .getPackageInfo(packageName, PackageManager.GET_PERMISSIONS);
+            PackageItemInfo groupInfo = Utils.getGroupInfo(permissionGroupName, app);
+            if (groupInfo == null) {
+                return null;
+            }
+
+            List<PermissionInfo> permissionInfos = null;
+            if (groupInfo instanceof PermissionGroupInfo) {
+                permissionInfos = Utils.getPermissionInfosForGroup(app.getPackageManager(),
+                            groupInfo.name);
+            }
+            return create(app, packageInfo, groupInfo, permissionInfos, delayChanges);
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
     }
 
     /**

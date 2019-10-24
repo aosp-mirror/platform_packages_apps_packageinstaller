@@ -16,12 +16,14 @@
 
 package com.android.packageinstaller.permission.data
 
+import android.Manifest
 import android.app.Application
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.UserHandle
 import com.android.packageinstaller.permission.model.livedatatypes.LightPackageInfo
 import com.android.packageinstaller.permission.model.livedatatypes.PermState
+import com.android.packageinstaller.permission.utils.LocationUtils
 import com.android.packageinstaller.permission.utils.Utils
 
 /**
@@ -85,8 +87,23 @@ class PermStateLiveData(
                 val packageFlags = packageInfo.requestedPermissionsFlags[index]
                 val permFlags = context.packageManager.getPermissionFlags(permInfo.name,
                     packageName, user)
-                val granted = packageFlags and PackageInfo.REQUESTED_PERMISSION_GRANTED != 0 &&
+                var granted = packageFlags and PackageInfo.REQUESTED_PERMISSION_GRANTED != 0 &&
                     permFlags and PackageManager.FLAG_PERMISSION_REVOKED_COMPAT == 0
+
+                // Check if this package is a location provider
+                if (permissionGroupName == Manifest.permission_group.LOCATION) {
+                    val userContext = Utils.getUserContext(app, user)
+                    if (LocationUtils.isLocationGroupAndProvider(userContext, permissionGroupName,
+                                    packageName)) {
+                        granted = LocationUtils.isLocationEnabled(userContext)
+                    }
+                    // The permission of the extra location controller package is determined by the
+                    // status of the controller package itself.
+                    if (LocationUtils.isLocationGroupAndControllerExtraPackage(userContext,
+                                    permissionGroupName, packageName)) {
+                        granted = LocationUtils.isExtraLocationControllerPackageEnabled(userContext)
+                    }
+                }
                 allPermissionFlags[permissionName] = PermState(permFlags, granted)
             }
         }

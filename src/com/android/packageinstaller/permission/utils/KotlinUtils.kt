@@ -26,6 +26,7 @@ import android.os.UserHandle
 import android.text.TextUtils
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
+import com.android.packageinstaller.permission.data.PackageInfoRepository
 import com.android.packageinstaller.permission.ui.handheld.SettingsWithLargeHeader
 import com.android.permissioncontroller.R
 
@@ -247,5 +248,30 @@ object KotlinUtils {
         val userContext = Utils.getUserContext(app, user)
         val appInfo = userContext.packageManager.getApplicationInfo(packageName, 0)
         return Utils.getFullAppLabel(appInfo, app)
+    }
+
+    /**
+     * Gets a package's uid, using a cached liveData value, if the liveData is currently being
+     * observed (and thus has an up-to-date value).
+     *
+     * @param app: The current application
+     * @param packageName: The name of the package whose uid we want
+     * @param user: The user we want the package uid for
+     *
+     * @return The package's UID, or null if the package or user is invalid
+     */
+    fun getPackageUid(app: Application, packageName: String, user: UserHandle): Int? {
+        val liveData = PackageInfoRepository.getPackageInfoLiveData(app, packageName,
+                user)
+        val liveDataUid = liveData.value?.uid
+        return if (liveDataUid != null && liveData.hasActiveObservers()) liveDataUid else {
+            val userContext = Utils.getUserContext(app, user)
+            try {
+                val appInfo = userContext.packageManager.getApplicationInfo(packageName, 0)
+                appInfo.uid
+            } catch (e: PackageManager.NameNotFoundException) {
+                null
+            }
+        }
     }
 }

@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.permission.data
 
-import android.Manifest
 import android.app.Application
 import android.content.pm.PackageManager
 import android.content.pm.PermissionInfo
@@ -28,7 +27,6 @@ import com.android.packageinstaller.permission.model.livedatatypes.LightPackageI
 import com.android.packageinstaller.permission.model.livedatatypes.LightPermGroupInfo
 import com.android.packageinstaller.permission.model.livedatatypes.LightPermInfo
 import com.android.packageinstaller.permission.model.livedatatypes.PermState
-import com.android.packageinstaller.permission.utils.LocationUtils
 import com.android.packageinstaller.permission.utils.Utils
 
 /**
@@ -117,8 +115,7 @@ class AppPermGroupUiInfoLiveData(
 
         val isSystemApp = !isUserSensitive(permissionState)
 
-        val user = UserHandle.getUserHandleForUid(packageInfo.uid)
-        val isGranted = getGrantedIncludingBackground(permissionState, allPermInfos, user)
+        val isGranted = getGrantedIncludingBackground(permissionState, allPermInfos)
 
         return AppPermGroupUiInfo(shouldShow, isGranted, isSystemApp)
     }
@@ -199,34 +196,14 @@ class AppPermGroupUiInfoLiveData(
      * in this group requested by a given app
      * @param allPermInfos: All of the permissionInfos in the permission group of this app
      * permission group
-     * @param user: The user of the package, used when getting special location information from the
-     * system.
      *
      * @return The int code corresponding to the app permission group state, either allowed, allowed
      * in foreground only, or denied.
      */
     private fun getGrantedIncludingBackground(
         permissionState: Map<String, PermState>,
-        allPermInfos: Map<String, LightPermInfo>,
-        user: UserHandle
+        allPermInfos: Map<String, LightPermInfo>
     ): PermGrantState {
-
-        // Check if this package is a location provider
-        if (permissionGroupName == Manifest.permission_group.LOCATION) {
-            val userContext = Utils.getUserContext(app, user)
-            if (LocationUtils.isLocationGroupAndProvider(userContext, permissionGroupName,
-                    packageName)) {
-                return if (LocationUtils.isLocationEnabled(userContext))
-                    PermGrantState.PERMS_ALLOWED else PermGrantState.PERMS_DENIED
-            }
-            // The permission of the extra location controller package is determined by the status
-            // of the controller package itself.
-            if (LocationUtils.isLocationGroupAndControllerExtraPackage(userContext,
-                    permissionGroupName, packageName)) {
-                return if (LocationUtils.isExtraLocationControllerPackageEnabled(userContext))
-                    PermGrantState.PERMS_ALLOWED else PermGrantState.PERMS_DENIED
-            }
-        }
 
         var hasPermWithBackground = false
         for ((permName, _) in permissionState) {

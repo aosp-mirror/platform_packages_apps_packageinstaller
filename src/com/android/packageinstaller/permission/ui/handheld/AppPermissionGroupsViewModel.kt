@@ -31,14 +31,14 @@ import com.android.packageinstaller.permission.utils.KotlinUtils
 import com.android.packageinstaller.permission.utils.Utils
 
 /**
- * ViewModel for the AppPermissionsFragment. Has a liveData with the UI information for all
+ * ViewModel for the AppPermissionGroupsFragment. Has a liveData with the UI information for all
  * permission groups that this package requests runtime permissions from
  *
  * @param app: The current application
  * @param packageName: The name of the package this viewModel is representing
  * @param user: The user of the package this viewModel is representing
  */
-class AppPermissionsViewModel(
+class AppPermissionGroupsViewModel(
     app: Application,
     packageName: String,
     user: UserHandle
@@ -133,13 +133,13 @@ class AppPermissionsViewModel(
 }
 
 /**
- * Factory for an AppPermissionsViewModel
+ * Factory for an AppPermissionGroupsViewModel
  *
  * @param app: The current application
  * @param packageName: The name of the package this viewModel is representing
  * @param user: The user of the package this viewModel is representing
  */
-class AppPermissionsViewModelFactory(
+class AppPermissionGroupsViewModelFactory(
     private val app: Application,
     private val packageName: String,
     private val user: UserHandle
@@ -147,6 +147,6 @@ class AppPermissionsViewModelFactory(
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
-        return AppPermissionsViewModel(app, packageName, user) as T
+        return AppPermissionGroupsViewModel(app, packageName, user) as T
     }
 }
