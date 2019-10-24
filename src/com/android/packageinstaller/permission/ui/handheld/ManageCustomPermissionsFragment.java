@@ -21,7 +21,7 @@ import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import java.util.HashMap;
 
@@ -49,7 +49,7 @@ public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
 
         ManageCustomPermissionsViewModelFactory factory =
                 new ManageCustomPermissionsViewModelFactory(getActivity().getApplication());
-        mViewModel = ViewModelProviders.of(this, factory)
+        mViewModel = new ViewModelProvider(this, factory)
                 .get(ManageCustomPermissionsViewModel.class);
         mPermissionGroups = mViewModel.getUiDataLiveData().getValue();
 

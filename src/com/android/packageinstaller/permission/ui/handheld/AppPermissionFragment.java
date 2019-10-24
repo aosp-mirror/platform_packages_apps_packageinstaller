@@ -52,7 +52,7 @@ import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
@@ -139,7 +139,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
 
         AppPermissionViewModelFactory factory = new AppPermissionViewModelFactory(
                 getActivity().getApplication(), packageName, groupName, userHandle, sessionId);
-        mViewModel = ViewModelProviders.of(this, factory)
+        mViewModel = new ViewModelProvider(this, factory)
                 .get(AppPermissionViewModel.class);
 
         AppPermissionGroup group = mViewModel.getLiveData().getValue();

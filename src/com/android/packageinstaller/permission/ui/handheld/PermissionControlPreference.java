@@ -21,6 +21,7 @@ import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.UserHandle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,6 +59,13 @@ public class PermissionControlPreference extends Preference {
 
     public PermissionControlPreference(@NonNull Context context,
             @NonNull AppPermissionGroup group, @NonNull String caller, long sessionId) {
+        this(context, group.getApp().packageName, group.getName(), group.getUser(), caller,
+                sessionId);
+    }
+
+    public PermissionControlPreference(@NonNull Context context,
+            @NonNull String packageName, @NonNull String permGroupName, @NonNull UserHandle user,
+            @NonNull String caller, long sessionId) {
         super(context);
         mContext = context;
         mWidgetIcon = null;
@@ -67,9 +75,9 @@ public class PermissionControlPreference extends Preference {
         mSummaryIcons = null;
         setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSION);
-            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, group.getApp().packageName);
-            intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getPermissions().get(0).getName());
-            intent.putExtra(Intent.EXTRA_USER, group.getUser());
+            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName);
+            intent.putExtra(Intent.EXTRA_PERMISSION_GROUP_NAME, permGroupName);
+            intent.putExtra(Intent.EXTRA_USER, user);
             intent.putExtra(AppPermissionActivity.EXTRA_CALLER_NAME, caller);
             intent.putExtra(EXTRA_SESSION_ID, sessionId);
             context.startActivity(intent);

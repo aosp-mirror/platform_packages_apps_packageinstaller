@@ -26,13 +26,16 @@ import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
 import com.android.packageinstaller.permission.data.PermGroupPackagesUiInfoRepository
 import com.android.packageinstaller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
+import com.android.packageinstaller.permission.ui.Category
 import com.android.packageinstaller.permission.ui.handheld.PermissionAppsViewModel.Companion.CREATION_LOGGED_KEY
 import com.android.packageinstaller.permission.ui.handheld.PermissionAppsViewModel.Companion.HAS_SYSTEM_APPS_KEY
 import com.android.packageinstaller.permission.ui.handheld.PermissionAppsViewModel.Companion.SHOULD_SHOW_SYSTEM_KEY
 
 /**
  * ViewModel for the PermissionAppsFragment. Has a liveData with all of the UI info for each
- * package which requests permissions in this permission group.
+ * package which requests permissions in this permission group, a liveData which tracks whether or
+ * not to show system apps, and a liveData tracking whether there are any system apps which request
+ * permissions in this group.
  *
  * @param app: The current application
  * @param groupName: The name of the permission group this viewModel is representing
@@ -44,15 +47,9 @@ class PermissionAppsViewModel(
 ) : ViewModel() {
 
     companion object {
-        internal val SHOULD_SHOW_SYSTEM_KEY = "showSystem"
-        internal val HAS_SYSTEM_APPS_KEY = "hasSystem"
-        internal val CREATION_LOGGED_KEY = "creationLogged"
-    }
-
-    enum class Category(val categoryName: String) {
-        ALLOWED("allowed"),
-        ALLOWED_FOREGROUND("allowed_foreground"),
-        DENIED("denied")
+        internal const val SHOULD_SHOW_SYSTEM_KEY = "showSystem"
+        internal const val HAS_SYSTEM_APPS_KEY = "hasSystem"
+        internal const val CREATION_LOGGED_KEY = "creationLogged"
     }
 
     val shouldShowSystemLiveData = state.getLiveData<Boolean>(SHOULD_SHOW_SYSTEM_KEY, false)
@@ -78,6 +75,9 @@ class PermissionAppsViewModel(
 
         init {
             addSource(packagesUiInfoLiveData) {
+                update()
+            }
+            if (packagesUiInfoLiveData.value != null) {
                 update()
             }
             addSource(shouldShowSystemLiveData) {

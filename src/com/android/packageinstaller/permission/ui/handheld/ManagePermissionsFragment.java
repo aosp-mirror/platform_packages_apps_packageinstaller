@@ -36,11 +36,8 @@ import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
 import java.text.Collator;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import kotlin.Pair;
 
 /**
  * Superclass for fragments allowing the user to manage permissions.
@@ -50,7 +47,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
     private static final String LOG_TAG = "ManagePermissionsFragment";
 
     /**
-     * Map<permission names, PermissionAppsInfos>, representing the data about which
+     * Map<permission names, PermGroupPackagesUiInfo>, representing the data about which
      * apps are in which permission groups, which to show, and which are granted.
      */
     protected Map<String, PermGroupPackagesUiInfo> mPermissionGroups = new HashMap<>();
@@ -106,14 +103,6 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
             return null;
         }
 
-        ArrayList<Pair<String, CharSequence>> nameLabelPairs = new ArrayList<>();
-        for (String groupName : mPermissionGroups.keySet()) {
-            nameLabelPairs.add(new Pair<>(groupName,
-                    KotlinUtils.INSTANCE.getPermGroupLabel(context, groupName)));
-        }
-
-        nameLabelPairs.sort((x, y) -> mCollator.compare(x.getSecond(), y.getSecond()));
-
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
             screen = getPreferenceManager().createPreferenceScreen(context);
@@ -123,12 +112,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         }
         screen.setOrderingAsAdded(true);
 
-        // Use this to speed up getting the info for all of the PermissionAppsInfos below.
-        // Create a new one for each refresh to make sure it has fresh data.
-        for (int i = 0; i < nameLabelPairs.size(); i++) {
-            Pair<String, CharSequence> nameLabelPair = nameLabelPairs.get(i);
-            String groupName = nameLabelPair.getFirst();
-            CharSequence label = nameLabelPair.getSecond();
+        for (String groupName : mPermissionGroups.keySet()) {
 
             PermGroupPackagesUiInfo group = mPermissionGroups.get(groupName);
 
@@ -141,7 +125,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
                 preference.setIcon(Utils.applyTint(context,
                         KotlinUtils.INSTANCE.getPermGroupIcon(context, groupName),
                         android.R.attr.colorControlNormal));
-                preference.setTitle(label);
+                preference.setTitle(KotlinUtils.INSTANCE.getPermGroupLabel(context, groupName));
                 // Set blank summary so that no resizing/jumping happens when the summary is
                 // loaded.
                 preference.setSummary(" ");
@@ -157,6 +141,10 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
             }
             preference.setSummary(summary);
         }
+
+        KotlinUtils.INSTANCE.sortPreferenceGroup(screen, false,
+                (Preference lhs, Preference rhs) ->
+                        mCollator.compare(lhs.getTitle().toString(), rhs.getTitle().toString()));
 
         return screen;
     }

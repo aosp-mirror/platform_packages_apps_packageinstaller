@@ -35,6 +35,12 @@ open class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
     override fun setValue(newValue: T?) {
         if (!isInitialized) {
             isInitialized = true
+            // If we have received an invalid value, and this is the first time we are set,
+            // notify observers.
+            if (newValue == null) {
+                super.setValue(newValue)
+                return
+            }
         }
 
         if (valueNotEqual(super.getValue(), newValue)) {

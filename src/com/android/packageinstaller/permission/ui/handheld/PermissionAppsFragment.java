@@ -22,10 +22,9 @@ import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSI
 import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
 import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__DENIED;
 import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__UNDEFINED;
-import static com.android.packageinstaller.permission.ui.handheld.PermissionAppsViewModel.Category;
-import static com.android.packageinstaller.permission.ui.handheld.PermissionAppsViewModel.Category.ALLOWED;
-import static com.android.packageinstaller.permission.ui.handheld.PermissionAppsViewModel.Category.ALLOWED_FOREGROUND;
-import static com.android.packageinstaller.permission.ui.handheld.PermissionAppsViewModel.Category.DENIED;
+import static com.android.packageinstaller.permission.ui.Category.ALLOWED;
+import static com.android.packageinstaller.permission.ui.Category.ALLOWED_FOREGROUND;
+import static com.android.packageinstaller.permission.ui.Category.DENIED;
 
 import android.app.ActionBar;
 import android.content.Context;
@@ -50,19 +49,18 @@ import androidx.preference.PreferenceCategory;
 import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.data.PackageInfoRepository;
 import com.android.packageinstaller.permission.model.livedatatypes.LightPackageInfo;
+import com.android.packageinstaller.permission.ui.Category;
 import com.android.packageinstaller.permission.utils.KotlinUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
 
 import java.text.Collator;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import kotlin.Pair;
-import kotlin.Triple;
 
 /**
  * Show and manage apps which request a single permission group.
@@ -112,30 +110,34 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
 
         mPermGroupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
 
-        PermissionAppsViewModelFactory factory =
-                new PermissionAppsViewModelFactory(getActivity().getApplication(), mPermGroupName,
-                        this, new Bundle());
-        mViewModel = new ViewModelProvider(this, factory).get(PermissionAppsViewModel.class);
-
-        if (mViewModel.getCategorizedAppsLiveData().getValue() == null) {
-            setLoading(true /* loading */, false /* animate */);
-        }
-        mViewModel.getCategorizedAppsLiveData().observe(this, this::onPackagesLoaded);
-        mViewModel.getShouldShowSystemLiveData().observe(this, this::updateMenu);
-        mViewModel.getHasSystemAppsLiveData().observe(this, (Boolean hasSystem) ->
-                getActivity().invalidateOptionsMenu());
-        setHasOptionsMenu(true);
-        final ActionBar ab = getActivity().getActionBar();
-        if (ab != null) {
-            ab.setDisplayHomeAsUpEnabled(true);
-        }
-
         mCollator = Collator.getInstance(
                 getContext().getResources().getConfiguration().getLocales().get(0));
 
         addPreferencesFromResource(R.xml.allowed_denied);
         // Hide allowed foreground label by default, to avoid briefly showing it before updating
         findPreference(ALLOWED_FOREGROUND.getCategoryName()).setVisible(false);
+
+        PermissionAppsViewModelFactory factory =
+                new PermissionAppsViewModelFactory(getActivity().getApplication(), mPermGroupName,
+                        this, new Bundle());
+        mViewModel = new ViewModelProvider(this, factory).get(PermissionAppsViewModel.class);
+
+        mViewModel.getCategorizedAppsLiveData().observe(this, this::onPackagesLoaded);
+        mViewModel.getShouldShowSystemLiveData().observe(this, this::updateMenu);
+        mViewModel.getHasSystemAppsLiveData().observe(this, (Boolean hasSystem) ->
+                getActivity().invalidateOptionsMenu());
+
+        if (mViewModel.getCategorizedAppsLiveData().getValue() == null) {
+            setLoading(true /* loading */, false /* animate */);
+        } else {
+            onPackagesLoaded(mViewModel.getCategorizedAppsLiveData().getValue());
+        }
+
+        setHasOptionsMenu(true);
+        final ActionBar ab = getActivity().getActionBar();
+        if (ab != null) {
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
@@ -249,32 +251,14 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                 findPreference(ALLOWED.getCategoryName()).setTitle(R.string.allowed_always_header);
             }
 
-            ArrayList<Triple<String, UserHandle, String>> packageUserLabelList = new ArrayList<>();
-            for (Pair<String, UserHandle> pkg : packages) {
-                packageUserLabelList.add(new Triple<>(pkg.getFirst(), pkg.getSecond(),
-                        KotlinUtils.INSTANCE.getPackageLabel(getActivity().getApplication(),
-                                pkg.getFirst(), pkg.getSecond())));
-            }
-            packageUserLabelList.sort((x, y) -> {
-                int result = mCollator.compare(x.getThird(), y.getThird());
-                if (result == 0) {
-                    result = x.getSecond().getIdentifier() - y.getSecond().getIdentifier();
-                }
-                return result;
-            });
-
-
-            for (Triple<String, UserHandle, String> packageUserLabel : packageUserLabelList) {
+            for (Pair<String, UserHandle> packageUserLabel : packages) {
                 String packageName = packageUserLabel.getFirst();
                 UserHandle user = packageUserLabel.getSecond();
-                String label = packageUserLabel.getThird();
 
-                String key = packageName + user;
+                String key = user + packageName;
 
                 Preference existingPref = existingPrefs.get(key);
                 if (existingPref != null) {
-                    // Without this, existing preferences remember their old order.
-                    existingPref.setOrder(Preference.DEFAULT_ORDER);
                     category.addPreference(existingPref);
                     continue;
                 }
@@ -284,7 +268,8 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                                 packageName, user, context, mPermGroupName,
                                 PermissionAppsFragment.class.getName(), sessionId);
                 pref.setKey(key);
-                pref.setTitle(label);
+                pref.setTitle(KotlinUtils.INSTANCE.getPackageLabel(getActivity().getApplication(),
+                        packageName, user));
 
                 category.addPreference(pref);
                 if (!mViewModel.getCreationLogged()) {
@@ -293,6 +278,16 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                             grantCategory.equals(DENIED));
                 }
             }
+
+            KotlinUtils.INSTANCE.sortPreferenceGroup(category, false,
+                    (Preference lhs, Preference rhs) -> {
+                        int result = mCollator.compare(lhs.getTitle().toString(),
+                                rhs.getTitle().toString());
+                        if (result == 0) {
+                            result = lhs.getKey().compareTo(rhs.getKey());
+                        }
+                        return result;
+                    });
 
             mViewModel.setCreationLogged(true);
         }
@@ -309,7 +304,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
             footer.addPreference(footerText);
         }
 
-        setLoading(false /* loading */, false /* animate */);
+        setLoading(false /* loading */, true /* animate */);
     }
 
     private void logPermissionAppsFragmentCreated(String packageName, UserHandle user, long viewId,

@@ -118,6 +118,13 @@ public class Role {
     private final boolean mRequestable;
 
     /**
+     * The string resource for search keywords of this role, in addition to the label of this role.
+     */
+    @Nullable
+    @StringRes
+    private final Integer mSearchKeywordsResource;
+
+    /**
      * The string resource for the short label of this role, currently used when in a list of roles.
      */
     @StringRes
@@ -162,10 +169,10 @@ public class Role {
     public Role(@NonNull String name, @Nullable RoleBehavior behavior,
             @StringRes int descriptionResource, boolean exclusive, @StringRes int labelResource,
             @StringRes int requestDescriptionResource, @StringRes int requestTitleResource,
-            boolean requestable, @StringRes int shortLabelResource, boolean showNone,
-            boolean systemOnly, @NonNull List<RequiredComponent> requiredComponents,
-            @NonNull List<String> permissions, @NonNull List<AppOp> appOps,
-            @NonNull List<PreferredActivity> preferredActivities) {
+            boolean requestable, @Nullable @StringRes Integer searchKeywordsResource,
+            @StringRes int shortLabelResource, boolean showNone, boolean systemOnly,
+            @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
+            @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
         mDescriptionResource = descriptionResource;
@@ -174,6 +181,7 @@ public class Role {
         mRequestDescriptionResource = requestDescriptionResource;
         mRequestTitleResource = requestTitleResource;
         mRequestable = requestable;
+        mSearchKeywordsResource = searchKeywordsResource;
         mShortLabelResource = shortLabelResource;
         mShowNone = showNone;
         mSystemOnly = systemOnly;
@@ -219,6 +227,12 @@ public class Role {
 
     public boolean isRequestable() {
         return mRequestable;
+    }
+
+    @Nullable
+    @StringRes
+    public Integer getSearchKeywordsResource() {
+        return mSearchKeywordsResource;
     }
 
     @StringRes
@@ -743,8 +757,14 @@ public class Role {
         return "Role{"
                 + "mName='" + mName + '\''
                 + ", mBehavior=" + mBehavior
+                + ", mDescriptionResource=" + mDescriptionResource
                 + ", mExclusive=" + mExclusive
                 + ", mLabelResource=" + mLabelResource
+                + ", mRequestDescriptionResource=" + mRequestDescriptionResource
+                + ", mRequestTitleResource=" + mRequestTitleResource
+                + ", mRequestable=" + mRequestable
+                + ", mSearchKeywordsResource=" + mSearchKeywordsResource
+                + ", mShortLabelResource=" + mShortLabelResource
                 + ", mShowNone=" + mShowNone
                 + ", mSystemOnly=" + mSystemOnly
                 + ", mRequiredComponents=" + mRequiredComponents
@@ -753,6 +773,7 @@ public class Role {
                 + ", mPreferredActivities=" + mPreferredActivities
                 + '}';
     }
+
 
     @Override
     public boolean equals(Object object) {
@@ -763,8 +784,14 @@ public class Role {
             return false;
         }
         Role that = (Role) object;
-        return mExclusive == that.mExclusive
+        return mDescriptionResource == that.mDescriptionResource
+                && mExclusive == that.mExclusive
                 && mLabelResource == that.mLabelResource
+                && mRequestDescriptionResource == that.mRequestDescriptionResource
+                && mRequestTitleResource == that.mRequestTitleResource
+                && mRequestable == that.mRequestable
+                && Objects.equals(mSearchKeywordsResource, that.mSearchKeywordsResource)
+                && mShortLabelResource == that.mShortLabelResource
                 && mShowNone == that.mShowNone
                 && mSystemOnly == that.mSystemOnly
                 && mName.equals(that.mName)
@@ -777,7 +804,9 @@ public class Role {
 
     @Override
     public int hashCode() {
-        return Objects.hash(mName, mBehavior, mExclusive, mLabelResource, mShowNone, mSystemOnly,
+        return Objects.hash(mName, mBehavior, mDescriptionResource, mExclusive, mLabelResource,
+                mRequestDescriptionResource, mRequestTitleResource, mRequestable,
+                mSearchKeywordsResource, mShortLabelResource, mShowNone, mSystemOnly,
                 mRequiredComponents, mPermissions, mAppOps, mPreferredActivities);
     }
 }
