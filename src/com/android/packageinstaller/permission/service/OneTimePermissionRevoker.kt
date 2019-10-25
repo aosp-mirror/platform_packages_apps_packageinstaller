@@ -28,6 +28,7 @@ import android.os.Process
 import android.util.Log
 import androidx.annotation.GuardedBy
 import com.android.packageinstaller.Constants
+import com.android.packageinstaller.permission.utils.Utils
 
 /**
  * Singleton class responsible for revoking one-time permissions
@@ -48,22 +49,21 @@ class OneTimePermissionRevoker private constructor(private val context: Context)
     }
 
     /**
-     * Adds a package-permission to be revoked on PERMISSION_TIMEOUT milliseconds of
-     * inactivity of the package
+     * Adds a package-permission to be revoked on
+     * Settings.Secure.ONE_TIME_PERMISSIONS_TIMEOUT_MILLIS milliseconds of inactivity of the package
      *
      * @param packageName the package
      * @param permission the permission
      */
     fun addPackagePermission(packageName: String, permission: String) {
-        val revokeTime = PERMISSION_TIMEOUT + System.currentTimeMillis()
+        val revokeTime = Utils.getOneTimePermissionsTimeout() + System.currentTimeMillis()
 
         synchronized(lock) {
             val revokeTimeAndPermissions = packagePermissionsToRevoke
                     .getOrPut(packageName) { Pair(revokeTime, mutableSetOf()) }
             revokeTimeAndPermissions.second.add(permission)
 
-            schedulePackageRevokeLocked(packageName,
-                    PERMISSION_TIMEOUT + System.currentTimeMillis())
+            schedulePackageRevokeLocked(packageName, revokeTime)
         }
     }
 
@@ -200,17 +200,17 @@ class OneTimePermissionRevoker private constructor(private val context: Context)
     }
 
     private fun checkAndRevoke(packageName: String) {
+        val permissionTimeout = Utils.getOneTimePermissionsTimeout()
         val now = System.currentTimeMillis()
 
         Log.v(LOG_TAG, "Checking if need to revoke one-time permissions for $packageName")
-
-        if (isInForeground(context, packageName)) {
-            schedulePackageRevoke(packageName, now + PERMISSION_TIMEOUT)
+        if (isInForeground(packageName)) {
+            schedulePackageRevoke(packageName, now + permissionTimeout)
             return
         }
 
         val usages = usageStatsManager.queryUsageStats(
-                UsageStatsManager.INTERVAL_BEST, now - PERMISSION_TIMEOUT, now)
+                UsageStatsManager.INTERVAL_BEST, now - permissionTimeout, now)
         val usage = usages.find { u -> u.packageName == packageName }
         if (usage == null) {
             // No usage stats means app hasn't been active for a long time
@@ -220,15 +220,15 @@ class OneTimePermissionRevoker private constructor(private val context: Context)
 
         // TODO(evanseverson) verify that this is the correct value to look at
         val lastVisible = usage.lastTimeVisible
-        if (lastVisible + PERMISSION_TIMEOUT <= now) {
+        if (lastVisible + permissionTimeout <= now) {
             revokePackage(packageName)
         } else {
             schedulePackageRevoke(packageName,
-                    lastVisible + PERMISSION_TIMEOUT)
+                    lastVisible + permissionTimeout)
         }
     }
 
-    private fun isInForeground(context: Context, packageName: String): Boolean {
+    private fun isInForeground(packageName: String): Boolean {
         return activityManager.getPackageImportance(packageName) ==
                 ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND
     }
@@ -256,8 +256,7 @@ class OneTimePermissionRevoker private constructor(private val context: Context)
     companion object {
         private val LOG_TAG = OneTimePermissionRevoker::class.java.getSimpleName()
 
-        // TODO(evanseverson) make this a secure setting
-        private val PERMISSION_TIMEOUT = (5 * 60 * 1000).toLong() // 5 minutes
+        private val DEFAULT_PERMISSION_TIMEOUT = (5 * 60 * 1000).toLong() // 5 minutes
 
         /**
          * @return the instance if has been instantiated before, otherwise null

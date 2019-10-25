@@ -105,6 +105,10 @@ public final class Utils {
     /** Whether to show the Permissions Hub. */
     private static final String PROPERTY_PERMISSIONS_HUB_ENABLED = "permissions_hub_enabled";
 
+    /** The timeout for one-time permissions */
+    private static final String PROPERTY_ONE_TIME_PERMISSIONS_TIMEOUT_MILLIS =
+            "one_time_permissions_timeout_millis";
+
     /** Whether to show location access check notifications. */
     private static final String PROPERTY_LOCATION_ACCESS_CHECK_ENABLED =
             "location_access_check_enabled";
@@ -901,6 +905,11 @@ public final class Utils {
             context = context.createDeviceProtectedStorageContext();
         }
         return context.getSharedPreferences(Constants.PREFERENCES_FILE, MODE_PRIVATE);
+    }
+
+    public static long getOneTimePermissionsTimeout() {
+        return DeviceConfig.getLong(DeviceConfig.NAMESPACE_PERMISSIONS,
+                PROPERTY_ONE_TIME_PERMISSIONS_TIMEOUT_MILLIS, 5 * 60 * 1000 /* 5 minutes */);
     }
 
     /**
