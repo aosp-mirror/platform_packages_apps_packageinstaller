@@ -32,6 +32,7 @@ import androidx.annotation.NonNull;
 import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
+import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ class RuntimePermissionsUpgradeController {
     private static final String LOG_TAG = RuntimePermissionsUpgradeController.class.getSimpleName();
 
     // The latest version of the runtime permissions database
-    private static final int LATEST_VERSION = 7;
+    private static final int LATEST_VERSION = 8;
 
     private RuntimePermissionsUpgradeController() {
         /* do nothing - hide constructor */
@@ -272,16 +273,55 @@ class RuntimePermissionsUpgradeController {
             currentVersion = 7;
         }
 
+        if (currentVersion == 7) {
+            Log.i(LOG_TAG, "Expanding read storage to access media location");
+
+            for (int i = 0; i < appCount; i++) {
+                final PackageInfo pkgInfo = apps.get(i);
+
+                if (!ArrayUtils.contains(pkgInfo.requestedPermissions,
+                        Manifest.permission.ACCESS_MEDIA_LOCATION)) {
+                    continue;
+                }
+
+                if (context.checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, 0,
+                        pkgInfo.applicationInfo.uid) != PackageManager.PERMISSION_GRANTED) {
+                    continue;
+                }
+
+                final AppPermissionGroup group = AppPermissionGroup.create(context, pkgInfo,
+                        Manifest.permission.ACCESS_MEDIA_LOCATION, false);
+                final Permission perm = group.getPermission(
+                        Manifest.permission.ACCESS_MEDIA_LOCATION);
+
+                if (!perm.isUserSet() && !perm.isSystemFixed() && !perm.isPolicyFixed()
+                        && !perm.isGrantedIncludingAppOp()) {
+                    group.grantRuntimePermissions(false,
+                            new String[]{Manifest.permission.ACCESS_MEDIA_LOCATION});
+
+                    logRuntimePermissionUpgradeResult(group,
+                            pkgInfo.applicationInfo.uid, pkgInfo.packageName,
+                            Manifest.permission.ACCESS_MEDIA_LOCATION);
+                }
+            }
+
+            currentVersion = 8;
+        }
+
         // XXX: Add new upgrade steps above this point.
 
         return currentVersion;
     }
 
     private static void logRuntimePermissionUpgradeResult(AppPermissionGroup permissionGroup,
-            int uid, String packageName) {
+            int uid, String packageName, String... filterPermissions) {
         ArrayList<Permission> permissions = permissionGroup.getPermissions();
         int numPermissions = permissions.size();
         for (int i = 0; i < numPermissions; i++) {
+            if (filterPermissions != null && !ArrayUtils.contains(filterPermissions, permissions)) {
+                continue;
+            }
+
             Permission permission = permissions.get(i);
             PermissionControllerStatsLog.write(RUNTIME_PERMISSIONS_UPGRADE_RESULT,
                     permission.getName(), uid, packageName);
