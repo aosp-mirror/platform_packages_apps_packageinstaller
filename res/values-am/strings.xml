@@ -16,208 +16,295 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2792757108872430971">"የፈቃድ መቆጣጠሪያ"</string>
-    <string name="ok" msgid="4417794827535157922">"እሺ"</string>
-    <string name="permission_search_keyword" msgid="1652964722383449182">"ፈቃዶች"</string>
-    <string name="cancel" msgid="7279939269964834974">"ይቅር"</string>
-    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ትግበራ አልተገኘም"</string>
-    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"ከልክል"</string>
-    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"ከልክል እና ዳግም አትጠይቅ"</string>
-    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ተጨማሪ መረጃ"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"ለማንኛውም ከልክል"</string>
-    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> ከ<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g> እንዲያደርግ ይፈቀድለት?"</string>
-    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"ሁልጊዜ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ወደ <xliff:g id="ACTION">%2$s</xliff:g> ይፈቀድ?"</string>
-    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"መተግበሪያን በሥራ ላይ ሲሆን ብቻ"</string>
-    <string name="allow_permission_always" msgid="4089537686339013930">"ሁልጊዜ"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"አትቀበል እና እንደገና አትጠይቅ"</string>
-    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> ተሰናክሏል"</string>
-    <string name="permission_revoked_all" msgid="6356577996164232918">"ሁሉም ተሰናክሏል"</string>
-    <string name="permission_revoked_none" msgid="266013103540772023">"ምንም አልተሰናከለም"</string>
-    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"ፍቀድ"</string>
-    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"ሁልጊዜ ፍቀድ"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"መተግበሪያው ጥቅም ላይ እያለ ብቻ ፍቀድ"</string>
-    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"መተግበሪያዎች"</string>
-    <string name="app_permissions" msgid="2778362347879465223">"የመተግበሪያ ፈቃዶች"</string>
-    <string name="app_permission_manager" msgid="3802609813311662642">"የፈቃድ አቀናባሪ"</string>
-    <string name="never_ask_again" msgid="7645304182523160030">"ዳግም አትጠይቅ"</string>
-    <string name="no_permissions" msgid="2193893107241172888">"ምንም ፈቃዶች የሉም"</string>
-    <string name="additional_permissions" msgid="7124470111123472154">"ተጨማሪ ፈቃዶች"</string>
-    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"የመተግበሪያ መረጃን ክፈት"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
+    <string name="app_name" msgid="6793827020090537173">"የፈቃድ መቆጣጠሪያ"</string>
+    <string name="ok" msgid="3468756155452870475">"እሺ"</string>
+    <string name="permission_search_keyword" msgid="3970416730023831175">"ፈቃዶች"</string>
+    <string name="cancel" msgid="8360346460165114585">"ይቅር"</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"ትግበራ አልተገኘም"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ከልክል"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"ከልክል እና ዳግም አትጠይቅ"</string>
+    <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"መዳረሻ በአጠቃቀም ላይ እያለ እንዳለ አቆይ"</string>
+    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"አቆይ እና ሁለተኛ አትጠይቅ"</string>
+    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ተጨማሪ መረጃ"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ለማንኛውም ከልክል"</string>
+    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> ከ<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g> እንዲከናወን ይፈቀድለት?"</string>
+    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"ሁልጊዜ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ወደ <xliff:g id="ACTION">%2$s</xliff:g> ይፈቀድ?"</string>
+    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"መተግበሪያን በመጠቀም ላይ ሲኮን ብቻ"</string>
+    <string name="allow_permission_always" msgid="7047379650123289823">"ሁልጊዜ"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"አትቀበል እና እንደገና አትጠይቅ"</string>
+    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> ተሰናክሏል"</string>
+    <string name="permission_revoked_all" msgid="8595742638132863678">"ሁሉም ተሰናክሏል"</string>
+    <string name="permission_revoked_none" msgid="2059511550181271342">"ምንም አልተሰናከለም"</string>
+    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"ፍቀድ"</string>
+    <string name="grant_dialog_button_allow_always" msgid="6276498220009293138">"ሁልጊዜ ፍቀድ"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3906778905426475934">"መተግበሪያዎን እየተጠቀሙ እያሉ ብቻ ይፍቀዱ"</string>
+    <string name="grant_dialog_button_allow_background" msgid="7108882589014856771">"ሁልጊዜ ፍቀድ"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"መተግበሪያዎች"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"የመተግበሪያ ፈቃዶች"</string>
+    <string name="app_permission_manager" msgid="5714101012506837810">"የፈቃድ አቀናባሪ"</string>
+    <string name="never_ask_again" msgid="1089938738199748687">"ዳግም አትጠይቅ"</string>
+    <string name="no_permissions" msgid="3210542466245591574">"ምንም ፍቃዶች የሉም"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"ተጨማሪ ፈቃዶች"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"የመተግበሪያ መረጃን ክፈት"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> ተጨማሪ</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ተጨማሪ</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"ይህ መተግበሪያ ለAndroid አሮጌ ስሪት የተነደፈ ነበር። ፈቃድ መከልከል እንደሚፈለገው ከእንግዲህ እንዳይሠራ ሊያደርገው ይችላል።"</string>
-    <string name="default_permission_description" msgid="692254823411049573">"ያልታወቀ እርምጃ ያከናውናል"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> ከ<xliff:g id="COUNT_1">%2$d</xliff:g> መተግበሪያዎች ተፈቅዶላቸዋል"</string>
-    <string name="permission_usage_header" msgid="8802963718365732792">"የቅርብ ጊዜ አጠቃቀም"</string>
-    <string name="permission_usage_view_details" msgid="7398825662321010957">"የፈቃዶች ዳሽቦርድን ይመልከቱ"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"ሥርዓት አሳይ"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"ሥርዓትን ደብቅ"</string>
-    <string name="no_apps" msgid="2377153782338039463">"ምንም መተግበሪያዎች የሉም"</string>
-    <string name="location_settings" msgid="547378321761364906">"የአካባቢ ቅንብሮች"</string>
-    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> የዚህ መሣሪያ አካባቢ አገልግሎቶች አቅራቢ ነው። የአካባቢ መዳረሻ ከአካባቢ ቅንብሮች ሊሻሻል ይችላል።"</string>
-    <string name="system_warning" msgid="6868290533389195836">"ይህን ፍቃድ ከከለከሉ የመሣሪያዎ መሠረታዊ ባህሪያት ከዚህ በኋላ እንደተፈለገው ላይሠሩ ይችላሉ።"</string>
-    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"በመመሪያ ተፈጻሚ የሆነ"</string>
-    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"የጀርባ መዳረሻ በመመሪያ ተሰናክሏል"</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"የጀርባ መዳረሻ በመመሪያ ነቅቷል"</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"የፊት መዳረሻ በመመሪያ ነቅቷል"</string>
-    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"በአስተዳዳሪ ቁጥጥር የሚደረግበት"</string>
-    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"የዳራ መዳረሻ በአስተዳዳሪ ተሰናክሏል"</string>
-    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"የዳራ መዳረሻ በአስተዳዳሪ ነቅቷል"</string>
-    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"የፊት መዳረሻ በአስተዳዳሪ ነቅቷል"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"ፈቃድ በሥርዓት ተቀናብሯል"</string>
-    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
-    <string name="permission_access_always" msgid="2315256378850460955">"ሁልጊዜ"</string>
-    <string name="permission_access_only_foreground" msgid="8109903552082630801">"መተግበሪያን በሥራ ላይ ሲሆን ብቻ"</string>
-    <string name="permission_access_never" msgid="4717648645876576508">"በጭራሽ"</string>
-    <string name="loading" msgid="323483393167148377">"በመጫን ላይ…"</string>
-    <string name="all_permissions" msgid="7813580062403112957">"ሁሉም ፍቃዶች"</string>
-    <string name="other_permissions" msgid="1956312685853070715">"ሌሎች የመተግበሪያ ችሎታዎች"</string>
-    <string name="permission_request_title" msgid="6779348653783761548">"የፍቃድ ጥያቄ"</string>
-    <string name="screen_overlay_title" msgid="1632732130312696010">"የማያ ገጽ ተደራቢ ተገኝ"</string>
-    <string name="screen_overlay_message" msgid="3222033787364955006">"ይህን የፍቃድ ቅንብር ለመቀየር መጀመሪያ የማያ ገጽ ተደራቢውን ከቅንብሮች &gt; መተግበሪያዎች ማጥፋት አለብዎ"</string>
-    <string name="screen_overlay_button" msgid="3554849308322944411">"ቅንብሮችን ክፈት"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"በWear ላይ የመጫን/ማራገፍ እርምጃዎች አይደገፉም።"</string>
-    <string name="permission_review_title_template_install" msgid="8131698354985303888">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ምን መድረስ እንደሚችል ይምረጡ"</string>
-    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ተዘምኗል። ይህ መተግበሪያ ምን መድረስ እንደሚችል ይምረጡ።"</string>
-    <string name="review_button_cancel" msgid="7108377593627664194">"ይቅር"</string>
-    <string name="review_button_continue" msgid="1367925420132212571">"ቀጥል"</string>
-    <string name="new_permissions_category" msgid="7242713808413888679">"አዲስ ፍቃዶች"</string>
-    <string name="current_permissions_category" msgid="3835461245150972589">"የአሁኖቹ ፍቃዶች"</string>
-    <string name="message_staging" msgid="641286607664721291">"መተግበሪያን በማዘጋጀት ላይ…"</string>
-    <string name="app_name_unknown" msgid="8288360585728122735">"ያልታወቀ"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"ዳሽቦርድ"</string>
-    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
-      <item quantity="one">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> መዳረሻዎች</item>
-      <item quantity="other">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> መዳረሻዎች</item>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"ይህ መተግበሪያ ለAndroid አሮጌ ስሪት የተነደፈ ነበር። ፈቃድ መከልከል እንደሚፈለገው ከእንግዲህ እንዳይሰራ ሊያደርገው ይችላል።"</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"ያልታወቀ እርምጃ ያከናውናል"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> ከ<xliff:g id="COUNT_1">%2$d</xliff:g> መተግበሪያዎች ተፈቅዶላቸዋል"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"ስርዓትን አሳይ"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"ስርዓትን ደብቅ"</string>
+    <string name="no_apps" msgid="1965493419005012569">"ምንም መተግበሪያዎች የሉም"</string>
+    <string name="location_settings" msgid="1774875730854491297">"የአካባቢ ቅንብሮች"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> የዚህ መሳሪያ አካባቢ አገልግሎቶች አቅራቢ ነው። የአካባቢ መዳረሻ ከአካባቢ ቅንብሮች ሊሻሻል ይችላል።"</string>
+    <string name="system_warning" msgid="7103819124542305179">"ይህን ፍቃድ ከከለከሉ የመሳሪያዎ መሰረታዊ ባህሪያት ከዚህ በኋላ እንደተፈለገው ላይሰሩ ይችላሉ።"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"በመመሪያ ተፈጻሚ የሆነ"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"የጀርባ መዳረሻ በመመሪያ ተሰናክሏል"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"የጀርባ መዳረሻ በመመሪያ ነቅቷል"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"የፊት መዳረሻ በመመሪያ ነቅቷል"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"በአስተዳዳሪ ቁጥጥር የሚደረግበት"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"የዳራ መዳረሻ በአስተዳዳሪ ተሰናክሏል"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"የዳራ መዳረሻ በአስተዳዳሪ ነቅቷል"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"የፊት መዳረሻ በአስተዳዳሪ ነቅቷል"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"መሣሪያ ሥራውን ለማከናወን ይህ ፈቃድ ያስፈልገዋል"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
+    <string name="permission_access_always" msgid="8746815855070494802">"ሁልጊዜ ፍቀድ"</string>
+    <string name="permission_access_only_foreground" msgid="1653942358383006807">"መተግበሪያዎን እየተጠቀሙ እያሉ ብቻ ይፍቀዱ"</string>
+    <string name="permission_access_never" msgid="6189440007697689967">"ከልክል"</string>
+    <string name="loading" msgid="7811651799620593731">"በመጫን ላይ…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"ሁሉም ፍቃዶች"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"ሌሎች የመተግበሪያ ችሎታዎች"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"የፍቃድ ጥያቄ"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"የማያ ገጽ ተደራቢ ተገኝቷል"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"ይህን የፍቃድ ቅንብር ለመቀየር መጀመሪያ የማያ ገጽ ተደራቢውን ከቅንብሮች &gt; መተግበሪያዎች ማጥፋት አለብዎ"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"ቅንብሮችን ክፈት"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"በWear ላይ የመጫን/ማራገፍ እርምጃዎች አይደገፉም።"</string>
+    <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ምን መድረስ እንደሚችል ይምረጡ"</string>
+    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ተዘምኗል። ይህ መተግበሪያ ምን መድረስ እንደሚችል ይምረጡ።"</string>
+    <string name="review_button_cancel" msgid="957906817733578877">"ይቅር"</string>
+    <string name="review_button_continue" msgid="4809162078179371370">"ቀጥል"</string>
+    <string name="new_permissions_category" msgid="3213523410139204183">"አዲስ ፍቃዶች"</string>
+    <string name="current_permissions_category" msgid="998210994450606094">"የአሁኖቹ ፍቃዶች"</string>
+    <string name="message_staging" msgid="6151794817691100003">"መተግበሪያን በማዘጋጀት ላይ…"</string>
+    <string name="app_name_unknown" msgid="8931522764510159105">"ያልታወቀ"</string>
+    <string name="permission_usage_title" msgid="2836714315390340012">"ዳሽቦርድ"</string>
+    <string name="permission_usage_summary_foreground" msgid="926040696577673055">"የመጨረሻ መዳረሻ፦ <xliff:g id="TIME">%1$s</xliff:g>\nለመጨረሻ ጊዜ የተደረሰበት መተግበሪያ በጥቅም ላይ እያለ"</string>
+    <string name="permission_usage_summary_background" msgid="9179526841353882748">"የመጨረሻ መዳረሻ፦ <xliff:g id="TIME">%1$s</xliff:g>\nለመጨረሻ ጊዜ በበስተጀርባ ውስጥ ተደርሶበታል"</string>
+    <string name="permission_usage_any_permission" msgid="8832731783727406380">"ማናቸውም ፈቃድ"</string>
+    <string name="permission_usage_any_time" msgid="1476491940247458210">"በማንኛውም ጊዜ"</string>
+    <string name="permission_usage_last_7_days" msgid="4888188421845723880">"ባለፉት 7 ቀኖች"</string>
+    <string name="permission_usage_last_day" msgid="8645320285604363072">"ባለፉት 24 ሰዓቶች"</string>
+    <string name="permission_usage_last_hour" msgid="2604532770472032956">"ባለፈው 1 ሰዓት"</string>
+    <string name="permission_usage_last_15_minutes" msgid="5426881076086895200">"ባለፉት 15 ደቂቃዎች"</string>
+    <string name="permission_usage_last_minute" msgid="3067561801126564567">"ባለፈው 1 ደቂቃ"</string>
+    <string name="no_permission_usages" msgid="5322488885313825032">"ምንም ፈቃድ አጠቃቀሞች የሉም"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"በማናቸውም ጊዜ ያለ የቅርብ ጊዜ መዳረስ"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"ባለፉት 7 ቀናት በጣም የቅርብ ጊዜ መዳረስ"</string>
+    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"ባለፉት 24 ሰዓታት የበጣም የቅርብ ጊዜ መድረሶች"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"ባለፈው 1 ሰዓት ውስጥ ያለው የቅርብ መድረስ"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"ባለፉት 15 ደቂቃዎች በጣም የቅርብ ጊዜ መዳረሻ"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"ባለፈው 1 ደቂቃ በጣም የቅርቡ መዳረስ"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"የፈቃድ አጠቃቀም በማናቸውም ጊዜ"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"ባለፉት 7 ቀናት ውስጥ የነበረው የፈቃድ አጠቃቀም"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"ባለፉት 24 ሰዓቶች የፈቃድ አጠቃቀም"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"ባለፈው 1 ሰዓት የፈቃድ አጠቃቀም"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"ባለፉት 15 ደቂቃዎች ውስጥ የነበረው የፈቃድ አጠቃቀም"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"ባለፈው 1 ደቂቃ የፈቃድ አጠቃቀም"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> መተግበሪያዎች</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> መተግበሪያዎች</item>
     </plurals>
-    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
-      <item quantity="one">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> መዳረሻዎች (በበስተጀርባ ውስጥ <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
-      <item quantity="other">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> መዳረሻዎች (በበስተጀርባ ውስጥ <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+    <string name="permission_usage_view_details" msgid="7240872485880156540">"ሁሉንም በዳሽ ቦርድ ውስጥ ይመልከቱ"</string>
+    <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"የተጣራው በ፦ <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"ሁሉንም በዳሽ ቦርድ ውስጥ ይመልከቱ"</string>
+    <string name="filter_by_title" msgid="7213659781851489723">"አጣራ በ"</string>
+    <string name="filter_by_permissions" msgid="6808193127145660341">"በፈቃዶች አጣራ"</string>
+    <string name="filter_by_time" msgid="4037550957826791975">"በጊዜ አጣራ"</string>
+    <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"አብዛኛዎቹ ፈቃዶች"</string>
+    <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"አብዛኛዎቹ መድረሶች"</string>
+    <string name="sort_spinner_recent" msgid="1418334780798429342">"የቅርብ ጊዜ"</string>
+    <string name="sort_by_app" msgid="5836911326872031928">"በመተግብሪያ አጠቃቀም ደርድር"</string>
+    <string name="sort_by_time" msgid="5904361063977286957">"በጊዜ ለይ"</string>
+    <string name="item_separator" msgid="5590105992485222167">"፣ "</string>
+    <string name="permission_usage_refresh" msgid="2424637977565575554">"አድስ"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="3432752017977609387">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> መተግበሪያዎች</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> መተግበሪያዎች</item>
     </plurals>
-    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
-      <item quantity="one">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> መዳረሻዎች\nየጊዜ ቆይታ፦ <xliff:g id="TIME_5">%3$s</xliff:g></item>
-      <item quantity="other">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> መዳረሻዎች\nየጊዜ ቆይታ፦ <xliff:g id="TIME_5">%3$s</xliff:g></item>
-    </plurals>
-    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
-      <item quantity="one">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> መዳረሻዎች (በበስተጀርባ ላይ <xliff:g id="NUM_6">%3$s</xliff:g>)\nየጊዜ ቆይታ፦ <xliff:g id="TIME_7">%3$s</xliff:g></item>
-      <item quantity="other">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> መዳረሻዎች (በበስተጀርባ ላይ <xliff:g id="NUM_6">%3$s</xliff:g>)\nየጊዜ ቆይታ፦ <xliff:g id="TIME_7">%3$s</xliff:g></item>
-    </plurals>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"ማናቸውም ፈቃድ"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"በማንኛውም ጊዜ"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"ባለፉት 7 ቀኖች"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"ባለፉት 24 ሰዓቶች"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"ባለፈው 1 ሰዓት"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"ባለፉት 15 ደቂቃዎች"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"ባለፈው 1 ደቂቃ"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"ምንም ፈቃድ አጠቃቀሞች የሉም"</string>
-    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"በማናቸውም ጊዜ ይድረሱበት"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"ባለፉት 7 ቀናት የነበረ መድረስ"</string>
-    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"ባለፉት 24 ሰዓቶች ውስጥ የነበሩ መድረሶች"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"ባለፈው አንድ ሰዓት የነበረ መድረስ"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"ባለፉት 15 ደቂቃዎች ውስጥ ይደርሱበት"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"ባለፈው 1 ደቂቃ መድረስ"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"ከፍተኛ የፈቃድ አጠቃቀም በማናቸውም ጊዜ"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"ባለፉት 7 ቀናት ከፍተኛ የፈቃድ አጠቃቀም"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"ባለፉት 24 ሰዓቶች ውስጥ ከፍተኛ የፈቃድ አጠቃቀም"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"ባለፈው 1 ሰዓት ውስጥ ከፍተኛ የፈቃድ አጠቃቀም"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"ባለፉት 15 ደቂቃዎች ውስጥ የነበረ ከፍተኛ የፈቃድ አጠቃቀም"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"ባለፈው 1 ደቂቃ ውስጥ ከፍተኛ የፈቃድ አጠቃቀም"</string>
-    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"መተግበሪያዎች"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"የተጣራው በ፦ <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"ማጣሪያን አስወግድ"</string>
-    <string name="filter_by_title" msgid="5940302511365561845">"አጣራ በ"</string>
-    <string name="filter_by_permissions" msgid="7761207093643478436">"በፈቃዶች አጣራ"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"አብዛኛዎቹ ፈቃዶች"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"አብዛኛዎቹ መድረሶች"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"የቅርብ ጊዜ"</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"አድስ"</string>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"የመተግበሪያ ፈቃዶች አጠቃቀም"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"ድረስበት፦ <xliff:g id="NUM">%1$s</xliff:g> ጊዜ። አጠቃላይ ቆይታ ጊዜ፦ <xliff:g id="DURATION">%2$s</xliff:g>። ለመጨረሻ ጥቅም ላይ የዋለው ከ<xliff:g id="TIME">%3$s</xliff:g> በፊት።"</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ድረስበት፦ <xliff:g id="NUM">%1$s</xliff:g> ጊዜ። ለመጨረሻ ጥቅም ላይ የዋለው ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት።"</string>
-    <string name="app_permission_button_allow" msgid="1358817292836175593">"ፍቀድ"</string>
-    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ሁልጊዜ ፍቀድ"</string>
-    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"መተግበሪያው ጥቅም ላይ እያለ ብቻ ፍቀድ"</string>
-    <string name="app_permission_button_deny" msgid="5716368368650638408">"ከልክል"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"የ<xliff:g id="PERM">%1$s</xliff:g> ፈቃድ"</string>
-    <string name="app_permission_header" msgid="5704679725169517493">"ለ<xliff:g id="APP">%2$s</xliff:g> የ<xliff:g id="PERM">%1$s</xliff:g> መዳረሻ"</string>
-    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> ከ<xliff:g id="TIME">%3$s</xliff:g> በፊት የእርስዎን <xliff:g id="PERM">%2$s</xliff:g> ደርሶ ነበር።"</string>
-    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን <xliff:g id="PERM">%2$s</xliff:g> አልደረሰበትም።"</string>
-    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"ዝርዝር የፈቃዶች አጠቃቀምን ይመልከቱ"</string>
-    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ተደርሶ አያውቅም"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"ይፈቀዳል"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"ስራ ላይ ሲውል ብቻ የሚፈቀድ"</string>
-    <string name="denied_header" msgid="2277998574238617699">"ውድቅ ተደርጓል"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"በዝርዝር የቀረበ አጠቃቀምን ይመልከቱ"</string>
-    <plurals name="days" formatted="false" msgid="3903419301028414979">
+    <string name="app_permission_usage_title" msgid="7581866247837360658">"የመተግበሪያ ፈቃዶች አጠቃቀም"</string>
+    <string name="app_permission_usage_summary" msgid="5658348946460016420">"ድረስበት፦ <xliff:g id="NUM">%1$s</xliff:g> ጊዜ። አጠቃላይ ቆይታ ጊዜ፦ <xliff:g id="DURATION">%2$s</xliff:g>። ለመጨረሻ ጥቅም ላይ የዋለው ከ<xliff:g id="TIME">%3$s</xliff:g> በፊት።"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="2632566955455027044">"ድረስበት፦ <xliff:g id="NUM">%1$s</xliff:g> ጊዜ። ለመጨረሻ ጥቅም ላይ የዋለው ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት።"</string>
+    <string name="app_permission_button_allow" msgid="7196632414370900342">"ፍቀድ"</string>
+    <string name="app_permission_button_allow_always" msgid="865855803108309194">"ሁልጊዜ ፍቀድ"</string>
+    <string name="app_permission_button_allow_foreground" msgid="5274626376926140236">"መተግበሪያዎን እየተጠቀሙ እያሉ ብቻ ይፍቀዱ"</string>
+    <string name="app_permission_button_deny" msgid="6476351587498235802">"ከልክል"</string>
+    <string name="app_permission_title" msgid="5335967448269243651">"የ<xliff:g id="PERM">%1$s</xliff:g> ፈቃድ"</string>
+    <string name="app_permission_header" msgid="6247289774554173809">"<xliff:g id="PERM">%1$s</xliff:g> መዳረሻ ለዚህ መተግበሪያ"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="8066565238703750648">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን <xliff:g id="PERM">%2$s</xliff:g> ከ<xliff:g id="TIME">%3$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="6224606940699705802">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን አካላዊ እንቅስቃሴ ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="7675173035887568420">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ቀን መቁጠሪያ ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="4987849901381920883">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን የጥሪ ምዝግብ ማስታወሻዎች ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="2472049066125117479">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ካሜራ ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን እውቂያዎች ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን አካባቢ ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="5389687207650592055">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ማይክሮፎን ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="2837455934182233739">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ስልክ ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="1884302729411890466">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ዳሳሾች ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="8773249966836488293">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ኤስኤምኤስ ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="4229213694450790269">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ማከማቻ ከ<xliff:g id="TIME">%2$s</xliff:g> በፊት ደርሶበታል"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="8379981388202799895">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን <xliff:g id="PERM">%2$s</xliff:g> አልደረሰበትም"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="2088781216296754537">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን አካላዊ እንቅስቃሴ አልደረሰበትም"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ቀን መቁጠሪያ አልደረሰበትም"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን የጥሪ ምዝግብ ማስታወሻዎች አልደረሰባቸውም"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ካሜራ አልደረሰበትም"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን እውቂያዎች አልደረሰበትም"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን አካባቢ አልደረሰበትም"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ማይክሮፎን አልደረሰበትም"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ስልክ አልደረሰበትም"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ዳሳሾች አልደረሰበትም"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ኤስኤምኤስ አልደረሰበትም"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን ማከማቻ አልደረሰበትም"</string>
+    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"የመጨረሻው የመዳረሻ ውሂብ በአሁኑ ጊዜ ለዚህ ፈቃድ አይገኝም"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"ሁሉንም <xliff:g id="APP">%1$s</xliff:g> ፈቃዶች ይመልከቱ"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"ይህ ፈቃድ ያላቸው ሁሉንም መተግበሪያዎች ይመልከቱ"</string>
+    <string name="permission_description_summary_generic" msgid="1134416469764865198">"ይህ ፈቃድ ያላቸው መተግበሪያዎች <xliff:g id="DESCRIPTION">%1$s</xliff:g> ይችላሉ"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"ይህ ፈቃድ ያላቸው መተግበሪያዎች እንደ መራመድ፣ ቢስክሌት ግልቢያ፣ መንዳት፣ የእርምጃ ብዛት እና ተጨማሪ ነገሮች ያሉ አካላዊ እንቅስቃሴዎን መድረስ ይችላሉ"</string>
+    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"ይህ ፈቃድ ያላቸው መተግበሪያዎች የእርስዎን ቀን መቁጠሪያ ሊደርሱበት ይችላሉ"</string>
+    <string name="permission_description_summary_call_log" msgid="4715804544768878751">"ይህ ፈቃድ ያላቸው መተግበሪያዎች የስልክ ጥሪ ምዝግብን ሊያነቡ እና ሊጽፉ ይችላሉ"</string>
+    <string name="permission_description_summary_camera" msgid="7879547592935186291">"ይህ ፈቃድ ያላቸው መተግበሪያዎች ፎቶ ማንሳት እና ቪዲዮ መቅረጽ ይችላሉ"</string>
+    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"ይህ ፈቃድ ያላቸው መተግበሪያዎች የእርስዎን እውቂያዎች መድረስ ይችላሉ"</string>
+    <string name="permission_description_summary_location" msgid="4722113806360938675">"ይህ ፈቃድ ያላቸው መተግበሪያዎች የዚህን መሣሪያ መገኛ አካባቢ መድረስ የሚችሉ መተግበሪያዎች"</string>
+    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"ይህ ፈቃድ ያላቸው መተግበሪያዎች ኦዲዮን መቅዳት ይችላሉ"</string>
+    <string name="permission_description_summary_phone" msgid="6972180067860067462">"ይህ ፈቃድ ያላቸው መተግበሪያዎች የስልክ ጥሪዎችን ሊያደርጉ እና ሊያስተዳድሩ ይችላሉ"</string>
+    <string name="permission_description_summary_sensors" msgid="5747969909098898581">"ይህ ፈቃድ ያላቸው መተግበሪያዎች ስለ የእርስዎ መሠረታዊ ምልክቶች የዳሳሽ ውሂብን መድረስ ይችላሉ"</string>
+    <string name="permission_description_summary_sms" msgid="1394630256073587627">"ይህ ፈቃድ ያላቸው መተግበሪያዎች የኤስኤምኤስ መልዕክቶችን መላክ እና መመልከት ይችላሉ"</string>
+    <string name="permission_description_summary_storage" msgid="3947962757455327167">"ይህ ፈቃድ ያላቸው መተግበሪያዎች በመሣሪያዎ ላይ ያሉ ፎቶዎችን፣ ሚዲያን እና ፋይሎችን መድረስ ይችላሉ።"</string>
+    <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"አሁን ላይ ተከልክሏል / የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"ተደርሶ አያውቅም"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"ተከልክሏል / በጭራሽ አልተደረሰበትም"</string>
+    <string name="allowed_header" msgid="670868581011741572">"ይፈቀዳል"</string>
+    <string name="allowed_always_header" msgid="3129163790476916487">"ሁልጊዜ የተፈቀደ"</string>
+    <string name="allowed_foreground_header" msgid="508441909373674270">"ስራ ላይ ሲውል ብቻ የሚፈቀድ"</string>
+    <string name="denied_header" msgid="4716097249466859449">"ውድቅ ተደርጓል"</string>
+    <string name="detailed_usage_link" msgid="3213629980587953904">"በዝርዝር የቀረበ አጠቃቀምን ይመልከቱ"</string>
+    <plurals name="days" formatted="false" msgid="7685720539370448104">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ቀኖች</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ቀኖች</item>
     </plurals>
-    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+    <plurals name="hours" formatted="false" msgid="5513137617382570199">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ሰዓቶች</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ሰዓቶች</item>
     </plurals>
-    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+    <plurals name="minutes" formatted="false" msgid="269873289285218670">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ደቂቃዎች</item>
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g>ደቂቃዎች</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ደቂቃዎች</item>
     </plurals>
-    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ሰከንዶች</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ሰከንዶች</item>
     </plurals>
-    <string name="role_request_message_add" msgid="1977772335648650272">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ን እንደ የእርስዎ <xliff:g id="ROLE_NAME">%2$s</xliff:g> ይጠቀሙበት?"</string>
-    <string name="role_request_message_replace" msgid="6367571247558110210">"ከ&lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; ይልቅ &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt;ን እንደ የእርስዎ <xliff:g id="ROLE_NAME">%2$s</xliff:g> ይጠቀሙበት?"</string>
-    <string name="permission_reminders" msgid="8040710767178843151">"የፈቃድ አስታዋሾች"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> የእርስዎን አካባቢ እየተጠቀመ ነበር"</string>
-    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ይህ መተግበሪያ በማንኛውም ጊዜ አካባቢዎን መድረስ ይችላል። ለመቀየር መታ ያድርጉ።"</string>
-    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"መተግበሪያው በጥቅም ላይ እያለ ብቻ"</string>
-    <string name="no_permissions_allowed" msgid="5781278485002145993">"ምንም ፈቃዶች አልተፈቀዱም"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"ምንም ፈቃዶች አልተከለከሉም"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"ምንም መተግበሪያዎች አልተፈቀዱም"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"ምንም መተግበሪያዎች አልተከለከሉም"</string>
-    <string name="launch_app" msgid="5641437562665039291">"ክፈት"</string>
-    <string name="uninstall_app" msgid="8756507666995809214">"አራግፍ"</string>
-    <string name="force_stop_app" msgid="4253426323145479826">"በኃይል አቁም"</string>
-    <string name="settings" msgid="2884124136779508907">"ቅንብሮች"</string>
-    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ወደ የእርስዎ መሣሪያ ሙሉ መዳረሻ አለው"</string>
-    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> ተደራሽነት አገልግሎቶች ወደ የእርስዎ መሣሪያ ሙሉ መዳረሻ አላቸው።"</string>
-    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> የእርስዎን ማያ ገጽ፣ እርምጃዎች እና ግቤቶች መመልከት፣ እርምጃዎችን መውሰድ እና ማሳያን መቆጣጠር ይችላል።"</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"እነዚህ አገልግሎቶች የእርስዎን ማያ ገጽ፣ እርምጃዎች እና ግቤቶች መመልከት፣ እርምጃዎችን መውሰድ እና ማሳያን መቆጣጠር ይችላሉ።"</string>
-    <string name="default_apps" msgid="8554530939151957828">"ነባሪ መተግበሪያዎች"</string>
-    <string name="no_default_apps" msgid="5642715159090903032">"ምንም ነባሪ መተግበሪያዎች የሉም"</string>
-    <string name="default_apps_for_work" msgid="8582151955372061208">"ለሥራ ነባሪ"</string>
-    <string name="default_app_none" msgid="7671097769303174666">"ምንም"</string>
-    <string name="default_app_no_apps" msgid="5344668465735677271">"መተግበሪያዎች የሉም"</string>
-    <string name="special_app_access" msgid="2561673957499408877">"ልዩ የመተግበሪያ መዳረሻ"</string>
-    <string name="no_special_app_access" msgid="994977666694457811">"ምንም ልዩ መተግበሪያ መዳረሻ"</string>
-    <string name="special_app_access_no_apps" msgid="3934763650592564818">"መተግበሪያዎች የሉም"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"የእገዛ መተግበሪያ"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"የአሳሽ መተግበሪያ"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"የስልክ መተግበሪያ"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"የኤስኤምኤስ መተግበሪያ"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"የድንገተኛ አደጋ መተግበሪያ"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"የቤት መተግበሪያ"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"የሙዚቃ መተግበሪያ"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"የማዕከለ ሥዕላት መተግበሪያ"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"የመኪና ሁነታ የስልክ መተግበሪያ"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"የጥሪ ማዞሪያ መተግበሪያ"</string>
-    <string name="role_label_call_screening" msgid="411212589764916370">"የጥሪ ማጣሪያ መተግበሪያ"</string>
-    <string name="role_label_call_companion" msgid="7369723859682076467">"የጥሪ አጋር መተግበሪያ"</string>
-    <string name="role_label_car_projection" msgid="3792929094325391213">"የመኪና መጠበቂያ መተግበሪያ"</string>
-    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"የሥራ መገለጫን አይደግፍም"</string>
-    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"ማስታወሻ፦ የእርስዎን መሣሪያ ዳግም ካስጀምሩ እና ማያ ገጽ መቆለፊያው እንዲቀናበር ካደረጉ፣ ይህ መተግበሪያ የእርስዎን መሣሪያ ዳግም እስከሚከፍቱ ድረስ መጀመር አይችልም።"</string>
-    <string name="assistant_confirmation_message" msgid="4529925223796676824">"ረዳቱ በእርስዎ ስርዓት ላይ በአገልግሎት ላይ ስለሚውሉ መተግበሪያዎች መረጃን ማንበብ ይችላል፣ ይህም በእርስዎ ማያ ገጽ ላይ የሚታይ ወይም በመተግበሪያዎች ውስጥ የሚደረስበት መረጃን ይጨምራል።"</string>
-    <string name="incident_report_channel_name" msgid="2405001892012870358">"ሳንካ ማረሚያ ውሂብን አጋራ"</string>
-    <string name="incident_report_notification_title" msgid="8506385602505147862">"ዝርዝር የሳንካ ማረሚያ መረጃ ይጋራ?"</string>
-    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> የሳንካ ማረሚያ መረጃን መስቀል ይፈልጋል።"</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"ሳንካ ማረሚያ ውሂብን አጋራ"</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> የሳንካ ሪፖርት ከዚህ መሣሪያ በ<xliff:g id="DATE">%2$s</xliff:g> ላይ በ<xliff:g id="TIME">%3$s</xliff:g> የተወሰደ የሳንካ ሪፖርትን ለመስቀል እየጠየቀ ነው። የሳንካ ሪፖርቶች ስለ የእርስዎ መሣሪያ ወይም በመተግበሪያዎች የተመዘገበ ለምሳሌ እንደ የተጠቃሚ ስሞች፣ የመገኛ አካባቢ ውሂብ፣ የመሣሪያ ለይቶ ማወቂያዎች እና የአውታረ መረብ መረጃን ያካትታል። ይህን መረጃ ከሚያምኗቸው ሰዎች እና መተግበሪያዎች ጋር ብቻ የሳንካ ሪፖርቶችን ያጋሩ። የሳንካ ሪፖርትን <xliff:g id="APP_NAME_1">%4$s</xliff:g> እንዲሰቅል ይፈቀድ?"</string>
-    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"ፍቀድ"</string>
-    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"ከልክል"</string>
+    <string name="permission_reminders" msgid="7692569306867004285">"የፈቃድ አስታዋሾች"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g> በበስተጀርባ አካባቢዎን አግኝተዋል"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"ይህ መተግበሪያ በማንኛውም ጊዜ አካባቢዎን መድረስ ይችላል። ለመቀየር መታ ያድርጉ።"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="4173535624805161577">"መተግበሪያው በጥቅም ላይ እያለ ብቻ"</string>
+    <string name="no_permissions_allowed" msgid="3972033828052568206">"ምንም ፈቃዶች አልተፈቀዱም"</string>
+    <string name="no_permissions_denied" msgid="4148813660212679056">"ምንም ፈቃዶች አልተከለከሉም"</string>
+    <string name="no_apps_allowed" msgid="4959324189831343508">"ምንም መተግበሪያዎች አልተፈቀዱም"</string>
+    <string name="no_apps_denied" msgid="4966465333227047186">"ምንም መተግበሪያዎች አልተከለከሉም"</string>
+    <string name="car_permission_selected" msgid="5788441628706535323">"ተመርጧል"</string>
+    <string name="settings" msgid="6743583734099755409">"ቅንብሮች"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ወደ የእርስዎ መሣሪያ ሙሉ መዳረሻ አለው"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"<xliff:g id="NUM_SERVICES">%s</xliff:g> ተደራሽነት መተግበሪያዎች ወደ የእርስዎ መሣሪያ ሙሉ መዳረሻ አላቸው"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"<xliff:g id="SERVICE_NAME">%s</xliff:g> የእርስዎን ማያ ገጽ፣ እርምጃዎች እና ግቤቶች መመልከት፣ እርምጃዎችን መውሰድ እና ማሳያን መቆጣጠር ይችላል።"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"እነዚህ መተግበሪያዎች የእርስዎን ማያ ገጽ፣ እርምጃዎች እና ግቤቶች መመልከት፣ እርምጃዎችን መውሰድ እና ማሳያን መቆጣጠር ይችላሉ።"</string>
+    <string name="role_assistant_label" msgid="325607225419991524">"ነባሪ ረዳት መተግበሪያ"</string>
+    <string name="role_assistant_short_label" msgid="5324338887042810318">"የእገዛ መተግበሪያ"</string>
+    <string name="role_assistant_description" msgid="5980622464037768572">"ረዳት መተግበሪያዎች በሚያዩት ማያ ገጽ ላይ ባለ መረጃ ላይ ተመስርቶ ሊያግዘዎት ይችላል። አንዳንድ መተግበሪያዎች የተዋሃደ እርዳታ ለእርስዎ ለመስጠት ሁለቱንም ማስጀመሪያ እና የድምፅ ግቤት አገልግሎቶችን ይደግፋሉ።"</string>
+    <string name="role_assistant_request_title" msgid="2198246079117996249">"<xliff:g id="APP_NAME">%1$s</xliff:g> እንደ የእርስዎ ነባሪ ረዳት መተግበሪያ ይቀናበር?"</string>
+    <string name="role_assistant_request_description" msgid="9007538649849881727">"ወደ ኤስኤምኤስ፣ የጥሪ ምዝግብ መዳረሻ ያገኛል"</string>
+    <string name="role_browser_label" msgid="1452186785584890151">"ነባሪ አሳሽ መተግበሪያ"</string>
+    <string name="role_browser_short_label" msgid="7008704096614388208">"የአሳሽ መተግበሪያ"</string>
+    <string name="role_browser_description" msgid="3733812642667691329">"ወደ በየነ መረብ ለእርስዎ መዳረሻ የሚሰጥዎትን እና እርስዎ መታ የሚያደርጓቸውን አገናኖች የሚያሳዩ መተግበሪያዎች"</string>
+    <string name="role_browser_request_title" msgid="6682328732125865006">"<xliff:g id="APP_NAME">%1$s</xliff:g> እንደ የእርስዎ ነባሪ አሳሽ መተግበሪያ ይቀናበር?"</string>
+    <string name="role_browser_request_description" msgid="5273230084027848407">"ምንም ፈቃዶች አያስፈልጉም"</string>
+    <string name="role_dialer_label" msgid="596483535824303996">"ነባሪ የስልክ መተግበሪያ"</string>
+    <string name="role_dialer_short_label" msgid="6852083763162503355">"የስልክ መተግበሪያ"</string>
+    <string name="role_dialer_description" msgid="8168811763060055520">"በእርስዎ መሣሪያ ላይ የስልክ ጥሪዎች እንዲያደርጉ እና እንዲቀበሉ የሚፈቅድልዎት መተግበሪያዎች"</string>
+    <string name="role_dialer_request_title" msgid="2281942809560056462">"<xliff:g id="APP_NAME">%1$s</xliff:g> እንደ የእርስዎ ነባሪ ስልክ መተግበሪያ ይቀናበር?"</string>
+    <string name="role_dialer_request_description" msgid="1597958203339261473">"ወደ የጥሪ ምዝግብ መዳረሻ ያገኛል፣ ኤስኤምኤስ ይልካል"</string>
+    <string name="role_sms_label" msgid="1282375330984375167">"ነባሪ የኤስኤምኤስ መተግበሪያ"</string>
+    <string name="role_sms_short_label" msgid="4774295162759580727">"የኤስኤምኤስ መተግበሪያ"</string>
+    <string name="role_sms_description" msgid="8688975508844386261">"አጫጭር የጽሑፍ መልዕክቶችን፣ ፎቶዎችን፣ ቪዲዮዎችን እና ተጨማሪ ነገሮችን ለመላክ እና ለመቀበል የእርስዎን ስልክ ለመጠቀም እንዲችሉ የሚፈቅድልዎት መተግበሪያዎች"</string>
+    <string name="role_sms_request_title" msgid="3942676190809695139">"<xliff:g id="APP_NAME">%1$s</xliff:g> እንደ የእርስዎ ነባሪ የኤስኤምኤስ መተግበሪያ ይዋቀር?"</string>
+    <string name="role_sms_request_description" msgid="6079312070314434582">"ወደ ዕውቂያዎች፣ ኤስኤምኤስ ስልክ መዳረሻ ያገኛል"</string>
+    <string name="role_emergency_label" msgid="8510350771744625248">"ነባሪ የድንገተኛ አደጋ መተግበሪያ"</string>
+    <string name="role_emergency_short_label" msgid="594672497758636578">"የድንገተኛ አደጋ መተግበሪያ"</string>
+    <string name="role_emergency_description" msgid="1328017704085954407">"የእርስዎን የሕክምና መረጃ እንዲቀርጽ እና ለድንገተኛ አደጋ ሕክምና ምላሽ ሰጪዎች ተዳራሽ እንዲሆን እንዲያደርጉ የሚያስችልዎት፣ ስለ በጣም መጥፎ የአየር ሁኔታ ክስተቶችን እና አደጋዎችን በተመለከተ ማንቂያዎችን ለማግኘት፣ እርስዎ እገዛ በሚያስፈልግዎት ጊዜ ለሌሎች ሊያሳውቁ የሚችሉ መተግበሪያዎች"</string>
+    <string name="role_emergency_request_title" msgid="862426026906033381">"<xliff:g id="APP_NAME">%1$s</xliff:g> እንደ የእርስዎ ነባሪ የድንገተኛ አደጋ ጊዜ መተግበሪያ ይቀናበር?"</string>
+    <string name="role_emergency_request_description" msgid="6604461788824945209">"ምንም ፈቃዶች አያስፈልጉም"</string>
+    <string name="role_home_label" msgid="2403568779207064895">"ነባሪ የቤት መተግበሪያ"</string>
+    <string name="role_home_short_label" msgid="8293261293243062773">"የቤት መተግበሪያ"</string>
+    <string name="role_home_description" msgid="4692657963991101103">"በእርስዎ Android መሣሪያ ላይ ያለውን የመነሻ ማያ ገጾች የሚተኩ እና ወደ የእርስዎ መሣሪያ ይዘቶች እና ባህሪያት መዳረሻን የሚሰጥዎት ብዙውን ጊዜ አስጀመሪያዎች በመባል የሚታወቁ፣ መተግበሪያዎች"</string>
+    <string name="role_home_request_title" msgid="7254377742128731004">"<xliff:g id="APP_NAME">%1$s</xliff:g> እንደ የእርስዎ ነባሪ የቤት መተግበሪያ ይቀናበር?"</string>
+    <string name="role_home_request_description" msgid="1649615419642117675">"ምንም ፈቃዶች አያስፈልጉም"</string>
+    <string name="role_call_redirection_label" msgid="8614962962542193455">"ነባሪ የጥሪ አቅጣጫ ማዞሪያ መተግበሪያ"</string>
+    <string name="role_call_redirection_short_label" msgid="7030817671864547206">"የጥሪ ማዞሪያ መተግበሪያ"</string>
+    <string name="role_call_redirection_description" msgid="1118180396571102108">"ጥሪዎችን ወደ ሌላ ስልክ ቁጥር እንዲያስተላልፉ የሚያስችሉዎ መተግበሪያዎች"</string>
+    <string name="role_call_redirection_request_title" msgid="3292712900764740951">"<xliff:g id="APP_NAME">%1$s</xliff:g> እንደ የእርስዎ ነባሪ የጥሪ ዳግም አቅጣጫ ማዞሪያ መተግበሪያ ይቀናበር?"</string>
+    <string name="role_call_redirection_request_description" msgid="9130097590698779041">"ምንም ፈቃዶች አያስፈልጉም"</string>
+    <string name="role_call_screening_label" msgid="6762278758943136846">"ነባሪ የደዋይ መታወቂያ እና የአይፈለጌ መልእክት መተግበሪያ"</string>
+    <string name="role_call_screening_short_label" msgid="4405732075031564902">"የጥሪ መለያ እና የአይፈለጌ መልዕክት መተግበሪያ"</string>
+    <string name="role_call_screening_description" msgid="630332789277798256">"የስልክ ጥሪዎችን ለይተው እንዲያውቁ፣ አይፈለጌ መልዕክትን እና የሮቦት ስልክ ጥሪዎችን እንዲያግዱ እና የማይፈልጉት ቁጥሮችን በጥቁር መዝገብ ውስጥ እንዲያስቀምጡ የሚያስችልዎት መተግበሪያዎች"</string>
+    <string name="role_call_screening_request_title" msgid="2918540778717341412">"<xliff:g id="APP_NAME">%1$s</xliff:g> እንደ የእርስዎ ነባሪ የደዋይ መታወቂያ እና የአይፈልጌ መተግበሪያ ይቀናበር?"</string>
+    <string name="role_call_screening_request_description" msgid="2238766550271106517">"ምንም ፈቃዶች አያስፈልጉም"</string>
+    <string name="request_role_current_default" msgid="8010053122057418777">"አሁን ያለ ነባሪ"</string>
+    <string name="request_role_dont_ask_again" msgid="1002776641382604316">"ዳግም አትጠይቅ"</string>
+    <string name="request_role_set_as_default" msgid="161884072789965631">"እንደ ነባሪ አዘጋጅ"</string>
+    <string name="default_app_search_keyword" msgid="5893328509368498565">"ነባሪ መተግበሪያዎች"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"ገባኝ"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"የግላዊነት ቅንብሮች"</string>
+    <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"የእርስዎን <xliff:g id="TYPES_LIST">%s</xliff:g> የሚጠቀሙ መተግበሪያዎች"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">"፣ "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" እና "</string>
+    <string name="settings_button" msgid="1808682743475842576">"ቅንብሮች"</string>
+    <string name="default_apps" msgid="5730264737920158250">"ነባሪ መተግበሪያዎች"</string>
+    <string name="no_default_apps" msgid="2998405086652908867">"ምንም ነባሪ መተግበሪያዎች የሉም"</string>
+    <string name="default_apps_more" msgid="2432881430817521134">"ተጨማሪ ነባሪዎች"</string>
+    <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"አገናኞችን በመክፈት ላይ"</string>
+    <string name="default_apps_for_work" msgid="6893448061977233772">"ለሥራ ነባሪ"</string>
+    <string name="default_app_none" msgid="4430855885741769064">"ምንም"</string>
+    <string name="default_app_system_default" msgid="330065926244492508">"(የሥርዓት ነባሪ)"</string>
+    <string name="default_app_no_apps" msgid="295747201345391862">"መተግበሪያዎች የሉም"</string>
+    <string name="car_default_app_selected" msgid="5041173040939570813">"ተመርጧል"</string>
+    <string name="car_default_app_selected_with_info" msgid="846119554232771428">"ተመርጧል - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
+    <string name="special_app_access_search_keyword" msgid="1933225255981974193">"ልዩ የመተግበሪያ መዳረሻ"</string>
+    <string name="special_app_access" msgid="1809336016722693481">"ልዩ የመተግበሪያ መዳረሻ"</string>
+    <string name="no_special_app_access" msgid="1990650297459671983">"ምንም ልዩ መተግበሪያ መዳረሻ"</string>
+    <string name="special_app_access_no_apps" msgid="4500324676362932725">"መተግበሪያዎች የሉም"</string>
+    <string name="home_missing_work_profile_support" msgid="1172382464555492915">"የሥራ መገለጫን አይደግፍም"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="5402573583668296906">"ማስታወሻ፦ የእርስዎን መሣሪያ ዳግም ካስጀምሩ እና ማያ ገጽ መቆለፊያው እንዲቀናበር ካደረጉ፣ ይህ መተግበሪያ የእርስዎን መሣሪያ ዳግም እስከሚከፍቱ ድረስ መጀመር አይችልም።"</string>
+    <string name="assistant_confirmation_message" msgid="381445592546930">"ረዳቱ በእርስዎ ስርዓት ላይ በአገልግሎት ላይ ስለሚውሉ መተግበሪያዎች መረጃን ማንበብ ይችላል፣ ይህም በእርስዎ ማያ ገጽ ላይ የሚታይ ወይም በመተግበሪያዎች ውስጥ የሚደረስበት መረጃን ይጨምራል።"</string>
+    <string name="incident_report_channel_name" msgid="434475342655406223">"ሳንካ ማረሚያ ውሂብን አጋራ"</string>
+    <string name="incident_report_notification_title" msgid="5639002400773574216">"ዝርዝር የሳንካ ማረሚያ መረጃ ይጋራ?"</string>
+    <string name="incident_report_notification_text" msgid="3982379040142711581">"<xliff:g id="APP_NAME">%1$s</xliff:g> የሳንካ ማረሚያ መረጃን መስቀል ይፈልጋል።"</string>
+    <string name="incident_report_dialog_title" msgid="7779774651136791681">"ሳንካ ማረሚያ ውሂብን አጋራ"</string>
+    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"ስርዓቱ አንድ ችግር አግኝቷል።"</string>
+    <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> የሳንካ ሪፖርት ከዚህ መሣሪያ በ<xliff:g id="DATE">%2$s</xliff:g> ላይ በ<xliff:g id="TIME">%3$s</xliff:g> የተወሰደ የሳንካ ሪፖርትን ለመስቀል እየጠየቀ ነው። የሳንካ ሪፖርቶች ስለ የእርስዎ መሣሪያ ወይም በመተግበሪያዎች የተመዘገበ ለምሳሌ እንደ የተጠቃሚ ስሞች፣ የመገኛ አካባቢ ውሂብ፣ የመሣሪያ ለይቶ ማወቂያዎች እና የአውታረ መረብ መረጃን ያካትታል። ይህን መረጃ ከሚያምኗቸው ሰዎች እና መተግበሪያዎች ጋር ብቻ የሳንካ ሪፖርቶችን ያጋሩ። የሳንካ ሪፖርትን <xliff:g id="APP_NAME_1">%4$s</xliff:g> እንዲሰቅል ይፈቀድ?"</string>
+    <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"የ<xliff:g id="APP_NAME">%1$s</xliff:g> የሳንካ ሪፖርትን ማስሄድ ላይ አንድ ስህተት ነበር። ስለዚህ ዝርዝር የማረሚያ ውሂቡን ማጋራት ተከልክሏል። ለመቋረጡ ይቅርታ እንጠይቃለን።"</string>
+    <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"ፍቀድ"</string>
+    <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"ከልክል"</string>
+    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"የላቁ ቅንብሮች"</string>
+    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"የላቁ ቅንብሮች"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"የሥርዓት መተግበሪያ አጠቃቀምን አሳይ"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"በሁኔታ አሞሌ፣ በዳሽ ቦርድ እና በሌላ ቦታ ሁሉ የሥርዓት መተግበሪያ አጠቃቀምን አሳይ"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"ለሚከተለው አጠቃቀምን ያድምቁ"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"የረዳት ቀስቃሽ ማግኛን አሳይ"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"የድምጽ ረዳትን ለማግበር ማይክሮፎን ስራ ላይ ሲውል በሁኔታ አሞሌ ውስጥ አዶን አሳይ"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; በመሣሪያዎ ላይ ያሉ ፎቶዎችን፣ እና ማህደረ መረጃን እንዲደርስ ይፈቀድለት?"</string>
 </resources>
