@@ -34,7 +34,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
-import android.os.Process;
 import android.os.UserHandle;
 import android.permission.PermissionControllerService;
 import android.permission.PermissionManager;
@@ -570,9 +569,6 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         AsyncTask.execute(() -> {
             onGrantOrUpgradeDefaultRuntimePermissions();
             callback.run();
-
-            // Async part
-            Utils.updateUserSensitive(getApplication(), Process.myUserHandle());
         });
     }
 
