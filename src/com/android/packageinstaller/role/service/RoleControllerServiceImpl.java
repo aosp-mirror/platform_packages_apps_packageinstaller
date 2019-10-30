@@ -19,6 +19,7 @@ package com.android.packageinstaller.role.service;
 import android.app.role.RoleControllerService;
 import android.app.role.RoleManager;
 import android.content.pm.ApplicationInfo;
+import android.os.AsyncTask;
 import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
@@ -169,9 +170,8 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             }
         }
 
-        // Load data on this thread instead of background.
-        // TODO: Move out of this thread
-        Utils.updateUserSensitive(getApplication(), Process.myUserHandle());
+        AsyncTask.execute(
+                () -> Utils.updateUserSensitive(getApplication(), Process.myUserHandle()));
 
         return true;
     }
