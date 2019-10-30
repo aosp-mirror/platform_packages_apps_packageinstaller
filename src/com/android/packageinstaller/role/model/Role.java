@@ -118,11 +118,11 @@ public class Role {
     private final boolean mRequestable;
 
     /**
-     * The string resource for search keywords of this role, in addition to the label of this role.
+     * The string resource for search keywords of this role, in addition to the label of this role,
+     * if it's non-zero.
      */
-    @Nullable
     @StringRes
-    private final Integer mSearchKeywordsResource;
+    private final int mSearchKeywordsResource;
 
     /**
      * The string resource for the short label of this role, currently used when in a list of roles.
@@ -169,7 +169,7 @@ public class Role {
     public Role(@NonNull String name, @Nullable RoleBehavior behavior,
             @StringRes int descriptionResource, boolean exclusive, @StringRes int labelResource,
             @StringRes int requestDescriptionResource, @StringRes int requestTitleResource,
-            boolean requestable, @Nullable @StringRes Integer searchKeywordsResource,
+            boolean requestable, @StringRes int searchKeywordsResource,
             @StringRes int shortLabelResource, boolean showNone, boolean systemOnly,
             @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
             @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
@@ -229,9 +229,8 @@ public class Role {
         return mRequestable;
     }
 
-    @Nullable
     @StringRes
-    public Integer getSearchKeywordsResource() {
+    public int getSearchKeywordsResource() {
         return mSearchKeywordsResource;
     }
 
@@ -790,7 +789,7 @@ public class Role {
                 && mRequestDescriptionResource == that.mRequestDescriptionResource
                 && mRequestTitleResource == that.mRequestTitleResource
                 && mRequestable == that.mRequestable
-                && Objects.equals(mSearchKeywordsResource, that.mSearchKeywordsResource)
+                && mSearchKeywordsResource == that.mSearchKeywordsResource
                 && mShortLabelResource == that.mShortLabelResource
                 && mShowNone == that.mShowNone
                 && mSystemOnly == that.mSystemOnly

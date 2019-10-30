@@ -328,12 +328,8 @@ public class Roles {
             requestTitleResource = 0;
         }
 
-        // 0 is not a valid resource identifier.
-        Integer searchKeywordsResource = getAttributeResourceValue(parser,
-                ATTRIBUTE_SEARCH_KEYWORDS, 0);
-        if (searchKeywordsResource == 0) {
-            searchKeywordsResource = null;
-        }
+        int searchKeywordsResource = getAttributeResourceValue(parser, ATTRIBUTE_SEARCH_KEYWORDS,
+                0);
 
         Integer shortLabelResource = requireAttributeResourceValue(parser, ATTRIBUTE_SHORT_LABEL, 0,
                 TAG_ROLE);
