@@ -40,7 +40,8 @@ import com.android.permissioncontroller.R;
  * A class that contains a header.
  */
 public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  {
-    private static final String HEADER_KEY = " HEADER_PREFERENCE";
+    static final String HEADER_KEY = " HEADER_PREFERENCE";
+    static final int HEADER_SORT_FIRST = -1;
 
     private View mHeader;
     private LargeHeaderPreference mHeaderPreference;
@@ -49,6 +50,9 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
     protected Drawable mIcon;
     protected CharSequence mLabel;
     protected boolean mSmallIcon;
+    private View.OnClickListener mListener;
+    private CharSequence mSummary;
+    private boolean mShouldShowHeader = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,9 +71,7 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
 
     @Override
     public void setPreferenceScreen(PreferenceScreen screen) {
-        if (mHeaderPreference == null) {
-            mHeaderPreference = new LargeHeaderPreference(getContext(), this);
-        }
+        mHeaderPreference = new LargeHeaderPreference(getContext(), this);
         if (screen.findPreference(HEADER_KEY) == null) {
             screen.addPreference(mHeaderPreference);
         }
@@ -133,21 +135,24 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
      */
     public void hideHeader() {
         if (mHeaderPreference == null) {
-            mHeaderPreference = new LargeHeaderPreference(getContext(), this);
+            mShouldShowHeader = false;
+            return;
         }
         mHeaderPreference.setVisible(false);
         mHeader = null;
     }
 
     /**
-     * Set the summary text in the header.
+     * Set the summary text in the header. If the header has not been created yet, then save the
+     * the summary for later.
      *
      * @param summary the text to display
      * @param listener the click listener if the summary should be clickable
      */
     public void setSummary(@NonNull CharSequence summary, @Nullable View.OnClickListener listener) {
         if (mHeader == null) {
-            mHeaderPreference.delayedSetSummary(summary, listener);
+            mSummary = summary;
+            mListener = listener;
             return;
         }
         TextView textView = mHeader.requireViewById(R.id.header_text);
@@ -169,18 +174,17 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
      */
     public static class LargeHeaderPreference extends PreferenceCategory {
         private SettingsWithLargeHeader mFragment;
-        private View.OnClickListener mListener;
-        private CharSequence mSummary;
 
         private LargeHeaderPreference(Context context, SettingsWithLargeHeader fragment) {
             super(context);
             mFragment = fragment;
+            setVisible(mFragment.mShouldShowHeader);
             setSelectable(false);
             setLayoutResource(R.layout.header_large);
             setKey(HEADER_KEY);
 
             // display the header first (lower numbers are ordered higher)
-            setOrder(-1);
+            setOrder(HEADER_SORT_FIRST);
         }
 
         @Override
@@ -198,20 +202,9 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
             if (mFragment.mIcon != null) {
                 mFragment.updateHeader(view);
             }
-            if (mSummary != null) {
-                mFragment.setSummary(mSummary, mListener);
+            if (mFragment.mSummary != null) {
+                mFragment.setSummary(mFragment.mSummary, mFragment.mListener);
             }
-        }
-
-        /**
-         * Will set this preference's summary and listener on the next call to onBindViewHolder
-         * @param summary The summary to be set
-         * @param listener The listener to be set
-         */
-        private void delayedSetSummary(@NonNull CharSequence summary,
-                @Nullable View.OnClickListener listener) {
-            mSummary = summary;
-            mListener = listener;
         }
     }
 }
