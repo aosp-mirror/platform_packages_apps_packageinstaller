@@ -37,10 +37,20 @@ public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
      */
     public static ManageCustomPermissionsFragment newInstance(long sessionId) {
         ManageCustomPermissionsFragment fragment = new ManageCustomPermissionsFragment();
+        fragment.setArguments(createArgs(sessionId));
+        return fragment;
+    }
+
+    /**
+     * Create a bundle with the arguments needed by this fragment
+     *
+     * @param sessionId The current session ID
+     * @return A bundle with all of the args placed
+     */
+    public static Bundle createArgs(long sessionId) {
         Bundle arguments = new Bundle();
         arguments.putLong(EXTRA_SESSION_ID, sessionId);
-        fragment.setArguments(arguments);
-        return fragment;
+        return arguments;
     }
 
     @Override
@@ -64,6 +74,12 @@ public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
     }
 
     @Override
+    public void showPermissionApps(String permissionGroupName) {
+        mViewModel.showPermissionApps(this, permissionGroupName,
+                getArguments().getLong(EXTRA_SESSION_ID));
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
 
@@ -74,7 +90,7 @@ public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                getFragmentManager().popBackStack();
+                getActivity().onBackPressed();
                 return true;
         }
         return super.onOptionsItemSelected(item);

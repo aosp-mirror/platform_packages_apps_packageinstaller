@@ -47,13 +47,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.ui.AppPermissionActivity;
+import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonState;
+import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonType;
 import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ChangeTarget;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 import com.android.settingslib.widget.ActionBarShadowController;
 
-import java.util.List;
+import java.util.Map;
 
 import kotlin.Pair;
 
@@ -65,8 +67,9 @@ import kotlin.Pair;
 public class AppPermissionFragment extends SettingsWithLargeHeader {
     private static final String LOG_TAG = "AppPermissionFragment";
 
-    private @NonNull AppPermissionViewModel mViewModel;
+    static final String GRANT_CATEGORY = "grant_category";
 
+    private @NonNull AppPermissionViewModel mViewModel;
     private @NonNull RadioButton mAllowButton;
     private @NonNull RadioButton mAllowAlwaysButton;
     private @NonNull RadioButton mAllowForegroundButton;
@@ -81,6 +84,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
     private @NonNull String mPackageName;
     private @NonNull String mPermGroupName;
     private @NonNull UserHandle mUser;
+    private boolean mIsInitialLoad;
 
     private @NonNull String mPackageLabel;
     private @NonNull String mPermGroupLabel;
@@ -90,9 +94,31 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      * @return A new fragment
      */
     public static @NonNull AppPermissionFragment newInstance(@NonNull String packageName,
-            @NonNull String permName, @Nullable String groupName,
+            @Nullable String permName, @Nullable String groupName,
             @NonNull UserHandle userHandle, @Nullable String caller, long sessionId) {
         AppPermissionFragment fragment = new AppPermissionFragment();
+        fragment.setArguments(createArgs(packageName, permName, groupName, userHandle, caller,
+                sessionId, null));
+        return fragment;
+    }
+
+    /**
+     * Create a bundle with the arguments needed by this fragment
+     *
+     * @param packageName The name of the package
+     * @param permName The name of the permission whose group this fragment is for (optional)
+     * @param groupName The name of the permission group (required if permName not specified)
+     * @param userHandle The user of the app permission group
+     * @param caller The name of the fragment we called from
+     * @param sessionId The current session ID
+     * @param grantCategory The grant status of this app permission group. Used to initially set
+     * the button state
+     * @return A bundle with all of the args placed
+     */
+    public static Bundle createArgs(@NonNull String packageName,
+            @Nullable String permName, @Nullable String groupName,
+            @NonNull UserHandle userHandle, @Nullable String caller, long sessionId, @Nullable
+            String grantCategory) {
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
         if (groupName == null) {
@@ -103,9 +129,10 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         arguments.putString(AppPermissionActivity.EXTRA_CALLER_NAME, caller);
         arguments.putLong(EXTRA_SESSION_ID, sessionId);
-        fragment.setArguments(arguments);
-        return fragment;
+        arguments.putString(GRANT_CATEGORY, grantCategory);
+        return arguments;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -135,10 +162,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                 getActivity().getApplication(), mPackageName, mPermGroupName, mUser, sessionId);
         mViewModel = new ViewModelProvider(this, factory).get(AppPermissionViewModel.class);
 
-        getActivity().setTitle(
-                getPreferenceManager().getContext().getString(R.string.app_permission_title,
-                        mPermGroupLabel));
-
         mViewModel.getButtonStateLiveData().observe(this, this::setRadioButtonsState);
         mViewModel.getDetailResIdLiveData().observe(this, this::setDetail);
         mViewModel.getShowAdminSupportLiveData().observe(this, this::setAdminSupportDetail);
@@ -149,6 +172,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             Bundle savedInstanceState) {
         Context context = getContext();
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.app_permission, container, false);
+
+        mIsInitialLoad = true;
 
         setHeader(mPackageIcon, mPackageLabel, null, null, false);
         updateHeader(root.requireViewById(R.id.large_header));
@@ -171,13 +196,11 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         TextView footer1Link = root.requireViewById(R.id.footer_link_1);
         footer1Link.setText(context.getString(R.string.app_permission_footer_app_permissions_link,
                 mPackageLabel));
-        mViewModel.setBottomLinkState(context, footer1Link, caller,
-                Intent.ACTION_MANAGE_APP_PERMISSIONS);
+        setBottomLinkState(footer1Link, caller, Intent.ACTION_MANAGE_APP_PERMISSIONS);
 
         TextView footer2Link = root.requireViewById(R.id.footer_link_2);
         footer2Link.setText(context.getString(R.string.app_permission_footer_permission_apps_link));
-        mViewModel.setBottomLinkState(context, footer2Link, caller,
-                Intent.ACTION_MANAGE_PERMISSION_APPS);
+        setBottomLinkState(footer2Link, caller, Intent.ACTION_MANAGE_PERMISSION_APPS);
 
         mAllowButton = root.requireViewById(R.id.allow_radio_button);
         mAllowAlwaysButton = root.requireViewById(R.id.allow_always_radio_button);
@@ -192,7 +215,36 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
 
         mNestedScrollView = root.requireViewById(R.id.nested_scroll_view);
 
+        if (mViewModel.getButtonStateLiveData().getValue() != null) {
+            setRadioButtonsState(mViewModel.getButtonStateLiveData().getValue());
+        } else {
+            mAllowButton.setVisibility(View.GONE);
+            mAllowAlwaysButton.setVisibility(View.GONE);
+            mAllowForegroundButton.setVisibility(View.GONE);
+            mAskOneTimeButton.setVisibility(View.GONE);
+            mAskButton.setVisibility(View.GONE);
+            mDenyButton.setVisibility(View.GONE);
+            mDenyForegroundButton.setVisibility(View.GONE);
+        }
+
+        getActivity().setTitle(
+                getPreferenceManager().getContext().getString(R.string.app_permission_title,
+                        mPermGroupLabel));
+
         return root;
+    }
+
+    private void setBottomLinkState(TextView view, String caller, String action) {
+        if ((caller.equals(AppPermissionGroupsFragment.class.getName())
+                && action.equals(Intent.ACTION_MANAGE_APP_PERMISSIONS))
+                || (caller.equals(PermissionAppsFragment.class.getName()))
+                && action.equals(Intent.ACTION_MANAGE_PERMISSION_APPS)) {
+            view.setVisibility(View.GONE);
+        } else {
+            view.setOnClickListener((v) -> {
+                mViewModel.showBottomLinkPage(this, action);
+            });
+        }
     }
 
     @Override
@@ -210,13 +262,13 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            getActivity().finish();
+            getActivity().onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void setRadioButtonsState(List<AppPermissionViewModel.ButtonState> states) {
+    private void setRadioButtonsState(Map<ButtonType, ButtonState> states) {
         if (states == null && mViewModel.getButtonStateLiveData().isInitialized()) {
             mViewModel.finishActivity(getActivity());
             return;
@@ -251,14 +303,15 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         });
 
         // TODO(ntmyren): pass button states in a non-order specific way
-        setButtonState(mAllowButton, states.get(0));
-        setButtonState(mAllowAlwaysButton, states.get(1));
-        setButtonState(mAllowForegroundButton, states.get(2));
-        setButtonState(mAskOneTimeButton, states.get(3));
-        setButtonState(mAskButton, states.get(4));
-        setButtonState(mDenyButton, states.get(5));
-        setButtonState(mDenyForegroundButton, states.get(6));
+        setButtonState(mAllowButton, states.get(ButtonType.ALLOW));
+        setButtonState(mAllowAlwaysButton, states.get(ButtonType.ALLOW_ALWAYS));
+        setButtonState(mAllowForegroundButton, states.get(ButtonType.ALLOW_FOREGROUND));
+        setButtonState(mAskOneTimeButton, states.get(ButtonType.ASK_ONCE));
+        setButtonState(mAskButton, states.get(ButtonType.ASK));
+        setButtonState(mDenyButton, states.get(ButtonType.DENY));
+        setButtonState(mDenyForegroundButton, states.get(ButtonType.DENY_FOREGROUND));
 
+        mIsInitialLoad = false;
     }
 
     private void setResult() {
@@ -272,6 +325,9 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         if (state.isShown()) {
             button.setChecked(state.isChecked());
             button.setEnabled(state.isEnabled());
+        }
+        if (mIsInitialLoad) {
+            button.jumpDrawablesToCurrentState();
         }
     }
 
@@ -287,7 +343,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             // lets you control them.
             mDivider.setVisibility(View.VISIBLE);
             showRightIcon(R.drawable.ic_settings);
-            mWidgetFrame.setOnClickListener(v -> showAllPermissions());
+            mWidgetFrame.setOnClickListener(v -> mViewModel.showAllPermissions(this));
             mPermissionDetails.setText(getPreferenceManager().getContext().getString(
                     detailResIds.getFirst(), detailResIds.getSecond()));
         } else {
@@ -296,19 +352,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
         mPermissionDetails.setVisibility(View.VISIBLE);
 
-    }
-
-    /**
-     * Show all individual permissions in this group in a new fragment.
-     * TODO ntmyren: move to viewmodel when navigation component is implemented
-     */
-    private void showAllPermissions() {
-        AllAppPermissionsFragment frag = AllAppPermissionsFragment.newInstance(mPackageName,
-                mPermGroupName, mUser);
-        getParentFragmentManager().beginTransaction()
-                .replace(android.R.id.content, frag)
-                .addToBackStack("AllPerms")
-                .commit();
     }
 
     private void setAdminSupportDetail(EnforcedAdmin admin) {
@@ -345,7 +388,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      *  1. `showDefaultDenyDialog`
      *  1. [DefaultDenyDialog.onCreateDialog]
      *  1. [AppPermissionViewModel.onDenyAnyWay]
-     *
+     * TODO: Remove once data can be passed between dialogs and fragments with nav component
      *
      * @param changeTarget Whether background or foreground should be changed
      * @param messageId The Id of the string message to show
@@ -353,12 +396,10 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      */
     void showDefaultDenyDialog(ChangeTarget changeTarget, @StringRes int messageId,
             boolean userFixed) {
-        Bundle args = new Bundle();
-
+        Bundle args = getArguments().deepCopy();
         args.putInt(DefaultDenyDialog.MSG, messageId);
         args.putSerializable(DefaultDenyDialog.CHANGE_TARGET, changeTarget);
         args.putBoolean(DefaultDenyDialog.USER_FIXED, userFixed);
-
         DefaultDenyDialog defaultDenyDialog = new DefaultDenyDialog();
         defaultDenyDialog.setCancelable(true);
         defaultDenyDialog.setArguments(args);
@@ -367,8 +408,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
     }
 
     /**
-     * A dialog warning the user that she/he is about to deny a permission that was granted by
-     * default.
+     * A dialog warning the user that they are about to deny a permission that was granted by
+     * default, or that they are denying a permission on a Pre-M app
      *
      * @see #showDefaultDenyDialog(ChangeTarget, int, boolean)
      */
@@ -379,8 +420,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         private static final String KEY = DefaultDenyDialog.class.getName() + ".arg.key";
         static final String USER_FIXED = DefaultDenyDialog.class.getName()
                 + ".arg.userFixed";
-
-        private boolean mFixed;
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {

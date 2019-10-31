@@ -21,7 +21,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -44,10 +43,20 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
      */
     public static ManageStandardPermissionsFragment newInstance(long sessionId) {
         ManageStandardPermissionsFragment fragment = new ManageStandardPermissionsFragment();
+        fragment.setArguments(createArgs(sessionId));
+        return fragment;
+    }
+
+    /**
+     * Create a bundle with the arguments needed by this fragment
+     *
+     * @param sessionId The current session ID
+     * @return A bundle with all of the args placed
+     */
+    public static Bundle createArgs(long sessionId) {
         Bundle arguments = new Bundle();
         arguments.putLong(EXTRA_SESSION_ID, sessionId);
-        fragment.setArguments(arguments);
-        return fragment;
+        return arguments;
     }
 
     @Override
@@ -83,7 +92,7 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            getActivity().finish();
+            getActivity().onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -117,14 +126,8 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                         android.R.attr.colorControlNormal));
                 additionalPermissionsPreference.setTitle(R.string.additional_permissions);
                 additionalPermissionsPreference.setOnPreferenceClickListener(preference -> {
-                    long sessionId = getArguments().getLong(EXTRA_SESSION_ID);
-                    ManageCustomPermissionsFragment frag =
-                            ManageCustomPermissionsFragment.newInstance(sessionId);
-                    frag.setTargetFragment(ManageStandardPermissionsFragment.this, 0);
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(android.R.id.content, frag);
-                    ft.addToBackStack(null);
-                    ft.commit();
+                    mViewModel.showCustomPermissions(this,
+                            getArguments().getLong(EXTRA_SESSION_ID));
                     return true;
                 });
 
@@ -136,5 +139,11 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                     numExtraPermissions));
         }
         return screen;
+    }
+
+    @Override
+    public void showPermissionApps(String permissionGroupName) {
+        mViewModel.showPermissionApps(this, permissionGroupName,
+                getArguments().getLong(EXTRA_SESSION_ID));
     }
 }
