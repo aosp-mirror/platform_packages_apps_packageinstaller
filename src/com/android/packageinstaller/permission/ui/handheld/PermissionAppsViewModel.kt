@@ -25,6 +25,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
 import com.android.packageinstaller.permission.data.PermGroupPackagesUiInfoRepository
+import com.android.packageinstaller.permission.data.UserPackageInfosRepository
 import com.android.packageinstaller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.packageinstaller.permission.ui.Category
 import com.android.packageinstaller.permission.ui.handheld.PermissionAppsViewModel.Companion.CREATION_LOGGED_KEY
@@ -63,11 +64,11 @@ class PermissionAppsViewModel(
     }
 
     var creationLogged
-            get() = state.get(CREATION_LOGGED_KEY) ?: false
-            set(value) = state.set(CREATION_LOGGED_KEY, value)
+        get() = state.get(CREATION_LOGGED_KEY) ?: false
+        set(value) = state.set(CREATION_LOGGED_KEY, value)
 
     inner class CategorizedAppsLiveData(app: Application, groupName: String)
-        : MediatorLiveData< @kotlin.jvm.JvmSuppressWildcards
+        : MediatorLiveData<@kotlin.jvm.JvmSuppressWildcards
     Map<Category, List<Pair<String, UserHandle>>>>() {
         private val packagesUiInfoLiveData =
             PermGroupPackagesUiInfoRepository.getSinglePermGroupPackagesUiInfoLiveData(app,
@@ -93,9 +94,10 @@ class PermissionAppsViewModel(
             categoryMap[Category.ALLOWED_FOREGROUND] = mutableListOf()
             categoryMap[Category.DENIED] = mutableListOf()
 
-            val packageMap = packagesUiInfoLiveData.value
-            if (packageMap == null) {
-                value = categoryMap
+            val packageMap = packagesUiInfoLiveData.value ?: run {
+                if (packagesUiInfoLiveData.isInitialized) {
+                    value = categoryMap
+                }
                 return
             }
 
@@ -122,6 +124,10 @@ class PermissionAppsViewModel(
             }
             value = categoryMap
         }
+    }
+
+    fun arePackagesLoaded(): Boolean {
+        return UserPackageInfosRepository.getAllPackageInfosLiveData(app).isInitialized
     }
 }
 

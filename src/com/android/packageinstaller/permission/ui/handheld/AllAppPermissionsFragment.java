@@ -58,7 +58,6 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
 
     private static final String KEY_OTHER = "other_perms";
 
-    private List<AppPermissionGroup> mGroups;
     private AllAppPermissionsViewModel mViewModel;
     private Collator mCollator;
     private String mPackageName;
@@ -98,12 +97,9 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
 
         mViewModel = new ViewModelProvider(this, factory).get(AllAppPermissionsViewModel.class);
         mViewModel.getAllPackagePermissionsLiveData().observe(this, this::updateUi);
-        setLoading(true, false);
+
         mCollator = Collator.getInstance(
                 getContext().getResources().getConfiguration().getLocales().get(0));
-        if (mViewModel.getAllPackagePermissionsLiveData().getValue() != null) {
-            updateUi(mViewModel.getAllPackagePermissionsLiveData().getValue());
-        }
     }
 
     @Override
@@ -136,12 +132,17 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
     }
 
     private void updateUi(Map<String, List<String>> groupMap) {
-        if (getPreferenceScreen() != null) {
-            getPreferenceScreen().removeAll();
+        if (getPreferenceScreen() == null) {
+            addPreferencesFromResource(R.xml.all_permissions);
         }
-        addPreferencesFromResource(R.xml.all_permissions);
+
         PreferenceGroup otherGroup = findPreference(KEY_OTHER);
         otherGroup.removeAll();
+        Preference header = findPreference(HEADER_KEY);
+
+        getPreferenceScreen().removeAll();
+        getPreferenceScreen().addPreference(otherGroup);
+        getPreferenceScreen().addPreference(header);
 
         Drawable icon = KotlinUtils.INSTANCE.getBadgedPackageIcon(getActivity().getApplication(),
                 mPackageName, mUser);
@@ -166,7 +167,9 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
             }
         }
         if (otherGroup.getPreferenceCount() == 0) {
-            getPreferenceScreen().removePreference(otherGroup);
+            otherGroup.setVisible(false);
+        } else {
+            otherGroup.setVisible(true);
         }
         KotlinUtils.INSTANCE.sortPreferenceGroup(getPreferenceScreen(), true,
                 this::comparePreferences);

@@ -101,7 +101,6 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setLoading(true /* loading */, false /* animate */);
         setHasOptionsMenu(true);
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
@@ -117,11 +116,8 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         mViewModel = new ViewModelProvider(this, factory).get(AppPermissionGroupsViewModel.class);
         mViewModel.getPackagePermGroupsLiveData().observe(this, this::updatePreferences);
 
-        addPreferencesFromResource(R.xml.allowed_denied);
-
         mCollator = Collator.getInstance(
                 getContext().getResources().getConfiguration().getLocales().get(0));
-        logAppPermissionsFragmentView();
 
         if (mViewModel.getPackagePermGroupsLiveData().getValue() != null) {
             updatePreferences(mViewModel.getPackagePermGroupsLiveData().getValue());
@@ -189,6 +185,11 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
     }
 
     private void updatePreferences(Map<Category, List<Triple<String, Boolean, Boolean>>> groupMap) {
+        if (getPreferenceScreen() == null) {
+            addPreferencesFromResource(R.xml.allowed_denied);
+            logAppPermissionsFragmentView();
+        }
+
         Context context = getPreferenceManager().getContext();
         if (context == null) {
             return;

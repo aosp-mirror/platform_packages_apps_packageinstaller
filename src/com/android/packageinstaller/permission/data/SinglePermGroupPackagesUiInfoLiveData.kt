@@ -93,7 +93,11 @@ class SinglePermGroupPackagesUiInfoLiveData(
             val appPermGroupLiveData =
                 AppPermGroupUiInfoRepository.getAppPermGroupUiInfoLiveData(app, packageName,
                     permissionGroupName, userHandle)
+            appPermGroupLiveDatas[key] = appPermGroupLiveData
+        }
 
+        for (key in toAdd) {
+            val appPermGroupLiveData = appPermGroupLiveDatas[key]!!
             addSource(appPermGroupLiveData) { appPermGroupUiInfo ->
                 shownPackages.remove(key)
 

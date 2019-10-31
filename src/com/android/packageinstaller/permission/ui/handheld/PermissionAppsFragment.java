@@ -31,6 +31,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -69,7 +70,9 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
     private static final String KEY_SHOW_SYSTEM_PREFS = "_showSystem";
     private static final String CREATION_LOGGED_SYSTEM_PREFS = "_creationLogged";
     private static final String KEY_FOOTER = "_footer";
+    private static final String KEY_EMPTY = "_empty";
     private static final String LOG_TAG = "PermissionAppsFragment";
+    private static final int SHOW_LOAD_DELAY_MS = 200;
 
     private static final String SHOW_SYSTEM_KEY = PermissionAppsFragment.class.getName()
             + KEY_SHOW_SYSTEM_PREFS;
@@ -110,10 +113,6 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
         mCollator = Collator.getInstance(
                 getContext().getResources().getConfiguration().getLocales().get(0));
 
-        addPreferencesFromResource(R.xml.allowed_denied);
-        // Hide allowed foreground label by default, to avoid briefly showing it before updating
-        findPreference(ALLOWED_FOREGROUND.getCategoryName()).setVisible(false);
-
         PermissionAppsViewModelFactory factory =
                 new PermissionAppsViewModelFactory(getActivity().getApplication(), mPermGroupName,
                         this, new Bundle());
@@ -124,9 +123,14 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
         mViewModel.getHasSystemAppsLiveData().observe(this, (Boolean hasSystem) ->
                 getActivity().invalidateOptionsMenu());
 
-        if (mViewModel.getCategorizedAppsLiveData().getValue() == null) {
-            setLoading(true /* loading */, false /* animate */);
-        } else {
+        if (!mViewModel.arePackagesLoaded()) {
+            Handler handler = new Handler();
+            handler.postDelayed(() -> {
+                if (!mViewModel.arePackagesLoaded()) {
+                    setLoading(true /* loading */, false /* animate */);
+                }
+            }, SHOW_LOAD_DELAY_MS);
+        } else if (mViewModel.getCategorizedAppsLiveData().getValue() != null) {
             onPackagesLoaded(mViewModel.getCategorizedAppsLiveData().getValue());
         }
 
@@ -204,6 +208,11 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
     }
 
     private void onPackagesLoaded(Map<Category, List<Pair<String, UserHandle>>> categories) {
+        if (getPreferenceScreen() == null) {
+            addPreferencesFromResource(R.xml.allowed_denied);
+            // Hide allowed foreground label by default, to avoid briefly showing it before updating
+            findPreference(ALLOWED_FOREGROUND.getCategoryName()).setVisible(false);
+        }
         Context context = getPreferenceManager().getContext();
 
         if (context == null || getActivity() == null || categories == null) {
@@ -233,6 +242,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
             if (packages.size() == 0) {
                 Preference empty = new Preference(context);
                 empty.setSelectable(false);
+                empty.setKey(category.getKey() + KEY_EMPTY);
                 if (grantCategory.equals(ALLOWED)) {
                     empty.setTitle(getString(R.string.no_apps_allowed));
                 } else if (grantCategory.equals(ALLOWED_FOREGROUND)) {
