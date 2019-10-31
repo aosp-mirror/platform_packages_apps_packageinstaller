@@ -81,7 +81,7 @@ import java.util.Set;
  * Show the usage of all apps of all permission groups.
  *
  * <p>Shows a filterable list of app usage of permission groups, each of which links to
- * AppPermissionsFragment.
+ * AppPermissionGroupsFragment.
  */
 public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         PermissionUsages.PermissionsUsagesChangeCallback {

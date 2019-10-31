@@ -29,7 +29,6 @@ import static com.android.packageinstaller.permission.ui.Category.DENIED;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -47,8 +46,6 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 
 import com.android.packageinstaller.PermissionControllerStatsLog;
-import com.android.packageinstaller.permission.data.PackageInfoRepository;
-import com.android.packageinstaller.permission.model.livedatatypes.LightPackageInfo;
 import com.android.packageinstaller.permission.ui.Category;
 import com.android.packageinstaller.permission.utils.KotlinUtils;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -320,19 +317,10 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
             category = PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__DENIED;
         }
 
-        int uid;
-        LightPackageInfo info = PackageInfoRepository.INSTANCE.getPackageInfoLiveData(
-                getActivity().getApplication(), packageName, user).getValue();
-        if (info != null) {
-            uid = info.getUid();
-        } else {
-            Context userContext;
-            try {
-                userContext = Utils.getUserContext(getActivity().getApplication(), user);
-                uid = userContext.getPackageManager().getApplicationInfo(packageName, 0).uid;
-            } catch (PackageManager.NameNotFoundException e) {
-                return;
-            }
+        Integer uid = KotlinUtils.INSTANCE.getPackageUid(getActivity().getApplication(),
+                packageName, user);
+        if (uid == null) {
+            return;
         }
 
         PermissionControllerStatsLog.write(PERMISSION_APPS_FRAGMENT_VIEWED, sessionId, viewId,

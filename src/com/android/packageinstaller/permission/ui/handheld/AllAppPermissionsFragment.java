@@ -35,7 +35,6 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
 
-import com.android.packageinstaller.permission.data.AppPermissionGroupRepository;
 import com.android.packageinstaller.permission.data.PackagePermissionsLiveData;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
@@ -150,7 +149,7 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
                 mPackageName, mUser);
         Intent infoIntent = null;
         if (!getActivity().getIntent().getBooleanExtra(
-                AppPermissionsFragment.EXTRA_HIDE_INFO_BUTTON, false)) {
+                AppPermissionGroupsFragment.EXTRA_HIDE_INFO_BUTTON, false)) {
             infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                     .setData(Uri.fromParts("package", mPackageName, null));
         }
@@ -214,9 +213,8 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
         final boolean mutable = Utils.isPermissionIndividuallyControlled(getContext(),
                 permName);
         if (mutable) {
-            AppPermissionGroup appPermGroup = AppPermissionGroupRepository.INSTANCE
-                    .getAppPermissionGroupLiveData(getActivity().getApplication(), mPackageName,
-                            groupName, mUser).getValue();
+            AppPermissionGroup appPermGroup = AppPermissionGroup.create(
+                    getActivity().getApplication(), mPackageName, groupName, mUser, false);
             pref = new MyMultiTargetSwitchPreference(context, permName, appPermGroup);
         } else {
             pref = new Preference(context);

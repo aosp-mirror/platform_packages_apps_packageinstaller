@@ -28,6 +28,7 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 
 import com.android.packageinstaller.permission.model.Permission;
+import com.android.packageinstaller.permission.model.livedatatypes.LightPackageInfo;
 
 /**
  * The behavior of soft restricted permissions is different for each permission. This class collects
@@ -58,6 +59,30 @@ public abstract class SoftRestrictedPermissionPolicy {
                 int targetSDK = pkg.applicationInfo.targetSdkVersion;
 
                 return isWhiteListed || targetSDK >= Build.VERSION_CODES.Q;
+            }
+            default:
+                return true;
+        }
+    }
+
+    /**
+     * Check if the permission should be shown in the UI.
+     *
+     * @param pkg the LightPackageInfo the permission belongs to
+     * @param permissionName the name of the permission
+     * @param permissionFlags the PermissionController flags (not the PermissionInfo flags) for
+     * the permission
+     *
+     * @return {@code true} iff the permission should be shown in the UI.
+     */
+    public static boolean shouldShow(@NonNull LightPackageInfo pkg, @NonNull String permissionName,
+            @NonNull int permissionFlags) {
+        switch (permissionName) {
+            case READ_EXTERNAL_STORAGE:
+            case WRITE_EXTERNAL_STORAGE: {
+                boolean isWhiteListed =
+                        (permissionFlags & FLAGS_PERMISSION_RESTRICTION_ANY_EXEMPT) != 0;
+                return isWhiteListed || pkg.getTargetSdkVersion() >= Build.VERSION_CODES.Q;
             }
             default:
                 return true;

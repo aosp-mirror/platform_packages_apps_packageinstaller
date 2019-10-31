@@ -35,6 +35,7 @@ import com.android.packageinstaller.permission.ui.auto.AutoAllAppPermissionsFrag
 import com.android.packageinstaller.permission.ui.auto.AutoAppPermissionsFragment;
 import com.android.packageinstaller.permission.ui.auto.AutoManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.auto.AutoPermissionAppsFragment;
+import com.android.packageinstaller.permission.ui.handheld.AppPermissionGroupsFragment;
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.handheld.PermissionUsageFragment;
 import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
@@ -152,8 +153,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                         androidXFragment = com.android.packageinstaller.permission.ui.handheld
                                 .AllAppPermissionsFragment.newInstance(packageName, userHandle);
                     } else {
-                        androidXFragment = com.android.packageinstaller.permission.ui.handheld
-                                .AppPermissionsFragment.newInstance(
+                        androidXFragment = AppPermissionGroupsFragment.newInstance(
                                         packageName, userHandle, sessionId);
                     }
                 }
