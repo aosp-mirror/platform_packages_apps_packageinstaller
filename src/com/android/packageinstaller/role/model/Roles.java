@@ -80,6 +80,7 @@ public class Roles {
     private static final String ATTRIBUTE_SHORT_LABEL = "shortLabel";
     private static final String ATTRIBUTE_SHOW_NONE = "showNone";
     private static final String ATTRIBUTE_SYSTEM_ONLY = "systemOnly";
+    private static final String ATTRIBUTE_VISIBLE = "visible";
     private static final String ATTRIBUTE_PERMISSION = "permission";
     private static final String ATTRIBUTE_SCHEME = "scheme";
     private static final String ATTRIBUTE_MIME_TYPE = "mimeType";
@@ -286,11 +287,34 @@ public class Roles {
             behavior = null;
         }
 
-        Integer descriptionResource = requireAttributeResourceValue(parser, ATTRIBUTE_DESCRIPTION,
-                0, TAG_ROLE);
-        if (descriptionResource == null) {
-            skipCurrentTag(parser);
-            return null;
+        boolean visible = getAttributeBooleanValue(parser, ATTRIBUTE_VISIBLE, true);
+        Integer descriptionResource;
+        Integer labelResource;
+        Integer shortLabelResource;
+        if (visible) {
+            descriptionResource = requireAttributeResourceValue(parser,
+                    ATTRIBUTE_DESCRIPTION, 0, TAG_ROLE);
+            if (descriptionResource == null) {
+                skipCurrentTag(parser);
+                return null;
+            }
+
+            labelResource = requireAttributeResourceValue(parser, ATTRIBUTE_LABEL, 0, TAG_ROLE);
+            if (labelResource == null) {
+                skipCurrentTag(parser);
+                return null;
+            }
+
+            shortLabelResource = requireAttributeResourceValue(parser, ATTRIBUTE_SHORT_LABEL, 0,
+                    TAG_ROLE);
+            if (shortLabelResource == null) {
+                skipCurrentTag(parser);
+                return null;
+            }
+        } else {
+            descriptionResource = 0;
+            labelResource = 0;
+            shortLabelResource = 0;
         }
 
         Boolean exclusive = requireAttributeBooleanValue(parser, ATTRIBUTE_EXCLUSIVE, true,
@@ -300,13 +324,7 @@ public class Roles {
             return null;
         }
 
-        Integer labelResource = requireAttributeResourceValue(parser, ATTRIBUTE_LABEL, 0, TAG_ROLE);
-        if (labelResource == null) {
-            skipCurrentTag(parser);
-            return null;
-        }
-
-        boolean requestable = getAttributeBooleanValue(parser, ATTRIBUTE_REQUESTABLE, true);
+        boolean requestable = getAttributeBooleanValue(parser, ATTRIBUTE_REQUESTABLE, visible);
         Integer requestDescriptionResource;
         Integer requestTitleResource;
         if (requestable) {
@@ -330,13 +348,6 @@ public class Roles {
 
         int searchKeywordsResource = getAttributeResourceValue(parser, ATTRIBUTE_SEARCH_KEYWORDS,
                 0);
-
-        Integer shortLabelResource = requireAttributeResourceValue(parser, ATTRIBUTE_SHORT_LABEL, 0,
-                TAG_ROLE);
-        if (shortLabelResource == null) {
-            skipCurrentTag(parser);
-            return null;
-        }
 
         boolean showNone = getAttributeBooleanValue(parser, ATTRIBUTE_SHOW_NONE, false);
         if (showNone && !exclusive) {
@@ -415,7 +426,7 @@ public class Roles {
         }
         return new Role(name, behavior, descriptionResource, exclusive, labelResource,
                 requestDescriptionResource, requestTitleResource, requestable,
-                searchKeywordsResource, shortLabelResource, showNone, systemOnly,
+                searchKeywordsResource, shortLabelResource, showNone, systemOnly, visible,
                 requiredComponents, permissions, appOps, preferredActivities);
     }
 

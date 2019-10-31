@@ -143,6 +143,11 @@ public class Role {
     private final boolean mSystemOnly;
 
     /**
+     * Whether this role is visible to user.
+     */
+    private final boolean mVisible;
+
+    /**
      * The required components for an application to qualify for this role.
      */
     @NonNull
@@ -171,8 +176,9 @@ public class Role {
             @StringRes int requestDescriptionResource, @StringRes int requestTitleResource,
             boolean requestable, @StringRes int searchKeywordsResource,
             @StringRes int shortLabelResource, boolean showNone, boolean systemOnly,
-            @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
-            @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
+            boolean visible, @NonNull List<RequiredComponent> requiredComponents,
+            @NonNull List<String> permissions, @NonNull List<AppOp> appOps,
+            @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
         mDescriptionResource = descriptionResource;
@@ -185,6 +191,7 @@ public class Role {
         mShortLabelResource = shortLabelResource;
         mShowNone = showNone;
         mSystemOnly = systemOnly;
+        mVisible = visible;
         mRequiredComponents = requiredComponents;
         mPermissions = permissions;
         mAppOps = appOps;
@@ -244,6 +251,10 @@ public class Role {
      */
     public boolean shouldShowNone() {
         return mShowNone;
+    }
+
+    public boolean isVisible() {
+        return mVisible;
     }
 
     @NonNull
@@ -345,10 +356,7 @@ public class Role {
      * @return whether this role should be visible to user
      */
     public boolean isVisibleAsUser(@NonNull UserHandle user, @NonNull Context context) {
-        if (mBehavior != null) {
-            return mBehavior.isVisibleAsUser(this, user, context);
-        }
-        return true;
+        return mVisible && (mBehavior == null || mBehavior.isVisibleAsUser(this, user, context));
     }
 
     /**
@@ -766,6 +774,7 @@ public class Role {
                 + ", mShortLabelResource=" + mShortLabelResource
                 + ", mShowNone=" + mShowNone
                 + ", mSystemOnly=" + mSystemOnly
+                + ", mVisible=" + mVisible
                 + ", mRequiredComponents=" + mRequiredComponents
                 + ", mPermissions=" + mPermissions
                 + ", mAppOps=" + mAppOps
@@ -793,6 +802,7 @@ public class Role {
                 && mShortLabelResource == that.mShortLabelResource
                 && mShowNone == that.mShowNone
                 && mSystemOnly == that.mSystemOnly
+                && mVisible == that.mVisible
                 && mName.equals(that.mName)
                 && Objects.equals(mBehavior, that.mBehavior)
                 && mRequiredComponents.equals(that.mRequiredComponents)
@@ -805,7 +815,7 @@ public class Role {
     public int hashCode() {
         return Objects.hash(mName, mBehavior, mDescriptionResource, mExclusive, mLabelResource,
                 mRequestDescriptionResource, mRequestTitleResource, mRequestable,
-                mSearchKeywordsResource, mShortLabelResource, mShowNone, mSystemOnly,
+                mSearchKeywordsResource, mShortLabelResource, mShowNone, mSystemOnly, mVisible,
                 mRequiredComponents, mPermissions, mAppOps, mPreferredActivities);
     }
 }
