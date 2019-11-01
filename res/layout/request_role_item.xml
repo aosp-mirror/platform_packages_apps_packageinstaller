@@ -16,7 +16,7 @@
   ~ limitations under the License.
   -->
 
-<com.android.packageinstaller.role.ui.CheckableLinearLayout
+<com.android.permissioncontroller.role.ui.CheckableLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -48,4 +48,4 @@
         android:duplicateParentState="true"
         android:focusable="false"
         style="@style/RequestRoleItemRadioButton" />
-</com.android.packageinstaller.role.ui.CheckableLinearLayout>
+</com.android.permissioncontroller.role.ui.CheckableLinearLayout>
