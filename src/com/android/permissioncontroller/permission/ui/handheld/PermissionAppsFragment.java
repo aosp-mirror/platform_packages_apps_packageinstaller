@@ -271,9 +271,8 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                 }
 
                 SmartIconLoadPackagePermissionPreference pref =
-                        new SmartIconLoadPackagePermissionPreference(getActivity().getApplication(),
-                                packageName, user, context, mPermGroupName,
-                                PermissionAppsFragment.class.getName(), sessionId);
+                        new SmartIconLoadPackagePermissionPreference(this, packageName, user,
+                                mPermGroupName, PermissionAppsFragment.class.getName(), sessionId);
                 pref.setKey(key);
                 pref.setTitle(KotlinUtils.INSTANCE.getPackageLabel(getActivity().getApplication(),
                         packageName, user));
