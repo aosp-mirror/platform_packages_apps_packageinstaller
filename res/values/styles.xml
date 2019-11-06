@@ -711,15 +711,26 @@
     <style name="RequestRoleView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingStart">?android:dialogPreferredPadding</item>
-        <item name="android:paddingEnd">?android:dialogPreferredPadding</item>
-        <item name="android:clipChildren">false</item>
-        <item name="android:clipToPadding">false</item>
+        <!-- @android:dimen/dialog_title_divider_material -->
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="RequestRoleViewListView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:cacheColorHint">@null</item>
+        <item name="android:divider">?android:listDividerAlertDialog</item>
+        <item name="android:overScrollMode">ifContentScrolls</item>
+        <item name="android:scrollIndicators">top|bottom</item>
     </style>
 
     <style name="RequestRoleViewCheckbox">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">?android:dialogPreferredPadding</item>
+        <item name="android:layout_marginEnd">?android:dialogPreferredPadding</item>
         <item name="android:minHeight">?android:listPreferredItemHeightSmall</item>
         <item name="android:paddingStart">16dp</item>
         <item name="android:textAppearance">@style/android:TextAppearance.Material.Subhead</item>
