@@ -17,54 +17,69 @@
 package com.android.permissioncontroller.permission.ui.handheld
 
 import android.app.Application
-import android.content.Context
 import android.content.Intent
 import android.os.UserHandle
 import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.preference.AndroidResources
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.android.permissioncontroller.Constants.EXTRA_SESSION_ID
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.ui.AppPermissionActivity
+import com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog
 import com.android.permissioncontroller.permission.utils.KotlinUtils
+import com.android.permissioncontroller.permission.utils.LocationUtils
+import com.android.permissioncontroller.permission.utils.Utils
 
 /**
  * A Preference representing a package for a user, which loads and displays its icon only upon
  * being bound to a viewHolder. This lets us synchronously load package icons and labels, while
  * still displaying the PermissionAppsFragment instantly.
  *
- * @param app: The current application
+ * @param fragment: The current fragment
  * @param packageName: The name of the package whose icon this preference will retrieve
  * @param user: The user whose package icon will be retrieved
  * @param groupName: The name of the permission group this Preference is showing for
- * @param context: The current context
  * @param caller: The name of the caller of this constructor. See
  * @see AppPermissionActivity.EXTRA_CALLER_NAME
  * @param sessionId: An int representing the current session
  */
 open class SmartIconLoadPackagePermissionPreference @JvmOverloads constructor(
-    private val app: Application,
+    fragment: Fragment,
     private val packageName: String,
     private val user: UserHandle,
-    context: Context,
     groupName: String,
     caller: String,
     sessionId: Long = 0
-) : Preference(context) {
+) : Preference(fragment.context) {
+
+    private val app: Application = fragment.activity!!.application!!
 
     init {
         setOnPreferenceClickListener {
-            val intent = Intent(Intent.ACTION_MANAGE_APP_PERMISSION)
-            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName)
-            intent.putExtra(Intent.EXTRA_PERMISSION_GROUP_NAME, groupName)
-            intent.putExtra(Intent.EXTRA_USER, user)
-            intent.putExtra(AppPermissionActivity.EXTRA_CALLER_NAME, caller)
-            intent.putExtra(EXTRA_SESSION_ID, sessionId)
-            context.startActivity(intent)
+            val userContext = Utils.getUserContext(app, user)
+            if (LocationUtils.isLocationGroupAndProvider(userContext, groupName,
+                    packageName)) {
+                val intent = Intent(userContext, LocationProviderInterceptDialog::class.java)
+                intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName)
+                fragment.activity!!.startActivityAsUser(intent, user)
+            } else if (LocationUtils.isLocationGroupAndControllerExtraPackage(
+                    userContext, groupName, packageName)) {
+                // Redirect to location controller extra package settings.
+                LocationUtils.startLocationControllerExtraPackageSettings(fragment.activity!!, user)
+            } else {
+                val intent = Intent(Intent.ACTION_MANAGE_APP_PERMISSION)
+                intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName)
+                intent.putExtra(Intent.EXTRA_PERMISSION_GROUP_NAME, groupName)
+                intent.putExtra(Intent.EXTRA_USER, user)
+                intent.putExtra(AppPermissionActivity.EXTRA_CALLER_NAME, caller)
+                intent.putExtra(EXTRA_SESSION_ID, sessionId)
+                fragment.context!!.startActivity(intent)
+            }
             true
         }
     }
