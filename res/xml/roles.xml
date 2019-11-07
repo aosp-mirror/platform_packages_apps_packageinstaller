@@ -378,6 +378,7 @@
     <!--- @see android.telecom.CallRedirectionService -->
     <role
         name="android.app.role.CALL_REDIRECTION"
+        behavior="CallRedirectionRoleBehavior"
         description="@string/role_call_redirection_description"
         exclusive="true"
         label="@string/role_call_redirection_label"
@@ -397,6 +398,7 @@
     <!--- @see android.telecom.CallScreeningService -->
     <role
         name="android.app.role.CALL_SCREENING"
+        behavior="CallScreeningRoleBehavior"
         description="@string/role_call_screening_description"
         exclusive="true"
         label="@string/role_call_screening_label"
