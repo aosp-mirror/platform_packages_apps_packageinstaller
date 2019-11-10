@@ -28,7 +28,7 @@
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Informazio gehiago"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Ukatu hala ere"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari \"<xliff:g id="ACTION">%2$s</xliff:g>\" izeneko baimena eman nahi diozu?"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"\"<xliff:g id="ACTION">%2$s</xliff:g>\" izeneko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
     <string name="permission_add_background_warning_template" msgid="5391175001698541141">"Beti eman nahi diozu \"<xliff:g id="ACTION">%2$s</xliff:g>\" baimena &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
     <string name="allow_permission_foreground_only" msgid="1016389465002335286">"Aplikazioa erabiltzean soilik"</string>
     <string name="allow_permission_always" msgid="7047379650123289823">"Beti"</string>
@@ -250,7 +250,7 @@
     <string name="role_emergency_request_description" msgid="6604461788824945209">"Ez du behar baimenik"</string>
     <string name="role_home_label" msgid="2403568779207064895">"Hasierako aplikazio lehenetsia"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"Hasierako aplikazioa"</string>
-    <string name="role_home_description" msgid="4692657963991101103">"Android gailuko hasierako pantailak ordezten dituzten aplikazioak (\"abiarazle\" ere deitzen zaie). Gailuko eduki eta eginbideetarako sarbidea ematen dute."</string>
+    <string name="role_home_description" msgid="4692657963991101103">"Android-eko gailuko hasierako pantailak ordezten dituzten aplikazioak (\"abiarazle\" ere deitzen zaie). Gailuko eduki eta eginbideetarako sarbidea ematen dute."</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu hasierako aplikazio lehenetsi gisa?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"Ez du behar baimenik"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"Deiak desbideratzeko aplikazio lehenetsia"</string>
@@ -295,7 +295,7 @@
     <string name="incident_report_notification_text" msgid="3982379040142711581">"<xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioak arazketa-informazioa kargatu nahi du."</string>
     <string name="incident_report_dialog_title" msgid="7779774651136791681">"Partekatu arazketa-datuak"</string>
     <string name="incident_report_dialog_intro" msgid="4267939213446817062">"Arazo bat hauteman du sistemak."</string>
-    <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="DATE">%2$s</xliff:g> datan (<xliff:g id="TIME">%3$s</xliff:g>) sortutako akatsen txostena kargatzeko baimena eskatzen ari da <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Akatsen txostenek zure gailuari buruzkoa den edo aplikazioek erregistratu duten informazio pertsonala dute; adibidez, erabiltzaile-izenak, kokapenari buruzko datuak, gailuaren identifikatzaileak eta sareari buruzko informazioa. Informazio hori izateko fidagarriak iruditzen zaizkizun pertsona eta aplikazioekin soilik partekatu beharko zenituzke akatsen txostenak. <xliff:g id="APP_NAME_1">%4$s</xliff:g> aplikazioari akatsen txostena kargatzeko baimena eman nahi diozu?"</string>
+    <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="DATE">%2$s</xliff:g> datan (<xliff:g id="TIME">%3$s</xliff:g>) sortutako akatsen txostena kargatzeko baimena eskatzen ari da <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Akatsen txostenek zure gailuari buruzkoa den edo aplikazioek erregistratu duten informazio pertsonala dute; adibidez, erabiltzaile-izenak, kokapenari buruzko datuak, gailuaren identifikatzaileak eta sareari buruzko informazioa. Informazio hori izateko fidagarriak iruditzen zaizkizun pertsona eta aplikazioekin soilik partekatu beharko zenituzke akatsen txostenak. Akatsen txostena kargatzeko baimena eman nahi diozu <xliff:g id="APP_NAME_1">%4$s</xliff:g> aplikazioari?"</string>
     <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"Errore bat gertatu da <xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioaren akatsen txostena prozesatzean; beraz, ezin izan dira partekatu arazketa-datu xehatuak. Barkatu eragozpenak."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Baimendu"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Ukatu"</string>
