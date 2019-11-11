@@ -22,10 +22,12 @@
     style="@style/PermissionGrantScrollView">
 
     <LinearLayout
+        android:id="@+id/grant_singleton"
         style="@style/PermissionGrantSingleton">
 
         <!-- The dialog -->
         <LinearLayout
+            android:id="@+id/grant_dialog"
             android:theme="@style/Theme.PermissionGrantDialog"
             style="@style/PermissionGrantDialog">
 
@@ -86,8 +88,8 @@
 
                 <Button
                     android:id="@+id/permission_deny_and_dont_ask_again_button"
-                    android:text="@string/grant_dialog_button_deny_and_dont_ask_again"
-                    style="@style/PermissionGrantButtonDenyDontAskAgain" />
+                    android:text="@string/grant_dialog_button_deny"
+                    style="@style/PermissionGrantButtonDeny" />
             </LinearLayout>
 
         </LinearLayout>

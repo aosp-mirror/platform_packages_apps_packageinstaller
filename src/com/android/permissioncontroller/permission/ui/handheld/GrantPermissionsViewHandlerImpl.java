@@ -167,6 +167,8 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
 
         int h = mActivity.getResources().getDisplayMetrics().heightPixels;
         mRootView.setMinimumHeight(h);
+        mRootView.findViewById(R.id.grant_singleton).setOnClickListener(this); // Cancel dialog
+        mRootView.findViewById(R.id.grant_dialog).setOnClickListener(this); // Swallow click event
 
         mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
         mDetailMessageView = (TextView) mRootView.findViewById(R.id.detail_message);
@@ -290,6 +292,13 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                 intent.putExtra(ManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
                 mActivity.startActivity(intent);
                 break;
+            case R.id.grant_singleton:
+                if (mResultListener != null) {
+                    mResultListener.onPermissionGrantResult(mGroupName, CANCELED);
+                } else {
+                    mActivity.finish();
+                }
+                break;
         }
 
     }
@@ -297,7 +306,9 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     @Override
     public void onBackPressed() {
         if (mResultListener != null) {
-            mResultListener.onPermissionGrantResult(mGroupName, DENIED);
+            mResultListener.onPermissionGrantResult(mGroupName, CANCELED);
+        } else {
+            mActivity.finish();
         }
     }
 
