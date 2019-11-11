@@ -14,7 +14,7 @@
      limitations under the License.
  -->
 
-<resources
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="6793827020090537173">"অনুমতি নিয়ন্ত্ৰক"</string>
     <string name="ok" msgid="3468756155452870475">"ঠিক আছে"</string>
@@ -239,29 +239,25 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"যিবোৰ এপে আপোনাক নিজৰ ডিভাইচৰ পৰা টেলিফ’ন কল কৰিবলৈ বা গ্ৰহণ কৰিবলৈ অনুমতি দিয়ে"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"<xliff:g id="APP_NAME">%1$s</xliff:g>ক আপোনাৰ ডিফ’ল্ট ফ’ন এপ্ হিচাপে ছেট কৰিবনে?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"কল লগ আৰু এছএমএছ পঠিওৱাৰ এক্সেছ লাভ কৰে"</string>
-    <!-- no translation found for role_dialer_search_keywords (895155799112027302) -->
-    <skip />
+    <string name="role_dialer_search_keywords" msgid="895155799112027302">"ডায়েলাৰ"</string>
     <string name="role_sms_label" msgid="1282375330984375167">"ডিফ’ল্ট এছএমএছ এপ্"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"এছএমএছ এপ্"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"যিবোৰ এপে আপোনাক নিজৰ ফ’ন নম্বৰ ব্যৱহাৰ কৰি চমু পাঠ বাৰ্তা, ফট’, ভিডিঅ’ আৰু অন্য সমল পঠিওৱাৰ অনুমতি দিয়ে"</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"<xliff:g id="APP_NAME">%1$s</xliff:g>ক আপোনাৰ ডিফ’ল্ট এছএমএছ এপ্ হিচাপে ছেট কৰিবনে?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"সম্পৰ্কসূচী, এছএমএছ আৰু ফ’নৰ এক্সেছ লাভ কৰে"</string>
-    <!-- no translation found for role_sms_search_keywords (2945186984158026205) -->
-    <skip />
+    <string name="role_sms_search_keywords" msgid="2945186984158026205">"পাঠ বাৰ্তা, পাঠ বাৰ্তা পঠিওৱা, বাৰ্তাসমূহ, বাৰ্তা পঠিওৱা"</string>
     <string name="role_emergency_label" msgid="8510350771744625248">"ডিফ’ল্ট জৰুৰীকালীন এপ্"</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"জৰুৰীকালীন এপ্"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"যিবোৰ এপে প্ৰতিকূল বতৰ আৰু দুৰ্যোগৰ বিষয়ে সতৰ্কতাবাণী পাবলৈ আৰু আপোনাৰ সহায়ৰ প্ৰয়োজন হ’লে আনক জনাবলৈ আপোনাক নিজৰ চিকিৎসা সম্পৰ্কীয় তথ্য ৰেকৰ্ড কৰাৰ অনুমতি দিয়ে আৰু সেইবোৰ জৰুৰীকালীন সেৱা প্ৰদানকাৰীয়ে এক্সেছ কৰিবপৰা কৰে"</string>
     <string name="role_emergency_request_title" msgid="862426026906033381">"<xliff:g id="APP_NAME">%1$s</xliff:g>ক আপোনাৰ ডিফল্ট জৰুৰীকালীন এপ্ হিচাপে ছেট কৰিবনে?"</string>
     <string name="role_emergency_request_description" msgid="6604461788824945209">"কোনো অনুমতিৰ প্ৰয়োজন নাই"</string>
-    <!-- no translation found for role_emergency_search_keywords (2673647450096972709) -->
-    <skip />
+    <string name="role_emergency_search_keywords" msgid="2673647450096972709">"বৰফ"</string>
     <string name="role_home_label" msgid="2403568779207064895">"ডিফ’ল্ট হ’ম এপ্"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"হ’ম এপ্"</string>
     <string name="role_home_description" msgid="4692657963991101103">"যিবোৰ এপক সাধাৰণতে লঞ্চাৰ বুলি কোৱা হয় সেই এপ্‌বোৰে আপোনাৰ Android ডিভাইচত গৃহ স্ক্ৰীণৰ ঠাই লয় আৰু আপোনাক নিজৰ ডিভাইচৰ সমল আৰু সুবিধাবোৰৰ এক্সেছ দিয়ে"</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"<xliff:g id="APP_NAME">%1$s</xliff:g>ক আপোনাৰ ডিফ’ল্ট হ’ম এপ্ হিচাপে ছেট কৰিবনে?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"কোনো অনুমতিৰ প্ৰয়োজন নাই"</string>
-    <!-- no translation found for role_home_search_keywords (3885213997311705959) -->
-    <skip />
+    <string name="role_home_search_keywords" msgid="3885213997311705959">"লঞ্চাৰ"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"ডিফ’ল্ট কল ৰিডাইৰেক্ট কৰা এপ্"</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"কল ৰিডাইৰেক্ট কৰা এপ্"</string>
     <string name="role_call_redirection_description" msgid="1118180396571102108">"যিবোৰ এপে আপোনাক এটা ফ’ন নম্বৰৰ পৰা আন এটালৈ বহিৰ্গামী কলসমূহ ফ’ৰৱাৰ্ড কৰিবলৈ অনুমতি দিয়ে"</string>

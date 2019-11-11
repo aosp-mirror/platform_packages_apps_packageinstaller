@@ -14,7 +14,7 @@
      limitations under the License.
  -->
 
-<resources
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="6793827020090537173">"Heimildastýring"</string>
     <string name="ok" msgid="3468756155452870475">"Í lagi"</string>
@@ -239,7 +239,7 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"Forrit sem gera þér kleift að hringja og svara símtölum í tækinu"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"Velja <xliff:g id="APP_NAME">%1$s</xliff:g> sem sjálfgefið símaforrit?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"Fær aðgang að símtalaskrám og getur sent SMS-skilaboð"</string>
-    <string name="role_dialer_search_keywords" msgid="895155799112027302">"númeraval"</string>
+    <string name="role_dialer_search_keywords" msgid="895155799112027302">"hringiforrit"</string>
     <string name="role_sms_label" msgid="1282375330984375167">"Sjálfgefið SMS-forrit"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"SMS-forrit"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"Forrit sem gera þér kleift að nota símanúmerið þitt til að senda og taka á móti stuttum textaskilaboðum, myndum, myndskeiðum og fleira"</string>
