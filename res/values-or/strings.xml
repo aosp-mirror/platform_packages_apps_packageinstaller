@@ -14,7 +14,7 @@
      limitations under the License.
  -->
 
-<resources
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="6793827020090537173">"ଅନୁମତି ନିୟନ୍ତ୍ରକ"</string>
     <string name="ok" msgid="3468756155452870475">"ଠିକ୍‍ ଅଛି"</string>
@@ -239,29 +239,25 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"ଆପ୍ସ, ଯାହା ଆପଣଙ୍କୁ ଆପଣଙ୍କର ଡିଭାଇସ୍‌ରେ ଟେଲିଫୋନ୍ କଲ୍ କରିବାକୁ ଏବଂ ଗ୍ରହଣ କରିବାକୁ ଅନୁମତି ଦିଏ"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ ଫୋନ୍ ଆପ୍ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"କଲ୍‌ ଲଗ୍‌କୁ ଆକ୍ସେସ୍ ପ୍ରାପ୍ତ କରେ, SMS ପଠାଏ"</string>
-    <!-- no translation found for role_dialer_search_keywords (895155799112027302) -->
-    <skip />
+    <string name="role_dialer_search_keywords" msgid="895155799112027302">"ଡାୟଲର୍"</string>
     <string name="role_sms_label" msgid="1282375330984375167">"ଡିଫଲ୍ଟ SMS ଆପ୍"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"SMS ଆପ୍‌"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"ଆପ୍ସ, ଯାହା ଆପଣଙ୍କ ଫୋନ୍ ନମ୍ବର ବ୍ୟବହାର କରି ଛୋଟ ଟେକ୍ସଟ୍ ମେସେଜ୍, ଫଟୋ, ଭିଡିଓ, ଏବଂ ଅନେକ କିଛି ପଠାଇବା ଏବଂ ପ୍ରାପ୍ତ କରିବାକୁ ଅନୁମତି ଦିଏ"</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ SMS ଆପ୍ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"ଯୋଗାଯୋଗଗୁଡ଼ିକୁ, SMS, ଫୋନ୍‌କୁ ଆକ୍ସେସ୍ ପ୍ରାପ୍ତ କରେ"</string>
-    <!-- no translation found for role_sms_search_keywords (2945186984158026205) -->
-    <skip />
+    <string name="role_sms_search_keywords" msgid="2945186984158026205">"ଟେକ୍ସଟ୍ ମେସେଜ୍, ଟେକ୍ସଟ୍ ଲେଖିବା, ମେସେଜ୍‌ଗୁଡ଼ିକ, ମେସେଜ୍ ପଠାଇବା"</string>
     <string name="role_emergency_label" msgid="8510350771744625248">"ଡିଫଲ୍ଟ ଜରୁରୀକାଳୀନ ଆପ୍"</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"ଜରୁରୀକାଳୀନ ଆପ୍"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"ଆପ୍ସ ଯାହା ଆପଣଙ୍କୁ ଗମ୍ଭୀର ପାଣିପାଗ ଇଭେଣ୍ଟ ଏବଂ ଦୈବ ଦୁର୍ବିପାକ ବିଷୟରେ ଆଲର୍ଟ ପାଇବା ପାଇଁ ଏବଂ ଆପଣ ସାହାଯ୍ୟ ଆବଶ୍ୟକ କରୁଥିବା ସମୟରେ ଅନ୍ୟମାନଙ୍କୁ ଜଣାଇବାକୁ ଦିଏ; ଆପଣଙ୍କୁ ନିଜର ଚିକିତ୍ସା ସୂଚନୀ ରେକର୍ଡ କରିବାକୁ ଦିଏ ଏବଂ ସେହି ରେକର୍ଡକୁ ଜରୁରିକାଳୀନ ସହାୟତା କର୍ମଚାରୀଙ୍କ ପାଇଁ ଆକ୍ସେସ୍ ଯୋଗ୍ୟ କରାଇଥାଏ"</string>
     <string name="role_emergency_request_title" msgid="862426026906033381">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କର ଡିଫଲ୍ଟ ଜରୁରୀକାଳୀନ ଆପ୍ ଭାବେ ସେଟ୍ କରିବେ କି?"</string>
     <string name="role_emergency_request_description" msgid="6604461788824945209">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
-    <!-- no translation found for role_emergency_search_keywords (2673647450096972709) -->
-    <skip />
+    <string name="role_emergency_search_keywords" msgid="2673647450096972709">"ice"</string>
     <string name="role_home_label" msgid="2403568779207064895">"ଡିଫଲ୍ଟ ଫୋନ୍ ଆପ୍"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"ମୂଳ ଆପ୍"</string>
     <string name="role_home_description" msgid="4692657963991101103">"ଯେଉଁ ଆପ୍ସକୁ ସାଧାରଣତଃ ଲଞ୍ଚର୍ କୁହାଯାଏ, ସେହି ଆପ୍ସ ଆପଣଙ୍କର Android ଡିଭାଇସ୍‌ରେ ମୂଳ ସ୍କ୍ରୀନ୍‌କୁ ପ୍ରତିସ୍ଥାପନ କରିଥାଏ ଏବଂ ଆପଣଙ୍କର ଡିଭାଇସ୍‌ର ବିଷୟବସ୍ତୁ ଏବଂ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକୁ ଆକ୍ସେସ୍ ପ୍ରଦାନ କରିଥାଏ।"</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"<xliff:g id="APP_NAME">%1$s</xliff:g> କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ ମୂଳ ଆପ୍ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
-    <!-- no translation found for role_home_search_keywords (3885213997311705959) -->
-    <skip />
+    <string name="role_home_search_keywords" msgid="3885213997311705959">"ଲଞ୍ଚର୍"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"ଡିଫଲ୍ଟ କଲ୍ ପୁନଃନିର୍ଦ୍ଦେଶିତ ଆପ୍‌"</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"କଲ୍ ପୁନଃନିର୍ଦ୍ଦେଶିତ କରା ଆପ୍"</string>
     <string name="role_call_redirection_description" msgid="1118180396571102108">"ସେହି ଆପ୍ସ ଯାହା ଆଉଟ୍‌ଗୋଇଂ କଲ୍‍ଗୁଡ଼ିକୁ ଅନ୍ୟ ଏକ ଫୋନ୍ ନମ୍ବରକୁ ଫର୍‍ୱାର୍ଡ କରିବାକୁ ଆପଣଙ୍କୁ ଅନୁମତି ଦିଏ"</string>

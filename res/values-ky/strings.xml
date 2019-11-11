@@ -14,7 +14,7 @@
      limitations under the License.
  -->
 
-<resources
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="6793827020090537173">"Уруксаттарды көзөмөлдөгүч"</string>
     <string name="ok" msgid="3468756155452870475">"Жарайт"</string>
@@ -69,7 +69,7 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Фондук режимде дайындарга мүмкүнчүлүк алуу админ тарабынан өчүрүлгөн"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Фондук режимде дайындарга мүмкүнчүлүк алуу админ тарабынан иштетилген"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Активдүү режимде мүмкүнчүлүк алуу админ тарабынан иштетилген"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Түзмөктүн иштеши үчүн бул уруксат талап кылынат"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Бул уруксат түзмөктүн бир калыпта иштеши үчүн талап кылынат"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->

@@ -14,7 +14,7 @@
      limitations under the License.
  -->
 
-<resources
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="6793827020090537173">"Správce oprávnění"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
@@ -71,7 +71,7 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Přístup na pozadí byl zakázán administrátorem"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Přístup na pozadí byl povolen administrátorem"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Přístup na popředí byl povolen administrátorem"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Zařízení toto oprávnění vyžaduje, aby fungovalo"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Toto oprávnění je nutné pro fungování zařízení"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
