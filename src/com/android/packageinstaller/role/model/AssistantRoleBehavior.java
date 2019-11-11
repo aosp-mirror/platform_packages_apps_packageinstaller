@@ -18,6 +18,7 @@ package com.android.packageinstaller.role.model;
 
 import android.app.ActivityManager;
 import android.app.Application;
+import android.app.role.RoleManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -25,6 +26,7 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
+import android.os.Process;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.service.voice.VoiceInteractionService;
@@ -57,6 +59,20 @@ public class AssistantRoleBehavior implements RoleBehavior {
     private static final Intent ASSIST_SERVICE_PROBE =
             new Intent(VoiceInteractionService.SERVICE_INTERFACE);
     private static final Intent ASSIST_ACTIVITY_PROBE = new Intent(Intent.ACTION_ASSIST);
+
+    @Override
+    public void onRoleAdded(@NonNull Role role, @NonNull Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        if (packageManager.isDeviceUpgrading()) {
+            RoleManager roleManager = context.getSystemService(RoleManager.class);
+            List<String> packageNames = roleManager.getRoleHolders(role.getName());
+            if (packageNames.isEmpty()) {
+                // If the device was upgraded, and there isn't any legacy role holders, it means
+                // user selected "None" in Settings and we need to keep that.
+                role.onNoneHolderSelectedAsUser(Process.myUserHandle(), context);
+            }
+        }
+    }
 
     @Override
     public boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
