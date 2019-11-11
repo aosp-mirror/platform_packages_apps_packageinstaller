@@ -77,11 +77,6 @@
                     style="@style/PermissionGrantButtonAllowForeground" />
 
                 <Button
-                    android:id="@+id/permission_allow_always_button"
-                    android:text="@string/grant_dialog_button_allow_always"
-                    style="@style/PermissionGrantButtonAllowAlways" />
-
-                <Button
                     android:id="@+id/permission_deny_button"
                     android:text="@string/grant_dialog_button_deny"
                     style="@style/PermissionGrantButtonDeny" />
@@ -90,6 +85,16 @@
                     android:id="@+id/permission_deny_and_dont_ask_again_button"
                     android:text="@string/grant_dialog_button_deny"
                     style="@style/PermissionGrantButtonDeny" />
+
+                <Button
+                    android:id="@+id/permission_no_upgrade_button"
+                    android:text="@string/grant_dialog_button_no_upgrade"
+                    style="@style/PermissionGrantButtonNoUpgrade" />
+
+                <Button
+                    android:id="@+id/permission_no_upgrade_and_dont_ask_again_button"
+                    android:text="@string/grant_dialog_button_no_upgrade"
+                    style="@style/PermissionGrantButtonNoUpgrade" />
             </LinearLayout>
 
         </LinearLayout>

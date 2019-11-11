@@ -38,6 +38,7 @@ import static com.android.permissioncontroller.permission.ui.GrantPermissionsVie
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ONE_TIME;
 import static com.android.permissioncontroller.permission.utils.Utils.getRequestMessage;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.KeyguardManager;
 import android.app.admin.DevicePolicyManager;
@@ -51,9 +52,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.permission.PermissionManager;
-import android.text.Html;
+import android.text.Annotation;
+import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.style.ClickableSpan;
 import android.util.ArrayMap;
+import android.util.ArraySet;
 import android.util.Log;
 import android.util.Pair;
 import android.view.MotionEvent;
@@ -88,23 +92,29 @@ public class GrantPermissionsActivity extends Activity
 
     private static final String KEY_REQUEST_ID = GrantPermissionsActivity.class.getName()
             + "_REQUEST_ID";
+    public static final String ANNOTATION_ID = "link";
 
-    public static int NUM_BUTTONS = 6;
-    public static int LABEL_ALLOW_BUTTON = 0;
-    public static int LABEL_ALLOW_ALWAYS_BUTTON = 1;
-    public static int LABEL_ALLOW_FOREGROUND_BUTTON = 2;
-    public static int LABEL_DENY_BUTTON = 3;
-    public static int LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON = 4;
-    public static int LABEL_ALLOW_ONE_TIME = 5;
+    public static final int NUM_BUTTONS = 8;
+    public static final int VISIBILITY_ALLOW_BUTTON = 0;
+    //    public static int LABEL_ALLOW_ALWAYS_BUTTON = 1; RESERVED
+    public static final int VISIBILITY_ALLOW_FOREGROUND_BUTTON = 2;
+    public static final int VISIBILITY_DENY_BUTTON = 3;
+    public static final int VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON = 4;
+    public static final int VISIBILITY_ALLOW_ONE_TIME_BUTTON = 5;
+    public static final int VISIBILITY_NO_UPGRADE_BUTTON = 6;
+    public static final int VISIBILITY_NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON = 7;
+
+    private static final int APP_PERMISSION_REQUEST_CODE = 1;
 
     /** Unique Id of a request */
     private long mRequestId;
 
     private String[] mRequestedPermissions;
-    private CharSequence[] mButtonLabels;
+    private boolean[] mButtonVisibilities;
 
     private ArrayMap<Pair<String, Boolean>, GroupState> mRequestGrantPermissionGroups =
             new ArrayMap<>();
+    private ArraySet<String> mPermissionGroupsToSkip = new ArraySet<>();
 
     private GrantPermissionsViewHandler mViewHandler;
     private AppPermissions mAppPermissions;
@@ -502,6 +512,14 @@ public class GrantPermissionsActivity extends Activity
     }
 
     @Override
+    protected void onResume() {
+        if (!showNextPermissionGroupGrantRequest()) {
+            setResultAndFinish();
+        }
+        super.onResume();
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
 
@@ -585,7 +603,7 @@ public class GrantPermissionsActivity extends Activity
             return false;
         }
 
-        return true;
+        return !mPermissionGroupsToSkip.contains(groupState.mGroup.getName());
     }
 
     private boolean showNextPermissionGroupGrantRequest() {
@@ -599,10 +617,8 @@ public class GrantPermissionsActivity extends Activity
 
         int currentIndex = 0;
         List<GroupState> groupStates = new ArrayList<>(mRequestGrantPermissionGroups.values());
-        Collections.sort(groupStates, (s1, s2) -> {
-            return -Boolean.compare(s1.mGroup.supportsOneTimeGrant(),
-                    s2.mGroup.supportsOneTimeGrant());
-        });
+        Collections.sort(groupStates, (s1, s2) -> -Boolean.compare(s1.mGroup.supportsOneTimeGrant(),
+                s2.mGroup.supportsOneTimeGrant()));
         for (GroupState groupState : groupStates) {
             if (!shouldShowRequestForGroupState(groupState)) {
                 continue;
@@ -652,59 +668,75 @@ public class GrantPermissionsActivity extends Activity
                     }
                 }
 
-                // The button doesn't show when its label is null
-                mButtonLabels = new CharSequence[NUM_BUTTONS];
-                mButtonLabels[LABEL_ALLOW_BUTTON] = getString(R.string.grant_dialog_button_allow);
-                mButtonLabels[LABEL_ALLOW_ALWAYS_BUTTON] = null;
-                mButtonLabels[LABEL_ALLOW_FOREGROUND_BUTTON] = null;
-                mButtonLabels[LABEL_ALLOW_ONE_TIME] = null;
-                mButtonLabels[LABEL_DENY_BUTTON] = getString(R.string.grant_dialog_button_deny);
-                if (isForegroundPermissionUserSet || isBackgroundPermissionUserSet) {
-                    mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                            getString(R.string.grant_dialog_button_deny);
-                    mButtonLabels[LABEL_DENY_BUTTON] = null;
-                } else {
-                    mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] = null;
-                }
+                mButtonVisibilities = new boolean[NUM_BUTTONS];
+                mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = true;
+                mButtonVisibilities[VISIBILITY_DENY_BUTTON] = true;
+                mButtonVisibilities[VISIBILITY_ALLOW_ONE_TIME_BUTTON] =
+                        groupState.mGroup.supportsOneTimeGrant();
 
-                if (groupState.mGroup.supportsOneTimeGrant()) {
-                    mButtonLabels[LABEL_ALLOW_ONE_TIME] =
-                            getString(R.string.grant_dialog_button_allow_one_time);
-                }
                 int messageId;
                 int detailMessageId = 0;
-                if (needForegroundPermission) {
-                    messageId = groupState.mGroup.getRequest();
 
-                    if (groupState.mGroup.hasPermissionWithBackgroundMode()) {
-                        mButtonLabels[LABEL_ALLOW_BUTTON] = null;
-                        mButtonLabels[LABEL_ALLOW_FOREGROUND_BUTTON] =
-                                getString(R.string.grant_dialog_button_allow_foreground);
-                        mButtonLabels[LABEL_ALLOW_ONE_TIME] = getString(
-                                R.string.grant_dialog_button_allow_one_time);
-                        if (needBackgroundPermission) {
-                            mButtonLabels[LABEL_ALLOW_ALWAYS_BUTTON] =
-                                    getString(R.string.grant_dialog_button_allow_always);
-                            if (isForegroundPermissionUserSet || isBackgroundPermissionUserSet) {
-                                mButtonLabels[LABEL_DENY_BUTTON] = null;
-                            }
-                        }
-                    } else {
-                        detailMessageId = groupState.mGroup.getRequestDetail();
-                    }
-                } else {
-                    if (needBackgroundPermission) {
-                        messageId = groupState.mGroup.getBackgroundRequest();
-                        detailMessageId = groupState.mGroup.getBackgroundRequestDetail();
-                        mButtonLabels[LABEL_ALLOW_BUTTON] =
-                                getString(R.string.grant_dialog_button_allow_background);
-                        mButtonLabels[LABEL_ALLOW_ONE_TIME] = null;
-                        mButtonLabels[LABEL_DENY_BUTTON] = null;
-                        mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                                getString(R.string.grant_dialog_button_deny_background);
+                // TODO evanseverson: R ui not implemented yet, just show them Q- for now
+                // STOPSHIP
+                if (mAppPermissions.getPackageInfo().applicationInfo.targetSdkVersion
+                        >= Build.VERSION_CODES.R && false) {
+                    if (needForegroundPermission && needBackgroundPermission) {
+                        Log.e(LOG_TAG, "Apps targeting sdk " + Build.VERSION_CODES.R
+                                + " or later must get foreground permission"
+                                + " before requesting background");
+                        return false;
+                    } else if (needForegroundPermission) {
+                        // Show (onetime), foreground, deny
+                    } else if (needBackgroundPermission) {
+                        // Go to AppPermission page if rate limit hasn't been reached
                     } else {
                         // Not reached as the permissions should be auto-granted
                         return false;
+                    }
+                } else {
+                    if (groupState.mGroup.hasPermissionWithBackgroundMode()
+                            || groupState.mGroup.isBackgroundGroup()) { // is tristate
+                        if (needForegroundPermission && needBackgroundPermission) {
+                            // Requests both background and foreground
+                            messageId = groupState.mGroup.getRequest();
+                            detailMessageId = groupState.mGroup.getBackgroundRequestDetail();
+                            mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
+                            mButtonVisibilities[VISIBILITY_ALLOW_FOREGROUND_BUTTON] = true;
+                            mButtonVisibilities[VISIBILITY_DENY_BUTTON] =
+                                    !isForegroundPermissionUserSet;
+                            mButtonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
+                                    isForegroundPermissionUserSet;
+                        } else if (needForegroundPermission) {
+                            // Only requests foreground
+                            messageId = groupState.mGroup.getRequest();
+                            mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
+                            mButtonVisibilities[VISIBILITY_ALLOW_FOREGROUND_BUTTON] = true;
+                            mButtonVisibilities[VISIBILITY_DENY_BUTTON] =
+                                    !isForegroundPermissionUserSet;
+                            mButtonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
+                                    isForegroundPermissionUserSet;
+                        } else if (needBackgroundPermission) {
+                            // Upgrade from foreground to background
+                            messageId = groupState.mGroup.getBackgroundRequest();
+                            detailMessageId = groupState.mGroup.getBackgroundRequestDetail();
+                            mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
+                            mButtonVisibilities[VISIBILITY_DENY_BUTTON] = false;
+                            mButtonVisibilities[VISIBILITY_ALLOW_ONE_TIME_BUTTON] = false;
+                            mButtonVisibilities[VISIBILITY_NO_UPGRADE_BUTTON] =
+                                    !isBackgroundPermissionUserSet;
+                            mButtonVisibilities[VISIBILITY_NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON] =
+                                    isBackgroundPermissionUserSet;
+                        } else {
+                            // Not reached as the permissions should be auto-granted
+                            return false;
+                        }
+                    } else {
+                        messageId = groupState.mGroup.getRequest();
+                        mButtonVisibilities[VISIBILITY_DENY_BUTTON] =
+                                !isForegroundPermissionUserSet;
+                        mButtonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
+                                isForegroundPermissionUserSet;
                     }
                 }
 
@@ -714,10 +746,32 @@ public class GrantPermissionsActivity extends Activity
                 Spanned detailMessage = null;
                 if (detailMessageId != 0) {
                     try {
-                        detailMessage = Html.fromHtml(
-                                getPackageManager().getResourcesForApplication(
-                                        groupState.mGroup.getDeclaringPackage()).getString(
-                                        detailMessageId), 0);
+                        detailMessage =
+                                new SpannableString(getPackageManager().getResourcesForApplication(
+                                        groupState.mGroup.getDeclaringPackage()).getText(
+                                        detailMessageId));
+                        if (Manifest.permission_group.LOCATION.equals(groupState.mGroup.getName())
+                                && needBackgroundPermission && !needForegroundPermission) {
+                            // TODO evanseverson: new requestDetail field to add in frameworks
+                            detailMessage = new SpannableString(
+                                    getText(R.string.permgroupupgraderequestdeail_location));
+                        }
+                        Annotation[] annotations = detailMessage.getSpans(
+                                0, detailMessage.length(), Annotation.class);
+                        int numAnnotations = annotations.length;
+                        for (int i = 0; i < numAnnotations; i++) {
+                            Annotation annotation = annotations[i];
+                            if (annotation.getValue().equals(ANNOTATION_ID)) {
+                                int start = detailMessage.getSpanStart(annotation);
+                                int end = detailMessage.getSpanEnd(annotation);
+                                ClickableSpan clickableSpan = getLinkToAppPermissions(groupState);
+                                SpannableString spannableString =
+                                        new SpannableString(detailMessage);
+                                spannableString.setSpan(clickableSpan, start, end, 0);
+                                detailMessage = spannableString;
+                                break;
+                            }
+                        }
                     } catch (NameNotFoundException ignored) {
                     }
                 }
@@ -726,7 +780,7 @@ public class GrantPermissionsActivity extends Activity
                 setTitle(message);
 
                 mViewHandler.updateUi(groupState.mGroup.getName(), numGrantRequests, currentIndex,
-                        icon, message, detailMessage, mButtonLabels);
+                        icon, message, detailMessage, mButtonVisibilities);
 
                 return true;
             }
@@ -737,6 +791,37 @@ public class GrantPermissionsActivity extends Activity
         }
 
         return false;
+    }
+
+    private ClickableSpan getLinkToAppPermissions(GroupState groupState) {
+        return new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSION);
+                intent.putExtra(Intent.EXTRA_PACKAGE_NAME,
+                        mAppPermissions.getPackageInfo().packageName);
+                intent.putExtra(Intent.EXTRA_PERMISSION_GROUP_NAME,
+                        groupState.mGroup.getName());
+                intent.putExtra(Intent.EXTRA_USER, groupState.mGroup.getUser());
+                intent.putExtra(AppPermissionActivity.EXTRA_CALLER_NAME,
+                        GrantPermissionsActivity.class.getName());
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivityForResult(intent, APP_PERMISSION_REQUEST_CODE);
+            }
+        };
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == APP_PERMISSION_REQUEST_CODE) {
+            if (data != null) {
+                String groupName = data.getStringExtra(
+                        AppPermissionActivity.EXTRA_RESULT_PERMISSION_INTERACTED);
+                if (groupName != null) {
+                    mPermissionGroupsToSkip.add(groupName);
+                }
+            }
+        }
     }
 
     @Override
@@ -995,23 +1080,16 @@ public class GrantPermissionsActivity extends Activity
         int presentedButtons = getButtonState();
         switch (grantResult) {
             case GRANTED_ALWAYS:
-                if ((presentedButtons & (1 << LABEL_ALLOW_BUTTON)) != 0) {
-                    clickedButton = 1 << LABEL_ALLOW_BUTTON;
-                } else {
-                    clickedButton = 1 << LABEL_ALLOW_ALWAYS_BUTTON;
-                }
+                clickedButton = 1 << VISIBILITY_ALLOW_BUTTON;
                 break;
             case GRANTED_FOREGROUND_ONLY:
-                clickedButton = 1 << LABEL_ALLOW_FOREGROUND_BUTTON;
+                clickedButton = 1 << VISIBILITY_ALLOW_FOREGROUND_BUTTON;
                 break;
             case DENIED:
-                clickedButton = 1 << LABEL_DENY_BUTTON;
-                break;
-            case DENIED_DO_NOT_ASK_AGAIN:
-                clickedButton = 1 << LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON;
+                clickedButton = 1 << VISIBILITY_DENY_BUTTON;
                 break;
             case GRANTED_ONE_TIME:
-                clickedButton = 1 << LABEL_ALLOW_ONE_TIME;
+                clickedButton = 1 << VISIBILITY_ALLOW_ONE_TIME_BUTTON;
             default:
                 break;
         }
@@ -1025,13 +1103,13 @@ public class GrantPermissionsActivity extends Activity
     }
 
     private int getButtonState() {
-        if (mButtonLabels == null) {
+        if (mButtonVisibilities == null) {
             return 0;
         }
         int buttonState = 0;
         for (int i = NUM_BUTTONS - 1; i >= 0; i--) {
             buttonState *= 2;
-            if (mButtonLabels[i] != null) {
+            if (mButtonVisibilities[i]) {
                 buttonState++;
             }
         }

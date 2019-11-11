@@ -1,6 +1,6 @@
 package com.android.permissioncontroller.permission.ui;
 
-import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -79,11 +79,10 @@ final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHand
 
     @Override
     public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, CharSequence detailMessage,
-            CharSequence[] buttonLabels) {
+            CharSequence message, CharSequence detailMessage, boolean[] buttonVisibilities) {
         // TODO: Handle detailMessage
 
-        boolean showDoNotAsk = buttonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] != null;
+        boolean showDoNotAsk = buttonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON];
 
         if (Log.isLoggable(TAG, Log.DEBUG)) {
             Log.d(TAG, "updateUi() - groupName: " + groupName
