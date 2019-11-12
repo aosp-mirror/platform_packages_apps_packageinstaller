@@ -14,7 +14,7 @@
      limitations under the License.
  -->
 
-<resources
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="6793827020090537173">"Թույլտվությունների հսկիչ"</string>
     <string name="ok" msgid="3468756155452870475">"Հաստատել"</string>
@@ -216,7 +216,7 @@
     <string name="permission_subtitle_only_in_foreground" msgid="4173535624805161577">"Միայն երբ հավելվածն օգտագործվում է"</string>
     <string name="no_permissions_allowed" msgid="3972033828052568206">"Թույլտվությունները տրված չեն"</string>
     <string name="no_permissions_denied" msgid="4148813660212679056">"Բոլոր թույլտվությունները տրված են"</string>
-    <string name="no_apps_allowed" msgid="4959324189831343508">"Ոչ մի հավելվածում չի գործում"</string>
+    <string name="no_apps_allowed" msgid="4959324189831343508">"Թույլատրված չէ ոչ մի հավելվածի"</string>
     <string name="no_apps_denied" msgid="4966465333227047186">"Գործում է բոլոր հավելվածներում"</string>
     <string name="car_permission_selected" msgid="5788441628706535323">"Ընտրված է"</string>
     <string name="settings" msgid="6743583734099755409">"Կարգավորումներ"</string>
