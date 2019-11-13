@@ -16,7 +16,6 @@
 
 package com.android.permissioncontroller.permission.model.livedatatypes
 
-import android.content.pm.PackageManager
 import android.os.UserHandle
 
 /**
@@ -30,7 +29,7 @@ import android.os.UserHandle
 data class LightAppPermGroup(
     val packageInfo: LightPackageInfo,
     val permGroupInfo: LightPermGroupInfo,
-    val permissions: Map<String, Pair<LightPermInfo, PermState>>
+    val permissions: Map<String, LightPermission>
 ) {
     /**
      * The current userHandle of this AppPermGroup.
@@ -41,7 +40,7 @@ data class LightAppPermGroup(
      * The names of all background permissions in the permission group which are requested by the
      * package.
      */
-    val backgroundPermNames = permissions.mapNotNull { it.value.first.backgroundPermission }
+    val backgroundPermNames = permissions.mapNotNull { it.value.backgroundPermission }
 
     /**
      * Whether or not this App Permission Group has a permission which has a background mode
@@ -57,16 +56,14 @@ data class LightAppPermGroup(
      * Whether any of this App Permission Group's foreground permissions are fixed by policy
      */
     val isForegroundPolicyFixed = permissions.any {
-        !backgroundPermNames.contains(it.key) &&
-            it.value.second.permFlags and PackageManager.FLAG_PERMISSION_POLICY_FIXED != 0
+        !backgroundPermNames.contains(it.key) && it.value.isPolicyFixed
     }
 
     /**
      * Whether any of this App Permission Group's background permissions are fixed by policy
      */
     val isBackgroundPolicyFixed = permissions.any {
-        backgroundPermNames.contains(it.key) &&
-            it.value.second.permFlags and PackageManager.FLAG_PERMISSION_POLICY_FIXED != 0
+        backgroundPermNames.contains(it.key) && it.value.isPolicyFixed
     }
 
     /**
@@ -79,21 +76,20 @@ data class LightAppPermGroup(
      * Whether this App Permission Group's permissions are fixed by the system
      */
     val isSystemFixed = permissions.any {
-        !backgroundPermNames.contains(it.key) &&
-            it.value.second.permFlags and PackageManager.FLAG_PERMISSION_SYSTEM_FIXED != 0
+        !backgroundPermNames.contains(it.key) && it.value.isSystemFixed
     }
 
     /**
      * Whether any of this App Permission Group's foreground permissions are granted
      */
     val isForegroundGranted = permissions.any {
-        !backgroundPermNames.contains(it.key) && it.value.second.granted
+        !backgroundPermNames.contains(it.key) && it.value.grantedIncludingAppOp
     }
 
     /**
      * Whether any of this App Permission Group's background permissions are granted
      */
     val isBackgroundGranted = permissions.any {
-        backgroundPermNames.contains(it.key) && it.value.second.granted
+        backgroundPermNames.contains(it.key) && it.value.grantedIncludingAppOp
     }
 }

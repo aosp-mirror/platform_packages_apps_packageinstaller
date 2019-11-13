@@ -21,8 +21,7 @@ import android.content.pm.PermissionInfo
 import android.os.Build
 import android.os.UserHandle
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
-import com.android.permissioncontroller.permission.model.livedatatypes.LightPermInfo
-import com.android.permissioncontroller.permission.model.livedatatypes.PermState
+import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission
 import com.android.permissioncontroller.permission.utils.SoftRestrictedPermissionPolicy
 import com.android.permissioncontroller.permission.utils.Utils
 import com.android.permissioncontroller.permission.utils.Utils.OS_PKG
@@ -88,7 +87,7 @@ class AppPermGroupLiveData(
             return
         }
 
-        val permissionMap = mutableMapOf<String, Pair<LightPermInfo, PermState>>()
+        val permissionMap = mutableMapOf<String, LightPermission>()
         val whitelistedRestricted = app.packageManager.getWhitelistedRestrictedPermissions(
                 packageName, Utils.FLAGS_PERMISSION_WHITELIST_ALL)
         for ((permName, permState) in permStates) {
@@ -99,7 +98,7 @@ class AppPermGroupLiveData(
                     !SoftRestrictedPermissionPolicy.shouldShow(packageInfo, permName,
                             permState.permFlags)
             if ((!isHardRestricted || isWhitelisted) && (!isSoftRestricted)) {
-                permissionMap[permName] = permInfo to permState
+                permissionMap[permName] = LightPermission(permInfo, permState)
             }
         }
         value = LightAppPermGroup(packageInfo, permGroup.groupInfo, permissionMap)
