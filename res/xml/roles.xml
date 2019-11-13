@@ -76,6 +76,7 @@
     <role
         name="android.app.role.ASSISTANT"
         behavior="AssistantRoleBehavior"
+        defaultHolders="config_defaultAssistant"
         description="@string/role_assistant_description"
         exclusive="true"
         showNone="true"
@@ -124,6 +125,7 @@
     <role
         name="android.app.role.BROWSER"
         behavior="BrowserRoleBehavior"
+        defaultHolders="config_defaultBrowser"
         description="@string/role_browser_description"
         exclusive="true"
         label="@string/role_browser_label"
@@ -162,6 +164,7 @@
     <role
         name="android.app.role.DIALER"
         behavior="DialerRoleBehavior"
+        defaultHolders="config_defaultDialer"
         description="@string/role_dialer_description"
         exclusive="true"
         label="@string/role_dialer_label"
@@ -232,6 +235,7 @@
     <role
         name="android.app.role.SMS"
         behavior="SmsRoleBehavior"
+        defaultHolders="config_defaultSms"
         description="@string/role_sms_description"
         exclusive="true"
         label="@string/role_sms_label"
@@ -378,7 +382,7 @@
     <!--- @see android.telecom.CallRedirectionService -->
     <role
         name="android.app.role.CALL_REDIRECTION"
-        behavior="CallRedirectionRoleBehavior"
+        defaultHolders="config_defaultCallRedirection"
         description="@string/role_call_redirection_description"
         exclusive="true"
         label="@string/role_call_redirection_label"
@@ -398,7 +402,7 @@
     <!--- @see android.telecom.CallScreeningService -->
     <role
         name="android.app.role.CALL_SCREENING"
-        behavior="CallScreeningRoleBehavior"
+        defaultHolders="config_defaultCallScreening"
         description="@string/role_call_screening_description"
         exclusive="true"
         label="@string/role_call_screening_label"

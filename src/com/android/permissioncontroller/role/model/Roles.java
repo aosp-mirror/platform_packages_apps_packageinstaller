@@ -70,6 +70,7 @@ public class Roles {
     private static final String TAG_PREFERRED_ACTIVITY = "preferred-activity";
     private static final String ATTRIBUTE_NAME = "name";
     private static final String ATTRIBUTE_BEHAVIOR = "behavior";
+    private static final String ATTRIBUTE_DEFAULT_HOLDERS = "defaultHolders";
     private static final String ATTRIBUTE_DESCRIPTION = "description";
     private static final String ATTRIBUTE_EXCLUSIVE = "exclusive";
     private static final String ATTRIBUTE_LABEL = "label";
@@ -287,6 +288,8 @@ public class Roles {
             behavior = null;
         }
 
+        String defaultHoldersResourceName = getAttributeValue(parser, ATTRIBUTE_DEFAULT_HOLDERS);
+
         boolean visible = getAttributeBooleanValue(parser, ATTRIBUTE_VISIBLE, true);
         Integer descriptionResource;
         Integer labelResource;
@@ -424,8 +427,8 @@ public class Roles {
         if (preferredActivities == null) {
             preferredActivities = Collections.emptyList();
         }
-        return new Role(name, behavior, descriptionResource, exclusive, labelResource,
-                requestDescriptionResource, requestTitleResource, requestable,
+        return new Role(name, behavior, defaultHoldersResourceName, descriptionResource, exclusive,
+                labelResource, requestDescriptionResource, requestTitleResource, requestable,
                 searchKeywordsResource, shortLabelResource, showNone, systemOnly, visible,
                 requiredComponents, permissions, appOps, preferredActivities);
     }

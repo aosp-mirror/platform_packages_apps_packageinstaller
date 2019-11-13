@@ -49,13 +49,6 @@ public class BrowserRoleBehavior implements RoleBehavior {
             .addCategory(Intent.CATEGORY_BROWSABLE)
             .setData(Uri.fromParts("http", "", null));
 
-    @NonNull
-    @Override
-    public List<String> getDefaultHolders(@NonNull Role role, @NonNull Context context) {
-        return ExclusiveDefaultHolderMixin.getDefaultHolders(role, "config_defaultBrowser",
-                context);
-    }
-
     @Nullable
     @Override
     public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
