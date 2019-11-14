@@ -22,6 +22,7 @@ import android.os.UserHandle
 import android.util.Log
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.utils.Utils
+import kotlinx.coroutines.Job
 
 /**
  * LiveData for a LightPackageInfo.
@@ -68,18 +69,17 @@ class PackageInfoLiveData(
         super.setValue(newValue)
     }
 
-    override fun loadData(isCancelled: () -> Boolean): LightPackageInfo? {
-        try {
-            if (isCancelled()) {
-                // return will be ignored
-                return value
-            }
-            return LightPackageInfo(context.packageManager.getPackageInfo(packageName,
+    override suspend fun loadDataAndPostValue(job: Job) {
+        if (job.isCancelled) {
+            return
+        }
+        postValue(try {
+            LightPackageInfo(context.packageManager.getPackageInfo(packageName,
                 PackageManager.GET_PERMISSIONS))
         } catch (e: PackageManager.NameNotFoundException) {
             Log.w(LOG_TAG, "Package \"$packageName\" not found")
-            return null
-        }
+            null
+        })
     }
 
     /**
