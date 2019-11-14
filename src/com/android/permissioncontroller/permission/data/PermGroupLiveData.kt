@@ -22,6 +22,7 @@ import android.content.pm.PackageManager
 import android.content.pm.PermissionGroupInfo
 import android.content.pm.PermissionInfo
 import android.os.UserHandle
+import android.util.Log
 import com.android.permissioncontroller.permission.data.PackageInfoRepository.getPackageBroadcastReceiver
 import com.android.permissioncontroller.permission.data.PackageInfoRepository.getPackageInfoLiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermGroupInfo
@@ -42,6 +43,8 @@ class PermGroupLiveData(
     private val groupName: String
 ) : SmartUpdateMediatorLiveData<PermGroup>(),
     PackageBroadcastReceiver.PackageBroadcastListener {
+
+    private val LOG_TAG = this::class.java.simpleName
 
     private val context = app.applicationContext!!
 
@@ -84,6 +87,7 @@ class PermGroupLiveData(
         val permissionInfos = mutableMapOf<String, LightPermInfo>()
 
         groupInfo = Utils.getGroupInfo(groupName, context) ?: run {
+            Log.e(LOG_TAG, "Invalid permission group $groupName")
             value = null
             return
         }
@@ -94,6 +98,7 @@ class PermGroupLiveData(
                     Utils.getInstalledRuntimePermissionInfosForGroup(context.packageManager,
                         groupName)
                 } catch (e: PackageManager.NameNotFoundException) {
+                    Log.e(LOG_TAG, "Invalid permission group $groupName")
                     value = null
                     return
                 }
