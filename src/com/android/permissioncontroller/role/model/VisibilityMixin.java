@@ -24,8 +24,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 /**
- * Mixin for {@link RoleBehavior#getDefaultHolders(Role, Context)} that returns a single default
- * role holder from the corresponding string resource.
+ * Mixin for {@link RoleBehavior#isVisibleAsUser(Role, UserHandle, Context)} that returns whether
+ * the role should be visible from a corresponding boolean resource.
  */
 public class VisibilityMixin {
 

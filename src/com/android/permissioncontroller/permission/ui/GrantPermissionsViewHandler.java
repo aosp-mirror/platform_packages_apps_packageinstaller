@@ -33,9 +33,10 @@ import java.lang.annotation.Retention;
  */
 public interface GrantPermissionsViewHandler {
     @Retention(SOURCE)
-    @IntDef({GRANTED_ALWAYS, GRANTED_FOREGROUND_ONLY, DENIED, DENIED_DO_NOT_ASK_AGAIN,
+    @IntDef({CANCELED, GRANTED_ALWAYS, GRANTED_FOREGROUND_ONLY, DENIED, DENIED_DO_NOT_ASK_AGAIN,
             GRANTED_ONE_TIME})
     @interface Result {}
+    int CANCELED = -1;
     int GRANTED_ALWAYS = 0;
     int GRANTED_FOREGROUND_ONLY = 1;
     int DENIED = 2;

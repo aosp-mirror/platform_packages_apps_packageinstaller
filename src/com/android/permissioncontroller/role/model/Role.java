@@ -23,8 +23,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.os.Process;
 import android.os.UserHandle;
+import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
 
@@ -68,6 +70,8 @@ public class Role {
 
     private static final String PACKAGE_NAME_ANDROID_SYSTEM = "android";
 
+    private static final String PACKAGE_NAME_SEPARATOR = ";";
+
     /**
      * The name of this role. Must be unique.
      */
@@ -79,6 +83,9 @@ public class Role {
      */
     @Nullable
     private final RoleBehavior mBehavior;
+
+    @Nullable
+    private final String mDefaultHoldersResourceName;
 
     /**
      * The string resource for the description of this role.
@@ -172,7 +179,8 @@ public class Role {
     private final List<PreferredActivity> mPreferredActivities;
 
     public Role(@NonNull String name, @Nullable RoleBehavior behavior,
-            @StringRes int descriptionResource, boolean exclusive, @StringRes int labelResource,
+            @Nullable String defaultHoldersResourceName, @StringRes int descriptionResource,
+            boolean exclusive, @StringRes int labelResource,
             @StringRes int requestDescriptionResource, @StringRes int requestTitleResource,
             boolean requestable, @StringRes int searchKeywordsResource,
             @StringRes int shortLabelResource, boolean showNone, boolean systemOnly,
@@ -181,6 +189,7 @@ public class Role {
             @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
+        mDefaultHoldersResourceName = defaultHoldersResourceName;
         mDescriptionResource = descriptionResource;
         mExclusive = exclusive;
         mLabelResource = labelResource;
@@ -324,10 +333,64 @@ public class Role {
      */
     @NonNull
     public List<String> getDefaultHolders(@NonNull Context context) {
-        if (mBehavior != null) {
-            return mBehavior.getDefaultHolders(this, context);
+        if (mDefaultHoldersResourceName == null) {
+            if (mBehavior != null) {
+                return mBehavior.getDefaultHolders(this, context);
+            }
+            return Collections.emptyList();
         }
-        return Collections.emptyList();
+
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier(mDefaultHoldersResourceName, "string", "android");
+        if (resourceId == 0) {
+            Log.w(LOG_TAG, "Cannot find resource for default holder: "
+                    + mDefaultHoldersResourceName);
+            return Collections.emptyList();
+        }
+
+        String resourceValue;
+        try {
+            resourceValue = resources.getString(resourceId);
+        } catch (Resources.NotFoundException e) {
+            Log.w(LOG_TAG, "Cannot get resource for default holder: " + mDefaultHoldersResourceName,
+                    e);
+            return Collections.emptyList();
+        }
+        if (TextUtils.isEmpty(resourceValue)) {
+            return Collections.emptyList();
+        }
+
+        if (isExclusive()) {
+            if (!isDefaultHolderQualified(resourceValue, context)) {
+                return Collections.emptyList();
+            }
+            return Collections.singletonList(resourceValue);
+        } else {
+            String[] resourcePackageNames = resourceValue.split(PACKAGE_NAME_SEPARATOR);
+            List<String> packageNames = new ArrayList<>();
+            for (String packageName : resourcePackageNames) {
+                if (isDefaultHolderQualified(packageName, context)) {
+                    packageNames.add(packageName);
+                }
+            }
+            return packageNames;
+        }
+    }
+
+    private boolean isDefaultHolderQualified(@NonNull String packageName,
+            @NonNull Context context) {
+        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, context);
+        if (applicationInfo == null) {
+            Log.w(LOG_TAG, "Cannot get ApplicationInfo for default holder: " + packageName);
+            return false;
+        }
+
+        if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+            Log.w(LOG_TAG, "Default holder is not a system app: " + packageName);
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -764,6 +827,7 @@ public class Role {
         return "Role{"
                 + "mName='" + mName + '\''
                 + ", mBehavior=" + mBehavior
+                + ", mDefaultHoldersResourceName=" + mDefaultHoldersResourceName
                 + ", mDescriptionResource=" + mDescriptionResource
                 + ", mExclusive=" + mExclusive
                 + ", mLabelResource=" + mLabelResource
@@ -805,6 +869,7 @@ public class Role {
                 && mVisible == that.mVisible
                 && mName.equals(that.mName)
                 && Objects.equals(mBehavior, that.mBehavior)
+                && Objects.equals(mDefaultHoldersResourceName, that.mDefaultHoldersResourceName)
                 && mRequiredComponents.equals(that.mRequiredComponents)
                 && mPermissions.equals(that.mPermissions)
                 && mAppOps.equals(that.mAppOps)
@@ -813,9 +878,9 @@ public class Role {
 
     @Override
     public int hashCode() {
-        return Objects.hash(mName, mBehavior, mDescriptionResource, mExclusive, mLabelResource,
-                mRequestDescriptionResource, mRequestTitleResource, mRequestable,
-                mSearchKeywordsResource, mShortLabelResource, mShowNone, mSystemOnly, mVisible,
-                mRequiredComponents, mPermissions, mAppOps, mPreferredActivities);
+        return Objects.hash(mName, mBehavior, mDefaultHoldersResourceName, mDescriptionResource,
+                mExclusive, mLabelResource, mRequestDescriptionResource, mRequestTitleResource,
+                mRequestable, mSearchKeywordsResource, mShortLabelResource, mShowNone, mSystemOnly,
+                mVisible, mRequiredComponents, mPermissions, mAppOps, mPreferredActivities);
     }
 }

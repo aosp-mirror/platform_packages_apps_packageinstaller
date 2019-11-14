@@ -30,6 +30,7 @@ import static com.android.permissioncontroller.PermissionControllerStatsLog.PERM
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_WITH_PREJUDICE;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED_ONE_TIME;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.CANCELED;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.DENIED;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.DENIED_DO_NOT_ASK_AGAIN;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ALWAYS;
@@ -55,7 +56,6 @@ import android.text.Spanned;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.Pair;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -661,7 +661,8 @@ public class GrantPermissionsActivity extends Activity
                 mButtonLabels[LABEL_DENY_BUTTON] = getString(R.string.grant_dialog_button_deny);
                 if (isForegroundPermissionUserSet || isBackgroundPermissionUserSet) {
                     mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                            getString(R.string.grant_dialog_button_deny_and_dont_ask_again);
+                            getString(R.string.grant_dialog_button_deny);
+                    mButtonLabels[LABEL_DENY_BUTTON] = null;
                 } else {
                     mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] = null;
                 }
@@ -698,11 +699,9 @@ public class GrantPermissionsActivity extends Activity
                         mButtonLabels[LABEL_ALLOW_BUTTON] =
                                 getString(R.string.grant_dialog_button_allow_background);
                         mButtonLabels[LABEL_ALLOW_ONE_TIME] = null;
-                        mButtonLabels[LABEL_DENY_BUTTON] =
-                                getString(R.string.grant_dialog_button_deny_background);
+                        mButtonLabels[LABEL_DENY_BUTTON] = null;
                         mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                                getString(R.string
-                                        .grant_dialog_button_deny_background_and_dont_ask_again);
+                                getString(R.string.grant_dialog_button_deny_background);
                     } else {
                         // Not reached as the permissions should be auto-granted
                         return false;
@@ -777,6 +776,9 @@ public class GrantPermissionsActivity extends Activity
 
         logGrantPermissionActivityButtons(name, result);
         switch (result) {
+            case CANCELED:
+                setResultAndFinish();
+                return;
             case GRANTED_ALWAYS :
                 if (foregroundGroupState != null) {
                     onPermissionGrantResultSingleState(foregroundGroupState, true, false, false);
@@ -871,15 +873,8 @@ public class GrantPermissionsActivity extends Activity
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)  {
-        // We do not allow backing out.
-        return keyCode == KeyEvent.KEYCODE_BACK;
-    }
-
-    @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event)  {
-        // We do not allow backing out.
-        return keyCode == KeyEvent.KEYCODE_BACK;
+    public void onBackPressed() {
+        mViewHandler.onBackPressed();
     }
 
     @Override
