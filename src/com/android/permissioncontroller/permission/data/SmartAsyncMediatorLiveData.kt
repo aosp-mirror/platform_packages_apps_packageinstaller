@@ -16,9 +16,10 @@
 
 package com.android.permissioncontroller.permission.data
 
-import android.annotation.SuppressLint
-import android.os.AsyncTask
-import android.os.AsyncTask.THREAD_POOL_EXECUTOR
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 /**
  * A LiveData which loads its data in a background AsyncTask. It will cancel current tasks, if new
@@ -26,39 +27,32 @@ import android.os.AsyncTask.THREAD_POOL_EXECUTOR
  */
 abstract class SmartAsyncMediatorLiveData<T> : SmartUpdateMediatorLiveData<T>() {
 
-    private var backgroundLoadTask = BackgroundLoadTask()
+    private var currentJob: Job? = null
 
     /**
      * The main function which will load data. It should periodically check isCancelled to see if
-     * it should stop working.
+     * it should stop working. If data is loaded, it should call "postValue".
      */
-    abstract fun loadData(isCancelled: () -> Boolean): T?
+    abstract suspend fun loadDataAndPostValue(job: Job)
 
     open fun updateAsync() {
-        stopTaskIfRunningAndGetNewTask()
-        backgroundLoadTask.executeOnExecutor(THREAD_POOL_EXECUTOR)
-    }
-
-    private fun stopTaskIfRunningAndGetNewTask() {
-        if (backgroundLoadTask.status == AsyncTask.Status.RUNNING) {
-            backgroundLoadTask.cancel(false)
+        cancelJobIfRunning()
+        GlobalScope.launch(Dispatchers.Default) {
+            currentJob = coroutineContext[Job]
+            loadDataAndPostValue(currentJob!!)
         }
-        backgroundLoadTask = BackgroundLoadTask()
     }
 
     override fun onInactive() {
-        stopTaskIfRunningAndGetNewTask()
+        cancelJobIfRunning()
         super.onInactive()
     }
 
-    @SuppressLint("StaticFieldLeak")
-    private inner class BackgroundLoadTask : AsyncTask<Void, Void, T>() {
-        override fun doInBackground(vararg p0: Void?): T? {
-            return loadData { isCancelled }
-        }
-
-        override fun onPostExecute(result: T?) {
-            value = result
+    private fun cancelJobIfRunning() {
+        currentJob?.let { job ->
+            if (job.isActive) {
+                job.cancel()
+            }
         }
     }
 }

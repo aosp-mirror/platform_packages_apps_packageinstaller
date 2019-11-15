@@ -22,6 +22,7 @@ import android.os.UserHandle
 import com.android.permissioncontroller.permission.data.PackageInfoRepository.getPackageBroadcastReceiver
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.utils.KotlinUtils
+import kotlinx.coroutines.Job
 
 /**
  * A LiveData which tracks all of the packageinfos installed for a given user.
@@ -52,21 +53,15 @@ class UserPackageInfosLiveData(
 
     /**
      * Get all of the packages in the system, organized by user.
-     *
-     * @param isCancelled: A boolean function to tell us if the task has been cancelled
-     *
-     * @return A map of UserHandles to a list of package names for a given user
      */
-    override fun loadData(isCancelled: () -> Boolean): List<LightPackageInfo>? {
-        if (isCancelled()) {
-            // return the current value, which will be ignored
-            return value
+    override suspend fun loadDataAndPostValue(job: Job) {
+        if (job.isCancelled) {
+            return
         }
-
         val packageInfos = app.applicationContext.packageManager
             .getInstalledPackagesAsUser(PackageManager.GET_PERMISSIONS,
                 user.identifier)
-        return packageInfos.map { packageInfo -> LightPackageInfo(packageInfo) }
+        postValue(packageInfos.map { packageInfo -> LightPackageInfo(packageInfo) })
     }
 
     override fun onActive() {
