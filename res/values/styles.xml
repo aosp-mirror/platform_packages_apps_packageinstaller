@@ -104,13 +104,13 @@
     <!-- for use in overlays -->
     <style name="PermissionGrantButtonAllow"
            parent="@style/PermissionGrantButton"></style>
-    <style name="PermissionGrantButtonAllowAlways"
-           parent="@style/PermissionGrantButton"></style>
     <style name="PermissionGrantButtonAllowForeground"
            parent="@style/PermissionGrantButton"></style>
     <style name="PermissionGrantButtonAllowOneTime"
            parent="@style/PermissionGrantButton"></style>
     <style name="PermissionGrantButtonDeny"
+           parent="@style/PermissionGrantButton"></style>
+    <style name="PermissionGrantButtonNoUpgrade"
            parent="@style/PermissionGrantButton"></style>
 
     <!-- END PERMISSION GRANT DIALOG -->

@@ -77,10 +77,10 @@ public interface GrantPermissionsViewHandler {
      * @param message the message to display the user
      * @param detailMessage another message to display to the user. This clarifies "message" in more
      *                      detail
-     * @param buttonLabels labels for each button. Use null to make the button gone
+     * @param buttonVisibilities visibilities for each button
      */
     void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, CharSequence detailMessage, CharSequence[] buttonLabels);
+            CharSequence message, CharSequence detailMessage, boolean[] buttonVisibilities);
 
     /**
      * Sets the result listener that will be notified when the user responds

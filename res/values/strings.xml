@@ -37,10 +37,7 @@
     <string name="grant_dialog_button_deny_and_dont_ask_again">Deny \u0026 don\u2019t ask again</string>
 
     <!-- Title for the dialog button to deny a change from foreground to background permission grant. [CHAR LIMIT=60] -->
-    <string name="grant_dialog_button_deny_background">Keep while-in-use access</string>
-
-    <!-- Title for the dialog button to always deny a change from foreground to background permission grant from now on. [CHAR LIMIT=60] -->
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again">Keep and don\u2019t ask again</string>
+    <string name="grant_dialog_button_no_upgrade">Keep \u201cWhile the app is in use\u201d</string>
 
     <!-- Title for the dialog button to get more info about a permission. [CHAR LIMIT=15] -->
     <string name="grant_dialog_button_more_info">More info</string>
@@ -870,4 +867,6 @@ Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug repo
     <!-- Message shown to the user when the apps requests permission from this group. Shows in the isolated storage case. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
     <string name="permgrouprequest_storage_isolated">Allow
         &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to access photos and media on your device?</string>
+    <!-- Subtitle of the message shown to the user when the apps requests permission to use the location while app is in foreground and background. Try to keep the link annotation at the end of the string [CHAR LIMIT=150] -->
+    <string name="permgroupupgraderequestdeail_location">This wants to access your location all the time, even when you\u2019re not using the app. Allow in <annotation id="link">settings</annotation>.</string>
 </resources>

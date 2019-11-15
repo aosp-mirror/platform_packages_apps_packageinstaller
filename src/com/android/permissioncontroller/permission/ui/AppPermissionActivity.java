@@ -51,6 +51,9 @@ public final class AppPermissionActivity extends FragmentActivity {
     public static final String EXTRA_CALLER_NAME =
             "com.android.permissioncontroller.extra.CALLER_NAME";
 
+    public static final String EXTRA_RESULT_PERMISSION_INTERACTED = "com.android"
+            + ".permissioncontroller.extra.RESULT_PERMISSION_INTERACTED";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         if (DeviceUtils.isAuto(this)) {
