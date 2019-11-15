@@ -91,6 +91,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final @StringRes int mRequestDetail;
     private final @StringRes int mBackgroundRequest;
     private final @StringRes int mBackgroundRequestDetail;
+    private final @StringRes int mUpgradeRequest;
+    private final @StringRes int mUpgradeRequestDetail;
     private final CharSequence mDescription;
     private final ArrayMap<String, Permission> mPermissions = new ArrayMap<>();
     private final String mIconPkg;
@@ -261,7 +263,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 groupInfo.packageName, groupLabel, fullGroupLabel,
                 loadGroupDescription(context, groupInfo, packageManager), getRequest(groupInfo),
                 getRequestDetail(groupInfo), getBackgroundRequest(groupInfo),
-                getBackgroundRequestDetail(groupInfo), groupInfo.packageName, groupInfo.icon,
+                getBackgroundRequestDetail(groupInfo), getUpgradeRequest(groupInfo),
+                getUpgradeRequestDetail(groupInfo), groupInfo.packageName, groupInfo.icon,
                 userHandle, delayChanges, appOpsManager);
 
         final Set<String> whitelistedRestrictedPermissions = context.getPackageManager()
@@ -370,6 +373,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                             group.getLabel(), group.getFullLabel(), group.getDescription(),
                             group.getRequest(), group.getRequestDetail(),
                             group.getBackgroundRequest(), group.getBackgroundRequestDetail(),
+                            group.getUpgradeRequest(), group.getUpgradeRequestDetail(),
                             group.getIconPkg(), group.getIconResId(), group.getUser(),
                             delayChanges, appOpsManager);
                 }
@@ -393,13 +397,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     }
 
     private static @StringRes int getRequest(PackageItemInfo group) {
-        if (group instanceof PermissionGroupInfo) {
-            return ((PermissionGroupInfo) group).requestRes;
-        } else if (group instanceof PermissionInfo) {
-            return ((PermissionInfo) group).requestRes;
-        } else {
-            return 0;
-        }
+        return Utils.getRequest(group.name);
     }
 
     private static CharSequence loadGroupDescription(Context context, PackageItemInfo group,
@@ -422,6 +420,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             String declaringPackage, CharSequence label, CharSequence fullLabel,
             CharSequence description, @StringRes int request, @StringRes int requestDetail,
             @StringRes int backgroundRequest, @StringRes int backgroundRequestDetail,
+            @StringRes int upgradeRequest, @StringRes int upgradeRequestDetail,
             String iconPkg, int iconResId, UserHandle userHandle, boolean delayChanges,
             @NonNull AppOpsManager appOpsManager) {
         int targetSDK = packageInfo.applicationInfo.targetSdkVersion;
@@ -445,6 +444,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mRequestDetail = requestDetail;
         mBackgroundRequest = backgroundRequest;
         mBackgroundRequestDetail = backgroundRequestDetail;
+        mUpgradeRequest = upgradeRequest;
+        mUpgradeRequestDetail = upgradeRequestDetail;
         mDelayChanges = delayChanges;
         if (iconResId != 0) {
             mIconPkg = iconPkg;
@@ -572,11 +573,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * @return the message or 0 if unset
      */
     private static @StringRes int getRequestDetail(PackageItemInfo info) {
-        if (info instanceof PermissionGroupInfo) {
-            return ((PermissionGroupInfo) info).requestDetailResourceId;
-        } else {
-            return 0;
-        }
+        return Utils.getRequestDetail(info.name);
     }
 
     /**
@@ -598,11 +595,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * @return the message or 0 if unset
      */
     private static @StringRes int getBackgroundRequest(PackageItemInfo info) {
-        if (info instanceof PermissionGroupInfo) {
-            return ((PermissionGroupInfo) info).backgroundRequestResourceId;
-        } else {
-            return 0;
-        }
+        return Utils.getBackgroundRequest(info.name);
     }
 
     /**
@@ -624,11 +617,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * @return the message or 0 if unset
      */
     private static @StringRes int getBackgroundRequestDetail(PackageItemInfo info) {
-        if (info instanceof PermissionGroupInfo) {
-            return ((PermissionGroupInfo) info).backgroundRequestDetailResourceId;
-        } else {
-            return 0;
-        }
+        return Utils.getBackgroundRequestDetail(info.name);
     }
 
     /**
@@ -639,6 +628,52 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      */
     public @StringRes int getBackgroundRequestDetail() {
         return mBackgroundRequestDetail;
+    }
+
+    /**
+     * Extract the title of the dialog explaining to the user that the permission, which was
+     * previously only granted for foreground, is granted while the app is in background and in
+     * foreground.
+     *
+     * @param info The package item info to extract the message from
+     *
+     * @return the message or 0 if unset
+     */
+    private static @StringRes int getUpgradeRequest(PackageItemInfo info) {
+        return Utils.getUpgradeRequest(info.name);
+    }
+
+    /**
+     * Get the title of the dialog explaining to the user that the permission, which was
+     * previously only granted for foreground, is granted while the app is in background and in
+     * foreground.
+     *
+     * @return the message or 0 if unset
+     */
+    public @StringRes int getUpgradeRequest() {
+        return mUpgradeRequest;
+    }
+
+    /**
+     * Extract the (subtitle) message explaining to the user that the she/he is about to allow the
+     * app to have background access while currently having foreground only.
+     *
+     * @param info The package item info to extract the message from
+     *
+     * @return the message or 0 if unset
+     */
+    private static @StringRes int getUpgradeRequestDetail(PackageItemInfo info) {
+        return Utils.getUpgradeRequestDetail(info.name);
+    }
+
+    /**
+     * Get the (subtitle) message explaining to the user that the she/he is about to allow the
+     * app to have background access while currently having foreground only.
+     *
+     * @return the message or 0 if unset
+     */
+    public @StringRes int getUpgradeRequestDetail() {
+        return mUpgradeRequestDetail;
     }
 
     public CharSequence getDescription() {
