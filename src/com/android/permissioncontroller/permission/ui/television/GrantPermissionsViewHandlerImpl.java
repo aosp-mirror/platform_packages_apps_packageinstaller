@@ -1,6 +1,6 @@
 package com.android.permissioncontroller.permission.ui.television;
 
-import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
@@ -82,7 +82,7 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
 
     @Override
     public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, CharSequence detailMessage, CharSequence[] buttonLabels) {
+            CharSequence message, CharSequence detailMessage, boolean[] buttonVisibilities) {
         // TODO: Handle detailMessage
 
         mGroupName = groupName;
@@ -94,7 +94,7 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
         }
 
         mHardDenyButton.setVisibility(
-                buttonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] != null ? View.VISIBLE
+                buttonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON] ? View.VISIBLE
                         : View.GONE);
         if (groupCount > 1) {
             mCurrentGroupView.setVisibility(View.VISIBLE);

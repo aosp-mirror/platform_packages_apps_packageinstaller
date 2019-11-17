@@ -25,6 +25,7 @@ import com.android.permissioncontroller.permission.model.livedatatypes.LightPack
 import com.android.permissioncontroller.permission.model.livedatatypes.PermState
 import com.android.permissioncontroller.permission.utils.LocationUtils
 import com.android.permissioncontroller.permission.utils.Utils
+import kotlinx.coroutines.Job
 
 /**
  * A LiveData which tracks the permission state for one permission group for one package. It
@@ -68,20 +69,19 @@ class PermStateLiveData(
     /**
      * Gets the system flags from the package manager, and the grant state from those flags, plus
      * the RequestedPermissionFlags of the PackageInfo.
-     *
-     * @param isCancelled: A boolean function saying whether or not this task should been cancelled
-     *
-     * @return A map of permission name to a PermState object with both types of flag.
      */
-    override fun loadData(isCancelled: () -> Boolean): Map<String, PermState>? {
-        val packageInfo = packageInfoLiveData.value ?: return value
-        val permissionGroup = groupLiveData.value ?: return value
-        val allPermissionFlags = mutableMapOf<String, PermState>()
+    override suspend fun loadDataAndPostValue(job: Job) {
+        if (!packageInfoLiveData.isInitialized || !groupLiveData.isInitialized) {
+            return
+        }
+        val packageInfo = packageInfoLiveData.value
+        val permissionGroup = groupLiveData.value
+        if (packageInfo == null || permissionGroup == null) {
+            postValue(null)
+            return
+        }
+        val permissionStates = mutableMapOf<String, PermState>()
         for ((index, permissionName) in packageInfo.requestedPermissions.withIndex()) {
-            if (isCancelled()) {
-                // return the current value, which will be ignored
-                return value
-            }
 
             permissionGroup.permissionInfos[permissionName]?.let { permInfo ->
                 val packageFlags = packageInfo.requestedPermissionsFlags[index]
@@ -94,21 +94,24 @@ class PermStateLiveData(
                 if (permissionGroupName == Manifest.permission_group.LOCATION) {
                     val userContext = Utils.getUserContext(app, user)
                     if (LocationUtils.isLocationGroupAndProvider(userContext, permissionGroupName,
-                                    packageName)) {
+                            packageName)) {
                         granted = LocationUtils.isLocationEnabled(userContext)
                     }
                     // The permission of the extra location controller package is determined by the
                     // status of the controller package itself.
                     if (LocationUtils.isLocationGroupAndControllerExtraPackage(userContext,
-                                    permissionGroupName, packageName)) {
+                            permissionGroupName, packageName)) {
                         granted = LocationUtils.isExtraLocationControllerPackageEnabled(userContext)
                     }
                 }
-                allPermissionFlags[permissionName] = PermState(permFlags, granted)
+                if (job.isCancelled) {
+                    return
+                }
+                permissionStates[permissionName] = PermState(permFlags, granted)
             }
         }
 
-        return allPermissionFlags
+        postValue(permissionStates)
     }
 
     override fun onPermissionChange() {

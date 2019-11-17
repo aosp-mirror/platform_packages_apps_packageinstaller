@@ -20,6 +20,7 @@ import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -215,14 +216,22 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             return;
         }
 
-        mAlwaysButton.setOnClickListener((v) -> mViewModel.requestChange(true, this,
-                ChangeTarget.CHANGE_BOTH));
+        mAlwaysButton.setOnClickListener((v) -> {
+            mViewModel.requestChange(true, this, ChangeTarget.CHANGE_BOTH);
+            getActivity().setResult(Activity.RESULT_OK, new Intent().putExtra(
+                    AppPermissionActivity.EXTRA_RESULT_PERMISSION_INTERACTED, mPermGroupName));
+        });
         mForegroundOnlyButton.setOnClickListener((v) -> {
             mViewModel.requestChange(true, this, ChangeTarget.CHANGE_FOREGROUND);
             mViewModel.requestChange(false, this, ChangeTarget.CHANGE_BACKGROUND);
+            getActivity().setResult(Activity.RESULT_OK, new Intent().putExtra(
+                    AppPermissionActivity.EXTRA_RESULT_PERMISSION_INTERACTED, mPermGroupName));
         });
-        mDenyButton.setOnClickListener((v) -> mViewModel.requestChange(false, this,
-                ChangeTarget.CHANGE_BOTH));
+        mDenyButton.setOnClickListener((v) -> {
+            mViewModel.requestChange(false, this, ChangeTarget.CHANGE_BOTH);
+            getActivity().setResult(Activity.RESULT_OK, new Intent().putExtra(
+                    AppPermissionActivity.EXTRA_RESULT_PERMISSION_INTERACTED, mPermGroupName));
+        });
 
         setButtonState(mAlwaysButton, states.get(0), true);
         setButtonState(mForegroundOnlyButton, states.get(1), false);
