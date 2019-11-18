@@ -63,7 +63,7 @@ class AllAppPermissionsViewModel(
             update()
         }
 
-        private fun update() {
+        override fun update() {
             val permissions = packagePermsLiveData.value
             if (permissions == null) {
                 value = null

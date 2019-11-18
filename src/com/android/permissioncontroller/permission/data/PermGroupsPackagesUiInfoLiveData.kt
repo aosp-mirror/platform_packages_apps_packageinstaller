@@ -52,7 +52,7 @@ class PermGroupsPackagesUiInfoLiveData(
         }
     }
 
-    private fun update() {
+    override fun update() {
         val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(groupNames,
             permGroupPackagesLiveDatas)
 

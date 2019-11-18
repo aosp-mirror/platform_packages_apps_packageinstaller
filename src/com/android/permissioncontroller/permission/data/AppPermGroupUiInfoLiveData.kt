@@ -71,12 +71,12 @@ class AppPermGroupUiInfoLiveData(
         }
     }
 
-    private fun update() {
+    override fun update() {
         val packageInfo = packageInfoLiveData.value
         val permissionGroup = permGroupLiveData.value
-        val permissionFlags = permissionStateLiveData.value
+        val permissionState = permissionStateLiveData.value
 
-        if (packageInfo == null || permissionGroup == null || permissionFlags == null) {
+        if (packageInfo == null || permissionGroup == null || permissionState == null) {
             if (packageInfoLiveData.isInitialized && permGroupLiveData.isInitialized &&
                 permissionStateLiveData.isInitialized) {
                 value = null
@@ -85,7 +85,7 @@ class AppPermGroupUiInfoLiveData(
         }
 
         value = getAppPermGroupUiInfo(packageInfo, permissionGroup.groupInfo,
-            permissionGroup.permissionInfos, permissionFlags)
+            permissionGroup.permissionInfos, permissionState)
     }
 
     /**

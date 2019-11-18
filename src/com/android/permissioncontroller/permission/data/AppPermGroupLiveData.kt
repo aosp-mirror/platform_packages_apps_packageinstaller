@@ -76,7 +76,7 @@ class AppPermGroupLiveData(
         }
     }
 
-    private fun update() {
+    override fun update() {
         val permStates = permStateLiveData.value ?: return
         val permGroup = permGroupLiveData.value ?: return
         val packageInfo = packageInfoLiveData.value ?: return

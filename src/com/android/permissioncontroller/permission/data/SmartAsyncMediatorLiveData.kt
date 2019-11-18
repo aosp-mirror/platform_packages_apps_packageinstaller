@@ -35,6 +35,10 @@ abstract class SmartAsyncMediatorLiveData<T> : SmartUpdateMediatorLiveData<T>() 
      */
     abstract suspend fun loadDataAndPostValue(job: Job)
 
+    override fun update() {
+        updateAsync()
+    }
+
     open fun updateAsync() {
         cancelJobIfRunning()
         GlobalScope.launch(Dispatchers.Default) {

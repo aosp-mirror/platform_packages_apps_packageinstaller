@@ -33,16 +33,17 @@ class PackageBroadcastReceiver(private val app: Application) : BroadcastReceiver
         addAction(Intent.ACTION_PACKAGE_REMOVED)
         addAction(Intent.ACTION_PACKAGE_REPLACED)
         addAction(Intent.ACTION_PACKAGE_CHANGED)
+        addDataScheme("package")
     }
 
     /**
      * Map<packageName, callbacks listenening to package>
      */
-    private val changeCallbacks = mutableMapOf<String, MutableList<PackageBroadcastListener>>()
+    private val changeCallbacks = mutableMapOf<String, MutableSet<PackageBroadcastListener>>()
     /**
      * A list of listener IDs, which listen to all package additions, changes, and removals.
      */
-    private val allCallbacks = mutableListOf<PackageBroadcastListener>()
+    private val allCallbacks = mutableSetOf<PackageBroadcastListener>()
 
     /**
      * Add a callback which will be notified when the specified packaged is changed or removed.
@@ -50,7 +51,7 @@ class PackageBroadcastReceiver(private val app: Application) : BroadcastReceiver
     fun addChangeCallback(packageName: String, listener: PackageBroadcastListener) {
         val wasEmpty = hasNoListeners()
 
-        changeCallbacks.getOrPut(packageName, { mutableListOf() }).add(listener)
+        changeCallbacks.getOrPut(packageName, { mutableSetOf() }).add(listener)
 
         if (wasEmpty) {
             app.registerReceiver(this, intentFilter)
@@ -79,10 +80,12 @@ class PackageBroadcastReceiver(private val app: Application) : BroadcastReceiver
      * @param listener the listener we wish to remove
      */
     fun removeAllCallback(listener: PackageBroadcastListener) {
+        val wasEmpty = hasNoListeners()
+
         if (!allCallbacks.remove(listener)) {
             return
         }
-        if (hasNoListeners()) {
+        if (hasNoListeners() && !wasEmpty) {
             app.unregisterReceiver(this)
         }
     }
@@ -94,14 +97,16 @@ class PackageBroadcastReceiver(private val app: Application) : BroadcastReceiver
      * @param listener the listener we wish to remove
      */
     fun removeChangeCallback(packageName: String?, listener: PackageBroadcastListener) {
-        if (changeCallbacks.contains(packageName)) {
-            if (!changeCallbacks[packageName]!!.remove(listener)) {
+        val wasEmpty = hasNoListeners()
+
+        changeCallbacks[packageName]?.let { callbackSet ->
+            if (!callbackSet.remove(listener)) {
                 return
             }
-            if (changeCallbacks[packageName]!!.isEmpty()) {
+            if (callbackSet.isEmpty()) {
                 changeCallbacks.remove(packageName)
             }
-            if (hasNoListeners()) {
+            if (hasNoListeners() && !wasEmpty) {
                 app.unregisterReceiver(this)
             }
         }
@@ -109,8 +114,8 @@ class PackageBroadcastReceiver(private val app: Application) : BroadcastReceiver
 
     fun getNumListeners(): Int {
         var numListeners = allCallbacks.size
-        for ((_, changeCallbackList) in changeCallbacks) {
-            numListeners += changeCallbackList.size
+        for ((_, changeCallbackSet) in changeCallbacks) {
+            numListeners += changeCallbackSet.size
         }
         return numListeners
     }

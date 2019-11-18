@@ -39,7 +39,7 @@ class CustomPermGroupNamesLiveData(
         }
     }
 
-    private fun update() {
+    override fun update() {
         val platformGroupNames = Utils.getPlatformPermissionGroups()
         val groupNames = mutableListOf<String>()
 

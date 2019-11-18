@@ -27,6 +27,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.android.permissioncontroller.Constants.EXTRA_SESSION_ID
@@ -89,11 +90,11 @@ class AppPermissionViewModel(
     /**
      * A livedata which determines which detail string, if any, should be shown
      */
-    val detailResIdLiveData = SmartUpdateMediatorLiveData<Pair<Int, Int?>>()
+    val detailResIdLiveData = MutableLiveData<Pair<Int, Int?>>()
     /**
      * A livedata which stores the device admin, if there is one
      */
-    val showAdminSupportLiveData = SmartUpdateMediatorLiveData<RestrictedLockUtils.EnforcedAdmin>()
+    val showAdminSupportLiveData = MutableLiveData<RestrictedLockUtils.EnforcedAdmin>()
 
     data class ButtonState(
         var isChecked: Boolean,
@@ -124,7 +125,7 @@ class AppPermissionViewModel(
             }
         }
 
-        fun update() {
+        override fun update() {
             appPermissionGroup = AppPermissionGroup.create(app, packageName, permGroupName, user,
                     false)
             if (appPermissionGroup == null) {
