@@ -23,8 +23,7 @@
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"برنامه یافت نشد"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"اجازه ندارد"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"رد شود و دیگر سؤال نشود"</string>
-    <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"حفظ دسترسی درحین استفاده"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"تغییر نکند و دوباره سؤال نشود"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="7335380459572917221">"حفظ مجاز بودن تنها هنگام استفاده از برنامه"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"اطلاعات بیشتر"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"در هر صورت نادیده گرفته شود"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> از <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -312,4 +311,5 @@
     <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"نمایش تشخیص راه‌انداز دستیار"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"نمایش نماد مربوطه در نوار وضعیت وقتی از میکروفون برای فعال کردن دستیار صوتی استفاده می‌شود"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt; اجازه داده شود به عکس‌ها و رسانه‌های موجود در دستگاهتان دسترسی پیدا کند؟"</string>
+    <string name="permgroupupgraderequestdeail_location" msgid="9206451505204811427">"این برنامه می‌خواهد مرتب به مکانتان دسترسی داشته باشد، حتی وقتی‌که از برنامه استفاده نمی‌کنید. در "<annotation id="link">"تنظیمات"</annotation>"، به آن اجازه دهید."</string>
 </resources>

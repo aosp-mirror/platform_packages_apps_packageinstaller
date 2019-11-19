@@ -23,8 +23,8 @@
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"अ‍ॅप आढळला नाही"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"नकार द्या"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"नकार द्या आणि पुन्हा विचारू नका"</string>
-    <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"वापरात असताना अ‍ॅक्सेस ठेवा"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"ठेवा आणि पुन्हा विचारू नका"</string>
+    <!-- no translation found for grant_dialog_button_no_upgrade (7335380459572917221) -->
+    <skip />
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"अधिक माहिती"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"तरीही नकार द्या"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> पैकी <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
@@ -162,12 +162,12 @@
     <string name="app_permission_footer_no_usages_activity_recognition" msgid="2088781216296754537">"<xliff:g id="APP">%1$s</xliff:g> ने तुमची शारीरिक अ‍ॅक्टिव्हिटी अ‍ॅक्सेस केलेली नाही"</string>
     <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे कॅलेंडर अ‍ॅक्सेस केलेले नाही"</string>
     <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे कॉल लॉग अ‍ॅक्सेस केलेले नाहीत"</string>
-    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचा कॅमेराचा अ‍ॅक्सेस केलेला नाही"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचा कॅमेरा अ‍ॅक्सेस केलेला नाही"</string>
     <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे संपर्क अ‍ॅक्सेस केलेले नाहीत"</string>
     <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे स्थान अ‍ॅक्सेस केलेले नाही"</string>
     <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचा मायक्रोफोन अ‍ॅक्सेस केलेला नाही"</string>
     <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचा फोन अ‍ॅक्सेस केलेला नाही"</string>
-    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे सेंसर अ‍ॅक्सेस केलेले नाहीत"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे सेंन्सर अ‍ॅक्सेस केलेले नाहीत"</string>
     <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचा एसएमएस अ‍ॅक्सेस केलेला नाही"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचा स्टोरेज अ‍ॅक्सेस केलेला नाही"</string>
     <string name="app_permission_footer_not_available" msgid="7473636495733881225">"या परवानगीसाठी शेवटचा अ‍ॅक्सेस केलेला डेटा सध्या उपलब्ध नाही"</string>
@@ -312,4 +312,6 @@
     <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"असिस्टंट ट्रिगर डिटेक्शन दाखवा"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"व्हॉइस असिस्टंट अ‍ॅक्टिव्हेट करण्यासाठी मायक्रोफोन वापरला जाईल तेव्हा स्टेटस बारमध्ये आयकन दाखवा"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ला तुमच्या डिव्हाइसवरील फोटो, मीडिया आणि फायली अ‍ॅक्सेस करू द्यायचे?"</string>
+    <!-- no translation found for permgroupupgraderequestdeail_location (9206451505204811427) -->
+    <skip />
 </resources>
