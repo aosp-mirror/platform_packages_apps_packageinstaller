@@ -38,7 +38,6 @@ import static com.android.permissioncontroller.permission.ui.GrantPermissionsVie
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ONE_TIME;
 import static com.android.permissioncontroller.permission.utils.Utils.getRequestMessage;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.KeyguardManager;
 import android.app.admin.DevicePolicyManager;
@@ -699,7 +698,7 @@ public class GrantPermissionsActivity extends Activity
                             || groupState.mGroup.isBackgroundGroup()) { // is tristate
                         if (needForegroundPermission && needBackgroundPermission) {
                             // Requests both background and foreground
-                            messageId = groupState.mGroup.getRequest();
+                            messageId = groupState.mGroup.getBackgroundRequest();
                             detailMessageId = groupState.mGroup.getBackgroundRequestDetail();
                             mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
                             mButtonVisibilities[VISIBILITY_ALLOW_FOREGROUND_BUTTON] = true;
@@ -718,8 +717,8 @@ public class GrantPermissionsActivity extends Activity
                                     isForegroundPermissionUserSet;
                         } else if (needBackgroundPermission) {
                             // Upgrade from foreground to background
-                            messageId = groupState.mGroup.getBackgroundRequest();
-                            detailMessageId = groupState.mGroup.getBackgroundRequestDetail();
+                            messageId = groupState.mGroup.getUpgradeRequest();
+                            detailMessageId = groupState.mGroup.getUpgradeRequestDetail();
                             mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
                             mButtonVisibilities[VISIBILITY_DENY_BUTTON] = false;
                             mButtonVisibilities[VISIBILITY_ALLOW_ONE_TIME_BUTTON] = false;
@@ -745,34 +744,23 @@ public class GrantPermissionsActivity extends Activity
 
                 Spanned detailMessage = null;
                 if (detailMessageId != 0) {
-                    try {
-                        detailMessage =
-                                new SpannableString(getPackageManager().getResourcesForApplication(
-                                        groupState.mGroup.getDeclaringPackage()).getText(
-                                        detailMessageId));
-                        if (Manifest.permission_group.LOCATION.equals(groupState.mGroup.getName())
-                                && needBackgroundPermission && !needForegroundPermission) {
-                            // TODO evanseverson: new requestDetail field to add in frameworks
-                            detailMessage = new SpannableString(
-                                    getText(R.string.permgroupupgraderequestdeail_location));
+                    detailMessage =
+                            new SpannableString(getText(detailMessageId));
+                    Annotation[] annotations = detailMessage.getSpans(
+                            0, detailMessage.length(), Annotation.class);
+                    int numAnnotations = annotations.length;
+                    for (int i = 0; i < numAnnotations; i++) {
+                        Annotation annotation = annotations[i];
+                        if (annotation.getValue().equals(ANNOTATION_ID)) {
+                            int start = detailMessage.getSpanStart(annotation);
+                            int end = detailMessage.getSpanEnd(annotation);
+                            ClickableSpan clickableSpan = getLinkToAppPermissions(groupState);
+                            SpannableString spannableString =
+                                    new SpannableString(detailMessage);
+                            spannableString.setSpan(clickableSpan, start, end, 0);
+                            detailMessage = spannableString;
+                            break;
                         }
-                        Annotation[] annotations = detailMessage.getSpans(
-                                0, detailMessage.length(), Annotation.class);
-                        int numAnnotations = annotations.length;
-                        for (int i = 0; i < numAnnotations; i++) {
-                            Annotation annotation = annotations[i];
-                            if (annotation.getValue().equals(ANNOTATION_ID)) {
-                                int start = detailMessage.getSpanStart(annotation);
-                                int end = detailMessage.getSpanEnd(annotation);
-                                ClickableSpan clickableSpan = getLinkToAppPermissions(groupState);
-                                SpannableString spannableString =
-                                        new SpannableString(detailMessage);
-                                spannableString.setSpan(clickableSpan, start, end, 0);
-                                detailMessage = spannableString;
-                                break;
-                            }
-                        }
-                    } catch (NameNotFoundException ignored) {
                     }
                 }
 
