@@ -23,8 +23,7 @@
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"アプリが見つかりません"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"許可しない"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"許可しない（次回から表示しない）"</string>
-    <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"使用中のアクセスの維持"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"次回から表示しない"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="7335380459572917221">"[アプリが使用中の場合] を保持"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"詳細"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"許可しない"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -312,4 +311,5 @@
     <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"アシスタントのトリガー検出を表示"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"マイクを使って音声アシストを有効にする場合にステータスバーにアイコンを表示する"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"デバイス内の写真やメディアへのアクセスを「&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;」に許可しますか？"</string>
+    <string name="permgroupupgraderequestdeail_location" msgid="9206451505204811427">"このアプリは、未使用時も含め、常に位置情報にアクセスしようとしています。["<annotation id="link">"設定"</annotation>"] で許可してください。"</string>
 </resources>

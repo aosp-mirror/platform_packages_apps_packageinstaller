@@ -23,8 +23,7 @@
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"యాప్ కనుగొనబడలేదు"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"తిరస్కరించు"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"తిరస్కరించు, ఇకపై మళ్లీ అడగవద్దు"</string>
-    <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"వినియోగంలో ఉన్నప్పుడు యాక్సెస్‌ను అలాగే ఉంచు"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"అలాగే ఉంచి, ఇకపై మళ్లీ అడగవద్దు"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="7335380459572917221">"“యాప్ వినియోగంలో ఉన్నప్పుడు” నిలిపి ఉంచు"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"మరింత సమాచారం"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ఏదేమైనా నిరాకరించు"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>లో <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
@@ -151,8 +150,8 @@
     <string name="app_permission_footer_usage_summary_calendar" msgid="7675173035887568420">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ క్యాలెండర్‌ను యాక్సెస్ చేసింది"</string>
     <string name="app_permission_footer_usage_summary_call_log" msgid="4987849901381920883">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ కాల్ లాగ్‌లను యాక్సెస్ చేసింది"</string>
     <string name="app_permission_footer_usage_summary_camera" msgid="2472049066125117479">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ కెమెరాను యాక్సెస్ చేసింది"</string>
-    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ పరిచయాలను యాక్సెస్ చేసింది"</string>
-    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ స్థానాన్ని యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ కాంటాక్ట్‌లను యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ లొకేషన్‌ను యాక్సెస్ చేసింది"</string>
     <string name="app_permission_footer_usage_summary_microphone" msgid="5389687207650592055">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ మైక్రోఫోన్‌ను యాక్సెస్ చేసింది"</string>
     <string name="app_permission_footer_usage_summary_phone" msgid="2837455934182233739">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ ఫోన్‌ను యాక్సెస్ చేసింది"</string>
     <string name="app_permission_footer_usage_summary_sensors" msgid="1884302729411890466">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ సెన్సార్‌లను యాక్సెస్ చేసింది"</string>
@@ -163,8 +162,8 @@
     <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"<xliff:g id="APP">%1$s</xliff:g> మీ క్యాలెండర్‌ను యాక్సెస్ చేయలేదు"</string>
     <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"<xliff:g id="APP">%1$s</xliff:g> మీ కాల్ లాగ్‌లను యాక్సెస్ చేయలేదు"</string>
     <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"<xliff:g id="APP">%1$s</xliff:g> మీ కెమెరాను యాక్సెస్ చేయలేదు"</string>
-    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"<xliff:g id="APP">%1$s</xliff:g> మీ పరిచయాలను యాక్సెస్ చేయలేదు"</string>
-    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"<xliff:g id="APP">%1$s</xliff:g> మీ స్థానాన్ని యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"<xliff:g id="APP">%1$s</xliff:g> మీ కాంటాక్ట్‌లను యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"<xliff:g id="APP">%1$s</xliff:g> మీ లొకేషన్‌ను యాక్సెస్ చేయలేదు"</string>
     <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"<xliff:g id="APP">%1$s</xliff:g> మీ మైక్రోఫోన్‌ను యాక్సెస్ చేయలేదు"</string>
     <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"<xliff:g id="APP">%1$s</xliff:g> మీ ఫోన్‌ను యాక్సెస్ చేయలేదు"</string>
     <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> మీ సెన్సార్‌లను యాక్సెస్ చేయలేదు"</string>
@@ -312,4 +311,5 @@
     <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"అసిస్టెంట్ ట్రిగ్గర్ గుర్తింపును చూపు"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"వాయిస్ అసిస్టెంట్‌ను యాక్టివేట్ చేయడానికి మైక్రోఫోన్‌ను ఉపయోగించినప్పుడు, స్థితి పట్టీలో చిహ్నాన్ని చూపుతుంది"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"మీ పరికరంలో ఫోటోలు, మీడియాను యాక్సెస్ చేసేందుకు &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ను అనుమతించాలా?"</string>
+    <string name="permgroupupgraderequestdeail_location" msgid="9206451505204811427">"ఈ యాప్‌నకు మీ లొకేషన్ యాక్సెస్ అన్ని సమయాలలో, అంటే యాప్‌ను ఉపయోగించనప్పుడు కూడా, అవసరం. అనుమతిని ఇక్కడ ఇవ్వండి: "<annotation id="link">"సెట్టింగ్‌లు"</annotation>"."</string>
 </resources>

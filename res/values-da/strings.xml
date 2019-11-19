@@ -23,8 +23,7 @@
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Appen blev ikke fundet"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Afvis"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"Afvis, og spørg ikke igen"</string>
-    <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"Behold adgang, mens appen er i brug"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"Behold, og spørg ikke igen"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="7335380459572917221">"Behold \"Mens appen er i brug\""</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Få flere oplysninger"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Afvis alligevel"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> ud af <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -93,7 +92,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Aktuelle tilladelser"</string>
     <string name="message_staging" msgid="6151794817691100003">"Forbereder appen…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Ukendt"</string>
-    <string name="permission_usage_title" msgid="2836714315390340012">"Betjeningspanel"</string>
+    <string name="permission_usage_title" msgid="2836714315390340012">"Kontrolpanel"</string>
     <string name="permission_usage_summary_foreground" msgid="926040696577673055">"Seneste adgang: <xliff:g id="TIME">%1$s</xliff:g>\nSeneste adgang, da appen var i brug"</string>
     <string name="permission_usage_summary_background" msgid="9179526841353882748">"Seneste adgang: <xliff:g id="TIME">%1$s</xliff:g>\nSenest anvendt i baggrunden"</string>
     <string name="permission_usage_any_permission" msgid="8832731783727406380">"Alle tilladelser"</string>
@@ -120,9 +119,9 @@
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> app</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apps</item>
     </plurals>
-    <string name="permission_usage_view_details" msgid="7240872485880156540">"Se alt i betjeningspanelet"</string>
+    <string name="permission_usage_view_details" msgid="7240872485880156540">"Se alt i kontrolpanelet"</string>
     <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"Filtreret efter: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"Se alt i betjeningspanelet"</string>
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"Se alt i kontrolpanelet"</string>
     <string name="filter_by_title" msgid="7213659781851489723">"Filtrér efter"</string>
     <string name="filter_by_permissions" msgid="6808193127145660341">"Filtrér efter tilladelser"</string>
     <string name="filter_by_time" msgid="4037550957826791975">"Filtrér efter tidspunkt"</string>
@@ -307,9 +306,10 @@
     <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"Avancerede indstillinger"</string>
     <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"Avancerede indstillinger"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"Vis brug af systemapps"</string>
-    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"Vis systemapps anvendelse af tilladelser på statusbjælken, i betjeningspanelet og andre steder"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"Vis systemapps anvendelse af tilladelser på statusbjælken, i kontrolpanelet og andre steder"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"Fremhæv brugen af følgende"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Vis aktiveringsregistrering for assistent"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Vis ikon på statusbjælken, når mikrofonen bruges til at aktivere taleassistenten"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; adgang til billeder og medier på din enhed?"</string>
+    <string name="permgroupupgraderequestdeail_location" msgid="9206451505204811427">"Appen vil gerne have adgang til din placering hele tiden, også når du ikke bruger appen. Giv tilladelse under "<annotation id="link">"Indstillinger"</annotation>"."</string>
 </resources>
