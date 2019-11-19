@@ -92,4 +92,9 @@ data class LightAppPermGroup(
     val isBackgroundGranted = permissions.any {
         backgroundPermNames.contains(it.key) && it.value.grantedIncludingAppOp
     }
+
+    /**
+     * Whether this App Permission Group's permissions are fixed by the user
+     */
+    val isUserFixed = permissions.any { it.value.isUserFixed }
 }
