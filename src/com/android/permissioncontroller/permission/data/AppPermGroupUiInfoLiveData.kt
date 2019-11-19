@@ -27,6 +27,7 @@ import com.android.permissioncontroller.permission.model.livedatatypes.LightPack
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermGroupInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.PermState
+import com.android.permissioncontroller.permission.utils.LocationUtils
 import com.android.permissioncontroller.permission.utils.Utils
 
 /**
@@ -216,13 +217,28 @@ class AppPermGroupUiInfoLiveData(
             }
         }
 
-        val anyAllowed = permissionState.any { it.value.granted }
+        val anyAllowed = getIsSpecialLocationState() ?: permissionState.any { it.value.granted }
         if (anyAllowed && hasPermWithBackground) {
             return PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY
         } else if (anyAllowed) {
             return PermGrantState.PERMS_ALLOWED
         }
         return PermGrantState.PERMS_DENIED
+    }
+
+    private fun getIsSpecialLocationState(): Boolean? {
+        val userContext = Utils.getUserContext(app, user)
+        if (LocationUtils.isLocationGroupAndProvider(userContext, permissionGroupName,
+                packageName)) {
+            return LocationUtils.isLocationEnabled(userContext)
+        }
+        // The permission of the extra location controller package is determined by the
+        // status of the controller package itself.
+        if (LocationUtils.isLocationGroupAndControllerExtraPackage(userContext,
+                permissionGroupName, packageName)) {
+            return LocationUtils.isExtraLocationControllerPackageEnabled(userContext)
+        }
+        return null
     }
 }
 
