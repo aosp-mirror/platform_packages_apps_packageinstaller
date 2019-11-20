@@ -23,8 +23,7 @@
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"No s\'ha trobat l\'aplicació"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Denega"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"Denega i no m\'ho tornis a preguntar"</string>
-    <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"Denega l\'accés mentre estigui en ús"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"Denega i no m\'ho tornis a preguntar"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="7335380459572917221">"Només mentre s\'utilitza l\'aplicació"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Més informació"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Denega de totes maneres"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -312,4 +311,5 @@
     <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Mostra la detecció de l\'activador de l\'Assistent"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Mostra una icona a la barra d\'estat quan s\'utilitzi el micròfon per activar l\'assistent de veu"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Vols permetre que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; accedeixi a les fotos i al contingut multimèdia del dispositiu?"</string>
+    <string name="permgroupupgraderequestdeail_location" msgid="9206451505204811427">"L\'aplicació vol tenir accés sempre a la teva ubicació, fins i tot quan no l\'estiguis utilitzant. Pots permetre-hi l\'accés a "<annotation id="link">"Configuració"</annotation>"."</string>
 </resources>

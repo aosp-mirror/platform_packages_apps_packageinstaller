@@ -23,8 +23,7 @@
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Приложение не найдено"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Отклонить"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"Запретить и больше не спрашивать"</string>
-    <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"Оставить доступ только во время использования"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"Оставить и больше не спрашивать"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="7335380459572917221">"Оставить доступ только в активном режиме"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Подробнее"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Все равно запретить"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> из <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -326,4 +325,5 @@
     <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Показывать значок активации голосового помощника"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Показывать значок в строке состояния, когда для активации голосового помощника используется микрофон"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Открыть приложению &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ к фото и мультимедиа на устройстве?"</string>
+    <string name="permgroupupgraderequestdeail_location" msgid="9206451505204811427">"Это приложение хочет получать доступ к вашему местоположению, даже когда оно неактивно. Предоставьте разрешение в "<annotation id="link">"настройках"</annotation>"."</string>
 </resources>
