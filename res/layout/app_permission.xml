@@ -62,6 +62,11 @@
                         style="@style/AppPermissionRadioButton" />
 
                     <RadioButton
+                        android:id="@+id/ask_radio_button"
+                        android:text="@string/app_permission_button_ask"
+                        style="@style/AppPermissionRadioButton" />
+
+                    <RadioButton
                         android:id="@+id/deny_radio_button"
                         android:text="@string/app_permission_button_deny"
                         style="@style/AppPermissionRadioButton" />

@@ -403,7 +403,10 @@
     <!-- Title for the dialog button to allow a permission grant only when the app is in the foreground. [CHAR LIMIT=60] -->
     <string name="app_permission_button_allow_foreground">Allow only while using the app</string>
 
-    <!-- Title for the dialog button to deny a permission grant. [CHAR LIMIT=60] -->
+    <!-- Title for the dialog button to require an app to ask for a permission next time they need it. [CHAR LIMIT=60] -->
+    <string name="app_permission_button_ask">Ask every time</string>
+
+    <!-- Title for the dialog button to deny with prejudice a permission grant. [CHAR LIMIT=60] -->
     <string name="app_permission_button_deny">Deny</string>
 
     <!-- Title for app permission [CHAR LIMIT=30] -->

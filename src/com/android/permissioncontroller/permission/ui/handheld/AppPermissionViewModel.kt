@@ -138,6 +138,7 @@ class AppPermissionViewModel(
 
             val allowedState = ButtonState()
             val foregroundState = ButtonState()
+            val askState = ButtonState()
             val deniedState = ButtonState()
 
             if (group.isForegroundGranted) {
@@ -147,11 +148,16 @@ class AppPermissionViewModel(
                     foregroundState.isChecked = true
                 }
             } else {
-                deniedState.isChecked = true
+                if (group.isUserFixed || group.isPolicyFullyFixed || group.isSystemFixed) {
+                    deniedState.isChecked = true
+                } else {
+                    askState.isChecked = true
+                }
             }
 
             if (group.hasPermWithBackground && !group.hasBackgroundPerms) {
                 allowedState.isShown = false
+                askState.customTarget = ChangeTarget.CHANGE_FOREGROUND
                 deniedState.customTarget = ChangeTarget.CHANGE_FOREGROUND
             } else if (!group.hasPermWithBackground) {
                 foregroundState.isShown = false
@@ -161,6 +167,7 @@ class AppPermissionViewModel(
                             !group.isForegroundGranted)) {
                 allowedState.isEnabled = false
                 foregroundState.isEnabled = false
+                askState.isEnabled = false
                 deniedState.isEnabled = false
 
                 val detailId = getDetailResIdForFixedByPolicyPermissionGroup(group,
@@ -169,13 +176,13 @@ class AppPermissionViewModel(
                     detailResIdLiveData.value = detailId to null
                 }
 
-                value = listOf(allowedState, foregroundState, deniedState)
+                value = listOf(allowedState, foregroundState, askState, deniedState)
                 showAdminSupportLiveData.value = admin
                 return
             } else if (Utils.areGroupPermissionsIndividuallyControlled(app, permGroupName)) {
                 val detailId = getIndividualPermissionDetailResId(group)
                 detailResIdLiveData.value = detailId.first to detailId.second
-                value = listOf(allowedState, foregroundState, deniedState)
+                value = listOf(allowedState, foregroundState, askState, deniedState)
                 return
             }
 
@@ -211,7 +218,7 @@ class AppPermissionViewModel(
                 }
             }
             detailResIdLiveData.value = null
-            value = listOf(allowedState, foregroundState, deniedState)
+            value = listOf(allowedState, foregroundState, askState, deniedState)
         }
 
         override fun onActive() {
@@ -297,6 +304,7 @@ class AppPermissionViewModel(
      */
     fun requestChange(
         requestGrant: Boolean,
+        userFixed: Boolean,
         fragment: AppPermissionFragment,
         changeTarget: ChangeTarget
     ) {
@@ -316,7 +324,7 @@ class AppPermissionViewModel(
             val stateBefore = createPermissionSnapshot()!!
             if (shouldChangeForeground) {
                 val runtimePermissionsGranted = group.areRuntimePermissionsGranted()
-                group.grantRuntimePermissions(false)
+                group.grantRuntimePermissions(userFixed)
 
                 if (!runtimePermissionsGranted) {
                     SafetyNetLogger.logPermissionToggled(group)
@@ -325,7 +333,7 @@ class AppPermissionViewModel(
             if (shouldChangeBackground && group.backgroundPermissions != null) {
                 val runtimePermissionsGranted =
                         group.backgroundPermissions.areRuntimePermissionsGranted()
-                group.backgroundPermissions.grantRuntimePermissions(false)
+                group.backgroundPermissions.grantRuntimePermissions(userFixed)
 
                 if (!runtimePermissionsGranted) {
                     SafetyNetLogger.logPermissionToggled(group.backgroundPermissions)
@@ -357,25 +365,38 @@ class AppPermissionViewModel(
             }
 
             if (showDefaultDenyDialog && !hasConfirmedRevoke && showGrantedByDefaultWarning) {
-                fragment.showDefaultDenyDialog(changeTarget, R.string.system_warning)
+                fragment.showDefaultDenyDialog(changeTarget, R.string.system_warning, userFixed)
                 return
             } else if (showDefaultDenyDialog && !hasConfirmedRevoke) {
-                fragment.showDefaultDenyDialog(changeTarget, R.string.old_sdk_deny_warning)
+                fragment.showDefaultDenyDialog(changeTarget, R.string.old_sdk_deny_warning,
+                        userFixed)
                 return
             } else {
                 val stateBefore = createPermissionSnapshot()!!
                 if (shouldChangeForeground &&
                         group.areRuntimePermissionsGranted()) {
-                    group.revokeRuntimePermissions(false)
+                    group.revokeRuntimePermissions(userFixed)
 
                     SafetyNetLogger.logPermissionToggled(group)
                 }
                 if (shouldChangeBackground &&
                         group.backgroundPermissions != null &&
                         group.backgroundPermissions.areRuntimePermissionsGranted()) {
-                    group.backgroundPermissions.revokeRuntimePermissions(false)
+                    group.backgroundPermissions.revokeRuntimePermissions(userFixed)
 
                     SafetyNetLogger.logPermissionToggled(group.backgroundPermissions)
+                }
+                if (userFixed && !group.isUserFixed) {
+                    group.revokeRuntimePermissions(true)
+                    if (group.backgroundPermissions != null) {
+                        group.backgroundPermissions.revokeRuntimePermissions(true)
+                    }
+                }
+                if (!userFixed && group.isUserFixed) {
+                    group.revokeRuntimePermissions(false)
+                    if (group.backgroundPermissions != null) {
+                        group.backgroundPermissions.revokeRuntimePermissions(false)
+                    }
                 }
                 logPermissionChanges(stateBefore)
             }
@@ -389,13 +410,13 @@ class AppPermissionViewModel(
      * @param changeTarget whether to change foreground, background, or both.
      *
      */
-    fun onDenyAnyWay(changeTarget: ChangeTarget) {
+    fun onDenyAnyWay(changeTarget: ChangeTarget, userFixed: Boolean) {
         val group = appPermissionGroup ?: return
         var hasDefaultPermissions = false
         val stateBefore = createPermissionSnapshot()
         if (changeTarget andValue ChangeTarget.CHANGE_FOREGROUND != 0) {
             val runtimePermissionsGranted = group.areRuntimePermissionsGranted()
-            group.revokeRuntimePermissions(false)
+            group.revokeRuntimePermissions(userFixed)
 
             if (runtimePermissionsGranted) {
                 SafetyNetLogger.logPermissionToggled(group)
@@ -406,7 +427,7 @@ class AppPermissionViewModel(
             group.backgroundPermissions != null) {
             val runtimePermissionsGranted =
                     group.backgroundPermissions.areRuntimePermissionsGranted()
-            group.backgroundPermissions.revokeRuntimePermissions(false)
+            group.backgroundPermissions.revokeRuntimePermissions(userFixed)
 
             if (runtimePermissionsGranted) {
                 SafetyNetLogger.logPermissionToggled(group.backgroundPermissions)
