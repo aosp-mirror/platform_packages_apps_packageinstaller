@@ -43,4 +43,6 @@ data class LightPermission(
     val isPolicyFixed = flags and PackageManager.FLAG_PERMISSION_POLICY_FIXED != 0
     /** Whether this permission is fixed by the system */
     val isSystemFixed = flags and PackageManager.FLAG_PERMISSION_SYSTEM_FIXED != 0
+    /** Whether this permission is fixed by the system */
+    val isUserFixed = flags and PackageManager.FLAG_PERMISSION_USER_FIXED != 0
 }

@@ -25,12 +25,18 @@ import android.os.UserHandle
  * @param packageInfo: Information about the package
  * @param permGroupInfo: Information about the permission group
  * @param permissions: The permissions in the permission group that the package requests
+ * @param specialLocationGrant: If this package is the location provider, or the extra location
+ * package, then the grant state of the group is not determined by the grant state of individual
+ * permissions, but by other system properties
  */
 data class LightAppPermGroup(
     val packageInfo: LightPackageInfo,
     val permGroupInfo: LightPermGroupInfo,
-    val permissions: Map<String, LightPermission>
+    val permissions: Map<String, LightPermission>,
+    val specialLocationGrant: Boolean?
 ) {
+    constructor(pI: LightPackageInfo, pGI: LightPermGroupInfo, perms: Map<String, LightPermission>):
+        this(pI, pGI, perms, null)
     /**
      * The current userHandle of this AppPermGroup.
      */
@@ -82,14 +88,19 @@ data class LightAppPermGroup(
     /**
      * Whether any of this App Permission Group's foreground permissions are granted
      */
-    val isForegroundGranted = permissions.any {
+    val isForegroundGranted = specialLocationGrant ?: permissions.any {
         !backgroundPermNames.contains(it.key) && it.value.grantedIncludingAppOp
     }
 
     /**
      * Whether any of this App Permission Group's background permissions are granted
      */
-    val isBackgroundGranted = permissions.any {
+    val isBackgroundGranted = specialLocationGrant ?: permissions.any {
         backgroundPermNames.contains(it.key) && it.value.grantedIncludingAppOp
     }
+
+    /**
+     * Whether this App Permission Group's permissions are fixed by the user
+     */
+    val isUserFixed = permissions.any { it.value.isUserFixed }
 }

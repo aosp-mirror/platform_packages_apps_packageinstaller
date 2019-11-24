@@ -22,6 +22,7 @@ import android.os.Build
 import android.os.UserHandle
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission
+import com.android.permissioncontroller.permission.utils.LocationUtils
 import com.android.permissioncontroller.permission.utils.SoftRestrictedPermissionPolicy
 import com.android.permissioncontroller.permission.utils.Utils
 import com.android.permissioncontroller.permission.utils.Utils.OS_PKG
@@ -37,8 +38,8 @@ import com.android.permissioncontroller.permission.utils.Utils.OS_PKG
 class AppPermGroupLiveData(
     private val app: Application,
     private val packageName: String,
-    permGroupName: String,
-    user: UserHandle
+    private val permGroupName: String,
+    private val user: UserHandle
 ) : SmartUpdateMediatorLiveData<LightAppPermGroup>() {
 
     private val permStateLiveData = PermStateRepository.getPermStateLiveData(app, packageName,
@@ -101,6 +102,21 @@ class AppPermGroupLiveData(
                 permissionMap[permName] = LightPermission(permInfo, permState)
             }
         }
-        value = LightAppPermGroup(packageInfo, permGroup.groupInfo, permissionMap)
+
+        // Determine if this app permission group is a special location package or provider
+        var specialLocationGrant: Boolean? = null
+        val userContext = Utils.getUserContext(app, user)
+        if (LocationUtils.isLocationGroupAndProvider(userContext, permGroupName, packageName)) {
+            specialLocationGrant = LocationUtils.isLocationEnabled(app)
+        }
+        // The permission of the extra location controller package is determined by the status of
+        // the controller package itself.
+        if (LocationUtils.isLocationGroupAndControllerExtraPackage(app, permGroupName,
+                packageName)) {
+            specialLocationGrant = LocationUtils.isExtraLocationControllerPackageEnabled(
+                userContext)
+        }
+        value = LightAppPermGroup(packageInfo, permGroup.groupInfo, permissionMap,
+            specialLocationGrant)
     }
 }
