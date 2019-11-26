@@ -16,295 +16,295 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="6793827020090537173">"İzin denetleyici"</string>
-    <string name="ok" msgid="3468756155452870475">"Tamam"</string>
-    <string name="permission_search_keyword" msgid="3970416730023831175">"izinler"</string>
-    <string name="cancel" msgid="8360346460165114585">"İptal"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Uygulama bulunamadı"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Reddet"</string>
-    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"Reddet ve bir daha sorma"</string>
-    <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"Kullanımdayken erişimi koru"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"Tut ve bir daha sorma"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Daha fazla bilgi"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Yine de reddet"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasına <xliff:g id="ACTION">%2$s</xliff:g> izni verilsin mi?"</string>
-    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasına <xliff:g id="ACTION">%2$s</xliff:g> için izin verilsin m?"</string>
-    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"Sadece uygulama kullanılırken"</string>
-    <string name="allow_permission_always" msgid="7047379650123289823">"Her zaman"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"Reddet ve bir daha sorma"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> izin devre dışı"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"tümü devre dışı"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"hiçbiri devre dışı değil"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"İzin ver"</string>
-    <string name="grant_dialog_button_allow_always" msgid="6276498220009293138">"Her zaman izin ver"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="3906778905426475934">"Yalnızca uygulama kullanılırken izin ver"</string>
-    <string name="grant_dialog_button_allow_background" msgid="7108882589014856771">"Her zaman izin ver"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Uygulamalar"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Uygulama izinleri"</string>
-    <string name="app_permission_manager" msgid="5714101012506837810">"İzin yöneticisi"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Tekrar sorma"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"İzin yok"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Ek izinler"</string>
-    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Uygulama bilgilerini aç"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"İzin denetleyici"</string>
+    <string name="ok" msgid="4417794827535157922">"Tamam"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"izinler"</string>
+    <string name="cancel" msgid="7279939269964834974">"İptal"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Uygulama bulunamadı"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Reddet"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Reddet ve bir daha sorma"</string>
+    <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"Kullanımdayken erişimi koru"</string>
+    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"Tut ve bir daha sorma"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Daha fazla bilgi"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Yine de reddet"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasına <xliff:g id="ACTION">%2$s</xliff:g> için izin verilsin mi?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasına <xliff:g id="ACTION">%2$s</xliff:g> için her zaman izin verilsin mi?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Sadece uygulama kullanılırken"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Her zaman"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Reddet ve bir daha sorma"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> izin devre dışı"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"tümü devre dışı"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"hiçbiri devre dışı değil"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"İzin ver"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Her zaman izin ver"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Yalnızca uygulama kullanılırken izin ver"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Her zaman izin ver"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Uygulamalar"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Uygulama izinleri"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"İzin yöneticisi"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Tekrar sorma"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"İzin yok"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Ek izinler"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Uygulama bilgilerini aç"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> tane daha</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> tane daha</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Bu uygulama, Android\'in daha eski bir sürümü için tasarlandı. İznin reddedilmesi, uygulamanın bundan sonra amaçlandığı gibi çalışmamasına neden olabilir."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"bilinmeyen bir işlem gerçekleştirme"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g> uygulamaya izin veriliyor"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Sisteme ait olanları göster"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Sisteme ait olanları gizle"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Uygulama yok"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Konum Ayarları"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g>, bu cihaz için konum hizmetlerinin bir sağlayıcısıdır. Konum erişimi, konum ayarlarından değiştirilebilir."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Bu izni reddederseniz cihazınızın temel özellikleri artık beklendiği gibi çalışmayabilir."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Politika tarafından zorunlu tutuldu"</string>
-    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"Arka plan erişimi politika tarafından devre dışı bırakıldı"</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"Arka plan erişimi politika tarafından etkinleştirildi"</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"Ön plan erişimi politika tarafından etkinleştirildi"</string>
-    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"Yönetici tarafından kontrol ediliyor"</string>
-    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Arka plan erişim yönetici tarafından devre dışı bırakıldı"</string>
-    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Arka plan erişim yönetici tarafından etkinleştirildi"</string>
-    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Ön plan erişim yönetici tarafından etkinleştirildi"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Cihazın çalışabilmesi için bu iznin verilmesi zorunludur"</string>
-    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <string name="permission_access_always" msgid="8746815855070494802">"Her zaman izin ver"</string>
-    <string name="permission_access_only_foreground" msgid="1653942358383006807">"Yalnızca uygulama kullanılırken izin ver"</string>
-    <string name="permission_access_never" msgid="6189440007697689967">"Reddet"</string>
-    <string name="loading" msgid="7811651799620593731">"Yükleniyor..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Tüm izinler"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Diğer uygulama özellikleri"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"İzin isteği"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Ekran yer paylaşımı tespit edildi"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Bu izin ayarını değiştirmek için ilk olarak Ayarlar &gt; Uygulamalar\'dan ekran yer paylaşımını kapatmanız gerekir"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Ayarları aç"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Yükleme/Yüklemeyi Kaldırma işlemleri Wear\'da desteklenmiyor."</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasının nelere erişmesine izin vereceğinizi seçin"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; güncellendi. Bu uygulamanın nelere erişmesine izin verileceğini seçin."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"İptal"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Devam"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Yeni izinler"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Geçerli izinler"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Uygulama hazırlanıyor…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Bilinmiyor"</string>
-    <string name="permission_usage_title" msgid="2836714315390340012">"Kontrol paneli"</string>
-    <string name="permission_usage_summary_foreground" msgid="926040696577673055">"Son erişim: <xliff:g id="TIME">%1$s</xliff:g>\nSon olarak uygulama kullanılırken erişildi"</string>
-    <string name="permission_usage_summary_background" msgid="9179526841353882748">"Son erişim: <xliff:g id="TIME">%1$s</xliff:g>\nSon olarak arka planda erişildi"</string>
-    <string name="permission_usage_any_permission" msgid="8832731783727406380">"Tüm izinler"</string>
-    <string name="permission_usage_any_time" msgid="1476491940247458210">"Tüm zamanlar"</string>
-    <string name="permission_usage_last_7_days" msgid="4888188421845723880">"Son 7 gün"</string>
-    <string name="permission_usage_last_day" msgid="8645320285604363072">"Son 24 saat"</string>
-    <string name="permission_usage_last_hour" msgid="2604532770472032956">"Son 1 saat"</string>
-    <string name="permission_usage_last_15_minutes" msgid="5426881076086895200">"Son 15 dakika"</string>
-    <string name="permission_usage_last_minute" msgid="3067561801126564567">"Son 1 dakika"</string>
-    <string name="no_permission_usages" msgid="5322488885313825032">"İzin kullanılmadı"</string>
-    <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"Herhangi bir zamanda gerçekleşen en son erişim"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"Son 7 gün içindeki en son erişimler"</string>
-    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"Son 24 saat içinde gerçekleşen en son erişim"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"Son 1 saat içinde gerçekleşen en son erişim"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"Son 15 dakika için gerçekleşen en son erişim"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"Son 1 dakika içinde gerçekleşen en son erişim"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"Herhangi bir zamanda gerçekleşen izin kullanımı"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"Son 7 gün içinde gerçekleşen izin kullanımı"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"Son 24 saat içinde gerçekleşen izin kullanımı"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"Son 1 saat içinde gerçekleşen izin kullanımı"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"Son 15 dakika içinde gerçekleşen izin kullanımı"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"Son 1 dakika içinde gerçekleşen izin kullanımı"</string>
-    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Bu uygulama, Android\'in daha eski bir sürümü için tasarlandı. İznin reddedilmesi, uygulamanın bundan sonra amaçlandığı gibi çalışmamasına neden olabilir."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"bilinmeyen bir işlem gerçekleştirme"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g> uygulamaya izin veriliyor"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Sisteme ait olanları göster"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Sisteme ait olanları gizle"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Uygulama yok"</string>
+    <string name="location_settings" msgid="547378321761364906">"Konum Ayarları"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g>, bu cihaz için konum hizmetlerinin bir sağlayıcısıdır. Konum erişimi, konum ayarlarından değiştirilebilir."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Bu izni reddederseniz cihazınızın temel özellikleri artık beklendiği gibi çalışmayabilir."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Politika tarafından zorunlu tutuldu"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Arka planda erişim politika tarafından devre dışı bırakıldı"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Arka planda erişim politika tarafından etkinleştirildi"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Ön planda erişim politika tarafından etkinleştirildi"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Yönetici tarafından kontrol ediliyor"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Arka planda erişim yönetici tarafından devre dışı bırakıldı"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Arka planda erişim yönetici tarafından etkinleştirildi"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Ön planda erişim yönetici tarafından etkinleştirildi"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="5463084832974856683">"Cihazın çalışabilmesi için bu iznin verilmesi zorunludur"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="5419580764084361573">"Her zaman izin ver"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Yalnızca uygulama kullanılırken izin ver"</string>
+    <string name="permission_access_never" msgid="425385910378172045">"Reddet"</string>
+    <string name="loading" msgid="323483393167148377">"Yükleniyor…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Tüm izinler"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Diğer uygulama özellikleri"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"İzin isteği"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Ekran yer paylaşımı tespit edildi"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Bu izin ayarını değiştirmek için ilk olarak Ayarlar &gt; Uygulamalar\'dan ekran yer paylaşımını kapatmanız gerekir"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Ayarları aç"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Yükleme/Yüklemeyi Kaldırma işlemleri Wear\'da desteklenmiyor."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasının nelere erişmesine izin vereceğinizi seçin"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; güncellendi. Bu uygulamanın nelere erişmesine izin verileceğini seçin."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"İptal"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Devam"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Yeni izinler"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Geçerli izinler"</string>
+    <string name="message_staging" msgid="641286607664721291">"Uygulama hazırlanıyor…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Bilinmiyor"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Kontrol paneli"</string>
+    <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"Son erişim: <xliff:g id="TIME">%1$s</xliff:g>\nSon olarak uygulama kullanılırken erişildi"</string>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Son erişim: <xliff:g id="TIME">%1$s</xliff:g>\nSon olarak arka planda erişildi"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Tüm izinler"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Tüm zamanlar"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Son 7 gün"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Son 24 saat"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Son 1 saat"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Son 15 dakika"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Son 1 dakika"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"İzin kullanılmadı"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Herhangi bir zamanda gerçekleşen en son erişim"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Son 7 gün içindeki en son erişimler"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Son 24 saat içinde gerçekleşen en son erişim"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Son 1 saat içinde gerçekleşen en son erişim"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Son 15 dakika için gerçekleşen en son erişim"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Son 1 dakika içinde gerçekleşen en son erişim"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Herhangi bir zamanda gerçekleşen izin kullanımı"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Son 7 gün içinde gerçekleşen izin kullanımı"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Son 24 saat içinde gerçekleşen izin kullanımı"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Son 1 saat içinde gerçekleşen izin kullanımı"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Son 15 dakika içinde gerçekleştirilen izin kullanımı"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Son 1 dakika içinde gerçekleşen izin kullanımı"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> uygulama</item>
       <item quantity="one">1 uygulama</item>
     </plurals>
-    <string name="permission_usage_view_details" msgid="7240872485880156540">"Tümünü Kontrol Paneli\'nde göster"</string>
-    <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"Filtre ölçütü: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"Tümünü Kontrol Paneli\'nde göster"</string>
-    <string name="filter_by_title" msgid="7213659781851489723">"Filtre uygulama ölçütü"</string>
-    <string name="filter_by_permissions" msgid="6808193127145660341">"İzinlere göre filtrele"</string>
-    <string name="filter_by_time" msgid="4037550957826791975">"Zamana göre filtrele"</string>
-    <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"En çok kullanılan izinler"</string>
-    <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"En yüksek erişim"</string>
-    <string name="sort_spinner_recent" msgid="1418334780798429342">"Son erişilenler"</string>
-    <string name="sort_by_app" msgid="5836911326872031928">"Uygulamaya göre sırala"</string>
-    <string name="sort_by_time" msgid="5904361063977286957">"Zamana göre sırala"</string>
-    <string name="item_separator" msgid="5590105992485222167">", "</string>
-    <string name="permission_usage_refresh" msgid="2424637977565575554">"Yenile"</string>
-    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="3432752017977609387">
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"Tümünü Kontrol Paneli\'nde göster"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtre ölçütü: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Tümünü Kontrol Paneli\'nde göster"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Filtre uygulama ölçütü"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"İzinlere göre filtrele"</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"Zamana göre filtrele"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"En çok kullanılan izinler"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"En yüksek erişim"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Son erişilenler"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Uygulama kullanımına göre sırala"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Zamana göre sırala"</string>
+    <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Yenile"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> uygulama</item>
       <item quantity="one">1 uygulama</item>
     </plurals>
-    <string name="app_permission_usage_title" msgid="7581866247837360658">"Uygulama izinleri kullanımı"</string>
-    <string name="app_permission_usage_summary" msgid="5658348946460016420">"Erişim: <xliff:g id="NUM">%1$s</xliff:g> kez. Toplam süre: <xliff:g id="DURATION">%2$s</xliff:g>. En son <xliff:g id="TIME">%3$s</xliff:g> önce kullanıldı."</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="2632566955455027044">"Erişim: <xliff:g id="NUM">%1$s</xliff:g> kez. En son <xliff:g id="TIME">%2$s</xliff:g> önce kullanıldı."</string>
-    <string name="app_permission_button_allow" msgid="7196632414370900342">"İzin ver"</string>
-    <string name="app_permission_button_allow_always" msgid="865855803108309194">"Her zaman izin ver"</string>
-    <string name="app_permission_button_allow_foreground" msgid="5274626376926140236">"Yalnızca uygulama kullanılırken izin ver"</string>
-    <string name="app_permission_button_deny" msgid="6476351587498235802">"Reddet"</string>
-    <string name="app_permission_title" msgid="5335967448269243651">"<xliff:g id="PERM">%1$s</xliff:g> izni"</string>
-    <string name="app_permission_header" msgid="6247289774554173809">"Bu uygulamanın <xliff:g id="PERM">%1$s</xliff:g> erişimine"</string>
-    <string name="app_permission_footer_usage_summary_generic" msgid="8066565238703750648">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> önce cihazınızın <xliff:g id="PERM">%2$s</xliff:g> iznine erişti"</string>
-    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="6224606940699705802">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce fiziksel aktivitenize erişti"</string>
-    <string name="app_permission_footer_usage_summary_calendar" msgid="7675173035887568420">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce takviminize erişti"</string>
-    <string name="app_permission_footer_usage_summary_call_log" msgid="4987849901381920883">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce çağrı kaydınıza erişti"</string>
-    <string name="app_permission_footer_usage_summary_camera" msgid="2472049066125117479">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce kameranıza erişti"</string>
-    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce kişilerinize erişti"</string>
-    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce konumunuza erişti"</string>
-    <string name="app_permission_footer_usage_summary_microphone" msgid="5389687207650592055">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce mikrofonunuza erişti"</string>
-    <string name="app_permission_footer_usage_summary_phone" msgid="2837455934182233739">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce telefonunuza erişti"</string>
-    <string name="app_permission_footer_usage_summary_sensors" msgid="1884302729411890466">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce sensörlerinize erişti"</string>
-    <string name="app_permission_footer_usage_summary_sms" msgid="8773249966836488293">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce SMS\'inize erişti"</string>
-    <string name="app_permission_footer_usage_summary_storage" msgid="4229213694450790269">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce depolama alanınıza erişti"</string>
-    <string name="app_permission_footer_no_usages_generic" msgid="8379981388202799895">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="PERM">%2$s</xliff:g> izninize erişmedi"</string>
-    <string name="app_permission_footer_no_usages_activity_recognition" msgid="2088781216296754537">"<xliff:g id="APP">%1$s</xliff:g>, fiziksel aktivitenize erişmedi"</string>
-    <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"<xliff:g id="APP">%1$s</xliff:g>, takviminize erişmedi"</string>
-    <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"<xliff:g id="APP">%1$s</xliff:g>, çağrı kayıtlarınıza erişmedi"</string>
-    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"<xliff:g id="APP">%1$s</xliff:g>, kameranıza erişmedi"</string>
-    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"<xliff:g id="APP">%1$s</xliff:g>, kişilerinize erişmedi"</string>
-    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"<xliff:g id="APP">%1$s</xliff:g>, konumunuza erişmedi"</string>
-    <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"<xliff:g id="APP">%1$s</xliff:g>, mikrofonunuza erişmedi"</string>
-    <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"<xliff:g id="APP">%1$s</xliff:g>, telefonunuza erişmedi"</string>
-    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g>, sensörlerinize erişmedi"</string>
-    <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g>, SMS\'inize erişmedi"</string>
-    <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g>, depolama alanınıza erişmedi"</string>
-    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"Şu anda bu izin için son erişim verisi yok"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"Tüm <xliff:g id="APP">%1$s</xliff:g> izinlerini göster"</string>
-    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"Bu izne sahip tüm uygulamaları göster"</string>
-    <string name="permission_description_summary_generic" msgid="1134416469764865198">"Bu izne sahip uygulamalar şunu yapabilir: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"Bu izne sahip uygulamalar, yürüme, bisiklete binme, araba kullanma, adım sayısı gibi fiziksel aktivitelerinize erişebilir."</string>
-    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"Bu izne sahip uygulamalar takviminize erişebilir"</string>
-    <string name="permission_description_summary_call_log" msgid="4715804544768878751">"Bu izne sahip uygulamalar telefon arama kaydını okuyabilir ve yazabilir"</string>
-    <string name="permission_description_summary_camera" msgid="7879547592935186291">"Bu izne sahip uygulamalar fotoğraf çekebilir ve video kaydedebilir"</string>
-    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"Bu izne sahip uygulamalar kişilerinize erişebilir"</string>
-    <string name="permission_description_summary_location" msgid="4722113806360938675">"Bu izne sahip uygulamalar bu cihazın konumuna erişebilir"</string>
-    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"Bu izne sahip uygulamalar sesleri kaydedebilir"</string>
-    <string name="permission_description_summary_phone" msgid="6972180067860067462">"Bu izne sahip uygulamalar telefon aramaları yapabilir ve telefon aramalarını yönetebilir"</string>
-    <string name="permission_description_summary_sensors" msgid="5747969909098898581">"Bu izne sahip uygulamalar hayati belirtilerinizle ilgili sensör verilerine erişebilir"</string>
-    <string name="permission_description_summary_sms" msgid="1394630256073587627">"Bu izne sahip uygulamalar SMS mesajları gönderebilir ve görüntüleyebilir"</string>
-    <string name="permission_description_summary_storage" msgid="3947962757455327167">"Bu izne sahip uygulamalar, cihazınızdaki fotoğraflara, medyalara ve dosyalara erişebilir."</string>
-    <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"Son erişim: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"Şu anda reddedildi / Son erişim: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"Hiç erişmedi"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"Reddedildi / Hiç erişmedi"</string>
-    <string name="allowed_header" msgid="670868581011741572">"İzin verilenler"</string>
-    <string name="allowed_always_header" msgid="3129163790476916487">"Her zaman izin verilenler"</string>
-    <string name="allowed_foreground_header" msgid="508441909373674270">"Yalnızca kullanımdayken izin verilenler"</string>
-    <string name="denied_header" msgid="4716097249466859449">"Reddedilenler"</string>
-    <string name="detailed_usage_link" msgid="3213629980587953904">"Ayrıntılı kullanımı göster"</string>
-    <plurals name="days" formatted="false" msgid="7685720539370448104">
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Uygulama izinleri kullanımı"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Erişim: <xliff:g id="NUM">%1$s</xliff:g> kez. Toplam süre: <xliff:g id="DURATION">%2$s</xliff:g>. En son <xliff:g id="TIME">%3$s</xliff:g> önce kullanıldı."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Erişim: <xliff:g id="NUM">%1$s</xliff:g> kez. En son <xliff:g id="TIME">%2$s</xliff:g> önce kullanıldı."</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"İzin ver"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Her zaman izin ver"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Yalnızca uygulama kullanılırken izin ver"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"Reddet"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> izni"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Bu uygulamanın <xliff:g id="PERM">%1$s</xliff:g> erişimine"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> önce cihazınızın <xliff:g id="PERM">%2$s</xliff:g> iznine erişti"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce fiziksel aktivitenize erişti"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce takviminize erişti"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce çağrı kaydınıza erişti"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce kameranıza erişti"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce kişilerinize erişti"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce konumunuza erişti"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce mikrofonunuza erişti"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce telefonunuza erişti"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce sensörlerinize erişti"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce SMS\'inize erişti"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g> önce depolama alanınıza erişti"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g>, <xliff:g id="PERM">%2$s</xliff:g> izninize erişmedi"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g>, fiziksel aktivitenize erişmedi"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g>, takviminize erişmedi"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g>, çağrı kayıtlarınıza erişmedi"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g>, kameranıza erişmedi"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g>, kişilerinize erişmedi"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g>, konumunuza erişmedi"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g>, mikrofonunuza erişmedi"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g>, telefonunuza erişmedi"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g>, sensörlerinize erişmedi"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g>, SMS\'inize erişmedi"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g>, depolama alanınıza erişmedi"</string>
+    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Şu anda bu izin için son erişim verisi yok"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Tüm <xliff:g id="APP">%1$s</xliff:g> izinlerini göster"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Bu izne sahip tüm uygulamaları göster"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Bu izne sahip uygulamalar şunu yapabilir: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Bu izne sahip uygulamalar, yürüyüş, bisiklete binme, araba kullanma, adım sayısı gibi fiziksel aktivitelerinize erişebilir."</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Bu izne sahip uygulamalar takviminize erişebilir"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Bu izne sahip uygulamalar telefon arama kaydını okuyabilir ve yazabilir"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Bu izne sahip uygulamalar fotoğraf çekebilir ve video kaydedebilir"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Bu izne sahip uygulamalar kişilerinize erişebilir"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"Bu izne sahip uygulamalar bu cihazın konumuna erişebilir"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Bu izne sahip uygulamalar sesleri kaydedebilir"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Bu izne sahip uygulamalar telefon aramaları yapabilir ve telefon aramalarını yönetebilir"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Bu izne sahip uygulamalar hayati belirtilerinizle ilgili sensör verilerine erişebilir"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Bu izne sahip uygulamalar SMS mesajları gönderebilir ve görüntüleyebilir"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Bu izne sahip uygulamalar, cihazınızdaki fotoğraflara, medyalara ve dosyalara erişebilir."</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Son erişim: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Şu anda reddedildi / Son erişim: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Hiç erişmedi"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Reddedildi / Hiç erişmedi"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"İzin verilenler"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Her zaman izin verilenler"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Yalnızca kullanımdayken izin verilenler"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Reddedilenler"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Ayrıntılı kullanımı göster"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> gün</item>
       <item quantity="one">1 gün</item>
     </plurals>
-    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> saat</item>
       <item quantity="one">1 saat</item>
     </plurals>
-    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dakika</item>
       <item quantity="one">1 dakika</item>
     </plurals>
-    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> saniye</item>
       <item quantity="one">1 saniye</item>
     </plurals>
-    <string name="permission_reminders" msgid="7692569306867004285">"İzin hatırlatıcılar"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g>, arka planda konumunuza erişti"</string>
-    <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Bu uygulama, konumunuza her zaman erişebilir. Değiştirmek için dokunun."</string>
-    <string name="permission_subtitle_only_in_foreground" msgid="4173535624805161577">"Yalnızca uygulama kullanılırken"</string>
-    <string name="no_permissions_allowed" msgid="3972033828052568206">"Hiçbir izin verilmedi"</string>
-    <string name="no_permissions_denied" msgid="4148813660212679056">"Hiçbir izin reddedilmedi"</string>
-    <string name="no_apps_allowed" msgid="4959324189831343508">"Hiçbir uygulamaya izin verilmedi"</string>
-    <string name="no_apps_denied" msgid="4966465333227047186">"Hiçbir uygulama reddedilmedi"</string>
-    <string name="car_permission_selected" msgid="5788441628706535323">"Seçili"</string>
-    <string name="settings" msgid="6743583734099755409">"Ayarlar"</string>
-    <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"<xliff:g id="SERVICE_NAME">%s</xliff:g> hizmetinin cihazınıza tam erişimi var"</string>
-    <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"<xliff:g id="NUM_SERVICES">%s</xliff:g> erişilebilirlik uygulamalarının, cihazınıza tam erişimi var"</string>
-    <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ekranınızı, işlemlerinizi ve girişlerinizi görebilir, işlemler gerçekleştirebilir ve ekranı kontrol edebilir."</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"Bu uygulamalar ekranınızı, işlemlerinizi ve girişlerinizi görebilir, işlemler gerçekleştirebilir ve ekranı kontrol edebilir."</string>
-    <string name="role_assistant_label" msgid="325607225419991524">"Varsayılan asistan uygulaması"</string>
-    <string name="role_assistant_short_label" msgid="5324338887042810318">"Yardım uygulaması"</string>
-    <string name="role_assistant_description" msgid="5980622464037768572">"Asistan uygulamaları, görüntülemekte olduğunuz ekrandaki bilgilere dayalı olarak size yardım edebilir. Bazı uygulamalar, entegre yardım sağlamak için hem başlatıcıyı hem de ses girişi hizmetlerini destekler."</string>
-    <string name="role_assistant_request_title" msgid="2198246079117996249">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan asistan uygulamanız olarak ayarlansın mı?"</string>
-    <string name="role_assistant_request_description" msgid="9007538649849881727">"SMS, arama kaydına erişim sağlar"</string>
-    <string name="role_browser_label" msgid="1452186785584890151">"Varsayılan tarayıcı uygulaması"</string>
-    <string name="role_browser_short_label" msgid="7008704096614388208">"Tarayıcı uygulaması"</string>
-    <string name="role_browser_description" msgid="3733812642667691329">"İnternete erişmenizi sağlayan ve dokunduğunuz bağlantıları görüntüleyen uygulamalar"</string>
-    <string name="role_browser_request_title" msgid="6682328732125865006">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan tarayıcı uygulamanız olarak ayarlansın mı?"</string>
-    <string name="role_browser_request_description" msgid="5273230084027848407">"Herhangi bir izin gerekli değil"</string>
-    <string name="role_dialer_label" msgid="596483535824303996">"Varsayılan telefon uygulaması"</string>
-    <string name="role_dialer_short_label" msgid="6852083763162503355">"Telefon uygulaması"</string>
-    <string name="role_dialer_description" msgid="8168811763060055520">"Cihazınızda telefon aramaları almanıza ve yapmanıza olanak tanıyan uygulamalar"</string>
-    <string name="role_dialer_request_title" msgid="2281942809560056462">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan telefon uygulamanız olarak ayarlansın mı?"</string>
-    <string name="role_dialer_request_description" msgid="1597958203339261473">"Arama kaydına erişim sağlar, SMS gönderir"</string>
-    <string name="role_sms_label" msgid="1282375330984375167">"Varsayılan SMS uygulaması"</string>
-    <string name="role_sms_short_label" msgid="4774295162759580727">"SMS uygulaması"</string>
-    <string name="role_sms_description" msgid="8688975508844386261">"Kısa mesajlar, fotoğraflar, videolar ve başka içerikler göndermek ve almak için telefon numaranızı kullanmanıza olanak tanıyan uygulamalar"</string>
-    <string name="role_sms_request_title" msgid="3942676190809695139">"<xliff:g id="APP_NAME">%1$s</xliff:g> varsayılan SMS uygulamanız olarak ayarlansın mı?"</string>
-    <string name="role_sms_request_description" msgid="6079312070314434582">"Kişilere, SMS\'e, telefona erişim sağlar"</string>
-    <string name="role_emergency_label" msgid="8510350771744625248">"Varsayılan acil durum uygulaması"</string>
-    <string name="role_emergency_short_label" msgid="594672497758636578">"Acil durum uygulaması"</string>
-    <string name="role_emergency_description" msgid="1328017704085954407">"Tıbbi bilgilerinizi kaydetmenize ve acil durumda müdahale eden kişilerin bu bilgilere erişmesine; önemli meteoroloji olayları ve salgınlarla ilgili uyarılar almanıza, yardıma ihtiyacınız olduğunda başkalarına bilgi vermeye olanak tanıyan uygulamalar"</string>
-    <string name="role_emergency_request_title" msgid="862426026906033381">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan acil durum uygulamanız olarak ayarlansın mı?"</string>
-    <string name="role_emergency_request_description" msgid="6604461788824945209">"Herhangi bir izin gerekli değil"</string>
-    <string name="role_home_label" msgid="2403568779207064895">"Varsayılan ana ekran uygulaması"</string>
-    <string name="role_home_short_label" msgid="8293261293243062773">"Ana ekran uygulaması"</string>
-    <string name="role_home_description" msgid="4692657963991101103">"Android cihazınızın Ana ekranı yerine geçen ve cihazınızın içeriklerine ve özelliklerine erişmenizi sağlayan, genellikle başlatıcı olarak adlandırılan uygulamalar"</string>
-    <string name="role_home_request_title" msgid="7254377742128731004">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan ana ekran uygulamanız olarak ayarlansın mı?"</string>
-    <string name="role_home_request_description" msgid="1649615419642117675">"Herhangi bir izin gerekli değil"</string>
-    <string name="role_call_redirection_label" msgid="8614962962542193455">"Varsayılan arama yönlendirme uygulaması"</string>
-    <string name="role_call_redirection_short_label" msgid="7030817671864547206">"Arama yönlendirme uygulaması"</string>
-    <string name="role_call_redirection_description" msgid="1118180396571102108">"Giden aramalarını başka bir telefon numarasına yönlendirmenize olanak tanıyan uygulamalar"</string>
-    <string name="role_call_redirection_request_title" msgid="3292712900764740951">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan arama yönlendirme uygulamanız olarak ayarlansın mı?"</string>
-    <string name="role_call_redirection_request_description" msgid="9130097590698779041">"Herhangi bir izin gerekli değil"</string>
-    <string name="role_call_screening_label" msgid="6762278758943136846">"Varsayılan arayan kimliği ve spam uygulaması"</string>
-    <string name="role_call_screening_short_label" msgid="4405732075031564902">"Arayan kimliği ve spam uygulaması"</string>
-    <string name="role_call_screening_description" msgid="630332789277798256">"Gelen aramaları tanımlamaya, spam ve otomatik çağrıları engellemeye, istenmeyen numaraları kara listeye almaya olanak tanıyan uygulamalar."</string>
-    <string name="role_call_screening_request_title" msgid="2918540778717341412">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan arayan kimliği ve spam uygulamanız olarak ayarlansın mı?"</string>
-    <string name="role_call_screening_request_description" msgid="2238766550271106517">"Herhangi bir izin gerekli değil"</string>
-    <string name="request_role_current_default" msgid="8010053122057418777">"Mevcut varsayılan"</string>
-    <string name="request_role_dont_ask_again" msgid="1002776641382604316">"Tekrar sorma"</string>
-    <string name="request_role_set_as_default" msgid="161884072789965631">"Varsayılan olarak ayarla"</string>
-    <string name="default_app_search_keyword" msgid="5893328509368498565">"varsayılan uygulamalar"</string>
-    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"Anladım"</string>
-    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"Gizlilik ayarları"</string>
-    <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"Uygulamalar cihazınızın <xliff:g id="TYPES_LIST">%s</xliff:g> özelliklerini kullanıyor"</string>
-    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
-    <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" ve "</string>
-    <string name="settings_button" msgid="1808682743475842576">"Ayarlar"</string>
-    <string name="default_apps" msgid="5730264737920158250">"Varsayılan uygulamalar"</string>
-    <string name="no_default_apps" msgid="2998405086652908867">"Varsayılan uygulama yok"</string>
-    <string name="default_apps_more" msgid="2432881430817521134">"Diğer varsayılanlar"</string>
-    <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"Bağlantıları açma"</string>
-    <string name="default_apps_for_work" msgid="6893448061977233772">"İş için varsayılan"</string>
-    <string name="default_app_none" msgid="4430855885741769064">"Yok"</string>
-    <string name="default_app_system_default" msgid="330065926244492508">"(Sistem varsayılanı)"</string>
-    <string name="default_app_no_apps" msgid="295747201345391862">"Uygulama yok"</string>
-    <string name="car_default_app_selected" msgid="5041173040939570813">"Seçili"</string>
-    <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Seçildi - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
-    <string name="special_app_access_search_keyword" msgid="1933225255981974193">"özel uygulama erişimi"</string>
-    <string name="special_app_access" msgid="1809336016722693481">"Özel uygulama erişimi"</string>
-    <string name="no_special_app_access" msgid="1990650297459671983">"Özel uygulama erişimi yok"</string>
-    <string name="special_app_access_no_apps" msgid="4500324676362932725">"Uygulama yok"</string>
-    <string name="home_missing_work_profile_support" msgid="1172382464555492915">"İş profili desteklenmiyor"</string>
-    <string name="encryption_unaware_confirmation_message" msgid="5402573583668296906">"Not: Cihazınızı yeniden başlatırsanız ve ekran kilidi kullanıyorsanız, cihazınızın kilidini açmadan bu uygulama başlayamaz."</string>
-    <string name="assistant_confirmation_message" msgid="381445592546930">"Asistan, ekranınızda görünür olan veya uygulamaların içinden erişilebilen bilgiler dahil olmak üzere sisteminizde kullanılan uygulamalar hakkındaki bilgileri okuyabilecektir."</string>
-    <string name="incident_report_channel_name" msgid="434475342655406223">"Hata Ayıklama Verilerini Paylaş"</string>
-    <string name="incident_report_notification_title" msgid="5639002400773574216">"Ayrıntılı hata ayıklama verileri paylaşılsın mı?"</string>
-    <string name="incident_report_notification_text" msgid="3982379040142711581">"<xliff:g id="APP_NAME">%1$s</xliff:g>, hata ayıklama bilgilerini yüklemek istiyor."</string>
-    <string name="incident_report_dialog_title" msgid="7779774651136791681">"Hata Ayıklama Verilerini Paylaş"</string>
-    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"Sistem bir sorun algıladı."</string>
-    <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g>, bu cihazda <xliff:g id="DATE">%2$s</xliff:g> saat <xliff:g id="TIME">%3$s</xliff:g> itibarıyla kaydedilen hata raporunu yüklemek istiyor. Hata raporları cihazınızla ilgili veya uygulamalar tarafından günlüğe kaydedilmiş kişisel bilgiler (örneğin kullanıcı adları, konum verisi, cihaz tanımlayıcılar ve ağ bilgileri) içerir. Hata raporlarını yalnızca bu bilgileri verme konusunda güvendiğiniz kişi ve uygulamalarla paylaşın. <xliff:g id="APP_NAME_1">%4$s</xliff:g> uygulamasının hata raporu yüklemesine izin verilsin mi?"</string>
-    <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"<xliff:g id="APP_NAME">%1$s</xliff:g> hata raporunu işlemeyle ilgili sorun oluştu. Ayrıntılı hata ayıklama verilerinin paylaşılması reddedildi. Kesinti için üzgünüz."</string>
-    <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"İzin ver"</string>
-    <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Reddet"</string>
-    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"Gelişmiş ayarlar"</string>
-    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"Gelişmiş ayarlar"</string>
-    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"Sistem uygulaması kullanımını göster"</string>
-    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"Sistem uygulaması izin kullanımlarını durum çubuğu, kontrol paneli ve başka yerlerde göster"</string>
-    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"Şu öğelere ilişkin kullanımı göster:"</string>
-    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Asistan tetikleyici algılamayı göster"</string>
-    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Sesli yardımı etkinleştirmek için mikrofon kullanıldığında simgeyi durum çubuğunda göster"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasının cihazınızdaki fotoğraf ve dosyalara erişmesine izin verilsin mi?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"İzin hatırlatıcılar"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>, arka planda konumunuza erişti"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Bu uygulama, konumunuza her zaman erişebilir. Değiştirmek için dokunun."</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Yalnızca uygulama kullanılırken"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Hiçbir izin verilmedi"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Hiçbir izin reddedilmedi"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Hiçbir uygulamaya izin verilmedi"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Hiçbir uygulama reddedilmedi"</string>
+    <string name="car_permission_selected" msgid="2163426344720483487">"Seçili"</string>
+    <string name="settings" msgid="2884124136779508907">"Ayarlar"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> hizmetinin cihazınıza tam erişimi var"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> erişilebilirlik uygulamalarının, cihazınıza tam erişimi var"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ekranınızı, işlemlerinizi ve girişlerinizi görebilir, işlemler gerçekleştirebilir ve ekranı kontrol edebilir."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Bu uygulamalar ekranınızı, işlemlerinizi ve girişlerinizi görebilir, işlemler gerçekleştirebilir ve ekranı kontrol edebilir."</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"Varsayılan asistan uygulaması"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"Asistan uygulaması"</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"Asistan uygulamaları, görüntülemekte olduğunuz ekrandaki bilgilere dayalı olarak size yardım edebilir. Bazı uygulamalar, entegre yardım sağlamak için hem başlatıcıyı hem de ses girişi hizmetlerini destekler."</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan asistan uygulamanız olarak ayarlansın mı?"</string>
+    <string name="role_assistant_request_description" msgid="1086168907357494789">"SMS, arama kaydına erişim sağlar"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Varsayılan tarayıcı uygulaması"</string>
+    <string name="role_browser_short_label" msgid="6222206565850006894">"Tarayıcı uygulaması"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"İnternete erişmenizi sağlayan ve dokunduğunuz bağlantıları görüntüleyen uygulamalar"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan tarayıcı uygulamanız olarak ayarlansın mı?"</string>
+    <string name="role_browser_request_description" msgid="3204873553391043604">"Herhangi bir izin gerekli değil"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"Varsayılan telefon uygulaması"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"Telefon uygulaması"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"Cihazınızda telefon aramaları almanıza ve yapmanıza olanak tanıyan uygulamalar"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan telefon uygulamanız olarak ayarlansın mı?"</string>
+    <string name="role_dialer_request_description" msgid="2931069491309771312">"Arama kaydına erişim sağlar, SMS gönderir"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"Varsayılan SMS uygulaması"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"SMS uygulaması"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Kısa mesajlar, fotoğraflar, videolar ve başka içerikler göndermek ve almak için telefon numaranızı kullanmanıza olanak tanıyan uygulamalar"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g> varsayılan SMS uygulamanız olarak ayarlansın mı?"</string>
+    <string name="role_sms_request_description" msgid="4920787411350418630">"Kişilere, SMS\'e, telefona erişim sağlar"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"Varsayılan acil durum uygulaması"</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"Acil durum uygulaması"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"Tıbbi bilgilerinizi kaydetmenize ve acil durumda müdahale eden kişilerin bu bilgilere erişmesine; önemli meteoroloji olayları ve salgınlarla ilgili uyarılar almanıza, yardıma ihtiyacınız olduğunda başkalarına bilgi vermeye olanak tanıyan uygulamalar"</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan acil durum uygulamanız olarak ayarlansın mı?"</string>
+    <string name="role_emergency_request_description" msgid="2824966073894226992">"Herhangi bir izin gerekli değil"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Varsayılan ana ekran uygulaması"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"Ana ekran uygulaması"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Android cihazınızın Ana ekranı yerine geçen ve cihazınızın içeriklerine ve özelliklerine erişmenizi sağlayan, genellikle başlatıcı olarak adlandırılan uygulamalar"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan ana ekran uygulamanız olarak ayarlansın mı?"</string>
+    <string name="role_home_request_description" msgid="6437733879812403277">"Herhangi bir izin gerekli değil"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"Varsayılan arama yönlendirme uygulaması"</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Arama yönlendirme uygulaması"</string>
+    <string name="role_call_redirection_description" msgid="769231030043298555">"Giden aramalarını başka bir telefon numarasına yönlendirmenize olanak tanıyan uygulamalar"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan arama yönlendirme uygulamanız olarak ayarlansın mı?"</string>
+    <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Herhangi bir izin gerekli değil"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Varsayılan arayan kimliği ve spam uygulaması"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Arayan kimliği ve spam uygulaması"</string>
+    <string name="role_call_screening_description" msgid="4470066768170089758">"Gelen aramaları tanımlamaya, spam ve otomatik çağrıları engellemeye, istenmeyen numaraları kara listeye almaya olanak tanıyan uygulamalar."</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan arayan kimliği ve spam uygulamanız olarak ayarlansın mı?"</string>
+    <string name="role_call_screening_request_description" msgid="7788142583532880646">"Herhangi bir izin gerekli değil"</string>
+    <string name="request_role_current_default" msgid="7512045433655289638">"Mevcut varsayılan"</string>
+    <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Tekrar sorma"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"Varsayılan olarak ayarla"</string>
+    <string name="default_app_search_keyword" msgid="6938709626391437391">"varsayılan uygulamalar"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Anladım"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"Gizlilik ayarları"</string>
+    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"Uygulamalar cihazınızın <xliff:g id="TYPES_LIST">%s</xliff:g> özelliklerini kullanıyor"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" ve "</string>
+    <string name="settings_button" msgid="4747434541214595321">"Ayarlar"</string>
+    <string name="default_apps" msgid="8554530939151957828">"Varsayılan uygulamalar"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Varsayılan uygulama yok"</string>
+    <string name="default_apps_more" msgid="3908067305593075127">"Diğer varsayılanlar"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Bağlantıları açma"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"İş için varsayılan"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Yok"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Sistem varsayılanı)"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Uygulama yok"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Seçildi"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Seçildi - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"özel uygulama erişimi"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Özel uygulama erişimi"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Özel uygulama erişimi yok"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Uygulama yok"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"İş profili desteklenmiyor"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Not: Cihazınızı yeniden başlatırsanız ve ekran kilidi kullanıyorsanız, cihazınızın kilidini açmadan bu uygulama başlayamaz."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Asistan, ekranınızda görünür olan veya uygulamaların içinden erişilebilen bilgiler dahil olmak üzere sisteminizde kullanılan uygulamalar hakkındaki bilgileri okuyabilecektir."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Hata Ayıklama Verilerini Paylaş"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Ayrıntılı hata ayıklama verileri paylaşılsın mı?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>, hata ayıklama bilgilerini yüklemek istiyor."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Hata Ayıklama Verilerini Paylaş"</string>
+    <string name="incident_report_dialog_intro" msgid="153446034925770956">"Sistem bir sorun algıladı."</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g>, bu cihazda <xliff:g id="DATE">%2$s</xliff:g> saat <xliff:g id="TIME">%3$s</xliff:g> itibarıyla kaydedilen hata raporunu yüklemek istiyor. Hata raporları cihazınızla ilgili veya uygulamalar tarafından günlüğe kaydedilmiş kişisel bilgiler (örneğin kullanıcı adları, konum verisi, cihaz tanımlayıcılar ve ağ bilgileri) içerir. Hata raporlarını yalnızca bu bilgileri verme konusunda güvendiğiniz kişi ve uygulamalarla paylaşın. <xliff:g id="APP_NAME_1">%4$s</xliff:g> uygulamasının hata raporu yüklemesine izin verilsin mi?"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> hata raporunu işlemeyle ilgili sorun oluştu. Ayrıntılı hata ayıklama verilerinin paylaşılması reddedildi. Kesinti için üzgünüz."</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"İzin ver"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Reddet"</string>
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Gelişmiş ayarlar"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Gelişmiş ayarlar"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Sistem uygulaması kullanımını göster"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Sistem uygulaması izin kullanımlarını durum çubuğu, kontrol paneli ve başka yerlerde göster"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Şu öğelere ilişkin kullanımı göster"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Asistan tetikleyici algılamayı göster"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Sesli yardımı etkinleştirmek için mikrofon kullanıldığında simgeyi durum çubuğunda göster"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasının cihazınızdaki fotoğraf ve dosyalara erişmesine izin verilsin mi?"</string>
 </resources>
