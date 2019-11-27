@@ -38,6 +38,7 @@ import static com.android.permissioncontroller.permission.ui.GrantPermissionsVie
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ONE_TIME;
 import static com.android.permissioncontroller.permission.utils.Utils.getRequestMessage;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.KeyguardManager;
 import android.app.admin.DevicePolicyManager;
@@ -736,6 +737,12 @@ public class GrantPermissionsActivity extends Activity
                                 !isForegroundPermissionUserSet;
                         mButtonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
                                 isForegroundPermissionUserSet;
+                        if (groupState.mGroup.getName().equals(Manifest.permission_group.CAMERA)
+                                || groupState.mGroup.getName().equals(
+                                        Manifest.permission_group.MICROPHONE)) {
+                            mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
+                            mButtonVisibilities[VISIBILITY_ALLOW_FOREGROUND_BUTTON] = true;
+                        }
                     }
                 }
 
