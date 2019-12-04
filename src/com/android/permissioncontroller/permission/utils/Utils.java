@@ -48,7 +48,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -548,26 +547,6 @@ public final class Utils {
      */
     public static Set<String> getPlatformPermissions() {
         return PLATFORM_PERMISSIONS.keySet();
-    }
-
-    /**
-     * Get the names of all permissions.
-     *
-     * @return the names of the permissions.
-     */
-    public static Set<String> getAllPermissions(@NonNull Context context) {
-        List<PackageInfo> packages = context.getPackageManager()
-                .getInstalledPackages(PackageManager.GET_PERMISSIONS);
-        ArraySet<String> result = new ArraySet<>();
-        for (int i = 0, size = packages.size(); i < size; i++) {
-            PackageInfo pkg = packages.get(i);
-            if (pkg.permissions != null) {
-                for (PermissionInfo permission : pkg.permissions) {
-                    result.add(permission.name);
-                }
-            }
-        }
-        return result;
     }
 
     /**
