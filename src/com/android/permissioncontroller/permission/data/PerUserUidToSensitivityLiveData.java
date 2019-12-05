@@ -110,7 +110,7 @@ public class PerUserUidToSensitivityLiveData extends
     public SparseArray<ArrayMap<String, Integer>> loadValueInBackground() {
         PackageManager pm = mContext.getPackageManager();
         List<PackageInfo> pkgs = pm.getInstalledPackages(PackageManager.GET_PERMISSIONS);
-        Set<String> allPerms = Utils.getAllPermissions(mContext);
+        Set<String> platformPerms = Utils.getPlatformPermissions();
         ArraySet<String> pkgsWithLauncherIcon = Utils.getLauncherPackages(mContext);
 
         // uid -> permission -> flags
@@ -130,7 +130,7 @@ public class PerUserUidToSensitivityLiveData extends
                 uidsPermissions.put(pkg.applicationInfo.uid, uidPermissions);
             }
 
-            for (String perm : allPerms) {
+            for (String perm : platformPerms) {
                 if (!ArrayUtils.contains(pkg.requestedPermissions, perm)) {
                     continue;
                 }
