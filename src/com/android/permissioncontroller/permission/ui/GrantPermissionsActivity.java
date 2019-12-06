@@ -30,6 +30,7 @@ import static com.android.permissioncontroller.PermissionControllerStatsLog.PERM
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_WITH_PREJUDICE;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED_ONE_TIME;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_IGNORED;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.CANCELED;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.DENIED;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.DENIED_DO_NOT_ASK_AGAIN;
@@ -857,6 +858,14 @@ public class GrantPermissionsActivity extends Activity
         logGrantPermissionActivityButtons(name, result);
         switch (result) {
             case CANCELED:
+                if (foregroundGroupState != null) {
+                    reportRequestResult(foregroundGroupState.affectedPermissions,
+                            PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_IGNORED);
+                }
+                if (backgroundGroupState != null) {
+                    reportRequestResult(backgroundGroupState.affectedPermissions,
+                            PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_IGNORED);
+                }
                 setResultAndFinish();
                 return;
             case GRANTED_ALWAYS :
@@ -1085,6 +1094,9 @@ public class GrantPermissionsActivity extends Activity
                 break;
             case GRANTED_ONE_TIME:
                 clickedButton = 1 << VISIBILITY_ALLOW_ONE_TIME_BUTTON;
+                break;
+            case CANCELED:
+                // fall through
             default:
                 break;
         }
