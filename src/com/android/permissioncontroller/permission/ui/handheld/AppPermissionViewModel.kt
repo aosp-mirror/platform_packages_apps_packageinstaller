@@ -101,7 +101,7 @@ class AppPermissionViewModel(
         var isShown: Boolean,
         var customTarget: ChangeTarget?
     ) {
-        constructor() : this(false, true, true, null)
+        constructor() : this(false, true, false, null)
     }
 
     inner class AppPermButtonStateLiveData
@@ -137,88 +137,67 @@ class AppPermissionViewModel(
             val admin = RestrictedLockUtils.getProfileOrDeviceOwner(app, user)
 
             val allowedState = ButtonState()
-            val foregroundState = ButtonState()
+            val allowedAlwaysState = ButtonState()
+            val allowedForegroundState = ButtonState()
+            val askOneTimeState = ButtonState()
             val askState = ButtonState()
             val deniedState = ButtonState()
+            val deniedForegroundState = ButtonState()
 
-            if (group.isForegroundGranted) {
-                if (!group.hasPermWithBackground || group.isBackgroundGranted) {
-                    allowedState.isChecked = true
-                } else {
-                    foregroundState.isChecked = true
-                }
-            } else {
-                if (group.isUserFixed || group.isPolicyFullyFixed || group.isSystemFixed) {
-                    deniedState.isChecked = true
-                } else {
-                    askState.isChecked = true
-                }
-            }
+            askOneTimeState.isShown = group.isOneTime
+            askState.isShown = !group.isOneTime
+            deniedState.isShown = true
 
-            if (group.hasPermWithBackground && !group.hasBackgroundPerms) {
-                allowedState.isShown = false
-                askState.customTarget = ChangeTarget.CHANGE_FOREGROUND
-                deniedState.customTarget = ChangeTarget.CHANGE_FOREGROUND
-            } else if (!group.hasPermWithBackground) {
-                foregroundState.isShown = false
-            }
-
-            if (group.isSystemFixed || group.isPolicyFullyFixed || (group.isForegroundPolicyFixed &&
-                            !group.isForegroundGranted)) {
-                allowedState.isEnabled = false
-                foregroundState.isEnabled = false
-                askState.isEnabled = false
-                deniedState.isEnabled = false
-
-                val detailId = getDetailResIdForFixedByPolicyPermissionGroup(group,
-                        admin != null)
-                if (detailId != 0) {
-                    detailResIdLiveData.value = detailId to null
-                }
-
-                value = listOf(allowedState, foregroundState, askState, deniedState)
-                showAdminSupportLiveData.value = admin
-                return
-            } else if (Utils.areGroupPermissionsIndividuallyControlled(app, permGroupName)) {
-                val detailId = getIndividualPermissionDetailResId(group)
-                detailResIdLiveData.value = detailId.first to detailId.second
-                value = listOf(allowedState, foregroundState, askState, deniedState)
-                return
-            }
+            askOneTimeState.isChecked = group.isOneTime
 
             if (group.hasPermWithBackground) {
-                if (!group.hasBackgroundPerms || group.isBackgroundPolicyFixed) {
-                    // The group has background permissions but the app did not request any, or the
-                    // background policy is fixed. I.e. The app can only switch between 'never" and
-                    // "only in foreground". If background policy is fixed, we assume that the
-                    // background policy is fixed to deny, since if it is fixed to grant, so is the
-                    // foreground.
-
-                    allowedState.isEnabled = false
-                    deniedState.customTarget = ChangeTarget.CHANGE_FOREGROUND
-
-                    if (group.hasBackgroundPerms) {
-                        foregroundState.isChecked = true
-                        allowedState.isChecked = false
-                    }
-                } else if (group.hasBackgroundPerms && group.isForegroundPolicyFixed) {
-                    // Foreground permissions are fixed to allow (the first case above handles
-                    // fixing to deny), so we only allow toggling background permissions.
-                    deniedState.isEnabled = false
-                    allowedState.customTarget = ChangeTarget.CHANGE_BACKGROUND
-                    foregroundState.customTarget = ChangeTarget.CHANGE_BACKGROUND
+                // Background / Foreground / Deny case
+                allowedForegroundState.isShown = true
+                if (group.hasBackgroundPerms) {
+                    allowedAlwaysState.isShown = true
                 }
 
-                if (group.isBackgroundPolicyFixed || group.isForegroundPolicyFixed) {
+                allowedAlwaysState.isChecked = group.isBackgroundGranted &&
+                        group.isForegroundGranted
+                allowedForegroundState.isChecked = group.isForegroundGranted &&
+                        !group.isBackgroundGranted
+                askState.isChecked = !group.isForegroundGranted && !group.isUserFixed
+                deniedState.isChecked = !group.isForegroundGranted && group.isUserFixed
+
+                if (applyFixToForegroundBackground(group, group.isForegroundSystemFixed,
+                                group.isBackgroundSystemFixed, allowedAlwaysState,
+                                allowedForegroundState, askState, deniedState,
+                                deniedForegroundState) ||
+                        applyFixToForegroundBackground(group, group.isForegroundPolicyFixed,
+                                group.isBackgroundPolicyFixed, allowedAlwaysState,
+                                allowedForegroundState, askState, deniedState,
+                                deniedForegroundState)) {
+                    showAdminSupportLiveData.value = admin
                     val detailId = getDetailResIdForFixedByPolicyPermissionGroup(group,
                             admin != null)
                     if (detailId != 0) {
                         detailResIdLiveData.value = detailId to null
                     }
+                } else if (Utils.areGroupPermissionsIndividuallyControlled(app, permGroupName)) {
+                    val detailId = getIndividualPermissionDetailResId(group)
+                    detailResIdLiveData.value = detailId.first to detailId.second
+                }
+            } else {
+                // Allow / Deny case
+                allowedState.isShown = true
+
+                allowedState.isChecked = group.isForegroundGranted
+                askState.isChecked = !group.isForegroundGranted && !group.isUserFixed
+                deniedState.isChecked = !group.isForegroundGranted && group.isUserFixed
+
+                if (group.isForegroundPolicyFixed) {
+                    allowedState.isEnabled = false
+                    askState.isEnabled = false
+                    deniedState.isEnabled = false
                 }
             }
-            detailResIdLiveData.value = null
-            value = listOf(allowedState, foregroundState, askState, deniedState)
+            value = listOf(allowedState, allowedAlwaysState, allowedForegroundState,
+                    askOneTimeState, askState, deniedState, deniedForegroundState)
         }
 
         override fun onActive() {
@@ -226,6 +205,75 @@ class AppPermissionViewModel(
             appPermissionGroup = AppPermissionGroup.create(app, packageName, permGroupName, user,
                     false)
         }
+    }
+
+    /**
+     * Modifies the radio buttons to refect the current policy fixing state
+     *
+     * @return if anything was changed
+     */
+    private fun applyFixToForegroundBackground(
+        group: LightAppPermGroup,
+        isForegroundFixed: Boolean,
+        isBackgroundFixed: Boolean,
+        allowedAlwaysState: ButtonState,
+        allowedForegroundState: ButtonState,
+        askState: ButtonState,
+        deniedState: ButtonState,
+        deniedForegroundState: ButtonState
+    ): Boolean {
+        if (isBackgroundFixed && isForegroundFixed) {
+            // Background and foreground are both policy fixed. Disable everything
+            allowedAlwaysState.isEnabled = false
+            allowedForegroundState.isEnabled = false
+            askState.isEnabled = false
+            deniedState.isEnabled = false
+
+            if (askState.isChecked) {
+                askState.isChecked = false
+                deniedState.isChecked = true
+            }
+        } else if (isBackgroundFixed && !isForegroundFixed) {
+            if (group.isBackgroundGranted) {
+                // Background policy fixed as granted, foreground flexible. Granting
+                // foreground implies background comes with it in this case.
+                // Only allow user to grant background or deny (which only toggles fg)
+                allowedForegroundState.isEnabled = false
+                askState.isEnabled = false
+                deniedState.isShown = false
+                deniedForegroundState.isShown = true
+                deniedForegroundState.isChecked = deniedState.isChecked
+
+                if (askState.isChecked) {
+                    askState.isChecked = false
+                    deniedState.isChecked = true
+                }
+            } else {
+                // Background policy fixed as not granted, foreground flexible
+                allowedAlwaysState.isEnabled = false
+            }
+        } else if (!isBackgroundFixed && isForegroundFixed) {
+            if (group.isForegroundGranted) {
+                // Foreground is fixed as granted, background flexible.
+                // Allow switching between foreground and background. No denying
+                askState.isEnabled = false
+                deniedState.isEnabled = false
+            } else {
+                // Foreground is fixed denied. Background irrelevant
+                allowedAlwaysState.isEnabled = false
+                allowedForegroundState.isEnabled = false
+                askState.isEnabled = false
+                deniedState.isEnabled = false
+
+                if (askState.isChecked) {
+                    askState.isChecked = false
+                    deniedState.isChecked = true
+                }
+            }
+        } else {
+            return false
+        }
+        return true
     }
 
     /**
@@ -535,7 +583,7 @@ class AppPermissionViewModel(
         val isForegroundPolicyDenied = group.isForegroundPolicyFixed && !group.isForegroundGranted
         val isPolicyFullyFixedWithGrantedOrNoBkg = group.isPolicyFullyFixed &&
                 (group.isBackgroundGranted || !group.hasBackgroundPerms)
-        if (group.isSystemFixed) {
+        if (group.isForegroundSystemFixed || group.isBackgroundSystemFixed) {
             return R.string.permission_summary_enabled_system_fixed
         } else if (hasAdmin) {
             // Permission is fully controlled by policy and cannot be switched

@@ -67,10 +67,13 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
 
     private @NonNull AppPermissionViewModel mViewModel;
 
-    private @NonNull RadioButton mAlwaysButton;
-    private @NonNull RadioButton mForegroundOnlyButton;
+    private @NonNull RadioButton mAllowButton;
+    private @NonNull RadioButton mAllowAlwaysButton;
+    private @NonNull RadioButton mAllowForegroundButton;
+    private @NonNull RadioButton mAskOneTimeButton;
     private @NonNull RadioButton mAskButton;
     private @NonNull RadioButton mDenyButton;
+    private @NonNull RadioButton mDenyForegroundButton;
     private @NonNull View mDivider;
     private @NonNull ViewGroup mWidgetFrame;
     private @NonNull TextView mPermissionDetails;
@@ -176,10 +179,13 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         mViewModel.setBottomLinkState(context, footer2Link, caller,
                 Intent.ACTION_MANAGE_PERMISSION_APPS);
 
-        mAlwaysButton = root.requireViewById(R.id.allow_radio_button);
-        mForegroundOnlyButton = root.requireViewById(R.id.foreground_only_radio_button);
+        mAllowButton = root.requireViewById(R.id.allow_radio_button);
+        mAllowAlwaysButton = root.requireViewById(R.id.allow_always_radio_button);
+        mAllowForegroundButton = root.requireViewById(R.id.allow_foreground_only_radio_button);
+        mAskOneTimeButton = root.requireViewById(R.id.ask_one_time_radio_button);
         mAskButton = root.requireViewById(R.id.ask_radio_button);
         mDenyButton = root.requireViewById(R.id.deny_radio_button);
+        mDenyForegroundButton = root.requireViewById(R.id.deny_foreground_radio_button);
         mDivider = root.requireViewById(R.id.two_target_divider);
         mWidgetFrame = root.requireViewById(R.id.widget_frame);
         mPermissionDetails = root.requireViewById(R.id.permission_details);
@@ -218,15 +224,19 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             return;
         }
 
-        mAlwaysButton.setOnClickListener((v) -> {
+        mAllowButton.setOnClickListener((v) -> {
+            mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_FOREGROUND);
+        });
+        mAllowAlwaysButton.setOnClickListener((v) -> {
             mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_BOTH);
             setResult();
         });
-        mForegroundOnlyButton.setOnClickListener((v) -> {
+        mAllowForegroundButton.setOnClickListener((v) -> {
             mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_FOREGROUND);
             mViewModel.requestChange(false, false, this, ChangeTarget.CHANGE_BACKGROUND);
             setResult();
         });
+        // mAskOneTimeButton only shows if checked hence should do nothing
         mAskButton.setOnClickListener((v) -> {
             mViewModel.requestChange(false, false, this, ChangeTarget.CHANGE_BOTH);
             setResult();
@@ -235,18 +245,19 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             mViewModel.requestChange(false, true, this, ChangeTarget.CHANGE_BOTH);
             setResult();
         });
+        mDenyForegroundButton.setOnClickListener((v) -> {
+            mViewModel.requestChange(false, true, this, ChangeTarget.CHANGE_FOREGROUND);
+            setResult();
+        });
 
-        setButtonState(mAlwaysButton, states.get(0), true);
-        setButtonState(mForegroundOnlyButton, states.get(1), false);
-        setButtonState(mAskButton, states.get(2), false);
-        setButtonState(mDenyButton, states.get(3), false);
-
-        if (mForegroundOnlyButton.getVisibility() == View.GONE) {
-            mAlwaysButton.setText(getContext().getString(R.string.app_permission_button_allow));
-        } else {
-            mAlwaysButton.setText(
-                    getContext().getString(R.string.app_permission_button_allow_always));
-        }
+        // TODO(ntmyren): pass button states in a non-order specific way
+        setButtonState(mAllowButton, states.get(0));
+        setButtonState(mAllowAlwaysButton, states.get(1));
+        setButtonState(mAllowForegroundButton, states.get(2));
+        setButtonState(mAskOneTimeButton, states.get(3));
+        setButtonState(mAskButton, states.get(4));
+        setButtonState(mDenyButton, states.get(5));
+        setButtonState(mDenyForegroundButton, states.get(6));
 
     }
 
@@ -255,18 +266,12 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                 AppPermissionActivity.EXTRA_RESULT_PERMISSION_INTERACTED, mPermGroupName));
     }
 
-    private void setButtonState(RadioButton button, AppPermissionViewModel.ButtonState state,
-            boolean requestGrant) {
-        button.setChecked(state.isChecked());
-        button.setEnabled(state.isEnabled());
+    private void setButtonState(RadioButton button, AppPermissionViewModel.ButtonState state) {
         int visible = state.isShown() ? View.VISIBLE : View.GONE;
         button.setVisibility(visible);
-        if (state.getCustomTarget() != null) {
-            button.setOnClickListener((v) -> {
-                mViewModel.requestChange(requestGrant, button == mDenyButton, this,
-                        state.getCustomTarget());
-                setResult();
-            });
+        if (state.isShown()) {
+            button.setChecked(state.isChecked());
+            button.setEnabled(state.isEnabled());
         }
     }
 

@@ -79,10 +79,17 @@ data class LightAppPermGroup(
         isBackgroundPolicyFixed)
 
     /**
-     * Whether this App Permission Group's permissions are fixed by the system
+     * Whether this App Permission Group's foreground permissions are fixed by the system
      */
-    val isSystemFixed = permissions.any {
+    val isForegroundSystemFixed = permissions.any {
         !backgroundPermNames.contains(it.key) && it.value.isSystemFixed
+    }
+
+    /**
+     * Whether this App Permission Group's background permissions are fixed by the system
+     */
+    val isBackgroundSystemFixed = permissions.any {
+        backgroundPermNames.contains(it.key) && it.value.isSystemFixed
     }
 
     /**
@@ -103,4 +110,9 @@ data class LightAppPermGroup(
      * Whether this App Permission Group's permissions are fixed by the user
      */
     val isUserFixed = permissions.any { it.value.isUserFixed }
+
+    /**
+     * Whether this App Permission Group contains any one-time permission
+     */
+    val isOneTime = permissions.any { it.value.isOneTime }
 }
