@@ -43,7 +43,7 @@
 
     <uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29" />
 
-    <application android:name="com.android.permissioncontroller.PackageInstallerApplication"
+    <application android:name="com.android.permissioncontroller.PermissionControllerApplication"
             android:label="@string/app_name"
             android:icon="@drawable/ic_permission_controller_app_icon"
             android:allowBackup="false"
