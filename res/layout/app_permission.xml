@@ -53,12 +53,22 @@
 
                     <RadioButton
                         android:id="@+id/allow_radio_button"
+                        android:text="@string/app_permission_button_allow"
+                        style="@style/AppPermissionRadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/allow_always_radio_button"
                         android:text="@string/app_permission_button_allow_always"
                         style="@style/AppPermissionRadioButton" />
 
                     <RadioButton
-                        android:id="@+id/foreground_only_radio_button"
+                        android:id="@+id/allow_foreground_only_radio_button"
                         android:text="@string/app_permission_button_allow_foreground"
+                        style="@style/AppPermissionRadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/ask_one_time_radio_button"
+                        android:text="@string/app_permission_button_ask"
                         style="@style/AppPermissionRadioButton" />
 
                     <RadioButton
@@ -68,6 +78,11 @@
 
                     <RadioButton
                         android:id="@+id/deny_radio_button"
+                        android:text="@string/app_permission_button_deny"
+                        style="@style/AppPermissionRadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/deny_foreground_radio_button"
                         android:text="@string/app_permission_button_deny"
                         style="@style/AppPermissionRadioButton" />
 
