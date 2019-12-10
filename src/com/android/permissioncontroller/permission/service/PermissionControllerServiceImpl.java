@@ -58,6 +58,7 @@ import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGr
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState;
 import com.android.permissioncontroller.permission.ui.AutoGrantPermissionsNotifier;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
+import com.android.permissioncontroller.permission.utils.UserSensitiveFlagsUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -611,8 +612,6 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
         performDefaultPermissionGrants();
         RuntimePermissionsUpgradeController.INSTANCE.upgradeIfNeeded(this, () -> {
             callback.run();
-            AsyncTask.execute(() ->
-                    Utils.updateUserSensitive(getApplication(), Process.myUserHandle()));
         });
     }
 
@@ -621,8 +620,12 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
     }
 
     @Override
-    public void onUpdateUserSensitivePermissionFlags() {
-        Utils.updateUserSensitive(getApplication(), Process.myUserHandle());
+    public void onUpdateUserSensitivePermissionFlags(int uid, Runnable callback) {
+        if (uid == Process.INVALID_UID) {
+            UserSensitiveFlagsUtils.updateUserSensitiveForUser(Process.myUserHandle(), callback);
+        } else {
+            UserSensitiveFlagsUtils.updateUserSensitiveForUid(uid, callback);
+        }
     }
 
     @Override
