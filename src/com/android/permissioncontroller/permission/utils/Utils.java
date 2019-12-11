@@ -308,6 +308,18 @@ public final class Utils {
     }
 
     /**
+     * Returns true if a permission is dangerous, installed, and not removed
+     * @param permissionInfo The permission we wish to check
+     * @return If all of the conditions are met
+     */
+    public static boolean isPermissionDangerousInstalledNotRemoved(PermissionInfo permissionInfo) {
+        return permissionInfo != null
+                  && permissionInfo.getProtection() == PermissionInfo.PROTECTION_DANGEROUS
+                  && (permissionInfo.flags & PermissionInfo.FLAG_INSTALLED) != 0
+                  && (permissionInfo.flags & PermissionInfo.FLAG_REMOVED) == 0;
+    }
+
+    /**
      * Get permission group a platform permission belongs to, or null if the permission is not a
      * platform permission.
      *

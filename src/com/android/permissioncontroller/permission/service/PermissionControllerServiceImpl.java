@@ -31,6 +31,7 @@ import static com.android.permissioncontroller.permission.utils.Utils.shouldShow
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
@@ -74,8 +75,18 @@ import java.util.function.IntConsumer;
  * All reading methods are called async, and all writing method are called on the AsyncTask single
  * thread executor so that multiple writes won't override each other concurrently.
  */
-public final class PermissionControllerServiceImpl extends PermissionControllerService {
+public final class PermissionControllerServiceImpl extends PermissionControllerLifecycleService {
     private static final String LOG_TAG = PermissionControllerServiceImpl.class.getSimpleName();
+
+
+    private final PermissionControllerServiceModel mServiceModel = new
+            PermissionControllerServiceModel(this);
+
+    @Override
+    public boolean onUnbind(@Nullable Intent intent) {
+        mServiceModel.removeObservers();
+        return super.onUnbind(intent);
+    }
 
     /**
      * Expand {@code perms} by split permissions for an app with the given targetSDK.
@@ -434,8 +445,9 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     @Override
     public void onCountPermissionApps(@NonNull List<String> permissionNames, int flags,
             @NonNull IntConsumer callback) {
-        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> callback.accept(
-                onCountPermissionApps(permissionNames, flags)));
+        // There is no data processing needed, so we just directly pass the result onto the callback
+        mServiceModel.onCountPermissionAppsLiveData(permissionNames, flags,
+                callback);
     }
 
     private int onCountPermissionApps(@NonNull List<String> permissionNames, int flags) {

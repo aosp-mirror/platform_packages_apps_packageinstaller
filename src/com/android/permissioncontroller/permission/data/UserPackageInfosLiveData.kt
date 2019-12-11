@@ -33,7 +33,7 @@ import kotlinx.coroutines.Job
 class UserPackageInfosLiveData(
     private val app: Application,
     private val user: UserHandle
-) : SmartAsyncMediatorLiveData<List<LightPackageInfo>>(),
+) : SmartAsyncMediatorLiveData<@kotlin.jvm.JvmSuppressWildcards List<LightPackageInfo>>(),
     PackageBroadcastReceiver.PackageBroadcastListener {
 
     override fun setValue(newValue: List<LightPackageInfo>?) {
@@ -96,7 +96,7 @@ class AllPackageInfosLiveData(
         }
     }
 
-    private fun update() {
+    override fun update() {
         usersLiveData.value?.let { users ->
             val (usersToAdd, usersToRemove) =
                 KotlinUtils.getMapAndListDifferences(users, userPackageInfosLiveDatas)
@@ -109,12 +109,15 @@ class AllPackageInfosLiveData(
             for (user in usersToAdd) {
                 val userPackageInfosLiveData =
                     UserPackageInfosRepository.getUserPackageInfosLiveData(app, user)
-                addSource(userPackageInfosLiveData) {
+                userPackageInfosLiveDatas[user] = userPackageInfosLiveData
+            }
+
+            for (user in usersToAdd) {
+                addSource(userPackageInfosLiveDatas[user]!!) {
                     it?.let { packageInfos ->
                         onUserPackageUpdates(user, packageInfos)
                     }
                 }
-                userPackageInfosLiveDatas[user] = userPackageInfosLiveData
             }
         }
     }

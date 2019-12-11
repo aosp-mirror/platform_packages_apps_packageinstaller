@@ -83,7 +83,7 @@ class PermGroupLiveData(
      * Initializes this permission group from scratch. Resets the groupInfo, PermissionInfos, and
      * PackageInfoLiveDatas, then re-adds them.
      */
-    private fun update() {
+    override fun update() {
         val permissionInfos = mutableMapOf<String, LightPermInfo>()
 
         groupInfo = Utils.getGroupInfo(groupName, context) ?: run {

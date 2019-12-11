@@ -52,7 +52,7 @@ class PackagePermissionsLiveData(
         }
     }
 
-    fun update() {
+    override fun update() {
         val packageInfo = packageInfoLiveData.value ?: return
         val permissionMap = mutableMapOf<String, MutableList<String>>()
         for (permName in packageInfo.requestedPermissions) {

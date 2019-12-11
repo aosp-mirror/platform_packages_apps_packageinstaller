@@ -70,7 +70,7 @@ class AppPermissionGroupsViewModel(
             update()
         }
 
-        private fun update() {
+        override fun update() {
             val groups = packagePermsLiveData.value?.keys?.filter { it != NON_RUNTIME_NORMAL_PERMS }
             if (groups == null && packagePermsLiveData.isInitialized) {
                 value = null

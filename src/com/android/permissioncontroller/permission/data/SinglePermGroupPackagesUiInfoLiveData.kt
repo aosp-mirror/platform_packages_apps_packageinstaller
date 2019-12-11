@@ -67,7 +67,7 @@ class SinglePermGroupPackagesUiInfoLiveData(
         }
     }
 
-    private fun update() {
+    override fun update() {
         val thisPermGroupPackages = permGroupPackagesLiveData.value?.get(permissionGroupName)
         if (thisPermGroupPackages != null) {
             addAndRemoveAppPermGroupLiveDatas(thisPermGroupPackages.toList())

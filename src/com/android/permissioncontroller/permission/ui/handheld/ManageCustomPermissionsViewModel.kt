@@ -65,4 +65,6 @@ class UsedCustomPermGroupNamesLiveData(app: Application) :
             value = it.keys.toList()
         }
     }
+
+    override fun update() { /* No op override */ }
 }

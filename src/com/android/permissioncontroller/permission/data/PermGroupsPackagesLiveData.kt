@@ -89,7 +89,7 @@ class PermGroupsPackagesLiveData(
      * and figure out which permission groups they have permissions for. If applicable, remove
      * any lone-permission permission that are not requested by any packages.
      */
-    private fun update() {
+    override fun update() {
         if (groupNames.isEmpty()) {
             return
         }

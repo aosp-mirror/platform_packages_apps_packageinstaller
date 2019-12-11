@@ -73,7 +73,7 @@ class NumCustomPermGroupsWithPackagesLiveData(app: Application) :
         }
     }
 
-    private fun update() {
+    override fun update() {
         value = customPermGroupPackages.value?.size ?: 0
     }
 }
