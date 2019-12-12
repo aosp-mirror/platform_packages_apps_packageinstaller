@@ -24,6 +24,7 @@ import static com.android.permissioncontroller.PermissionControllerStatsLog.PERM
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__UNDEFINED;
 import static com.android.permissioncontroller.permission.ui.Category.ALLOWED;
 import static com.android.permissioncontroller.permission.ui.Category.ALLOWED_FOREGROUND;
+import static com.android.permissioncontroller.permission.ui.Category.ASK;
 import static com.android.permissioncontroller.permission.ui.Category.DENIED;
 
 import android.app.ActionBar;
@@ -262,6 +263,8 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                 } else if (grantCategory.equals(ALLOWED_FOREGROUND)) {
                     findPreference(ALLOWED.getCategoryName()).setTitle(R.string.allowed_header);
                     category.setVisible(false);
+                } else if (grantCategory.equals(ASK)) {
+                    category.setVisible(false);
                 } else {
                     empty.setTitle(getString(R.string.no_apps_denied));
                 }
@@ -270,6 +273,8 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
             } else if (grantCategory.equals(ALLOWED_FOREGROUND)) {
                 category.setVisible(true);
                 findPreference(ALLOWED.getCategoryName()).setTitle(R.string.allowed_always_header);
+            } else if (grantCategory.equals(ASK)) {
+                category.setVisible(true);
             }
 
             for (Pair<String, UserHandle> packageUserLabel : packages) {
