@@ -190,10 +190,15 @@ class AppPermissionViewModel(
                 askState.isChecked = !group.isForegroundGranted && !group.isUserFixed
                 deniedState.isChecked = !group.isForegroundGranted && group.isUserFixed
 
-                if (group.isForegroundPolicyFixed) {
+                if (group.isForegroundPolicyFixed || group.isForegroundSystemFixed) {
                     allowedState.isEnabled = false
                     askState.isEnabled = false
                     deniedState.isEnabled = false
+                    val detailId = getDetailResIdForFixedByPolicyPermissionGroup(group,
+                            admin != null)
+                    if (detailId != 0) {
+                        detailResIdLiveData.value = detailId to null
+                    }
                 }
             }
             value = listOf(allowedState, allowedAlwaysState, allowedForegroundState,
