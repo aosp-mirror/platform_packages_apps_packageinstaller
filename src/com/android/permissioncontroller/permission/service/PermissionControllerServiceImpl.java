@@ -54,6 +54,9 @@ import com.android.permissioncontroller.permission.model.AppPermissionUsage.Grou
 import com.android.permissioncontroller.permission.model.AppPermissions;
 import com.android.permissioncontroller.permission.model.Permission;
 import com.android.permissioncontroller.permission.model.PermissionUsages;
+import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo;
+import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState;
+import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -68,6 +71,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.IntConsumer;
+
+import kotlin.Pair;
 
 /**
  * Calls from the system into the permission controller.
@@ -379,13 +384,27 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
     @Override
     public void onGetAppPermissions(@NonNull String packageName,
             @NonNull Consumer<List<RuntimePermissionPresentationInfo>> callback) {
-        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> callback.accept(
-                onGetAppPermissions(this, packageName)));
+        mServiceModel.onGetAppPermissions(packageName, (groupUiInfos) -> {
+            List<RuntimePermissionPresentationInfo> permissions = new ArrayList<>();
+
+            for (Pair<String, AppPermGroupUiInfo> groupNameAndUiInfo : groupUiInfos) {
+                String groupName = groupNameAndUiInfo.getFirst();
+                AppPermGroupUiInfo uiInfo = groupNameAndUiInfo.getSecond();
+                boolean isPlatform = Utils.getPlatformPermissionGroups().contains(groupName);
+                CharSequence label = KotlinUtils.INSTANCE.getPermGroupLabel(this, groupName);
+
+                RuntimePermissionPresentationInfo permission =
+                        new RuntimePermissionPresentationInfo(label,
+                                uiInfo.isGranted() != PermGrantState.PERMS_DENIED, isPlatform);
+                permissions.add(permission);
+            }
+            callback.accept(permissions);
+        });
     }
 
     /**
      * Implementation of {@link PermissionControllerService#onGetAppPermissions(String)}}.
-     * Called by this class and the legacy implementation.
+     * Called by the legacy implementation.
      */
     static @NonNull List<RuntimePermissionPresentationInfo> onGetAppPermissions(
             @NonNull Context context, @NonNull String packageName) {

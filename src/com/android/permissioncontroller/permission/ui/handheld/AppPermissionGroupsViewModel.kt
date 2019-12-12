@@ -23,7 +23,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.android.permissioncontroller.permission.data.AppPermGroupUiInfoLiveData
 import com.android.permissioncontroller.permission.data.AppPermGroupUiInfoRepository
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
-import com.android.permissioncontroller.permission.data.PackagePermsAndGroupsRepository
+import com.android.permissioncontroller.permission.data.PackagePermissionsRepository
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.ui.Category
@@ -59,7 +59,7 @@ class AppPermissionGroupsViewModel(
     Map<Category, List<Triple<String, Boolean, Boolean>>>>() {
 
         private val packagePermsLiveData =
-            PackagePermsAndGroupsRepository.getSinglePermGroupPackagesUiInfoLiveData(app,
+            PackagePermissionsRepository.getPackagePermissionsLiveData(app,
                 packageName, user)
         private val appPermGroupUiInfoLiveDatas = mutableMapOf<String, AppPermGroupUiInfoLiveData>()
 

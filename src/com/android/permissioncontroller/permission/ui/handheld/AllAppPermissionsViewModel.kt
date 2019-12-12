@@ -20,7 +20,7 @@ import android.app.Application
 import android.os.UserHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.android.permissioncontroller.permission.data.PackagePermsAndGroupsRepository
+import com.android.permissioncontroller.permission.data.PackagePermissionsRepository
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 
 /**
@@ -53,7 +53,7 @@ class AllAppPermissionsViewModel(
     Map<String, List<String>>>() {
 
         private val packagePermsLiveData =
-            PackagePermsAndGroupsRepository.getSinglePermGroupPackagesUiInfoLiveData(app,
+            PackagePermissionsRepository.getPackagePermissionsLiveData(app,
                 packageName, user)
 
         init {
