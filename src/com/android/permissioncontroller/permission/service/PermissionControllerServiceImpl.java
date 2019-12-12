@@ -642,7 +642,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
     }
 
     @Override
-    public void onUpdateUserSensitive() {
+    public void onUpdateUserSensitivePermissionFlags() {
         Utils.updateUserSensitive(getApplication(), Process.myUserHandle());
     }
 }
