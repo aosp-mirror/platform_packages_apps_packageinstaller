@@ -33,10 +33,12 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,12 +47,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
 
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.ui.Category;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
+import com.android.permissioncontroller.permission.utils.Utils;
 import com.android.settingslib.HelpUtils;
 
 import java.text.Collator;
@@ -68,11 +70,12 @@ import kotlin.Triple;
 public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
 
     private static final String LOG_TAG = "ManagePermsFragment";
+    private static final String IS_SYSTEM_PERMS_SCREEN = "_is_system_screen";
 
     static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
     private AppPermissionGroupsViewModel mViewModel;
-    private PreferenceScreen mExtraScreen;
+    private boolean mIsSystemPermsScreen;
     private String mPackageName;
     private UserHandle mUser;
 
@@ -83,8 +86,30 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
      */
     public static AppPermissionGroupsFragment newInstance(@NonNull String packageName,
             @NonNull UserHandle userHandle, long sessionId) {
+        AppPermissionGroupsFragment fragment = new AppPermissionGroupsFragment();
+        fragment.setArguments(createArgs(packageName, userHandle, sessionId, true));
         return setPackageNameAndUserHandleAndSessionId(
                 new AppPermissionGroupsFragment(), packageName, userHandle, sessionId);
+    }
+
+    /**
+     * Create a bundle with the arguments needed by this fragment
+     *
+     * @param packageName The name of the package
+     * @param userHandle The user of this package
+     * @param sessionId The current session ID
+     * @param isSystemPermsScreen Whether or not this screen is the system permission screen, or
+     * the extra permissions screen
+     * @return A bundle with all of the args placed
+     */
+    public static Bundle createArgs(@NonNull String packageName, @NonNull UserHandle userHandle,
+            long sessionId, boolean isSystemPermsScreen) {
+        Bundle arguments = new Bundle();
+        arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
+        arguments.putParcelable(Intent.EXTRA_USER, userHandle);
+        arguments.putLong(EXTRA_SESSION_ID, sessionId);
+        arguments.putBoolean(IS_SYSTEM_PERMS_SCREEN, isSystemPermsScreen);
+        return arguments;
     }
 
     private static <T extends Fragment> T setPackageNameAndUserHandleAndSessionId(
@@ -109,6 +134,7 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
 
         mPackageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
         mUser = getArguments().getParcelable(Intent.EXTRA_USER);
+        mIsSystemPermsScreen = getArguments().getBoolean(IS_SYSTEM_PERMS_SCREEN, true);
 
         AppPermissionGroupsViewModelFactory factory = new AppPermissionGroupsViewModelFactory(
                 getActivity().getApplication(), mPackageName, mUser);
@@ -125,15 +151,22 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
     }
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        getActivity().setTitle(R.string.app_permissions);
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home: {
-                getActivity().finish();
+                getActivity().onBackPressed();
                 return true;
             }
 
             case MENU_ALL_PERMS: {
-                showAllPermissions(null);
+                mViewModel.showAllPermissions(this);
                 return true;
             }
         }
@@ -141,27 +174,13 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        bindUi(this, mPackageName, mUser);
-    }
-
-    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        menu.add(Menu.NONE, MENU_ALL_PERMS, Menu.NONE, R.string.all_permissions);
-        HelpUtils.prepareHelpMenuItem(getActivity(), menu, R.string.help_app_permissions,
-                getClass().getName());
-    }
-
-    private void showAllPermissions(String filterGroup) {
-        Fragment frag = AllAppPermissionsFragment.newInstance(
-                getArguments().getString(Intent.EXTRA_PACKAGE_NAME),
-                filterGroup, getArguments().getParcelable(Intent.EXTRA_USER));
-        getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, frag)
-                .addToBackStack("AllPerms")
-                .commit();
+        if (mIsSystemPermsScreen) {
+            menu.add(Menu.NONE, MENU_ALL_PERMS, Menu.NONE, R.string.all_permissions);
+            HelpUtils.prepareHelpMenuItem(getActivity(), menu, R.string.help_app_permissions,
+                    getClass().getName());
+        }
     }
 
     private static void bindUi(SettingsWithLargeHeader fragment, String packageName,
@@ -178,16 +197,13 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         fragment.setHeader(icon, KotlinUtils.INSTANCE.getPackageLabel(activity.getApplication(),
                 packageName, user), infoIntent, user, false);
 
-        ActionBar ab = activity.getActionBar();
-        if (ab != null) {
-            ab.setTitle(R.string.app_permissions);
-        }
     }
 
     private void updatePreferences(Map<Category, List<Triple<String, Boolean, Boolean>>> groupMap) {
         if (getPreferenceScreen() == null) {
             addPreferencesFromResource(R.xml.allowed_denied);
             logAppPermissionsFragmentView();
+            bindUi(this, mPackageName, mUser);
         }
 
         Context context = getPreferenceManager().getContext();
@@ -202,32 +218,19 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
             return;
         }
 
-        if (mExtraScreen == null) {
-            mExtraScreen = getPreferenceManager().inflateFromResource(context,
-                    R.xml.allowed_denied, mExtraScreen);
-        }
-
         findPreference(Category.ALLOWED_FOREGROUND.getCategoryName()).setVisible(false);
-        mExtraScreen.findPreference(Category.ALLOWED_FOREGROUND.getCategoryName()).setVisible(
-                false);
-
-        AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
 
         long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
 
         for (Category grantCategory : groupMap.keySet()) {
             PreferenceCategory category = findPreference(grantCategory.getCategoryName());
-            PreferenceCategory extraCategory = mExtraScreen.findPreference(
-                    grantCategory.getCategoryName());
+            int numExtraPerms = 0;
 
             category.removeAll();
-            extraCategory.removeAll();
 
             if (grantCategory.equals(Category.ALLOWED_FOREGROUND)) {
                 category.setVisible(false);
-                extraCategory.setVisible(false);
                 category = findPreference(Category.ALLOWED.getCategoryName());
-                extraCategory = mExtraScreen.findPreference(Category.ALLOWED.getCategoryName());
             }
 
             for (Triple<String, Boolean, Boolean> groupTriple : groupMap.get(grantCategory)) {
@@ -237,30 +240,27 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
 
                 PermissionControlPreference preference = new PermissionControlPreference(context,
                         mPackageName, groupName, mUser, AppPermissionGroupsFragment.class.getName(),
-                        sessionId);
+                        sessionId, grantCategory);
                 preference.setTitle(KotlinUtils.INSTANCE.getPermGroupLabel(context, groupName));
                 preference.setIcon(KotlinUtils.INSTANCE.getPermGroupIcon(context, groupName));
+                preference.setKey(preference.getTitle().toString());
                 if (isForegroundOnly) {
                     preference.setSummary(R.string.permission_subtitle_only_in_foreground);
                 }
-                if (isSystem) {
+                if (isSystem == mIsSystemPermsScreen) {
                     category.addPreference(preference);
-                } else {
-                    extraCategory.addPreference(preference);
+                } else if (!isSystem) {
+                    numExtraPerms++;
                 }
             }
 
             int noPermsStringRes = grantCategory.equals(Category.DENIED)
                     ? R.string.no_permissions_denied : R.string.no_permissions_allowed;
-            final Preference extraPerms = new Preference(context);
-            extraPerms.setIcon(R.drawable.ic_toc);
-            extraPerms.setTitle(R.string.additional_permissions);
 
-            if (extraCategory.getPreferenceCount() > 0) {
-                setUpCustomPermissionsScreen(extraPerms, frag, extraCategory.getPreferenceCount());
+            if (numExtraPerms > 0) {
+                final Preference extraPerms = setUpCustomPermissionsScreen(context, numExtraPerms,
+                        grantCategory.getCategoryName());
                 category.addPreference(extraPerms);
-            } else {
-                setNoPermissionPreference(extraCategory, noPermsStringRes, context);
             }
 
             if (category.getPreferenceCount() == 0) {
@@ -270,8 +270,6 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
             KotlinUtils.INSTANCE.sortPreferenceGroup(category, false,
                     this::comparePreferences);
         }
-
-        setLoading(false, true);
     }
 
     private int comparePreferences(Preference lhs, Preference rhs) {
@@ -285,29 +283,26 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
                 rhs.getTitle().toString());
     }
 
-    private void setUpCustomPermissionsScreen(Preference extraPerms,
-            AdditionalPermissionsFragment frag, int count) {
+    private Preference setUpCustomPermissionsScreen(Context context, int count, String category) {
+        final Preference extraPerms = new Preference(context);
+        extraPerms.setIcon(Utils.applyTint(getActivity(), R.drawable.ic_toc,
+                android.R.attr.colorControlNormal));
+        extraPerms.setTitle(R.string.additional_permissions);
+        extraPerms.setKey(extraPerms.getTitle() + category);
         extraPerms.setOnPreferenceClickListener(preference -> {
-            setPackageNameAndUserHandleAndSessionId(frag,
-                    getArguments().getString(Intent.EXTRA_PACKAGE_NAME),
-                    getArguments().getParcelable(Intent.EXTRA_USER),
-                    getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID));
-            frag.setTargetFragment(AppPermissionGroupsFragment.this, 0);
-            getFragmentManager().beginTransaction()
-                    .replace(android.R.id.content, frag)
-                    .addToBackStack(null)
-                    .commit();
+            mViewModel.showExtraPerms(this, getArguments().getLong(EXTRA_SESSION_ID));
             return true;
         });
-
         extraPerms.setSummary(getResources().getQuantityString(
                 R.plurals.additional_permissions_more, count, count));
+        return extraPerms;
     }
 
     private void setNoPermissionPreference(PreferenceCategory category, @StringRes int stringId,
             Context context) {
         Preference empty = new Preference(context);
-        empty.setTitle(getString(stringId));
+        empty.setKey(getString(stringId));
+        empty.setTitle(empty.getKey());
         empty.setSelectable(false);
         category.addPreference(empty);
     }
@@ -371,40 +366,5 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
                 + viewId + " permissionGroupName=" + permissionGroupName + " uid="
                 + uid + " packageName="
                 + mPackageName + " category=" + category);
-    }
-
-    /**
-     * Class that shows additional permissions.
-     */
-    public static class AdditionalPermissionsFragment extends SettingsWithLargeHeader {
-        AppPermissionGroupsFragment mOuterFragment;
-
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            mOuterFragment = (AppPermissionGroupsFragment) getTargetFragment();
-            mOuterFragment.mViewModel.getPackagePermGroupsLiveData().observe(this,
-                    mOuterFragment::updatePreferences);
-            super.onCreate(savedInstanceState);
-
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, null, false);
-            setHasOptionsMenu(true);
-            setPreferenceScreen(mOuterFragment.mExtraScreen);
-        }
-
-        @Override
-        public void onResume() {
-            super.onResume();
-
-            bindUi(this, mOuterFragment.mPackageName, mOuterFragment.mUser);
-        }
-
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            if (item.getItemId() == android.R.id.home) {
-                getFragmentManager().popBackStack();
-                return true;
-            }
-            return super.onOptionsItemSelected(item);
-        }
     }
 }

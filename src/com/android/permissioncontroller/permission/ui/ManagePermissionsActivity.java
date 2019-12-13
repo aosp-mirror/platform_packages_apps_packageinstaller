@@ -18,6 +18,7 @@ package com.android.permissioncontroller.permission.ui;
 
 import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
+import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
 
 import android.content.Intent;
@@ -28,6 +29,10 @@ import android.view.MenuItem;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.navigation.NavGraph;
+import androidx.navigation.NavInflater;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.android.permissioncontroller.Constants;
 import com.android.permissioncontroller.DeviceUtils;
@@ -36,8 +41,8 @@ import com.android.permissioncontroller.permission.ui.auto.AutoAllAppPermissions
 import com.android.permissioncontroller.permission.ui.auto.AutoAppPermissionsFragment;
 import com.android.permissioncontroller.permission.ui.auto.AutoManageStandardPermissionsFragment;
 import com.android.permissioncontroller.permission.ui.auto.AutoPermissionAppsFragment;
+import com.android.permissioncontroller.permission.ui.handheld.AppPermissionFragment;
 import com.android.permissioncontroller.permission.ui.handheld.AppPermissionGroupsFragment;
-import com.android.permissioncontroller.permission.ui.handheld.ManageStandardPermissionsFragment;
 import com.android.permissioncontroller.permission.ui.handheld.PermissionUsageFragment;
 import com.android.permissioncontroller.permission.ui.wear.AppPermissionsFragmentWear;
 import com.android.permissioncontroller.permission.utils.Utils;
@@ -85,7 +90,13 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                             com.android.permissioncontroller.permission.ui.television
                                     .ManagePermissionsFragment.newInstance();
                 } else {
-                    androidXFragment = ManageStandardPermissionsFragment.newInstance(sessionId);
+                    Bundle arguments = new Bundle();
+                    arguments.putLong(EXTRA_SESSION_ID, sessionId);
+                    setContentView(R.layout.nav_host_fragment);
+                    Navigation.findNavController(this, R.id.nav_host_fragment).setGraph(
+                            R.navigation.nav_graph, arguments);
+                    return;
+
                 }
                 break;
 
@@ -119,6 +130,33 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 androidXFragment = PermissionUsageFragment.newInstance(groupName, numMillis);
             } break;
 
+            case Intent.ACTION_MANAGE_APP_PERMISSION: {
+                if (DeviceUtils.isAuto(this) || DeviceUtils.isTelevision(this)
+                        || DeviceUtils.isWear(this)) {
+                    Intent compatIntent = new Intent(this, AppPermissionActivity.class);
+                    compatIntent.putExtras(getIntent().getExtras());
+                    startActivity(compatIntent);
+                    finish();
+                    return;
+                }
+                String packageName = getIntent().getStringExtra(Intent.EXTRA_PACKAGE_NAME);
+                permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
+                String groupName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_GROUP_NAME);
+                UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
+                String caller = getIntent().getStringExtra(AppPermissionActivity.EXTRA_CALLER_NAME);
+
+                Bundle args = AppPermissionFragment.createArgs(packageName, permissionName,
+                        groupName, userHandle, caller, sessionId, null);
+                setContentView(R.layout.nav_host_fragment);
+                NavHostFragment navHost = (NavHostFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.nav_host_fragment);
+                NavInflater inflater = navHost.getNavController().getNavInflater();
+                NavGraph graph = inflater.inflate(R.navigation.nav_graph);
+                graph.setStartDestination(R.id.app_permission);
+                navHost.getNavController().setGraph(graph, args);
+                return;
+            }
+
             case Intent.ACTION_MANAGE_APP_PERMISSIONS: {
                 String packageName = getIntent().getStringExtra(Intent.EXTRA_PACKAGE_NAME);
                 if (packageName == null) {
@@ -149,13 +187,16 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                     fragment = com.android.permissioncontroller.permission.ui.television
                             .AppPermissionsFragment.newInstance(packageName);
                 } else {
-                    if (allPermissions) {
-                        androidXFragment = com.android.permissioncontroller.permission.ui.handheld
-                                .AllAppPermissionsFragment.newInstance(packageName, userHandle);
-                    } else {
-                        androidXFragment = AppPermissionGroupsFragment.newInstance(
-                                        packageName, userHandle, sessionId);
-                    }
+                    Bundle args = AppPermissionGroupsFragment.createArgs(packageName, userHandle,
+                            sessionId, true);
+                    setContentView(R.layout.nav_host_fragment);
+                    NavHostFragment navHost = (NavHostFragment) getSupportFragmentManager()
+                            .findFragmentById(R.id.nav_host_fragment);
+                    NavInflater inflater = navHost.getNavController().getNavInflater();
+                    NavGraph graph = inflater.inflate(R.navigation.nav_graph);
+                    graph.setStartDestination(R.id.app_permission_groups);
+                    navHost.getNavController().setGraph(graph, args);
+                    return;
                 }
             } break;
 
@@ -188,7 +229,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
         if (fragment != null) {
             getFragmentManager().beginTransaction().replace(android.R.id.content, fragment)
                     .commit();
-        } else {
+        } else if (androidXFragment != null) {
             getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
                     androidXFragment).commit();
         }

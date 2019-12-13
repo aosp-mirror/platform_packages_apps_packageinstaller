@@ -89,6 +89,21 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                 new PermissionAppsFragment(), permissionName, sessionId);
     }
 
+    /**
+     * Create a bundle with the arguments needed by this fragment
+     *
+     * @param permGroupName The name of the permission group
+     * @param sessionId The current session ID
+     * @return A bundle with all of the args placed
+     */
+    public static Bundle createArgs(String permGroupName, long sessionId) {
+        Bundle arguments = new Bundle();
+        arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, permGroupName);
+        arguments.putLong(EXTRA_SESSION_ID, sessionId);
+        return arguments;
+    }
+
+
     private static <T extends Fragment> T setPermissionNameAndSessionId(
             T fragment, String permissionName, long sessionId) {
         Bundle arguments = new Bundle();
@@ -108,7 +123,10 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mPermGroupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
+        mPermGroupName = getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME);
+        if (mPermGroupName == null) {
+            mPermGroupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
+        }
 
         mCollator = Collator.getInstance(
                 getContext().getResources().getConfiguration().getLocales().get(0));
@@ -161,7 +179,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                getActivity().finish();
+                getActivity().onBackPressed();
                 return true;
             case MENU_SHOW_SYSTEM:
             case MENU_HIDE_SYSTEM:
@@ -189,7 +207,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
 
     private static void bindUi(SettingsWithLargeHeader fragment, @NonNull String groupName) {
         Context context = fragment.getContext();
-        if (context == null) {
+        if (context == null || fragment.getActivity() == null) {
             return;
         }
         Drawable icon = KotlinUtils.INSTANCE.getPermGroupIcon(context, groupName);
@@ -200,11 +218,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
         fragment.setHeader(icon, label, null, null, true);
         fragment.setSummary(Utils.getPermissionGroupDescriptionString(fragment.getActivity(),
                 groupName, description), null);
-
-        final ActionBar ab = fragment.getActivity().getActionBar();
-        if (ab != null) {
-            ab.setTitle(label);
-        }
+        fragment.getActivity().setTitle(label);
     }
 
     private void onPackagesLoaded(Map<Category, List<Pair<String, UserHandle>>> categories) {
@@ -266,13 +280,19 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
 
                 Preference existingPref = existingPrefs.get(key);
                 if (existingPref != null) {
+                    if (existingPref instanceof SmartIconLoadPackagePermissionPreference) {
+                        ((SmartIconLoadPackagePermissionPreference) existingPref).setGrantCategory(
+                                grantCategory.getCategoryName());
+                    }
                     category.addPreference(existingPref);
                     continue;
                 }
 
                 SmartIconLoadPackagePermissionPreference pref =
-                        new SmartIconLoadPackagePermissionPreference(this, packageName, user,
-                                mPermGroupName, PermissionAppsFragment.class.getName(), sessionId);
+                        new SmartIconLoadPackagePermissionPreference(getActivity().getApplication(),
+                                packageName, user, context, mPermGroupName,
+                                PermissionAppsFragment.class.getName(), sessionId,
+                                grantCategory.getCategoryName());
                 pref.setKey(key);
                 pref.setTitle(KotlinUtils.INSTANCE.getPackageLabel(getActivity().getApplication(),
                         packageName, user));

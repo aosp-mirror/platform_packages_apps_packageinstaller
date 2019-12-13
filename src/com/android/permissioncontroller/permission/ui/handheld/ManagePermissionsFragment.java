@@ -15,15 +15,9 @@
  */
 package com.android.permissioncontroller.permission.ui.handheld;
 
-import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
-import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
-
 import android.app.ActionBar;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 
 import androidx.preference.Preference;
@@ -75,18 +69,12 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
             return false;
         }
 
-        Intent intent = new Intent(Intent.ACTION_MANAGE_PERMISSION_APPS)
-                .putExtra(Intent.EXTRA_PERMISSION_NAME, key)
-                .putExtra(EXTRA_SESSION_ID,
-                        getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID));
-        try {
-            getActivity().startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            Log.w(LOG_TAG, "No app to handle " + intent);
-        }
+        showPermissionApps(key);
 
         return true;
     }
+
+    abstract void showPermissionApps(String permissionGroupName);
 
     /**
      * Add preferences for all permissions of a type to the preference screen.
