@@ -22,6 +22,7 @@ import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.content.Intent.EXTRA_PERMISSION_NAME
+import android.os.Build
 import android.os.UserHandle
 import android.util.Log
 import android.view.View
@@ -191,11 +192,23 @@ class AppPermissionViewModel(
                 askState.isChecked = !group.isForegroundGranted && !group.isUserFixed
                 deniedState.isChecked = !group.isForegroundGranted && group.isUserFixed
 
-                if (group.isForegroundPolicyFixed) {
+                if (group.isForegroundPolicyFixed || group.isForegroundSystemFixed) {
                     allowedState.isEnabled = false
                     askState.isEnabled = false
                     deniedState.isEnabled = false
+                    val detailId = getDetailResIdForFixedByPolicyPermissionGroup(group,
+                            admin != null)
+                    if (detailId != 0) {
+                        detailResIdLiveData.value = detailId to null
+                    }
                 }
+            }
+            if (group.packageInfo.targetSdkVersion < Build.VERSION_CODES.M) {
+                // Pre-M app's can't ask for runtime permissions
+                askState.isShown = false
+                deniedState.isChecked = askState.isChecked || deniedState.isChecked
+                deniedForegroundState.isChecked = askState.isChecked ||
+                        deniedForegroundState.isChecked
             }
             value = listOf(allowedState, allowedAlwaysState, allowedForegroundState,
                     askOneTimeState, askState, deniedState, deniedForegroundState)
@@ -209,7 +222,7 @@ class AppPermissionViewModel(
     }
 
     /**
-     * Modifies the radio buttons to refect the current policy fixing state
+     * Modifies the radio buttons to reflect the current policy fixing state
      *
      * @return if anything was changed
      */
