@@ -17,10 +17,12 @@
 package com.android.permissioncontroller.permission.ui.handheld;
 
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
+import static com.android.permissioncontroller.permission.ui.handheld.AppPermissionFragment.GRANT_CATEGORY;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.os.UserHandle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -31,6 +33,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.navigation.Navigation;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
@@ -38,6 +41,7 @@ import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.permissioncontroller.permission.ui.AppPermissionActivity;
+import com.android.permissioncontroller.permission.ui.Category;
 
 import java.util.List;
 
@@ -47,10 +51,16 @@ import java.util.List;
 public class PermissionControlPreference extends Preference {
     private final @NonNull Context mContext;
     private @Nullable Drawable mWidgetIcon;
+    private @Nullable String mGranted;
     private boolean mUseSmallerIcon;
     private boolean mEllipsizeEnd;
     private @Nullable List<Integer> mTitleIcons;
     private @Nullable List<Integer> mSummaryIcons;
+    private @NonNull String mPackageName;
+    private @NonNull String mPermGroupName;
+    private @NonNull String mCaller;
+    private @NonNull long mSessionId;
+    private @NonNull UserHandle mUser;
 
     public PermissionControlPreference(@NonNull Context context,
             @NonNull AppPermissionGroup group, @NonNull String caller) {
@@ -60,12 +70,12 @@ public class PermissionControlPreference extends Preference {
     public PermissionControlPreference(@NonNull Context context,
             @NonNull AppPermissionGroup group, @NonNull String caller, long sessionId) {
         this(context, group.getApp().packageName, group.getName(), group.getUser(), caller,
-                sessionId);
+                sessionId, null);
     }
 
     public PermissionControlPreference(@NonNull Context context,
             @NonNull String packageName, @NonNull String permGroupName, @NonNull UserHandle user,
-            @NonNull String caller, long sessionId) {
+            @NonNull String caller, long sessionId, Category category) {
         super(context);
         mContext = context;
         mWidgetIcon = null;
@@ -73,16 +83,12 @@ public class PermissionControlPreference extends Preference {
         mEllipsizeEnd = false;
         mTitleIcons = null;
         mSummaryIcons = null;
-        setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSION);
-            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName);
-            intent.putExtra(Intent.EXTRA_PERMISSION_GROUP_NAME, permGroupName);
-            intent.putExtra(Intent.EXTRA_USER, user);
-            intent.putExtra(AppPermissionActivity.EXTRA_CALLER_NAME, caller);
-            intent.putExtra(EXTRA_SESSION_ID, sessionId);
-            context.startActivity(intent);
-            return true;
-        });
+        mPackageName = packageName;
+        mCaller = caller;
+        mPermGroupName = permGroupName;
+        mSessionId = sessionId;
+        mUser = user;
+        mGranted = category.getCategoryName();
     }
 
     /**
@@ -192,6 +198,18 @@ public class PermissionControlPreference extends Preference {
 
         setIcons(holder, mSummaryIcons, R.id.summary_widget_frame);
         setIcons(holder, mTitleIcons, R.id.title_widget_frame);
+
+        setOnPreferenceClickListener(pref -> {
+            Bundle args = new Bundle();
+            args.putString(Intent.EXTRA_PACKAGE_NAME, mPackageName);
+            args.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, mPermGroupName);
+            args.putParcelable(Intent.EXTRA_USER, mUser);
+            args.putString(AppPermissionActivity.EXTRA_CALLER_NAME, mCaller);
+            args.putLong(EXTRA_SESSION_ID, mSessionId);
+            args.putString(GRANT_CATEGORY, mGranted);
+            Navigation.findNavController(holder.itemView).navigate(R.id.perm_groups_to_app, args);
+            return true;
+        });
     }
 
     private void setIcons(PreferenceViewHolder holder, @Nullable List<Integer> icons, int frameId) {

@@ -99,6 +99,7 @@
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
+                <action android:name="android.intent.action.MANAGE_APP_PERMISSION" />
                 <action android:name="android.intent.action.MANAGE_PERMISSION_APPS" />
                 <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
                 <action android:name="android.intent.action.REVIEW_PERMISSION_USAGE" />
@@ -128,10 +129,6 @@
                   android:configChanges="orientation|keyboardHidden|screenSize"
                   android:theme="@style/Settings"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
-            <intent-filter android:priority="1">
-                <action android:name="android.intent.action.MANAGE_APP_PERMISSION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
 
         <activity android:name="com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity"

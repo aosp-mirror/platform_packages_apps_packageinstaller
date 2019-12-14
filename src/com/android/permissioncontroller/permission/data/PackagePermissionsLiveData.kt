@@ -34,7 +34,7 @@ import com.android.permissioncontroller.permission.utils.Utils
  * @param user: The user for whom the packageInfo will be defined
  */
 class PackagePermissionsLiveData(
-    val app: Application,
+    private val app: Application,
     packageName: String,
     user: UserHandle
 ) : SmartUpdateMediatorLiveData<Map<String, List<String>>>() {
@@ -103,7 +103,7 @@ class PackagePermissionsLiveData(
  * Repository for PackagePermissionsLiveData objects
  * <p> Key value is a string package name and userHandle, value is its corresponding LiveData.
  */
-object PackagePermsAndGroupsRepository
+object PackagePermissionsRepository
     : DataRepository<Pair<String, UserHandle>, PackagePermissionsLiveData>() {
 
     /**
@@ -116,7 +116,7 @@ object PackagePermsAndGroupsRepository
      *
      * @return the cached or newly generated PackagePermissionsLiveData
      */
-    fun getSinglePermGroupPackagesUiInfoLiveData(
+    fun getPackagePermissionsLiveData(
         app: Application,
         packageName: String,
         user: UserHandle

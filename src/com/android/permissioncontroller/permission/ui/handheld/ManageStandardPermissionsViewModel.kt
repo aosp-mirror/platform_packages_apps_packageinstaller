@@ -17,9 +17,12 @@
 package com.android.permissioncontroller.permission.ui.handheld
 
 import android.app.Application
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.PermGroupPackagesUiInfoRepository
 import com.android.permissioncontroller.permission.data.PermGroupsPackagesUiInfoLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
@@ -39,6 +42,16 @@ class ManageStandardPermissionsViewModel(
     val uiDataLiveData = PermGroupsPackagesUiInfoLiveData(app,
         StandardPermGroupNamesLiveData())
     val numCustomPermGroups = NumCustomPermGroupsWithPackagesLiveData(app)
+
+    fun showCustomPermissions(fragment: Fragment, sessionId: Long) {
+        fragment.findNavController().navigate(R.id.standard_to_custom,
+            ManageCustomPermissionsFragment.createArgs(sessionId))
+    }
+
+    fun showPermissionApps(fragment: Fragment, groupName: String, sessionId: Long) {
+        fragment.findNavController().navigate(R.id.manage_to_perm_apps,
+            PermissionAppsFragment.createArgs(groupName, sessionId))
+    }
 }
 
 /**

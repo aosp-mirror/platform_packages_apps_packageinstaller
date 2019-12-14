@@ -30,6 +30,7 @@ import android.view.MenuItem;
 import android.widget.Switch;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -70,14 +71,27 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
     }
 
     public static AllAppPermissionsFragment newInstance(@NonNull String packageName,
-            @NonNull String filterGroup, @NonNull UserHandle userHandle) {
+            @Nullable String filterGroup, @NonNull UserHandle userHandle) {
         AllAppPermissionsFragment instance = new AllAppPermissionsFragment();
+        instance.setArguments(createArgs(packageName, filterGroup, userHandle));
+        return instance;
+    }
+
+    /**
+     * Create a bundle with the arguments needed by this fragment
+     *
+     * @param packageName The name of the package
+     * @param filterGroup An optional group to filter out permissions not in the group
+     * @param userHandle The user of this package
+     * @return A bundle with all of the args placed
+     */
+    public static Bundle createArgs(@NonNull String packageName, @Nullable String filterGroup,
+            @NonNull UserHandle userHandle) {
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
         arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, filterGroup);
         arguments.putParcelable(Intent.EXTRA_USER, userHandle);
-        instance.setArguments(arguments);
-        return instance;
+        return arguments;
     }
 
     @Override
@@ -124,7 +138,7 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home: {
-                getFragmentManager().popBackStack();
+                getActivity().onBackPressed();
                 return true;
             }
         }

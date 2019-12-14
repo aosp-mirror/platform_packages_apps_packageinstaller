@@ -18,12 +18,15 @@ package com.android.permissioncontroller.permission.ui.handheld
 
 import android.app.Application
 import android.os.UserHandle
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AppPermGroupUiInfoLiveData
 import com.android.permissioncontroller.permission.data.AppPermGroupUiInfoRepository
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
-import com.android.permissioncontroller.permission.data.PackagePermsAndGroupsRepository
+import com.android.permissioncontroller.permission.data.PackagePermissionsRepository
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.ui.Category
@@ -40,8 +43,8 @@ import com.android.permissioncontroller.permission.utils.Utils
  */
 class AppPermissionGroupsViewModel(
     app: Application,
-    packageName: String,
-    user: UserHandle
+    private val packageName: String,
+    private val user: UserHandle
 ) : ViewModel() {
 
     val packagePermGroupsLiveData = PackagePermGroupsLiveData(app, packageName, user)
@@ -59,7 +62,7 @@ class AppPermissionGroupsViewModel(
     Map<Category, List<Triple<String, Boolean, Boolean>>>>() {
 
         private val packagePermsLiveData =
-            PackagePermsAndGroupsRepository.getSinglePermGroupPackagesUiInfoLiveData(app,
+            PackagePermissionsRepository.getPackagePermissionsLiveData(app,
                 packageName, user)
         private val appPermGroupUiInfoLiveDatas = mutableMapOf<String, AppPermGroupUiInfoLiveData>()
 
@@ -129,6 +132,16 @@ class AppPermissionGroupsViewModel(
                 appPermGroupUiInfoLiveDatas.remove(groupToRemove)
             }
         }
+    }
+
+    fun showExtraPerms(fragment: Fragment, sessionId: Long) {
+        val args = AppPermissionGroupsFragment.createArgs(packageName, user, sessionId, false)
+        fragment.findNavController().navigate(R.id.perm_groups_to_extra, args)
+    }
+
+    fun showAllPermissions(fragment: Fragment) {
+        val args = AllAppPermissionsFragment.createArgs(packageName, null, user)
+        fragment.findNavController().navigate(R.id.perm_groups_to_all_perms, args)
     }
 }
 
