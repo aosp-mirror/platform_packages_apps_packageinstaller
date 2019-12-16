@@ -16,7 +16,7 @@
 
 package com.android.permissioncontroller.permission.data
 
-import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Lifecycle.State.STARTED
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
@@ -69,11 +69,10 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
             super.setValue(newValue)
         } else if (isStale) {
             isStale = false
-            // We are no longer stale- notify stale listeners we are up-to-date
-            for ((owner, observer) in staleObservers) {
-                if (owner.lifecycle.currentState >= Lifecycle.State.STARTED) {
-                    observer.onChanged(newValue)
-                }
+            // We are no longer stale- notify active stale observers we are up-to-date
+            val liveObservers = staleObservers.filter { it.first.lifecycle.currentState >= STARTED }
+            for ((_, observer) in liveObservers) {
+                observer.onChanged(newValue)
             }
 
             for ((liveData, observer, shouldUpdate) in children) {
