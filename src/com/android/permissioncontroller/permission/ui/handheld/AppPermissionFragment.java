@@ -18,6 +18,10 @@ package com.android.permissioncontroller.permission.ui.handheld;
 
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.DENIED;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.DENIED_DO_NOT_ASK_AGAIN;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ALWAYS;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_FOREGROUND_ONLY;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -47,6 +51,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.ui.AppPermissionActivity;
+import com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler;
 import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonState;
 import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonType;
 import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ChangeTarget;
@@ -278,28 +283,29 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
 
         mAllowButton.setOnClickListener((v) -> {
             mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_FOREGROUND);
+            setResult(GRANTED_ALWAYS);
         });
         mAllowAlwaysButton.setOnClickListener((v) -> {
             mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_BOTH);
-            setResult();
+            setResult(GRANTED_ALWAYS);
         });
         mAllowForegroundButton.setOnClickListener((v) -> {
             mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_FOREGROUND);
             mViewModel.requestChange(false, false, this, ChangeTarget.CHANGE_BACKGROUND);
-            setResult();
+            setResult(GRANTED_FOREGROUND_ONLY);
         });
         // mAskOneTimeButton only shows if checked hence should do nothing
         mAskButton.setOnClickListener((v) -> {
             mViewModel.requestChange(false, false, this, ChangeTarget.CHANGE_BOTH);
-            setResult();
+            setResult(DENIED);
         });
         mDenyButton.setOnClickListener((v) -> {
             mViewModel.requestChange(false, true, this, ChangeTarget.CHANGE_BOTH);
-            setResult();
+            setResult(DENIED_DO_NOT_ASK_AGAIN);
         });
         mDenyForegroundButton.setOnClickListener((v) -> {
             mViewModel.requestChange(false, true, this, ChangeTarget.CHANGE_FOREGROUND);
-            setResult();
+            setResult(DENIED_DO_NOT_ASK_AGAIN);
         });
 
         // TODO(ntmyren): pass button states in a non-order specific way
@@ -314,11 +320,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         mIsInitialLoad = false;
     }
 
-    private void setResult() {
-        getActivity().setResult(Activity.RESULT_OK, new Intent().putExtra(
-                AppPermissionActivity.EXTRA_RESULT_PERMISSION_INTERACTED, mPermGroupName));
-    }
-
     private void setButtonState(RadioButton button, AppPermissionViewModel.ButtonState state) {
         int visible = state.isShown() ? View.VISIBLE : View.GONE;
         button.setVisibility(visible);
@@ -329,6 +330,15 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         if (mIsInitialLoad) {
             button.jumpDrawablesToCurrentState();
         }
+    }
+
+
+
+    private void setResult(@GrantPermissionsViewHandler.Result int result) {
+        Intent intent = new Intent()
+                .putExtra(AppPermissionActivity.EXTRA_RESULT_PERMISSION_INTERACTED, mPermGroupName)
+                .putExtra(AppPermissionActivity.EXTRA_RESULT_PERMISSION_RESULT, result);
+        getActivity().setResult(Activity.RESULT_OK, intent);
     }
 
     private void setDetail(Pair<Integer, Integer> detailResIds) {

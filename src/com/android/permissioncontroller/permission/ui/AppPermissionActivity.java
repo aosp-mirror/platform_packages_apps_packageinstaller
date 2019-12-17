@@ -51,8 +51,14 @@ public final class AppPermissionActivity extends FragmentActivity {
     public static final String EXTRA_CALLER_NAME =
             "com.android.permissioncontroller.extra.CALLER_NAME";
 
+    // The permission group which was interacted with
     public static final String EXTRA_RESULT_PERMISSION_INTERACTED = "com.android"
             + ".permissioncontroller.extra.RESULT_PERMISSION_INTERACTED";
+    /**
+     * The result of the permission in terms of {@link GrantPermissionsViewHandler.Result}
+     */
+    public static final String EXTRA_RESULT_PERMISSION_RESULT = "com.android"
+            + ".permissioncontroller.extra.PERMISSION_RESULT";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
