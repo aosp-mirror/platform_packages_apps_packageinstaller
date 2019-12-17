@@ -685,16 +685,17 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
         Set<AppPermissionGroup> groups = new ArraySet<>();
         for (String permission : permissions) {
             AppPermissionGroup group = AppPermissionGroup.create(this, packageInfo, permission,
-                    false);
+                    true);
             if (group != null && group.isOneTime()) {
                 groups.add(group);
             }
         }
         for (AppPermissionGroup group : groups) {
-            group.setOneTime(false);
             if (group.areRuntimePermissionsGranted()) {
                 group.revokeRuntimePermissions(false);
             }
+            group.setOneTime(false);
+            group.persistChanges(false);
         }
     }
 }

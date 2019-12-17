@@ -1354,7 +1354,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      *                                     app ops change. If this is set to {@code false} the
      *                                     caller has to make sure to kill the app if needed.
      */
-    void persistChanges(boolean mayKillBecauseOfAppOpsChange) {
+    public void persistChanges(boolean mayKillBecauseOfAppOpsChange) {
         int uid = mPackageInfo.applicationInfo.uid;
 
         int numPermissions = mPermissions.size();

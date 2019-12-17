@@ -185,7 +185,7 @@ class AppPermissionViewModel(
                 allowedAlwaysState.isChecked = group.isBackgroundGranted &&
                         group.isForegroundGranted
                 allowedForegroundState.isChecked = group.isForegroundGranted &&
-                        !group.isBackgroundGranted
+                        !group.isBackgroundGranted && !group.isOneTime
                 askState.isChecked = !group.isForegroundGranted && !group.isUserFixed
                 deniedState.isChecked = !group.isForegroundGranted && group.isUserFixed
 
