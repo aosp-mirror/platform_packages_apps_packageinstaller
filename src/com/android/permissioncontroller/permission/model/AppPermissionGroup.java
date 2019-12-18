@@ -749,7 +749,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * Set mode of an app-op if needed.
      *
      * @param op The op to set
-     * @param uid The uid the app-op belongs top
+     * @param uid The uid the app-op belongs to
      * @param mode The new mode
      *
      * @return {@code true} iff app-op was changed
@@ -784,7 +784,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * </dl>
      *
      * @param permission The permission which has an appOps that should be allowed
-     * @param uid        The uid of the process the app op if for
+     * @param uid        The uid of the process the app op is for
      *
      * @return {@code true} iff app-op was changed
      */
@@ -875,7 +875,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     break;
                 }
 
-                // Ensure the permission app op enabled before the permission grant.
+                // Ensure the permission app op is enabled before the permission grant.
                 if (permission.affectsAppOp() && !permission.isAppOpAllowed()) {
                     permission.setAppOpAllowed(true);
                 }

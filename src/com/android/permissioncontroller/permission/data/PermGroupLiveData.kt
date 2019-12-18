@@ -202,4 +202,21 @@ object PermGroupRepository
             liveData
         }
     }
+
+    private var foregroundPermNamesLiveData: ForegroundPermNamesLiveData? = null
+
+    /**
+     * Gets the ForegroundPermNamesLiveData, creating it if need be.
+     *
+     * @param app The current application
+     *
+     * @return the cached or newly created ForegroundPermNamesLiveData
+     */
+    fun getForegroundPermNamesLiveData(app: Application): ForegroundPermNamesLiveData {
+        return foregroundPermNamesLiveData ?: run {
+            val liveData = ForegroundPermNamesLiveData(app)
+            foregroundPermNamesLiveData = liveData
+            liveData
+        }
+    }
 }

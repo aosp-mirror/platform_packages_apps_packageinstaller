@@ -96,14 +96,14 @@ data class LightAppPermGroup(
      * Whether any of this App Permission Group's foreground permissions are granted
      */
     val isForegroundGranted = specialLocationGrant ?: permissions.any {
-        !backgroundPermNames.contains(it.key) && it.value.grantedIncludingAppOp
+        !backgroundPermNames.contains(it.key) && it.value.isGrantedIncludingAppOp
     }
 
     /**
      * Whether any of this App Permission Group's background permissions are granted
      */
     val isBackgroundGranted = specialLocationGrant ?: permissions.any {
-        backgroundPermNames.contains(it.key) && it.value.grantedIncludingAppOp
+        backgroundPermNames.contains(it.key) && it.value.isGrantedIncludingAppOp
     }
 
     /**
