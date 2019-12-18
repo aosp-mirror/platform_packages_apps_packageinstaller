@@ -22,6 +22,8 @@ import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.util.Log;
@@ -43,6 +45,7 @@ import com.android.permissioncontroller.permission.ui.auto.AutoManageStandardPer
 import com.android.permissioncontroller.permission.ui.auto.AutoPermissionAppsFragment;
 import com.android.permissioncontroller.permission.ui.handheld.AppPermissionFragment;
 import com.android.permissioncontroller.permission.ui.handheld.AppPermissionGroupsFragment;
+import com.android.permissioncontroller.permission.ui.handheld.PermissionAppsFragment;
 import com.android.permissioncontroller.permission.ui.handheld.PermissionUsageFragment;
 import com.android.permissioncontroller.permission.ui.wear.AppPermissionsFragmentWear;
 import com.android.permissioncontroller.permission.utils.Utils;
@@ -147,13 +150,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
 
                 Bundle args = AppPermissionFragment.createArgs(packageName, permissionName,
                         groupName, userHandle, caller, sessionId, null);
-                setContentView(R.layout.nav_host_fragment);
-                NavHostFragment navHost = (NavHostFragment) getSupportFragmentManager()
-                        .findFragmentById(R.id.nav_host_fragment);
-                NavInflater inflater = navHost.getNavController().getNavInflater();
-                NavGraph graph = inflater.inflate(R.navigation.nav_graph);
-                graph.setStartDestination(R.id.app_permission);
-                navHost.getNavController().setGraph(graph, args);
+                setNavGraph(args, R.id.app_permission);
                 return;
             }
 
@@ -189,13 +186,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 } else {
                     Bundle args = AppPermissionGroupsFragment.createArgs(packageName, userHandle,
                             sessionId, true);
-                    setContentView(R.layout.nav_host_fragment);
-                    NavHostFragment navHost = (NavHostFragment) getSupportFragmentManager()
-                            .findFragmentById(R.id.nav_host_fragment);
-                    NavInflater inflater = navHost.getNavController().getNavInflater();
-                    NavGraph graph = inflater.inflate(R.navigation.nav_graph);
-                    graph.setStartDestination(R.id.app_permission_groups);
-                    navHost.getNavController().setGraph(graph, args);
+                    setNavGraph(args, R.id.app_permission_groups);
                     return;
                 }
             } break;
@@ -203,8 +194,21 @@ public final class ManagePermissionsActivity extends FragmentActivity {
             case Intent.ACTION_MANAGE_PERMISSION_APPS: {
                 permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
 
-                if (permissionName == null) {
-                    Log.i(LOG_TAG, "Missing mandatory argument EXTRA_PERMISSION_NAME");
+                String permissionGroupName = getIntent().getStringExtra(
+                        Intent.EXTRA_PERMISSION_GROUP_NAME);
+                if (permissionGroupName == null) {
+                    try {
+                        PermissionInfo permInfo = getPackageManager().getPermissionInfo(
+                                permissionName, 0);
+                        permissionGroupName = Utils.getGroupOfPermission(permInfo);
+                    } catch (PackageManager.NameNotFoundException e) {
+                        Log.i(LOG_TAG, "Permission " + permissionName + " does not exist");
+                    }
+                }
+
+                if (permissionName == null && permissionGroupName == null) {
+                    Log.i(LOG_TAG, "Missing mandatory argument EXTRA_PERMISSION_NAME or"
+                            + "EXTRA_PERMISSION_GROUP_NAME");
                     finish();
                     return;
                 }
@@ -214,8 +218,11 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                     fragment = com.android.permissioncontroller.permission.ui.television
                             .PermissionAppsFragment.newInstance(permissionName);
                 } else {
-                    androidXFragment = com.android.permissioncontroller.permission.ui.handheld
-                            .PermissionAppsFragment.newInstance(permissionName, sessionId);
+
+                    Bundle args = PermissionAppsFragment.createArgs(permissionGroupName, sessionId);
+                    args.putString(Intent.EXTRA_PERMISSION_NAME, permissionName);
+                    setNavGraph(args, R.id.permission_apps);
+                    return;
                 }
             } break;
 
@@ -233,6 +240,16 @@ public final class ManagePermissionsActivity extends FragmentActivity {
             getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
                     androidXFragment).commit();
         }
+    }
+
+    private void setNavGraph(Bundle args, int startDestination) {
+        setContentView(R.layout.nav_host_fragment);
+        NavHostFragment navHost = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment);
+        NavInflater inflater = navHost.getNavController().getNavInflater();
+        NavGraph graph = inflater.inflate(R.navigation.nav_graph);
+        graph.setStartDestination(startDestination);
+        navHost.getNavController().setGraph(graph, args);
     }
 
     @Override
