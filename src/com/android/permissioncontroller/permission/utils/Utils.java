@@ -1154,7 +1154,7 @@ public final class Utils {
         }
         for (String permissionName : permissions) {
             if ((pm.getPermissionFlags(permissionName, packageName, Process.myUserHandle())
-                    | PackageManager.FLAG_PERMISSION_ONE_TIME) != 0) {
+                    & PackageManager.FLAG_PERMISSION_ONE_TIME) != 0) {
                 return true;
             }
         }

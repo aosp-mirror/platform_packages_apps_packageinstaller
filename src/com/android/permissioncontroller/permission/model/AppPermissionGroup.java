@@ -1149,7 +1149,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
-            permission.setOneTime(isOneTime);
+            if (!permission.isBackgroundPermission()) {
+                permission.setOneTime(isOneTime);
+            }
         }
 
         if (!mDelayChanges) {
