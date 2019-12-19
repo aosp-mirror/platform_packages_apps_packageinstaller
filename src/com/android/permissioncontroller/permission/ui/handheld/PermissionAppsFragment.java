@@ -250,6 +250,13 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
         long viewIdForLogging = new Random().nextLong();
         long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
 
+        Boolean showAlways = mViewModel.getShowAllowAlwaysStringLiveData().getValue();
+        if (showAlways != null && showAlways) {
+            findPreference(ALLOWED.getCategoryName()).setTitle(R.string.allowed_always_header);
+        } else {
+            findPreference(ALLOWED.getCategoryName()).setTitle(R.string.allowed_header);
+        }
+
         for (Category grantCategory : categories.keySet()) {
             List<Pair<String, UserHandle>> packages = categories.get(grantCategory);
             PreferenceCategory category = findPreference(grantCategory.getCategoryName());
@@ -261,7 +268,6 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                 if (grantCategory.equals(ALLOWED)) {
                     empty.setTitle(getString(R.string.no_apps_allowed));
                 } else if (grantCategory.equals(ALLOWED_FOREGROUND)) {
-                    findPreference(ALLOWED.getCategoryName()).setTitle(R.string.allowed_header);
                     category.setVisible(false);
                 } else if (grantCategory.equals(ASK)) {
                     category.setVisible(false);
@@ -272,7 +278,6 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                 continue;
             } else if (grantCategory.equals(ALLOWED_FOREGROUND)) {
                 category.setVisible(true);
-                findPreference(ALLOWED.getCategoryName()).setTitle(R.string.allowed_always_header);
             } else if (grantCategory.equals(ASK)) {
                 category.setVisible(true);
             }

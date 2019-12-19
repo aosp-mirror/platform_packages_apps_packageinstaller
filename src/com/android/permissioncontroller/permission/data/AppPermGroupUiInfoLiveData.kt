@@ -214,7 +214,7 @@ class AppPermGroupUiInfoLiveData(
             permInfo.backgroundPermission?.let { backgroundPerm ->
                 hasPermWithBackground = true
                 if (permissionState[backgroundPerm]?.granted == true) {
-                    return PermGrantState.PERMS_ALLOWED
+                    return PermGrantState.PERMS_ALLOWED_ALWAYS
                 }
             }
             isUserFixed = isUserFixed ||
