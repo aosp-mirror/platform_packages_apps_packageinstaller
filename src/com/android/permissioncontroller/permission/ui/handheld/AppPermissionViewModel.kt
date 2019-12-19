@@ -384,6 +384,8 @@ class AppPermissionViewModel(
         val context = fragment.context ?: return
         val group = appPermissionGroup ?: return
 
+        group.isOneTime = false
+
         if (LocationUtils.isLocationGroupAndProvider(context, group.name,
                 group.app.packageName)) {
             val packageLabel = KotlinUtils.getPackageLabel(app, packageName, user)
