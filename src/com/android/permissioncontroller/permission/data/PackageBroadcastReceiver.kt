@@ -131,7 +131,7 @@ class PackageBroadcastReceiver(private val app: Application) : BroadcastReceiver
      * @param intent: data about the broadcast which was sent
      */
     override fun onReceive(context: Context, intent: Intent) {
-        val packageName = intent.dataString!!
+        val packageName = intent.data?.schemeSpecificPart ?: return
 
         for (callback in allCallbacks) {
             callback.onPackageUpdate(packageName)
