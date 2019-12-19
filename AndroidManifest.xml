@@ -288,12 +288,6 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.permissioncontroller.permission.service.OneTimePermissionRevoker$RevokePackageReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
         <!-- Debug report authorization (bugreport and incident report) -->
         <receiver android:name="com.android.permissioncontroller.incident.ConfirmationReceiver"
             android:exported="true">

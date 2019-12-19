@@ -42,6 +42,7 @@ import android.permission.PermissionManager;
 import android.permission.RuntimePermissionPresentationInfo;
 import android.permission.RuntimePermissionUsageInfo;
 import android.util.ArrayMap;
+import android.util.ArraySet;
 import android.util.Log;
 import android.util.Xml;
 
@@ -69,6 +70,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.IntConsumer;
 
@@ -663,5 +665,37 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
     @Override
     public void onUpdateUserSensitivePermissionFlags() {
         Utils.updateUserSensitive(getApplication(), Process.myUserHandle());
+    }
+
+    @Override
+    public void onOneTimePermissionSessionTimeout(@NonNull String packageName) {
+        PackageManager pm = getPackageManager();
+        PackageInfo packageInfo;
+        try {
+            packageInfo = pm.getPackageInfo(packageName, GET_PERMISSIONS);
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String[] permissions = packageInfo.requestedPermissions;
+        if (permissions == null) {
+            return;
+        }
+
+        Set<AppPermissionGroup> groups = new ArraySet<>();
+        for (String permission : permissions) {
+            AppPermissionGroup group = AppPermissionGroup.create(this, packageInfo, permission,
+                    true);
+            if (group != null && group.isOneTime()) {
+                groups.add(group);
+            }
+        }
+        for (AppPermissionGroup group : groups) {
+            if (group.areRuntimePermissionsGranted()) {
+                group.revokeRuntimePermissions(false);
+            }
+            group.setOneTime(false);
+            group.persistChanges(false);
+        }
     }
 }

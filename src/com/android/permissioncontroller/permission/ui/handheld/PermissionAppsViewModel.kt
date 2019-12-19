@@ -92,6 +92,7 @@ class PermissionAppsViewModel(
 
             categoryMap[Category.ALLOWED] = mutableListOf()
             categoryMap[Category.ALLOWED_FOREGROUND] = mutableListOf()
+            categoryMap[Category.ASK] = mutableListOf()
             categoryMap[Category.DENIED] = mutableListOf()
 
             val packageMap = packagesUiInfoLiveData.value ?: run {
@@ -119,6 +120,7 @@ class PermissionAppsViewModel(
                     PermGrantState.PERMS_ALLOWED -> Category.ALLOWED
                     PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY -> Category.ALLOWED_FOREGROUND
                     PermGrantState.PERMS_DENIED -> Category.DENIED
+                    PermGrantState.PERMS_ASK -> Category.ASK
                 }
                 categoryMap[category]!!.add(packageUserPair)
             }

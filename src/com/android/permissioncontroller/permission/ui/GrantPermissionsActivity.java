@@ -75,7 +75,6 @@ import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissions;
 import com.android.permissioncontroller.permission.model.Permission;
-import com.android.permissioncontroller.permission.service.OneTimePermissionRevoker;
 import com.android.permissioncontroller.permission.ui.auto.GrantPermissionsAutoViewHandler;
 import com.android.permissioncontroller.permission.utils.ArrayUtils;
 import com.android.permissioncontroller.permission.utils.PackageRemovalMonitor;
@@ -930,23 +929,19 @@ public class GrantPermissionsActivity extends Activity
         if (groupState != null && groupState.mGroup != null
                 && groupState.mState == GroupState.STATE_UNKNOWN) {
             if (granted) {
-                groupState.mGroup.grantRuntimePermissions(doNotAskAgain,
-                        groupState.affectedPermissions);
-                groupState.mState = GroupState.STATE_ALLOWED;
-
                 int permissionGrantRequestResult =
                         PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED;
 
                 if (isOneTime) {
-                    OneTimePermissionRevoker permissionRevoker =
-                            OneTimePermissionRevoker.Companion.getInstance(this);
-                    String packageName = groupState.mGroup.getApp().packageName;
-                    for (String permission : groupState.affectedPermissions) {
-                        permissionRevoker.addPackagePermission(packageName, permission);
-                    }
+                    groupState.mGroup.setOneTime(true);
                     permissionGrantRequestResult =
                             PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED_ONE_TIME;
                 }
+
+                groupState.mGroup.grantRuntimePermissions(doNotAskAgain,
+                        groupState.affectedPermissions);
+                groupState.mState = GroupState.STATE_ALLOWED;
+
                 reportRequestResult(groupState.affectedPermissions, permissionGrantRequestResult);
             } else {
                 groupState.mGroup.revokeRuntimePermissions(doNotAskAgain,

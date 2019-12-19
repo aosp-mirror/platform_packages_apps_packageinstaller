@@ -75,6 +75,20 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     private static final String KILL_REASON_APP_OP_CHANGE = "Permission related app op changed";
 
+    /**
+     * Importance level to define the threshold for whether a package is in a state which resets the
+     * timer on its one-time permission session
+     */
+    private static final int ONE_TIME_PACKAGE_IMPORTANCE_LEVEL_TO_RESET_TIMER =
+            ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND;
+
+    /**
+     * Importance level to define the threshold for whether a package is in a state which keeps its
+     * one-time permission session alive after the timer ends
+     */
+    private static final int ONE_TIME_PACKAGE_IMPORTANCE_LEVEL_TO_KEEP_SESSION_ALIVE =
+            ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND_SERVICE;
+
     private final Context mContext;
     private final UserHandle mUserHandle;
     private final PackageManager mPackageManager;
@@ -1126,6 +1140,23 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
     }
 
+    /**
+     * Set the one-time flag for all permissions in this group.
+     *
+     * @param isOneTime if the flag should be set or not
+     */
+    public void setOneTime(boolean isOneTime) {
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            permission.setOneTime(isOneTime);
+        }
+
+        if (!mDelayChanges) {
+            persistChanges(false);
+        }
+    }
+
     public ArrayList<Permission> getPermissions() {
         return new ArrayList<>(mPermissions.values());
     }
@@ -1232,6 +1263,20 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return false;
     }
 
+    /**
+     * @return Whether any of the permissions in this group is one-time
+     */
+    public boolean isOneTime() {
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            if (permission.isOneTime()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public int compareTo(AppPermissionGroup another) {
         final int result = mCollator.compare(mLabel.toString(), another.mLabel.toString());
@@ -1309,7 +1354,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      *                                     app ops change. If this is set to {@code false} the
      *                                     caller has to make sure to kill the app if needed.
      */
-    void persistChanges(boolean mayKillBecauseOfAppOpsChange) {
+    public void persistChanges(boolean mayKillBecauseOfAppOpsChange) {
         int uid = mPackageInfo.applicationInfo.uid;
 
         int numPermissions = mPermissions.size();
@@ -1339,7 +1384,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     ? PackageManager.FLAG_PERMISSION_REVOKED_COMPAT : 0)
                     | (permission.isPolicyFixed() ? PackageManager.FLAG_PERMISSION_POLICY_FIXED : 0)
                     | (permission.isReviewRequired()
-                    ? PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED : 0);
+                    ? PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED : 0)
+                    | (permission.isOneTime() ? PackageManager.FLAG_PERMISSION_ONE_TIME : 0);
 
             mPackageManager.updatePermissionFlags(permission.getName(),
                     mPackageInfo.packageName,
@@ -1348,7 +1394,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                             | PackageManager.FLAG_PERMISSION_REVOKED_COMPAT
                             | PackageManager.FLAG_PERMISSION_POLICY_FIXED
                             | (permission.isReviewRequired()
-                            ? 0 : PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED),
+                            ? 0 : PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED)
+                            | PackageManager.FLAG_PERMISSION_ONE_TIME,
                     flags, mUserHandle);
 
             if (permission.affectsAppOp()) {
@@ -1372,6 +1419,18 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         if (mTriggerLocationAccessCheckOnPersist) {
             new LocationAccessCheck(mContext, null).checkLocationAccessSoon();
             mTriggerLocationAccessCheckOnPersist = false;
+        }
+
+        String packageName = mPackageInfo.packageName;
+        if (isOneTime()) {
+            mContext.getSystemService(PermissionManager.class)
+                    .startOneTimePermissionSession(packageName,
+                            Utils.getOneTimePermissionsTimeout(),
+                            ONE_TIME_PACKAGE_IMPORTANCE_LEVEL_TO_RESET_TIMER,
+                            ONE_TIME_PACKAGE_IMPORTANCE_LEVEL_TO_KEEP_SESSION_ALIVE);
+        } else if (!Utils.hasOneTimePermissions(mContext, packageName)) {
+            mContext.getSystemService(PermissionManager.class)
+                    .stopOneTimePermissionSession(packageName);
         }
     }
 

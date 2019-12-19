@@ -168,6 +168,18 @@ public final class Permission {
         }
     }
 
+    /**
+     * Sets the one-time permission flag
+     * @param oneTime true to set the flag, false to unset it
+     */
+    public void setOneTime(boolean oneTime) {
+        if (oneTime) {
+            mFlags |= PackageManager.FLAG_PERMISSION_ONE_TIME;
+        } else {
+            mFlags &= ~PackageManager.FLAG_PERMISSION_ONE_TIME;
+        }
+    }
+
     public boolean isSystemFixed() {
         return (mFlags & PackageManager.FLAG_PERMISSION_SYSTEM_FIXED) != 0;
     }
@@ -240,6 +252,10 @@ public final class Permission {
      */
     public boolean isBackgroundPermission() {
         return mForegroundPermissions != null;
+    }
+
+    public boolean isOneTime() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_ONE_TIME) != 0;
     }
 
     public void setUserSet(boolean userSet) {
