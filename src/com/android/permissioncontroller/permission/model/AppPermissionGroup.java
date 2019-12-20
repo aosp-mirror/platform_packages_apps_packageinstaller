@@ -469,8 +469,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             mIconResId = R.drawable.ic_perm_device_info;
         }
 
-        mIsNonIsolatedStorage = mAppOps.unsafeCheckOpNoThrow(OPSTR_LEGACY_STORAGE,
-                        packageInfo.applicationInfo.uid, packageInfo.packageName) == MODE_ALLOWED;
+        mIsNonIsolatedStorage = targetSDK < Build.VERSION_CODES.P
+                || (targetSDK < Build.VERSION_CODES.R
+                && mAppOps.unsafeCheckOpNoThrow(OPSTR_LEGACY_STORAGE,
+                        packageInfo.applicationInfo.uid, packageInfo.packageName) == MODE_ALLOWED);
     }
 
     public boolean doesSupportRuntimePermissions() {
