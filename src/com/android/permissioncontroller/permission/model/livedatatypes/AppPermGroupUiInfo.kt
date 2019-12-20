@@ -33,6 +33,7 @@ data class AppPermGroupUiInfo(
         PERMS_DENIED(0),
         PERMS_ALLOWED(1),
         PERMS_ALLOWED_FOREGROUND_ONLY(2),
-        PERMS_ASK(3)
+        PERMS_ALLOWED_ALWAYS(3),
+        PERMS_ASK(4)
     }
 }

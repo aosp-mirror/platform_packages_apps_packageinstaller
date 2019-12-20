@@ -100,6 +100,8 @@ class AppPermissionGroupsViewModel(
                     when (uiInfo.isGranted) {
                         PermGrantState.PERMS_ALLOWED -> groupGrantStates[Category.ALLOWED]!!.add(
                                 Triple(groupName, isSystem, false))
+                        PermGrantState.PERMS_ALLOWED_ALWAYS -> groupGrantStates[
+                            Category.ALLOWED]!!.add(Triple(groupName, isSystem, false))
                         PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY -> groupGrantStates[
                             Category.ALLOWED]!!.add(Triple(groupName, isSystem, true))
                         PermGrantState.PERMS_DENIED -> groupGrantStates[Category.DENIED]!!.add(
