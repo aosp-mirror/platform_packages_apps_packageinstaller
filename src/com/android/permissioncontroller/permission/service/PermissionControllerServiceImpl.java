@@ -26,6 +26,7 @@ import static android.permission.PermissionControllerManager.REASON_INSTALLER_PO
 import static android.permission.PermissionControllerManager.REASON_MALWARE;
 import static android.util.Xml.newSerializer;
 
+import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_ONE_TIME_PERMISSION_REVOKED;
 import static com.android.permissioncontroller.permission.utils.Utils.shouldShowPermission;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -49,6 +50,7 @@ import android.util.Xml;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissionUsage;
 import com.android.permissioncontroller.permission.model.AppPermissionUsage.GroupUsage;
@@ -70,6 +72,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.IntConsumer;
@@ -671,8 +674,10 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
     public void onOneTimePermissionSessionTimeout(@NonNull String packageName) {
         PackageManager pm = getPackageManager();
         PackageInfo packageInfo;
+        int uid;
         try {
             packageInfo = pm.getPackageInfo(packageName, GET_PERMISSIONS);
+            uid = pm.getPackageUid(packageName, 0);
         } catch (PackageManager.NameNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -692,10 +697,33 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
         }
         for (AppPermissionGroup group : groups) {
             if (group.areRuntimePermissionsGranted()) {
+                logOneTimeSessionRevoke(packageName, uid, group);
                 group.revokeRuntimePermissions(false);
             }
             group.setOneTime(false);
             group.persistChanges(false);
+        }
+    }
+
+    private void logOneTimeSessionRevoke(@NonNull String packageName, int uid,
+            AppPermissionGroup group) {
+        long requestId = new Random().nextLong();
+
+        // used to keep lines below 100 chars
+        int r = PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_ONE_TIME_PERMISSION_REVOKED;
+
+        for (Permission permission : group.getPermissions()) {
+            if (permission.isGranted()) {
+                String permName = permission.getName();
+                Log.v(LOG_TAG,
+                        "Permission grant result requestId=" + requestId + " callingUid="
+                                + uid + " callingPackage=" + packageName + " permission="
+                                + permName + " isImplicit=false" + " result=" + r);
+
+                PermissionControllerStatsLog.write(
+                        PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED,
+                        requestId, uid, packageName, permName, false, r);
+            }
         }
     }
 }

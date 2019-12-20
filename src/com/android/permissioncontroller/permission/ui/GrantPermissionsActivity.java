@@ -27,8 +27,11 @@ import static com.android.permissioncontroller.PermissionControllerStatsLog.PERM
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_RESTRICTED_PERMISSION;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_USER_FIXED;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_IN_SETTINGS;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_WITH_PREJUDICE;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_WITH_PREJUDICE_IN_SETTINGS;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED_IN_SETTINGS;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED_ONE_TIME;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_IGNORED;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.CANCELED;
@@ -69,6 +72,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.permissioncontroller.Constants;
 import com.android.permissioncontroller.DeviceUtils;
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
@@ -800,6 +804,7 @@ public class GrantPermissionsActivity extends Activity
                 intent.putExtra(Intent.EXTRA_USER, groupState.mGroup.getUser());
                 intent.putExtra(AppPermissionActivity.EXTRA_CALLER_NAME,
                         GrantPermissionsActivity.class.getName());
+                intent.putExtra(Constants.EXTRA_SESSION_ID, mRequestId);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivityForResult(intent, APP_PERMISSION_REQUEST_CODE);
             }
@@ -809,11 +814,59 @@ public class GrantPermissionsActivity extends Activity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == APP_PERMISSION_REQUEST_CODE) {
-            if (data != null) {
-                String groupName = data.getStringExtra(
-                        AppPermissionActivity.EXTRA_RESULT_PERMISSION_INTERACTED);
-                if (groupName != null) {
-                    mPermissionGroupsToSkip.add(groupName);
+            // User was linked to settings, handle the result
+            if (data == null) {
+                return;
+            }
+            String groupName = data.getStringExtra(
+                    AppPermissionActivity.EXTRA_RESULT_PERMISSION_INTERACTED);
+            if (groupName != null) {
+                mPermissionGroupsToSkip.add(groupName);
+                int result = data
+                        .getIntExtra(AppPermissionActivity.EXTRA_RESULT_PERMISSION_RESULT, -1);
+                GroupState foregroundGroupState = getForegroundGroupState(groupName);
+                GroupState backgroundGroupState = getBackgroundGroupState(groupName);
+                switch (result) {
+                    case GRANTED_ALWAYS:
+                        if (foregroundGroupState != null) {
+                            reportRequestResult(foregroundGroupState.affectedPermissions,
+                                    PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED_IN_SETTINGS);
+                        }
+                        if (backgroundGroupState != null) {
+                            reportRequestResult(backgroundGroupState.affectedPermissions,
+                                    PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED_IN_SETTINGS);
+                        }
+                        break;
+                    case GRANTED_FOREGROUND_ONLY:
+                        if (foregroundGroupState != null) {
+                            reportRequestResult(foregroundGroupState.affectedPermissions,
+                                    PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED_IN_SETTINGS);
+                        }
+                        if (backgroundGroupState != null) {
+                            reportRequestResult(backgroundGroupState.affectedPermissions,
+                                    PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_IN_SETTINGS);
+                        }
+                        break;
+                    case DENIED:
+                        if (foregroundGroupState != null) {
+                            reportRequestResult(foregroundGroupState.affectedPermissions,
+                                    PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_IN_SETTINGS);
+                        }
+                        if (backgroundGroupState != null) {
+                            reportRequestResult(backgroundGroupState.affectedPermissions,
+                                    PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_IN_SETTINGS);
+                        }
+                        break;
+                    case DENIED_DO_NOT_ASK_AGAIN:
+                        if (foregroundGroupState != null) {
+                            reportRequestResult(foregroundGroupState.affectedPermissions,
+                                    PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_WITH_PREJUDICE_IN_SETTINGS);
+                        }
+                        if (backgroundGroupState != null) {
+                            reportRequestResult(backgroundGroupState.affectedPermissions,
+                                    PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_WITH_PREJUDICE_IN_SETTINGS);
+                        }
+                        break;
                 }
             }
         }
