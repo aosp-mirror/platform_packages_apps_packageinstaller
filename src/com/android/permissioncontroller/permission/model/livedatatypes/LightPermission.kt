@@ -64,4 +64,6 @@ data class LightPermission(
     /** Whether this permission is a runtime only permission */
     val isRuntimeOnly =
         permInfo.protectionFlags and PermissionInfo.PROTECTION_FLAG_RUNTIME_ONLY != 0
+    /** Whether this permission is granted by default */
+    val isGrantedByDefault = flags and PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT != 0
 }

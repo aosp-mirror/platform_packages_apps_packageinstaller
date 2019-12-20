@@ -17,10 +17,14 @@
 package com.android.permissioncontroller.permission.data
 
 import android.app.Application
+import android.content.pm.PackageManager
 import android.content.pm.PermissionInfo
 import android.os.Build
 import android.os.UserHandle
+import android.permission.PermissionManager
+import android.util.Log
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
+import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission
 import com.android.permissioncontroller.permission.utils.LocationUtils
 import com.android.permissioncontroller.permission.utils.SoftRestrictedPermissionPolicy
@@ -41,6 +45,8 @@ class AppPermGroupLiveData(
     private val permGroupName: String,
     private val user: UserHandle
 ) : SmartUpdateMediatorLiveData<LightAppPermGroup>() {
+
+    val LOG_TAG = this::class.java.simpleName
 
     private val permStateLiveData = PermStateRepository.getPermStateLiveData(app, packageName,
         permGroupName, user)
@@ -125,7 +131,52 @@ class AppPermGroupLiveData(
             specialLocationGrant = LocationUtils.isExtraLocationControllerPackageEnabled(
                 userContext)
         }
+        val hasInstallToRuntimeSplit = hasInstallToRuntimeSplit(packageInfo, permissionMap)
         value = LightAppPermGroup(packageInfo, permGroup.groupInfo, permissionMap,
-            specialLocationGrant)
+            hasInstallToRuntimeSplit, specialLocationGrant)
+    }
+
+    /**
+     * Check if permission group contains a runtime permission that split from an installed
+     * permission and the split happened in an Android version higher than app's targetSdk.
+     *
+     * @return `true` if there is such permission, `false` otherwise
+     */
+    private fun hasInstallToRuntimeSplit(
+        packageInfo: LightPackageInfo,
+        permissionMap: Map<String, LightPermission>
+    ): Boolean {
+        val permissionManager = app.getSystemService(PermissionManager::class.java) ?: return false
+
+        for (spi in permissionManager.splitPermissions) {
+            val splitPerm = spi.splitPermission
+
+            val pi = try {
+                app.packageManager.getPermissionInfo(splitPerm, 0)
+            } catch (e: PackageManager.NameNotFoundException) {
+                Log.w(LOG_TAG, "No such permission: $splitPerm", e)
+                continue
+            }
+
+            // Skip if split permission is not "install" permission.
+            if (pi.protection != PermissionInfo.PROTECTION_NORMAL) {
+                continue
+            }
+
+            val newPerms = spi.newPermissions
+            for (permName in newPerms) {
+                val newPerm = permissionMap[permName]?.permInfo ?: continue
+
+                // Skip if new permission is not "runtime" permission.
+                if (newPerm.protection != PermissionInfo.PROTECTION_DANGEROUS) {
+                    continue
+                }
+
+                if (packageInfo.targetSdkVersion < spi.targetSdk) {
+                    return true
+                }
+            }
+        }
+        return false
     }
 }

@@ -23,6 +23,8 @@ import android.util.EventLog;
 
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.Permission;
+import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup;
+import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,6 +95,55 @@ public final class SafetyNetLogger {
         ArraySet groups = new ArraySet<AppPermissionGroup>(1);
         groups.add(group);
         logPermissionsToggled(groups);
+    }
+
+    /**
+     * Log that a permission group has been toggled for the purpose of safety net.
+     *
+     * @param group The group which was toggled. This group must represent the current state, not
+     * the old state
+     * @param logOnlyBackground Whether to log only background permissions, or foreground and
+     * background
+     */
+    public static void logPermissionToggled(LightAppPermGroup group, boolean logOnlyBackground) {
+        EventLog.writeEvent(SNET_NET_EVENT_LOG_TAG, PERMISSIONS_TOGGLED,
+                android.os.Process.myUid(), buildChangedPermissionForPackageMessage(group,
+                        logOnlyBackground));
+    }
+
+    /**
+     * Log that a permission group has been toggled for the purpose of safety net. Logs both
+     * background and foreground permissions.
+     *
+     * @param group The group which was toggled. This group must represent the current state, not
+     * the old state
+     */
+    public static void logPermissionToggled(LightAppPermGroup group) {
+        logPermissionToggled(group, false);
+    }
+
+    private static String buildChangedPermissionForPackageMessage(
+            LightAppPermGroup group, boolean logOnlyBackground) {
+        StringBuilder builder = new StringBuilder();
+
+        builder.append(group.getPackageInfo().getPackageName()).append(':');
+
+        for (LightPermission permission: group.getPermissions().values()) {
+            if (logOnlyBackground
+                    && !group.getBackgroundPermNames().contains(permission.getName())) {
+                continue;
+            }
+
+            if (builder.length() > 0) {
+                builder.append(';');
+            }
+
+            builder.append(permission.getName()).append('|');
+            builder.append(permission.isGrantedIncludingAppOp()).append('|');
+            builder.append(permission.getFlags());
+        }
+
+        return builder.toString();
     }
 
     private static void buildChangedPermissionForGroup(AppPermissionGroup group,
