@@ -553,6 +553,9 @@
     <!-- Header for permissions/apps that are granted only when in the foreground [CHAR LIMIT=40] -->
     <string name="allowed_foreground_header">Allowed only while in use</string>
 
+    <!-- Header for permissions/apps which need to ask next time they want to use the permission. Note: Permission may or may not be currently granted [CHAR LIMIT=60] -->
+    <string name="ask_header">Ask every time</string>
+
     <!-- Header for denied permissions/apps [CHAR LIMIT=40] -->
     <string name="denied_header">Denied</string>
 

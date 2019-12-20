@@ -59,6 +59,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
+import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.DeviceConfig;
@@ -118,6 +119,11 @@ public final class Utils {
             PackageManager.FLAG_PERMISSION_WHITELIST_SYSTEM
                     | PackageManager.FLAG_PERMISSION_WHITELIST_UPGRADE
                     | PackageManager.FLAG_PERMISSION_WHITELIST_INSTALLER;
+
+    /**
+     * The default length of the timeout for one-time permissions
+     */
+    public static final long ONE_TIME_PERMISSIONS_TIMEOUT_MILLIS = 1 * 60 * 1000; // 1 minute
 
     /** Mapping permission -> group for all dangerous platform permissions */
     private static final ArrayMap<String, String> PLATFORM_PERMISSIONS;
@@ -956,7 +962,7 @@ public final class Utils {
 
     public static long getOneTimePermissionsTimeout() {
         return DeviceConfig.getLong(DeviceConfig.NAMESPACE_PERMISSIONS,
-                PROPERTY_ONE_TIME_PERMISSIONS_TIMEOUT_MILLIS, 5 * 60 * 1000 /* 5 minutes */);
+                PROPERTY_ONE_TIME_PERMISSIONS_TIMEOUT_MILLIS, ONE_TIME_PERMISSIONS_TIMEOUT_MILLIS);
     }
 
     /**
@@ -1123,5 +1129,35 @@ public final class Utils {
      */
     public static int getUpgradeRequestDetail(String groupName) {
         return PERM_GROUP_UPGRADE_REQUEST_DETAIL_RES.getOrDefault(groupName, 0);
+    }
+
+    /**
+     * Checks whether a package has an active one-time permission according to the system server's
+     * flags
+     *
+     * @param context the {@code Context} to retrieve {@code PackageManager}
+     * @param packageName The package to check for
+     * @return Whether a package has an active one-time permission
+     */
+    public static boolean hasOneTimePermissions(Context context, String packageName) {
+        String[] permissions;
+        PackageManager pm = context.getPackageManager();
+        try {
+            permissions = pm.getPackageInfo(packageName, PackageManager.GET_PERMISSIONS)
+                    .requestedPermissions;
+        } catch (NameNotFoundException e) {
+            Log.w(LOG_TAG, "Checking for one-time permissions in nonexistent package");
+            return false;
+        }
+        if (permissions == null) {
+            return false;
+        }
+        for (String permissionName : permissions) {
+            if ((pm.getPermissionFlags(permissionName, packageName, Process.myUserHandle())
+                    & PackageManager.FLAG_PERMISSION_ONE_TIME) != 0) {
+                return true;
+            }
+        }
+        return false;
     }
 }

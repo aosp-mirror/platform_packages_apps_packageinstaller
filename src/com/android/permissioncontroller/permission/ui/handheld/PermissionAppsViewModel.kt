@@ -31,6 +31,7 @@ import com.android.permissioncontroller.permission.ui.Category
 import com.android.permissioncontroller.permission.ui.handheld.PermissionAppsViewModel.Companion.CREATION_LOGGED_KEY
 import com.android.permissioncontroller.permission.ui.handheld.PermissionAppsViewModel.Companion.HAS_SYSTEM_APPS_KEY
 import com.android.permissioncontroller.permission.ui.handheld.PermissionAppsViewModel.Companion.SHOULD_SHOW_SYSTEM_KEY
+import com.android.permissioncontroller.permission.ui.handheld.PermissionAppsViewModel.Companion.SHOW_ALWAYS_ALLOWED
 
 /**
  * ViewModel for the PermissionAppsFragment. Has a liveData with all of the UI info for each
@@ -50,11 +51,13 @@ class PermissionAppsViewModel(
     companion object {
         internal const val SHOULD_SHOW_SYSTEM_KEY = "showSystem"
         internal const val HAS_SYSTEM_APPS_KEY = "hasSystem"
+        internal const val SHOW_ALWAYS_ALLOWED = "showAlways"
         internal const val CREATION_LOGGED_KEY = "creationLogged"
     }
 
-    val shouldShowSystemLiveData = state.getLiveData<Boolean>(SHOULD_SHOW_SYSTEM_KEY, false)
-    val hasSystemAppsLiveData = state.getLiveData<Boolean>(HAS_SYSTEM_APPS_KEY, true)
+    val shouldShowSystemLiveData = state.getLiveData(SHOULD_SHOW_SYSTEM_KEY, false)
+    val hasSystemAppsLiveData = state.getLiveData(HAS_SYSTEM_APPS_KEY, true)
+    val showAllowAlwaysStringLiveData = state.getLiveData(SHOW_ALWAYS_ALLOWED, false)
     val categorizedAppsLiveData = CategorizedAppsLiveData(app, groupName)
 
     fun updateShowSystem(showSystem: Boolean) {
@@ -92,6 +95,7 @@ class PermissionAppsViewModel(
 
             categoryMap[Category.ALLOWED] = mutableListOf()
             categoryMap[Category.ALLOWED_FOREGROUND] = mutableListOf()
+            categoryMap[Category.ASK] = mutableListOf()
             categoryMap[Category.DENIED] = mutableListOf()
 
             val packageMap = packagesUiInfoLiveData.value ?: run {
@@ -106,6 +110,8 @@ class PermissionAppsViewModel(
                 state.set(HAS_SYSTEM_APPS_KEY, hasSystem)
             }
 
+            var showAlwaysAllowedString = false
+
             for ((packageUserPair, uiInfo) in packageMap) {
                 if (!uiInfo.shouldShow) {
                     continue
@@ -115,13 +121,21 @@ class PermissionAppsViewModel(
                     continue
                 }
 
+                if (uiInfo.isGranted == PermGrantState.PERMS_ALLOWED_ALWAYS ||
+                    uiInfo.isGranted == PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY) {
+                    showAlwaysAllowedString = true
+                }
+
                 val category = when (uiInfo.isGranted) {
                     PermGrantState.PERMS_ALLOWED -> Category.ALLOWED
                     PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY -> Category.ALLOWED_FOREGROUND
+                    PermGrantState.PERMS_ALLOWED_ALWAYS -> Category.ALLOWED
                     PermGrantState.PERMS_DENIED -> Category.DENIED
+                    PermGrantState.PERMS_ASK -> Category.ASK
                 }
                 categoryMap[category]!!.add(packageUserPair)
             }
+            showAllowAlwaysStringLiveData.value = showAlwaysAllowedString
             value = categoryMap
         }
     }
@@ -149,6 +163,7 @@ class PermissionAppsViewModelFactory(
     override fun <T : ViewModel?> create(p0: String, p1: Class<T>, state: SavedStateHandle): T {
         state.set(SHOULD_SHOW_SYSTEM_KEY, state.get<Boolean>(SHOULD_SHOW_SYSTEM_KEY) ?: false)
         state.set(HAS_SYSTEM_APPS_KEY, state.get<Boolean>(HAS_SYSTEM_APPS_KEY) ?: true)
+        state.set(SHOW_ALWAYS_ALLOWED, state.get<Boolean>(SHOW_ALWAYS_ALLOWED) ?: false)
         state.set(CREATION_LOGGED_KEY, state.get<Boolean>(CREATION_LOGGED_KEY) ?: false)
         @Suppress("UNCHECKED_CAST")
         return PermissionAppsViewModel(state, app, groupName) as T

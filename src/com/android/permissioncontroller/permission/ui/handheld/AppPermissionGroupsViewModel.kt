@@ -91,6 +91,7 @@ class AppPermissionGroupsViewModel(
             val groupGrantStates = mutableMapOf<Category,
                 MutableList<Triple<String, Boolean, Boolean>>>()
             groupGrantStates[Category.ALLOWED] = mutableListOf()
+            groupGrantStates[Category.ASK] = mutableListOf()
             groupGrantStates[Category.DENIED] = mutableListOf()
 
             for (groupName in groups) {
@@ -99,9 +100,13 @@ class AppPermissionGroupsViewModel(
                     when (uiInfo.isGranted) {
                         PermGrantState.PERMS_ALLOWED -> groupGrantStates[Category.ALLOWED]!!.add(
                                 Triple(groupName, isSystem, false))
+                        PermGrantState.PERMS_ALLOWED_ALWAYS -> groupGrantStates[
+                            Category.ALLOWED]!!.add(Triple(groupName, isSystem, false))
                         PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY -> groupGrantStates[
                             Category.ALLOWED]!!.add(Triple(groupName, isSystem, true))
                         PermGrantState.PERMS_DENIED -> groupGrantStates[Category.DENIED]!!.add(
+                                Triple(groupName, isSystem, false))
+                        PermGrantState.PERMS_ASK -> groupGrantStates[Category.ASK]!!.add(
                                 Triple(groupName, isSystem, false))
                     }
                 }

@@ -207,23 +207,36 @@ class AppPermGroupUiInfoLiveData(
     ): PermGrantState {
 
         var hasPermWithBackground = false
-        for ((permName, _) in permissionState) {
+        var isUserFixed = false
+        var isOneTime = false
+        for ((permName, permState) in permissionState) {
             val permInfo = allPermInfos[permName] ?: continue
             permInfo.backgroundPermission?.let { backgroundPerm ->
                 hasPermWithBackground = true
                 if (permissionState[backgroundPerm]?.granted == true) {
-                    return PermGrantState.PERMS_ALLOWED
+                    return PermGrantState.PERMS_ALLOWED_ALWAYS
                 }
             }
+            isUserFixed = isUserFixed ||
+                    permState.permFlags and PackageManager.FLAG_PERMISSION_USER_FIXED != 0
+            isOneTime = isOneTime ||
+                    permState.permFlags and PackageManager.FLAG_PERMISSION_ONE_TIME != 0
         }
 
         val anyAllowed = getIsSpecialLocationState() ?: permissionState.any { it.value.granted }
         if (anyAllowed && hasPermWithBackground) {
-            return PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY
+            if (isOneTime) {
+                return PermGrantState.PERMS_ASK
+            } else {
+                return PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY
+            }
         } else if (anyAllowed) {
             return PermGrantState.PERMS_ALLOWED
         }
-        return PermGrantState.PERMS_DENIED
+        if (isUserFixed) {
+            return PermGrantState.PERMS_DENIED
+        }
+        return PermGrantState.PERMS_ASK
     }
 
     private fun getIsSpecialLocationState(): Boolean? {

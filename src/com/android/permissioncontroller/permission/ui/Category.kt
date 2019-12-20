@@ -23,5 +23,6 @@ package com.android.permissioncontroller.permission.ui
 enum class Category(val categoryName: String) {
     ALLOWED("allowed"),
     ALLOWED_FOREGROUND("allowed_foreground"),
+    ASK("ask"),
     DENIED("denied")
 }

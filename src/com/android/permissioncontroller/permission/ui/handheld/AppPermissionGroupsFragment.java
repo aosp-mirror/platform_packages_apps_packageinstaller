@@ -233,6 +233,14 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
                 category = findPreference(Category.ALLOWED.getCategoryName());
             }
 
+            if (grantCategory.equals(Category.ASK)) {
+                if (groupMap.get(grantCategory).size() == 0) {
+                    category.setVisible(false);
+                } else {
+                    category.setVisible(true);
+                }
+            }
+
             for (Triple<String, Boolean, Boolean> groupTriple : groupMap.get(grantCategory)) {
                 String groupName = groupTriple.getFirst();
                 boolean isSystem = groupTriple.getSecond();

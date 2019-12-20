@@ -46,6 +46,5 @@ data class LightPermission(
     /** Whether this permission is fixed by the system */
     val isUserFixed = flags and PackageManager.FLAG_PERMISSION_USER_FIXED != 0
     /** Whether this permission is one-time */
-    // TODO(evanseverson): Flag is waiting on a pending CL
-    val isOneTime = false /*flags and PackageManager.FLAG_PERMISSION_ONE_TIME != 0*/
+    val isOneTime = flags and PackageManager.FLAG_PERMISSION_ONE_TIME != 0
 }
