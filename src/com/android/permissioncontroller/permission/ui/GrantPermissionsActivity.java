@@ -1138,7 +1138,18 @@ public class GrantPermissionsActivity extends Activity
                 clickedButton = 1 << VISIBILITY_ALLOW_FOREGROUND_BUTTON;
                 break;
             case DENIED:
-                clickedButton = 1 << VISIBILITY_DENY_BUTTON;
+                if (mButtonVisibilities[VISIBILITY_NO_UPGRADE_BUTTON]) {
+                    clickedButton = 1 << VISIBILITY_NO_UPGRADE_BUTTON;
+                } else if (mButtonVisibilities[VISIBILITY_DENY_BUTTON]) {
+                    clickedButton = 1 << VISIBILITY_DENY_BUTTON;
+                }
+                break;
+            case DENIED_DO_NOT_ASK_AGAIN:
+                if (mButtonVisibilities[VISIBILITY_NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON]) {
+                    clickedButton = 1 << VISIBILITY_NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON;
+                } else if (mButtonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON]) {
+                    clickedButton = 1 << VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON;
+                }
                 break;
             case GRANTED_ONE_TIME:
                 clickedButton = 1 << VISIBILITY_ALLOW_ONE_TIME_BUTTON;
