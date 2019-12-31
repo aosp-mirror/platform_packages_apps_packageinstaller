@@ -17,7 +17,7 @@
 genrule {
     name: "statslog-permissioncontroller-java-gen",
     tools: ["stats-log-api-gen"],
-    cmd: "$(location stats-log-api-gen) --java $(out) --module permissioncontroller --javaPackage com.android.permissioncontroller --javaClass PermissionControllerStatsLog",
+    cmd: "$(location stats-log-api-gen) --java $(out) --module permissioncontroller --javaPackage com.android.permissioncontroller --javaClass PermissionControllerStatsLog --supportQ",
     out: ["com/android/permissioncontroller/PermissionControllerStatsLog.java"],
 }
 
