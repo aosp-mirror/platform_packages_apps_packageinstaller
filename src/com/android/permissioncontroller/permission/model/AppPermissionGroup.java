@@ -1159,6 +1159,23 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
     }
 
+    /**
+     * Set the user-set flag for all permissions in this group.
+     *
+     * @param isUserSet if the flag should be set or not
+     */
+    public void setUserSet(boolean isUserSet) {
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            permission.setUserSet(isUserSet);
+        }
+
+        if (!mDelayChanges) {
+            persistChanges(false);
+        }
+    }
+
     public ArrayList<Permission> getPermissions() {
         return new ArrayList<>(mPermissions.values());
     }
