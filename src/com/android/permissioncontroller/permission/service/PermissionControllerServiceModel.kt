@@ -198,7 +198,7 @@ class PermissionControllerServiceModel(private val service: PermissionController
                     numPermAppsChecked++
 
                     if (uiInfo != null && uiInfo.shouldShow && (!uiInfo.isSystem || countSystem)) {
-                        val granted = uiInfo.isGranted != PermGrantState.PERMS_DENIED
+                        val granted = uiInfo.permGrantState != PermGrantState.PERMS_DENIED
                         if (granted || !countOnlyGranted && !packageAdded) {
                             // The permission might not be granted, but some permissions of the
                             // group are granted. In this case the permission is granted silently
