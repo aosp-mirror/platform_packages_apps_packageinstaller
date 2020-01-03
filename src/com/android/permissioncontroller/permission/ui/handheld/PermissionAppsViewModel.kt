@@ -121,12 +121,12 @@ class PermissionAppsViewModel(
                     continue
                 }
 
-                if (uiInfo.isGranted == PermGrantState.PERMS_ALLOWED_ALWAYS ||
-                    uiInfo.isGranted == PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY) {
+                if (uiInfo.permGrantState == PermGrantState.PERMS_ALLOWED_ALWAYS ||
+                    uiInfo.permGrantState == PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY) {
                     showAlwaysAllowedString = true
                 }
 
-                val category = when (uiInfo.isGranted) {
+                val category = when (uiInfo.permGrantState) {
                     PermGrantState.PERMS_ALLOWED -> Category.ALLOWED
                     PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY -> Category.ALLOWED_FOREGROUND
                     PermGrantState.PERMS_ALLOWED_ALWAYS -> Category.ALLOWED

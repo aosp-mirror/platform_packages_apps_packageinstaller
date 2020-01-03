@@ -400,7 +400,9 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
 
                 RuntimePermissionPresentationInfo permission =
                         new RuntimePermissionPresentationInfo(label,
-                                uiInfo.isGranted() != PermGrantState.PERMS_DENIED, isPlatform);
+                                uiInfo.getPermGrantState() != PermGrantState.PERMS_DENIED
+                                        && uiInfo.getPermGrantState() != PermGrantState.PERMS_ASK,
+                                isPlatform);
                 permissions.add(permission);
             }
             callback.accept(permissions);

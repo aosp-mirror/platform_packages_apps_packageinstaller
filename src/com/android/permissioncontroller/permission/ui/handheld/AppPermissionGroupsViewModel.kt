@@ -97,7 +97,7 @@ class AppPermissionGroupsViewModel(
             for (groupName in groups) {
                 val isSystem = Utils.getPlatformPermissionGroups().contains(groupName)
                 appPermGroupUiInfoLiveDatas[groupName]?.value?.let { uiInfo ->
-                    when (uiInfo.isGranted) {
+                    when (uiInfo.permGrantState) {
                         PermGrantState.PERMS_ALLOWED -> groupGrantStates[Category.ALLOWED]!!.add(
                                 Triple(groupName, isSystem, false))
                         PermGrantState.PERMS_ALLOWED_ALWAYS -> groupGrantStates[
