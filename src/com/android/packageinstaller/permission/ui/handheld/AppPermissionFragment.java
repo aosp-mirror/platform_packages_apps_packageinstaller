@@ -354,7 +354,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             return permissionSnapshot;
         }
 
-        permissions = mGroup.getPermissions();
+        permissions = permissionGroup.getPermissions();
         numPermissions = permissions.size();
 
         for (int i = 0; i < numPermissions; i++) {
