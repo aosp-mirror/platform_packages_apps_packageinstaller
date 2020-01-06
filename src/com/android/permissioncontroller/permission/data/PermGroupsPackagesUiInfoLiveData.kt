@@ -130,7 +130,8 @@ class PermGroupsPackagesUiInfoLiveData(
         var granted = 0
         for ((_, appPermGroup) in uiInfo) {
             if (appPermGroup.shouldShow && !appPermGroup.isSystem &&
-                appPermGroup.permGrantState != AppPermGroupUiInfo.PermGrantState.PERMS_DENIED) {
+                appPermGroup.permGrantState != AppPermGroupUiInfo.PermGrantState.PERMS_DENIED &&
+                appPermGroup.permGrantState != AppPermGroupUiInfo.PermGrantState.PERMS_ASK) {
                 granted++
             }
         }
