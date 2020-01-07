@@ -230,9 +230,13 @@ object KotlinUtils {
      * @return The package's icon, or null, if the package does not exist
      */
     fun getBadgedPackageIcon(app: Application, packageName: String, user: UserHandle): Drawable? {
-        val userContext = Utils.getUserContext(app, user)
-        val appInfo = userContext.packageManager.getApplicationInfo(packageName, 0)
-        return Utils.getBadgedIcon(app, appInfo)
+        return try {
+            val userContext = Utils.getUserContext(app, user)
+            val appInfo = userContext.packageManager.getApplicationInfo(packageName, 0)
+            Utils.getBadgedIcon(app, appInfo)
+        } catch (e: PackageManager.NameNotFoundException) {
+            null
+        }
     }
 
     /**
@@ -245,9 +249,13 @@ object KotlinUtils {
      * @return The package's label
      */
     fun getPackageLabel(app: Application, packageName: String, user: UserHandle): String {
-        val userContext = Utils.getUserContext(app, user)
-        val appInfo = userContext.packageManager.getApplicationInfo(packageName, 0)
-        return Utils.getFullAppLabel(appInfo, app)
+        return try {
+            val userContext = Utils.getUserContext(app, user)
+            val appInfo = userContext.packageManager.getApplicationInfo(packageName, 0)
+            Utils.getFullAppLabel(appInfo, app)
+        } catch (e: PackageManager.NameNotFoundException) {
+            packageName
+        }
     }
 
     /**
