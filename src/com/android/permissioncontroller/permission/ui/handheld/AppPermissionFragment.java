@@ -186,16 +186,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mPermGroupLabel));
 
-        TextView usageView = root.requireViewById(R.id.usage_summary);
-        if (mViewModel.shouldShowPermissionUsage()) {
-            usageView.setText(mViewModel.getUsageSummary(getContext(), mPermGroupLabel,
-                    mPackageLabel));
-        } else if (mViewModel.shouldShowUsageView()) {
-            usageView.setText(R.string.app_permission_footer_not_available);
-        } else {
-            usageView.setVisibility(View.GONE);
-        }
-
         String caller = getArguments().getString(AppPermissionActivity.EXTRA_CALLER_NAME);
 
         TextView footer1Link = root.requireViewById(R.id.footer_link_1);

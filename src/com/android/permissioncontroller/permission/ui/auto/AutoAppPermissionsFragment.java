@@ -23,7 +23,6 @@ import android.content.pm.PackageInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,7 +36,6 @@ import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.auto.AutoSettingsFrameFragment;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissions;
-import com.android.permissioncontroller.permission.model.PermissionUsages;
 import com.android.permissioncontroller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.permission.utils.Utils;
 
@@ -262,34 +260,7 @@ public class AutoAppPermissionsFragment extends AutoSettingsFrameFragment {
     }
 
     private String getPreferenceSummary(AppPermissionGroup group) {
-        String groupSummary = getGroupSummary(group);
-
-        if (Utils.isModernPermissionGroup(group.getName()) && Utils.shouldShowPermissionUsage(
-                group.getName())) {
-            String lastAccessStr = Utils.getAbsoluteLastUsageString(getContext(),
-                    PermissionUsages.loadLastGroupUsage(getContext(), group));
-            if (lastAccessStr != null) {
-                if (group.areRuntimePermissionsGranted()) {
-                    return getContext().getString(R.string.app_permission_most_recent_summary,
-                            lastAccessStr);
-                } else {
-                    return getContext().getString(
-                            R.string.app_permission_most_recent_denied_summary, lastAccessStr);
-                }
-            } else {
-                if (TextUtils.isEmpty(groupSummary) && Utils.isPermissionsHubEnabled()) {
-                    if (group.areRuntimePermissionsGranted()) {
-                        return getContext().getString(
-                                R.string.app_permission_never_accessed_summary);
-                    } else {
-                        return getContext().getString(
-                                R.string.app_permission_never_accessed_denied_summary);
-                    }
-                }
-            }
-        }
-
-        return groupSummary;
+        return getGroupSummary(group);
     }
 
     private String getGroupSummary(AppPermissionGroup group) {
