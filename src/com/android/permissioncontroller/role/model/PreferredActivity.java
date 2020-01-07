@@ -21,10 +21,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.os.Process;
+import android.content.pm.ResolveInfo;
 
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -69,7 +70,6 @@ public class PreferredActivity {
      * @param context the {@code Context} to retrieve system services
      */
     public void configure(@NonNull String packageName, @NonNull Context context) {
-        PackageManager packageManager = context.getPackageManager();
         ComponentName packageActivity = mActivity.getQualifyingComponentForPackage(
                 packageName, context);
         if (packageActivity == null) {
@@ -78,20 +78,36 @@ public class PreferredActivity {
             return;
         }
 
+        PackageManager packageManager = context.getPackageManager();
         int intentFilterDatasSize = mIntentFilterDatas.size();
         for (int i = 0; i < intentFilterDatasSize; i++) {
             IntentFilterData intentFilterData = mIntentFilterDatas.get(i);
 
             IntentFilter intentFilter = intentFilterData.createIntentFilter();
             intentFilter.addCategory(Intent.CATEGORY_DEFAULT);
+
             // PackageManager.replacePreferredActivity() expects filter to have no data authorities,
             // paths, or types; and at most one scheme.
             int match = intentFilterData.getDataScheme() != null
                     ? IntentFilter.MATCH_CATEGORY_SCHEME : IntentFilter.MATCH_CATEGORY_EMPTY;
-            List<ComponentName> activities = mActivity.getQualifyingComponentsAsUser(
-                    Process.myUserHandle(), context);
-            packageManager.replacePreferredActivity(intentFilter, match, activities,
-                    packageActivity);
+
+            Intent intent = intentFilterData.createIntent();
+            List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(intent,
+                    PackageManager.MATCH_DIRECT_BOOT_AWARE
+                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE
+                            | PackageManager.MATCH_DEFAULT_ONLY);
+            List<ComponentName> set = new ArrayList<>();
+            int resolveInfosSize = resolveInfos.size();
+            for (int resolveInfosIndex = 0; resolveInfosIndex < resolveInfosSize;
+                    resolveInfosIndex++) {
+                ResolveInfo resolveInfo = resolveInfos.get(resolveInfosIndex);
+
+                ComponentName componentName = new ComponentName(
+                        resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
+                set.add(componentName);
+            }
+
+            packageManager.replacePreferredActivity(intentFilter, match, set, packageActivity);
         }
     }
 
