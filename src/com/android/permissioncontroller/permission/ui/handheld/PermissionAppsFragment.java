@@ -343,6 +343,12 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
         setLoading(false /* loading */, true /* animate */);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mViewModel.updateShowSystem(false);
+    }
+
     private void logPermissionAppsFragmentCreated(String packageName, UserHandle user, long viewId,
             boolean isAllowed, boolean isAllowedForeground, boolean isDenied) {
         long sessionId = getArguments().getLong(EXTRA_SESSION_ID, 0);
