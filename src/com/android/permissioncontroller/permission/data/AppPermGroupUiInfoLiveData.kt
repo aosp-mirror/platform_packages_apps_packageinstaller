@@ -38,10 +38,10 @@ import com.android.permissioncontroller.permission.utils.Utils
  *     <li>isGranted</li>
  * </ul>
  *
- * @param app: The current application
- * @param packageName: The name of the package
- * @param permissionGroupName: The name of the permission group whose permissions are observed
- * @param user: The user of the package
+ * @param app The current application
+ * @param packageName The name of the package
+ * @param permissionGroupName The name of the permission group whose permissions are observed
+ * @param user The user of the package
  */
 class AppPermGroupUiInfoLiveData(
     private val app: Application,
@@ -92,10 +92,10 @@ class AppPermGroupUiInfoLiveData(
      * Determines if the UI should show a given package, if that package is a system app, and
      * if it has granted permissions in this LiveData's permission group.
      *
-     * @param packageInfo: The PackageInfo of the package we wish to examine
-     * @param groupInfo: The groupInfo of the permission group we wish to examine
-     * @param allPermInfos: All of the PermissionInfos in the permission group
-     * @param permissionState: The flags and grant state for all permissions in the permission
+     * @param packageInfo The PackageInfo of the package we wish to examine
+     * @param groupInfo The groupInfo of the permission group we wish to examine
+     * @param allPermInfos All of the PermissionInfos in the permission group
+     * @param permissionState The flags and grant state for all permissions in the permission
      * group that this package requests
      */
     private fun getAppPermGroupUiInfo(
@@ -125,9 +125,9 @@ class AppPermGroupUiInfoLiveData(
      * Determines if a package permission group is able to be granted, and whether or not it is a
      * legacy system permission group.
      *
-     * @param packageInfo: The PackageInfo of the package we are examining
-     * @param groupInfo: The Permission Group Info of the permission group we are examining
-     * @param permissionInfos: The LightPermInfos corresponding to the permissions in the
+     * @param packageInfo The PackageInfo of the package we are examining
+     * @param groupInfo The Permission Group Info of the permission group we are examining
+     * @param permissionInfos The LightPermInfos corresponding to the permissions in the
      * permission group that this package requests
      *
      * @return True if the app permission group is grantable, and is not a legacy system permission,
@@ -165,7 +165,7 @@ class AppPermGroupUiInfoLiveData(
      * Determines if an app's permission group is user-sensitive. If an app is not user sensitive,
      * then it is considered a system app, and hidden in the UI by default.
      *
-     * @param permissionState: The permission flags and grant state corresponding to the permissions
+     * @param permissionState The permission flags and grant state corresponding to the permissions
      * in this group requested by a given app
      *
      * @return Whether or not this package requests a user sensitive permission in the given
@@ -193,9 +193,9 @@ class AppPermGroupUiInfoLiveData(
      * and has denied all requested background permissions. It is denied if all requested
      * permissions are denied.
      *
-     * @param permissionState: The permission flags and grant state corresponding to the permissions
+     * @param permissionState The permission flags and grant state corresponding to the permissions
      * in this group requested by a given app
-     * @param allPermInfos: All of the permissionInfos in the permission group of this app
+     * @param allPermInfos All of the permissionInfos in the permission group of this app
      * permission group
      *
      * @return The int code corresponding to the app permission group state, either allowed, allowed
@@ -267,10 +267,10 @@ object AppPermGroupUiInfoRepository
      * Gets the AppPermGroupUiInfoLiveData associated with the provided package name, permission
      * group, and user, creating it if need be.
      *
-     * @param app: The current application
-     * @param packageName: The name of the package whose UI info we want
-     * @param permissionGroupName: The name of the permission group whose UI info we want
-     * @param user: The UserHandle for whom we want the UI info
+     * @param app The current application
+     * @param packageName The name of the package whose UI info we want
+     * @param permissionGroupName The name of the permission group whose UI info we want
+     * @param user The UserHandle for whom we want the UI info
      *
      * @return The cached or newly created AppPermGroupUiInfoLiveData
      */

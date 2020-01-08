@@ -31,7 +31,7 @@ import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveD
  * A ViewModel for the ManageCustomPermissionsFragment. Provides a LiveData which watches over all
  * custom permission groups, and sends async updates when these groups have changes.
  *
- * @param app: The current application of the fragment
+ * @param app The current application of the fragment
  */
 class ManageCustomPermissionsViewModel(
     private val app: Application
@@ -49,7 +49,7 @@ class ManageCustomPermissionsViewModel(
 /**
  * Factory for a ManageCustomPermissionsViewModel
  *
- * @param app: The current application of the fragment
+ * @param app The current application of the fragment
  */
 class ManageCustomPermissionsViewModelFactory(
     private val app: Application

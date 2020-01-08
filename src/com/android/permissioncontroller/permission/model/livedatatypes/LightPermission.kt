@@ -21,10 +21,10 @@ import android.content.pm.PackageManager
 /**
  * Represents a single permission, and its state
  *
- * @param permInfo: The permissionInfo this represents
- * @param grantedIncludingAppOp: Whether or not this permission is functionally granted.
+ * @param permInfo The permissionInfo this represents
+ * @param grantedIncludingAppOp Whether or not this permission is functionally granted.
  * A non-granted app op but granted permission is counted as not granted
- * @param flags: The PermissionController flags for this permission
+ * @param flags The PermissionController flags for this permission
  */
 data class LightPermission(
     val permInfo: LightPermInfo,

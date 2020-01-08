@@ -28,10 +28,10 @@ import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveD
  * Permissions (organized by group) that this package requests, and all the installed, non-runtime,
  * normal protection permissions as well.
  *
- * @param app: The current application
- * @param packageName: The name of the package this viewModel is representing
- * @param user: The user of the package this viewModel is representing
- * @param filterGroup: An optional single group that should be shown, no other groups will be
+ * @param app The current application
+ * @param packageName The name of the package this viewModel is representing
+ * @param user The user of the package this viewModel is representing
+ * @param filterGroup An optional single group that should be shown, no other groups will be
  * shown
  */
 class AllAppPermissionsViewModel(
@@ -77,10 +77,10 @@ class AllAppPermissionsViewModel(
 /**
  * Factory for an AllAppPermissionsViewModel.
  *
- * @param app: The current application
- * @param packageName: The name of the package this viewModel is representing
- * @param user: The user of the package this viewModel is representing
- * @param filterGroup: An optional single group that should be shown, no other groups will be
+ * @param app The current application
+ * @param packageName The name of the package this viewModel is representing
+ * @param user The user of the package this viewModel is representing
+ * @param filterGroup An optional single group that should be shown, no other groups will be
  * shown
  */
 class AllAppPermissionsViewModelFactory(

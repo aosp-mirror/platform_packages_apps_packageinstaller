@@ -22,10 +22,10 @@ import android.os.UserHandle
  * A lightweight version of the AppPermissionGroup data structure. Represents information about a
  * package, and all permissions in a particular permission group this package requests.
  *
- * @param packageInfo: Information about the package
- * @param permGroupInfo: Information about the permission group
- * @param permissions: The permissions in the permission group that the package requests
- * @param specialLocationGrant: If this package is the location provider, or the extra location
+ * @param packageInfo Information about the package
+ * @param permGroupInfo Information about the permission group
+ * @param permissions The permissions in the permission group that the package requests
+ * @param specialLocationGrant If this package is the location provider, or the extra location
  * package, then the grant state of the group is not determined by the grant state of individual
  * permissions, but by other system properties
  */

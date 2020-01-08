@@ -22,7 +22,7 @@ import android.content.pm.PackageManager
 /**
  * Serves as a single shared Permission Change Listener for all AppPermissionGroupLiveDatas.
  *
- * @param app: The current application
+ * @param app The current application
  */
 class PermissionListenerMultiplexer(private val app: Application)
     : PackageManager.OnPermissionsChangedListener {

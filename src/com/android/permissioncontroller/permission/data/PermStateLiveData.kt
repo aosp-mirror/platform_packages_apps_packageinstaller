@@ -30,11 +30,11 @@ import kotlinx.coroutines.Job
  * includes both the granted state of every permission in the group, and the flags stored
  * in the PermissionController service.
  *
- * @param app: The current application
- * @param packageName: The name of the package this LiveData will watch for mode changes for
- * @param permissionGroupName: The name of the permission group whose app ops this LiveData
+ * @param app The current application
+ * @param packageName The name of the package this LiveData will watch for mode changes for
+ * @param permissionGroupName The name of the permission group whose app ops this LiveData
  * will watch
- * @param user: The user of the package
+ * @param user The user of the package
  */
 class PermStateLiveData(
     private val app: Application,
@@ -147,10 +147,10 @@ object PermStateRepository
      * Gets the PermStateLiveData associated with the provided package name, permission group,
      * and user, creating it if need be.
      *
-     * @param app: The current application
-     * @param packageName: The name of the package whose permission state we want
-     * @param permissionGroupName: The name of the permission group whose state we want
-     * @param user: The UserHandle for whom we want the permission state
+     * @param app The current application
+     * @param packageName The name of the package whose permission state we want
+     * @param permissionGroupName The name of the permission group whose state we want
+     * @param user The UserHandle for whom we want the permission state
      *
      * @return The cached or newly created PackageInfoLiveData
      */

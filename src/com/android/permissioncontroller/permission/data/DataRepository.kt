@@ -59,8 +59,8 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
     /**
      * Get a value from this repository, creating it if needed
      *
-     * @param app: The current application
-     * @param key: The key associated with the desired Value
+     * @param app The current application
+     * @param key The key associated with the desired Value
      *
      * @return The cached or newly created Value for the given Key
      */
@@ -73,8 +73,8 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
     /**
      * Generate a new value type from the given data
      *
-     * @param app: The current application
-     * @param key: Information about this value object, used to instantiate it
+     * @param app The current application
+     * @param key Information about this value object, used to instantiate it
      *
      * @return The generated Value
      */

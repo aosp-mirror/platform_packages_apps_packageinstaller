@@ -25,7 +25,7 @@ import com.android.permissioncontroller.permission.utils.Utils
  * A class which tracks the names of all custom permission groups in the system, including
  * non-grouped runtime permissions, the UNDEFINED group, and any group not defined by the system.
  *
- * @param app: The current application
+ * @param app The current application
  */
 class CustomPermGroupNamesLiveData(
     private val app: Application

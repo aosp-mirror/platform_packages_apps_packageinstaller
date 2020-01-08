@@ -25,7 +25,7 @@ import android.content.IntentFilter
 /**
  * Listens for package additions, replacements, and removals, and notifies listeners.
  *
- * @param app: The current application
+ * @param app The current application
  */
 class PackageBroadcastReceiver(private val app: Application) : BroadcastReceiver() {
 
@@ -127,8 +127,8 @@ class PackageBroadcastReceiver(private val app: Application) : BroadcastReceiver
     /**
      * Upon receiving a broadcast, rout it to the proper callbacks.
      *
-     * @param context: the context of the broadcast
-     * @param intent: data about the broadcast which was sent
+     * @param context the context of the broadcast
+     * @param intent data about the broadcast which was sent
      */
     override fun onReceive(context: Context, intent: Intent) {
         val packageName = intent.data?.schemeSpecificPart ?: return

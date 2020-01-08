@@ -19,7 +19,7 @@ package com.android.permissioncontroller.permission.model.livedatatypes
 /**
  * A class representing the state of one permission for one package.
  *
- * @param permFlags: The system flags of the permission
- * @param granted: whether or not the permission is granted
+ * @param permFlags The system flags of the permission
+ * @param granted whether or not the permission is granted
  */
 data class PermState(val permFlags: Int, val granted: Boolean)

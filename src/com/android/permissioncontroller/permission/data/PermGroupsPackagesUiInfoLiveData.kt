@@ -28,7 +28,7 @@ import com.android.permissioncontroller.permission.utils.KotlinUtils
  * or custom, as well as the UI information related to each app permission group, and the permission
  * group as a whole.
  *
- * @param app: The current application
+ * @param app The current application
  */
 class PermGroupsPackagesUiInfoLiveData(
     private val app: Application,

@@ -37,9 +37,9 @@ import com.android.permissioncontroller.permission.utils.Utils
  * ViewModel for the AppPermissionGroupsFragment. Has a liveData with the UI information for all
  * permission groups that this package requests runtime permissions from
  *
- * @param app: The current application
- * @param packageName: The name of the package this viewModel is representing
- * @param user: The user of the package this viewModel is representing
+ * @param app The current application
+ * @param packageName The name of the package this viewModel is representing
+ * @param user The user of the package this viewModel is representing
  */
 class AppPermissionGroupsViewModel(
     app: Application,
@@ -153,9 +153,9 @@ class AppPermissionGroupsViewModel(
 /**
  * Factory for an AppPermissionGroupsViewModel
  *
- * @param app: The current application
- * @param packageName: The name of the package this viewModel is representing
- * @param user: The user of the package this viewModel is representing
+ * @param app The current application
+ * @param packageName The name of the package this viewModel is representing
+ * @param user The user of the package this viewModel is representing
  */
 class AppPermissionGroupsViewModelFactory(
     private val app: Application,
