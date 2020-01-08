@@ -27,9 +27,9 @@ import kotlinx.coroutines.Job
 /**
  * LiveData for a LightPackageInfo.
  *
- * @param app: The current Application
- * @param packageName: The name of the package this LiveData will watch for mode changes for
- * @param user: The user for whom the packageInfo will be defined
+ * @param app The current Application
+ * @param packageName The name of the package this LiveData will watch for mode changes for
+ * @param user The user for whom the packageInfo will be defined
  */
 class PackageInfoLiveData(
     private val app: Application,
@@ -125,7 +125,7 @@ object PackageInfoRepository : DataRepository<Pair<String, UserHandle>, PackageI
     /**
      * Gets the PackageBroadcastReceiver, instantiating it if need be.
      *
-     * @param app: The current application
+     * @param app The current application
      *
      * @return The cached or newly created PackageBroadcastReceiver
      */
@@ -146,9 +146,9 @@ object PackageInfoRepository : DataRepository<Pair<String, UserHandle>, PackageI
      * Gets the PackageInfoLiveData associated with the provided package name and user,
      * creating it if need be.
      *
-     * @param app: The current application
-     * @param packageName: The name of the package desired
-     * @param user: The UserHandle for whom we want the package
+     * @param app The current application
+     * @param packageName The name of the package desired
+     * @param user The UserHandle for whom we want the package
      *
      * @return The cached or newly created PackageInfoLiveData
      */
@@ -165,8 +165,8 @@ object PackageInfoRepository : DataRepository<Pair<String, UserHandle>, PackageI
      * Sets the value of the specified PackageInfoLiveData to the provided PackageInfo, creating it
      * if need be. Used only by the UserPackageInfoLiveData, since that gets fresh PackageInfos.
      *
-     * @param app: The current application
-     * @param packageInfo: The PackageInfo we wish to set the value to
+     * @param app The current application
+     * @param packageInfo The PackageInfo we wish to set the value to
      */
     fun setPackageInfoLiveData(app: Application, packageInfo: LightPackageInfo) {
         val user = UserHandle.getUserHandleForUid(packageInfo.uid)

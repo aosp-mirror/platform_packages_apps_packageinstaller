@@ -29,9 +29,9 @@ import com.android.permissioncontroller.permission.utils.Utils
  * NON_RUNTIME_NORMAL_PERMS, value is the requested runtime permissions in that group (or all
  * installed non-runtime normal protection permissions, for NON_RUNTME_NORMAL_PERMS).
  *
- * @param app: The current Application
- * @param packageName: The name of the package this LiveData will watch for mode changes for
- * @param user: The user for whom the packageInfo will be defined
+ * @param app The current Application
+ * @param packageName The name of the package this LiveData will watch for mode changes for
+ * @param user The user for whom the packageInfo will be defined
  */
 class PackagePermissionsLiveData(
     private val app: Application,
@@ -110,9 +110,9 @@ object PackagePermissionsRepository
      * Get the PackagePermissionsLiveData associated with the given parameters, creating it if
      * need be.
      *
-     * @param app: The current application
-     * @param packageName: The name of the package desired
-     * @param user: The UserHandle for whom we want the package
+     * @param app The current application
+     * @param packageName The name of the package desired
+     * @param user The UserHandle for whom we want the package
      *
      * @return the cached or newly generated PackagePermissionsLiveData
      */

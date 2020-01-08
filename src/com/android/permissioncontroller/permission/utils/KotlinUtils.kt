@@ -40,8 +40,8 @@ object KotlinUtils {
      * vice versa. Used primarily for determining which liveDatas are already being watched, and
      * which need to be removed or added
      *
-     * @param oldValues: A map of key type K, with any value type
-     * @param newValues: A list of type K
+     * @param oldValues A map of key type K, with any value type
+     * @param newValues A list of type K
      *
      * @return A pair, where the first value is all items in the list, but not the map, and the
      * second is all keys in the map, but not the list
@@ -64,10 +64,10 @@ object KotlinUtils {
     /**
      * Sort a given PreferenceGroup by the given comparison function.
      *
-     * @param group: The group to be sorted
-     * @param hasHeader: Whether the group contains a LargeHeaderPreference, which will be kept at
+     * @param group The group to be sorted
+     * @param hasHeader Whether the group contains a LargeHeaderPreference, which will be kept at
      * the top of the list
-     * @param compare: The function comparing two preferences, which will be used to sort
+     * @param compare The function comparing two preferences, which will be used to sort
      */
     fun sortPreferenceGroup(
         group: PreferenceGroup,
@@ -101,8 +101,8 @@ object KotlinUtils {
     /**
      * Gets a permission group's icon from the system.
      *
-     * @param context: The context from which to get the icon
-     * @param groupName: The name of the permission group whose icon we want
+     * @param context The context from which to get the icon
+     * @param groupName The name of the permission group whose icon we want
      *
      * @return The permission group's icon, the ic_perm_device_info icon if the group has no icon,
      * or the group does not exist
@@ -125,8 +125,8 @@ object KotlinUtils {
     /**
      * Gets a permission group's label from the system.
      *
-     * @param context: The context from which to get the label
-     * @param groupName: The name of the permission group whose label we want
+     * @param context The context from which to get the label
+     * @param groupName The name of the permission group whose label we want
      *
      * @return The permission group's label, or the group name, if the group is invalid
      */
@@ -139,8 +139,8 @@ object KotlinUtils {
     /**
      * Gets a permission group's description from the system.
      *
-     * @param context: The context from which to get the description
-     * @param groupName: The name of the permission group whose description we want
+     * @param context The context from which to get the description
+     * @param groupName The name of the permission group whose description we want
      *
      * @return The permission group's description, or an empty string, if the group is invalid, or
      * its description does not exist
@@ -159,8 +159,8 @@ object KotlinUtils {
 
     /**
      * Gets a permission's label from the system.
-     * @param context: The context from which to get the label
-     * @param permName: The name of the permission whose label we want
+     * @param context The context from which to get the label
+     * @param permName The name of the permission whose label we want
      *
      * @return The permission's label, or the permission name, if the permission is invalid
      */
@@ -175,8 +175,8 @@ object KotlinUtils {
 
     /**
      * Gets a permission's icon from the system.
-     * @param context: The context from which to get the icon
-     * @param permName: The name of the permission whose icon we want
+     * @param context The context from which to get the icon
+     * @param permName The name of the permission whose icon we want
      *
      * @return The permission's icon, or the permission's group icon if the icon isn't set, or
      * the ic_perm_device_info icon if the permission is invalid.
@@ -205,8 +205,8 @@ object KotlinUtils {
     /**
      * Gets a permission's description from the system.
      *
-     * @param context: The context from which to get the description
-     * @param permName: The name of the permission whose description we want
+     * @param context The context from which to get the description
+     * @param permName The name of the permission whose description we want
      *
      * @return The permission's description, or an empty string, if the group is invalid, or
      * its description does not exist
@@ -223,9 +223,9 @@ object KotlinUtils {
     /**
      * Gets a package's badged icon from the system.
      *
-     * @param app: The current application
-     * @param packageName: The name of the package whose icon we want
-     * @param user: The user for whom we want the package icon
+     * @param app The current application
+     * @param packageName The name of the package whose icon we want
+     * @param user The user for whom we want the package icon
      *
      * @return The package's icon, or null, if the package does not exist
      */
@@ -242,9 +242,9 @@ object KotlinUtils {
     /**
      * Gets a package's badged label from the system.
      *
-     * @param app: The current application
-     * @param packageName: The name of the package whose label we want
-     * @param user: The user for whom we want the package label
+     * @param app The current application
+     * @param packageName The name of the package whose label we want
+     * @param user The user for whom we want the package label
      *
      * @return The package's label
      */
@@ -262,9 +262,9 @@ object KotlinUtils {
      * Gets a package's uid, using a cached liveData value, if the liveData is currently being
      * observed (and thus has an up-to-date value).
      *
-     * @param app: The current application
-     * @param packageName: The name of the package whose uid we want
-     * @param user: The user we want the package uid for
+     * @param app The current application
+     * @param packageName The name of the package whose uid we want
+     * @param user The user we want the package uid for
      *
      * @return The package's UID, or null if the package or user is invalid
      */

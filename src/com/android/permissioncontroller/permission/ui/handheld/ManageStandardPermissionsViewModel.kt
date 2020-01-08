@@ -33,7 +33,7 @@ import com.android.permissioncontroller.permission.data.StandardPermGroupNamesLi
  * platform permission groups, and sends async updates when these groups have changes. It also
  * provides a liveData which watches the custom permission groups of the system, and provides
  * a list of group names.
- * @param app: The current application of the fragment
+ * @param app The current application of the fragment
  */
 class ManageStandardPermissionsViewModel(
     private val app: Application
@@ -57,7 +57,7 @@ class ManageStandardPermissionsViewModel(
 /**
  * Factory for a ManageStandardPermissionsViewModel
  *
- * @param app: The current application of the fragment
+ * @param app The current application of the fragment
  */
 class ManageStandardPermissionsViewModelFactory(
     private val app: Application
@@ -72,7 +72,7 @@ class ManageStandardPermissionsViewModelFactory(
  * A LiveData which tracks the number of custom permission groups that are used by at least one
  * package
  *
- * @param app: The current application
+ * @param app The current application
  */
 class NumCustomPermGroupsWithPackagesLiveData(app: Application) :
     SmartUpdateMediatorLiveData<Int>() {

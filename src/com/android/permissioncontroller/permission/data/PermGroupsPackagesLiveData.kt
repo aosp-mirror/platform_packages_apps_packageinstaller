@@ -29,7 +29,7 @@ import com.android.permissioncontroller.permission.utils.Utils.OS_PKG
  * A LiveData which tracks either all platform permission groups, or all custom permission groups,
  * and the packages which contain runtime permissions in one of those group.
  *
- * @param app: The current application
+ * @param app The current application
  */
 class PermGroupsPackagesLiveData(
     private val app: Application,

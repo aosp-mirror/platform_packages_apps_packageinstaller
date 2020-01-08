@@ -35,8 +35,8 @@ import com.android.permissioncontroller.permission.utils.Utils
  * LiveData for a Permission Group. Contains GroupInfo and a list of PermissionInfos. Loads
  * synchronously.
  *
- * @param app: The current application
- * @param groupName: The name of the permission group this LiveData represents
+ * @param app The current application
+ * @param groupName The name of the permission group this LiveData represents
  */
 class PermGroupLiveData(
     private val app: Application,
@@ -169,8 +169,8 @@ object PermGroupRepository
      * Gets the PermGroupLiveData associated with the provided group name, creating it
      * if need be.
      *
-     * @param app: The current application
-     * @param groupName: The name of the permission group desired
+     * @param app The current application
+     * @param groupName The name of the permission group desired
      *
      * @return The cached or newly created PermGroupLiveData for the given groupName
      */
@@ -191,7 +191,7 @@ object PermGroupRepository
     /**
      * Gets the CustomPermGroupNamesLiveData, creating it if need be.
      *
-     * @param app: The current application
+     * @param app The current application
      *
      * @return The cached or newly created AllPermGroupsNamesLiveData
      */

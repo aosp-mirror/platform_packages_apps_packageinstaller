@@ -91,8 +91,8 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
      * Some LiveDatas have types, like Drawables which do not have a non-default equals method.
      * Those classes can override this method to change when the value is set upon calling setValue.
      *
-     * @param valOne: The first T to be compared
-     * @param valTwo: The second T to be compared
+     * @param valOne The first T to be compared
+     * @param valTwo The second T to be compared
      *
      * @return True if the two values are different, false otherwise
      */
