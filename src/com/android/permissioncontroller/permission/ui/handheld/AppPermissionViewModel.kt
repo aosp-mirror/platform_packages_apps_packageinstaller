@@ -16,10 +16,8 @@
 
 package com.android.permissioncontroller.permission.ui.handheld
 
-import android.Manifest.permission_group
 import android.app.Activity
 import android.app.Application
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -38,7 +36,6 @@ import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.model.AppPermissionGroup
-import com.android.permissioncontroller.permission.model.PermissionUsages
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.LocationUtils
@@ -345,20 +342,6 @@ class AppPermissionViewModel(
     }
 
     /**
-     * @return Whether or not the fragment should show the permission usage string
-     */
-    fun shouldShowUsageView(): Boolean {
-        return Utils.isPermissionsHubEnabled() && Utils.isModernPermissionGroup(permGroupName)
-    }
-
-    /**
-     * @return Whether or not the fragment should get the individual permission usage to display
-     */
-    fun shouldShowPermissionUsage(): Boolean {
-        return shouldShowUsageView() && Utils.shouldShowPermissionUsage(permGroupName)
-    }
-
-    /**
      * Request to grant/revoke permissions group.
      *
      * Does <u>not</u> handle:
@@ -536,69 +519,6 @@ class AppPermissionViewModel(
         }
 
         return permissionSnapshot
-    }
-
-    /**
-     * Get the usage summary for this App Permission Group
-     *
-     * @param context: The context from which to get the strings
-     */
-    fun getUsageSummary(context: Context, permGroupLabel: String, packageLabel: String): String {
-        val group = appPermissionGroup ?: AppPermissionGroup.create(app, packageName, permGroupName,
-            user, false)
-        val timeDiffStr = Utils.getRelativeLastUsageString(context,
-            PermissionUsages.loadLastGroupUsage(context, group))
-        val label = permGroupLabel.toLowerCase()
-
-        return if (timeDiffStr == null) {
-            val strResId = getUsageStringResId(false)
-            if (strResId == R.string.app_permission_footer_no_usages_generic) {
-                context.getString(strResId, packageLabel, label)
-            } else context.getString(strResId, packageLabel)
-        } else {
-            val strResId = getUsageStringResId(true)
-            if (strResId == R.string.app_permission_footer_usage_summary_generic) {
-                context.getString(strResId, packageLabel, label,
-                    timeDiffStr)
-            } else context.getString(strResId, packageLabel, timeDiffStr)
-        }
-    }
-
-    private fun getUsageStringResId(hasUsage: Boolean): Int {
-        if (hasUsage) {
-            return when (permGroupName) {
-                permission_group.ACTIVITY_RECOGNITION ->
-                    R.string.app_permission_footer_usage_summary_activity_recognition
-                permission_group.CALENDAR -> R.string.app_permission_footer_usage_summary_calendar
-                permission_group.CALL_LOG -> R.string.app_permission_footer_usage_summary_call_log
-                permission_group.CAMERA -> R.string.app_permission_footer_usage_summary_camera
-                permission_group.CONTACTS -> R.string.app_permission_footer_usage_summary_contacts
-                permission_group.LOCATION -> R.string.app_permission_footer_usage_summary_location
-                permission_group.MICROPHONE ->
-                    R.string.app_permission_footer_usage_summary_microphone
-                permission_group.PHONE -> R.string.app_permission_footer_usage_summary_phone
-                permission_group.SENSORS -> R.string.app_permission_footer_usage_summary_sensors
-                permission_group.SMS -> R.string.app_permission_footer_usage_summary_sms
-                permission_group.STORAGE -> R.string.app_permission_footer_usage_summary_storage
-                else -> R.string.app_permission_footer_usage_summary_generic
-            }
-        } else {
-            return when (permGroupName) {
-                permission_group.ACTIVITY_RECOGNITION ->
-                    R.string.app_permission_footer_no_usages_activity_recognition
-                permission_group.CALENDAR -> R.string.app_permission_footer_no_usages_calendar
-                permission_group.CALL_LOG -> R.string.app_permission_footer_no_usages_call_log
-                permission_group.CAMERA -> R.string.app_permission_footer_no_usages_camera
-                permission_group.CONTACTS -> R.string.app_permission_footer_no_usages_contacts
-                permission_group.LOCATION -> R.string.app_permission_footer_no_usages_location
-                permission_group.MICROPHONE -> R.string.app_permission_footer_no_usages_microphone
-                permission_group.PHONE -> R.string.app_permission_footer_no_usages_phone
-                permission_group.SENSORS -> R.string.app_permission_footer_no_usages_sensors
-                permission_group.SMS -> R.string.app_permission_footer_no_usages_sms
-                permission_group.STORAGE -> R.string.app_permission_footer_no_usages_storage
-                else -> R.string.app_permission_footer_no_usages_generic
-            }
-        }
     }
 
     private fun getIndividualPermissionDetailResId(group: LightAppPermGroup): Pair<Int, Int> {

@@ -328,19 +328,13 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
             mViewModel.setCreationLogged(true);
         }
 
-        if (Utils.isPermissionsHubEnabled() && !Utils.shouldShowPermissionUsage(mPermGroupName)
-                && findPreference(KEY_FOOTER) == null) {
-            PreferenceCategory footer = new PreferenceCategory(context);
-            footer.setKey(KEY_FOOTER);
-            getPreferenceScreen().addPreference(footer);
-            Preference footerText = new Preference(context);
-            footerText.setSummary(context.getString(R.string.app_permission_footer_not_available));
-            footerText.setIcon(R.drawable.ic_info_outline);
-            footerText.setSelectable(false);
-            footer.addPreference(footerText);
-        }
-
         setLoading(false /* loading */, true /* animate */);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mViewModel.updateShowSystem(false);
     }
 
     private void logPermissionAppsFragmentCreated(String packageName, UserHandle user, long viewId,
