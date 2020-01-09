@@ -27,7 +27,7 @@ object ForegroundPermNamesLiveData : SmartUpdateMediatorLiveData<Map<String, Lis
 
     // Since the value will be static, initialize the value upon creating the LiveData.
     init {
-        updateIfActive()
+        onUpdate()
     }
 
     override fun onUpdate() {

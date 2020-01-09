@@ -109,7 +109,6 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         if (DEBUG_UPDATES) {
             Log.i(LOG_TAG, "updateIfActive ${javaClass.simpleName} ${shortStackTrace()}")
         }
-        ensureMainThread()
         onUpdate()
     }
 

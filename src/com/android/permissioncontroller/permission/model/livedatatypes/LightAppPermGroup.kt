@@ -41,6 +41,17 @@ data class LightAppPermGroup(
 ) {
     constructor(pI: LightPackageInfo, pGI: LightPermGroupInfo, perms: Map<String, LightPermission>):
         this(pI, pGI, perms, false, null)
+
+    /**
+     * The package name of this group
+     */
+    val packageName = packageInfo.packageName
+
+    /**
+     * The permission group name of this group
+     */
+    val permGroupName = permGroupInfo.name
+
     /**
      * The current userHandle of this AppPermGroup.
      */
@@ -124,21 +135,6 @@ data class LightAppPermGroup(
         private val specialLocationGrant: Boolean?
     ) {
         /**
-         * Whether any of this App Permission Group's foreground permissions are fixed by policy
-         */
-        val isPolicyFixed = permissions.any { it.value.isPolicyFixed }
-
-        /**
-         * Whether this App Permission Group's permissions are fixed by the system
-         */
-        val isSystemFixed = permissions.any { it.value.isSystemFixed }
-
-        /**
-         * Whether this App Permission Group's permissions are fixed by the user
-         */
-        val isUserFixed = permissions.any { it.value.isUserFixed }
-
-        /**
          * Whether any of this App Permission SubGroup's permissions are granted
          */
         val isGranted = specialLocationGrant ?: permissions.any { it.value.isGrantedIncludingAppOp }
@@ -149,7 +145,27 @@ data class LightAppPermGroup(
         val isGrantedByDefault = permissions.any { it.value.isGrantedByDefault }
 
         /**
-         * Whether any of this App Permission SubGroup's permissions are granted by their role
+         * Whether any of this App Permission Subgroup's foreground permissions are fixed by policy
+         */
+        val isPolicyFixed = permissions.any { it.value.isPolicyFixed }
+
+        /**
+         * Whether any of this App Permission Subgroup's permissions are fixed by the system
+         */
+        val isSystemFixed = permissions.any { it.value.isSystemFixed }
+
+        /**
+         * Whether any of this App Permission Subgroup's permissions are fixed by the user
+         */
+        val isUserFixed = permissions.any { it.value.isUserFixed }
+
+        /**
+         * Whether any of this App Permission Subgroup's permissions are set by the user
+         */
+        val isUserSet = permissions.any { it.value.isUserSet }
+
+        /**
+         * Whether any of this App Permission Subgroup's permissions are set by the role of this app
          */
         val isGrantedByRole = permissions.any { it.value.isGrantedByRole }
     }

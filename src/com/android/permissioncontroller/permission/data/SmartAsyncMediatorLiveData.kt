@@ -46,7 +46,7 @@ abstract class SmartAsyncMediatorLiveData<T> : SmartUpdateMediatorLiveData<T>() 
             return
         }
 
-        GlobalScope.launch(Dispatchers.Default) {
+        GlobalScope.launch(Dispatchers.IO) {
             currentJob = coroutineContext[Job]
             loadDataAndPostValue(currentJob!!)
         }
