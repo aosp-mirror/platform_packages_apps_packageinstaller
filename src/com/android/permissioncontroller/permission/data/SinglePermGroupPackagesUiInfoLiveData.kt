@@ -27,8 +27,8 @@ import com.android.permissioncontroller.permission.utils.Utils
  * have permissions in the given group, which should be shown on the UI, and which are granted or
  * not.
  *
- * @param app: The current application
- * @param permissionGroupName: The name of the permission group this LiveData represents
+ * @param app The current application
+ * @param permissionGroupName The name of the permission group this LiveData represents
  */
 class SinglePermGroupPackagesUiInfoLiveData(
     private val app: Application,
@@ -135,8 +135,8 @@ object PermGroupPackagesUiInfoRepository
      * Get the SinglePermGroupPackagesUiInfo associated with the given parameters, creating it if
      * need be.
      *
-     * @param app: The current application
-     * @param groupName: The name of the permission group desired
+     * @param app The current application
+     * @param groupName The name of the permission group desired
      *
      * @return the cached or newly generated SinglePermGroupPackagesUiInfoLiveData
      */
@@ -156,7 +156,7 @@ object PermGroupPackagesUiInfoRepository
     /**
      * Get our AllCustomPermGroupsPackagesLiveData, creating it if need be.
      *
-     * @param app: The current application
+     * @param app The current application
      *
      * @return The cached or created PermGroupsPackagesLiveData
      */
@@ -173,7 +173,7 @@ object PermGroupPackagesUiInfoRepository
     /**
      * Get our AllStandardPermGroupsPackagesLiveData, creating it if need be.
      *
-     * @param app: The current application
+     * @param app The current application
      *
      * @return The cached or created PermGroupsPackagesLiveData
      */

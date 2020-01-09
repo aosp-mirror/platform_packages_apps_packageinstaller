@@ -25,12 +25,12 @@ import com.android.permissioncontroller.permission.utils.Utils
 /**
  * A light version of a PackageItemInfo, representing information about a permission group.
  *
- * @param name: The name of this group
- * @param packageName: The name of the package which defines this group
- * @param labelRes: The resource ID of this group's label
- * @param icon: The resource ID of this group's icon
- * @param descriptionRes: The resource ID of this group's desctiption
- * @param isSinglePermGroup: Whether or not this is a group with a single permission in it
+ * @param name The name of this group
+ * @param packageName The name of the package which defines this group
+ * @param labelRes The resource ID of this group's label
+ * @param icon The resource ID of this group's icon
+ * @param descriptionRes The resource ID of this group's desctiption
+ * @param isSinglePermGroup Whether or not this is a group with a single permission in it
  */
 data class LightPermGroupInfo(
     val name: String,
@@ -50,7 +50,7 @@ data class LightPermGroupInfo(
     /**
      * Gets the PackageItemInfo for this permission group from the system.
      *
-     * @param app: The current application, which will be used to get the PackageItemInfo
+     * @param app The current application, which will be used to get the PackageItemInfo
      *
      * @return The PackageItemInfo corresponding to this permission group, or null, if no
      * such group exists

@@ -39,8 +39,8 @@ import com.android.permissioncontroller.permission.ui.handheld.PermissionAppsVie
  * not to show system apps, and a liveData tracking whether there are any system apps which request
  * permissions in this group.
  *
- * @param app: The current application
- * @param groupName: The name of the permission group this viewModel is representing
+ * @param app The current application
+ * @param groupName The name of the permission group this viewModel is representing
  */
 class PermissionAppsViewModel(
     private val state: SavedStateHandle,
@@ -148,10 +148,10 @@ class PermissionAppsViewModel(
 /**
  * Factory for a PermissionAppsViewModel
  *
- * @param app: The current application of the fragment
- * @param groupName: The name of the permission group this viewModel is representing
- * @param owner: The owner of this saved state
- * @param defaultArgs: The default args to pass
+ * @param app The current application of the fragment
+ * @param groupName The name of the permission group this viewModel is representing
+ * @param owner The owner of this saved state
+ * @param defaultArgs The default args to pass
  */
 class PermissionAppsViewModelFactory(
     private val app: Application,

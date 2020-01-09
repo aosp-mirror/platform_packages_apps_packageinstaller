@@ -23,13 +23,13 @@ import android.content.pm.PermissionInfo
 /**
  * A light version of the system PermissionInfo
  *
- * @param name: The name of this permission
- * @param packageName: The name of the package which defines this permission
- * @param group: The optional name of the group this permission is in
- * @param backgroundPermission: The background permission associated with this permission
- * @param protection: The protection level of this permission
- * @param protection: Extra information about the protection of this permission
- * @param flags: The system flags of this permission
+ * @param name The name of this permission
+ * @param packageName The name of the package which defines this permission
+ * @param group The optional name of the group this permission is in
+ * @param backgroundPermission The background permission associated with this permission
+ * @param protection The protection level of this permission
+ * @param protection Extra information about the protection of this permission
+ * @param flags The system flags of this permission
  */
 data class LightPermInfo(
     val name: String,
@@ -47,7 +47,7 @@ data class LightPermInfo(
     /**
      * Gets the PermissionInfo for this permission from the system.
      *
-     * @param app: The current application, which will be used to get the PermissionInfo
+     * @param app The current application, which will be used to get the PermissionInfo
      *
      * @return The PermissionInfo corresponding to this permission, or null, if no
      * such permission exists

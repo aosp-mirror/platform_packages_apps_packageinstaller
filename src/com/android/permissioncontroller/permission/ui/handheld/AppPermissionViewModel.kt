@@ -62,11 +62,11 @@ import kotlin.jvm.JvmSuppressWildcards
  * ViewModel for the AppPermissionFragment. Determines button state and detail text strings, logs
  * permission change information, and makes permission changes.
  *
- * @param app: The current application
- * @param packageName: The name of the package this ViewModel represents
- * @param permGroupName: The name of the permission group this ViewModel represents
- * @param user: The user of the package
- * @param sessionId: A session ID used in logs to identify this particular session
+ * @param app The current application
+ * @param packageName The name of the package this ViewModel represents
+ * @param permGroupName The name of the permission group this ViewModel represents
+ * @param user The user of the package
+ * @param sessionId A session ID used in logs to identify this particular session
  */
 class AppPermissionViewModel(
     private val app: Application,
@@ -632,11 +632,11 @@ class AppPermissionViewModel(
 /**
  * Factory for an AppPermissionViewModel
  *
- * @param app: The current application
- * @param packageName: The name of the package this ViewModel represents
- * @param permGroupName: The name of the permission group this ViewModel represents
- * @param user: The user of the package
- * @param sessionId: A session ID used in logs to identify this particular session
+ * @param app The current application
+ * @param packageName The name of the package this ViewModel represents
+ * @param permGroupName The name of the permission group this ViewModel represents
+ * @param user The user of the package
+ * @param sessionId A session ID used in logs to identify this particular session
  */
 class AppPermissionViewModelFactory(
     private val app: Application,

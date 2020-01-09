@@ -27,14 +27,14 @@ import com.android.permissioncontroller.permission.utils.Utils
  * A lighter version of the system's PackageInfo class, containing select information about the
  * package.
  *
- * @param packageName: The name of the packages
- * @param permissions: The list of LightPermInfos representing the permissions this package defines
- * @param requestedPermissions: The names of the permissions this package requests
- * @param requestedPermissionsFlags: The grant state of the permissions this package requests
- * @param uid: The UID of this package
- * @param targetSdkVersion: The target SDK of this package
- * @param isInstantApp: Whether or not this package is an instant app
- * @param enabled: Whether or not this package is enabled.
+ * @param packageName The name of the packages
+ * @param permissions The list of LightPermInfos representing the permissions this package defines
+ * @param requestedPermissions The names of the permissions this package requests
+ * @param requestedPermissionsFlags The grant state of the permissions this package requests
+ * @param uid The UID of this package
+ * @param targetSdkVersion The target SDK of this package
+ * @param isInstantApp Whether or not this package is an instant app
+ * @param enabled Whether or not this package is enabled.
  */
 data class LightPackageInfo(
     val packageName: String,
@@ -57,7 +57,7 @@ data class LightPackageInfo(
      * Gets the ApplicationInfo for this package from the system. Can be expensive if called too
      * often.
      *
-     * @param app: The current application, which will be used to get the ApplicationInfo
+     * @param app The current application, which will be used to get the ApplicationInfo
      *
      * @return The ApplicationInfo corresponding to this package, with this UID, or null, if no
      * such package exists
@@ -75,7 +75,7 @@ data class LightPackageInfo(
      * Gets the PackageInfo for this package from the system. Can be expensive if called too
      * often.
      *
-     * @param app: The current application, which will be used to get the PackageInfo
+     * @param app The current application, which will be used to get the PackageInfo
      *
      * @return The PackageInfo corresponding to this package, with this UID, or null, if no
      * such package exists

@@ -27,8 +27,8 @@ import kotlinx.coroutines.Job
 /**
  * A LiveData which tracks all of the packageinfos installed for a given user.
  *
- * @param app: The current application
- * @param user: The user whose packages are desired
+ * @param app The current application
+ * @param user The user whose packages are desired
  */
 class UserPackageInfosLiveData(
     private val app: Application,
@@ -81,7 +81,7 @@ class UserPackageInfosLiveData(
 /**
  * A LiveData which tracks the PackageInfos of all of the packages in the system, for all users.
  *
- * @param app: The current application
+ * @param app The current application
  */
 class AllPackageInfosLiveData(
     private val app: Application
@@ -143,7 +143,7 @@ object UserPackageInfosRepository : DataRepository<UserHandle, UserPackageInfosL
     /**
      * Gets the UserPackageInfosLiveData for a given user, creating it if need be.
      *
-     * @param app: The current application
+     * @param app The current application
      *
      * @return The cached or newly created UserPackageNamesLiveData
      */
@@ -160,7 +160,7 @@ object UserPackageInfosRepository : DataRepository<UserHandle, UserPackageInfosL
     /**
      * Gets the AllPackageNamesLiveData, creating it if need be.
      *
-     * @param app: The current application
+     * @param app The current application
      *
      * @return The cached or newly created AllPackageNamesLiveData
      */

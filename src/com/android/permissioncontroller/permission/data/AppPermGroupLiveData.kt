@@ -30,10 +30,10 @@ import com.android.permissioncontroller.permission.utils.Utils.OS_PKG
 /**
  * A LiveData which represents the permissions for one package and permission group.
  *
- * @param app: The current application
- * @param packageName: The name of the package
- * @param permGroupName: The name of the permission group
- * @param user: The user of the package
+ * @param app The current application
+ * @param packageName The name of the package
+ * @param permGroupName The name of the permission group
+ * @param user The user of the package
  */
 class AppPermGroupLiveData(
     private val app: Application,
