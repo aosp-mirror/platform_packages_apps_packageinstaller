@@ -50,7 +50,7 @@ class PermGroupsPackagesLiveData private constructor(
 
         addSource(packagesLiveData) {
             if (permGroupLiveDatas.all { it.value.isInitialized }) {
-                update()
+                updateIfActive()
             }
         }
     }
@@ -79,7 +79,7 @@ class PermGroupsPackagesLiveData private constructor(
             addSource(permGroupLiveDatas[groupToAdd]!!) {
                 if (packagesLiveData.isInitialized &&
                     permGroupLiveDatas.all { it.value.isInitialized }) {
-                    update()
+                    updateIfActive()
                 }
             }
         }
@@ -90,7 +90,7 @@ class PermGroupsPackagesLiveData private constructor(
      * and figure out which permission groups they have permissions for. If applicable, remove
      * any lone-permission permission that are not requested by any packages.
      */
-    override fun update() {
+    override fun onUpdate() {
         if (groupNames.isEmpty()) {
             return
         }

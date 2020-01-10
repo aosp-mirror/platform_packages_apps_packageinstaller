@@ -33,11 +33,11 @@ object CustomPermGroupNamesLiveData : SmartUpdateMediatorLiveData<List<String>>(
 
     init {
         addSource(packagesLiveData) {
-            update()
+            updateIfActive()
         }
     }
 
-    override fun update() {
+    override fun onUpdate() {
         val platformGroupNames = Utils.getPlatformPermissionGroups()
         val groupNames = mutableListOf<String>()
 

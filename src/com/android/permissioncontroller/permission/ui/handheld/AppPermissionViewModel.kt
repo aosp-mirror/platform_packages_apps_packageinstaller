@@ -140,12 +140,12 @@ class AppPermissionViewModel(
                     if (value == null) {
                         logAppPermissionFragmentViewed()
                     }
-                    update()
+                    updateIfActive()
                 }
             }
         }
 
-        override fun update() {
+        override fun onUpdate() {
             val group = appPermGroupLiveData.value ?: return
 
             val admin = RestrictedLockUtils.getProfileOrDeviceOwner(app, user)

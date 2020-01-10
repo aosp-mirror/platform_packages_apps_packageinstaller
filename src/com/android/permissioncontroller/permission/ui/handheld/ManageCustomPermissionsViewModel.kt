@@ -74,5 +74,5 @@ class UsedCustomPermGroupNamesLiveData :
         }
     }
 
-    override fun update() { /* No op override */ }
+    override fun onUpdate() { /* No op override */ }
 }

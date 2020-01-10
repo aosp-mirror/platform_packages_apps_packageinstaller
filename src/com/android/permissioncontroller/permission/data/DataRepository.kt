@@ -19,8 +19,8 @@ package com.android.permissioncontroller.permission.data
 import android.app.ActivityManager
 import android.content.ComponentCallbacks2
 import android.content.res.Configuration
-import com.android.permissioncontroller.PermissionControllerApplication
 import androidx.annotation.MainThread
+import com.android.permissioncontroller.PermissionControllerApplication
 import java.util.concurrent.TimeUnit
 
 /**

@@ -67,12 +67,12 @@ class AppPermissionGroupsViewModel(
 
         init {
             addSource(packagePermsLiveData) {
-                update()
+                updateIfActive()
             }
-            update()
+            updateIfActive()
         }
 
-        override fun update() {
+        override fun onUpdate() {
             val groups = packagePermsLiveData.value?.keys?.filter { it != NON_RUNTIME_NORMAL_PERMS }
             if (groups == null && packagePermsLiveData.isInitialized) {
                 value = null
@@ -126,7 +126,7 @@ class AppPermissionGroupsViewModel(
 
             for (groupToAdd in toAdd) {
                 addSource(appPermGroupUiInfoLiveDatas[groupToAdd]!!) {
-                    update()
+                    updateIfActive()
                 }
             }
 

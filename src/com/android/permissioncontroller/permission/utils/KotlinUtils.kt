@@ -33,6 +33,9 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.UserHandle
 import android.text.TextUtils
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
 import com.android.permissioncontroller.R
@@ -43,6 +46,16 @@ import com.android.permissioncontroller.permission.model.livedatatypes.LightPerm
 import com.android.permissioncontroller.permission.model.livedatatypes.PermState
 import com.android.permissioncontroller.permission.service.LocationAccessCheck
 import com.android.permissioncontroller.permission.ui.handheld.SettingsWithLargeHeader
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import java.util.concurrent.atomic.AtomicReference
+import kotlin.coroutines.Continuation
+import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 /**
  * A set of util functions designed to work with kotlin, though they can work with java, as well.
@@ -595,7 +608,8 @@ object KotlinUtils {
 
         if (perm.flags != newFlags) {
             val flagMask = newFlags xor perm.flags
-            app.packageManager.updatePermissionFlags(perm.name, group.packageInfo.packageName,
+            app.packageManager.updatePermissionFlags(perm.name,
+                group.packageInfo.packageName,
                 flagMask, newFlags, user)
         }
 
@@ -751,4 +765,59 @@ object KotlinUtils {
         manager.setUidMode(op, uid, mode)
         return true
     }
+}
+
+/**
+ * Get the [value][LiveData.getValue], suspending until [isInitialized] if not yet so
+ */
+suspend fun <T, LD : LiveData<T>> LD.getInitializedValue(
+    observe: LD.(Observer<T>) -> Unit = { observeForever(it) },
+    isInitialized: LD.() -> Boolean = { value != null }
+): T {
+    return if (isInitialized()) {
+        value as T
+    } else {
+        suspendCoroutine { continuation: Continuation<T> ->
+            val observer = AtomicReference<Observer<T>>()
+            observer.set(Observer { newValue ->
+                if (isInitialized()) {
+                    GlobalScope.launch(Dispatchers.Main) {
+                        observer.getAndSet(null)?.let { observerSnapshot ->
+                            removeObserver(observerSnapshot)
+                            continuation.resume(newValue)
+                        }
+                    }
+                }
+            })
+
+            GlobalScope.launch(Dispatchers.Main) {
+                observe(observer.get())
+            }
+        }
+    }
+}
+
+/**
+ * A parallel equivalent of [map]
+ *
+ * Starts the given suspending function for each item in the collection without waiting for
+ * previous ones to complete, then suspends until all the started operations finish.
+ */
+suspend inline fun <T, R> Iterable<T>.mapInParallel(
+    context: CoroutineContext,
+    scope: CoroutineScope = GlobalScope,
+    crossinline transform: suspend CoroutineScope.(T) -> R
+): List<R> = map { scope.async(context) { transform(it) } }.map { it.await() }
+
+/**
+ * A parallel equivalent of [forEach]
+ *
+ * See [mapInParallel]
+ */
+suspend inline fun <T> Iterable<T>.forEachInParallel(
+    context: CoroutineContext,
+    scope: CoroutineScope = GlobalScope,
+    crossinline action: suspend CoroutineScope.(T) -> Unit
+) {
+    mapInParallel(context, scope) { action(it) }
 }

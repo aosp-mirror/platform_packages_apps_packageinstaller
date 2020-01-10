@@ -54,6 +54,19 @@ data class LightPackageInfo(
         pI.applicationInfo.isInstantApp, pI.applicationInfo.enabled)
 
     /**
+     * Permissions which are granted according to the [requestedPermissionsFlags]
+     */
+    val grantedPermissions: List<String> get() {
+        val grantedPermissions = mutableListOf<String>()
+        for (i in 0 until requestedPermissions.size) {
+            if ((requestedPermissionsFlags[i] and PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0) {
+                grantedPermissions.add(requestedPermissions[i])
+            }
+        }
+        return grantedPermissions
+    }
+
+    /**
      * Gets the ApplicationInfo for this package from the system. Can be expensive if called too
      * often.
      *

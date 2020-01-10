@@ -44,11 +44,11 @@ class PackagePermissionsLiveData private constructor(
 
     init {
         addSource(packageInfoLiveData) {
-            update()
+            updateIfActive()
         }
     }
 
-    override fun update() {
+    override fun onUpdate() {
         val packageInfo = packageInfoLiveData.value ?: return
         val permissionMap = mutableMapOf<String, MutableList<String>>()
         for (permName in packageInfo.requestedPermissions) {

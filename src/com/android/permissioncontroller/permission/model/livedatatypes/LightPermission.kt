@@ -66,4 +66,20 @@ data class LightPermission(
         permInfo.protectionFlags and PermissionInfo.PROTECTION_FLAG_RUNTIME_ONLY != 0
     /** Whether this permission is granted by default */
     val isGrantedByDefault = flags and PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT != 0
+    /** Whether this permission is granted by role */
+    val isGrantedByRole = flags and PackageManager.FLAG_PERMISSION_GRANTED_BY_ROLE != 0
+
+    override fun toString() = buildString {
+        append(name)
+        if (isGrantedIncludingAppOp) append(", Granted")
+        if (isPolicyFixed) append(", PolicyFixed")
+        if (isSystemFixed) append(", SystemFixed")
+        if (isUserFixed) append(", UserFixed")
+        if (isUserSet) append(", UserSet")
+        if (isCompatRevoked) append(", CompatRevoked")
+        if (isReviewRequired) append(", ReviewRequired")
+        if (isOneTime) append(", OneTime")
+        if (isGrantedByDefault) append(", GrantedByDefault")
+        if (isGrantedByRole) append(", GrantedByRole")
+    }
 }
