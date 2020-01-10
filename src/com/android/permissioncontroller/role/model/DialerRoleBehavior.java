@@ -16,8 +16,11 @@
 
 package com.android.permissioncontroller.role.model;
 
+import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.UserHandle;
 import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
@@ -28,6 +31,7 @@ import androidx.preference.Preference;
 
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.utils.CollectionUtils;
+import com.android.permissioncontroller.role.utils.PackageUtils;
 
 import java.util.Objects;
 
@@ -39,6 +43,10 @@ import java.util.Objects;
  * @see com.android.settings.applications.defaultapps.DefaultPhonePicker
  */
 public class DialerRoleBehavior implements RoleBehavior {
+
+    private static final AppOp sAccessCallAudioOp = new AppOp(AppOpsManager.OPSTR_ACCESS_CALL_AUDIO,
+                                                              null,
+                                                              AppOpsManager.MODE_ALLOWED);
 
     @Override
     public boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
@@ -78,5 +86,26 @@ public class DialerRoleBehavior implements RoleBehavior {
     public boolean isVisibleAsUser(@NonNull Role role, @NonNull UserHandle user,
             @NonNull Context context) {
         return context.getResources().getBoolean(R.bool.config_showDialerRole);
+    }
+
+    @Override
+    public void grant(@NonNull Role role, @NonNull String packageName, @NonNull Context context) {
+        PackageInfo packageInfo = PackageUtils.getPackageInfo(packageName,
+                                                              PackageManager.GET_PERMISSIONS,
+                                                              context);
+        if (packageInfo == null) {
+            return;
+        }
+        for (String permission : packageInfo.requestedPermissions) {
+            if (Objects.equals(android.Manifest.permission.ACCESS_CALL_AUDIO, permission)) {
+                sAccessCallAudioOp.grant(packageName, context);
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void revoke(@NonNull Role role, @NonNull String packageName, @NonNull Context context) {
+        sAccessCallAudioOp.revoke(packageName, context);
     }
 }

@@ -184,6 +184,12 @@
                     <data scheme="tel" />
                 </intent-filter>
             </activity>
+            <service permission="android.permission.BIND_INCALL_SERVICE">
+              <meta-data name="android.telecom.IN_CALL_SERVICE_UI" value="true" />
+              <intent-filter>
+                <action name="android.telecom.InCallService" />
+              </intent-filter>
+            </service>
         </required-components>
         <permissions>
             <permission-set name="phone" />
