@@ -16,24 +16,38 @@
 
 package com.android.permissioncontroller.permission.utils
 
+import android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
+import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.app.ActivityManager
+import android.app.AppOpsManager
+import android.app.AppOpsManager.MODE_ALLOWED
+import android.app.AppOpsManager.MODE_FOREGROUND
+import android.app.AppOpsManager.MODE_IGNORED
+import android.app.AppOpsManager.permissionToOp
 import android.app.Application
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.pm.PermissionGroupInfo
 import android.content.pm.PermissionInfo
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.os.UserHandle
 import android.text.TextUtils
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.PackageInfoRepository
+import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
+import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission
+import com.android.permissioncontroller.permission.service.LocationAccessCheck
 import com.android.permissioncontroller.permission.ui.handheld.SettingsWithLargeHeader
 
 /**
  * A set of util functions designed to work with kotlin, though they can work with java, as well.
  */
 object KotlinUtils {
+
+    private const val KILL_REASON_APP_OP_CHANGE = "Permission related app op changed"
 
     /**
      * Given a Map, and a List, determines which elements are in the list, but not the map, and
@@ -281,5 +295,404 @@ object KotlinUtils {
                 null
             }
         }
+    }
+
+    /**
+     * Grant all runtime permissions of a LightAppPermGroup
+     *
+     * <p>This also automatically grants all app ops for permissions that have app ops.
+     * <p> Note: State changes made by this method will not be reflected in the LightAppPermGroup
+     * object.
+     *
+     * @param app The current application
+     * @param group The group whose permissions should be granted
+     * @param grantForeground Whether to grant the foreground permissions of the group
+     * @param grantBackground Whether to grant the background permissions of the group
+     * @param userFixed If the user requested that they do not want to be asked again
+     * @param filterPermissions If not specified, all permissions of the group will be revoked.
+     *                          Otherwise only permissions in {@code filterPermissions} will be
+     *                          revoked.
+     *
+     * @return a list of the names of the permissions which were granted
+     */
+    fun grantRuntimePermissions(
+        app: Application,
+        group: LightAppPermGroup,
+        grantForeground: Boolean,
+        grantBackground: Boolean,
+        filterPermissions: List<String> = group.permissions.keys.toList()
+    ): List<String> {
+        val changedPerms = mutableListOf<String>()
+        var shouldKillForAnyPermission = false
+        for (permName in filterPermissions) {
+            val perm = group.permissions[permName] ?: continue
+            val isBackgroundPerm = permName in group.backgroundPermNames
+            if ((isBackgroundPerm && grantBackground) || (!isBackgroundPerm && grantForeground)) {
+                val (permChanged, shouldKill) = grantRuntimePermission(app, perm, group)
+                if (permChanged) {
+                    changedPerms.add(permName)
+                }
+                shouldKillForAnyPermission = shouldKillForAnyPermission || shouldKill
+            }
+        }
+
+        if (shouldKillForAnyPermission) {
+            app.getSystemService(ActivityManager::class.java)!!.killUid(group.packageInfo.uid,
+                KILL_REASON_APP_OP_CHANGE)
+        }
+        return changedPerms
+    }
+
+    /**
+     * Grants a single runtime permission
+     *
+     * @param app The current application
+     * @param perm The permission which should be granted.
+     * @param group An optional app permission group in which to look for background or foreground
+     * permissions
+     *
+     * @return a boolean pair <was permission granted, should kill app>
+     */
+    private fun grantRuntimePermission(
+        app: Application,
+        perm: LightPermission,
+        group: LightAppPermGroup
+    ): Pair<Boolean, Boolean> {
+        val user = UserHandle.getUserHandleForUid(group.packageInfo.uid)
+        val supportsRuntime = group.packageInfo.targetSdkVersion >= Build.VERSION_CODES.M
+        val isGrantingAllowed = (!group.packageInfo.isInstantApp || perm.isInstantPerm) &&
+            (supportsRuntime || !perm.isRuntimeOnly)
+        // Do not touch permissions fixed by the system, or permissions that cannot be granted
+        if (!isGrantingAllowed || perm.isSystemFixed) {
+            return false to false
+        }
+
+        var newFlags = perm.flags
+        var isGranted = perm.isGrantedIncludingAppOp
+        var shouldKill = false
+
+        // Grant the permission if needed.
+        if (!perm.isGrantedIncludingAppOp) {
+            val affectsAppOp = permissionToOp(perm.name) != null || perm.isBackgroundPermission
+
+            if (supportsRuntime) {
+                app.packageManager.grantRuntimePermission(group.packageInfo.packageName, perm.name,
+                    user)
+                isGranted = true
+            } else if (affectsAppOp) {
+                // Legacy apps do not know that they have to retry access to a
+                // resource due to changes in runtime permissions (app ops in this
+                // case). Therefore, we restart them on app op change, so they
+                // can pick up the change.
+                shouldKill = true
+                // Mark that the permission is not kept granted only for compatibility.
+                newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_REVOKED_COMPAT)
+            }
+
+            // If this permission affects an app op, ensure the permission app op is enabled
+            // before the permission grant.
+            if (affectsAppOp) {
+                allowAppOp(app, perm, group)
+            }
+        }
+
+        // Granting a permission explicitly means the user already
+        // reviewed it so clear the review flag on every grant.
+        newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED)
+
+        // Update the permission flags
+        // Now the apps can ask for the permission as the user
+        // no longer has it fixed in a denied state.
+        newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_USER_FIXED)
+        newFlags = newFlags.setFlag(PackageManager.FLAG_PERMISSION_USER_SET)
+
+        // If we newly grant background access to the fine location, double-guess the user some
+        // time later if this was really the right choice.
+        if (!perm.isGrantedIncludingAppOp && isGranted) {
+            var triggerLocationAccessCheck = false
+            if (perm.name == ACCESS_FINE_LOCATION) {
+                val bgPerm = group.permissions[perm.backgroundPermission]
+                triggerLocationAccessCheck = bgPerm?.isGrantedIncludingAppOp == true
+            } else if (perm.name == ACCESS_BACKGROUND_LOCATION) {
+                    val fgPerm = group.permissions[ACCESS_FINE_LOCATION]
+                    triggerLocationAccessCheck = fgPerm?.isGrantedIncludingAppOp == true
+                }
+            if (triggerLocationAccessCheck) {
+                // trigger location access check
+                LocationAccessCheck(app, null).checkLocationAccessSoon()
+            }
+        }
+
+        if (perm.flags != newFlags) {
+            val flagMask = newFlags xor perm.flags
+            app.packageManager.updatePermissionFlags(perm.name, group.packageInfo.packageName,
+                flagMask, newFlags, user)
+        }
+        return true to shouldKill
+    }
+
+    /**
+     * Revoke permissions of a group.
+     *
+     * <p>This also disallows all app ops for permissions that have app ops.
+     * <p>Note: State changes made by this method will not be reflected in the LightAppPermGroup
+     * object.
+     *
+     * @param app The current application
+     * @param group The group whose permissions should be revoked
+     * @param revokeForeground Whether to revoke the foreground permissions of the group
+     * @param revokeBackground Whether to revoke the background permissions of the group
+     * @param userFixed If the user requested that they do not want to be asked again
+     * @param filterPermissions If not specified, all permissions of the group will be revoked.
+     *                          Otherwise only permissions in {@code filterPermissions} will be
+     *                          revoked.
+     *
+     * @return a list of the names of the permissions which were granted
+     */
+    fun revokeRuntimePermissions(
+        app: Application,
+        group: LightAppPermGroup,
+        revokeForeground: Boolean,
+        revokeBackground: Boolean,
+        userFixed: Boolean,
+        filterPermissions: List<String> = group.permissions.keys.toList()
+    ): List<String> {
+        val changedPerms = mutableListOf<String>()
+        var shouldKillForAnyPermission = false
+        for (permName in filterPermissions) {
+            val perm = group.permissions[permName] ?: continue
+            val isBackgroundPerm = permName in group.backgroundPermNames
+            if ((isBackgroundPerm && revokeBackground) || (!isBackgroundPerm && revokeForeground)) {
+                val (permChanged, shouldKill) = revokeRuntimePermission(app, perm, userFixed, group)
+                if (permChanged) {
+                    changedPerms.add(permName)
+                }
+                shouldKillForAnyPermission = shouldKillForAnyPermission || shouldKill
+            }
+        }
+
+        if (shouldKillForAnyPermission) {
+            app.getSystemService(ActivityManager::class.java)!!.killUid(group.packageInfo.uid,
+                KILL_REASON_APP_OP_CHANGE)
+        }
+        return changedPerms
+    }
+
+    /**
+     * Revokes a single runtime permission.
+     *
+     * @param app The current application
+     * @param perm The permission which should be revoked.
+     * @param userFixed If the user requested that they do not want to be asked again
+     * @param group An optional app permission group in which to look for background or foreground
+     * permissions
+     *
+     * @return a boolean pair <was permission revoked, should kill app>
+     */
+    private fun revokeRuntimePermission(
+        app: Application,
+        perm: LightPermission,
+        userFixed: Boolean,
+        group: LightAppPermGroup
+    ): Pair<Boolean, Boolean> {
+        // Do not touch permissions fixed by the system.
+        if (perm.isSystemFixed) {
+            return false to false
+        }
+
+        val supportsRuntime = group.packageInfo.targetSdkVersion >= Build.VERSION_CODES.M
+        val user = UserHandle.getUserHandleForUid(group.packageInfo.uid)
+        var newFlags = perm.flags
+        var killApp = false
+
+        val affectsAppOp = permissionToOp(perm.name) != null || perm.isBackgroundPermission
+
+        if (perm.isGrantedIncludingAppOp) {
+            if (supportsRuntime) {
+                // Revoke the permission if needed.
+                    app.packageManager.revokeRuntimePermission(group.packageInfo.packageName,
+                        perm.name, user)
+            } else if (affectsAppOp) {
+                // If the permission has no corresponding app op, then it is a
+                // third-party one and we do not offer toggling of such permissions.
+
+                // Disabling an app op may put the app in a situation in which it
+                // has a handle to state it shouldn't have, so we have to kill the
+                // app. This matches the revoke runtime permission behavior.
+                killApp = true
+                newFlags = newFlags.setFlag(PackageManager.FLAG_PERMISSION_REVOKED_COMPAT)
+            }
+
+            if (affectsAppOp) {
+                disallowAppOp(app, perm, group)
+            }
+        }
+
+        // Update the permission flags.
+        // Take a note that the user fixed the permission, if applicable.
+        newFlags = if (userFixed) newFlags.setFlag(PackageManager.FLAG_PERMISSION_USER_FIXED)
+            else newFlags.clearFlag(PackageManager.FLAG_PERMISSION_USER_FIXED)
+        newFlags = newFlags.setFlag(PackageManager.FLAG_PERMISSION_USER_SET)
+
+        if (perm.flags != newFlags) {
+            val flagMask = newFlags xor perm.flags
+            app.packageManager.updatePermissionFlags(perm.name, group.packageInfo.packageName,
+                flagMask, newFlags, user)
+        }
+
+        return true to killApp
+    }
+
+    private fun Int.setFlag(flagToSet: Int): Int {
+        return this or flagToSet
+    }
+
+    private fun Int.clearFlag(flagToSet: Int): Int {
+        return this and flagToSet.inv()
+    }
+
+    /**
+     * Allow the app op for a permission/uid.
+     *
+     * <p>There are three cases:
+     * <dl>
+     * <dt>The permission is not split into foreground/background</dt>
+     * <dd>The app op matching the permission will be set to {@link AppOpsManager#MODE_ALLOWED}</dd>
+     * <dt>The permission is a foreground permission:</dt>
+     * <dd><dl><dt>The background permission permission is granted</dt>
+     * <dd>The app op matching the permission will be set to {@link AppOpsManager#MODE_ALLOWED}</dd>
+     * <dt>The background permission permission is <u>not</u> granted</dt>
+     * <dd>The app op matching the permission will be set to
+     * {@link AppOpsManager#MODE_FOREGROUND}</dd>
+     * </dl></dd>
+     * <dt>The permission is a background permission:</dt>
+     * <dd>All granted foreground permissions for this background permission will be set to
+     * {@link AppOpsManager#MODE_ALLOWED}</dd>
+     * </dl>
+     *
+     * @param app The current application
+     * @param perm The LightPermission whose app op should be allowed
+     * @param group The LightAppPermGroup which will be looked in for foreground or
+     * background LightPermission objects
+     *
+     * @return {@code true} iff app-op was changed
+     */
+    private fun allowAppOp(
+        app: Application,
+        perm: LightPermission,
+        group: LightAppPermGroup
+    ): Boolean {
+        val packageName = group.packageInfo.packageName
+        val uid = group.packageInfo.uid
+        val user = UserHandle.getUserHandleForUid(uid)
+        val appOpsManager = Utils.getUserContext(app, user).getSystemService(
+            AppOpsManager::class.java)!!
+        var wasChanged = false
+
+        if (perm.isBackgroundPermission && perm.foregroundPerms != null) {
+            for (foregroundPermName in perm.foregroundPerms) {
+                val fgPerm = group.permissions[foregroundPermName]
+                val appOpName = permissionToOp(foregroundPermName) ?: continue
+
+                if (fgPerm != null && fgPerm.isGrantedIncludingAppOp) {
+                    wasChanged = wasChanged || setOpMode(appOpName, uid, packageName, MODE_ALLOWED,
+                        appOpsManager)
+                }
+            }
+        } else {
+            val appOpName = permissionToOp(perm.name) ?: return false
+            if (perm.backgroundPermission != null) {
+                wasChanged = if (group.permissions.containsKey(perm.backgroundPermission)) {
+                    val bgPerm = group.permissions[perm.backgroundPermission]
+                    val mode = if (bgPerm != null && bgPerm.isGrantedIncludingAppOp) MODE_ALLOWED
+                    else MODE_FOREGROUND
+
+                    setOpMode(appOpName, uid, packageName, mode, appOpsManager)
+                } else {
+                    // The app requested a permission that has a background permission but it did
+                    // not request the background permission, hence it can never get background
+                    // access
+                    setOpMode(appOpName, uid, packageName, MODE_FOREGROUND, appOpsManager)
+                }
+            } else {
+                wasChanged = setOpMode(appOpName, uid, packageName, MODE_ALLOWED, appOpsManager)
+            }
+        }
+        return wasChanged
+    }
+
+    /**
+     * Disallow the app op for a permission/uid.
+     *
+     * <p>There are three cases:
+     * <dl>
+     * <dt>The permission is not split into foreground/background</dt>
+     * <dd>The app op matching the permission will be set to {@link AppOpsManager#MODE_IGNORED}</dd>
+     * <dt>The permission is a foreground permission:</dt>
+     * <dd>The app op matching the permission will be set to {@link AppOpsManager#MODE_IGNORED}</dd>
+     * <dt>The permission is a background permission:</dt>
+     * <dd>All granted foreground permissions for this background permission will be set to
+     * {@link AppOpsManager#MODE_FOREGROUND}</dd>
+     * </dl>
+     *
+     * @param app The current application
+     * @param perm The LightPermission whose app op should be allowed
+     * @param group The LightAppPermGroup which will be looked in for foreground or
+     * background LightPermission objects
+     *
+     * @return {@code true} iff app-op was changed
+     */
+    private fun disallowAppOp(
+        app: Application,
+        perm: LightPermission,
+        group: LightAppPermGroup
+    ): Boolean {
+        val packageName = group.packageInfo.packageName
+        val uid = group.packageInfo.uid
+        val user = UserHandle.getUserHandleForUid(uid)
+        val appOpsManager = Utils.getUserContext(app, user).getSystemService(
+            AppOpsManager::class.java)!!
+        var wasChanged = false
+
+        if (perm.isBackgroundPermission && perm.foregroundPerms != null) {
+            for (foregroundPermName in perm.foregroundPerms) {
+                val fgPerm = group.permissions[foregroundPermName]
+                if (fgPerm != null && fgPerm.isGrantedIncludingAppOp) {
+                    val appOpName = permissionToOp(perm.name) ?: return false
+                    wasChanged = wasChanged || setOpMode(appOpName, uid, packageName,
+                        MODE_FOREGROUND, appOpsManager)
+                }
+            }
+        } else {
+            val appOpName = permissionToOp(perm.name) ?: return false
+            wasChanged = setOpMode(appOpName, uid, packageName, MODE_IGNORED, appOpsManager)
+        }
+        return wasChanged
+    }
+
+    /**
+     * Set mode of an app-op if needed.
+     *
+     * @param op The op to set
+     * @param uid The uid the app-op belongs to
+     * @param packageName The package the app-op belongs to
+     * @param mode The new mode
+     * @param manager The app ops manager to use to change the app op
+     *
+     * @return {@code true} iff app-op was changed
+     */
+    private fun setOpMode(
+        op: String,
+        uid: Int,
+        packageName: String,
+        mode: Int,
+        manager: AppOpsManager
+    ): Boolean {
+        val currentMode = manager.unsafeCheckOpRaw(op, uid, packageName)
+        if (currentMode == mode) {
+            return false
+        }
+        manager.setUidMode(op, uid, mode)
+        return true
     }
 }

@@ -515,7 +515,7 @@ class AppPermissionViewModel(
         val permissionSnapshot = ArrayList<PermissionState>()
 
         for ((permName, permission) in group.permissions) {
-            permissionSnapshot.add(PermissionState(permName, permission.grantedIncludingAppOp))
+            permissionSnapshot.add(PermissionState(permName, permission.isGrantedIncludingAppOp))
         }
 
         return permissionSnapshot
@@ -523,7 +523,7 @@ class AppPermissionViewModel(
 
     private fun getIndividualPermissionDetailResId(group: LightAppPermGroup): Pair<Int, Int> {
         return when (val numRevoked =
-            group.permissions.filter { !it.value.grantedIncludingAppOp }.size) {
+            group.permissions.filter { !it.value.isGrantedIncludingAppOp }.size) {
             0 -> R.string.permission_revoked_none to numRevoked
             group.permissions.size -> R.string.permission_revoked_all to numRevoked
             else -> R.string.permission_revoked_count to numRevoked
