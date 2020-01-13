@@ -423,7 +423,8 @@
         name="android.app.role.SYSTEM_GALLERY"
         defaultHolders="config_systemGallery"
         exclusive="true"
-        systemOnly="true">
+        systemOnly="true"
+        visible="false">
         <permissions>
             <permission-set name="storage" />
             <permission name="android.permission.ACCESS_MEDIA_LOCATION" />
