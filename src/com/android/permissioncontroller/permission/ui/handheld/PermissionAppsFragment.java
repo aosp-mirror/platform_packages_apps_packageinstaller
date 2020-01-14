@@ -180,6 +180,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                mViewModel.updateShowSystem(false);
                 getActivity().onBackPressed();
                 return true;
             case MENU_SHOW_SYSTEM:
@@ -329,12 +330,6 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
         }
 
         setLoading(false /* loading */, true /* animate */);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mViewModel.updateShowSystem(false);
     }
 
     private void logPermissionAppsFragmentCreated(String packageName, UserHandle user, long viewId,
