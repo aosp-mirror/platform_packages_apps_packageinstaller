@@ -16,6 +16,7 @@
 
 package com.android.permissioncontroller.permission.ui.handheld
 
+import android.Manifest
 import android.app.Application
 import android.os.Bundle
 import android.os.UserHandle
@@ -24,6 +25,7 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
+import com.android.permissioncontroller.permission.data.FullStoragePermissionAppsLiveData
 import com.android.permissioncontroller.permission.data.PermGroupPackagesUiInfoRepository
 import com.android.permissioncontroller.permission.data.UserPackageInfosRepository
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
@@ -78,13 +80,33 @@ class PermissionAppsViewModel(
                 groupName)
 
         init {
+            var fullStorageLiveData: FullStoragePermissionAppsLiveData? = null
+
             addSource(packagesUiInfoLiveData) {
-                update()
-            }
-            if (packagesUiInfoLiveData.value != null) {
+                if (fullStorageLiveData == null || fullStorageLiveData?.isInitialized == true)
                 update()
             }
             addSource(shouldShowSystemLiveData) {
+                if (fullStorageLiveData == null || fullStorageLiveData?.isInitialized == true)
+                update()
+            }
+
+            // If this is the Storage group, observe a FullStoragePermissionAppsLiveData, update
+            // the packagesWithFullFileAccess list, and call update to populate the subtitles.
+            if (groupName == Manifest.permission_group.STORAGE) {
+                fullStorageLiveData = FullStoragePermissionAppsLiveData(app)
+                addSource(fullStorageLiveData) { fullAccessPackages ->
+                    if (fullAccessPackages != packagesWithFullFileAccess) {
+                        packagesWithFullFileAccess = fullAccessPackages ?: emptyList()
+                        if (packagesUiInfoLiveData.isInitialized) {
+                            update()
+                        }
+                    }
+                }
+            }
+
+            if ((fullStorageLiveData == null || fullStorageLiveData.isInitialized) &&
+                packagesUiInfoLiveData.isInitialized) {
                 update()
             }
         }
@@ -140,6 +162,31 @@ class PermissionAppsViewModel(
         }
     }
 
+    // If this is the storage permission group, some apps have full access to storage, while
+    // Others just have access to media files. This list contains the packages with full access
+    // To listen for changes, create and observe a FullStoragePermissionAppsLiveData
+    private var packagesWithFullFileAccess = listOf<Pair<String, UserHandle>>()
+
+    /**
+     * Whether or not to show the "Files and Media" subtitle label for a package, vs. the normal
+     * "Media". Requires packagesWithFullFileAccess to be updated in order to work. To do this,
+     * create and observe a FullStoragePermissionAppsLiveData.
+     *
+     * @param packageName The name of the package we want to check
+     * @param user The name of the user whose package we want to check
+     *
+     * @return true if the package and user should show the full files subtitle
+     */
+    fun shouldUseFullStorageString(packageName: String, user: UserHandle): Boolean {
+        return (packageName to user) in packagesWithFullFileAccess
+    }
+
+    /**
+     * Whether or not packages have been loaded from the system.
+     * To update, need to observe the allPackageInfosLiveData.
+     *
+     * @return Whether or not all packages have been loaded
+     */
     fun arePackagesLoaded(): Boolean {
         return UserPackageInfosRepository.getAllPackageInfosLiveData(app).isInitialized
     }

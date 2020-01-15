@@ -18,6 +18,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
+        android:key="allowed_storage_full"
+        android:title="@string/allowed_storage_full" />
+
+    <PreferenceCategory
+        android:key="allowed_storage_scoped"
+        android:title="@string/allowed_storage_scoped" />
+
+    <PreferenceCategory
         android:key="allowed"
         android:title="@string/allowed_header" />
 
