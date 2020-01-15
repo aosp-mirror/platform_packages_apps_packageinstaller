@@ -89,6 +89,14 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         // Set the available role names in RoleManager.
         mRoleManager.setRoleNamesFromController(roleNames);
 
+        int addedRoleNamesSize = addedRoleNames.size();
+        for (int i = 0; i < addedRoleNamesSize; i++) {
+            String roleName = addedRoleNames.valueAt(i);
+
+            Role role = roleMap.get(roleName);
+            role.onRoleAdded(this);
+        }
+
         // Go through the holders of all roles.
         int rolesSize = roles.size();
         for (int rolesIndex = 0; rolesIndex < rolesSize; rolesIndex++) {
