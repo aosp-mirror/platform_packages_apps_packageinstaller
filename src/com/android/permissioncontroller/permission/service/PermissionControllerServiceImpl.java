@@ -647,9 +647,10 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
                 groups.add(group);
             }
         }
+        long requestId = new Random().nextLong();
         for (AppPermissionGroup group : groups) {
             if (group.areRuntimePermissionsGranted()) {
-                logOneTimeSessionRevoke(packageName, uid, group);
+                logOneTimeSessionRevoke(packageName, uid, group, requestId);
                 group.revokeRuntimePermissions(false);
             }
             group.setOneTime(false);
@@ -658,9 +659,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
     }
 
     private void logOneTimeSessionRevoke(@NonNull String packageName, int uid,
-            AppPermissionGroup group) {
-        long requestId = new Random().nextLong();
-
+            AppPermissionGroup group, long requestId) {
         // used to keep lines below 100 chars
         int r = PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_ONE_TIME_PERMISSION_REVOKED;
 
