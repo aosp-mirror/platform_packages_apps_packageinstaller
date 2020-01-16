@@ -229,18 +229,13 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
     private void onPackagesLoaded(Map<Category, List<Pair<String, UserHandle>>> categories) {
         boolean isStorage = mPermGroupName.equals(Manifest.permission_group.STORAGE);
         if (getPreferenceScreen() == null) {
-            addPreferencesFromResource(R.xml.allowed_denied);
+            if (isStorage) {
+                addPreferencesFromResource(R.xml.allowed_denied_storage);
+            } else {
+                addPreferencesFromResource(R.xml.allowed_denied);
+            }
             // Hide allowed foreground label by default, to avoid briefly showing it before updating
             findPreference(ALLOWED_FOREGROUND.getCategoryName()).setVisible(false);
-
-            // If this is the storage permission, hide the allowed category, and show the storage
-            // specific allowed categories
-            if (isStorage) {
-                findPreference(ALLOWED.getCategoryName()).setVisible(false);
-            } else {
-                findPreference(STORAGE_ALLOWED_FULL).setVisible(false);
-                findPreference(STORAGE_ALLOWED_SCOPED).setVisible(false);
-            }
         }
         Context context = getPreferenceManager().getContext();
 
@@ -266,10 +261,12 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
         long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
 
         Boolean showAlways = mViewModel.getShowAllowAlwaysStringLiveData().getValue();
-        if (showAlways != null && showAlways) {
-            findPreference(ALLOWED.getCategoryName()).setTitle(R.string.allowed_always_header);
-        } else {
-            findPreference(ALLOWED.getCategoryName()).setTitle(R.string.allowed_header);
+        if (!isStorage) {
+            if (showAlways != null && showAlways) {
+                findPreference(ALLOWED.getCategoryName()).setTitle(R.string.allowed_always_header);
+            } else {
+                findPreference(ALLOWED.getCategoryName()).setTitle(R.string.allowed_header);
+            }
         }
 
         for (Category grantCategory : categories.keySet()) {
