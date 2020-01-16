@@ -35,7 +35,6 @@ import com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISS
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
-import com.android.permissioncontroller.permission.model.AppPermissionGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.LocationUtils
@@ -101,7 +100,6 @@ class AppPermissionViewModel(
     }
 
     private var hasConfirmedRevoke = false
-    private var appPermissionGroup: AppPermissionGroup? = null
     private var lightAppPermGroup: LightAppPermGroup? = null
 
     /**
@@ -147,13 +145,6 @@ class AppPermissionViewModel(
         }
 
         override fun update() {
-            appPermissionGroup = AppPermissionGroup.create(app, packageName, permGroupName, user,
-                false)
-            if (appPermissionGroup == null) {
-                value = null
-                return
-            }
-
             val group = appPermGroupLiveData.value ?: return
 
             val admin = RestrictedLockUtils.getProfileOrDeviceOwner(app, user)
@@ -237,8 +228,6 @@ class AppPermissionViewModel(
 
         override fun onActive() {
             super.onActive()
-            appPermissionGroup = AppPermissionGroup.create(app, packageName, permGroupName, user,
-                false)
         }
     }
 
@@ -365,12 +354,11 @@ class AppPermissionViewModel(
         changeTarget: ChangeTarget
     ) {
         val context = fragment.context ?: return
-        val group = appPermissionGroup ?: return
+        val group = lightAppPermGroup ?: return
+        val wasForegroundGranted = group.isForegroundGranted
+        val wasBackgroundGranted = group.isBackgroundGranted
 
-        group.isOneTime = false
-
-        if (LocationUtils.isLocationGroupAndProvider(context, group.name,
-                group.app.packageName)) {
+        if (LocationUtils.isLocationGroupAndProvider(context, permGroupName, packageName)) {
             val packageLabel = KotlinUtils.getPackageLabel(app, packageName, user)
             LocationUtils.showLocationDialog(context, packageLabel)
         }
@@ -381,20 +369,17 @@ class AppPermissionViewModel(
         if (requestGrant) {
             val stateBefore = createPermissionSnapshot()!!
             if (shouldChangeForeground) {
-                val runtimePermissionsGranted = group.areRuntimePermissionsGranted()
-                group.grantRuntimePermissions(userFixed)
+                val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
 
-                if (!runtimePermissionsGranted) {
-                    SafetyNetLogger.logPermissionToggled(group)
+                if (!wasForegroundGranted) {
+                    SafetyNetLogger.logPermissionToggled(newGroup)
                 }
             }
-            if (shouldChangeBackground && group.backgroundPermissions != null) {
-                val runtimePermissionsGranted =
-                        group.backgroundPermissions.areRuntimePermissionsGranted()
-                group.backgroundPermissions.grantRuntimePermissions(userFixed)
+            if (shouldChangeBackground && group.hasBackgroundPerms) {
+                val newGroup = KotlinUtils.grantBackgroundRuntimePermissions(app, group)
 
-                if (!runtimePermissionsGranted) {
-                    SafetyNetLogger.logPermissionToggled(group.backgroundPermissions)
+                if (!wasBackgroundGranted) {
+                    SafetyNetLogger.logPermissionToggled(newGroup, true)
                 }
             }
             logPermissionChanges(stateBefore)
@@ -402,24 +387,21 @@ class AppPermissionViewModel(
             var showDefaultDenyDialog = false
             var showGrantedByDefaultWarning = false
 
-            if (shouldChangeForeground && group.areRuntimePermissionsGranted()) {
-                showDefaultDenyDialog = (group.hasGrantedByDefaultPermission() ||
-                    !group.doesSupportRuntimePermissions() ||
-                    group.hasInstallToRuntimeSplit())
+            if (shouldChangeForeground && wasForegroundGranted) {
+                showDefaultDenyDialog = (group.isForegroundGrantedByDefault ||
+                    !group.supportsRuntimePerms ||
+                    group.hasInstallToRuntimeSplit)
                 showGrantedByDefaultWarning = showGrantedByDefaultWarning ||
-                    group.hasGrantedByDefaultPermission()
+                    group.isForegroundGrantedByDefault
             }
 
-            if (shouldChangeBackground &&
-                group.backgroundPermissions != null &&
-                group.backgroundPermissions.areRuntimePermissionsGranted()) {
-                val bgGroup = group.backgroundPermissions
+            if (shouldChangeBackground && wasBackgroundGranted) {
                 showDefaultDenyDialog = showDefaultDenyDialog ||
-                    bgGroup.hasGrantedByDefaultPermission() ||
-                    !bgGroup.doesSupportRuntimePermissions() ||
-                    bgGroup.hasInstallToRuntimeSplit()
+                    group.isBackgroundGrantedByDefault ||
+                    !group.supportsRuntimePerms ||
+                    group.hasInstallToRuntimeSplit
                 showGrantedByDefaultWarning = showGrantedByDefaultWarning ||
-                    bgGroup.hasGrantedByDefaultPermission()
+                    group.isBackgroundGrantedByDefault
             }
 
             if (showDefaultDenyDialog && !hasConfirmedRevoke && showGrantedByDefaultWarning) {
@@ -432,28 +414,25 @@ class AppPermissionViewModel(
             } else {
                 val stateBefore = createPermissionSnapshot()!!
                 if (shouldChangeForeground &&
-                        group.areRuntimePermissionsGranted()) {
-                    group.revokeRuntimePermissions(userFixed)
+                    (wasForegroundGranted || userFixed != group.isUserFixed)) {
+                    val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group,
+                        userFixed)
 
-                    SafetyNetLogger.logPermissionToggled(group)
-                }
-                if (shouldChangeBackground &&
-                        group.backgroundPermissions != null &&
-                        group.backgroundPermissions.areRuntimePermissionsGranted()) {
-                    group.backgroundPermissions.revokeRuntimePermissions(userFixed)
-
-                    SafetyNetLogger.logPermissionToggled(group.backgroundPermissions)
-                }
-                if (userFixed && !group.isUserFixed) {
-                    group.revokeRuntimePermissions(true)
-                    if (group.backgroundPermissions != null) {
-                        group.backgroundPermissions.revokeRuntimePermissions(true)
+                    // only log if we have actually denied permissions, not if we switch from
+                    // "ask every time" to denied
+                    if (wasForegroundGranted) {
+                        SafetyNetLogger.logPermissionToggled(newGroup)
                     }
                 }
-                if (!userFixed && group.isUserFixed) {
-                    group.revokeRuntimePermissions(false)
-                    if (group.backgroundPermissions != null) {
-                        group.backgroundPermissions.revokeRuntimePermissions(false)
+                if (shouldChangeBackground && group.hasBackgroundPerms &&
+                    (wasBackgroundGranted || userFixed != group.isUserFixed)) {
+                    val newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app,
+                        group, userFixed)
+
+                    // only log if we have actually denied permissions, not if we switch from
+                    // "ask every time" to denied
+                    if (wasBackgroundGranted) {
+                        SafetyNetLogger.logPermissionToggled(newGroup, true)
                     }
                 }
                 logPermissionChanges(stateBefore)
@@ -462,50 +441,40 @@ class AppPermissionViewModel(
     }
 
     /**
-     * Show the All App Permissions screen with the proper filter group, package name, and user.
-     *
-     * @param fragment The current fragment we wish to transition from
-     */
-    fun showAllPermissions(fragment: AppPermissionFragment) {
-        val args = AllAppPermissionsFragment.createArgs(packageName, permGroupName, user)
-        fragment.findNavController().navigate(R.id.app_to_all_perms, args)
-    }
-
-    /**
      * Once the user has confirmed that he/she wants to revoke a permission that was granted by
      * default, actually revoke the permissions.
      *
      * @param changeTarget whether to change foreground, background, or both.
+     * @param userFixed whether the user has stated they do not wish to be prompted about the
+     * permission any more.
      *
      */
     fun onDenyAnyWay(changeTarget: ChangeTarget, userFixed: Boolean) {
-        val group = appPermissionGroup ?: return
+        val group = lightAppPermGroup ?: return
+        val wasForegroundGranted = group.isForegroundGranted
+        val wasBackgroundGranted = group.isBackgroundGranted
         var hasDefaultPermissions = false
         val stateBefore = createPermissionSnapshot()
+
         if (changeTarget andValue ChangeTarget.CHANGE_FOREGROUND != 0) {
-            val runtimePermissionsGranted = group.areRuntimePermissionsGranted()
-            group.revokeRuntimePermissions(userFixed)
-
-            if (runtimePermissionsGranted) {
-                SafetyNetLogger.logPermissionToggled(group)
+            val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, userFixed)
+            if (wasForegroundGranted) {
+                SafetyNetLogger.logPermissionToggled(newGroup)
             }
-            hasDefaultPermissions = group.hasGrantedByDefaultPermission()
+            hasDefaultPermissions = group.isForegroundGrantedByDefault
         }
-        if (changeTarget andValue ChangeTarget.CHANGE_BACKGROUND != 0 &&
-            group.backgroundPermissions != null) {
-            val runtimePermissionsGranted =
-                    group.backgroundPermissions.areRuntimePermissionsGranted()
-            group.backgroundPermissions.revokeRuntimePermissions(userFixed)
+        if (changeTarget andValue ChangeTarget.CHANGE_BACKGROUND != 0 && group.hasBackgroundPerms) {
+            val newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, group, userFixed)
 
-            if (runtimePermissionsGranted) {
-                SafetyNetLogger.logPermissionToggled(group.backgroundPermissions)
+            if (wasBackgroundGranted) {
+                SafetyNetLogger.logPermissionToggled(newGroup)
             }
             hasDefaultPermissions = hasDefaultPermissions ||
-                group.backgroundPermissions.hasGrantedByDefaultPermission()
+                group.isBackgroundGrantedByDefault
         }
         logPermissionChanges(stateBefore!!)
 
-        if (hasDefaultPermissions || !group.doesSupportRuntimePermissions()) {
+        if (hasDefaultPermissions || !group.supportsRuntimePerms) {
             hasConfirmedRevoke = true
         }
     }
@@ -519,6 +488,16 @@ class AppPermissionViewModel(
         }
 
         return permissionSnapshot
+    }
+
+    /**
+     * Show the All App Permissions screen with the proper filter group, package name, and user.
+     *
+     * @param fragment The current fragment we wish to transition from
+     */
+    fun showAllPermissions(fragment: AppPermissionFragment) {
+        val args = AllAppPermissionsFragment.createArgs(packageName, permGroupName, user)
+        fragment.findNavController().navigate(R.id.app_to_all_perms, args)
     }
 
     private fun getIndividualPermissionDetailResId(group: LightAppPermGroup): Pair<Int, Int> {
@@ -585,13 +564,12 @@ class AppPermissionViewModel(
     data class PermissionState(val permissionName: String, val permissionGranted: Boolean)
 
     private fun logPermissionChanges(previousPermissionSnapshot: List<PermissionState>) {
-        val group = appPermissionGroup ?: return
+        val lightGroup = lightAppPermGroup ?: return
 
         val changeId = Random().nextLong()
 
         for ((permissionName, wasGranted) in previousPermissionSnapshot) {
-            val permission = group.getPermission(permissionName)
-                ?: group.backgroundPermissions?.getPermission(permissionName)
+            val permission = lightGroup.permissions[permissionName]
                 ?: continue
 
             val isGranted = permission.isGrantedIncludingAppOp
