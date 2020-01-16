@@ -23,12 +23,14 @@
 
     <LinearLayout
         android:id="@+id/grant_singleton"
+        android:importantForAccessibility="no"
         style="@style/PermissionGrantSingleton">
 
         <!-- The dialog -->
         <LinearLayout
             android:id="@+id/grant_dialog"
             android:theme="@style/Theme.PermissionGrantDialog"
+            android:importantForAccessibility="no"
             style="@style/PermissionGrantDialog">
 
             <LinearLayout

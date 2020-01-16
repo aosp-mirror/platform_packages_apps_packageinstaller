@@ -358,6 +358,12 @@
     <!-- Header for permissions/apps that are granted only when in the foreground [CHAR LIMIT=40] -->
     <string name="allowed_foreground_header">Allowed only while in use</string>
 
+    <!-- Subtitle for scoped storage permissions [CHAR LIMIT=40] -->
+    <string name="allowed_storage_scoped">Allowed for media only</string>
+
+    <!-- Subtitle for full storage permissions [CHAR LIMIT=40] -->
+    <string name="allowed_storage_full">Allowed for all files</string>
+
     <!-- Header for permissions/apps which need to ask next time they want to use the permission. Note: Permission may or may not be currently granted [CHAR LIMIT=60] -->
     <string name="ask_header">Ask every time</string>
 
@@ -408,6 +414,12 @@
 
     <!-- Label when no apps have been granted a given permission [CHAR LIMIT=none] -->
     <string name="no_apps_allowed">No apps allowed</string>
+
+    <!-- Label when no apps have been denied a given permission [CHAR LIMIT=none] -->
+    <string name="no_apps_allowed_full">No apps allowed for all files</string>
+
+    <!-- Label when no apps have been denied a given permission [CHAR LIMIT=none] -->
+    <string name="no_apps_allowed_scoped">No apps allowed for media only</string>
 
     <!-- Label when no apps have been denied a given permission [CHAR LIMIT=none] -->
     <string name="no_apps_denied">No apps denied</string>
@@ -659,7 +671,7 @@ Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug repo
 
     <!-- Message shown to the user when the apps requests permission from this group. Shows in the isolated storage case. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
     <string name="permgrouprequest_storage_isolated">Allow
-        &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to access photos and media on your device?</string>
+        &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to read this device\u2019s media files?</string>
 
 
     <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
