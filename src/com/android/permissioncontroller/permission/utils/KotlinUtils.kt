@@ -359,8 +359,8 @@ object KotlinUtils {
         }
 
         if (shouldKillForAnyPermission) {
-            app.getSystemService(ActivityManager::class.java)!!.killUid(group.packageInfo.uid,
-                KILL_REASON_APP_OP_CHANGE)
+            (app.getSystemService(ActivityManager::class.java) as ActivityManager).killUid(
+                group.packageInfo.uid, KILL_REASON_APP_OP_CHANGE)
         }
         return LightAppPermGroup(group.packageInfo, group.permGroupInfo, newPerms,
             group.hasInstallToRuntimeSplit, group.specialLocationGrant)
@@ -525,8 +525,8 @@ object KotlinUtils {
         }
 
         if (shouldKillForAnyPermission) {
-            app.getSystemService(ActivityManager::class.java)!!.killUid(group.packageInfo.uid,
-                KILL_REASON_APP_OP_CHANGE)
+            (app.getSystemService(ActivityManager::class.java) as ActivityManager).killUid(
+                group.packageInfo.uid, KILL_REASON_APP_OP_CHANGE)
         }
         return LightAppPermGroup(group.packageInfo, group.permGroupInfo, newPerms,
             group.hasInstallToRuntimeSplit, group.specialLocationGrant)
@@ -644,9 +644,7 @@ object KotlinUtils {
     ): Boolean {
         val packageName = group.packageInfo.packageName
         val uid = group.packageInfo.uid
-        val user = UserHandle.getUserHandleForUid(uid)
-        val appOpsManager = Utils.getUserContext(app, user).getSystemService(
-            AppOpsManager::class.java)!!
+        val appOpsManager = app.getSystemService(AppOpsManager::class.java) as AppOpsManager
         var wasChanged = false
 
         if (perm.isBackgroundPermission && perm.foregroundPerms != null) {
@@ -709,8 +707,7 @@ object KotlinUtils {
     ): Boolean {
         val packageName = group.packageInfo.packageName
         val uid = group.packageInfo.uid
-        val appOpsManager = app.getSystemService(
-            AppOpsManager::class.java)!!
+        val appOpsManager = app.getSystemService(AppOpsManager::class.java) as AppOpsManager
         var wasChanged = false
 
         if (perm.isBackgroundPermission && perm.foregroundPerms != null) {
