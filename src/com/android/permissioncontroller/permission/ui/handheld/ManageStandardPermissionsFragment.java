@@ -34,7 +34,7 @@ import com.android.permissioncontroller.permission.utils.Utils;
  */
 public final class ManageStandardPermissionsFragment extends ManagePermissionsFragment {
     private static final String EXTRA_PREFS_KEY = "extra_prefs_key";
-    private static final String LOG_TAG = "ManageStandardPermissionsFragment";
+    private static final String LOG_TAG = ManageStandardPermissionsFragment.class.getSimpleName();
 
     private ManageStandardPermissionsViewModel mViewModel;
 

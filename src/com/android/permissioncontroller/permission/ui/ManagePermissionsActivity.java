@@ -66,8 +66,10 @@ public final class ManagePermissionsActivity extends FragmentActivity {
         }
         super.onCreate(savedInstanceState);
 
-        // If there is a previous instance, re-use its Fragment instead of making a new one.
-        if (savedInstanceState != null) {
+        // If this is not a phone (which uses the Navigation component), and there is a previous
+        // instance, re-use its Fragment instead of making a new one.
+        if ((DeviceUtils.isTelevision(this) || DeviceUtils.isAuto(this)
+                || DeviceUtils.isWear(this)) && savedInstanceState != null) {
             return;
         }
 

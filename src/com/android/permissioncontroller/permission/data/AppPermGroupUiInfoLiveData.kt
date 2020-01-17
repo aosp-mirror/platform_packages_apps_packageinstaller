@@ -231,7 +231,11 @@ class AppPermGroupUiInfoLiveData(
                 return PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY
             }
         } else if (anyAllowed) {
-            return PermGrantState.PERMS_ALLOWED
+            if (isOneTime) {
+                return PermGrantState.PERMS_ASK
+            } else {
+                return PermGrantState.PERMS_ALLOWED
+            }
         }
         if (isUserFixed) {
             return PermGrantState.PERMS_DENIED
