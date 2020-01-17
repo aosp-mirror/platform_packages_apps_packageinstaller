@@ -21,6 +21,7 @@ import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTE
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
@@ -219,6 +220,15 @@ public final class ManagePermissionsActivity extends FragmentActivity {
         NavGraph graph = inflater.inflate(R.navigation.nav_graph);
         graph.setStartDestination(startDestination);
         navHost.getNavController().setGraph(graph, args);
+    }
+
+    @Override
+    public ActionBar getActionBar() {
+        ActionBar ab = super.getActionBar();
+        if (ab != null) {
+            ab.setHomeActionContentDescription(R.string.back);
+        }
+        return ab;
     }
 
     @Override
