@@ -417,6 +417,9 @@
                 </intent-filter>
             </service>
         </required-components>
+        <app-ops>
+            <app-op name="android:system_alert_window" mode="allowed" />
+        </app-ops>
     </role>
 
     <role
