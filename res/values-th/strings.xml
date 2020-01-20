@@ -37,8 +37,8 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"ไม่มีการปิดใช้สิทธิ์"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"อนุญาต"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"อนุญาตตลอด"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"อนุญาตขณะมีการใช้แอปเท่านั้น"</string>
-    <string name="grant_dialog_button_allow_one_time" msgid="6187098052831050075">"อนุญาตเฉพาะครั้งนี้"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ขณะใช้แอป"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"เฉพาะครั้งนี้:"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"อนุญาตตลอด"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"แอป"</string>
     <string name="app_permissions" msgid="2778362347879465223">"สิทธิ์ของแอป"</string>
@@ -92,53 +92,10 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"สิทธิ์ปัจจุบัน"</string>
     <string name="message_staging" msgid="641286607664721291">"กำลังปรับสภาพแวดล้อมของแอป…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ไม่ทราบ"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"หน้าแดชบอร์ด"</string>
-    <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"เข้าถึงล่าสุด: <xliff:g id="TIME">%1$s</xliff:g>\nเข้าถึงล่าสุดขณะกำลังใช้แอป"</string>
-    <string name="permission_usage_summary_background" msgid="4789805581854248472">"เข้าถึงล่าสุด: <xliff:g id="TIME">%1$s</xliff:g>\nเข้าถึงล่าสุดในเบื้องหลัง"</string>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"ทุกสิทธิ์"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"ทุกเวลา"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 วันที่ผ่านมา"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"24 ชั่วโมงที่ผ่านมา"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"1 ชั่วโมงที่ผ่านมา"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"15 นาทีที่ผ่านมา"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"1 นาทีที่ผ่านมา"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"ไม่มีการใช้สิทธิ์"</string>
-    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"การเข้าถึงล่าสุดทั้งหมด"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"การเข้าถึงล่าสุดในช่วง 7 วันที่ผ่านมา"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"การเข้าถึงล่าสุดในช่วง 24 ชั่วโมงที่ผ่านมา"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"การเข้าถึงล่าสุดในช่วง 1 ชั่วโมงที่ผ่านมา"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"การเข้าถึงล่าสุดในช่วง 15 นาทีผ่านมา"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"การเข้าถึงล่าสุดในช่วง 1 นาทีที่ผ่านมา"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"การเข้าถึงสิทธิ์ทั้งหมด"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"การใช้สิทธิ์ในช่วง 7 วันที่ผ่านมา"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"การใช้สิทธิ์ในช่วง 24 ชั่วโมงที่ผ่านมา"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"การใช้สิทธิ์ในช่วง 1 ชั่วโมงที่ผ่านมา"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"การใช้สิทธิ์ในช่วง 15 นาทีที่ผ่านมา"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"การใช้สิทธิ์ในช่วง 1 นาทีที่ผ่านมา"</string>
-    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> แอป</item>
-      <item quantity="one">1 แอป</item>
-    </plurals>
-    <string name="permission_usage_view_details" msgid="4728049344017619500">"ดูทั้งหมดในหน้าแดชบอร์ด"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"กรองตาม: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"ดูทั้งหมดในหน้าแดชบอร์ด"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"กรองตาม"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"กรองตามสิทธิ์"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"กรองตามเวลา"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"สิทธิ์ที่ใช้มากที่สุด"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"การเข้าถึงมากที่สุด"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"ล่าสุด"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"จัดเรียงตามการใช้งานแอป"</string>
-    <string name="sort_by_time" msgid="8280378662234104410">"จัดเรียงตามเวลา"</string>
     <string name="item_separator" msgid="8266062815210378175">" "</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"รีเฟรช"</string>
-    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> แอป</item>
-      <item quantity="one">1 แอป</item>
-    </plurals>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"การใช้สิทธิ์ของแอป"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"เข้าถึง: <xliff:g id="NUM">%1$s</xliff:g> ครั้ง ระยะเวลารวม: <xliff:g id="DURATION">%2$s</xliff:g> ใช้ล่าสุดเมื่อ <xliff:g id="TIME">%3$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"เข้าถึง: <xliff:g id="NUM">%1$s</xliff:g> ครั้ง ใช้ล่าสุดเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"อนุญาต"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"อนุญาตตลอด"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"อนุญาตขณะมีการใช้แอปเท่านั้น"</string>
@@ -146,31 +103,6 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"ปฏิเสธ"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"สิทธิ์เกี่ยวกับ<xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"สิทธิ์การเข้าถึง \"<xliff:g id="PERM">%1$s</xliff:g>\" สำหรับแอปนี้"</string>
-    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึง<xliff:g id="PERM">%2$s</xliff:g>เมื่อ <xliff:g id="TIME">%3$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงกิจกรรมการเคลื่อนไหวร่างกายเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงปฏิทินเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงประวัติการโทรเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงกล้องเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงรายชื่อติดต่อเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงตำแหน่งของคุณเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงไมโครโฟนเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงโทรศัพท์เมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงเซ็นเซอร์เมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึง SMS เมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงพื้นที่เก็บข้อมูลเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึง<xliff:g id="PERM">%2$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงกิจกรรมการเคลื่อนไหวร่างกาย"</string>
-    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงปฏิทิน"</string>
-    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงประวัติการโทร"</string>
-    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงกล้อง"</string>
-    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงรายชื่อติดต่อ"</string>
-    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงตำแหน่งของคุณ"</string>
-    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงไมโครโฟน"</string>
-    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงโทรศัพท์"</string>
-    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงเซ็นเซอร์"</string>
-    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึง SMS"</string>
-    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงพื้นที่เก็บข้อมูล"</string>
-    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"ขณะนี้ข้อมูลการเข้าถึงล่าสุดไม่พร้อมใช้งานสำหรับสิทธิ์นี้"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ดูสิทธิ์ทั้งหมดของ \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ดูแอปทั้งหมดที่มีสิทธิ์นี้"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"แอปที่มีสิทธิ์นี้จะ<xliff:g id="DESCRIPTION">%1$s</xliff:g> ได้"</string>
@@ -192,9 +124,12 @@
     <string name="allowed_header" msgid="6279244592227088158">"อนุญาต"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"อนุญาตตลอด"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"อนุญาตขณะใช้งานอยู่เท่านั้น"</string>
+    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"ถามทุกครั้ง"</string>
     <string name="denied_header" msgid="2277998574238617699">"ปฏิเสธ"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"ดูการใช้งานโดยละเอียด"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> วัน</item>
       <item quantity="one">1 วัน</item>
@@ -218,6 +153,10 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ไม่ได้ให้สิทธิ์ใดเลย"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"ไม่ได้ปฏิเสธสิทธิ์ใดเลย"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"ไม่ได้อนุญาตแอปใดเลย"</string>
+    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
+    <skip />
+    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
+    <skip />
     <string name="no_apps_denied" msgid="2736758388618487796">"ไม่ได้ปฏิเสธแอปใดเลย"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"เลือกไว้"</string>
     <string name="settings" msgid="2884124136779508907">"การตั้งค่า"</string>
@@ -273,11 +212,6 @@
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"ไม่ต้องถามอีก"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"ตั้งเป็นแอปเริ่มต้น"</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"แอปเริ่มต้น"</string>
-    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"รับทราบ"</string>
-    <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"ตั้งค่าความเป็นส่วนตัว"</string>
-    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"แอปที่กำลังใช้<xliff:g id="TYPES_LIST">%s</xliff:g>ของคุณ"</string>
-    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">" "</string>
-    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" และ "</string>
     <string name="settings_button" msgid="4747434541214595321">"การตั้งค่า"</string>
     <string name="default_apps" msgid="8554530939151957828">"แอปเริ่มต้น"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"ไม่มีแอปเริ่มต้น"</string>
@@ -312,14 +246,15 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"ไฮไลต์การใช้งานแอปต่อไปนี้"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"แสดงไอคอน Assistant"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"แสดงไอคอนในแถบสถานะเมื่อมีการใช้ไมโครโฟนเพื่อเปิดใช้งานผู้ช่วยสั่งการด้วยเสียง"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงรูปภาพและสื่อในอุปกรณ์ไหม"</string>
+    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
+    <skip />
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงรายชื่อติดต่อไหม"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงตำแหน่งของอุปกรณ์นี้ไหม"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"แอปจะมีสิทธิ์เข้าถึงตำแหน่งในขณะที่คุณใช้แอปเท่านั้น"</string>
     <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงตำแหน่งของอุปกรณ์นี้ไหม"</string>
-    <string name="permgroupbackgroundrequestdetail_location" msgid="3591766384961100891">"แอปนี้อาจต้องการเข้าถึงตำแหน่งของคุณตลอดเวลา แม้ในขณะที่คุณไม่ได้ใช้แอป โปรดอนุญาตใน"<annotation id="link">"การตั้งค่า"</annotation></string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"แอปนี้อาจต้องการเข้าถึงตำแหน่งของคุณตลอดเวลา แม้ในขณะที่คุณไม่ได้ใช้แอป โปรด"<annotation id="link">"อนุญาตในการตั้งค่า"</annotation></string>
     <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"เปลี่ยนการเข้าถึงตำแหน่งสำหรับ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ไหม"</string>
-    <string name="permgroupupgraderequestdetail_location" msgid="8076811385427479238">"แอปนี้ต้องการเข้าถึงตำแหน่งของคุณตลอดเวลา แม้ในขณะที่คุณไม่ได้ใช้แอป โปรดอนุญาตใน"<annotation id="link">"การตั้งค่า"</annotation></string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"แอปนี้ต้องการเข้าถึงตำแหน่งของคุณตลอดเวลา แม้ในขณะที่คุณไม่ได้ใช้แอป โปรด"<annotation id="link">"อนุญาตในการตั้งค่า"</annotation></string>
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงปฏิทินไหม"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ส่งและดูข้อความ SMS ไหม"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงรูปภาพ สื่อ และไฟล์ในอุปกรณ์ไหม"</string>

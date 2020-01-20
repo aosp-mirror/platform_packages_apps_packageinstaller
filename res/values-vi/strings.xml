@@ -37,8 +37,8 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"chưa tắt quyền nào"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Cho phép"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Luôn cho phép"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Chỉ cho phép khi dùng ứng dụng"</string>
-    <string name="grant_dialog_button_allow_one_time" msgid="6187098052831050075">"Chỉ cho phép lần này"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Trong khi dùng ứng dụng"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Chỉ lần này"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Luôn cho phép"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Ứng dụng"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Quyền ứng dụng"</string>
@@ -92,53 +92,10 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Các quyền hiện tại"</string>
     <string name="message_staging" msgid="641286607664721291">"Đang thử nghiệm ứng dụng…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Không xác định"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"Trang tổng quan"</string>
-    <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"Lần truy cập gần đây nhất: <xliff:g id="TIME">%1$s</xliff:g>\nLần truy cập gần đây nhất khi ứng dụng được dùng"</string>
-    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Lần truy cập gần đây nhất: <xliff:g id="TIME">%1$s</xliff:g>\nLần truy cập gần đây nhất là trong nền"</string>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Mọi quyền"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"Mọi lúc"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 ngày qua"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"24 giờ qua"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"1 giờ qua"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"15 phút qua"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"1 phút qua"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"Không sử dụng quyền"</string>
-    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Lần truy cập gần đây nhất vào bất kỳ thời gian nào"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Lần truy cập gần đây nhất trong 7 ngày qua"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Lần truy cập gần đây nhất trong 24 giờ qua"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Lần truy cập gần đây nhất trong 1 giờ qua"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Lần truy cập gần đây nhất trong 15 phút trước"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Lần truy cập gần đây nhất trong 1 phút trước"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Tần suất sử dụng quyền ở mọi thời gian"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Tần suất sử dụng quyền trong 7 ngày trước"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Mức sử dụng quyền truy cập trong 24 giờ qua"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Tần suất sử dụng quyền trong 1 giờ trước"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Tần suất sử dụng quyền trong 15 phút trước"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Tần suất sử dụng quyền trong 1 phút trước"</string>
-    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ứng dụng</item>
-      <item quantity="one">1 ứng dụng</item>
-    </plurals>
-    <string name="permission_usage_view_details" msgid="4728049344017619500">"Xem tất cả trong Trang tổng quan"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Lọc theo: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Xem tất cả trong Trang tổng quan"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Lọc theo"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Lọc theo quyền"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Lọc theo thời gian"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Nhiều quyền nhất"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Nhiều lần truy cập nhất"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"Gần đây"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"Sắp xếp theo mức sử dụng"</string>
-    <string name="sort_by_time" msgid="8280378662234104410">"Sắp xếp theo thời gian"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"Làm mới"</string>
-    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ứng dụng</item>
-      <item quantity="one">1 ứng dụng</item>
-    </plurals>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"Sử dụng quyền ứng dụng"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Truy cập: <xliff:g id="NUM">%1$s</xliff:g> lần. Tổng thời gian: <xliff:g id="DURATION">%2$s</xliff:g>. Sử dụng lần gần đây nhất vào <xliff:g id="TIME">%3$s</xliff:g> trước."</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Truy cập: <xliff:g id="NUM">%1$s</xliff:g> lần. Sử dụng lần gần đây nhất vào <xliff:g id="TIME">%2$s</xliff:g> trước."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Cho phép"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Luôn cho phép"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Chỉ cho phép khi dùng ứng dụng"</string>
@@ -146,31 +103,6 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Từ chối"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Quyền <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Quyền truy cập <xliff:g id="PERM">%1$s</xliff:g> cho ứng dụng này"</string>
-    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào <xliff:g id="PERM">%2$s</xliff:g> của bạn <xliff:g id="TIME">%3$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào hoạt động thể chất của bạn <xliff:g id="TIME">%2$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào lịch của bạn <xliff:g id="TIME">%2$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào nhật ký cuộc gọi của bạn <xliff:g id="TIME">%2$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào máy ảnh của bạn <xliff:g id="TIME">%2$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào danh bạ của bạn <xliff:g id="TIME">%2$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào vị trí của bạn <xliff:g id="TIME">%2$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào micrô của bạn <xliff:g id="TIME">%2$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào điện thoại của bạn <xliff:g id="TIME">%2$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào cảm biến của bạn <xliff:g id="TIME">%2$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào SMS của bạn <xliff:g id="TIME">%2$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> đã truy cập vào bộ nhớ của bạn <xliff:g id="TIME">%2$s</xliff:g> trước"</string>
-    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào <xliff:g id="PERM">%2$s</xliff:g> của bạn"</string>
-    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào hoạt động thể chất của bạn"</string>
-    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào lịch của bạn"</string>
-    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào nhật ký cuộc gọi của bạn"</string>
-    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào máy ảnh của bạn"</string>
-    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào danh bạ của bạn"</string>
-    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào vị trí của bạn"</string>
-    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào micrô của bạn"</string>
-    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào điện thoại của bạn"</string>
-    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào cảm biến của bạn"</string>
-    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào SMS của bạn"</string>
-    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> chưa truy cập vào bộ nhớ của bạn"</string>
-    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Dữ liệu về lần truy cập gần đây nhất hiện không có sẵn cho quyền này"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Xem tất cả các quyền của <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Xem tất cả ứng dụng có quyền này"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Các ứng dụng có quyền này có thể <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
@@ -192,9 +124,12 @@
     <string name="allowed_header" msgid="6279244592227088158">"Được phép"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Luôn được phép"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Chỉ cho phép khi đang sử dụng"</string>
+    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"Luôn hỏi"</string>
     <string name="denied_header" msgid="2277998574238617699">"Bị từ chối"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"Xem mức sử dụng chi tiết"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ngày</item>
       <item quantity="one">1 ngày</item>
@@ -218,6 +153,10 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Chưa cấp quyền nào"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Chưa từ chối quyền nào"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Chưa cho phép ứng dụng nào"</string>
+    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
+    <skip />
+    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
+    <skip />
     <string name="no_apps_denied" msgid="2736758388618487796">"Chưa từ chối ứng dụng nào"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Đã chọn"</string>
     <string name="settings" msgid="2884124136779508907">"Cài đặt"</string>
@@ -273,11 +212,6 @@
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Không hỏi lại"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Đặt làm mặc định"</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"ứng dụng mặc định"</string>
-    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Đã hiểu"</string>
-    <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"Cài đặt quyền riêng tư"</string>
-    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"Các ứng dụng dùng <xliff:g id="TYPES_LIST">%s</xliff:g> của bạn"</string>
-    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
-    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" và "</string>
     <string name="settings_button" msgid="4747434541214595321">"Cài đặt"</string>
     <string name="default_apps" msgid="8554530939151957828">"Ứng dụng mặc định"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Không có ứng dụng mặc định"</string>
@@ -312,14 +246,15 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Hiển thị mức sử dụng của"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Hiển thị tính năng phát hiện trình kích hoạt của Trợ lý"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Hiển thị biểu tượng trong thanh trạng thái khi sử dụng micrô để kích hoạt trợ lý thoại"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Bạn có cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào ảnh và nội dung nghe nhìn trên thiết bị của mình không?"</string>
+    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
+    <skip />
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào danh bạ của bạn?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào thông tin vị trí của thiết bị này?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Ứng dụng này sẽ chỉ có quyền truy cập vào vị trí khi bạn đang sử dụng ứng dụng này"</string>
     <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào thông tin vị trí của thiết bị này?"</string>
-    <string name="permgroupbackgroundrequestdetail_location" msgid="3591766384961100891">"Ứng dụng này có thể muốn truy cập vào thông tin vị trí của bạn mọi lúc, ngay cả khi bạn không dùng ứng dụng. Hãy cho phép trong phần "<annotation id="link">"cài đặt"</annotation>"."</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"Ứng dụng này có thể muốn truy cập vào thông tin vị trí của bạn mọi lúc, ngay cả khi bạn không dùng ứng dụng. "<annotation id="link">"Hãy cho phép trong phần cài đặt."</annotation></string>
     <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"Thay đổi quyền truy cập vào thông tin vị trí đối với &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;?"</string>
-    <string name="permgroupupgraderequestdetail_location" msgid="8076811385427479238">"Ứng dụng này muốn truy cập vào thông tin vị trí của bạn mọi lúc, ngay cả khi bạn không dùng ứng dụng. Hãy cho phép trong phần "<annotation id="link">"cài đặt"</annotation>"."</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"Ứng dụng này muốn truy cập vào thông tin vị trí của bạn mọi lúc, ngay cả khi bạn không dùng ứng dụng. "<annotation id="link">"Hãy cho phép trong phần cài đặt."</annotation></string>
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào lịch của bạn?"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; gửi và xem tin nhắn SMS?"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào ảnh, phương tiện và tệp trên thiết bị của bạn?"</string>
