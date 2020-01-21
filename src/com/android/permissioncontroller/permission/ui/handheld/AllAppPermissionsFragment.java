@@ -122,13 +122,14 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
 
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
-            // If we target a group make this look like app permissions.
-            if (getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME) == null) {
-                ab.setTitle(R.string.all_permissions);
-            } else {
-                ab.setTitle(R.string.app_permissions);
-            }
             ab.setDisplayHomeAsUpEnabled(true);
+        }
+
+        // If we target a group make this look like app permissions.
+        if (getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME) == null) {
+            getActivity().setTitle(R.string.all_permissions);
+        } else {
+            getActivity().setTitle(R.string.app_permissions);
         }
 
         setHasOptionsMenu(true);
