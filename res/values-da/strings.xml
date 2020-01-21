@@ -37,8 +37,8 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"ingen er deaktiveret"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Tillad"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Tillad altid"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Tillad kun, mens appen er i brug"</string>
-    <string name="grant_dialog_button_allow_one_time" msgid="6187098052831050075">"Tillad kun denne gang"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Mens du bruger appen"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Kun denne gang"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Tillad altid"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Apps"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Apptilladelser"</string>
@@ -92,53 +92,10 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Aktuelle tilladelser"</string>
     <string name="message_staging" msgid="641286607664721291">"Forbereder appen…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Ukendt"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"Kontrolpanel"</string>
-    <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"Seneste adgang: <xliff:g id="TIME">%1$s</xliff:g>\nSeneste adgang, da appen var i brug"</string>
-    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Seneste adgang: <xliff:g id="TIME">%1$s</xliff:g>\nSenest anvendt i baggrunden"</string>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Alle tilladelser"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"Nogensinde"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"De seneste 7 dage"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"De seneste 24 timer"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Den seneste time"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"De seneste 15 minutter"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Seneste minut"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"Ingen brug af tilladelsen"</string>
-    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Seneste adgang nogensinde"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Seneste adgang i de sidste 7 dage"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Seneste adgang i de sidste 24 timer"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Seneste adgang den seneste time"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Seneste adgang i de sidste 15 minutter"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Seneste adgang det seneste minut"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Anvendte tilladelser nogensinde"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Anvendte tilladelser i de sidste 7 dage"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Anvendte tilladelser i de sidste 24 timer"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Anvendte tilladelser den seneste time"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Anvendte tilladelser i de sidste 15 minutter"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Anvendte tilladelser det seneste minut"</string>
-    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> app</item>
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apps</item>
-    </plurals>
-    <string name="permission_usage_view_details" msgid="4728049344017619500">"Se alt i kontrolpanelet"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtreret efter: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Se alt i kontrolpanelet"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrér efter"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrér efter tilladelser"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Filtrér efter tidspunkt"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Flest tilladelser"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Flest adgange"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"Seneste"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"Sortér efter appbrug"</string>
-    <string name="sort_by_time" msgid="8280378662234104410">"Sortér efter tidspunkt"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"Opdater"</string>
-    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> app</item>
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apps</item>
-    </plurals>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"Brug af apptilladelser"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Adgang: <xliff:g id="NUM">%1$s</xliff:g> gange. Samlet varighed: <xliff:g id="DURATION">%2$s</xliff:g>. Senest brugt for <xliff:g id="TIME">%3$s</xliff:g> siden."</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Adgang: <xliff:g id="NUM">%1$s</xliff:g> gange. Senest brugt for <xliff:g id="TIME">%2$s</xliff:g> siden."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Tillad"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Tillad altid"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Tillad kun, mens appen er i brug"</string>
@@ -146,31 +103,6 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Afvis"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Tilladelse til <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Adgang til <xliff:g id="PERM">%1$s</xliff:g> for denne app"</string>
-    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til <xliff:g id="PERM">%2$s</xliff:g> for <xliff:g id="TIME">%3$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til din fysiske aktivitet for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til din kalender for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til dine opkaldslister for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til dit kamera for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til dine kontakter for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til din placering for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til din mikrofon for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til din telefon for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til dine sensorer for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til din sms for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> havde adgang til din lagerplads for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til <xliff:g id="PERM">%2$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til din fysiske aktivitet"</string>
-    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til din kalender"</string>
-    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til dine opkaldslister"</string>
-    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til dit kamera"</string>
-    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til dine kontakter"</string>
-    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til din placering"</string>
-    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til din mikrofon"</string>
-    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til din telefon"</string>
-    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til dine sensorer"</string>
-    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til din sms"</string>
-    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> har ikke haft adgang til din lagerplads"</string>
-    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"De seneste adgangsdata er ikke tilgængelige for denne tilladelse i øjeblikket"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Se alle tilladelser for <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Se alle apps med denne tilladelse"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apps med denne tilladelse kan <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
@@ -192,9 +124,10 @@
     <string name="allowed_header" msgid="6279244592227088158">"Tilladt"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Altid tilladt"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Kun tilladt, mens de er i brug"</string>
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Kun tilladt for medier"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"Tilladt for alle filer"</string>
     <string name="ask_header" msgid="4471670860332046665">"Spørg hver gang"</string>
     <string name="denied_header" msgid="2277998574238617699">"Afvist"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"Se detaljerede oplysninger om brug"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> dag</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dage</item>
@@ -218,6 +151,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Der ikke givet nogen tilladelser"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Ingen tilladelser er blevet afvist"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Ingen apps har denne tilladelse"</string>
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Ingen apps er tilladt for alle filer"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Ingen apps er kun tilladt for medier"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Ingen apps er blevet afvist"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Valgt"</string>
     <string name="settings" msgid="2884124136779508907">"Indstillinger"</string>
@@ -273,11 +208,6 @@
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Spørg ikke igen"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Angiv som standard"</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"standardapps"</string>
-    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"OK"</string>
-    <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"Privatlivsindstillinger"</string>
-    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"Apps, der anvender <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
-    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
-    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" og "</string>
     <string name="settings_button" msgid="4747434541214595321">"Indstillinger"</string>
     <string name="default_apps" msgid="8554530939151957828">"Standardapps"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Ingen standardapps."</string>
@@ -312,14 +242,14 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Fremhæv brugen af følgende"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Vis aktiveringsregistrering for assistent"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Vis ikon på statusbjælken, når mikrofonen bruges til at aktivere taleassistenten"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; adgang til billeder og medier på din enhed?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tilladelse til at læse denne enheds mediefiler?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; adgang til dine kontakter?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; adgang til enhedens placering?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Appen har kun adgang til placeringen, når du bruger appen"</string>
     <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; adgang til enhedens placering?"</string>
-    <string name="permgroupbackgroundrequestdetail_location" msgid="3591766384961100891">"Denne app vil muligvis gerne have adgang til din placering hele tiden, også når du ikke bruger appen. Giv tilladelse under "<annotation id="link">"Indstillinger"</annotation>"."</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"Denne app vil muligvis gerne have adgang til din placering hele tiden, også når du ikke bruger appen. "<annotation id="link">"Giv tilladelse under Indstillinger."</annotation></string>
     <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"Vil du skifte placeringsadgang for &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;?"</string>
-    <string name="permgroupupgraderequestdetail_location" msgid="8076811385427479238">"Appen vil gerne have adgang til din placering hele tiden, også når du ikke bruger appen. Giv appen tilladelse i "<annotation id="link">"Indstillinger"</annotation>"."</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"Appen vil gerne have adgang til din placering hele tiden, også når du ikke bruger appen. "<annotation id="link">"Giv appen tilladelse i Indstillinger."</annotation></string>
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; adgang til din kalender?"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tilladelse til at sende og se sms-beskeder?"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; adgang til billeder, medier og filer på din enhed?"</string>

@@ -37,8 +37,8 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"均未停用"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"允许"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"始终允许"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"仅在使用该应用时允许"</string>
-    <string name="grant_dialog_button_allow_one_time" msgid="6187098052831050075">"仅允许这一次"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"使用该应用时"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"仅限这一次"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"一律允许"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"应用"</string>
     <string name="app_permissions" msgid="2778362347879465223">"应用权限"</string>
@@ -92,53 +92,10 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"当前权限"</string>
     <string name="message_staging" msgid="641286607664721291">"正在准备安装应用…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"未知"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"信息中心"</string>
-    <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"上次访问时间：<xliff:g id="TIME">%1$s</xliff:g>\n上次使用应用时访问过"</string>
-    <string name="permission_usage_summary_background" msgid="4789805581854248472">"上次访问时间：<xliff:g id="TIME">%1$s</xliff:g>\n（在后台访问）"</string>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"不限权限"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"不限时间"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"过去 7 天"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"过去 24 小时"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"过去 1 小时"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"过去 15 分钟"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"过去 1 分钟"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"没有使用此权限的应用"</string>
-    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"最近使用的访问权限（不限时间）"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"最近使用的访问权限（过去 7 天内）"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"最近使用的访问权限（过去 24 小时内）"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"最近使用的访问权限（过去 1 小时内）"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"最近使用的访问权限（过去 15 分钟内）"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"最近使用的访问权限（过去 1 分钟内）"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"权限使用频率（不限时间）"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"过去 7 天内权限的使用频率"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"过去 24 小时内的权限使用频率"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"过去 1 小时内的权限使用频率"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"过去 15 分钟内的权限使用频率"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"过去 1 分钟内的权限使用频率"</string>
-    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> 个应用</item>
-      <item quantity="one">1 个应用</item>
-    </plurals>
-    <string name="permission_usage_view_details" msgid="4728049344017619500">"在信息中心查看全部详细信息"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"过滤条件：<xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"在信息中心查看所有使用情况"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"过滤条件"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"按权限过滤"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"按时间过滤"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"使用的权限数量最多"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"访问次数最多"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"最近"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"按应用使用情况排序"</string>
-    <string name="sort_by_time" msgid="8280378662234104410">"按时间排序"</string>
     <string name="item_separator" msgid="8266062815210378175">"、 "</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"刷新"</string>
-    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> 个应用</item>
-      <item quantity="one">1 个应用</item>
-    </plurals>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"应用权限使用情况"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"访问次数：<xliff:g id="NUM">%1$s</xliff:g> 次。总时长：<xliff:g id="DURATION">%2$s</xliff:g>。上次使用时间：<xliff:g id="TIME">%3$s</xliff:g>前。"</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"访问次数：<xliff:g id="NUM">%1$s</xliff:g> 次。上次使用时间：<xliff:g id="TIME">%2$s</xliff:g>前。"</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"允许"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"始终允许"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"仅在使用该应用时允许"</string>
@@ -146,31 +103,6 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"拒绝"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>权限"</string>
     <string name="app_permission_header" msgid="228974007660007656">"是否允许这个应用访问<xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g>前访问过您的<xliff:g id="PERM">%2$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前获取过您的身体活动数据"</string>
-    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的日历"</string>
-    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的通话记录"</string>
-    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的相机"</string>
-    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的通讯录"</string>
-    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的位置信息"</string>
-    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的麦克风"</string>
-    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的手机"</string>
-    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的传感器"</string>
-    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的短信"</string>
-    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的存储空间"</string>
-    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的<xliff:g id="PERM">%2$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g>尚未获取您的身体活动数据"</string>
-    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的日历"</string>
-    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的通话记录"</string>
-    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的相机"</string>
-    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的通讯录"</string>
-    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的位置信息"</string>
-    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的麦克风"</string>
-    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的手机"</string>
-    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的传感器"</string>
-    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的短信"</string>
-    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的存储空间"</string>
-    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"目前无法提供此权限的上次访问数据"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看<xliff:g id="APP">%1$s</xliff:g>的所有权限"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"查看具有此权限的所有应用"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"具有此权限的应用可以<xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
@@ -192,9 +124,12 @@
     <string name="allowed_header" msgid="6279244592227088158">"已允许"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"一律允许"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"仅在使用时允许"</string>
+    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"每次都询问"</string>
     <string name="denied_header" msgid="2277998574238617699">"已拒绝"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"查看详细的使用情况信息"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> 天</item>
       <item quantity="one">1 天</item>
@@ -218,6 +153,10 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"未允许任何权限"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"未拒绝任何权限"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"未允许任何应用"</string>
+    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
+    <skip />
+    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
+    <skip />
     <string name="no_apps_denied" msgid="2736758388618487796">"未拒绝任何应用"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"已选择"</string>
     <string name="settings" msgid="2884124136779508907">"设置"</string>
@@ -273,11 +212,6 @@
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"不再询问"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"设为默认应用"</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"默认应用"</string>
-    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"知道了"</string>
-    <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"隐私权设置"</string>
-    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"正在使用您的<xliff:g id="TYPES_LIST">%s</xliff:g>的应用"</string>
-    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">"、 "</string>
-    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" 和 "</string>
     <string name="settings_button" msgid="4747434541214595321">"设置"</string>
     <string name="default_apps" msgid="8554530939151957828">"默认应用"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"没有任何默认应用"</string>
@@ -312,14 +246,15 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"突出显示以下应用的权限使用情况"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"显示 Google 助理触发指令检测结果"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"使用麦克风激活语音助理后，在状态栏中显示相关图标"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"要允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;访问您设备上的照片和媒体吗？"</string>
+    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
+    <skip />
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;访问您的通讯录吗？"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"要允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;获取此设备的位置信息吗？"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"只有当您使用该应用时，该应用才有权访问位置信息"</string>
     <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"要允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;获取此设备的位置信息吗？"</string>
-    <string name="permgroupbackgroundrequestdetail_location" msgid="3591766384961100891">"该应用可能想要随时获取您的位置信息（即使您并未使用该应用）。在"<annotation id="link">"设置"</annotation>"中允许。"</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"该应用可能想要随时获取您的位置信息（即使您并未使用该应用）。"<annotation id="link">"在“设置”中允许"</annotation>"。"</string>
     <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"要更改&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;的位置信息访问权限吗？"</string>
-    <string name="permgroupupgraderequestdetail_location" msgid="8076811385427479238">"该应用想要随时获取您的位置信息（即使您并未使用该应用）。在"<annotation id="link">"设置"</annotation>"中允许。"</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"该应用想要随时获取您的位置信息（即使您并未使用该应用）。"<annotation id="link">"在“设置”中允许"</annotation>"。"</string>
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;访问您的日历吗？"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"要允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;发送和查看短信吗？"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"允许“<xliff:g id="APP_NAME">%1$s</xliff:g>”&lt;b&gt;&lt;/b&gt;访问您设备上的照片、媒体内容和文件吗？"</string>

@@ -37,8 +37,8 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"ບໍ່ມີອັນໃດປິດການນຳໃຊ້ໄວ້"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"ອະນຸຍາດ"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"ອະນຸຍາດຕະຫຼອດເວລາ"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"ອະນຸຍາດໃນເວລາທີ່ກຳລັງໃຊ້ແອັບເທົ່ານັ້ນ"</string>
-    <string name="grant_dialog_button_allow_one_time" msgid="6187098052831050075">"ອະນຸຍາດເທື່ອນີ້ເທົ່ານັ້ນ"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ໃນເວລາໃຊ້ແອັບ"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"ໃຊ້ເພາະເທື່ອນີ້"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"ອະນຸຍາດຕະຫຼອດເວລາ"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ແອັບ"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ສິດອະນຸຍາດແອັບ"</string>
@@ -92,53 +92,10 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"ສິດອະນຸຍາດປັດຈຸບັນ"</string>
     <string name="message_staging" msgid="641286607664721291">"ກຳລັງຮຽງແອັບ…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ບໍ່ຮູ້ຈັກ"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"ແຜງໜ້າປັດ"</string>
-    <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"ການເຂົ້າເຖິງຫຼ້າສຸດ: <xliff:g id="TIME">%1$s</xliff:g>\nເຂົ້າເຖິງຫຼ້າສຸດໃນລະຫວ່າງແອັບຖືກໃຊ້ຢູ່"</string>
-    <string name="permission_usage_summary_background" msgid="4789805581854248472">"ການເຂົ້າເຖິງຫຼ້າສຸດ: <xliff:g id="TIME">%1$s</xliff:g>\nເຂົ້າເຖິງຫຼ້າສຸດໃນພື້ນຫຼັງ"</string>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"ສິດອະນຸຍາດໃດກໍໄດ້"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"ເວລາໃດກໍໄດ້"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 ມື້ທີ່ຜ່ານມາ"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"24 ຊົ່ວໂມງທີ່ຜ່ານມາ"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"1 ຊົ່ວໂມງທີ່ຜ່ານມາ"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"15 ນາທີຜ່ານມາ"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"1 ນາທີທີ່ຜ່ານມາ"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"ບໍ່ມີການນຳໃຊ້ສິດອະນຸຍາດ"</string>
-    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"ການເຂົ້າເຖິງຫຼ້າສຸດຕອນໃດກໍໄດ້"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"ເຂົ້າເຖິງຫຼ້າສຸດໃນ 7 ມື້ທີ່ຜ່ານມາ"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"ສິດອະນຸຍາດທີ່ໃຊ້ຫຼ້າສຸດໃນ 24 ຊົ່ວໂມງທີ່ຜ່ານມາ"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"ການເຂົ້າເຖິງຫຼ້າສຸດໃນ 1 ຊົ່ວໂມງທີ່ຜ່ານມາ"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"ການເຂົ້າເຖູງຫຼ້າສຸດໃນ 15 ນາທີຫຼ້າສຸດ"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"ການເຂົ້າເຖິງຫຼ້າສຸດໃນ 1 ນາທີທີ່ຜ່ານມາ"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"ການນຳໃຊ້ສິດອະນຸຍາດຕອນໃດກໍໄດ້"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"ການນຳໃຊ້ສິດອະນຸຍາດໃນ 7 ມື້ທີ່ຜ່ານມາ"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"ການນຳໃຊ້ສິດອະນຸຍາດໃນ 24 ຊົ່ວໂມງທີ່ຜ່ານມາ"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"ການນຳໃຊ້ສິດອະນຸຍາດໃນ 1 ຊົ່ວໂມງທີ່ຜ່ານມາ"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"ການນຳໃຊ້ສິດອະນຸຍາດໃນ 15 ນາທີທີ່ຜ່ານມາ"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"ການນຳໃຊ້ສິດອະນຸຍາດໃນ 1 ນາທີທີ່ຜ່ານມາ"</string>
-    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ແອັບ</item>
-      <item quantity="one">1 ແອັບ</item>
-    </plurals>
-    <string name="permission_usage_view_details" msgid="4728049344017619500">"ເບິ່ງທັງໝົດໃນແຜງໜ້າປັດ"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"ກັ່ນຕອງແລ້ວໂດຍ: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"ເບິ່ງທັງໝົດໃນແຜງໜ້າປັດ"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"ກັ່ນຕອງຕາມ"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"ກັ່ນຕອງຕາມສິດອະນຸຍາດ"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"ກັ່ນຕອງຕາມເວລາ"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"ສິດອະນຸຍາດຫຼາຍທີ່ສຸດ"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"ການເຂົ້າເຖິງທີ່ຫຼາຍທີ່ສຸດ"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"ຫຼ້າສຸດ"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"ຈັດຮຽງຕາມການນຳໃຊ້ແອັບ"</string>
-    <string name="sort_by_time" msgid="8280378662234104410">"ຮຽງຕາມເວລາ"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"ໂຫຼດຄືນໃໝ່"</string>
-    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ແອັບ</item>
-      <item quantity="one">1 ແອັບ</item>
-    </plurals>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"ການໃຊ້ສິດອະນຸຍາດແອັບ"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"ເຂົ້າເຖິງ: <xliff:g id="NUM">%1$s</xliff:g> ເທື່ອ. ໄລຍະເວລາທັງຮວມ: <xliff:g id="DURATION">%2$s</xliff:g>. ໃຊ້ຫຼ້າສຸດ <xliff:g id="TIME">%3$s</xliff:g> ກ່ອນ."</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ເຂົ້າເຖິງ: <xliff:g id="NUM">%1$s</xliff:g> ເທື່ອ. ໃຊ້ຫຼ້າສຸດ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"ອະນຸຍາດ"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ອະນຸຍາດຕະຫຼອດເວລາ"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"ອະນຸຍາດໃນເວລາທີ່ກຳລັງໃຊ້ແອັບເທົ່ານັ້ນ"</string>
@@ -146,31 +103,6 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"ປະຕິເສດ"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"ສິດອະນຸຍາດ <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g> ສິດເຂົ້າເຖິງສຳລັບແອັບນີ້"</string>
-    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງ <xliff:g id="PERM">%2$s</xliff:g> ຂອງທ່ານເມື່ອ <xliff:g id="TIME">%3$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງສະຖານທີ່ທາງກາຍະພາບຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງປະຕິທິນຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງບັນທຶກການໂທຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງກ້ອງຖ່າຍຮູບຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງລາຍຊື່ຜູ້ຕິດຕໍ່ຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງສະຖານທີ່ຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງໄມໂຄຣໂຟນຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງມືຖືຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງເຊັນເຊີຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງ SMS ຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງບ່ອນຈັດເກັບຂໍ້ມູນຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
-    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງ <xliff:g id="PERM">%2$s</xliff:g> ຂອງທ່ານ"</string>
-    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງສະຖານທີ່ທາງກາຍະພາບຂອງທ່ານ"</string>
-    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງປະຕິທິນຂອງທ່ານ"</string>
-    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງບັນທຶກການໂທຂອງທ່ານ"</string>
-    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງກ້ອງຖ່າຍຮູບຂອງທ່ານ"</string>
-    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງລາຍຊື່ຜູ້ຕິດຕໍ່ຂອງທ່ານ"</string>
-    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງສະຖານທີ່ຂອງທ່ານ"</string>
-    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງໄມໂຄຣໂຟນຂອງທ່ານ"</string>
-    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງໂທລະສັບຂອງທ່ານ"</string>
-    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງເຊັນເຊີຂອງທ່ານ"</string>
-    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງ SMS ຂອງທ່ານ"</string>
-    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> ບໍ່ໄດ້ເຂົ້າເຖິງບ່ອນຈັດເກັບຂໍ້ມູນຂອງທ່ານ"</string>
-    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"ຕອນນີ້ບໍ່ມີຂໍ້ມູນການເຂົ້າເຖິງຫຼ້າສຸດສຳລັບສິດອະນຸຍາດນີ້"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ເບິ່ງສິດອະນຸຍາດ <xliff:g id="APP">%1$s</xliff:g> ທັງໝົດ"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ເບິ່ງແອັບທັງໝົດທີ່ມີສິດອະນຸຍາດນີ້"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"ແອັບທີ່ມີສິດອະນຸຍາດນີ້ຈະສາມາດ <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
@@ -192,9 +124,12 @@
     <string name="allowed_header" msgid="6279244592227088158">"ອະນຸຍາດແລ້ວ"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"ອະນຸຍາດຕະຫຼອດເວລາ"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ອະນຸຍາດສະເພາະໃນຕອນໃຊ້ຢູ່ເທົ່ານັ້ນ"</string>
+    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"ຖາມທຸກເທື່ອ"</string>
     <string name="denied_header" msgid="2277998574238617699">"ຖືກປະຕິເສດ"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"ເບິ່ງການນຳໃຊ້ແບບລະອຽດ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ມື້</item>
       <item quantity="one">1 ມື້</item>
@@ -218,6 +153,10 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ບໍ່ມີສິດທີ່ອະນຸຍາດ"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"ບໍ່ມີສິດອະນຸຍາດຖືກປະຕິເສດ"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"ບໍ່ມີແອັບທີ່ອະນຸຍາດ"</string>
+    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
+    <skip />
+    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
+    <skip />
     <string name="no_apps_denied" msgid="2736758388618487796">"ບໍ່ມີແອັບທີ່ຖືກປະຕິເສດ"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"ເລືອກແລ້ວ"</string>
     <string name="settings" msgid="2884124136779508907">"ການຕັ້ງຄ່າ"</string>
@@ -273,11 +212,6 @@
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"ບໍ່ຕ້ອງຖາມອີກ"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"ຕັ້ງເປັນຄ່າເລີ່ມຕົ້ນ"</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"ແອັບເລີ່ມຕົ້ນ"</string>
-    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"ເຂົ້າໃຈແລ້ວ"</string>
-    <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"ການຕັ້ງຄ່າຄວາມເປັນສ່ວນຕົວ"</string>
-    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"ແອັບກຳລັງໃຊ້ <xliff:g id="TYPES_LIST">%s</xliff:g> ຂອງທ່ານ"</string>
-    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
-    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" ແລະ "</string>
     <string name="settings_button" msgid="4747434541214595321">"ການຕັ້ງຄ່າ"</string>
     <string name="default_apps" msgid="8554530939151957828">"ແອັບເລີ່ມຕົ້ນ"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"ບໍ່ມີແອັບເລີ່ມຕົ້ນ"</string>
@@ -312,14 +246,15 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"ໄຮໄລ້ການນຳໃຊ້ສຳລັບສ່ວນຕໍ່ໄປນີ້"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"ສະແດງການກວດຫາຕົວເປີດຜູ້ຊ່ວຍ"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"ສະແດງໄອຄອນໃນແຖບສະຖານະເມື່ອໃຊ້ໄມໂຄຣໂຟນເພື່ອເປີດໃຊ້ຜູ້ຊ່ວຍແບບສຽງ"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ເຂົ້າເຖິງຮູບພາບ ແລະ ມີເດຍຢູ່ອຸປະກອນຂອງທ່ານບໍ?"</string>
+    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
+    <skip />
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ເຂົ້າເຖິງລາຍຊື່ຜູ້ຕິດຕໍ່ຂອງທ່ານບໍ?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ເຂົ້າເຖິງສະຖານທີ່ຂອງອຸປະກອນບໍ?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"ແອັບຈະມີສິດເຂົ້າເຖິງສະຖານທີ່ໃນເວລາທີ່ທ່ານກຳລັງໃຊ້ແອັບຢູ່ເທົ່ານັ້ນ"</string>
     <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ເຂົ້າເຖິງສະຖານທີ່ຂອງອຸປະກອນບໍ?"</string>
-    <string name="permgroupbackgroundrequestdetail_location" msgid="3591766384961100891">"ແອັບນີ້ອາດຕ້ອງການເຂົ້າເຖິງສະຖານທີ່ຂອງທ່ານຕະຫຼອດເວລາ, ເຖິງແມ່ນວ່າທ່ານຈະບໍ່ໄດ້ໃຊ້ແອັບຢູ່ກໍຕາມ. ອະນຸຍາດໃນ "<annotation id="link">"ການຕັ້ງຄ່າ"</annotation>"."</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"ແອັບນີ້ອາດຕ້ອງການເຂົ້າເຖິງສະຖານທີ່ຂອງທ່ານຕະຫຼອດເວລາ, ເຖິງແມ່ນວ່າທ່ານຈະບໍ່ໄດ້ໃຊ້ແອັບຢູ່ກໍຕາມ. "<annotation id="link">"ອະນຸຍາດໃນການຕັ້ງຄ່າ."</annotation></string>
     <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"ປ່ຽນສິດອະນຸຍາດເຂົ້າເຖິງສຳລັບ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ບໍ?"</string>
-    <string name="permgroupupgraderequestdetail_location" msgid="8076811385427479238">"ແອັບນີ້ຕ້ອງການເຂົ້າເຖິງສະຖານທີ່ຂອງທ່ານຕະຫຼອດເວລາ, ເຖິງແມ່ນວ່າທ່ານຈະບໍ່ໄດ້ໃຊ້ແອັບຢູ່ກໍຕາມ. ອະນຸຍາດໃນ "<annotation id="link">"ການຕັ້ງຄ່າ"</annotation>"."</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"ແອັບນີ້ຕ້ອງການເຂົ້າເຖິງສະຖານທີ່ຂອງທ່ານຕະຫຼອດເວລາ, ເຖິງແມ່ນວ່າທ່ານຈະບໍ່ໄດ້ໃຊ້ແອັບຢູ່ກໍຕາມ. "<annotation id="link">"ອະນຸຍາດໃນການຕັ້ງຄ່າ."</annotation></string>
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ເຂົ້າເຖິງປະຕິທິນຂອງທ່ານບໍ?"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ສົ່ງ ແລະ ອ່ານຂໍ້ຄວາມ SMS ບໍ?"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ເຂົ້າເຖິງຮູບພາບ, ມີເດຍ ແລະ ໄຟລ໌ຢູ່ອຸປະກອນຂອງທ່ານບໍ?"</string>
