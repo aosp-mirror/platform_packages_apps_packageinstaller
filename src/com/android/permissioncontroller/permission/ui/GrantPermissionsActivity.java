@@ -332,7 +332,7 @@ public class GrantPermissionsActivity extends Activity
         } else if (DeviceUtils.isWear(this)) {
             mViewHandler = new GrantPermissionsWatchViewHandler(this).setResultListener(this);
         } else if (DeviceUtils.isAuto(this)) {
-            mViewHandler = new GrantPermissionsAutoViewHandler(this, mCallingPackage, userHandle)
+            mViewHandler = new GrantPermissionsAutoViewHandler(this, mCallingPackage)
                     .setResultListener(this);
         } else {
             mViewHandler = new com.android.permissioncontroller.permission.ui.handheld
