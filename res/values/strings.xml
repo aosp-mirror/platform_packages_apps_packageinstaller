@@ -361,10 +361,10 @@
     <!-- Header for permissions/apps that are granted only when in the foreground [CHAR LIMIT=40] -->
     <string name="allowed_foreground_header">Allowed only while in use</string>
 
-    <!-- Subtitle for scoped storage permissions [CHAR LIMIT=40] -->
+    <!-- Subtitle for scoped storage permissions, showing apps that have access to media files only [CHAR LIMIT=45] -->
     <string name="allowed_storage_scoped">Allowed for media only</string>
 
-    <!-- Subtitle for full storage permissions [CHAR LIMIT=40] -->
+    <!-- Subtitle for full storage permissions, showing apps that have access to all files [CHAR LIMIT=45] -->
     <string name="allowed_storage_full">Allowed for all files</string>
 
     <!-- Header for permissions/apps which need to ask next time they want to use the permission. Note: Permission may or may not be currently granted [CHAR LIMIT=60] -->
@@ -418,10 +418,10 @@
     <!-- Label when no apps have been granted a given permission [CHAR LIMIT=none] -->
     <string name="no_apps_allowed">No apps allowed</string>
 
-    <!-- Label when no apps have been denied a given permission [CHAR LIMIT=none] -->
+    <!-- Label when no apps have ben granted storage access to all files on a devie [CHAR LIMIT=none] -->
     <string name="no_apps_allowed_full">No apps allowed for all files</string>
 
-    <!-- Label when no apps have been denied a given permission [CHAR LIMIT=none] -->
+    <!-- Label when no apps have been granted storage access to media files on a device [CHAR LIMIT=none] -->
     <string name="no_apps_allowed_scoped">No apps allowed for media only</string>
 
     <!-- Label when no apps have been denied a given permission [CHAR LIMIT=none] -->
