@@ -433,7 +433,8 @@
             <permission name="android.permission.ACCESS_MEDIA_LOCATION" />
         </permissions>
         <app-ops>
-            <app-op name="android:manage_external_storage" mode="allowed" />
+            <app-op name="android:write_media_images" mode="allowed" />
+            <app-op name="android:write_media_video" mode="allowed" />
         </app-ops>
     </role>
 </roles>
