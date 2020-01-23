@@ -16,7 +16,7 @@
 
 package com.android.permissioncontroller.permission.ui.auto;
 
-import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.DENY_AND_DONT_ASK_AGAIN_BUTTON;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -80,7 +80,7 @@ public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHand
                 .setIconTinted(true)
                 .setNegativeButton(mContext.getString(R.string.grant_dialog_button_deny), this)
                 .setPositiveButton(mContext.getString(R.string.grant_dialog_button_allow), this);
-        if (buttonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON]) {
+        if (buttonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON]) {
             builder.setNeutralButton(
                     mContext.getString(R.string.grant_dialog_button_deny_dont_ask_again), this);
         }
