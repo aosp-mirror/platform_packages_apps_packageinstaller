@@ -26,8 +26,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.Observer
-import com.android.permissioncontroller.permission.utils.ForeverActiveLifecycle
-import com.android.permissioncontroller.permission.utils.Tracer
 import com.android.permissioncontroller.permission.utils.ensureMainThread
 import com.android.permissioncontroller.permission.utils.getInitializedValue
 import com.android.permissioncontroller.permission.utils.shortStackTrace

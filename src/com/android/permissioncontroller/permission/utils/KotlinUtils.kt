@@ -33,7 +33,6 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.UserHandle
 import android.text.TextUtils
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.preference.Preference

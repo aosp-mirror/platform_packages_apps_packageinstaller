@@ -55,8 +55,8 @@ data class LightAppPermGroup(
     /**
      * All foreground permissions in the permission group which are requested by the package.
      */
-    val foregroundPermissions get() = permissions.mapNotNull { (name, perm) ->
-        if (name in backgroundPermNames) perm else null
+    val foregroundPermNames get() = permissions.mapNotNull { (name, _) ->
+        if (name in backgroundPermNames) name else null
     }
 
     val foreground = AppPermSubGroup(permissions.filter { it.key in foregroundPermNames },
@@ -84,12 +84,12 @@ data class LightAppPermGroup(
     /**
      * Whether this App Permission Group's background permissions are fixed by the system or policy
      */
-    val isBackgroundFixed = isBackgroundPolicyFixed || isBackgroundSystemFixed
+    val isBackgroundFixed = background.isPolicyFixed || background.isSystemFixed
 
     /**
      * Whether this App Permission Group's foreground permissions are fixed by the system or policy
      */
-    val isForegroundFixed = isForegroundPolicyFixed || isForegroundSystemFixed
+    val isForegroundFixed = foreground.isPolicyFixed || foreground.isSystemFixed
 
     /**
      * Whether or not this group supports runtime permissions
@@ -158,8 +158,6 @@ data class LightAppPermGroup(
          */
         val isGrantedByDefault = permissions.any { it.value.isGrantedByDefault }
     }
-
-    val isOneTime = permissions.any { it.value.isOneTime }
 
     /**
      * Whether any permissions in this group are granted by default (pregrant)

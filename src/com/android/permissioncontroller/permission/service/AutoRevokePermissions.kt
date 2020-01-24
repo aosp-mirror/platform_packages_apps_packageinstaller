@@ -32,17 +32,22 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Process.myUserHandle
+import android.provider.DeviceConfig
 import android.util.Log
 import androidx.annotation.MainThread
 import com.android.permissioncontroller.Constants
-import com.android.permissioncontroller.permission.data.AppPermGroupRepository
+import com.android.permissioncontroller.PermissionControllerStatsLog
+import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED
+import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
+import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
-import com.android.permissioncontroller.permission.data.PackagePermissionsRepository
-import com.android.permissioncontroller.permission.data.UserPackageInfosRepository
+import com.android.permissioncontroller.permission.data.UserPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.utils.KotlinUtils
+import com.android.permissioncontroller.permission.utils.Utils.PROPERTY_AUTO_REVOKE_CHECK_FREQUENCY_MILLIS
+import com.android.permissioncontroller.permission.utils.Utils.PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS
 import com.android.permissioncontroller.permission.utils.application
 import com.android.permissioncontroller.permission.utils.forEachInParallel
 import kotlinx.coroutines.Dispatchers.IO
@@ -53,22 +58,28 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit.DAYS
 import java.util.concurrent.TimeUnit.SECONDS
-import kotlin.math.max
+import kotlin.random.Random
 
 private const val LOG_TAG = "AutoRevokePermissions"
 private const val DEBUG = false
 
-// TODO eugenesusla: make configurable
 private val UNUSED_THRESHOLD_MS = if (DEBUG)
     SECONDS.toMillis(1)
 else
-    DAYS.toMillis(90)
+    DeviceConfig.getLong(DeviceConfig.NAMESPACE_PERMISSIONS,
+        PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS,
+        DAYS.toMillis(90))
 
-private val CHECK_FREQUENCY_MS = DAYS.toMillis(1)
+private val CHECK_FREQUENCY_MS = DeviceConfig.getLong(
+    DeviceConfig.NAMESPACE_PERMISSIONS,
+    PROPERTY_AUTO_REVOKE_CHECK_FREQUENCY_MILLIS,
+    DAYS.toMillis(1))
+
+private val SERVER_LOG_ID =
+    PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
 
 private val isAutoRevokeEnabled: Boolean get() {
-    // TODO eugenesusla: make configurable via feature flag
-    return true
+    return CHECK_FREQUENCY_MS > 0 && UNUSED_THRESHOLD_MS > 0
 }
 
 /**
@@ -103,12 +114,9 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
 
     val now = System.currentTimeMillis()
 
-    val unusedApps: MutableList<LightPackageInfo> = UserPackageInfosRepository
-        .getAllPackageInfosLiveData(context.application)
+    val unusedApps: MutableList<LightPackageInfo> = UserPackageInfosLiveData[myUserHandle()]
         .getInitializedValue(staleOk = true)
-        .get(myUserHandle())
-        ?.toMutableList()
-        ?: mutableListOf()
+        .toMutableList()
 
     // TODO eugenesusla: adapt UsageStats into a LiveData
     val stats = withContext(IO) {
@@ -134,9 +142,9 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
             return@forEachInParallel
         }
 
-        val pkgPermGroups: Map<String, List<String>> = PackagePermissionsRepository
-            .getPackagePermissionsLiveData(context.application, pkg.packageName, myUserHandle())
-            .getInitializedValue(staleOk = true)
+        val pkgPermGroups: Map<String, List<String>> =
+            PackagePermissionsLiveData[pkg.packageName, myUserHandle()]
+                .getInitializedValue(staleOk = true)
 
         pkgPermGroups.entries.forEachInParallel(Main) { (groupName, groupPermNames) ->
             if (groupName == PackagePermissionsLiveData.NON_RUNTIME_NORMAL_PERMS) {
@@ -144,8 +152,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
             }
 
             val group: LightAppPermGroup =
-                AppPermGroupRepository
-                    .get(pkg.packageName, groupName, myUserHandle())
+                LightAppPermGroupLiveData[pkg.packageName, groupName, myUserHandle()]
                     .getInitializedValue(staleOk = true)
                     ?: return@forEachInParallel
 
@@ -161,6 +168,13 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
                             .permissions
                             .filterValues { it.name in groupPermNames }
                             .values)
+                }
+
+                val uid = group.packageInfo.uid
+                for (permName in groupPermNames) {
+                    PermissionControllerStatsLog.write(
+                        PERMISSION_GRANT_REQUEST_RESULT_REPORTED,
+                        Random.nextLong(), uid, pkg.packageName, permName, false, SERVER_LOG_ID)
                 }
 
                 val packageImportance = context

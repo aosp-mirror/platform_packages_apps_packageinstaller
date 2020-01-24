@@ -109,6 +109,14 @@ public final class Utils {
     private static final String PROPERTY_ONE_TIME_PERMISSIONS_TIMEOUT_MILLIS =
             "one_time_permissions_timeout_millis";
 
+    /** The timeout for auto-revoke permissions */
+    public static final String PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS =
+            "auto_revoke_unused_threshold_millis";
+
+    /** The frequency of running the job for auto-revoke permissions */
+    public static final String PROPERTY_AUTO_REVOKE_CHECK_FREQUENCY_MILLIS =
+            "auto_revoke_check_frequency_millis";
+
     /** Whether to show location access check notifications. */
     private static final String PROPERTY_LOCATION_ACCESS_CHECK_ENABLED =
             "location_access_check_enabled";

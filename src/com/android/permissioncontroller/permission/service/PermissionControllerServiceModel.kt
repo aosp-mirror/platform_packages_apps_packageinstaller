@@ -30,7 +30,6 @@ import com.android.permissioncontroller.permission.data.PackagePermissionsLiveDa
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.data.UserPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.get
-import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
