@@ -369,7 +369,7 @@ public class GrantPermissionsActivity extends Activity
 
                 if (mAppPermissions.getPackageInfo().applicationInfo.targetSdkVersion
                         >= Build.VERSION_CODES.R && mRequestedPermissions.length > 1
-                        && (group.isBackgroundGroup() || group.hasPermissionWithBackgroundMode())) {
+                        && group.isBackgroundGroup()) {
                     throw new SecurityException("Apps targeting " + Build.VERSION_CODES.R + " must"
                             + " have foreground permission before requesting background and must"
                             + " request background on its own.");
