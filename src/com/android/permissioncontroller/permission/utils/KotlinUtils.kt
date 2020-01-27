@@ -558,8 +558,8 @@ object KotlinUtils {
         val supportsRuntime = group.packageInfo.targetSdkVersion >= Build.VERSION_CODES.M
         val user = UserHandle.getUserHandleForUid(group.packageInfo.uid)
         var newFlags = perm.flags
+        var isGranted = perm.isGrantedIncludingAppOp
         var shouldKill = false
-        var isGranted = true
 
         val affectsAppOp = permissionToOp(perm.name) != null || perm.isBackgroundPermission
 
