@@ -16,22 +16,24 @@
 
 package com.android.permissioncontroller.permission.ui.handheld;
 
-import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.VISIBILITY_ALLOW_BUTTON;
-import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.VISIBILITY_ALLOW_FOREGROUND_BUTTON;
-import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.VISIBILITY_ALLOW_ONE_TIME_BUTTON;
-import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON;
-import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.VISIBILITY_DENY_BUTTON;
-import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.VISIBILITY_NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON;
-import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.VISIBILITY_NO_UPGRADE_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_FOREGROUND_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_ONE_TIME_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.DENY_AND_DONT_ASK_AGAIN_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.DENY_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.NO_UPGRADE_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.NO_UPGRADE_OT_BUTTON;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.text.method.LinkMovementMethod;
 import android.transition.ChangeBounds;
 import android.transition.TransitionManager;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,8 +48,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.android.permissioncontroller.R;
+import com.android.permissioncontroller.permission.ui.GrantPermissionsActivity;
 import com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler;
-import com.android.permissioncontroller.permission.ui.ManagePermissionsActivity;
 
 public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHandler,
         OnClickListener {
@@ -63,6 +65,23 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     // Animation parameters.
     private static final long SWITCH_TIME_MILLIS = 75;
     private static final long ANIMATION_DURATION_MILLIS = 200;
+
+    private static final SparseArray<Integer> BUTTON_RES_ID_TO_NUM = new SparseArray<>();
+    static {
+        BUTTON_RES_ID_TO_NUM.put(R.id.permission_allow_button, ALLOW_BUTTON);
+        BUTTON_RES_ID_TO_NUM.put(R.id.permission_allow_foreground_only_button,
+                ALLOW_FOREGROUND_BUTTON);
+        BUTTON_RES_ID_TO_NUM.put(R.id.permission_deny_button, DENY_BUTTON);
+        BUTTON_RES_ID_TO_NUM.put(R.id.permission_deny_and_dont_ask_again_button,
+                DENY_AND_DONT_ASK_AGAIN_BUTTON);
+        BUTTON_RES_ID_TO_NUM.put(R.id.permission_allow_one_time_button, ALLOW_ONE_TIME_BUTTON);
+        BUTTON_RES_ID_TO_NUM.put(R.id.permission_no_upgrade_button, NO_UPGRADE_BUTTON);
+        BUTTON_RES_ID_TO_NUM.put(R.id.permission_no_upgrade_and_dont_ask_again_button,
+                NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON);
+        BUTTON_RES_ID_TO_NUM.put(R.id.permission_no_upgrade_one_time_button, NO_UPGRADE_OT_BUTTON);
+        BUTTON_RES_ID_TO_NUM.put(R.id.permission_no_upgrade_one_time_and_dont_ask_again_button,
+                NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON);
+    }
 
     private final Activity mActivity;
     private final String mAppPackageName;
@@ -83,13 +102,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private ImageView mIconView;
     private TextView mMessageView;
     private TextView mDetailMessageView;
-    private Button mAllowButton;
-    private Button mAllowForegroundButton;
-    private Button mAllowOneTimeButton;
-    private Button mDenyButton;
-    private Button mDenyAndDontAskAgainButton;
-    private Button mNoUpgradeButton;
-    private Button mNoUpgradeAndDontAskAgainButton;
+    private Button[] mButtons;
     private ViewGroup mRootView;
 
     public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName,
@@ -176,24 +189,15 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mDetailMessageView = mRootView.findViewById(R.id.detail_message);
         mDetailMessageView.setMovementMethod(LinkMovementMethod.getInstance());
         mIconView = mRootView.findViewById(R.id.permission_icon);
-        mAllowButton = mRootView.findViewById(R.id.permission_allow_button);
-        mAllowButton.setOnClickListener(this);
-        mAllowForegroundButton =
-                mRootView.findViewById(R.id.permission_allow_foreground_only_button);
-        mAllowForegroundButton.setOnClickListener(this);
-        mAllowOneTimeButton =
-                mRootView.findViewById(R.id.permission_allow_one_time_button);
-        mAllowOneTimeButton.setOnClickListener(this);
-        mDenyButton = mRootView.findViewById(R.id.permission_deny_button);
-        mDenyButton.setOnClickListener(this);
-        mDenyAndDontAskAgainButton =
-                mRootView.findViewById(R.id.permission_deny_and_dont_ask_again_button);
-        mDenyAndDontAskAgainButton.setOnClickListener(this);
-        mNoUpgradeButton = mRootView.findViewById(R.id.permission_no_upgrade_button);
-        mNoUpgradeButton.setOnClickListener(this);
-        mNoUpgradeAndDontAskAgainButton =
-                mRootView.findViewById(R.id.permission_no_upgrade_and_dont_ask_again_button);
-        mNoUpgradeAndDontAskAgainButton.setOnClickListener(this);
+
+        mButtons = new Button[GrantPermissionsActivity.NEXT_BUTTON];
+
+        int numButtons = BUTTON_RES_ID_TO_NUM.size();
+        for (int i = 0; i < numButtons; i++) {
+            Button button = mRootView.findViewById(BUTTON_RES_ID_TO_NUM.keyAt(i));
+            button.setOnClickListener(this);
+            mButtons[BUTTON_RES_ID_TO_NUM.valueAt(i)] = button;
+        }
 
         if (mGroupName != null) {
             updateAll();
@@ -224,31 +228,34 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     }
 
     private void updateButtons() {
-        updateButton(mAllowButton, VISIBILITY_ALLOW_BUTTON);
-        updateButton(mAllowForegroundButton, VISIBILITY_ALLOW_FOREGROUND_BUTTON);
-        updateButton(mAllowOneTimeButton, VISIBILITY_ALLOW_ONE_TIME_BUTTON);
-        updateButton(mDenyButton, VISIBILITY_DENY_BUTTON);
-        updateButton(mDenyAndDontAskAgainButton, VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON);
-        updateButton(mNoUpgradeButton, VISIBILITY_NO_UPGRADE_BUTTON);
-        updateButton(mNoUpgradeAndDontAskAgainButton,
-                VISIBILITY_NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON);
-    }
-
-    private void updateButton(Button button, int pos) {
-        button.setVisibility(mButtonVisibilities[pos] ? View.VISIBLE : View.GONE);
+        int numButtons = BUTTON_RES_ID_TO_NUM.size();
+        for (int i = 0; i < numButtons; i++) {
+            int pos = BUTTON_RES_ID_TO_NUM.valueAt(i);
+            mButtons[pos].setVisibility(mButtonVisibilities[pos] ? View.VISIBLE : View.GONE);
+        }
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.permission_allow_button:
+        int id = view.getId();
+        if (id == R.id.grant_singleton) {
+            if (mResultListener != null) {
+                mResultListener.onPermissionGrantResult(mGroupName, CANCELED);
+            } else {
+                mActivity.finish();
+            }
+            return;
+        }
+        int button = BUTTON_RES_ID_TO_NUM.get(id);
+        switch (button) {
+            case ALLOW_BUTTON:
                 if (mResultListener != null) {
                     view.performAccessibilityAction(
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
                     mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ALWAYS);
                 }
                 break;
-            case R.id.permission_allow_foreground_only_button:
+            case ALLOW_FOREGROUND_BUTTON:
                 if (mResultListener != null) {
                     view.performAccessibilityAction(
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
@@ -256,53 +263,30 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                             GRANTED_FOREGROUND_ONLY);
                 }
                 break;
-            case R.id.permission_allow_one_time_button:
+            case ALLOW_ONE_TIME_BUTTON:
                 if (mResultListener != null) {
                     view.performAccessibilityAction(
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
                     mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ONE_TIME);
                 }
                 break;
-            case R.id.permission_deny_button:
+            case DENY_BUTTON:
+            case NO_UPGRADE_BUTTON:
+            case NO_UPGRADE_OT_BUTTON:
                 if (mResultListener != null) {
                     view.performAccessibilityAction(
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
                     mResultListener.onPermissionGrantResult(mGroupName, DENIED);
                 }
                 break;
-            case R.id.permission_deny_and_dont_ask_again_button:
+            case DENY_AND_DONT_ASK_AGAIN_BUTTON:
+            case NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON:
+            case NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON:
                 if (mResultListener != null) {
                     view.performAccessibilityAction(
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
-                    mResultListener.onPermissionGrantResult(mGroupName, DENIED_DO_NOT_ASK_AGAIN);
-                }
-                break;
-            case R.id.permission_more_info_button:
-                Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
-                intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mAppPackageName);
-                intent.putExtra(Intent.EXTRA_USER, mUserHandle);
-                intent.putExtra(ManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
-                mActivity.startActivity(intent);
-                break;
-            case R.id.permission_no_upgrade_button:
-                if (mResultListener != null) {
-                    view.performAccessibilityAction(
-                            AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
-                    mResultListener.onPermissionGrantResult(mGroupName, DENIED);
-                }
-                break;
-            case R.id.permission_no_upgrade_and_dont_ask_again_button:
-                if (mResultListener != null) {
-                    view.performAccessibilityAction(
-                            AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
-                    mResultListener.onPermissionGrantResult(mGroupName, DENIED_DO_NOT_ASK_AGAIN);
-                }
-                break;
-            case R.id.grant_singleton:
-                if (mResultListener != null) {
-                    mResultListener.onPermissionGrantResult(mGroupName, CANCELED);
-                } else {
-                    mActivity.finish();
+                    mResultListener.onPermissionGrantResult(mGroupName,
+                            DENIED_DO_NOT_ASK_AGAIN);
                 }
                 break;
         }

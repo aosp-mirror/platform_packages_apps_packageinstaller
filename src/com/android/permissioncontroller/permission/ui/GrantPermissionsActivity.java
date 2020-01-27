@@ -98,15 +98,17 @@ public class GrantPermissionsActivity extends Activity
             + "_REQUEST_ID";
     public static final String ANNOTATION_ID = "link";
 
-    public static final int NUM_BUTTONS = 8;
-    public static final int VISIBILITY_ALLOW_BUTTON = 0;
+    public static final int NEXT_BUTTON = 10;
+    public static final int ALLOW_BUTTON = 0;
     //    public static int LABEL_ALLOW_ALWAYS_BUTTON = 1; RESERVED
-    public static final int VISIBILITY_ALLOW_FOREGROUND_BUTTON = 2;
-    public static final int VISIBILITY_DENY_BUTTON = 3;
-    public static final int VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON = 4;
-    public static final int VISIBILITY_ALLOW_ONE_TIME_BUTTON = 5;
-    public static final int VISIBILITY_NO_UPGRADE_BUTTON = 6;
-    public static final int VISIBILITY_NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON = 7;
+    public static final int ALLOW_FOREGROUND_BUTTON = 2;
+    public static final int DENY_BUTTON = 3;
+    public static final int DENY_AND_DONT_ASK_AGAIN_BUTTON = 4;
+    public static final int ALLOW_ONE_TIME_BUTTON = 5;
+    public static final int NO_UPGRADE_BUTTON = 6;
+    public static final int NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON = 7;
+    public static final int NO_UPGRADE_OT_BUTTON = 8; // one-time
+    public static final int NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON = 9; // one-time
 
     private static final int APP_PERMISSION_REQUEST_CODE = 1;
 
@@ -681,10 +683,10 @@ public class GrantPermissionsActivity extends Activity
                     }
                 }
 
-                mButtonVisibilities = new boolean[NUM_BUTTONS];
-                mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = true;
-                mButtonVisibilities[VISIBILITY_DENY_BUTTON] = true;
-                mButtonVisibilities[VISIBILITY_ALLOW_ONE_TIME_BUTTON] =
+                mButtonVisibilities = new boolean[NEXT_BUTTON];
+                mButtonVisibilities[ALLOW_BUTTON] = true;
+                mButtonVisibilities[DENY_BUTTON] = true;
+                mButtonVisibilities[ALLOW_ONE_TIME_BUTTON] =
                         groupState.mGroup.supportsOneTimeGrant();
 
                 int messageId;
@@ -700,11 +702,11 @@ public class GrantPermissionsActivity extends Activity
                         } else if (needForegroundPermission) {
                             // Case: sdk >= R, BG/FG permission requesting FG only
                             messageId = groupState.mGroup.getRequest();
-                            mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
-                            mButtonVisibilities[VISIBILITY_ALLOW_FOREGROUND_BUTTON] = true;
-                            mButtonVisibilities[VISIBILITY_DENY_BUTTON] =
+                            mButtonVisibilities[ALLOW_BUTTON] = false;
+                            mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
+                            mButtonVisibilities[DENY_BUTTON] =
                                     !isForegroundPermissionUserSet;
-                            mButtonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
+                            mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
                                     isForegroundPermissionUserSet;
                         } else if (needBackgroundPermission) {
                             // Case: sdk >= R, BG/FG permission requesting BG only
@@ -731,15 +733,15 @@ public class GrantPermissionsActivity extends Activity
                     } else {
                         // Case: sdk >= R, Requesting normal permission
                         messageId = groupState.mGroup.getRequest();
-                        mButtonVisibilities[VISIBILITY_DENY_BUTTON] =
+                        mButtonVisibilities[DENY_BUTTON] =
                                 !isForegroundPermissionUserSet;
-                        mButtonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
+                        mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
                                 isForegroundPermissionUserSet;
                         if (groupState.mGroup.getName().equals(Manifest.permission_group.CAMERA)
                                 || groupState.mGroup.getName().equals(
                                 Manifest.permission_group.MICROPHONE)) {
-                            mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
-                            mButtonVisibilities[VISIBILITY_ALLOW_FOREGROUND_BUTTON] = true;
+                            mButtonVisibilities[ALLOW_BUTTON] = false;
+                            mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
                         }
                     }
                 } else {
@@ -749,32 +751,40 @@ public class GrantPermissionsActivity extends Activity
                             // Case: sdk < R, BG/FG permission requesting both
                             messageId = groupState.mGroup.getBackgroundRequest();
                             detailMessageId = groupState.mGroup.getBackgroundRequestDetail();
-                            mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
-                            mButtonVisibilities[VISIBILITY_ALLOW_FOREGROUND_BUTTON] = true;
-                            mButtonVisibilities[VISIBILITY_DENY_BUTTON] =
+                            mButtonVisibilities[ALLOW_BUTTON] = false;
+                            mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
+                            mButtonVisibilities[DENY_BUTTON] =
                                     !isForegroundPermissionUserSet;
-                            mButtonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
+                            mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
                                     isForegroundPermissionUserSet;
                         } else if (needForegroundPermission) {
                             // Case: sdk < R, BG/FG permission requesting FG only
                             messageId = groupState.mGroup.getRequest();
-                            mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
-                            mButtonVisibilities[VISIBILITY_ALLOW_FOREGROUND_BUTTON] = true;
-                            mButtonVisibilities[VISIBILITY_DENY_BUTTON] =
+                            mButtonVisibilities[ALLOW_BUTTON] = false;
+                            mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
+                            mButtonVisibilities[DENY_BUTTON] =
                                     !isForegroundPermissionUserSet;
-                            mButtonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
+                            mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
                                     isForegroundPermissionUserSet;
                         } else if (needBackgroundPermission) {
                             // Case: sdk < R, BG/FG permission requesting BG only
                             messageId = groupState.mGroup.getUpgradeRequest();
                             detailMessageId = groupState.mGroup.getUpgradeRequestDetail();
-                            mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
-                            mButtonVisibilities[VISIBILITY_DENY_BUTTON] = false;
-                            mButtonVisibilities[VISIBILITY_ALLOW_ONE_TIME_BUTTON] = false;
-                            mButtonVisibilities[VISIBILITY_NO_UPGRADE_BUTTON] =
-                                    !isBackgroundPermissionUserSet;
-                            mButtonVisibilities[VISIBILITY_NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON] =
-                                    isBackgroundPermissionUserSet;
+                            mButtonVisibilities[ALLOW_BUTTON] = false;
+                            mButtonVisibilities[DENY_BUTTON] = false;
+                            mButtonVisibilities[ALLOW_ONE_TIME_BUTTON] = false;
+                            if (mAppPermissions.getPermissionGroup(
+                                    groupState.mGroup.getName()).isOneTime()) {
+                                mButtonVisibilities[NO_UPGRADE_OT_BUTTON] =
+                                        !isBackgroundPermissionUserSet;
+                                mButtonVisibilities[NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON] =
+                                        isBackgroundPermissionUserSet;
+                            } else {
+                                mButtonVisibilities[NO_UPGRADE_BUTTON] =
+                                        !isBackgroundPermissionUserSet;
+                                mButtonVisibilities[NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON] =
+                                        isBackgroundPermissionUserSet;
+                            }
                         } else {
                             // Not reached as the permissions should be auto-granted
                             return false;
@@ -782,15 +792,15 @@ public class GrantPermissionsActivity extends Activity
                     } else {
                         // Case: sdk < R, Requesting normal permission
                         messageId = groupState.mGroup.getRequest();
-                        mButtonVisibilities[VISIBILITY_DENY_BUTTON] =
+                        mButtonVisibilities[DENY_BUTTON] =
                                 !isForegroundPermissionUserSet;
-                        mButtonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON] =
+                        mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
                                 isForegroundPermissionUserSet;
                         if (groupState.mGroup.getName().equals(Manifest.permission_group.CAMERA)
                                 || groupState.mGroup.getName().equals(
                                         Manifest.permission_group.MICROPHONE)) {
-                            mButtonVisibilities[VISIBILITY_ALLOW_BUTTON] = false;
-                            mButtonVisibilities[VISIBILITY_ALLOW_FOREGROUND_BUTTON] = true;
+                            mButtonVisibilities[ALLOW_BUTTON] = false;
+                            mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
                         }
                     }
                 }
@@ -1185,27 +1195,31 @@ public class GrantPermissionsActivity extends Activity
         int presentedButtons = getButtonState();
         switch (grantResult) {
             case GRANTED_ALWAYS:
-                clickedButton = 1 << VISIBILITY_ALLOW_BUTTON;
+                clickedButton = 1 << ALLOW_BUTTON;
                 break;
             case GRANTED_FOREGROUND_ONLY:
-                clickedButton = 1 << VISIBILITY_ALLOW_FOREGROUND_BUTTON;
+                clickedButton = 1 << ALLOW_FOREGROUND_BUTTON;
                 break;
             case DENIED:
-                if (mButtonVisibilities[VISIBILITY_NO_UPGRADE_BUTTON]) {
-                    clickedButton = 1 << VISIBILITY_NO_UPGRADE_BUTTON;
-                } else if (mButtonVisibilities[VISIBILITY_DENY_BUTTON]) {
-                    clickedButton = 1 << VISIBILITY_DENY_BUTTON;
+                if (mButtonVisibilities[NO_UPGRADE_BUTTON]) {
+                    clickedButton = 1 << NO_UPGRADE_BUTTON;
+                } else if (mButtonVisibilities[NO_UPGRADE_OT_BUTTON]) {
+                    clickedButton = 1 << NO_UPGRADE_OT_BUTTON;
+                } else if (mButtonVisibilities[DENY_BUTTON]) {
+                    clickedButton = 1 << DENY_BUTTON;
                 }
                 break;
             case DENIED_DO_NOT_ASK_AGAIN:
-                if (mButtonVisibilities[VISIBILITY_NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON]) {
-                    clickedButton = 1 << VISIBILITY_NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON;
-                } else if (mButtonVisibilities[VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON]) {
-                    clickedButton = 1 << VISIBILITY_DENY_AND_DONT_ASK_AGAIN_BUTTON;
+                if (mButtonVisibilities[NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON]) {
+                    clickedButton = 1 << NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON;
+                } else if (mButtonVisibilities[NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON]) {
+                    clickedButton = 1 << NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON;
+                } else if (mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON]) {
+                    clickedButton = 1 << DENY_AND_DONT_ASK_AGAIN_BUTTON;
                 }
                 break;
             case GRANTED_ONE_TIME:
-                clickedButton = 1 << VISIBILITY_ALLOW_ONE_TIME_BUTTON;
+                clickedButton = 1 << ALLOW_ONE_TIME_BUTTON;
                 break;
             case CANCELED:
                 // fall through
@@ -1226,7 +1240,7 @@ public class GrantPermissionsActivity extends Activity
             return 0;
         }
         int buttonState = 0;
-        for (int i = NUM_BUTTONS - 1; i >= 0; i--) {
+        for (int i = NEXT_BUTTON - 1; i >= 0; i--) {
             buttonState *= 2;
             if (mButtonVisibilities[i]) {
                 buttonState++;
