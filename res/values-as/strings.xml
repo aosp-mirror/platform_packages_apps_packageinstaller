@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"ঠিক আছে"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"অনুমতি"</string>
     <string name="cancel" msgid="7279939269964834974">"বাতিল কৰক"</string>
+    <string name="back" msgid="8739808065891653074">"উভতি যাওক"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"এপ্ পোৱা নগ\'ল"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"অস্বীকাৰ কৰক"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"অস্বীকাৰ কৰক, পুনৰাই নুসুধিব"</string>
@@ -37,10 +38,8 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"একো অক্ষম কৰা হোৱা নাই"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"অনুমতি দিয়ক"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"সদায় অনুমতি দিয়ক"</string>
-    <!-- no translation found for grant_dialog_button_allow_foreground (3921023528122697550) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_one_time (3290372652702487431) -->
-    <skip />
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"এপ্‌টো ব্যৱহাৰ কৰি থকাৰ সময়ত"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"কেৱল এইবাৰৰ বাবে"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"সদায় অনুমতি দিয়ক"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"এপ্"</string>
     <string name="app_permissions" msgid="2778362347879465223">"এপ্‌ৰ অনুমতি"</string>
@@ -126,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"অনুমতি দিয়া হৈছে"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"সকলো সময়তে অনুমতি দিয়া হৈছে"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"কেৱল ব্যৱহাৰ হৈ থকা সময়ত অনুমতি দিয়া হয়"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"কেৱল মিডিয়াৰ বাবে অনুমতি আছে"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"সকলো ফাইলৰ বাবে অনুমতি আছে"</string>
     <string name="ask_header" msgid="4471670860332046665">"প্ৰতিবাৰতে সোধক"</string>
     <string name="denied_header" msgid="2277998574238617699">"অস্বীকাৰ কৰা হৈছে"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -155,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"কোনো অনুমতি দিয়া নাই"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"কোনো অনুমতি প্ৰত্যাখ্যান কৰা নাই"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"কোনো এপক অনুমতি দিয়া নাই"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"সকলোবোৰ ফাইলৰ বাবে কোনো এপৰ অনুমতি নাই"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"কেৱল মিডিয়াৰ বাবে কোনো এপৰ অনুমতি নাই"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"কোনো এপ্ প্ৰত্যাখ্যান কৰা নাই"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"বাছনিকৃত"</string>
     <string name="settings" msgid="2884124136779508907">"ছেটিংসমূহ"</string>
@@ -248,17 +243,14 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"তলত উল্লেখ কৰাবোৰৰ ব্যৱহাৰ হাইলাইট কৰক"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"সহায়কৰ ট্ৰিগাৰ চিনাক্তকৰণ দেখুৱাওক"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"ভইচ এছিষ্টেণ্ট সক্ৰিয় কৰিবলৈ মাইক্ৰফ’ন ব্যৱহাৰ কৰিলে স্থিতি দণ্ডত দেখুৱাওক"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক এই ডিভাইচটোৰ মিডিয়া ফাইলসমূহ পঢ়িবলৈ অনুমতি দিবনে?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক আপোনাৰ সম্পৰ্কসূচী চাবলৈ অনুমতি দিবনে?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক এই ডিভাইচটোৰ অৱস্থান এক্সেছ কৰিবলৈ অনুমতি দিবনে?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"আপুনি এই এপ্ ব্যৱহাৰ কৰি থকাৰ সময়তহে ই আপোনাৰ অৱস্থান এক্সেছ কৰিব পাৰে"</string>
     <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক এই ডিভাইচটোৰ অৱস্থান এক্সেছ কৰিবলৈ অনুমতি দিবনে?"</string>
-    <!-- no translation found for permgroupbackgroundrequestdetail_location (662062069425575543) -->
-    <skip />
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"এই এপ্‌টোৱে সকলো সময়তে আপোনাৰ অৱস্থান এক্সেছ কৰিবলৈ বিচাৰিব পাৰে, আনকি আপুনি এপ্‌টো ব্যৱহাৰ কৰি নথকা সময়তো। "<annotation id="link">"ছেটিংসমূহত ত অনুমতি দিয়ক।"</annotation></string>
     <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ৰ বাবে অৱস্থানৰ এক্সেছ সলনি কৰিবনে?"</string>
-    <!-- no translation found for permgroupupgraderequestdetail_location (7847444194059562705) -->
-    <skip />
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"এই এপ্‌টোৱে সকলো সময়তে আপোনাৰ অৱস্থান এক্সেছ কৰিবলৈ বিচাৰে, আনকি আপুনি এপ্‌টো ব্যৱহাৰ কৰি নথকা সময়তো। "<annotation id="link">"ত অনুমতি দিয়ক।"</annotation></string>
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক আপোনাৰ কেলেণ্ডাৰ চাবলৈ অনুমতি দিবনে?"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক এছএমএছ বাৰ্তা পঠিয়াবলৈ আৰু চাবলৈ অনুমতি দিবনে?"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক আপোনাৰ ডিভাইচত থকা ফট\', মিডিয়া আৰু ফাইল চাবলৈ অনুমতি দিবনে?"</string>

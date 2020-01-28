@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"V redu"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"dovoljenja"</string>
     <string name="cancel" msgid="7279939269964834974">"Prekliči"</string>
+    <string name="back" msgid="8739808065891653074">"Nazaj"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplikacije ni mogoče najti"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Zavrni"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Zavrni in ne sprašuj več"</string>
@@ -126,10 +127,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Dovoljeno"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Vedno dovoljeno"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Dovoljeno samo med uporabo aplikacije"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Dovoljeno samo za predstavnost"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"Dovoljeno za vse datoteke"</string>
     <string name="ask_header" msgid="4471670860332046665">"Vedno vprašaj"</string>
     <string name="denied_header" msgid="2277998574238617699">"Zavrnjeno"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -163,10 +162,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Aplikacija nima nobenih dovoljenj"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nobeno dovoljenje ni odvzeto"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Nobena aplikacija nima dovoljenja"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Nobena aplikacija za »Dovoljeno za vse datoteke«"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Nobena aplikacija za »Dovoljeno samo za predstavnost«"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Dovoljenje ni zavrnjeno nobeni aplikaciji"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Izbrano"</string>
     <string name="settings" msgid="2884124136779508907">"Nastavitve"</string>
@@ -256,8 +253,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Izpostavitev uporabe za naslednje"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Prikaz zaznavanja sprožilca za pomočnika"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Prikaz ikone v vrstici stanja, ko z mikrofonom aktivirate glasovnega pomočnika"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Želite aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; dovoliti branje datotek predstavnosti v tej napravi?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Dovolite aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; dostop do stikov?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Želite aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; dovoliti dostop do lokacije te naprave?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Aplikacija bo imela dostop do lokacije samo, ko aplikacijo uporabljate"</string>

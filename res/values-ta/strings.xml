@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"சரி"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"அனுமதிகள்"</string>
     <string name="cancel" msgid="7279939269964834974">"ரத்துசெய்"</string>
+    <string name="back" msgid="8739808065891653074">"பின்செல்"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ஆப்ஸ் இல்லை"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"நிராகரி"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"நிராகரி, மீண்டும் கேட்காதே"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"அனுமதிக்கப்பட்டவை"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"எப்போதும் அனுமதிக்கப்படுபவை"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"உபயோகத்தில் மட்டுமே அனுமதிக்கப்படும்"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"மீடியா ஃபைல்கள் மட்டுமே அனுமதிக்கப்படும்"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"அனைத்து ஃபைல்களும் அனுமதிக்கப்படும்"</string>
     <string name="ask_header" msgid="4471670860332046665">"ஒவ்வொரு முறையும் கேள்"</string>
     <string name="denied_header" msgid="2277998574238617699">"மறுக்கப்பட்டது"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"எந்த அனுமதிகளும் வழங்கப்படவில்லை"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"எந்த அனுமதிகளும் மறுக்கப்படவில்லை"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"எந்த ஆப்ஸும் அனுமதிக்கப்படவில்லை"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"அனைத்து ஃபைல்களுக்குமான அனுமதி எந்த ஆப்ஸுக்கும் இல்லை"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"மீடியா ஃபைல்களுக்கு மட்டுமான அனுமதி எந்த ஆப்ஸுக்கும் இல்லை"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"எந்த ஆப்ஸுக்கும் அனுமதி மறுக்கப்படவில்லை"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"தேர்ந்தெடுக்கப்பட்டது"</string>
     <string name="settings" msgid="2884124136779508907">"அமைப்புகள்"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"பின்வருபவற்றின் உபயோகத்தைத் தனிப்படுத்திக் காட்டு"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"அசிஸ்டண்ட் இயக்கப்படுவதைக் கண்டறியும் ஐகானைக் காட்டு"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"குரல் உதவியை இயக்க மைக்ரோஃபோனைப் பயன்படுத்தும்போது நிலைப் பட்டியில் ஐகானைக் காட்டு"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"இந்த சாதனத்தின் மீடியா ஃபைல்களைப் பார்க்க &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"தொடர்புகளை அணுகுவதற்கு &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"இந்தச் சாதனத்தின் இருப்பிடத்தை அணுகுவதற்கு &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"இந்த ஆப்ஸை நீங்கள் உபயோகிக்கும்போது மட்டுமே இருப்பிடத்தை அணுகும்"</string>

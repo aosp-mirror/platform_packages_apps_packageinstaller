@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"ຕົກລົງ"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"ສິດອະນຸຍາດ"</string>
     <string name="cancel" msgid="7279939269964834974">"ຍົກເລີກ"</string>
+    <string name="back" msgid="8739808065891653074">"ກັບຄືນ"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ບໍ່ພົບແອັບ"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"ປະຕິເສດ"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"ປະຕິເສດ ແລະ ຢ່າຖາມອີກ"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"ອະນຸຍາດແລ້ວ"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"ອະນຸຍາດຕະຫຼອດເວລາ"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ອະນຸຍາດສະເພາະໃນຕອນໃຊ້ຢູ່ເທົ່ານັ້ນ"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"ອະນຸຍາດສຳລັບມີເດຍເທົ່ານັ້ນ"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"ອະນຸຍາດສຳລັບທຸກໄຟລ໌"</string>
     <string name="ask_header" msgid="4471670860332046665">"ຖາມທຸກເທື່ອ"</string>
     <string name="denied_header" msgid="2277998574238617699">"ຖືກປະຕິເສດ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ບໍ່ມີສິດທີ່ອະນຸຍາດ"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"ບໍ່ມີສິດອະນຸຍາດຖືກປະຕິເສດ"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"ບໍ່ມີແອັບທີ່ອະນຸຍາດ"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"ບໍ່ອະນຸຍາດແອັບສຳລັບທຸກໄຟລ໌"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"ບໍ່ອະນຸຍາດແອັບສຳລັບມີເດຍເທົ່ານັ້ນ"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"ບໍ່ມີແອັບທີ່ຖືກປະຕິເສດ"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"ເລືອກແລ້ວ"</string>
     <string name="settings" msgid="2884124136779508907">"ການຕັ້ງຄ່າ"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"ໄຮໄລ້ການນຳໃຊ້ສຳລັບສ່ວນຕໍ່ໄປນີ້"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"ສະແດງການກວດຫາຕົວເປີດຜູ້ຊ່ວຍ"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"ສະແດງໄອຄອນໃນແຖບສະຖານະເມື່ອໃຊ້ໄມໂຄຣໂຟນເພື່ອເປີດໃຊ້ຜູ້ຊ່ວຍແບບສຽງ"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ອ່ານໄຟລ໌ມີເດຍຂອງອຸປະກອນນີ້ບໍ?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ເຂົ້າເຖິງລາຍຊື່ຜູ້ຕິດຕໍ່ຂອງທ່ານບໍ?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ເຂົ້າເຖິງສະຖານທີ່ຂອງອຸປະກອນບໍ?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"ແອັບຈະມີສິດເຂົ້າເຖິງສະຖານທີ່ໃນເວລາທີ່ທ່ານກຳລັງໃຊ້ແອັບຢູ່ເທົ່ານັ້ນ"</string>
