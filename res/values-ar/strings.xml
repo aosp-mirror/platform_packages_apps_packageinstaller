@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"حسنًا"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"أذونات"</string>
     <string name="cancel" msgid="7279939269964834974">"إلغاء"</string>
+    <string name="back" msgid="8739808065891653074">"رجوع"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"لم يتمّ العثور على التطبيق."</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"رفض"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"رفض وعدم طرح السؤال مرةً أخرى"</string>
@@ -128,10 +129,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"التطبيقات المسموح بها"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"التطبيقات المسموح بها طوال الوقت"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"التطبيقات المسموح بها فقط أثناء استخدامها"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"مسموح به مع الوسائط فقط"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"مسموح به مع كل الملفات"</string>
     <string name="ask_header" msgid="4471670860332046665">"الطلب في كل مرة"</string>
     <string name="denied_header" msgid="2277998574238617699">"التطبيقات المرفوضة"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -173,10 +172,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"لم يتم منح أي أذونات."</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"لم يتم رفض أي أذونات."</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"لم يتم السماح لأي تطبيقات."</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"لم يتم منح الإذن للتطبيقات بالتعامل مع كل الملفات"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"لم يتم منح الإذن للتطبيقات بالتعامل مع الوسائط فقط"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"لم يتم رفض أي تطبيقات."</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"مُختار"</string>
     <string name="settings" msgid="2884124136779508907">"الإعدادات"</string>
@@ -266,15 +263,14 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"إبراز بيانات الاستخدام لما يلي:"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"‏عرض رمز رصد تشغيل \"مساعد Google\""</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"عرض الرمز في شريط الحالة عند استخدام الميكروفون لتفعيل المساعد الصوتي."</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بقراءة ملفات الوسائط في هذا الجهاز؟"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بالوصول إلى جهات الاتصال؟"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بالوصول إلى الموقع الجغرافي لهذا الجهاز؟"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"لن يكون بإمكان التطبيق الوصول إلى الموقع الجغرافي إلا عند استخدامك لهذا التطبيق."</string>
     <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بالوصول إلى الموقع الجغرافي لهذا الجهاز؟"</string>
-    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"يمكن أن يطلب هذا التطبيق الوصول إلى موقعك الجغرافي طوال الوقت حتى عند عدم استخدامك للتطبيق. يمكنك "<annotation id="link">"السماح بذلك في الإعدادات."</annotation></string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"قد يطلب هذا التطبيق الوصول الدائم إلى موقعك الجغرافي، حتى عند عدم استخدامك للتطبيق. يمكنك "<annotation id="link">"السماح بذلك في الإعدادات."</annotation></string>
     <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"‏هل تريد تغيير إمكانية الوصول إلى الموقع الجغرافي بالنسبة إلى &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;؟"</string>
-    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"يطلب هذا التطبيق الوصول إلى موقعك الجغرافي طوال الوقت حتى عند عدم استخدامك للتطبيق. يمكنك "<annotation id="link">"السماح بذلك في الإعدادات."</annotation></string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"يطلب هذا التطبيق الوصول الدائم إلى موقعك الجغرافي، حتى عند عدم استخدامك للتطبيق. يمكنك "<annotation id="link">"السماح بذلك في الإعدادات."</annotation></string>
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بالدخول إلى التقويم؟"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بتوجيه رسائل SMS وعرضها؟"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بالوصول إلى الصور والوسائط والملفات على جهازك؟"</string>

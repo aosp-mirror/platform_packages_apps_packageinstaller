@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"సరే"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"అనుమతులు"</string>
     <string name="cancel" msgid="7279939269964834974">"రద్దు చేయి"</string>
+    <string name="back" msgid="8739808065891653074">"వెనుకకు"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"యాప్ కనుగొనబడలేదు"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"తిరస్కరించు"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"తిరస్కరించు, ఇకపై మళ్లీ అడగవద్దు"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"అనుమతించినవి"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"అన్ని సమయాలలో అనుమతించబడతాయి"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ఉపయోగించేటప్పుడు మాత్రమే అనుమతివ్వబడును"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"మీడియా మాత్రమే కోసం అనుమతించబడింది"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"అన్ని ఫైల్‌ల కోసం అనుమతించబడింది"</string>
     <string name="ask_header" msgid="4471670860332046665">"ప్రతిసారి అడుగు"</string>
     <string name="denied_header" msgid="2277998574238617699">"తిరస్కరించినవి"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"అనుమతులు ఏవీ ఇవ్వలేదు"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"అన్ని అనుమతులు ఇచ్చారు"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"ఏ యాప్‌న‌కు ఇవ్వలేదు"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"అన్ని ఫైల్‌ల కోసం యాప్‌లు అనుమతించబడవు"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"మీడియా మాత్రమే కోసం యాప్‌లు అనుమతించబడవు"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"ఏ యాప్‌ను నిరాక‌రించ‌లేదు"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"ఎంచుకోబడింది"</string>
     <string name="settings" msgid="2884124136779508907">"సెట్టింగ్‌లు"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"అనుసరిస్తున్న వినియోగాన్ని హైలైట్ చేయండి"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"అసిస్టెంట్ ట్రిగ్గర్ గుర్తింపును చూపు"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"వాయిస్ అసిస్టెంట్‌ను యాక్టివేట్ చేయడానికి మైక్రోఫోన్‌ను ఉపయోగించినప్పుడు, స్థితి పట్టీలో చిహ్నాన్ని చూపు"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"ఈ పరికర మీడియా ఫైల్‌లను చదవడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ని అనుమతించాలా?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"మీ పరిచయాలను యాక్సెస్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ని అనుమతించాలా?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"ఈ పరికర స్థానాన్ని యాక్సెస్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ని అనుమతించాలా?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"మీరు యాప్‌ను ఉపయోగిస్తున్నప్పుడు మాత్రమే స్థానానికి యాప్ యాక్సెస్ కలిగి ఉంటుంది"</string>

@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"យល់ព្រម"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"ការអនុញ្ញាត"</string>
     <string name="cancel" msgid="7279939269964834974">"បោះបង់"</string>
+    <string name="back" msgid="8739808065891653074">"ថយក្រោយ"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"រក​មិន​ឃើញ​កម្មវិធីទេ"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"បដិសេធ"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"បដិសេធ ហើយកុំ​សួរម្តងទៀត"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"បាន​អនុញ្ញាត"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"បាន​អនុញ្ញាត​គ្រប់ពេល"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"អនុញ្ញាត​ខណៈពេល​ប្រើប្រាស់តែ​ប៉ុណ្ណោះ"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"អនុញ្ញាត​សម្រាប់​មេឌៀ​តែប៉ុណ្ណោះ"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"អនុញ្ញាត​សម្រាប់​ឯកសារ​ទាំងអស់"</string>
     <string name="ask_header" msgid="4471670860332046665">"សួរគ្រប់ពេល"</string>
     <string name="denied_header" msgid="2277998574238617699">"បានបដិសេធ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"មិន​បាន​ផ្ដល់ការអនុញ្ញាតទេ"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"មិន​បានបដិសេធការ​អនុញ្ញាតទេ"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"មិន​បានផ្ដល់​ការអនុញ្ញាត​ឱ្យ​កម្មវិធី​ទេ"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"មិន​ផ្ដល់​ការអនុញ្ញាត​ឱ្យ​កម្មវិធី​ចូលប្រើ​ឯកសារ​ទាំងអស់"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"មិន​ផ្ដល់​ការអនុញ្ញាត​ឱ្យ​កម្មវិធី​ចូលប្រើ​មេឌៀ​តែប៉ុណ្ណោះ"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"មិន​បានបដិសេធ​កម្មវិធីទេ"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"បានជ្រើសរើស"</string>
     <string name="settings" msgid="2884124136779508907">"ការកំណត់"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"រំលេច​ការប្រើប្រាស់​សម្រាប់​ចំណុចខាងក្រោម"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"បង្ហាញការ​ចាប់សញ្ញារបស់ជំនួយការ"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"បង្ហាញ​រូបតំណាង​នៅក្នុង​របារស្ថានភាព នៅពេលប្រើប្រាស់​មីក្រូហ្វូន​ ដើម្បី​បើកដំណើរការ​ជំនួយការសំឡេង"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"អនុញ្ញាត​ឱ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; អាន​ឯកសារ​មេឌៀ​របស់​ឧបករណ៍នេះ​ឬ?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"អនុញ្ញាតឱ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ចូលប្រើ​ទំនាក់ទំនង​របស់អ្នក?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"អនុញ្ញាតឱ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ចូលប្រើ​ទីតាំងរបស់​ឧបករណ៍នេះ​ដែរទេ?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"កម្មវិធីនេះ​នឹងមាន​សិទ្ធិ​ចូលប្រើ​ទីតាំង នៅពេល​អ្នកកំពុង​ប្រើ​កម្មវិធីនេះ​តែ​ប៉ុណ្ណោះ"</string>

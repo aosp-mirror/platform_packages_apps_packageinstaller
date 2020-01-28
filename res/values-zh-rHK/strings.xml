@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"確定"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"權限"</string>
     <string name="cancel" msgid="7279939269964834974">"取消"</string>
+    <string name="back" msgid="8739808065891653074">"返回"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"找不到應用程式"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"拒絕"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"拒絕，不要再詢問"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"已允許"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"一律允許"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"只在使用時允許"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"僅允許存取媒體檔案"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"允許存取所有檔案"</string>
     <string name="ask_header" msgid="4471670860332046665">"每次都詢問"</string>
     <string name="denied_header" msgid="2277998574238617699">"已拒絕"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"不允許任何權限"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"沒有拒絕任何權限"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"沒有允許任何應用程式"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"未授予任何應用程式「允許存取所有檔案」的權限"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"未授予任何應用程式「僅允許存取媒體檔案」的權限"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"沒有拒絕任何應用程式"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"已選取"</string>
     <string name="settings" msgid="2884124136779508907">"設定"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"突顯以下應用程式的使用情況"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"顯示 Google 助理觸發偵測"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"使用麥克風啟用語音助手時，在狀態列中顯示圖示"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;讀取此裝置的媒體檔案嗎？"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;存取您的聯絡人嗎？"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;存取此裝置的位置資訊嗎？"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"此應用程式目前只有您在使用時才能存取位置資訊"</string>

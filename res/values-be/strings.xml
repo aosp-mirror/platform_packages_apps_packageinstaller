@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"ОК"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"дазволы"</string>
     <string name="cancel" msgid="7279939269964834974">"Скасаваць"</string>
+    <string name="back" msgid="8739808065891653074">"Назад"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Праграма не знойдзена"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Адмовіць"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Адмовіць і больш не пытацца"</string>
@@ -126,10 +127,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Дазволеныя"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Дазволена ў любым рэжыме"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Дазволена толькі падчас карыстання"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Дазволена толькі для мультымедыя"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"Дазволена для ўсіх файлаў"</string>
     <string name="ask_header" msgid="4471670860332046665">"Заўсёды пытацца"</string>
     <string name="denied_header" msgid="2277998574238617699">"Адмоўленыя"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -163,10 +162,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Няма дазволаў"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Дазволы не адхілены"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Няма дазволеных праграм"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Праграмы не дазволены для ўсіх файлаў"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Праграмы не дазволены толькі для файлаў мультымедыя"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Няма адмоўленых праграм"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Выбрана"</string>
     <string name="settings" msgid="2884124136779508907">"Налады"</string>
@@ -256,8 +253,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Паказваць выбраныя праграмы"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Паказваць значок актывацыі Памочніка"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Паказваць значок на панэлі стану, калі мікрафон выкарыстоўваецца для актывацыі галасавога памочніка"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Дазволіць праграме &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; счытваць файлы мультымедыя на гэтай прыладзе?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Дазволіць праграме &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ да вашых кантактаў?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Дазволіць праграме &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ да звестак пра месцазнаходжанне гэтай прылады?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Праграма будзе мець доступ да звестак пра месцазнаходжанне толькі падчас карыстання ёю"</string>
