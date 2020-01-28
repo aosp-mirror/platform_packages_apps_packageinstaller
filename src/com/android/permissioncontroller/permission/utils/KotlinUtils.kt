@@ -558,8 +558,8 @@ object KotlinUtils {
         val supportsRuntime = group.packageInfo.targetSdkVersion >= Build.VERSION_CODES.M
         val user = UserHandle.getUserHandleForUid(group.packageInfo.uid)
         var newFlags = perm.flags
+        var isGranted = perm.isGrantedIncludingAppOp
         var shouldKill = false
-        var isGranted = true
 
         val affectsAppOp = permissionToOp(perm.name) != null || perm.isBackgroundPermission
 
@@ -717,7 +717,7 @@ object KotlinUtils {
             for (foregroundPermName in perm.foregroundPerms) {
                 val fgPerm = group.permissions[foregroundPermName]
                 if (fgPerm != null && fgPerm.isGrantedIncludingAppOp) {
-                    val appOpName = permissionToOp(perm.name) ?: return false
+                    val appOpName = permissionToOp(foregroundPermName) ?: return false
                     wasChanged = wasChanged || setOpMode(appOpName, uid, packageName,
                         MODE_FOREGROUND, appOpsManager)
                 }
