@@ -20,8 +20,9 @@ import android.app.Application
 import android.os.UserHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.android.permissioncontroller.permission.data.PackagePermissionsRepository
+import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
+import com.android.permissioncontroller.permission.data.get
 
 /**
  * ViewModel for the AllAppPermissionsFragment. Has a liveData with the UI information for all
@@ -41,11 +42,10 @@ class AllAppPermissionsViewModel(
     filterGroup: String?
 ) : ViewModel() {
 
-    val allPackagePermissionsLiveData = AllPackagePermissionsLiveData(app, packageName, user,
+    val allPackagePermissionsLiveData = AllPackagePermissionsLiveData(packageName, user,
         filterGroup)
 
     class AllPackagePermissionsLiveData(
-        app: Application,
         packageName: String,
         user: UserHandle,
         private val filterGroup: String?
@@ -53,8 +53,7 @@ class AllAppPermissionsViewModel(
     Map<String, List<String>>>() {
 
         private val packagePermsLiveData =
-            PackagePermissionsRepository.getPackagePermissionsLiveData(app,
-                packageName, user)
+            PackagePermissionsLiveData[packageName, user]
 
         init {
             addSource(packagePermsLiveData) {

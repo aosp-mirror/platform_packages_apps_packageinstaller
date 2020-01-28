@@ -21,6 +21,7 @@ import android.content.pm.PackageManager
 import android.content.pm.PermissionInfo
 import android.os.Build
 import android.os.UserHandle
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.utils.Utils
 
 /**
@@ -33,18 +34,13 @@ import com.android.permissioncontroller.permission.utils.Utils
  * @param packageName The name of the package this LiveData will watch for mode changes for
  * @param user The user for whom the packageInfo will be defined
  */
-class PackagePermissionsLiveData(
+class PackagePermissionsLiveData private constructor(
     private val app: Application,
     packageName: String,
     user: UserHandle
 ) : SmartUpdateMediatorLiveData<Map<String, List<String>>>() {
 
-    companion object {
-        const val NON_RUNTIME_NORMAL_PERMS = "nonRuntimeNormalPerms"
-    }
-
-    private val packageInfoLiveData = PackageInfoRepository.getPackageInfoLiveData(app, packageName,
-        user)
+    private val packageInfoLiveData = LightPackageInfoLiveData[packageName, user]
 
     init {
         addSource(packageInfoLiveData) {
@@ -97,36 +93,19 @@ class PackagePermissionsLiveData(
 
         value = permissionMap
     }
-}
-
-/**
- * Repository for PackagePermissionsLiveData objects
- * <p> Key value is a string package name and userHandle, value is its corresponding LiveData.
- */
-object PackagePermissionsRepository
-    : DataRepository<Pair<String, UserHandle>, PackagePermissionsLiveData>() {
 
     /**
-     * Get the PackagePermissionsLiveData associated with the given parameters, creating it if
-     * need be.
-     *
-     * @param app The current application
-     * @param packageName The name of the package desired
-     * @param user The UserHandle for whom we want the package
-     *
-     * @return the cached or newly generated PackagePermissionsLiveData
+     * Repository for PackagePermissionsLiveData objects
+     * <p> Key value is a string package name and userHandle, value is its corresponding LiveData.
      */
-    fun getPackagePermissionsLiveData(
-        app: Application,
-        packageName: String,
-        user: UserHandle
-    ):
-        PackagePermissionsLiveData {
-        return getDataObject(app, packageName to user)
-    }
+    companion object : DataRepository<Pair<String, UserHandle>,
+        PackagePermissionsLiveData>() {
+        override fun newValue(key: Pair<String, UserHandle>):
+            PackagePermissionsLiveData {
+            return PackagePermissionsLiveData(PermissionControllerApplication.get(), key.first,
+                key.second)
+        }
 
-    override fun newValue(app: Application, key: Pair<String, UserHandle>):
-        PackagePermissionsLiveData {
-        return PackagePermissionsLiveData(app, key.first, key.second)
+        const val NON_RUNTIME_NORMAL_PERMS = "nonRuntimeNormalPerms"
     }
 }

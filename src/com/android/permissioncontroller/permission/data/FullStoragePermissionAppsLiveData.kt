@@ -23,19 +23,20 @@ import android.app.AppOpsManager.OPSTR_LEGACY_STORAGE
 import android.app.Application
 import android.os.Build
 import android.os.UserHandle
+import com.android.permissioncontroller.PermissionControllerApplication
 import kotlinx.coroutines.Job
 
 /**
  * A liveData which tracks all packages in the system which have full file permissions, as
  * represented by the OPSTR_LEGACY_STORAGE app op, not just media-only storage permissions.
  *
- * @param app The current application
  */
-class FullStoragePermissionAppsLiveData(private val app: Application) :
+object FullStoragePermissionAppsLiveData :
     SmartAsyncMediatorLiveData<List<Pair<String, UserHandle>>>() {
 
-    private val standardPermGroupsPackagesLiveData =
-        PermGroupPackagesUiInfoRepository.getAllStandardPermGroupsPackagesLiveData(app)
+    private val app: Application = PermissionControllerApplication.get()
+    private val standardPermGroupsPackagesLiveData = PermGroupsPackagesLiveData.get(
+        customGroups = false)
 
     init {
         addSource(standardPermGroupsPackagesLiveData) {
@@ -48,8 +49,7 @@ class FullStoragePermissionAppsLiveData(private val app: Application) :
         val appOpsManager = app.getSystemService(AppOpsManager::class.java) ?: return
 
         val legacyPackages = mutableListOf<Pair<String, UserHandle>>()
-        for ((user, packageInfoList) in UserPackageInfosRepository.getAllPackageInfosLiveData(app)
-            .value ?: emptyMap()) {
+        for ((user, packageInfoList) in AllPackageInfosLiveData.value ?: emptyMap()) {
             val userPackages = packageInfoList.filter {
                 storagePackages.contains(it.packageName to user)
             }

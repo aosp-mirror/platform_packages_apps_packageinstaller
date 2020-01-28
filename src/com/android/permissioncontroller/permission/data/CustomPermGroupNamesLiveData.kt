@@ -18,20 +18,18 @@ package com.android.permissioncontroller.permission.data
 
 import android.app.Application
 import android.content.pm.PermissionInfo
-import androidx.lifecycle.LiveData
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.utils.Utils
 
 /**
  * A class which tracks the names of all custom permission groups in the system, including
  * non-grouped runtime permissions, the UNDEFINED group, and any group not defined by the system.
  *
- * @param app The current application
  */
-class CustomPermGroupNamesLiveData(
-    private val app: Application
-) : SmartUpdateMediatorLiveData<List<String>>() {
+object CustomPermGroupNamesLiveData : SmartUpdateMediatorLiveData<List<String>>() {
 
-    private val packagesLiveData = UserPackageInfosRepository.getAllPackageInfosLiveData(app)
+    private val app: Application = PermissionControllerApplication.get()
+    private val packagesLiveData = AllPackageInfosLiveData
 
     init {
         addSource(packagesLiveData) {
@@ -73,15 +71,5 @@ class CustomPermGroupNamesLiveData(
             }
         }
         value = groupNames
-    }
-}
-
-/**
- * A LiveData which tracks Platform Permission Group names.
- */
-class StandardPermGroupNamesLiveData : LiveData<List<String>>() {
-
-    init {
-        value = Utils.getPlatformPermissionGroups()
     }
 }

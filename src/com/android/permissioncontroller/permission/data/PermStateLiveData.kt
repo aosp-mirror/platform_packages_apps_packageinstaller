@@ -20,6 +20,7 @@ import android.app.Application
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.UserHandle
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.PermState
 import com.android.permissioncontroller.permission.utils.Utils
@@ -32,23 +33,21 @@ import kotlinx.coroutines.Job
  *
  * @param app The current application
  * @param packageName The name of the package this LiveData will watch for mode changes for
- * @param permissionGroupName The name of the permission group whose app ops this LiveData
+ * @param permGroupName The name of the permission group whose app ops this LiveData
  * will watch
  * @param user The user of the package
  */
-class PermStateLiveData(
+class PermStateLiveData private constructor(
     private val app: Application,
     private val packageName: String,
-    private val permissionGroupName: String,
+    private val permGroupName: String,
     private val user: UserHandle
 ) : SmartAsyncMediatorLiveData<Map<String, PermState>>(),
     PermissionListenerMultiplexer.PermissionChangeCallback {
 
     private val context = Utils.getUserContext(app, user)
-    private val packageInfoLiveData =
-        PackageInfoRepository.getPackageInfoLiveData(app, packageName, user)
-    private val groupLiveData =
-        PermGroupRepository.getPermGroupLiveData(app, permissionGroupName)
+    private val packageInfoLiveData = LightPackageInfoLiveData[packageName, user]
+    private val groupLiveData = PermGroupLiveData[permGroupName]
 
     private var uid: Int? = null
     private var registeredUid: Int? = null
@@ -66,7 +65,7 @@ class PermStateLiveData(
 
     /**
      * Gets the system flags from the package manager, and the grant state from those flags, plus
-     * the RequestedPermissionFlags of the PackageInfo.
+     * the RequestedPermissionFlags of the PermState.
      */
     override suspend fun loadDataAndPostValue(job: Job) {
         if (!packageInfoLiveData.isInitialized || !groupLiveData.isInitialized) {
@@ -105,13 +104,13 @@ class PermStateLiveData(
     private fun checkForUidUpdate(packageInfo: LightPackageInfo?) {
         if (packageInfo == null) {
             registeredUid?.let {
-                PackageInfoRepository.permissionListenerMultiplexer?.removeCallback(it, this)
+                PermissionListenerMultiplexer.removeCallback(it, this)
             }
             return
         }
         uid = packageInfo.uid
         if (uid != registeredUid) {
-            PackageInfoRepository.permissionListenerMultiplexer?.addOrReplaceCallback(
+            PermissionListenerMultiplexer.addOrReplaceCallback(
                 registeredUid, packageInfo.uid, this)
             registeredUid = uid
         }
@@ -120,7 +119,7 @@ class PermStateLiveData(
     override fun onInactive() {
         super.onInactive()
         registeredUid?.let {
-            PackageInfoRepository.permissionListenerMultiplexer?.removeCallback(it, this)
+            PermissionListenerMultiplexer.removeCallback(it, this)
             registeredUid = null
         }
     }
@@ -128,45 +127,22 @@ class PermStateLiveData(
     override fun onActive() {
         super.onActive()
         uid?.let {
-            PackageInfoRepository.permissionListenerMultiplexer?.addCallback(it, this)
+            PermissionListenerMultiplexer.addCallback(it, this)
             registeredUid = uid
         }
         updateAsync()
     }
-}
-
-/**
- * Repository for PermStateLiveDatas.
- * <p> Key value is a triple of string package name, string permission group name, and UserHandle,
- * value is its corresponding LiveData.
- */
-object PermStateRepository
-    : DataRepository<Triple<String, String, UserHandle>, PermStateLiveData>() {
 
     /**
-     * Gets the PermStateLiveData associated with the provided package name, permission group,
-     * and user, creating it if need be.
-     *
-     * @param app The current application
-     * @param packageName The name of the package whose permission state we want
-     * @param permissionGroupName The name of the permission group whose state we want
-     * @param user The UserHandle for whom we want the permission state
-     *
-     * @return The cached or newly created PackageInfoLiveData
+     * Repository for PermStateLiveDatas.
+     * <p> Key value is a triple of string package name, string permission group name, and UserHandle,
+     * value is its corresponding LiveData.
      */
-    fun getPermStateLiveData(
-        app: Application,
-        packageName: String,
-        permissionGroupName: String,
-        user: UserHandle
-    ): PermStateLiveData {
-        return getDataObject(app, Triple(packageName, permissionGroupName, user))
-    }
-
-    override fun newValue(
-        app: Application,
-        key: Triple<String, String, UserHandle>
-    ): PermStateLiveData {
-        return PermStateLiveData(app, key.first, key.second, key.third)
+    companion object : DataRepository<Triple<String, String, UserHandle>,
+        PermStateLiveData>() {
+        override fun newValue(key: Triple<String, String, UserHandle>): PermStateLiveData {
+            return PermStateLiveData(PermissionControllerApplication.get(),
+                key.first, key.second, key.third)
+        }
     }
 }

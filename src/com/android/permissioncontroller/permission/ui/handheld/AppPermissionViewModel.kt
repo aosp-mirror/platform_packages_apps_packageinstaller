@@ -33,8 +33,9 @@ import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_ACTION_REPORTED
 import com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_VIEWED
 import com.android.permissioncontroller.R
-import com.android.permissioncontroller.permission.data.AppPermGroupLiveData
+import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
+import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.LocationUtils
@@ -127,8 +128,8 @@ class AppPermissionViewModel(
     inner class AppPermButtonStateLiveData
         : SmartUpdateMediatorLiveData<@JvmSuppressWildcards Map<ButtonType, ButtonState>>() {
 
-        private val appPermGroupLiveData = AppPermGroupLiveData(app, packageName,
-            permGroupName, user)
+        private val appPermGroupLiveData = LightAppPermGroupLiveData[packageName, permGroupName,
+            user]
 
         init {
             addSource(appPermGroupLiveData) { appPermGroup ->

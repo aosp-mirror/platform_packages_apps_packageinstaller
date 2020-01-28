@@ -28,12 +28,23 @@ import com.android.permissioncontroller.role.ui.SpecialAppAccessListActivity;
 
 public class PermissionControllerApplication extends Application {
 
+    private static PermissionControllerApplication sInstance;
+
     @Override
     public void onCreate() {
         super.onCreate();
 
+        sInstance = this;
+
         PackageItemInfo.forceSafeLabels();
         updateSpecialAppAccessListActivityEnabledState();
+    }
+
+    /**
+     * Statically gets the {@link PermissionControllerApplication} instance
+     */
+    public static PermissionControllerApplication get() {
+        return sInstance;
     }
 
     private void updateSpecialAppAccessListActivityEnabledState() {

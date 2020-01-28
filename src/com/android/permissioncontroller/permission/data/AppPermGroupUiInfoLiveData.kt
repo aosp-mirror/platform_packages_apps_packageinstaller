@@ -21,6 +21,7 @@ import android.content.pm.PackageManager
 import android.content.pm.PermissionInfo
 import android.os.Build
 import android.os.UserHandle
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
@@ -40,22 +41,19 @@ import com.android.permissioncontroller.permission.utils.Utils
  *
  * @param app The current application
  * @param packageName The name of the package
- * @param permissionGroupName The name of the permission group whose permissions are observed
+ * @param permGroupName The name of the permission group whose permissions are observed
  * @param user The user of the package
  */
-class AppPermGroupUiInfoLiveData(
+class AppPermGroupUiInfoLiveData private constructor(
     private val app: Application,
     private val packageName: String,
-    private val permissionGroupName: String,
+    private val permGroupName: String,
     private val user: UserHandle
 ) : SmartUpdateMediatorLiveData<AppPermGroupUiInfo>() {
 
-    private val packageInfoLiveData = PackageInfoRepository.getPackageInfoLiveData(app, packageName,
-        user)
-    private val permGroupLiveData = PermGroupRepository.getPermGroupLiveData(app,
-        permissionGroupName)
-    private val permissionStateLiveData = PermStateRepository.getPermStateLiveData(app, packageName,
-        permissionGroupName, user)
+    private val packageInfoLiveData = LightPackageInfoLiveData[packageName, user]
+    private val permGroupLiveData = PermGroupLiveData[permGroupName]
+    private val permissionStateLiveData = PermStateLiveData[packageName, permGroupName, user]
 
     init {
         addSource(packageInfoLiveData) {
@@ -245,52 +243,30 @@ class AppPermGroupUiInfoLiveData(
 
     private fun getIsSpecialLocationState(): Boolean? {
         val userContext = Utils.getUserContext(app, user)
-        if (LocationUtils.isLocationGroupAndProvider(userContext, permissionGroupName,
+        if (LocationUtils.isLocationGroupAndProvider(userContext, permGroupName,
                 packageName)) {
             return LocationUtils.isLocationEnabled(userContext)
         }
         // The permission of the extra location controller package is determined by the
         // status of the controller package itself.
         if (LocationUtils.isLocationGroupAndControllerExtraPackage(userContext,
-                permissionGroupName, packageName)) {
+                permGroupName, packageName)) {
             return LocationUtils.isExtraLocationControllerPackageEnabled(userContext)
         }
         return null
     }
-}
-
-/**
- * Repository for PermissionFlagsLiveDatas.
- * <p> Key value is a triple of string package name, string permission group name, and UserHandle,
- * value is its corresponding LiveData.
- */
-object AppPermGroupUiInfoRepository
-    : DataRepository<Triple<String, String, UserHandle>, AppPermGroupUiInfoLiveData>() {
 
     /**
-     * Gets the AppPermGroupUiInfoLiveData associated with the provided package name, permission
-     * group, and user, creating it if need be.
-     *
-     * @param app The current application
-     * @param packageName The name of the package whose UI info we want
-     * @param permissionGroupName The name of the permission group whose UI info we want
-     * @param user The UserHandle for whom we want the UI info
-     *
-     * @return The cached or newly created AppPermGroupUiInfoLiveData
+     * Repository for AppPermGroupUiInfoLiveDatas.
+     * <p> Key value is a triple of string package name, string permission group name, and UserHandle,
+     * value is its corresponding LiveData.
      */
-    fun getAppPermGroupUiInfoLiveData(
-        app: Application,
-        packageName: String,
-        permissionGroupName: String,
-        user: UserHandle
-    ): AppPermGroupUiInfoLiveData {
-        return getDataObject(app, Triple(packageName, permissionGroupName, user))
-    }
-
-    override fun newValue(
-        app: Application,
-        key: Triple<String, String, UserHandle>
-    ): AppPermGroupUiInfoLiveData {
-        return AppPermGroupUiInfoLiveData(app, key.first, key.second, key.third)
+    companion object : DataRepository<Triple<String, String, UserHandle>,
+        AppPermGroupUiInfoLiveData>() {
+        override fun newValue(key: Triple<String, String, UserHandle>):
+            AppPermGroupUiInfoLiveData {
+            return AppPermGroupUiInfoLiveData(PermissionControllerApplication.get(),
+                key.first, key.second, key.third)
+        }
     }
 }
