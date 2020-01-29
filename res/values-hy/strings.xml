@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"Եղավ"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"թույլտվություններ"</string>
     <string name="cancel" msgid="7279939269964834974">"Չեղարկել"</string>
+    <string name="back" msgid="8739808065891653074">"Հետ"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Հավելվածը չի գտնվել"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Մերժել"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Մերժել և այլևս չհարցնել"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Թույլատրված"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Միշտ թույլատրվում է"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Միայն հավելվածի օգտագործման ժամանակ"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Թույլատրված է միայն մեդիա ֆայլերի համար"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"Թույլատրված է բոլոր ֆայլերի համար"</string>
     <string name="ask_header" msgid="4471670860332046665">"Հարցնել ամեն անգամ"</string>
     <string name="denied_header" msgid="2277998574238617699">"Մերժված"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Թույլտվությունները տրված չեն"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Բոլոր թույլտվությունները տրված են"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Ոչ մի հավելվածում չի գործում"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Ոչ մի հավելված թույլատրված չէ բոլոր ֆայլերի համար"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Ոչ մի հավելված թույլատրված չէ մեդիա ֆայլերի համար"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Գործում է բոլոր հավելվածներում"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Ընտրված է"</string>
     <string name="settings" msgid="2884124136779508907">"Կարգավորումներ"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Ցույց տալ ընտրված հավելվածները"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Ցույց տալ ձայնային օգնականի ակտիվացման պատկերակը"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Ցույց տալ պատկերակը կարգավիճակի գոտում, երբ ձայնային օգնականի ակտիվացման համար օգտագործվում է խոսափողը"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Թույլատրե՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին կարդալ այս սարքի մուլտիմեդիա ֆայլերը։"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Թույլատրե՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին օգտագործել ձեր կոնտակտները"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Թույլ տա՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին օգտագործել այս սարքի տեղադրության տվյալները։"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Տեղադրության տվյալները հասանելի կլինեն հավելվածին, միայն երբ այն օգտագործելիս լինեք"</string>

@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"ठीक है"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"अनुमतियां"</string>
     <string name="cancel" msgid="7279939269964834974">"रद्द करें"</string>
+    <string name="back" msgid="8739808065891653074">"वापस जाएं"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ऐप्लिकेशन नहीं मिला"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"अनुमति न दें"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"अनुमति न दें और दोबारा न पूछें"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"अनुमति है"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"हमेशा के लिए मंज़ूरी"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"सिर्फ़ इस्तेमाल में होने पर अनुमति है"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"सिर्फ़ मीडिया फ़ाइलों के लिए अनुमति है"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"सभी फ़ाइलों के लिए अनुमति है"</string>
     <string name="ask_header" msgid="4471670860332046665">"हर बार पूछें"</string>
     <string name="denied_header" msgid="2277998574238617699">"मंज़ूरी नहीं मिली"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"कोई अनुमति नहीं मिली है"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"सभी अनुमतियां मंज़ूर की गई हैं"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"किसी ऐप्लिकेशन को अनुमति नहीं है"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"किसी भी ऐप्लिकेशन को, सभी फ़ाइलों के लिए अनुमति नहीं दी गई है"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"किसी भी ऐप्लिकेशन को, सिर्फ़ मीडिया फ़ाइलों के लिए अनुमति नहीं दी गई है"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"किसी ऐप्लिकेशन को नामंज़ूर नहीं किया गया है"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"चुनी गई अनुमति"</string>
     <string name="settings" msgid="2884124136779508907">"सेटिंग"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"आगे दी गई चीज़ों का इस्तेमाल हाइलाइट करें"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Assistant ट्रिगर पहचान दिखाएं"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"आवाज़ से डिवाइस का इस्तेमाल करने के लिए, माइक्रोफ़ोन का इस्तेमाल करते समय स्थिति बार में आइकॉन दिखाएं"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"क्या आप &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; को इस डिवाइस की मीडिया फ़ाइलें ऐक्सेस करने की अनुमति देना चाहते हैं?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; को अपने संपर्क देखने की अनुमति देना चाहते हैं?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; को इस डिवाइस की जगह की जानकारी ऐक्सेस करने की अनुमति देना चाहते हैं?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"ऐप्लिकेशन, डिवाइस की जगह की जानकारी सिर्फ़ तभी देख पाएगा जब आप इसका इस्तेमाल कर रहे हों"</string>

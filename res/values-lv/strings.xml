@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"Labi"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"atļaujas"</string>
     <string name="cancel" msgid="7279939269964834974">"Atcelt"</string>
+    <string name="back" msgid="8739808065891653074">"Atpakaļ"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Lietotne netika atrasta"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Neatļaut"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Neatļaut un vairs nejautāt"</string>
@@ -125,10 +126,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Atļauts"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Vienmēr atļauts"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Atļauts tikai izmantošanas laikā"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Atļaujas tikai multivides saturam"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"Atļaujas visiem failiem"</string>
     <string name="ask_header" msgid="4471670860332046665">"Vaicāt katru reizi"</string>
     <string name="denied_header" msgid="2277998574238617699">"Noraidīts"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -158,10 +157,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nav piešķirta neviena atļauja"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nav noraidīta neviena atļauja"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Nav atļauta neviena lietotne"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Nav atļauta neviena lietotne visiem failiem"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Nav atļauta neviena lietotne tikai multivides failiem"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Nav noraidīta neviena lietotne"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Atlasīta"</string>
     <string name="settings" msgid="2884124136779508907">"Iestatījumi"</string>
@@ -251,8 +248,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Tālāk norādīto lietotņu izmantojuma atzīmēšana"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Asistenta aktivizētāja noteikšanas rādīšana"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Rādīt ikonu statusa joslā, kad mikrofons tiek izmantots balss palīga aktivizēšanai"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Vai atļaut lietotnei &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; lasīt šīs ierīces multivides failus?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Vai atļaut lietotnei &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; piekļūt jūsu kontaktpersonām?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Vai atļaut lietotnei &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; piekļūt šīs ierīces atrašanās vietai?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Lietotne varēs piekļūt atrašanās vietai tikai tad, kad izmantosiet šo lietotni"</string>

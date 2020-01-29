@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"ठिक छ"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"अनुमतिहरू"</string>
     <string name="cancel" msgid="7279939269964834974">"रद्द गर्नुहोस्"</string>
+    <string name="back" msgid="8739808065891653074">"पछाडि जानुहोस्"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"अनुप्रयोग फेला परेन"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"अस्वीकार गर्नु…"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"अस्वीकार गर्नुहोस् र अब उप्रान्त नसोध्नुहोला"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"अनुमति दिइएको"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"सधैँ अनुमति दिइएको"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"प्रयोगमा भएका बेला मात्र अनुमति दिइन्छ"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"मिडियासम्बन्धी फाइलहरू मात्र राख्न सकिन्छ"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"सबै फाइलहरू राख्न सकिन्छ"</string>
     <string name="ask_header" msgid="4471670860332046665">"प्रत्येक पटक सोध्नुहोस्"</string>
     <string name="denied_header" msgid="2277998574238617699">"अस्वीकार गरिएको"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"कुनै पनि अनुमति छैन"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"कुनै पनि अनुमति अस्वीकार गरिएको छैन"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"कुनै पनि अनुप्रयोगलाई अनुमति छैन"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"सबै फाइलहरू कुनै पनि अनुप्रयोगमा राख्न सकिँदैन"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"मिडियासम्बन्धी फाइलहरू मात्र कुनै पनि अनुप्रयोगमा राख्न सकिँदैन"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"कुनै पनि अनुप्रयोगको अनुमति अस्वीकार गरिएको छैन"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"चयन गरिएको"</string>
     <string name="settings" msgid="2884124136779508907">"सेटिङहरू"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"निम्न अनुप्रयोगको प्रयोगसम्बन्धी जानकारी हाइलाइट गर्नुहोस्"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"सहायक ट्रिगर भएको पत्ता लागेमा सो कुरा देखाउनुहोस्"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"आवाज सहायक सक्रिय गर्न माइक्रोफोनको प्रयोग गरिँदा वस्तुस्थिति पट्टीमा आइकन देखाउनुहोस्"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई यो यन्त्रका मिडियासम्बन्धी फाइलहरू पढ्न दिने हो?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई तपाईंका सम्पर्क ठेगानाहरूमाथि पहुँच राख्न दिने हो?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई यो यन्त्रको स्थानमाथि पहुँच राख्न दिने हो?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"तपाईंले अनुप्रयोग प्रयोग गरिरहेका बेला मात्र उक्त अनुप्रयोगले स्थानमाथि पहुँच राख्न सक्ने छ"</string>

@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"OK"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"load"</string>
     <string name="cancel" msgid="7279939269964834974">"Tühista"</string>
+    <string name="back" msgid="8739808065891653074">"Tagasi"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Rakendust ei leitud"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Keela"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Keela ja ära enam küsi"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Lubatud"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Alati lubatud"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Lubatud ainult kasutuses olles"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Lubatud ainult meedia puhul"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"Lubatud on kõik failid"</string>
     <string name="ask_header" msgid="4471670860332046665">"Küsi iga kord"</string>
     <string name="denied_header" msgid="2277998574238617699">"Keelatud"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Ühtegi luba pole antud"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Ükski luba pole keelatud"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Ükski rakendus pole lubatud"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Mitte ühtegi rakendust pole kõigi failide puhul lubatud"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Mitte ühtegi rakendust pole ainult meedia puhul lubatud"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Ükski rakendus pole keelatud"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Valitud"</string>
     <string name="settings" msgid="2884124136779508907">"Seaded"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Järgmise puhul kasutuse esiletõstmine"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Assistendi käivitamise tuvastamise kuvamine"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Ikooni kuvamine olekuribal, kui häälassistendi aktiveerimiseks kasutatakse mikrofoni"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Kas lubada rakendusel &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; lugeda selles seadmes olevaid meediafaile?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Kas lubada rakendusele &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; juurdepääs teie kontaktidele?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Kas lubada rakendusele &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; juurdepääs selle seadme asukohale?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Rakendusel on juurdepääs asukohale vaid sel ajal, kui rakendust kasutate"</string>

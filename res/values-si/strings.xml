@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"හරි"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"අවසර"</string>
     <string name="cancel" msgid="7279939269964834974">"අවලංගු කරන්න"</string>
+    <string name="back" msgid="8739808065891653074">"ආපසු යන්න"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"යෙදුම හමුවී නැත"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"ප්‍රතික්ෂේප කර."</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"ප්‍රතික්ෂේප කර නැවත අසන්න එපා"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"ඉඩ දුන්"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"සැම විටම ඉඩ දෙනු ලැබේ"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"භාවිත කෙරෙන විට පමණක් අනුමත කෙරේ"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"මාධ්‍ය පමණක් වෙත ඉඩ දී ඇත"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"සියලු ගොනු වෙත ඉඩ දී ඇත"</string>
     <string name="ask_header" msgid="4471670860332046665">"සෑම විටම ඉල්ලන්න"</string>
     <string name="denied_header" msgid="2277998574238617699">"ප්‍රතික්ෂේපයි"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"අවසරවලට ඉඩ නොදේ"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"අවසර ප්‍රතික්ෂේප නොකෙරේ"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"යෙදුම්වලට ඉඩ නොදේ"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"සියලු ගොනු සඳහා යෙදුම් කිසිවක් ඉඩ දී නැත"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"මාධ්‍ය සඳහා පමණක් යෙදුම් කිසිවක් ඉඩ දී නැත"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"යෙදුම් ප්‍රතික්ෂේප නොකෙරේ"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"තේරිණි"</string>
     <string name="settings" msgid="2884124136779508907">"සැකසීම්"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"පහත දෑ සඳහා භාවිතය ඉස්මතු කරන්න"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"සහායක ප්‍රේරක අනාවරණය පෙන්වන්න"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"හඬ සහායක සක්‍රිය කිරීමට මයික්‍රෆෝනය භාවිතා කරන විට තත්ත්ව තීරුවේ නිරූපකය පෙන්වන්න"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"මෙම උපාංගයේ මාධ්‍ය ගොනු වෙත &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; හට ඉඩ දෙන්නද?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt; වෙත ඔබගේ සබඳතා වෙත ප්‍රවේශ වීමට ඉඩ දෙන්නද?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt; හට මෙම උපාංගයෙහි ස්ථානය වෙත ප්‍රවේශ වීමට ඉඩ දෙන්නද?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"ඔබ යෙදුම භාවිත කරන විට පමණක් යෙදුමට ස්ථානය වෙත ප්‍රවේශය ඇත"</string>

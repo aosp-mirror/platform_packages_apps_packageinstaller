@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"Ok"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"Berechtigungen"</string>
     <string name="cancel" msgid="7279939269964834974">"Abbrechen"</string>
+    <string name="back" msgid="8739808065891653074">"Zurück"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"App nicht gefunden"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Ablehnen"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Ablehnen &amp; nicht mehr fragen"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Zugriff zugelassen"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Zugriff immer zugelassen"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Zugriff nur während Nutzung zugelassen"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Nur für Medien zugelassen"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"Für alle Dateien zugelassen"</string>
     <string name="ask_header" msgid="4471670860332046665">"Jedes Mal fragen"</string>
     <string name="denied_header" msgid="2277998574238617699">"Zugriff abgelehnt"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Keine Berechtigungen zugelassen"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Alle Berechtigungen zugelassen"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Keine Apps zugelassen"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Keine Apps für alle Dateien zugelassen"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Keine Apps nur für Medien zugelassen"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Zugriff für keine Apps abgelehnt"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Ausgewählt"</string>
     <string name="settings" msgid="2884124136779508907">"Einstellungen"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Nutzung für diese System-Apps anzeigen"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Auslösererkennung für Assistant anzeigen"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Symbol in der Statusleiste anzeigen, wenn das Mikrofon verwendet wird, um den Sprachassistenten zu aktivieren"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; erlauben, Mediendateien dieses Geräts zu lesen?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Zulassen, dass &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; auf deine Kontakte zugreift?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; erlauben, den Gerätestandort abzurufen?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Die App hat nur Zugriff auf den Gerätestandort, solange du sie verwendest"</string>

@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"تأیید"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"مجوزها"</string>
     <string name="cancel" msgid="7279939269964834974">"لغو"</string>
+    <string name="back" msgid="8739808065891653074">"برگشت"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"برنامه یافت نشد"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"رد کردن"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"رد شود و دیگر سؤال نشود"</string>
@@ -124,10 +125,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"مجاز"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"همیشه مجاز بودن"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"مجاز فقط هنگام استفاده از برنامه"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"مجاز فقط برای رسانه‌ها"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"مجاز برای همه فایل‌ها"</string>
     <string name="ask_header" msgid="4471670860332046665">"هربار پرسیده شود"</string>
     <string name="denied_header" msgid="2277998574238617699">"رد شد"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -153,10 +152,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"هیچ مجوزی اعطا نشده است"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"هیچ مجوزی رد نشد"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"هیچ برنامه‌ای مجاز نیست"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"هیچ برنامه‌ای برای همه فایل‌ها مجاز نیست"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"هیچ برنامه‌ای فقط برای رسانه‌ها مجاز نیست"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"هیچ برنامه‌ای رد نشد"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"انتخاب‌شده"</string>
     <string name="settings" msgid="2884124136779508907">"تنظیمات"</string>
@@ -246,8 +243,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"برجسته کردن استفاده برای موارد زیر"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"نمایش تشخیص راه‌انداز دستیار"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"نمایش نماد مربوطه در نوار وضعیت وقتی از میکروفون برای فعال کردن دستیار صوتی استفاده می‌شود"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"‏به &lt;/b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>‏&lt;/b&gt; اجازه داده شود فایل‌های رسانه‌ای این دستگاه را بخواند؟"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه داده شود به مخاطبین شما دسترسی پیدا کند؟"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"‏به &lt;b&amp;gt؛<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&amp;gt؛ اجازه داده شود به مکان این دستگاه دسترسی پیدا کند؟"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"این برنامه فقط وقتی از آن استفاده می‌کنید، به مکان دسترسی خواهد داشت"</string>

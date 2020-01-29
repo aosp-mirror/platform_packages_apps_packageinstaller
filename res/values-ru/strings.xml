@@ -20,6 +20,7 @@
     <string name="ok" msgid="4417794827535157922">"ОК"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"разрешения"</string>
     <string name="cancel" msgid="7279939269964834974">"Отмена"</string>
+    <string name="back" msgid="8739808065891653074">"Назад"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Приложение не найдено"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Запретить"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Запретить и больше не спрашивать"</string>
@@ -126,10 +127,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Разрешено"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Разрешено всегда"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Разрешено только при использовании"</string>
-    <!-- no translation found for allowed_storage_scoped (3967195189363409314) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (6802526449595533370) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Разрешено только для медиафайлов"</string>
+    <string name="allowed_storage_full" msgid="6802526449595533370">"Разрешено для всех файлов"</string>
     <string name="ask_header" msgid="4471670860332046665">"Разрешение запрашивается каждый раз"</string>
     <string name="denied_header" msgid="2277998574238617699">"Запрещено"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -163,10 +162,8 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Разрешения не предоставлены"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Предоставлены все разрешения"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Не разрешено ни одному приложению"</string>
-    <!-- no translation found for no_apps_allowed_full (5857725855406253991) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed_scoped (409459956930431114) -->
-    <skip />
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Нет приложений с доступом ко всем файлам."</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Нет приложений с доступом только к медиафайлам."</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Не запрещено ни одному приложению"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Выбрано"</string>
     <string name="settings" msgid="2884124136779508907">"Настройки"</string>
@@ -256,8 +253,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Показывать выбранные приложения"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Показывать значок активации голосового помощника"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Показывать значок в строке состояния, когда для активации голосового помощника используется микрофон"</string>
-    <!-- no translation found for permgrouprequest_storage_isolated (8503400511548542256) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Разрешить приложению &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; чтение медиафайлов на устройстве?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Разрешить приложению &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ к контактам?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Разрешить приложению &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ к данным о местоположении устройства?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Доступ к местоположению будет открыт, только пока вы пользуетесь приложением."</string>
