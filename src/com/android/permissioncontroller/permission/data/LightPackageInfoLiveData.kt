@@ -20,6 +20,7 @@ import android.app.Application
 import android.content.pm.PackageManager
 import android.os.UserHandle
 import android.util.Log
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.utils.Utils
 import kotlinx.coroutines.Job
@@ -31,7 +32,7 @@ import kotlinx.coroutines.Job
  * @param packageName The name of the package this LiveData will watch for mode changes for
  * @param user The user for whom the packageInfo will be defined
  */
-class PackageInfoLiveData(
+class LightPackageInfoLiveData private constructor(
     private val app: Application,
     private val packageName: String,
     private val user: UserHandle
@@ -39,7 +40,7 @@ class PackageInfoLiveData(
     PackageBroadcastReceiver.PackageBroadcastListener,
     PermissionListenerMultiplexer.PermissionChangeCallback {
 
-    private val LOG_TAG = PackageInfoLiveData::class.java.simpleName
+    private val LOG_TAG = LightPackageInfoLiveData::class.java.simpleName
 
     private var context = Utils.getUserContext(app, user)
     private var uid: Int? = null
@@ -61,8 +62,8 @@ class PackageInfoLiveData(
         newValue?.let { packageInfo ->
             if (packageInfo.uid != uid) {
                 uid = packageInfo.uid
-                PackageInfoRepository.permissionListenerMultiplexer?.addOrReplaceCallback(
-                    registeredUid, packageInfo.uid, this)
+                PermissionListenerMultiplexer.addOrReplaceCallback(registeredUid,
+                    packageInfo.uid, this)
                 registeredUid = uid
             }
         }
@@ -92,11 +93,10 @@ class PackageInfoLiveData(
     override fun onActive() {
         super.onActive()
 
-        PackageInfoRepository.getPackageBroadcastReceiver(app)
-            .addChangeCallback(packageName, this)
+        PackageBroadcastReceiver.addChangeCallback(packageName, this)
         uid?.let {
             registeredUid = uid
-            PackageInfoRepository.permissionListenerMultiplexer?.addCallback(it, this)
+            PermissionListenerMultiplexer.addCallback(it, this)
         }
         updateAsync()
     }
@@ -104,77 +104,35 @@ class PackageInfoLiveData(
     override fun onInactive() {
         super.onInactive()
 
-        PackageInfoRepository.getPackageBroadcastReceiver(app)
-            .removeChangeCallback(packageName, this)
+        PackageBroadcastReceiver.removeChangeCallback(packageName, this)
         registeredUid?.let {
-            PackageInfoRepository.permissionListenerMultiplexer
-                ?.removeCallback(it, this)
+            PermissionListenerMultiplexer.removeCallback(it, this)
             registeredUid = null
         }
     }
-}
-
-/**
- * Repository for PackageInfoLiveDatas, and a PackageBroadcastReceiver.
- * <p> Key value is a string package name and UserHandle pair, value is its corresponding LiveData.
- */
-object PackageInfoRepository : DataRepository<Pair<String, UserHandle>, PackageInfoLiveData>() {
-
-    private var broadcastReceiver: PackageBroadcastReceiver? = null
 
     /**
-     * Gets the PackageBroadcastReceiver, instantiating it if need be.
-     *
-     * @param app The current application
-     *
-     * @return The cached or newly created PackageBroadcastReceiver
+     * Repository for LightPackageInfoLiveDatas
+     * <p> Key value is a string package name and UserHandle pair, value is its corresponding
+     * LiveData.
      */
-    fun getPackageBroadcastReceiver(app: Application): PackageBroadcastReceiver {
-        if (broadcastReceiver == null) {
-            broadcastReceiver = PackageBroadcastReceiver(app)
+    companion object : DataRepository<Pair<String, UserHandle>,
+        LightPackageInfoLiveData>() {
+        override fun newValue(key: Pair<String, UserHandle>): LightPackageInfoLiveData {
+            return LightPackageInfoLiveData(PermissionControllerApplication.get(),
+                key.first, key.second)
         }
-        return broadcastReceiver!!
-    }
 
-    /**
-     * Used by the PackageInfoLiveData objects. Must be instantiated if used before
-     * getPackageInfoLiveData is called for the first time.
-     */
-    var permissionListenerMultiplexer: PermissionListenerMultiplexer? = null
-
-    /**
-     * Gets the PackageInfoLiveData associated with the provided package name and user,
-     * creating it if need be.
-     *
-     * @param app The current application
-     * @param packageName The name of the package desired
-     * @param user The UserHandle for whom we want the package
-     *
-     * @return The cached or newly created PackageInfoLiveData
-     */
-    fun getPackageInfoLiveData(app: Application, packageName: String, user: UserHandle):
-        PackageInfoLiveData {
-        if (permissionListenerMultiplexer == null) {
-            permissionListenerMultiplexer =
-                PermissionListenerMultiplexer(app)
+        /**
+         * Sets the value of the specified PackageInfoLiveData to the provided PackageInfo, creating it
+         * if need be. Used only by the UserPackageInfoLiveData, since that gets fresh PackageInfos.
+         *
+         * @param packageInfo The PackageInfo we wish to set the value to
+         */
+        fun setPackageInfoLiveData(packageInfo: LightPackageInfo) {
+            val user = UserHandle.getUserHandleForUid(packageInfo.uid)
+            val liveData = get(packageInfo.packageName, user)
+            liveData.value = packageInfo
         }
-        return getDataObject(app, packageName to user)
-    }
-
-    /**
-     * Sets the value of the specified PackageInfoLiveData to the provided PackageInfo, creating it
-     * if need be. Used only by the UserPackageInfoLiveData, since that gets fresh PackageInfos.
-     *
-     * @param app The current application
-     * @param packageInfo The PackageInfo we wish to set the value to
-     */
-    fun setPackageInfoLiveData(app: Application, packageInfo: LightPackageInfo) {
-        val user = UserHandle.getUserHandleForUid(packageInfo.uid)
-        val liveData = getDataObject(app, packageInfo.packageName to user)
-        liveData.value = packageInfo
-    }
-
-    override fun newValue(app: Application, key: Pair<String, UserHandle>): PackageInfoLiveData {
-        return PackageInfoLiveData(app, key.first, key.second)
     }
 }

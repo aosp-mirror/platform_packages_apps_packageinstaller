@@ -18,6 +18,7 @@ package com.android.permissioncontroller.permission.data
 
 import android.app.Application
 import android.os.UserHandle
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils
@@ -30,19 +31,15 @@ import com.android.permissioncontroller.permission.utils.Utils
  * @param app The current application
  * @param permissionGroupName The name of the permission group this LiveData represents
  */
-class SinglePermGroupPackagesUiInfoLiveData(
+class SinglePermGroupPackagesUiInfoLiveData private constructor(
     private val app: Application,
     private val permissionGroupName: String
 ) : SmartUpdateMediatorLiveData<Map<Pair<String, UserHandle>, AppPermGroupUiInfo>>() {
 
-    private val permGroupLiveData =
-        PermGroupRepository.getPermGroupLiveData(app, permissionGroupName)
-    private val permGroupPackagesLiveData = if (
-        Utils.getPlatformPermissionGroups().contains(permissionGroupName)) {
-        PermGroupPackagesUiInfoRepository.getAllStandardPermGroupsPackagesLiveData(app)
-    } else {
-        PermGroupPackagesUiInfoRepository.getAllCustomPermGroupsPackagesLiveData(app)
-    }
+    private val permGroupLiveData = PermGroupLiveData[permissionGroupName]
+    private val isCustomGroup = !Utils.getPlatformPermissionGroups().contains(permissionGroupName)
+    private val permGroupPackagesLiveData = PermGroupsPackagesLiveData.get(
+        customGroups = isCustomGroup)
 
     /**
      * Map<Pair<package name, UserHandle>, UI data LiveData>
@@ -91,8 +88,8 @@ class SinglePermGroupPackagesUiInfoLiveData(
         for ((packageName, userHandle) in toAdd) {
             val key = packageName to userHandle
             val appPermGroupLiveData =
-                AppPermGroupUiInfoRepository.getAppPermGroupUiInfoLiveData(app, packageName,
-                    permissionGroupName, userHandle)
+                AppPermGroupUiInfoLiveData[packageName, permissionGroupName, userHandle]
+
             appPermGroupLiveDatas[key] = appPermGroupLiveData
         }
 
@@ -121,68 +118,16 @@ class SinglePermGroupPackagesUiInfoLiveData(
             appPermGroupLiveDatas[key] = appPermGroupLiveData
         }
     }
-}
-
-/**
- * Repository for SinglePermGroupPackagesUiInfoLiveData objects, as well as the
- * AllStandardPermGroupsPackagesUiInfoLiveData and AllCustomPermGroupsPackagesUiInfoLiveData.
- * <p> Key value is a string permission group name, value is its corresponding LiveData.
- */
-object PermGroupPackagesUiInfoRepository
-    : DataRepository<String, SinglePermGroupPackagesUiInfoLiveData>() {
 
     /**
-     * Get the SinglePermGroupPackagesUiInfo associated with the given parameters, creating it if
-     * need be.
-     *
-     * @param app The current application
-     * @param groupName The name of the permission group desired
-     *
-     * @return the cached or newly generated SinglePermGroupPackagesUiInfoLiveData
+     * Repository for SinglePermGroupPackagesUiInfoLiveData objects.
+     * <p> Key value is a string permission group name, value is its corresponding LiveData.
      */
-    fun getSinglePermGroupPackagesUiInfoLiveData(app: Application, groupName: String):
-        SinglePermGroupPackagesUiInfoLiveData {
-        return getDataObject(app, groupName)
-    }
-
-    override fun newValue(app: Application, key: String):
-        SinglePermGroupPackagesUiInfoLiveData {
-        return SinglePermGroupPackagesUiInfoLiveData(app, key)
-    }
-
-    private var allStandardPermGroupPackagesLiveData: PermGroupsPackagesLiveData? = null
-    private var allCustomPermGroupPackagesLiveData: PermGroupsPackagesLiveData? = null
-
-    /**
-     * Get our AllCustomPermGroupsPackagesLiveData, creating it if need be.
-     *
-     * @param app The current application
-     *
-     * @return The cached or created PermGroupsPackagesLiveData
-     */
-    fun getAllCustomPermGroupsPackagesLiveData(app: Application):
-        PermGroupsPackagesLiveData {
-        return allCustomPermGroupPackagesLiveData ?: run {
-            val liveData = PermGroupsPackagesLiveData(app,
-                PermGroupRepository.getCustomPermGroupNamesLiveData(app))
-            allCustomPermGroupPackagesLiveData = liveData
-            liveData
-        }
-    }
-
-    /**
-     * Get our AllStandardPermGroupsPackagesLiveData, creating it if need be.
-     *
-     * @param app The current application
-     *
-     * @return The cached or created PermGroupsPackagesLiveData
-     */
-    fun getAllStandardPermGroupsPackagesLiveData(app: Application):
-        PermGroupsPackagesLiveData {
-        return allStandardPermGroupPackagesLiveData ?: run {
-            val liveData = PermGroupsPackagesLiveData(app, StandardPermGroupNamesLiveData())
-            allStandardPermGroupPackagesLiveData = liveData
-            liveData
+    companion object : DataRepository<String,
+        SinglePermGroupPackagesUiInfoLiveData>() {
+        override fun newValue(key: String): SinglePermGroupPackagesUiInfoLiveData {
+            return SinglePermGroupPackagesUiInfoLiveData(PermissionControllerApplication.get(),
+                key)
         }
     }
 }

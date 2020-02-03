@@ -18,14 +18,15 @@ package com.android.permissioncontroller.permission.data
 
 import android.app.Application
 import android.content.pm.PackageManager
+import com.android.permissioncontroller.PermissionControllerApplication
 
 /**
  * Serves as a single shared Permission Change Listener for all AppPermissionGroupLiveDatas.
  *
- * @param app The current application
  */
-class PermissionListenerMultiplexer(private val app: Application)
-    : PackageManager.OnPermissionsChangedListener {
+object PermissionListenerMultiplexer : PackageManager.OnPermissionsChangedListener {
+
+    private val app: Application = PermissionControllerApplication.get()
     /**
      * Map<UID, list of PermissionChangeCallbacks that wish to be informed when
      * permissions are updated for that UID>

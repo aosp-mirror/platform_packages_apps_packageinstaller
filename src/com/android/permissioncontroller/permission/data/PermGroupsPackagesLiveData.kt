@@ -21,6 +21,7 @@ import android.app.Application
 import android.os.Build
 import android.os.UserHandle
 import androidx.lifecycle.LiveData
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.PermGroup
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils.OS_PKG
@@ -31,12 +32,12 @@ import com.android.permissioncontroller.permission.utils.Utils.OS_PKG
  *
  * @param app The current application
  */
-class PermGroupsPackagesLiveData(
+class PermGroupsPackagesLiveData private constructor(
     private val app: Application,
     groupNamesLiveData: LiveData<List<String>>
 ) : SmartUpdateMediatorLiveData<Map<String, Set<Pair<String, UserHandle>>>>() {
 
-    private val packagesLiveData = UserPackageInfosRepository.getAllPackageInfosLiveData(app)
+    private val packagesLiveData = AllPackageInfosLiveData
     private val permGroupLiveDatas = mutableMapOf<String, PermGroupLiveData>()
 
     private var groupNames = emptyList<String>()
@@ -71,7 +72,7 @@ class PermGroupsPackagesLiveData(
         // all of the LiveDatas.
         for (groupToAdd in toAdd) {
             permGroupLiveDatas[groupToAdd] =
-                PermGroupRepository.getPermGroupLiveData(app, groupToAdd)
+                PermGroupLiveData[groupToAdd]
         }
 
         for (groupToAdd in toAdd) {
@@ -141,5 +142,29 @@ class PermGroupsPackagesLiveData(
         }
 
         value = groupApps
+    }
+
+    companion object {
+        private val customInstance = PermGroupsPackagesLiveData(
+            PermissionControllerApplication.get(), CustomPermGroupNamesLiveData)
+        private val standardInstance = PermGroupsPackagesLiveData(
+            PermissionControllerApplication.get(), StandardPermGroupNamesLiveData)
+
+        /**
+         * Get either the PermGroupsPackageLiveData instance corresponding either to the custom
+         * permission groups, or the standard permission group.
+         *
+         * @param customGroups Whether to get the custom groups instance, or the standard
+         *
+         * @return The specified PermGroupsPackageLiveData
+         */
+        @JvmStatic
+        fun get(customGroups: Boolean = false): PermGroupsPackagesLiveData {
+            return if (customGroups) {
+                customInstance
+            } else {
+                standardInstance
+            }
+        }
     }
 }

@@ -36,7 +36,8 @@ import android.text.TextUtils
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
 import com.android.permissioncontroller.R
-import com.android.permissioncontroller.permission.data.PackageInfoRepository
+import com.android.permissioncontroller.permission.data.LightPackageInfoLiveData
+import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission
 import com.android.permissioncontroller.permission.model.livedatatypes.PermState
@@ -284,8 +285,7 @@ object KotlinUtils {
      * @return The package's UID, or null if the package or user is invalid
      */
     fun getPackageUid(app: Application, packageName: String, user: UserHandle): Int? {
-        val liveData = PackageInfoRepository.getPackageInfoLiveData(app, packageName,
-                user)
+        val liveData = LightPackageInfoLiveData[packageName, user]
         val liveDataUid = liveData.value?.uid
         return if (liveDataUid != null && liveData.hasActiveObservers()) liveDataUid else {
             val userContext = Utils.getUserContext(app, user)

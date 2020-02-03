@@ -23,8 +23,7 @@ import android.content.pm.PermissionGroupInfo
 import android.content.pm.PermissionInfo
 import android.os.UserHandle
 import android.util.Log
-import com.android.permissioncontroller.permission.data.PackageInfoRepository.getPackageBroadcastReceiver
-import com.android.permissioncontroller.permission.data.PackageInfoRepository.getPackageInfoLiveData
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermGroupInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.PermGroup
@@ -38,7 +37,7 @@ import com.android.permissioncontroller.permission.utils.Utils
  * @param app The current application
  * @param groupName The name of the permission group this LiveData represents
  */
-class PermGroupLiveData(
+class PermGroupLiveData private constructor(
     private val app: Application,
     private val groupName: String
 ) : SmartUpdateMediatorLiveData<PermGroup>(),
@@ -51,7 +50,7 @@ class PermGroupLiveData(
     /**
      * Map<packageName, LiveData<PackageInfo>>
      */
-    private val pkgsUsingGroup = mutableMapOf<String, PackageInfoLiveData>()
+    private val pkgsUsingGroup = mutableMapOf<String, LightPackageInfoLiveData>()
 
     private lateinit var groupInfo: PackageItemInfo
 
@@ -70,7 +69,7 @@ class PermGroupLiveData(
      * @param packageName the name of the package the PackageInfoLiveData watches
      * @param liveData the PackageInfoLiveData to be inserted
      */
-    private fun addPackageLiveData(packageName: String, liveData: PackageInfoLiveData) {
+    private fun addPackageLiveData(packageName: String, liveData: LightPackageInfoLiveData) {
         if (!pkgsUsingGroup.contains(packageName)) {
             pkgsUsingGroup[packageName] = liveData
             addSource(liveData) {
@@ -121,13 +120,13 @@ class PermGroupLiveData(
 
         // TODO ntmyren: What if the package isn't installed for the system user?
         addPackageLiveData(groupInfo.packageName,
-            getPackageInfoLiveData(app, groupInfo.packageName, UserHandle.SYSTEM))
+            LightPackageInfoLiveData[groupInfo.packageName, UserHandle.SYSTEM])
 
         val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(packageNames, pkgsUsingGroup)
         for (packageName in toAdd) {
             if (!packageNames.contains(packageName)) {
                 addPackageLiveData(groupInfo.packageName,
-                    getPackageInfoLiveData(app, packageName, UserHandle.SYSTEM))
+                    LightPackageInfoLiveData[packageName, UserHandle.SYSTEM])
             }
         }
 
@@ -142,7 +141,7 @@ class PermGroupLiveData(
     override fun onInactive() {
         super.onInactive()
 
-        getPackageBroadcastReceiver(app).removeAllCallback(this)
+        PackageBroadcastReceiver.removeAllCallback(this)
     }
 
     /**
@@ -154,69 +153,16 @@ class PermGroupLiveData(
 
         super.onActive()
 
-        getPackageBroadcastReceiver(app).addAllCallback(this)
+        PackageBroadcastReceiver.addAllCallback(this)
     }
-}
-
-/**
- * Repository for PermissionGroupLiveDatas.
- * <p> Key value is a string permission group name, value is its corresponding LiveData.
- */
-object PermGroupRepository
-    : DataRepository<String, PermGroupLiveData>() {
 
     /**
-     * Gets the PermGroupLiveData associated with the provided group name, creating it
-     * if need be.
-     *
-     * @param app The current application
-     * @param groupName The name of the permission group desired
-     *
-     * @return The cached or newly created PermGroupLiveData for the given groupName
+     * Repository for PermGroupLiveDatas.
+     * <p> Key value is a string permission group name, value is its corresponding LiveData.
      */
-    fun getPermGroupLiveData(app: Application, groupName: String):
-        PermGroupLiveData {
-        return getDataObject(app, groupName)
-    }
-
-    override fun newValue(
-        app: Application,
-        key: String
-    ): PermGroupLiveData {
-        return PermGroupLiveData(app, key)
-    }
-
-    private var customPermGroupNamesLiveData: CustomPermGroupNamesLiveData? = null
-
-    /**
-     * Gets the CustomPermGroupNamesLiveData, creating it if need be.
-     *
-     * @param app The current application
-     *
-     * @return The cached or newly created AllPermGroupsNamesLiveData
-     */
-    fun getCustomPermGroupNamesLiveData(app: Application): CustomPermGroupNamesLiveData {
-        return customPermGroupNamesLiveData ?: run {
-            val liveData = CustomPermGroupNamesLiveData(app)
-            customPermGroupNamesLiveData = liveData
-            liveData
-        }
-    }
-
-    private var foregroundPermNamesLiveData: ForegroundPermNamesLiveData? = null
-
-    /**
-     * Gets the ForegroundPermNamesLiveData, creating it if need be.
-     *
-     * @param app The current application
-     *
-     * @return the cached or newly created ForegroundPermNamesLiveData
-     */
-    fun getForegroundPermNamesLiveData(app: Application): ForegroundPermNamesLiveData {
-        return foregroundPermNamesLiveData ?: run {
-            val liveData = ForegroundPermNamesLiveData(app)
-            foregroundPermNamesLiveData = liveData
-            liveData
+    companion object : DataRepository<String, PermGroupLiveData>() {
+        override fun newValue(key: String): PermGroupLiveData {
+            return PermGroupLiveData(PermissionControllerApplication.get(), key)
         }
     }
 }

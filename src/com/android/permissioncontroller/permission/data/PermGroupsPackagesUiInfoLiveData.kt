@@ -83,9 +83,8 @@ class PermGroupsPackagesUiInfoLiveData(
             if (!permGroupPackagesLiveDatas.containsKey(groupName)) {
                 groupsAdded.add(groupName)
 
-                val singlePermGroupPackagesUiInfoLiveData =
-                    PermGroupPackagesUiInfoRepository.getSinglePermGroupPackagesUiInfoLiveData(app,
-                        groupName)
+                val singlePermGroupPackagesUiInfoLiveData = SinglePermGroupPackagesUiInfoLiveData
+                    .get(groupName)
                 permGroupPackagesLiveDatas[groupName] = singlePermGroupPackagesUiInfoLiveData
             }
         }
