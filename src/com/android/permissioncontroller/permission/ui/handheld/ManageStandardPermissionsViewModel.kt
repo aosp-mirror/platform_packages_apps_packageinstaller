@@ -23,7 +23,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.android.permissioncontroller.R
-import com.android.permissioncontroller.permission.data.PermGroupPackagesUiInfoRepository
+import com.android.permissioncontroller.permission.data.PermGroupsPackagesLiveData
 import com.android.permissioncontroller.permission.data.PermGroupsPackagesUiInfoLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.data.StandardPermGroupNamesLiveData
@@ -40,8 +40,8 @@ class ManageStandardPermissionsViewModel(
 ) : AndroidViewModel(app) {
 
     val uiDataLiveData = PermGroupsPackagesUiInfoLiveData(app,
-        StandardPermGroupNamesLiveData())
-    val numCustomPermGroups = NumCustomPermGroupsWithPackagesLiveData(app)
+        StandardPermGroupNamesLiveData)
+    val numCustomPermGroups = NumCustomPermGroupsWithPackagesLiveData()
 
     fun showCustomPermissions(fragment: Fragment, sessionId: Long) {
         fragment.findNavController().navigate(R.id.standard_to_custom,
@@ -71,14 +71,11 @@ class ManageStandardPermissionsViewModelFactory(
 /**
  * A LiveData which tracks the number of custom permission groups that are used by at least one
  * package
- *
- * @param app The current application
  */
-class NumCustomPermGroupsWithPackagesLiveData(app: Application) :
+class NumCustomPermGroupsWithPackagesLiveData() :
     SmartUpdateMediatorLiveData<Int>() {
 
-    private val customPermGroupPackages =
-        PermGroupPackagesUiInfoRepository.getAllCustomPermGroupsPackagesLiveData(app)
+    private val customPermGroupPackages = PermGroupsPackagesLiveData.get(customGroups = true)
 
     init {
         addSource(customPermGroupPackages) {

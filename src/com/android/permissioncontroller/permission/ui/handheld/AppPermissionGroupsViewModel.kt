@@ -24,10 +24,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AppPermGroupUiInfoLiveData
-import com.android.permissioncontroller.permission.data.AppPermGroupUiInfoRepository
+import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
-import com.android.permissioncontroller.permission.data.PackagePermissionsRepository
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
+import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.ui.Category
 import com.android.permissioncontroller.permission.utils.KotlinUtils
@@ -62,8 +62,7 @@ class AppPermissionGroupsViewModel(
     Map<Category, List<Triple<String, Boolean, Boolean>>>>() {
 
         private val packagePermsLiveData =
-            PackagePermissionsRepository.getPackagePermissionsLiveData(app,
-                packageName, user)
+            PackagePermissionsLiveData[packageName, user]
         private val appPermGroupUiInfoLiveDatas = mutableMapOf<String, AppPermGroupUiInfoLiveData>()
 
         init {
@@ -121,8 +120,7 @@ class AppPermissionGroupsViewModel(
 
             for (groupToAdd in toAdd) {
                 val appPermGroupUiInfoLiveData =
-                    AppPermGroupUiInfoRepository.getAppPermGroupUiInfoLiveData(app, packageName,
-                        groupToAdd, user)
+                    AppPermGroupUiInfoLiveData[packageName, groupToAdd, user]
                 appPermGroupUiInfoLiveDatas[groupToAdd] = appPermGroupUiInfoLiveData
             }
 

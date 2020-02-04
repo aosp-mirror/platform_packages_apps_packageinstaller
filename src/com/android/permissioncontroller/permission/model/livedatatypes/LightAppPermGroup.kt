@@ -60,81 +60,73 @@ data class LightAppPermGroup(
         if (!backgroundPermNames.contains(it.key)) it.key else null
     }
 
+    val foreground = AppPermSubGroup(permissions.filter { it.key in foregroundPermNames },
+        specialLocationGrant)
+
+    val background = AppPermSubGroup(permissions.filter { it.key in backgroundPermNames },
+        specialLocationGrant)
+
     /**
      * Whether or not this App Permission Group has a permission which has a background mode
      */
-    val hasPermWithBackground = backgroundPermNames.isNotEmpty()
+    val hasPermWithBackgroundMode = backgroundPermNames.isNotEmpty()
 
     /**
      * Whether or not this App Permission Group requests a background permission
      */
-    val hasBackgroundPerms = backgroundPermNames.any { permissions.contains(it) }
-
-    /**
-     * Whether any of this App Permission Group's foreground permissions are fixed by policy
-     */
-    val isForegroundPolicyFixed = permissions.any {
-        !backgroundPermNames.contains(it.key) && it.value.isPolicyFixed
-    }
-
-    /**
-     * Whether any of this App Permission Group's background permissions are fixed by policy
-     */
-    val isBackgroundPolicyFixed = permissions.any {
-        backgroundPermNames.contains(it.key) && it.value.isPolicyFixed
-    }
+    val hasBackgroundGroup = backgroundPermNames.any { permissions.contains(it) }
 
     /**
      * Whether this App Permission Group's background and foreground permissions are fixed by policy
      */
-    val isPolicyFullyFixed = isForegroundPolicyFixed && (!hasBackgroundPerms ||
-        isBackgroundPolicyFixed)
+    val isPolicyFullyFixed = foreground.isPolicyFixed && (!hasBackgroundGroup ||
+        background.isPolicyFixed)
 
     /**
-     * Whether this App Permission Group's foreground permissions are fixed by the system
+     * Whether or not this group supports runtime permissions
      */
-    val isForegroundSystemFixed = permissions.any {
-        !backgroundPermNames.contains(it.key) && it.value.isSystemFixed
-    }
-
-    /**
-     * Whether this App Permission Group's background permissions are fixed by the system
-     */
-    val isBackgroundSystemFixed = permissions.any {
-        backgroundPermNames.contains(it.key) && it.value.isSystemFixed
-    }
-
-    /**
-     * Whether any of this App Permission Group's foreground permissions are granted
-     */
-    val isForegroundGranted = specialLocationGrant ?: permissions.any {
-        !backgroundPermNames.contains(it.key) && it.value.isGrantedIncludingAppOp
-    }
-
-    /**
-     * Whether any of this App Permission Group's background permissions are granted
-     */
-    val isBackgroundGranted = specialLocationGrant ?: permissions.any {
-        backgroundPermNames.contains(it.key) && it.value.isGrantedIncludingAppOp
-    }
-
-    val isForegroundGrantedByDefault = permissions.any { !backgroundPermNames.contains(it.key) &&
-        it.value.isGrantedByDefault
-    }
-
-    val isBackgroundGrantedByDefault = permissions.any { backgroundPermNames.contains(it.key) &&
-        it.value.isGrantedByDefault
-    }
-
     val supportsRuntimePerms = packageInfo.targetSdkVersion >= Build.VERSION_CODES.M
-
-    /**
-     * Whether this App Permission Group's permissions are fixed by the user
-     */
-    val isUserFixed = permissions.any { it.value.isUserFixed }
 
     /**
      * Whether this App Permission Group contains any one-time permission
      */
     val isOneTime = permissions.any { it.value.isOneTime }
+
+    /**
+     * Whether this App Permission Subgroup's permissions are fixed by the user
+     */
+    val isUserFixed = permissions.any { it.value.isUserFixed }
+
+    /**
+     * A subset of the AppPermssionGroup, representing either the background or foreground permissions
+     * of the full group.
+     *
+     * @param permissions The permissions contained within this subgroup, a subset of those contained
+     * in the full group
+     * @param specialLocationGrant Whether this is a special location package
+     */
+    data class AppPermSubGroup internal constructor(
+        private val permissions: Map<String, LightPermission>,
+        private val specialLocationGrant: Boolean?
+    ) {
+        /**
+         * Whether any of this App Permission Group's foreground permissions are fixed by policy
+         */
+        val isPolicyFixed = permissions.any { it.value.isPolicyFixed }
+
+        /**
+         * Whether this App Permission Group's permissions are fixed by the system
+         */
+        val isSystemFixed = permissions.any { it.value.isSystemFixed }
+
+        /**
+         * Whether any of this App Permission SubGroup's permissions are granted
+         */
+        val isGranted = specialLocationGrant ?: permissions.any { it.value.isGrantedIncludingAppOp }
+
+        /**
+         * Whether any of this App Permission SubGroup's permissions are granted by default
+         */
+        val isGrantedByDefault = permissions.any { it.value.isGrantedByDefault }
+    }
 }

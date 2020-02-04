@@ -23,7 +23,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.android.permissioncontroller.R
-import com.android.permissioncontroller.permission.data.PermGroupPackagesUiInfoRepository
+import com.android.permissioncontroller.permission.data.PermGroupsPackagesLiveData
 import com.android.permissioncontroller.permission.data.PermGroupsPackagesUiInfoLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 
@@ -38,7 +38,7 @@ class ManageCustomPermissionsViewModel(
 ) : AndroidViewModel(app) {
 
     val uiDataLiveData = PermGroupsPackagesUiInfoLiveData(app,
-        UsedCustomPermGroupNamesLiveData(app))
+        UsedCustomPermGroupNamesLiveData())
 
     fun showPermissionApps(fragment: Fragment, groupName: String, sessionId: Long) {
         fragment.findNavController().navigate(R.id.manage_to_perm_apps,
@@ -65,11 +65,11 @@ class ManageCustomPermissionsViewModelFactory(
  * package. This includes single-permission permission groups, as well as the Undefined permission
  * group, and any other permission groups not defined by the system.
  */
-class UsedCustomPermGroupNamesLiveData(app: Application) :
+class UsedCustomPermGroupNamesLiveData :
     SmartUpdateMediatorLiveData<List<String>>() {
 
     init {
-        addSource(PermGroupPackagesUiInfoRepository.getAllCustomPermGroupsPackagesLiveData(app)) {
+        addSource(PermGroupsPackagesLiveData.get(customGroups = true)) {
             value = it.keys.toList()
         }
     }

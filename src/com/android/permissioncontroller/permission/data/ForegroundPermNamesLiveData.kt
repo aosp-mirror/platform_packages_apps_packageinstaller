@@ -16,19 +16,14 @@
 
 package com.android.permissioncontroller.permission.data
 
-import android.app.Application
 import com.android.permissioncontroller.permission.utils.Utils
 
 /**
  * LiveData for a map of background permission name -> list of foreground permission names for every
  * installed, runtime permission in every platform permission group. This LiveData's value is
  * static, since the background/foreground permission relationships are defined by the system.
- *
- * @param app The current application
  */
-class ForegroundPermNamesLiveData(
-    private val app: Application
-) : SmartUpdateMediatorLiveData<Map<String, List<String>>>() {
+object ForegroundPermNamesLiveData : SmartUpdateMediatorLiveData<Map<String, List<String>>>() {
 
     // Since the value will be static, initialize the value upon creating the LiveData.
     init {
@@ -37,7 +32,7 @@ class ForegroundPermNamesLiveData(
 
     override fun update() {
         val systemGroups = Utils.getPlatformPermissionGroups()
-        val groupLiveDatas = systemGroups.map { PermGroupRepository.getPermGroupLiveData(app, it) }
+        val groupLiveDatas = systemGroups.map { PermGroupLiveData[it] }
         val permMap = mutableMapOf<String, MutableList<String>>()
         var numLiveDatasSeen = 0
         for (groupLiveData in groupLiveDatas) {

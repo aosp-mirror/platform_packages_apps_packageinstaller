@@ -25,9 +25,10 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
+import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.FullStoragePermissionAppsLiveData
-import com.android.permissioncontroller.permission.data.PermGroupPackagesUiInfoRepository
-import com.android.permissioncontroller.permission.data.UserPackageInfosRepository
+import com.android.permissioncontroller.permission.data.SinglePermGroupPackagesUiInfoLiveData
+import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.ui.Category
 import com.android.permissioncontroller.permission.ui.handheld.PermissionAppsViewModel.Companion.CREATION_LOGGED_KEY
@@ -60,7 +61,7 @@ class PermissionAppsViewModel(
     val shouldShowSystemLiveData = state.getLiveData(SHOULD_SHOW_SYSTEM_KEY, false)
     val hasSystemAppsLiveData = state.getLiveData(HAS_SYSTEM_APPS_KEY, true)
     val showAllowAlwaysStringLiveData = state.getLiveData(SHOW_ALWAYS_ALLOWED, false)
-    val categorizedAppsLiveData = CategorizedAppsLiveData(app, groupName)
+    val categorizedAppsLiveData = CategorizedAppsLiveData(groupName)
 
     fun updateShowSystem(showSystem: Boolean) {
         if (showSystem != state.get(SHOULD_SHOW_SYSTEM_KEY)) {
@@ -72,12 +73,10 @@ class PermissionAppsViewModel(
         get() = state.get(CREATION_LOGGED_KEY) ?: false
         set(value) = state.set(CREATION_LOGGED_KEY, value)
 
-    inner class CategorizedAppsLiveData(app: Application, groupName: String)
+    inner class CategorizedAppsLiveData(groupName: String)
         : MediatorLiveData<@kotlin.jvm.JvmSuppressWildcards
     Map<Category, List<Pair<String, UserHandle>>>>() {
-        private val packagesUiInfoLiveData =
-            PermGroupPackagesUiInfoRepository.getSinglePermGroupPackagesUiInfoLiveData(app,
-                groupName)
+        private val packagesUiInfoLiveData = SinglePermGroupPackagesUiInfoLiveData[groupName]
 
         init {
             var fullStorageLiveData: FullStoragePermissionAppsLiveData? = null
@@ -94,8 +93,8 @@ class PermissionAppsViewModel(
             // If this is the Storage group, observe a FullStoragePermissionAppsLiveData, update
             // the packagesWithFullFileAccess list, and call update to populate the subtitles.
             if (groupName == Manifest.permission_group.STORAGE) {
-                fullStorageLiveData = FullStoragePermissionAppsLiveData(app)
-                addSource(fullStorageLiveData) { fullAccessPackages ->
+                fullStorageLiveData = FullStoragePermissionAppsLiveData
+                addSource(FullStoragePermissionAppsLiveData) { fullAccessPackages ->
                     if (fullAccessPackages != packagesWithFullFileAccess) {
                         packagesWithFullFileAccess = fullAccessPackages ?: emptyList()
                         if (packagesUiInfoLiveData.isInitialized) {
@@ -188,7 +187,7 @@ class PermissionAppsViewModel(
      * @return Whether or not all packages have been loaded
      */
     fun arePackagesLoaded(): Boolean {
-        return UserPackageInfosRepository.getAllPackageInfosLiveData(app).isInitialized
+        return AllPackageInfosLiveData.isInitialized
     }
 }
 

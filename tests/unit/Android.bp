@@ -2,7 +2,7 @@ android_test {
 
     name: "PermissionControllerUnitTests",
 
-    srcs: ["src/**/*.java"],
+    srcs: ["src/**/*.java", "src/**/*.kt"],
 
     libs: [
         "android.test.base",

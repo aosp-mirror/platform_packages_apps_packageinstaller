@@ -36,7 +36,8 @@ import android.text.TextUtils
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
 import com.android.permissioncontroller.R
-import com.android.permissioncontroller.permission.data.PackageInfoRepository
+import com.android.permissioncontroller.permission.data.LightPackageInfoLiveData
+import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission
 import com.android.permissioncontroller.permission.model.livedatatypes.PermState
@@ -284,8 +285,7 @@ object KotlinUtils {
      * @return The package's UID, or null if the package or user is invalid
      */
     fun getPackageUid(app: Application, packageName: String, user: UserHandle): Int? {
-        val liveData = PackageInfoRepository.getPackageInfoLiveData(app, packageName,
-                user)
+        val liveData = LightPackageInfoLiveData[packageName, user]
         val liveDataUid = liveData.value?.uid
         return if (liveDataUid != null && liveData.hasActiveObservers()) liveDataUid else {
             val userContext = Utils.getUserContext(app, user)
@@ -359,8 +359,8 @@ object KotlinUtils {
         }
 
         if (shouldKillForAnyPermission) {
-            app.getSystemService(ActivityManager::class.java)!!.killUid(group.packageInfo.uid,
-                KILL_REASON_APP_OP_CHANGE)
+            (app.getSystemService(ActivityManager::class.java) as ActivityManager).killUid(
+                group.packageInfo.uid, KILL_REASON_APP_OP_CHANGE)
         }
         return LightAppPermGroup(group.packageInfo, group.permGroupInfo, newPerms,
             group.hasInstallToRuntimeSplit, group.specialLocationGrant)
@@ -525,8 +525,8 @@ object KotlinUtils {
         }
 
         if (shouldKillForAnyPermission) {
-            app.getSystemService(ActivityManager::class.java)!!.killUid(group.packageInfo.uid,
-                KILL_REASON_APP_OP_CHANGE)
+            (app.getSystemService(ActivityManager::class.java) as ActivityManager).killUid(
+                group.packageInfo.uid, KILL_REASON_APP_OP_CHANGE)
         }
         return LightAppPermGroup(group.packageInfo, group.permGroupInfo, newPerms,
             group.hasInstallToRuntimeSplit, group.specialLocationGrant)
@@ -644,9 +644,7 @@ object KotlinUtils {
     ): Boolean {
         val packageName = group.packageInfo.packageName
         val uid = group.packageInfo.uid
-        val user = UserHandle.getUserHandleForUid(uid)
-        val appOpsManager = Utils.getUserContext(app, user).getSystemService(
-            AppOpsManager::class.java)!!
+        val appOpsManager = app.getSystemService(AppOpsManager::class.java) as AppOpsManager
         var wasChanged = false
 
         if (perm.isBackgroundPermission && perm.foregroundPerms != null) {
@@ -709,8 +707,7 @@ object KotlinUtils {
     ): Boolean {
         val packageName = group.packageInfo.packageName
         val uid = group.packageInfo.uid
-        val appOpsManager = app.getSystemService(
-            AppOpsManager::class.java)!!
+        val appOpsManager = app.getSystemService(AppOpsManager::class.java) as AppOpsManager
         var wasChanged = false
 
         if (perm.isBackgroundPermission && perm.foregroundPerms != null) {

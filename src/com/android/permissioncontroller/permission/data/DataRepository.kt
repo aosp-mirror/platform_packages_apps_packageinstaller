@@ -17,9 +17,10 @@
 package com.android.permissioncontroller.permission.data
 
 import android.app.ActivityManager
-import android.app.Application
 import android.content.ComponentCallbacks2
 import android.content.res.Configuration
+import com.android.permissioncontroller.PermissionControllerApplication
+import androidx.annotation.MainThread
 import java.util.concurrent.TimeUnit
 
 /**
@@ -27,6 +28,10 @@ import java.util.concurrent.TimeUnit
  * to memory pressure
  */
 abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : ComponentCallbacks2 {
+
+    init {
+        PermissionControllerApplication.get().registerComponentCallbacks(this)
+    }
 
     /**
      * Deadlines for removal based on memory pressure. Live Data objects which have been inactive
@@ -45,40 +50,29 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
     /**
      * Whether or not this device is a low-RAM device.
      */
-    private var isLowMemoryDevice = false
-
-    private fun registerCallbacks(app: Application) {
-        if (!registered) {
-            app.registerComponentCallbacks(this)
-            isLowMemoryDevice =
-                app.getSystemService(ActivityManager::class.java)?.isLowRamDevice ?: false
-            registered = true
-        }
-    }
+    private var isLowMemoryDevice = PermissionControllerApplication.get().getSystemService(
+        ActivityManager::class.java)?.isLowRamDevice ?: false
 
     /**
      * Get a value from this repository, creating it if needed
      *
-     * @param app The current application
      * @param key The key associated with the desired Value
      *
      * @return The cached or newly created Value for the given Key
      */
-    protected fun getDataObject(app: Application, key: K): V {
-        registerCallbacks(app)
-
-        return data.getOrPut(key) { newValue(app, key) }
+    operator fun get(key: K): V {
+        return data.getOrPut(key) { newValue(key) }
     }
 
     /**
      * Generate a new value type from the given data
      *
-     * @param app The current application
      * @param key Information about this value object, used to instantiate it
      *
      * @return The generated Value
      */
-    protected abstract fun newValue(app: Application, key: K): V
+    @MainThread
+    protected abstract fun newValue(key: K): V
 
     /**
      * Remove LiveData objects with no observer based on the severity of the memory pressure. If
@@ -140,4 +134,26 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
                 return System.nanoTime() - time
             }
     }
+}
+
+/**
+ * A convenience to retrieve data from a repository with a composite key
+ */
+operator fun <K1, K2, V : DataRepository.InactiveTimekeeper> DataRepository<Pair<K1, K2>, V>.get(
+    k1: K1,
+    k2: K2
+): V {
+    return get(k1 to k2)
+}
+
+/**
+ * A convenience to retrieve data from a repository with a composite key
+ */
+operator fun <K1, K2, K3, V : DataRepository.InactiveTimekeeper>
+    DataRepository<Triple<K1, K2, K3>, V>.get(
+        k1: K1,
+        k2: K2,
+        k3: K3
+    ): V {
+    return get(Triple(k1, k2, k3))
 }

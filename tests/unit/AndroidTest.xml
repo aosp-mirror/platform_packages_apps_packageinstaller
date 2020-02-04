@@ -25,7 +25,12 @@
         <option name="cleanup-apks" value="true" />
     </target_preparer>
     <test class="com.android.tradefed.testtype.AndroidJUnitTest" >
-        <option name="package" value="com.android.permissioncontroller.tests.unit" />
+        <option name="package" value="com.android.permissioncontroller.tests.unit.role" />
+        <option name="runner" value="androidx.test.runner.AndroidJUnitRunner" />
+        <option name="hidden-api-checks" value="false"/>
+    </test>
+    <test class="com.android.tradefed.testtype.AndroidJUnitTest" >
+        <option name="package" value="com.android.permissioncontroller.tests.unit.permissions" />
         <option name="runner" value="androidx.test.runner.AndroidJUnitRunner" />
         <option name="hidden-api-checks" value="false"/>
     </test>

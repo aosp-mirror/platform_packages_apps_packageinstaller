@@ -23,6 +23,7 @@ import android.os.Build
 import android.os.UserHandle
 import android.permission.PermissionManager
 import android.util.Log
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission
@@ -39,7 +40,7 @@ import com.android.permissioncontroller.permission.utils.Utils.OS_PKG
  * @param permGroupName The name of the permission group
  * @param user The user of the package
  */
-class AppPermGroupLiveData(
+class LightAppPermGroupLiveData private constructor(
     private val app: Application,
     private val packageName: String,
     private val permGroupName: String,
@@ -48,12 +49,10 @@ class AppPermGroupLiveData(
 
     val LOG_TAG = this::class.java.simpleName
 
-    private val permStateLiveData = PermStateRepository.getPermStateLiveData(app, packageName,
-        permGroupName, user)
-    private val permGroupLiveData = PermGroupRepository.getPermGroupLiveData(app, permGroupName)
-    private val packageInfoLiveData = PackageInfoRepository.getPackageInfoLiveData(app,
-        packageName, user)
-    private val fgPermNamesLiveData = PermGroupRepository.getForegroundPermNamesLiveData(app)
+    private val permStateLiveData = PermStateLiveData[packageName, permGroupName, user]
+    private val permGroupLiveData = PermGroupLiveData[permGroupName]
+    private val packageInfoLiveData = LightPackageInfoLiveData[packageName, user]
+    private val fgPermNamesLiveData = ForegroundPermNamesLiveData
 
     init {
         addSource(fgPermNamesLiveData) {
@@ -178,5 +177,19 @@ class AppPermGroupLiveData(
             }
         }
         return false
+    }
+
+    /**
+     * Repository for AppPermGroupLiveDatas.
+     * <p> Key value is a triple of string package name, string permission group name, and
+     * UserHandle, value is its corresponding LiveData.
+     */
+    companion object : DataRepository<Triple<String, String, UserHandle>,
+        LightAppPermGroupLiveData>() {
+        override fun newValue(key: Triple<String, String, UserHandle>):
+            LightAppPermGroupLiveData {
+            return LightAppPermGroupLiveData(PermissionControllerApplication.get(),
+                key.first, key.second, key.third)
+        }
     }
 }

@@ -19,9 +19,8 @@ package com.android.permissioncontroller.permission.data
 import android.app.Application
 import android.content.pm.PackageManager
 import android.os.UserHandle
-import com.android.permissioncontroller.permission.data.PackageInfoRepository.getPackageBroadcastReceiver
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
-import com.android.permissioncontroller.permission.utils.KotlinUtils
 import kotlinx.coroutines.Job
 
 /**
@@ -30,7 +29,7 @@ import kotlinx.coroutines.Job
  * @param app The current application
  * @param user The user whose packages are desired
  */
-class UserPackageInfosLiveData(
+class UserPackageInfosLiveData private constructor(
     private val app: Application,
     private val user: UserHandle
 ) : SmartAsyncMediatorLiveData<@kotlin.jvm.JvmSuppressWildcards List<LightPackageInfo>>(),
@@ -41,7 +40,7 @@ class UserPackageInfosLiveData(
             for (packageInfo in newValue) {
                 // This is an optimization, since setting the individual package liveDatas is
                 // very low cost, and will save time and computation later down the line.
-                PackageInfoRepository.setPackageInfoLiveData(app, packageInfo)
+                LightPackageInfoLiveData.setPackageInfoLiveData(packageInfo)
             }
         }
         super.setValue(newValue)
@@ -67,110 +66,23 @@ class UserPackageInfosLiveData(
     override fun onActive() {
         super.onActive()
 
-        getPackageBroadcastReceiver(app).addAllCallback(this)
+        PackageBroadcastReceiver.addAllCallback(this)
         updateAsync()
     }
 
     override fun onInactive() {
         super.onInactive()
 
-        getPackageBroadcastReceiver(app).removeAllCallback(this)
+        PackageBroadcastReceiver.removeAllCallback(this)
     }
-}
-
-/**
- * A LiveData which tracks the PackageInfos of all of the packages in the system, for all users.
- *
- * @param app The current application
- */
-class AllPackageInfosLiveData(
-    private val app: Application
-) : SmartUpdateMediatorLiveData<Map<UserHandle, List<LightPackageInfo>>>() {
-    private val usersLiveData = UsersLiveData.get(app)
-    private val userPackageInfosLiveDatas = mutableMapOf<UserHandle, UserPackageInfosLiveData>()
-    private val userPackageInfos = mutableMapOf<UserHandle, List<LightPackageInfo>>()
-
-    init {
-        addSource(usersLiveData) {
-            update()
-        }
-    }
-
-    override fun update() {
-        usersLiveData.value?.let { users ->
-            val (usersToAdd, usersToRemove) =
-                KotlinUtils.getMapAndListDifferences(users, userPackageInfosLiveDatas)
-            for (user in usersToRemove) {
-                userPackageInfosLiveDatas[user]?.let { userPackageInfosLiveData ->
-                    removeSource(userPackageInfosLiveData)
-                    userPackageInfosLiveDatas.remove(user)
-                }
-            }
-            for (user in usersToAdd) {
-                val userPackageInfosLiveData =
-                    UserPackageInfosRepository.getUserPackageInfosLiveData(app, user)
-                userPackageInfosLiveDatas[user] = userPackageInfosLiveData
-            }
-
-            for (user in usersToAdd) {
-                addSource(userPackageInfosLiveDatas[user]!!) {
-                    it?.let { packageInfos ->
-                        onUserPackageUpdates(user, packageInfos)
-                    }
-                }
-            }
-        }
-    }
-
-    private fun onUserPackageUpdates(user: UserHandle, packageInfos: List<LightPackageInfo>?) {
-        if (packageInfos == null) {
-            userPackageInfos.remove(user)
-        } else {
-            userPackageInfos[user] = packageInfos
-        }
-        if (userPackageInfosLiveDatas.all { it.value.isInitialized }) {
-            value = userPackageInfos.toMap()
-        }
-    }
-}
-
-/**
- * Repository for UserPackageInfosLiveDatas, as well as the AllPackageInfosLiveData
- * <p> Key value is a UserHandle, value is its corresponding LiveData.
- */
-object UserPackageInfosRepository : DataRepository<UserHandle, UserPackageInfosLiveData>() {
 
     /**
-     * Gets the UserPackageInfosLiveData for a given user, creating it if need be.
-     *
-     * @param app The current application
-     *
-     * @return The cached or newly created UserPackageNamesLiveData
+     * Repository for UserPackageInfosLiveDatas.
+     * <p> Key value is a UserHandle, value is its corresponding LiveData.
      */
-    fun getUserPackageInfosLiveData(app: Application, user: UserHandle): UserPackageInfosLiveData {
-        return getDataObject(app, user)
-    }
-
-    override fun newValue(app: Application, key: UserHandle): UserPackageInfosLiveData {
-        return UserPackageInfosLiveData(app, key)
-    }
-
-    private var allPackageInfosLiveData: AllPackageInfosLiveData? = null
-
-    /**
-     * Gets the AllPackageNamesLiveData, creating it if need be.
-     *
-     * @param app The current application
-     *
-     * @return The cached or newly created AllPackageNamesLiveData
-     */
-    fun getAllPackageInfosLiveData(
-        app: Application
-    ): AllPackageInfosLiveData {
-        return allPackageInfosLiveData ?: run {
-            val liveData = AllPackageInfosLiveData(app)
-            allPackageInfosLiveData = liveData
-            liveData
+    companion object : DataRepository<UserHandle, UserPackageInfosLiveData>() {
+        override fun newValue(key: UserHandle): UserPackageInfosLiveData {
+            return UserPackageInfosLiveData(PermissionControllerApplication.get(), key)
         }
     }
 }

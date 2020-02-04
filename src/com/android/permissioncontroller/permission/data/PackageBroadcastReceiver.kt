@@ -21,14 +21,14 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import com.android.permissioncontroller.PermissionControllerApplication
 
 /**
  * Listens for package additions, replacements, and removals, and notifies listeners.
- *
- * @param app The current application
  */
-class PackageBroadcastReceiver(private val app: Application) : BroadcastReceiver() {
+object PackageBroadcastReceiver : BroadcastReceiver() {
 
+    private val app: Application = PermissionControllerApplication.get()
     private val intentFilter = IntentFilter(Intent.ACTION_PACKAGE_ADDED).apply {
         addAction(Intent.ACTION_PACKAGE_REMOVED)
         addAction(Intent.ACTION_PACKAGE_REPLACED)

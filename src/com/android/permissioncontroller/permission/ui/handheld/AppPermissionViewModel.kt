@@ -33,8 +33,9 @@ import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_ACTION_REPORTED
 import com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_VIEWED
 import com.android.permissioncontroller.R
-import com.android.permissioncontroller.permission.data.AppPermGroupLiveData
+import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
+import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.LocationUtils
@@ -127,8 +128,8 @@ class AppPermissionViewModel(
     inner class AppPermButtonStateLiveData
         : SmartUpdateMediatorLiveData<@JvmSuppressWildcards Map<ButtonType, ButtonState>>() {
 
-        private val appPermGroupLiveData = AppPermGroupLiveData(app, packageName,
-            permGroupName, user)
+        private val appPermGroupLiveData = LightAppPermGroupLiveData[packageName, permGroupName,
+            user]
 
         init {
             addSource(appPermGroupLiveData) { appPermGroup ->
@@ -163,26 +164,26 @@ class AppPermissionViewModel(
 
             askOneTimeState.isChecked = group.isOneTime
 
-            if (group.hasPermWithBackground) {
+            if (group.hasPermWithBackgroundMode) {
                 // Background / Foreground / Deny case
                 allowedForegroundState.isShown = true
-                if (group.hasBackgroundPerms) {
+                if (group.hasBackgroundGroup) {
                     allowedAlwaysState.isShown = true
                 }
 
-                allowedAlwaysState.isChecked = group.isBackgroundGranted &&
-                        group.isForegroundGranted
-                allowedForegroundState.isChecked = group.isForegroundGranted &&
-                        !group.isBackgroundGranted && !group.isOneTime
-                askState.isChecked = !group.isForegroundGranted && !group.isUserFixed
-                deniedState.isChecked = !group.isForegroundGranted && group.isUserFixed
+                allowedAlwaysState.isChecked = group.background.isGranted &&
+                        group.foreground.isGranted
+                allowedForegroundState.isChecked = group.foreground.isGranted &&
+                        !group.background.isGranted && !group.isOneTime
+                askState.isChecked = !group.foreground.isGranted && !group.isUserFixed
+                deniedState.isChecked = !group.foreground.isGranted && group.isUserFixed
 
-                if (applyFixToForegroundBackground(group, group.isForegroundSystemFixed,
-                                group.isBackgroundSystemFixed, allowedAlwaysState,
+                if (applyFixToForegroundBackground(group, group.foreground.isSystemFixed,
+                                group.background.isSystemFixed, allowedAlwaysState,
                                 allowedForegroundState, askState, deniedState,
                                 deniedForegroundState) ||
-                        applyFixToForegroundBackground(group, group.isForegroundPolicyFixed,
-                                group.isBackgroundPolicyFixed, allowedAlwaysState,
+                        applyFixToForegroundBackground(group, group.foreground.isPolicyFixed,
+                                group.background.isPolicyFixed, allowedAlwaysState,
                                 allowedForegroundState, askState, deniedState,
                                 deniedForegroundState)) {
                     showAdminSupportLiveData.value = admin
@@ -199,11 +200,11 @@ class AppPermissionViewModel(
                 // Allow / Deny case
                 allowedState.isShown = true
 
-                allowedState.isChecked = group.isForegroundGranted
-                askState.isChecked = !group.isForegroundGranted && !group.isUserFixed
-                deniedState.isChecked = !group.isForegroundGranted && group.isUserFixed
+                allowedState.isChecked = group.foreground.isGranted
+                askState.isChecked = !group.foreground.isGranted && !group.isUserFixed
+                deniedState.isChecked = !group.foreground.isGranted && group.isUserFixed
 
-                if (group.isForegroundPolicyFixed || group.isForegroundSystemFixed) {
+                if (group.foreground.isPolicyFixed || group.foreground.isSystemFixed) {
                     allowedState.isEnabled = false
                     askState.isEnabled = false
                     deniedState.isEnabled = false
@@ -258,7 +259,7 @@ class AppPermissionViewModel(
                 deniedState.isChecked = true
             }
         } else if (isBackgroundFixed && !isForegroundFixed) {
-            if (group.isBackgroundGranted) {
+            if (group.background.isGranted) {
                 // Background policy fixed as granted, foreground flexible. Granting
                 // foreground implies background comes with it in this case.
                 // Only allow user to grant background or deny (which only toggles fg)
@@ -277,7 +278,7 @@ class AppPermissionViewModel(
                 allowedAlwaysState.isEnabled = false
             }
         } else if (!isBackgroundFixed && isForegroundFixed) {
-            if (group.isForegroundGranted) {
+            if (group.foreground.isGranted) {
                 // Foreground is fixed as granted, background flexible.
                 // Allow switching between foreground and background. No denying
                 askState.isEnabled = false
@@ -355,8 +356,8 @@ class AppPermissionViewModel(
     ) {
         val context = fragment.context ?: return
         val group = lightAppPermGroup ?: return
-        val wasForegroundGranted = group.isForegroundGranted
-        val wasBackgroundGranted = group.isBackgroundGranted
+        val wasForegroundGranted = group.foreground.isGranted
+        val wasBackgroundGranted = group.background.isGranted
 
         if (LocationUtils.isLocationGroupAndProvider(context, permGroupName, packageName)) {
             val packageLabel = KotlinUtils.getPackageLabel(app, packageName, user)
@@ -375,7 +376,7 @@ class AppPermissionViewModel(
                     SafetyNetLogger.logPermissionToggled(newGroup)
                 }
             }
-            if (shouldChangeBackground && group.hasBackgroundPerms) {
+            if (shouldChangeBackground && group.hasBackgroundGroup) {
                 val newGroup = KotlinUtils.grantBackgroundRuntimePermissions(app, group)
 
                 if (!wasBackgroundGranted) {
@@ -388,20 +389,20 @@ class AppPermissionViewModel(
             var showGrantedByDefaultWarning = false
 
             if (shouldChangeForeground && wasForegroundGranted) {
-                showDefaultDenyDialog = (group.isForegroundGrantedByDefault ||
+                showDefaultDenyDialog = (group.foreground.isGrantedByDefault ||
                     !group.supportsRuntimePerms ||
                     group.hasInstallToRuntimeSplit)
                 showGrantedByDefaultWarning = showGrantedByDefaultWarning ||
-                    group.isForegroundGrantedByDefault
+                    group.foreground.isGrantedByDefault
             }
 
             if (shouldChangeBackground && wasBackgroundGranted) {
                 showDefaultDenyDialog = showDefaultDenyDialog ||
-                    group.isBackgroundGrantedByDefault ||
+                    group.background.isGrantedByDefault ||
                     !group.supportsRuntimePerms ||
                     group.hasInstallToRuntimeSplit
                 showGrantedByDefaultWarning = showGrantedByDefaultWarning ||
-                    group.isBackgroundGrantedByDefault
+                    group.background.isGrantedByDefault
             }
 
             if (showDefaultDenyDialog && !hasConfirmedRevoke && showGrantedByDefaultWarning) {
@@ -424,7 +425,7 @@ class AppPermissionViewModel(
                         SafetyNetLogger.logPermissionToggled(newGroup)
                     }
                 }
-                if (shouldChangeBackground && group.hasBackgroundPerms &&
+                if (shouldChangeBackground && group.hasBackgroundGroup &&
                     (wasBackgroundGranted || userFixed != group.isUserFixed)) {
                     val newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app,
                         group, userFixed)
@@ -451,8 +452,8 @@ class AppPermissionViewModel(
      */
     fun onDenyAnyWay(changeTarget: ChangeTarget, userFixed: Boolean) {
         val group = lightAppPermGroup ?: return
-        val wasForegroundGranted = group.isForegroundGranted
-        val wasBackgroundGranted = group.isBackgroundGranted
+        val wasForegroundGranted = group.foreground.isGranted
+        val wasBackgroundGranted = group.background.isGranted
         var hasDefaultPermissions = false
         val stateBefore = createPermissionSnapshot()
 
@@ -461,16 +462,16 @@ class AppPermissionViewModel(
             if (wasForegroundGranted) {
                 SafetyNetLogger.logPermissionToggled(newGroup)
             }
-            hasDefaultPermissions = group.isForegroundGrantedByDefault
+            hasDefaultPermissions = group.foreground.isGrantedByDefault
         }
-        if (changeTarget andValue ChangeTarget.CHANGE_BACKGROUND != 0 && group.hasBackgroundPerms) {
+        if (changeTarget andValue ChangeTarget.CHANGE_BACKGROUND != 0 && group.hasBackgroundGroup) {
             val newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, group, userFixed)
 
             if (wasBackgroundGranted) {
                 SafetyNetLogger.logPermissionToggled(newGroup)
             }
             hasDefaultPermissions = hasDefaultPermissions ||
-                group.isBackgroundGrantedByDefault
+                group.background.isGrantedByDefault
         }
         logPermissionChanges(stateBefore!!)
 
@@ -516,10 +517,10 @@ class AppPermissionViewModel(
         group: LightAppPermGroup,
         hasAdmin: Boolean
     ): Int {
-        val isForegroundPolicyDenied = group.isForegroundPolicyFixed && !group.isForegroundGranted
+        val isForegroundPolicyDenied = group.foreground.isPolicyFixed && !group.foreground.isGranted
         val isPolicyFullyFixedWithGrantedOrNoBkg = group.isPolicyFullyFixed &&
-                (group.isBackgroundGranted || !group.hasBackgroundPerms)
-        if (group.isForegroundSystemFixed || group.isBackgroundSystemFixed) {
+                (group.background.isGranted || !group.hasBackgroundGroup)
+        if (group.foreground.isSystemFixed || group.background.isSystemFixed) {
             return R.string.permission_summary_enabled_system_fixed
         } else if (hasAdmin) {
             // Permission is fully controlled by policy and cannot be switched
@@ -532,11 +533,11 @@ class AppPermissionViewModel(
             }
 
             // Part of the permission group can still be switched
-            if (group.isBackgroundPolicyFixed && group.isBackgroundGranted) {
+            if (group.background.isPolicyFixed && group.background.isGranted) {
                 return R.string.permission_summary_enabled_by_admin_background_only
-            } else if (group.isBackgroundPolicyFixed) {
+            } else if (group.background.isPolicyFixed) {
                 return R.string.permission_summary_disabled_by_admin_background_only
-            } else if (group.isForegroundPolicyFixed) {
+            } else if (group.foreground.isPolicyFixed) {
                 return R.string.permission_summary_enabled_by_admin_foreground_only
             }
         } else {
@@ -550,11 +551,11 @@ class AppPermissionViewModel(
             }
 
             // Part of the permission group can still be switched
-            if (group.isBackgroundPolicyFixed && group.isBackgroundGranted) {
+            if (group.background.isPolicyFixed && group.background.isGranted) {
                 return R.string.permission_summary_enabled_by_policy_background_only
-            } else if (group.isBackgroundPolicyFixed) {
+            } else if (group.background.isPolicyFixed) {
                 return R.string.permission_summary_disabled_by_policy_background_only
-            } else if (group.isForegroundPolicyFixed) {
+            } else if (group.foreground.isPolicyFixed) {
                 return R.string.permission_summary_enabled_by_policy_foreground_only
             }
         }
