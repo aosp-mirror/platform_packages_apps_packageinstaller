@@ -35,7 +35,7 @@ abstract class SmartAsyncMediatorLiveData<T> : SmartUpdateMediatorLiveData<T>() 
      */
     abstract suspend fun loadDataAndPostValue(job: Job)
 
-    override fun update() {
+    override fun onUpdate() {
         updateAsync()
     }
 

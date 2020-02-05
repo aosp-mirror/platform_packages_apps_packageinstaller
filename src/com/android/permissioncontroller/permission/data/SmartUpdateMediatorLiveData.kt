@@ -16,11 +16,19 @@
 
 package com.android.permissioncontroller.permission.data
 
+import android.util.Log
+import androidx.annotation.MainThread
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Lifecycle.State
 import androidx.lifecycle.Lifecycle.State.STARTED
+import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.Observer
+import com.android.permissioncontroller.permission.utils.ensureMainThread
+import com.android.permissioncontroller.permission.utils.getInitializedValue
+import com.android.permissioncontroller.permission.utils.shortStackTrace
 
 /**
  * A MediatorLiveData which tracks how long it has been inactive, compares new values before setting
@@ -29,6 +37,11 @@ import androidx.lifecycle.Observer
  */
 abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
     DataRepository.InactiveTimekeeper {
+
+    companion object {
+        const val DEBUG_UPDATES = false
+        val LOG_TAG = SmartUpdateMediatorLiveData::class.java.simpleName
+    }
 
     /**
      * Boolean, whether or not the value of this uiDataLiveData has been explicitly set yet.
@@ -52,7 +65,10 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
     private val children =
         mutableListOf<Triple<SmartUpdateMediatorLiveData<*>, Observer<in T>, Boolean>>()
 
+    @MainThread
     override fun setValue(newValue: T?) {
+        ensureMainThread()
+
         if (!isInitialized) {
             isInitialized = true
             isStale = false
@@ -83,7 +99,22 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         }
     }
 
-    abstract fun update()
+    /**
+     * Update the value of this LiveData.
+     *
+     * This usually results in an IPC when active and no action otherwise.
+     */
+    @MainThread
+    fun updateIfActive() {
+        if (DEBUG_UPDATES) {
+            Log.i(LOG_TAG, "updateIfActive ${javaClass.simpleName} ${shortStackTrace()}")
+        }
+        ensureMainThread()
+        onUpdate()
+    }
+
+    @MainThread
+    protected abstract fun onUpdate()
 
     override var timeWentInactive: Long? = null
 
@@ -104,18 +135,25 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         val oldStaleObserver = hasStaleObserver()
         staleObservers.add(owner to observer)
         notifySourcesOnStaleUpdates(oldStaleObserver, true)
-        observe(owner, observer)
+        if (owner == ForeverActiveLifecycle) {
+            observeForever(observer)
+        } else {
+            observe(owner, observer)
+        }
     }
 
+    @MainThread
     override fun <S : Any?> addSource(source: LiveData<S>, onChanged: Observer<in S>) {
+        // ensureMainThread() //TODO (b/148458939): violated in PackagePermissionsLiveData
         if (source is SmartUpdateMediatorLiveData) {
-            source.addChild(this, onChanged, staleObservers.isNotEmpty() ||
-            children.any { it.third })
+            source.addChild(this, onChanged,
+                staleObservers.isNotEmpty() || children.any { it.third })
             sources.add(source)
         }
         super.addSource(source, onChanged)
     }
 
+    @MainThread
     override fun <S : Any?> removeSource(toRemote: LiveData<S>) {
         if (toRemote is SmartUpdateMediatorLiveData) {
             toRemote.removeChild(this)
@@ -171,7 +209,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
 
         // if all sources are not stale, and we just requested stale updates, update ourselves
         if (sources.all { !it.isStale } && newHasStale) {
-            update()
+            updateIfActive()
         }
     }
 
@@ -188,5 +226,40 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         timeWentInactive = System.nanoTime()
         isStale = true
         super.onInactive()
+    }
+
+    /**
+     * Get the [initialized][isInitialized] value, suspending until one is available
+     *
+     * @param staleOk whether [isStale] value is ok to return
+     * @param forceUpdate whether to call [updateIfActive] (usually triggers an IPC)
+     */
+    suspend fun getInitializedValue(staleOk: Boolean = false, forceUpdate: Boolean = false): T {
+        return getInitializedValue(
+            observe = { observer ->
+                observeStale(ForeverActiveLifecycle, observer)
+                if (forceUpdate) {
+                    updateIfActive()
+                }
+            },
+            isInitialized = { isInitialized && (staleOk || !isStale) })
+    }
+
+    /**
+     * A [Lifecycle]/[LifecycleOwner] that is permanently [State.STARTED]
+     *
+     * Passing this to [LiveData.observe] is essentially equivalent to using
+     * [LiveData.observeForever], so you have to make sure you handle your own cleanup whenever
+     * using this.
+     */
+    private object ForeverActiveLifecycle : Lifecycle(), LifecycleOwner {
+
+        override fun getLifecycle(): Lifecycle = this
+
+        override fun addObserver(observer: LifecycleObserver) {}
+
+        override fun removeObserver(observer: LifecycleObserver) {}
+
+        override fun getCurrentState(): State = State.STARTED
     }
 }

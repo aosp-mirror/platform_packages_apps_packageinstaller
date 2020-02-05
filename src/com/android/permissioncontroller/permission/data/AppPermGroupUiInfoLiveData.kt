@@ -57,19 +57,19 @@ class AppPermGroupUiInfoLiveData private constructor(
 
     init {
         addSource(packageInfoLiveData) {
-            update()
+            updateIfActive()
         }
 
         addSource(permGroupLiveData) {
-            update()
+            updateIfActive()
         }
 
         addSource(permissionStateLiveData) {
-            update()
+            updateIfActive()
         }
     }
 
-    override fun update() {
+    override fun onUpdate() {
         val packageInfo = packageInfoLiveData.value
         val permissionGroup = permGroupLiveData.value
         val permissionState = permissionStateLiveData.value

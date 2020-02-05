@@ -27,10 +27,10 @@ object ForegroundPermNamesLiveData : SmartUpdateMediatorLiveData<Map<String, Lis
 
     // Since the value will be static, initialize the value upon creating the LiveData.
     init {
-        update()
+        updateIfActive()
     }
 
-    override fun update() {
+    override fun onUpdate() {
         val systemGroups = Utils.getPlatformPermissionGroups()
         val groupLiveDatas = systemGroups.map { PermGroupLiveData[it] }
         val permMap = mutableMapOf<String, MutableList<String>>()

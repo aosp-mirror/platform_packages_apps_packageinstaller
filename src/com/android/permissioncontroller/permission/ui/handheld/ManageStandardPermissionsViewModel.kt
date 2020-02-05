@@ -79,11 +79,11 @@ class NumCustomPermGroupsWithPackagesLiveData() :
 
     init {
         addSource(customPermGroupPackages) {
-            update()
+            updateIfActive()
         }
     }
 
-    override fun update() {
+    override fun onUpdate() {
         value = customPermGroupPackages.value?.size ?: 0
     }
 }

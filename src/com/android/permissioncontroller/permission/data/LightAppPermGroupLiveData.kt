@@ -45,7 +45,7 @@ class LightAppPermGroupLiveData private constructor(
     private val packageName: String,
     private val permGroupName: String,
     private val user: UserHandle
-) : SmartUpdateMediatorLiveData<LightAppPermGroup>() {
+) : SmartUpdateMediatorLiveData<LightAppPermGroup?>() {
 
     val LOG_TAG = this::class.java.simpleName
 
@@ -56,14 +56,14 @@ class LightAppPermGroupLiveData private constructor(
 
     init {
         addSource(fgPermNamesLiveData) {
-            update()
+            updateIfActive()
         }
 
         addSource(permStateLiveData) { permStates ->
             if (permStates == null && permStateLiveData.isInitialized) {
                 value = null
             } else {
-                update()
+                updateIfActive()
             }
         }
 
@@ -71,7 +71,7 @@ class LightAppPermGroupLiveData private constructor(
             if (permGroup == null && permGroupLiveData.isInitialized) {
                 value = null
             } else {
-                update()
+                updateIfActive()
             }
         }
 
@@ -79,12 +79,12 @@ class LightAppPermGroupLiveData private constructor(
             if (packageInfo == null && packageInfoLiveData.isInitialized) {
                 value = null
             } else {
-                update()
+                updateIfActive()
             }
         }
     }
 
-    override fun update() {
+    override fun onUpdate() {
         val permStates = permStateLiveData.value ?: return
         val permGroup = permGroupLiveData.value ?: return
         val packageInfo = packageInfoLiveData.value ?: return

@@ -37,6 +37,7 @@ import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveDat
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
+import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.LocationUtils
 import com.android.permissioncontroller.permission.utils.SafetyNetLogger
@@ -50,8 +51,6 @@ import com.android.permissioncontroller.permission.ui.handheld.AppPermissionView
 import com.android.permissioncontroller.permission.utils.Utils
 import com.android.settingslib.RestrictedLockUtils
 import java.util.Random
-import kotlin.collections.ArrayList
-import kotlin.collections.List
 import kotlin.collections.component1
 import kotlin.collections.component2
 import kotlin.collections.filter
@@ -140,12 +139,12 @@ class AppPermissionViewModel(
                     if (value == null) {
                         logAppPermissionFragmentViewed()
                     }
-                    update()
+                    updateIfActive()
                 }
             }
         }
 
-        override fun update() {
+        override fun onUpdate() {
             val group = appPermGroupLiveData.value ?: return
 
             val admin = RestrictedLockUtils.getProfileOrDeviceOwner(app, user)
@@ -345,6 +344,8 @@ class AppPermissionViewModel(
      *
      * @param requestGrant If this group should be granted
      * @param changeTarget Which permission group (foreground/background/both) should be changed
+     * @param buttonClicked button which was pressed to initiate the change, one of
+     *                      AppPermissionFragmentActionReported.button_pressed constants
      *
      * @return The dialogue to show, if applicable, or if the request was processed.
      */
@@ -352,7 +353,8 @@ class AppPermissionViewModel(
         requestGrant: Boolean,
         userFixed: Boolean,
         fragment: AppPermissionFragment,
-        changeTarget: ChangeTarget
+        changeTarget: ChangeTarget,
+        buttonClicked: Int
     ) {
         val context = fragment.context ?: return
         val group = lightAppPermGroup ?: return
@@ -368,22 +370,23 @@ class AppPermissionViewModel(
         val shouldChangeBackground = changeTarget andValue ChangeTarget.CHANGE_BACKGROUND != 0
 
         if (requestGrant) {
-            val stateBefore = createPermissionSnapshot()!!
+            var newGroup = group
+            val oldGroup = group
             if (shouldChangeForeground) {
-                val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
+                newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, newGroup)
 
                 if (!wasForegroundGranted) {
                     SafetyNetLogger.logPermissionToggled(newGroup)
                 }
             }
             if (shouldChangeBackground && group.hasBackgroundGroup) {
-                val newGroup = KotlinUtils.grantBackgroundRuntimePermissions(app, group)
+                newGroup = KotlinUtils.grantBackgroundRuntimePermissions(app, newGroup)
 
                 if (!wasBackgroundGranted) {
                     SafetyNetLogger.logPermissionToggled(newGroup, true)
                 }
             }
-            logPermissionChanges(stateBefore)
+            logPermissionChanges(oldGroup, newGroup, buttonClicked)
         } else {
             var showDefaultDenyDialog = false
             var showGrantedByDefaultWarning = false
@@ -406,17 +409,19 @@ class AppPermissionViewModel(
             }
 
             if (showDefaultDenyDialog && !hasConfirmedRevoke && showGrantedByDefaultWarning) {
-                fragment.showDefaultDenyDialog(changeTarget, R.string.system_warning, userFixed)
+                fragment.showDefaultDenyDialog(changeTarget, R.string.system_warning, userFixed,
+                    buttonClicked)
                 return
             } else if (showDefaultDenyDialog && !hasConfirmedRevoke) {
                 fragment.showDefaultDenyDialog(changeTarget, R.string.old_sdk_deny_warning,
-                    userFixed)
+                    userFixed, buttonClicked)
                 return
             } else {
-                val stateBefore = createPermissionSnapshot()!!
+                var newGroup = group
+                val oldGroup = group
                 if (shouldChangeForeground &&
                     (wasForegroundGranted || userFixed != group.isUserFixed)) {
-                    val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group,
+                    newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, newGroup,
                         userFixed)
 
                     // only log if we have actually denied permissions, not if we switch from
@@ -427,8 +432,8 @@ class AppPermissionViewModel(
                 }
                 if (shouldChangeBackground && group.hasBackgroundGroup &&
                     (wasBackgroundGranted || userFixed != group.isUserFixed)) {
-                    val newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app,
-                        group, userFixed)
+                    newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app,
+                        newGroup, userFixed)
 
                     // only log if we have actually denied permissions, not if we switch from
                     // "ask every time" to denied
@@ -436,7 +441,7 @@ class AppPermissionViewModel(
                         SafetyNetLogger.logPermissionToggled(newGroup, true)
                     }
                 }
-                logPermissionChanges(stateBefore)
+                logPermissionChanges(oldGroup, newGroup, buttonClicked)
             }
         }
     }
@@ -448,24 +453,27 @@ class AppPermissionViewModel(
      * @param changeTarget whether to change foreground, background, or both.
      * @param userFixed whether the user has stated they do not wish to be prompted about the
      * permission any more.
+     * @param buttonPressed button pressed to initiate the change, one of
+     *                      AppPermissionFragmentActionReported.button_pressed constants
      *
      */
-    fun onDenyAnyWay(changeTarget: ChangeTarget, userFixed: Boolean) {
+    fun onDenyAnyWay(changeTarget: ChangeTarget, userFixed: Boolean, buttonPressed: Int) {
         val group = lightAppPermGroup ?: return
         val wasForegroundGranted = group.foreground.isGranted
         val wasBackgroundGranted = group.background.isGranted
         var hasDefaultPermissions = false
-        val stateBefore = createPermissionSnapshot()
 
+        var newGroup = group
+        val oldGroup = group
         if (changeTarget andValue ChangeTarget.CHANGE_FOREGROUND != 0) {
-            val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, userFixed)
+            newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, newGroup, userFixed)
             if (wasForegroundGranted) {
                 SafetyNetLogger.logPermissionToggled(newGroup)
             }
             hasDefaultPermissions = group.foreground.isGrantedByDefault
         }
         if (changeTarget andValue ChangeTarget.CHANGE_BACKGROUND != 0 && group.hasBackgroundGroup) {
-            val newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, group, userFixed)
+            newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, newGroup, userFixed)
 
             if (wasBackgroundGranted) {
                 SafetyNetLogger.logPermissionToggled(newGroup)
@@ -473,22 +481,11 @@ class AppPermissionViewModel(
             hasDefaultPermissions = hasDefaultPermissions ||
                 group.background.isGrantedByDefault
         }
-        logPermissionChanges(stateBefore!!)
+        logPermissionChanges(oldGroup, newGroup, buttonPressed)
 
         if (hasDefaultPermissions || !group.supportsRuntimePerms) {
             hasConfirmedRevoke = true
         }
-    }
-
-    private fun createPermissionSnapshot(): List<PermissionState>? {
-        val group = lightAppPermGroup ?: return null
-        val permissionSnapshot = ArrayList<PermissionState>()
-
-        for ((permName, permission) in group.permissions) {
-            permissionSnapshot.add(PermissionState(permName, permission.isGrantedIncludingAppOp))
-        }
-
-        return permissionSnapshot
     }
 
     /**
@@ -562,37 +559,36 @@ class AppPermissionViewModel(
         return 0
     }
 
-    data class PermissionState(val permissionName: String, val permissionGranted: Boolean)
-
-    private fun logPermissionChanges(previousPermissionSnapshot: List<PermissionState>) {
-        val lightGroup = lightAppPermGroup ?: return
-
+    private fun logPermissionChanges(
+        oldGroup: LightAppPermGroup,
+        newGroup: LightAppPermGroup,
+        buttonPressed: Int
+    ) {
         val changeId = Random().nextLong()
 
-        for ((permissionName, wasGranted) in previousPermissionSnapshot) {
-            val permission = lightGroup.permissions[permissionName]
-                ?: continue
+        for ((permName, permission) in oldGroup.permissions) {
+            val newPermission = newGroup.permissions[permName] ?: continue
 
-            val isGranted = permission.isGrantedIncludingAppOp
-
-            if (wasGranted != isGranted) {
-                logAppPermissionFragmentActionReported(changeId, permissionName, isGranted)
+            if (permission.isGrantedIncludingAppOp != newPermission.isGrantedIncludingAppOp ||
+                permission.flags != newPermission.flags) {
+                logAppPermissionFragmentActionReported(changeId, newPermission, buttonPressed)
             }
         }
     }
 
     private fun logAppPermissionFragmentActionReported(
         changeId: Long,
-        permissionName: String,
-        isGranted: Boolean
+        permission: LightPermission,
+        buttonPressed: Int
     ) {
         val uid = KotlinUtils.getPackageUid(app, packageName, user) ?: return
         PermissionControllerStatsLog.write(APP_PERMISSION_FRAGMENT_ACTION_REPORTED, sessionId,
-            changeId, uid, packageName,
-            permissionName, isGranted)
+            changeId, uid, packageName, permission.permInfo.name,
+            permission.isGrantedIncludingAppOp, permission.flags, buttonPressed)
         Log.v(LOG_TAG, "Permission changed via UI with sessionId=$sessionId changeId=" +
-            "$changeId uid=$uid packageName=" +
-            "$packageName permission=$permissionName isGranted=$isGranted")
+            "$changeId uid=$uid packageName=$packageName permission=" + permission.permInfo.name +
+            " isGranted=" + permission.isGrantedIncludingAppOp + " permissionFlags=" +
+            permission.flags + " buttonPressed=$buttonPressed")
     }
 
     /**

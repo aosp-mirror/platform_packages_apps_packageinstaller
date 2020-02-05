@@ -60,11 +60,11 @@ class SinglePermGroupPackagesUiInfoLiveData private constructor(
         }
 
         addSource(permGroupPackagesLiveData) {
-            update()
+            updateIfActive()
         }
     }
 
-    override fun update() {
+    override fun onUpdate() {
         val thisPermGroupPackages = permGroupPackagesLiveData.value?.get(permissionGroupName)
         if (thisPermGroupPackages != null) {
             addAndRemoveAppPermGroupLiveDatas(thisPermGroupPackages.toList())

@@ -18,6 +18,12 @@ package com.android.permissioncontroller.permission.ui.handheld;
 
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ALLOW;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ALLOW_ALWAYS;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ALLOW_FOREGROUND;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ASK_EVERY_TIME;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__DENY;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__DENY_FOREGROUND;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.DENIED;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.DENIED_DO_NOT_ASK_AGAIN;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ALWAYS;
@@ -272,29 +278,36 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
 
         mAllowButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_FOREGROUND);
+            mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_FOREGROUND,
+                    APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ALLOW);
             setResult(GRANTED_ALWAYS);
         });
         mAllowAlwaysButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_BOTH);
+            mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_BOTH,
+                    APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ALLOW_ALWAYS);
             setResult(GRANTED_ALWAYS);
         });
         mAllowForegroundButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_FOREGROUND);
-            mViewModel.requestChange(false, false, this, ChangeTarget.CHANGE_BACKGROUND);
+            mViewModel.requestChange(true, false, this, ChangeTarget.CHANGE_FOREGROUND,
+                    APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ALLOW_FOREGROUND);
+            mViewModel.requestChange(false, false, this, ChangeTarget.CHANGE_BACKGROUND,
+                    APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ALLOW_FOREGROUND);
             setResult(GRANTED_FOREGROUND_ONLY);
         });
         // mAskOneTimeButton only shows if checked hence should do nothing
         mAskButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(false, false, this, ChangeTarget.CHANGE_BOTH);
+            mViewModel.requestChange(false, false, this, ChangeTarget.CHANGE_BOTH,
+                    APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ASK_EVERY_TIME);
             setResult(DENIED);
         });
         mDenyButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(false, true, this, ChangeTarget.CHANGE_BOTH);
+            mViewModel.requestChange(false, true, this, ChangeTarget.CHANGE_BOTH,
+                    APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__DENY);
             setResult(DENIED_DO_NOT_ASK_AGAIN);
         });
         mDenyForegroundButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(false, true, this, ChangeTarget.CHANGE_FOREGROUND);
+            mViewModel.requestChange(false, true, this, ChangeTarget.CHANGE_FOREGROUND,
+                    APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__DENY_FOREGROUND);
             setResult(DENIED_DO_NOT_ASK_AGAIN);
         });
 
@@ -393,13 +406,16 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      * @param changeTarget Whether background or foreground should be changed
      * @param messageId The Id of the string message to show
      * @param userFixed Whether the permission state should be user fixed
+     * @param buttonPressed Button which was pressed to initiate the dialog, one of
+     *                      AppPermissionFragmentActionReported.button_pressed constants
      */
     void showDefaultDenyDialog(ChangeTarget changeTarget, @StringRes int messageId,
-            boolean userFixed) {
+            boolean userFixed, int buttonPressed) {
         Bundle args = getArguments().deepCopy();
         args.putInt(DefaultDenyDialog.MSG, messageId);
         args.putSerializable(DefaultDenyDialog.CHANGE_TARGET, changeTarget);
         args.putBoolean(DefaultDenyDialog.USER_FIXED, userFixed);
+        args.putInt(DefaultDenyDialog.BUTTON, buttonPressed);
         DefaultDenyDialog defaultDenyDialog = new DefaultDenyDialog();
         defaultDenyDialog.setCancelable(true);
         defaultDenyDialog.setArguments(args);
@@ -411,13 +427,14 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      * A dialog warning the user that they are about to deny a permission that was granted by
      * default, or that they are denying a permission on a Pre-M app
      *
-     * @see #showDefaultDenyDialog(ChangeTarget, int, boolean)
+     * @see #showDefaultDenyDialog(ChangeTarget, int, boolean, int)
      */
     public static class DefaultDenyDialog extends DialogFragment {
         static final String MSG = DefaultDenyDialog.class.getName() + ".arg.msg";
         static final String CHANGE_TARGET = DefaultDenyDialog.class.getName()
                 + ".arg.changeTarget";
         private static final String KEY = DefaultDenyDialog.class.getName() + ".arg.key";
+        private static final String BUTTON = DefaultDenyDialog.class.getName() + ".arg.button";
         static final String USER_FIXED = DefaultDenyDialog.class.getName()
                 + ".arg.userFixed";
 
@@ -432,7 +449,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                             (DialogInterface dialog, int which) ->
                                     fragment.mViewModel.onDenyAnyWay((ChangeTarget)
                                             getArguments().getSerializable(CHANGE_TARGET),
-                                            getArguments().getBoolean(USER_FIXED, false)));
+                                            getArguments().getBoolean(USER_FIXED, false),
+                                            getArguments().getInt(BUTTON)));
             Dialog d = b.create();
             d.setCanceledOnTouchOutside(true);
             return d;

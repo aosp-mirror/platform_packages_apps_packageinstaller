@@ -48,11 +48,11 @@ class PermGroupsPackagesUiInfoLiveData(
     init {
         addSource(groupNamesLiveData) {
             groupNames = it ?: emptyList()
-            update()
+            updateIfActive()
         }
     }
 
-    override fun update() {
+    override fun onUpdate() {
         val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(groupNames,
             permGroupPackagesLiveDatas)
 

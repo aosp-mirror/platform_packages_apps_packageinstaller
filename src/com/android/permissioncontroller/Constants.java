@@ -34,6 +34,12 @@ public class Constants {
     public static final int LOCATION_ACCESS_CHECK_JOB_ID = 1;
 
     /**
+     * ID of the periodic job
+     * {@link com.android.permissioncontroller.permission.service.AutoRevokeService}
+     */
+    public static final int AUTO_REVOKE_JOB_ID = 2;
+
+    /**
      * Name of file to containing the packages we already showed a notificaiton for.
      *
      * @see com.android.permissioncontroller.permission.service.LocationAccessCheck
