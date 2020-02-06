@@ -254,8 +254,25 @@ public final class Permission {
         return mForegroundPermissions != null;
     }
 
+    /**
+     * @see PackageManager#FLAG_PERMISSION_ONE_TIME
+     */
     public boolean isOneTime() {
         return (mFlags & PackageManager.FLAG_PERMISSION_ONE_TIME) != 0;
+    }
+
+    /**
+     * @see PackageManager#FLAG_PERMISSION_DONT_AUTO_REVOKE
+     */
+    public boolean isDontAutoRevoke() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_DONT_AUTO_REVOKE) != 0;
+    }
+
+    /**
+     * @see PackageManager#FLAG_PERMISSION_DONT_AUTO_REVOKE_USER_SET
+     */
+    public boolean isDontAutoRevokeUserSet() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_DONT_AUTO_REVOKE_USER_SET) != 0;
     }
 
     public void setUserSet(boolean userSet) {
