@@ -87,9 +87,4 @@ android_app {
     },
 
     plugins: ["java_api_finder"],
-
-    apex_available: [
-        "com.android.permission",
-        "test_com.android.permission",
-    ],
 }
