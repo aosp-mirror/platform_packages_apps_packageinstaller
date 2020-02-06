@@ -56,7 +56,7 @@ data class LightAppPermGroup(
      * All foreground permissions in the permission group which are requested by the package.
      */
     val foregroundPermNames get() = permissions.mapNotNull { (name, _) ->
-        if (name in backgroundPermNames) name else null
+        if (name !in backgroundPermNames) name else null
     }
 
     val foreground = AppPermSubGroup(permissions.filter { it.key in foregroundPermNames },
@@ -101,30 +101,15 @@ data class LightAppPermGroup(
      */
     val isOneTime = permissions.any { it.value.isOneTime }
 
-    val isBackgroundGranted = specialLocationGrant ?: permissions.any {
-        backgroundPermNames.contains(it.key) && it.value.isGrantedIncludingAppOp
-    }
-
-    val isForegroundGrantedByDefault = permissions.any { !backgroundPermNames.contains(it.key) &&
-        it.value.isGrantedByDefault
-    }
-
-    val isBackgroundGrantedByDefault = permissions.any { backgroundPermNames.contains(it.key) &&
-        it.value.isGrantedByDefault
-    }
-
-    val isForegroundGrantedByRole = permissions.any { !backgroundPermNames.contains(it.key) &&
-        it.value.isGrantedByRole
-    }
-
-    val isBackgroundGrantedByRole = permissions.any { backgroundPermNames.contains(it.key) &&
-        it.value.isGrantedByRole
-    }
+    /**
+     * Whether any permissions in this group are granted by default (pregrant)
+     */
+    val isGrantedByDefault = foreground.isGrantedByDefault || background.isGrantedByDefault
 
     /**
-     * Whether this App Permission Subgroup's permissions are fixed by the user
+     * Whether any permissions in this group are granted by being a role holder
      */
-    val isUserFixed = permissions.any { it.value.isUserFixed }
+    val isGrantedByRole = foreground.isGrantedByRole || background.isGrantedByRole
 
     /**
      * A subset of the AppPermssionGroup, representing either the background or foreground permissions
@@ -149,6 +134,11 @@ data class LightAppPermGroup(
         val isSystemFixed = permissions.any { it.value.isSystemFixed }
 
         /**
+         * Whether this App Permission Group's permissions are fixed by the user
+         */
+        val isUserFixed = permissions.any { it.value.isUserFixed }
+
+        /**
          * Whether any of this App Permission SubGroup's permissions are granted
          */
         val isGranted = specialLocationGrant ?: permissions.any { it.value.isGrantedIncludingAppOp }
@@ -157,15 +147,10 @@ data class LightAppPermGroup(
          * Whether any of this App Permission SubGroup's permissions are granted by default
          */
         val isGrantedByDefault = permissions.any { it.value.isGrantedByDefault }
+
+        /**
+         * Whether any of this App Permission SubGroup's permissions are granted by their role
+         */
+        val isGrantedByRole = permissions.any { it.value.isGrantedByRole }
     }
-
-    /**
-     * Whether any permissions in this group are granted by default (pregrant)
-     */
-    val isGrantedByDefault = isForegroundGrantedByDefault || isBackgroundGrantedByDefault
-
-    /**
-     * Whether any permissions in this group are granted by being a role holder
-     */
-    val isGrantedByRole = isForegroundGrantedByRole || isBackgroundGrantedByRole
 }
