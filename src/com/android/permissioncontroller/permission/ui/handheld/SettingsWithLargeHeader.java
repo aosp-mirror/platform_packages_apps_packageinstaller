@@ -41,7 +41,7 @@ import com.android.permissioncontroller.R;
  */
 public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  {
     static final String HEADER_KEY = " HEADER_PREFERENCE";
-    static final int HEADER_SORT_FIRST = -1;
+    private static final int HEADER_SORT_FIRST = -2;
 
     private View mHeader;
     private LargeHeaderPreference mHeaderPreference;
