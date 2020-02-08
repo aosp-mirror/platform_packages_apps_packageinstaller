@@ -40,6 +40,7 @@ import static com.android.permissioncontroller.permission.ui.GrantPermissionsVie
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ALWAYS;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_FOREGROUND_ONLY;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ONE_TIME;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.LINKED_TO_SETTINGS;
 import static com.android.permissioncontroller.permission.utils.Utils.getRequestMessage;
 
 import android.Manifest;
@@ -73,6 +74,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.Consumer;
 
+import com.android.permissioncontroller.Constants;
 import com.android.permissioncontroller.DeviceUtils;
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
@@ -98,7 +100,7 @@ public class GrantPermissionsActivity extends Activity
             + "_REQUEST_ID";
     public static final String ANNOTATION_ID = "link";
 
-    public static final int NEXT_BUTTON = 10;
+    public static final int NEXT_BUTTON = 11;
     public static final int ALLOW_BUTTON = 0;
     //    public static int LABEL_ALLOW_ALWAYS_BUTTON = 1; RESERVED
     public static final int ALLOW_FOREGROUND_BUTTON = 2;
@@ -109,6 +111,7 @@ public class GrantPermissionsActivity extends Activity
     public static final int NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON = 7;
     public static final int NO_UPGRADE_OT_BUTTON = 8; // one-time
     public static final int NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON = 9; // one-time
+    public static final int LINK_TO_SETTINGS = 10;
 
     private static final int APP_PERMISSION_REQUEST_CODE = 1;
 
@@ -825,6 +828,7 @@ public class GrantPermissionsActivity extends Activity
                                     new SpannableString(detailMessage);
                             spannableString.setSpan(clickableSpan, start, end, 0);
                             detailMessage = spannableString;
+                            mButtonVisibilities[LINK_TO_SETTINGS] = true;
                             break;
                         }
                     }
@@ -851,6 +855,7 @@ public class GrantPermissionsActivity extends Activity
         return new ClickableSpan() {
             @Override
             public void onClick(View widget) {
+                logGrantPermissionActivityButtons(groupState.mGroup.getName(), LINKED_TO_SETTINGS);
                 startAppPermissionFragment(groupState);
                 mActivityResultCallback = data -> {
                     if (data != null) {
@@ -923,6 +928,7 @@ public class GrantPermissionsActivity extends Activity
                 .putExtra(Intent.EXTRA_USER, groupState.mGroup.getUser())
                 .putExtra(AppPermissionActivity.EXTRA_CALLER_NAME,
                         GrantPermissionsActivity.class.getName())
+                .putExtra(Constants.EXTRA_SESSION_ID, mRequestId)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivityForResult(intent, APP_PERMISSION_REQUEST_CODE);
     }
@@ -1221,6 +1227,8 @@ public class GrantPermissionsActivity extends Activity
             case GRANTED_ONE_TIME:
                 clickedButton = 1 << ALLOW_ONE_TIME_BUTTON;
                 break;
+            case LINKED_TO_SETTINGS:
+                clickedButton = 1 << LINK_TO_SETTINGS;
             case CANCELED:
                 // fall through
             default:

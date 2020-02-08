@@ -36,6 +36,7 @@ public interface GrantPermissionsViewHandler {
     @IntDef({CANCELED, GRANTED_ALWAYS, GRANTED_FOREGROUND_ONLY, DENIED, DENIED_DO_NOT_ASK_AGAIN,
             GRANTED_ONE_TIME})
     @interface Result {}
+    int LINKED_TO_SETTINGS = -2;
     int CANCELED = -1;
     int GRANTED_ALWAYS = 0;
     int GRANTED_FOREGROUND_ONLY = 1;
