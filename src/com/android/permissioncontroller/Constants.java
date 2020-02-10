@@ -162,10 +162,18 @@ public class Constants {
     public static final long INVALID_SESSION_ID = 0;
 
     /**
-     * Key for NotificationManager.notify for the auto-granted permissions notification.
+     * Key for NotificationManager.notify for auto-granted permissions notification,
+     * when silently displayed to the user.
      */
     public static final String ADMIN_AUTO_GRANTED_PERMISSIONS_NOTIFICATION_CHANNEL_ID =
             "auto granted permissions";
+
+    /**
+     * Key for NotificationManager.notify the auto-granted permissions notification,
+     * when alerting the user (with sound and vibration).
+     */
+    public static final String ADMIN_AUTO_GRANTED_PERMISSIONS_ALERTING_NOTIFICATION_CHANNEL_ID =
+            "alerting auto granted permissions";
     /**
      * ID for notification of auto-granted permissions shown by
      * {@link com.android.permissioncontroller.permission.ui.AutoGrantPermissionsNotifier}.

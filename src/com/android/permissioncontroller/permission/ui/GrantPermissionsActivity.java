@@ -1093,7 +1093,7 @@ public class GrantPermissionsActivity extends Activity
     public void finish() {
         setResultIfNeeded(RESULT_CANCELED);
         if (mAutoGrantPermissionsNotifier != null) {
-            mAutoGrantPermissionsNotifier.notifyOfAutoGrantPermissions();
+            mAutoGrantPermissionsNotifier.notifyOfAutoGrantPermissions(true);
         }
         super.finish();
     }
