@@ -1237,10 +1237,11 @@ public class GrantPermissionsActivity extends Activity
 
         PermissionControllerStatsLog.write(GRANT_PERMISSIONS_ACTIVITY_BUTTON_ACTIONS,
                 permissionGroupName, mCallingUid, mCallingPackage, presentedButtons,
-                clickedButton);
+                clickedButton, mRequestId);
         Log.v(LOG_TAG, "Logged buttons presented and clicked permissionGroupName="
                 + permissionGroupName + " uid=" + mCallingUid + " package=" + mCallingPackage
-                + " presentedButtons=" + presentedButtons + " clickedButton=" + clickedButton);
+                + " presentedButtons=" + presentedButtons + " clickedButton=" + clickedButton
+                + " sessionId=" + mRequestId);
     }
 
     private int getButtonState() {
