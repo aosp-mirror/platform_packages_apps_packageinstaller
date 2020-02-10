@@ -38,6 +38,7 @@ import static android.os.UserHandle.myUserId;
 
 import static com.android.permissioncontroller.Constants.ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY;
 import static com.android.permissioncontroller.Constants.FORCED_USER_SENSITIVE_UIDS_KEY;
+import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
 import static com.android.permissioncontroller.Constants.PREFERENCES_FILE;
 
 import android.Manifest;
@@ -92,6 +93,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Set;
 
 public final class Utils {
@@ -1098,5 +1100,18 @@ public final class Utils {
             }
         }
         return false;
+    }
+
+    /**
+     * Returns a random session ID value that's guaranteed to not be {@code INVALID_SESSION_ID}.
+     *
+     * @return A valid session ID.
+     */
+    public static long getValidSessionId() {
+        long sessionId = INVALID_SESSION_ID;
+        while (sessionId == INVALID_SESSION_ID) {
+            sessionId = new Random().nextLong();
+        }
+        return sessionId;
     }
 }
