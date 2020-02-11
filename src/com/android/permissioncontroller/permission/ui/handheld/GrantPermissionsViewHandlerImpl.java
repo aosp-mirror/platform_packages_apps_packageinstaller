@@ -246,7 +246,13 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
             }
             return;
         }
-        int button = BUTTON_RES_ID_TO_NUM.get(id);
+        int button = -1;
+        try {
+            button = BUTTON_RES_ID_TO_NUM.get(id);
+        } catch (NullPointerException e) {
+            // Clicked a view which is not one of the defined buttons
+            return;
+        }
         switch (button) {
             case ALLOW_BUTTON:
                 if (mResultListener != null) {

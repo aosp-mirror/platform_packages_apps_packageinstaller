@@ -147,6 +147,9 @@ public class GrantPermissionsActivity extends Activity
     private String mCallingPackage;
     /** uid of {@link #mCallingPackage} */
     private int mCallingUid;
+    /** Notifier for auto-granted permissions */
+    private AutoGrantPermissionsNotifier mAutoGrantPermissionsNotifier;
+    private PackageInfo mCallingPackageInfo;
 
     private int getPermissionPolicy() {
         DevicePolicyManager devicePolicyManager = getSystemService(DevicePolicyManager.class);
@@ -214,6 +217,7 @@ public class GrantPermissionsActivity extends Activity
                 state.mState = GroupState.STATE_ALLOWED;
                 skipGroup = true;
 
+                getAutoGrantNotifier().onPermissionAutoGranted(permName);
                 reportRequestResult(permName,
                         PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_GRANTED);
             } break;
@@ -325,6 +329,8 @@ public class GrantPermissionsActivity extends Activity
             setResultAndFinish();
             return;
         }
+
+        mCallingPackageInfo = callingPackageInfo;
 
         mCallingUid = callingPackageInfo.applicationInfo.uid;
 
@@ -1086,6 +1092,9 @@ public class GrantPermissionsActivity extends Activity
     @Override
     public void finish() {
         setResultIfNeeded(RESULT_CANCELED);
+        if (mAutoGrantPermissionsNotifier != null) {
+            mAutoGrantPermissionsNotifier.notifyOfAutoGrantPermissions();
+        }
         super.finish();
     }
 
@@ -1237,10 +1246,11 @@ public class GrantPermissionsActivity extends Activity
 
         PermissionControllerStatsLog.write(GRANT_PERMISSIONS_ACTIVITY_BUTTON_ACTIONS,
                 permissionGroupName, mCallingUid, mCallingPackage, presentedButtons,
-                clickedButton);
+                clickedButton, mRequestId);
         Log.v(LOG_TAG, "Logged buttons presented and clicked permissionGroupName="
                 + permissionGroupName + " uid=" + mCallingUid + " package=" + mCallingPackage
-                + " presentedButtons=" + presentedButtons + " clickedButton=" + clickedButton);
+                + " presentedButtons=" + presentedButtons + " clickedButton=" + clickedButton
+                + " sessionId=" + mRequestId);
     }
 
     private int getButtonState() {
@@ -1287,5 +1297,20 @@ public class GrantPermissionsActivity extends Activity
                 updateIfPermissionsWereGranted();
             }
         }
+    }
+
+    /**
+     * Creates the AutoGrantPermissionsNotifier lazily in case there's no policy set
+     * device-wide (common case).
+     *
+     * @return An initalized {@code AutoGrantPermissionsNotifier} instance.
+     */
+    private @NonNull AutoGrantPermissionsNotifier getAutoGrantNotifier() {
+        if (mAutoGrantPermissionsNotifier == null) {
+            mAutoGrantPermissionsNotifier = new AutoGrantPermissionsNotifier(
+                    this, mCallingPackageInfo);
+        }
+
+        return mAutoGrantPermissionsNotifier;
     }
 }
