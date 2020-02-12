@@ -262,17 +262,17 @@ public final class Permission {
     }
 
     /**
-     * @see PackageManager#FLAG_PERMISSION_DONT_AUTO_REVOKE
+     * @see PackageManager#FLAG_PERMISSION_AUTO_REVOKE_IF_UNUSED
      */
-    public boolean isDontAutoRevoke() {
-        return (mFlags & PackageManager.FLAG_PERMISSION_DONT_AUTO_REVOKE) != 0;
+    public boolean isAutoRevoke() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_AUTO_REVOKE_IF_UNUSED) != 0;
     }
 
     /**
-     * @see PackageManager#FLAG_PERMISSION_DONT_AUTO_REVOKE_USER_SET
+     * @see PackageManager#FLAG_PERMISSION_AUTO_REVOKE_USER_SET
      */
-    public boolean isDontAutoRevokeUserSet() {
-        return (mFlags & PackageManager.FLAG_PERMISSION_DONT_AUTO_REVOKE_USER_SET) != 0;
+    public boolean isAutoRevokeUserSet() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_AUTO_REVOKE_USER_SET) != 0;
     }
 
     public void setUserSet(boolean userSet) {
