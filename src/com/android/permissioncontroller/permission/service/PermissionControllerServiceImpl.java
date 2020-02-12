@@ -331,7 +331,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
     }
 
     private void onGetRuntimePermissionsBackup(@NonNull UserHandle user,
-                @NonNull OutputStream backup) {
+            @NonNull OutputStream backup) {
         BackupHelper backupHelper = new BackupHelper(this, user);
 
         try {
@@ -603,18 +603,16 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
 
     @Override
     public void onGrantOrUpgradeDefaultRuntimePermissions(@NonNull Runnable callback) {
-        AsyncTask.execute(() -> {
-            onGrantOrUpgradeDefaultRuntimePermissions();
+        performDefaultPermissionGrants();
+        RuntimePermissionsUpgradeController.INSTANCE.upgradeIfNeeded(this, () -> {
             callback.run();
-
-            // Async part
-            Utils.updateUserSensitive(getApplication(), Process.myUserHandle());
+            AsyncTask.execute(() ->
+                    Utils.updateUserSensitive(getApplication(), Process.myUserHandle()));
         });
     }
 
-    private void onGrantOrUpgradeDefaultRuntimePermissions() {
+    private void performDefaultPermissionGrants() {
         // TODO: Default permission grants should go here
-        RuntimePermissionsUpgradeController.upgradeIfNeeded(this);
     }
 
     @Override

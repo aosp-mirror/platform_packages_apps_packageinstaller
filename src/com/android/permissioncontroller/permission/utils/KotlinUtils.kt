@@ -323,6 +323,7 @@ object KotlinUtils {
      *
      * @return a new LightAppPermGroup, reflecting the new state
      */
+    @JvmOverloads
     fun grantForegroundRuntimePermissions(
         app: Application,
         group: LightAppPermGroup,
@@ -344,6 +345,7 @@ object KotlinUtils {
      *
      * @return a new LightAppPermGroup, reflecting the new state
      */
+    @JvmOverloads
     fun grantBackgroundRuntimePermissions(
         app: Application,
         group: LightAppPermGroup,
@@ -485,6 +487,7 @@ object KotlinUtils {
      *
      * @return a LightAppPermGroup representing the new state
      */
+    @JvmOverloads
     fun revokeForegroundRuntimePermissions(
         app: Application,
         group: LightAppPermGroup,
@@ -508,6 +511,7 @@ object KotlinUtils {
      *
      * @return a LightAppPermGroup representing the new state
      */
+    @JvmOverloads
     fun revokeBackgroundRuntimePermissions(
         app: Application,
         group: LightAppPermGroup,

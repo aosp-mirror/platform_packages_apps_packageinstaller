@@ -107,7 +107,7 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
         }
 
         AllAppPermissionsViewModelFactory factory = new AllAppPermissionsViewModelFactory(
-                getActivity().getApplication(), mPackageName, mUser, mFilterGroup);
+                mPackageName, mUser, mFilterGroup);
 
         mViewModel = new ViewModelProvider(this, factory).get(AllAppPermissionsViewModel.class);
         mViewModel.getAllPackagePermissionsLiveData().observe(this, this::updateUi);
