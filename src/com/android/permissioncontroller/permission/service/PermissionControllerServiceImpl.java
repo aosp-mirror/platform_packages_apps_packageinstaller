@@ -56,6 +56,7 @@ import com.android.permissioncontroller.permission.model.AppPermissions;
 import com.android.permissioncontroller.permission.model.Permission;
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo;
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState;
+import com.android.permissioncontroller.permission.ui.AutoGrantPermissionsNotifier;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 
@@ -564,6 +565,8 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
                 callerPkgInfo.applicationInfo.targetSdkVersion);
 
         AppPermissions app = new AppPermissions(this, pkgInfo, false, true, null);
+        AutoGrantPermissionsNotifier autoGrantPermissionsNotifier =
+                new AutoGrantPermissionsNotifier(this, pkgInfo);
 
         int numPerms = expandedPermissions.size();
         for (int i = 0; i < numPerms; i++) {
@@ -582,6 +585,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
                 case PERMISSION_GRANT_STATE_GRANTED:
                     perm.setPolicyFixed(true);
                     group.grantRuntimePermissions(false, new String[]{permName});
+                    autoGrantPermissionsNotifier.onPermissionAutoGranted(permName);
                     break;
                 case PERMISSION_GRANT_STATE_DENIED:
                     perm.setPolicyFixed(true);
@@ -597,6 +601,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
 
         app.persistChanges(grantState == PERMISSION_GRANT_STATE_DENIED
                 || !callerPackageName.equals(packageName));
+        autoGrantPermissionsNotifier.notifyOfAutoGrantPermissions(false);
 
         return true;
     }
