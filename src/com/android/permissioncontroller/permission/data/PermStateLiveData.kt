@@ -51,10 +51,12 @@ class PermStateLiveData private constructor(
 
     private var uid: Int? = null
     private var registeredUid: Int? = null
+    private var currentPackageInfo: LightPackageInfo? = null
 
     init {
         addSource(packageInfoLiveData) {
             checkForUidUpdate(it)
+            currentPackageInfo = it
             updateAsync()
         }
 
@@ -71,7 +73,8 @@ class PermStateLiveData private constructor(
         if (!packageInfoLiveData.isInitialized || !groupLiveData.isInitialized) {
             return
         }
-        val packageInfo = packageInfoLiveData.value
+
+        val packageInfo = currentPackageInfo
         val permissionGroup = groupLiveData.value
         if (packageInfo == null || permissionGroup == null) {
             postValue(null)
@@ -84,7 +87,7 @@ class PermStateLiveData private constructor(
                 val packageFlags = packageInfo.requestedPermissionsFlags[index]
                 val permFlags = context.packageManager.getPermissionFlags(permInfo.name,
                     packageName, user)
-                var granted = packageFlags and PackageInfo.REQUESTED_PERMISSION_GRANTED != 0 &&
+                val granted = packageFlags and PackageInfo.REQUESTED_PERMISSION_GRANTED != 0 &&
                     permFlags and PackageManager.FLAG_PERMISSION_REVOKED_COMPAT == 0
 
                 if (job.isCancelled) {

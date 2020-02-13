@@ -423,10 +423,9 @@ object KotlinUtils {
                 // case). Therefore, we restart them on app op change, so they
                 // can pick up the change.
                 shouldKill = true
-                // Mark that the permission is not kept granted only for compatibility.
-                newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_REVOKED_COMPAT)
                 isGranted = true
             }
+            newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_REVOKED_COMPAT)
 
             // If this permission affects an app op, ensure the permission app op is enabled
             // before the permission grant.
@@ -464,7 +463,13 @@ object KotlinUtils {
         }
 
         if (perm.flags != newFlags) {
-            val flagMask = newFlags xor perm.flags
+            val flagMask = PackageManager.FLAG_PERMISSION_USER_SET or
+                PackageManager.FLAG_PERMISSION_USER_FIXED or
+                PackageManager.FLAG_PERMISSION_ONE_TIME or
+                PackageManager.FLAG_PERMISSION_REVOKED_COMPAT or
+                PackageManager.FLAG_PERMISSION_ONE_TIME or
+                PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED
+
             app.packageManager.updatePermissionFlags(perm.name, group.packageInfo.packageName,
                 flagMask, newFlags, user)
         }
@@ -610,9 +615,14 @@ object KotlinUtils {
         newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_ONE_TIME)
 
         if (perm.flags != newFlags) {
-            val flagMask = newFlags xor perm.flags
-            app.packageManager.updatePermissionFlags(perm.name,
-                group.packageInfo.packageName,
+            val flagMask = PackageManager.FLAG_PERMISSION_USER_SET or
+                PackageManager.FLAG_PERMISSION_USER_FIXED or
+                PackageManager.FLAG_PERMISSION_ONE_TIME or
+                PackageManager.FLAG_PERMISSION_REVOKED_COMPAT or
+                PackageManager.FLAG_PERMISSION_ONE_TIME or
+                PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED
+
+            app.packageManager.updatePermissionFlags(perm.name, group.packageInfo.packageName,
                 flagMask, newFlags, user)
         }
 
