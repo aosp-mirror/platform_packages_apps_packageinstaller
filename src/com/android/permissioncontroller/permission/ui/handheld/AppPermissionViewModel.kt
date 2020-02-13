@@ -230,10 +230,6 @@ class AppPermissionViewModel(
                 ALLOW_FOREGROUND to allowedForegroundState, ASK_ONCE to askOneTimeState,
                 ASK to askState, DENY to deniedState, DENY_FOREGROUND to deniedForegroundState)
         }
-
-        override fun onActive() {
-            super.onActive()
-        }
     }
 
     /**

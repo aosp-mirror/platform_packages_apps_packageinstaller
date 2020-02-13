@@ -58,9 +58,8 @@ class UserPackageInfosLiveData private constructor(
         if (job.isCancelled) {
             return
         }
-        var packageInfos = app.applicationContext.packageManager
-            .getInstalledPackagesAsUser(GET_PERMISSIONS or MATCH_ALL,
-                user.identifier)
+        val packageInfos = app.applicationContext.packageManager
+            .getInstalledPackagesAsUser(GET_PERMISSIONS or MATCH_ALL, user.identifier)
         postValue(packageInfos.map { packageInfo -> LightPackageInfo(packageInfo) })
     }
 
