@@ -31,6 +31,8 @@ import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
+import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
 import android.os.Process.myUserHandle
 import android.provider.DeviceConfig
 import android.util.Log
@@ -50,6 +52,7 @@ import com.android.permissioncontroller.permission.utils.Utils.PROPERTY_AUTO_REV
 import com.android.permissioncontroller.permission.utils.Utils.PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS
 import com.android.permissioncontroller.permission.utils.application
 import com.android.permissioncontroller.permission.utils.forEachInParallel
+import com.android.permissioncontroller.permission.utils.updatePermissionFlags
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
@@ -162,16 +165,21 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
                 !group.isGrantedByDefault &&
                 !group.isGrantedByRole) {
 
+                val revocablePermissions = group.permissions.filter { (_, perm) ->
+                    // Override whitelist with DEBUG to allow testing
+                    DEBUG || perm.isAutoRevokable
+                }.keys.toList()
+
+                if (revocablePermissions.isEmpty()) {
+                    return@forEachInParallel
+                }
+
                 if (DEBUG) {
-                    Log.i(LOG_TAG, "revokeUnused ${pkg.packageName} - " +
-                        group
-                            .permissions
-                            .filterValues { it.name in groupPermNames }
-                            .values)
+                    Log.i(LOG_TAG, "revokeUnused ${pkg.packageName} - $revocablePermissions")
                 }
 
                 val uid = group.packageInfo.uid
-                for (permName in groupPermNames) {
+                for (permName in revocablePermissions) {
                     PermissionControllerStatsLog.write(
                         PERMISSION_GRANT_REQUEST_RESULT_REPORTED,
                         Random.nextLong(), uid, pkg.packageName, permName, false, SERVER_LOG_ID)
@@ -183,10 +191,17 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
                 if (packageImportance > IMPORTANCE_TOP_SLEEPING) {
                     KotlinUtils.revokeBackgroundRuntimePermissions(
                         context.application, group,
-                        userFixed = false, filterPermissions = groupPermNames)
+                        userFixed = false, filterPermissions = revocablePermissions)
                     KotlinUtils.revokeForegroundRuntimePermissions(
                         context.application, group,
-                        userFixed = false, filterPermissions = groupPermNames)
+                        userFixed = false, filterPermissions = revocablePermissions)
+
+                    for (permission in revocablePermissions) {
+                        context.packageManager.updatePermissionFlags(
+                            permission, pkg.packageName, myUserHandle(),
+                            FLAG_PERMISSION_AUTO_REVOKED to true,
+                            FLAG_PERMISSION_USER_SET to false)
+                    }
                 } else {
                     Log.i(LOG_TAG,
                         "Skipping auto-revoke - app running with importance $packageImportance")
