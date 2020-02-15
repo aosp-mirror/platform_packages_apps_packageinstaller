@@ -28,6 +28,7 @@ import static android.graphics.Bitmap.Config.ARGB_8888;
 import static android.graphics.Bitmap.createBitmap;
 import static android.os.UserHandle.getUserHandleForUid;
 
+import static com.android.permissioncontroller.Constants.ADMIN_AUTO_GRANTED_PERMISSIONS_ALERTING_NOTIFICATION_CHANNEL_ID;
 import static com.android.permissioncontroller.Constants.ADMIN_AUTO_GRANTED_PERMISSIONS_NOTIFICATION_CHANNEL_ID;
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.Constants.PERMISSION_GRANTED_BY_ADMIN_NOTIFICATION_ID;
@@ -69,7 +70,7 @@ import java.util.ArrayList;
  * not only of location issues and use icons of the different groups associated with different
  * permissions.
  */
-class AutoGrantPermissionsNotifier {
+public class AutoGrantPermissionsNotifier {
     /**
      * Set of permissions for which the user should be notified when the admin auto-grants one of
      * them.
@@ -92,7 +93,7 @@ class AutoGrantPermissionsNotifier {
      */
     private final ArrayList<String> mGrantedPermissions = new ArrayList<>();
 
-    AutoGrantPermissionsNotifier(@NonNull Context context,
+    public AutoGrantPermissionsNotifier(@NonNull Context context,
             @NonNull PackageInfo packageInfo) {
         mPackageInfo = packageInfo;
         UserHandle callingUser = getUserHandleForUid(mPackageInfo.applicationInfo.uid);
@@ -104,17 +105,20 @@ class AutoGrantPermissionsNotifier {
      * to.
      *
      * @param user The user for which the permission was auto-granted.
+     * @param shouldAlertUser
      */
-    private void createAutoGrantNotifierChannel() {
+    private void createAutoGrantNotifierChannel(boolean shouldNotifySilently) {
         NotificationManager notificationManager = getSystemServiceSafe(mContext,
                 NotificationManager.class);
 
         NotificationChannel autoGrantedPermissionsChannel = new NotificationChannel(
-                ADMIN_AUTO_GRANTED_PERMISSIONS_NOTIFICATION_CHANNEL_ID,
+                getNotificationChannelId(shouldNotifySilently),
                 mContext.getString(R.string.auto_granted_permissions),
                 NotificationManager.IMPORTANCE_HIGH);
-        autoGrantedPermissionsChannel.enableVibration(false);
-        autoGrantedPermissionsChannel.setSound(Uri.EMPTY, null);
+        if (shouldNotifySilently) {
+            autoGrantedPermissionsChannel.enableVibration(false);
+            autoGrantedPermissionsChannel.setSound(Uri.EMPTY, null);
+        }
         notificationManager.createNotificationChannel(autoGrantedPermissionsChannel);
     }
 
@@ -123,12 +127,12 @@ class AutoGrantPermissionsNotifier {
      *
      * <p>NOTE: Right now this method only deals with location permissions.
      */
-    public void notifyOfAutoGrantPermissions() {
+    public void notifyOfAutoGrantPermissions(boolean shouldNotifySilently) {
         if (mGrantedPermissions.isEmpty()) {
             return;
         }
 
-        createAutoGrantNotifierChannel();
+        createAutoGrantNotifierChannel(shouldNotifySilently);
 
         PackageManager pm = mContext.getPackageManager();
         CharSequence pkgLabel = pm.getApplicationLabel(mPackageInfo.applicationInfo);
@@ -143,7 +147,7 @@ class AutoGrantPermissionsNotifier {
         String messageText = mContext.getString(R.string.auto_granted_permission_notification_body,
                 pkgLabel);
         Notification.Builder b = (new Notification.Builder(mContext,
-                ADMIN_AUTO_GRANTED_PERMISSIONS_NOTIFICATION_CHANNEL_ID)).setContentTitle(title)
+                getNotificationChannelId(shouldNotifySilently))).setContentTitle(title)
                 .setContentText(messageText)
                 .setStyle(new Notification.BigTextStyle().bigText(messageText).setBigContentTitle(
                         title))
@@ -213,6 +217,14 @@ class AutoGrantPermissionsNotifier {
         pkgIcon.setBounds(0, 0, pkgIcon.getIntrinsicWidth(), pkgIcon.getIntrinsicHeight());
         pkgIcon.draw(canvas);
         return pkgIconBmp;
+    }
+
+    private String getNotificationChannelId(boolean shouldNotifySilently) {
+        if (shouldNotifySilently) {
+            return ADMIN_AUTO_GRANTED_PERMISSIONS_NOTIFICATION_CHANNEL_ID;
+        } else {
+            return ADMIN_AUTO_GRANTED_PERMISSIONS_ALERTING_NOTIFICATION_CHANNEL_ID;
+        }
     }
 }
 

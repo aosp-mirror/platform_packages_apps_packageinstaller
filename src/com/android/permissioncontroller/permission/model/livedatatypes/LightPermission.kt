@@ -68,6 +68,10 @@ data class LightPermission(
     val isGrantedByDefault = flags and PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT != 0
     /** Whether this permission is granted by role */
     val isGrantedByRole = flags and PackageManager.FLAG_PERMISSION_GRANTED_BY_ROLE != 0
+    /** Whether this permission is not whitelisted from being auto-revoked when app is unused */
+    val isAutoRevokable = flags and PackageManager.FLAG_PERMISSION_AUTO_REVOKE_IF_UNUSED != 0
+    /** Whether [isAutoRevokable] was set by user */
+    val isAutoRevokableUserSet = flags and PackageManager.FLAG_PERMISSION_AUTO_REVOKE_USER_SET != 0
 
     override fun toString() = buildString {
         append(name)
@@ -81,5 +85,7 @@ data class LightPermission(
         if (isOneTime) append(", OneTime")
         if (isGrantedByDefault) append(", GrantedByDefault")
         if (isGrantedByRole) append(", GrantedByRole")
+        if (isAutoRevokable) append(", AutoRevokable")
+        if (isAutoRevokableUserSet) append(", AutoRevokableUserSet")
     }
 }
