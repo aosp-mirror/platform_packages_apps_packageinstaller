@@ -1407,10 +1407,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     | (permission.isReviewRequired()
                     ? PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED : 0)
                     | (permission.isOneTime() ? PackageManager.FLAG_PERMISSION_ONE_TIME : 0)
-                    | (permission.isDontAutoRevoke()
-                    ? PackageManager.FLAG_PERMISSION_DONT_AUTO_REVOKE : 0)
-                    | (permission.isDontAutoRevokeUserSet()
-                    ? PackageManager.FLAG_PERMISSION_DONT_AUTO_REVOKE_USER_SET : 0);
+                    | (permission.isAutoRevoke()
+                    ? PackageManager.FLAG_PERMISSION_AUTO_REVOKE_IF_UNUSED : 0)
+                    | (permission.isAutoRevokeUserSet()
+                    ? PackageManager.FLAG_PERMISSION_AUTO_REVOKE_USER_SET : 0);
 
             mPackageManager.updatePermissionFlags(permission.getName(),
                     mPackageInfo.packageName,

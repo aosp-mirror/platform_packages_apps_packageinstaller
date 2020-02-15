@@ -21,7 +21,9 @@ import android.app.Application
 import android.app.Service
 import android.content.Context
 import android.content.ContextWrapper
+import android.content.pm.PackageManager
 import android.os.Looper
+import android.os.UserHandle
 
 /**
  * Gets an [Application] instance form a regular [Context]
@@ -38,4 +40,18 @@ val Context.application: Application get() = when (this) {
  */
 fun ensureMainThread() = check(Looper.myLooper() == Looper.getMainLooper()) {
     "Only meant to be used on the main thread"
+}
+
+/**
+ * A more readable version of [PackageManager.updatePermissionFlags]
+ */
+fun PackageManager.updatePermissionFlags(
+    permissionName: String,
+    packageName: String,
+    user: UserHandle,
+    vararg flags: Pair<Int, Boolean>
+) {
+    val mask = flags.fold(0, { mask, (flag, _) -> mask or flag })
+    val value = flags.fold(0, { mask, (flag, flagValue) -> if (flagValue) mask or flag else mask })
+    updatePermissionFlags(permissionName, packageName, mask, value, user)
 }

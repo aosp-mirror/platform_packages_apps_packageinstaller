@@ -16,7 +16,6 @@
 
 package com.android.permissioncontroller.permission.ui.handheld
 
-import android.app.Application
 import android.os.UserHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -29,14 +28,12 @@ import com.android.permissioncontroller.permission.data.get
  * Permissions (organized by group) that this package requests, and all the installed, non-runtime,
  * normal protection permissions as well.
  *
- * @param app The current application
  * @param packageName The name of the package this viewModel is representing
  * @param user The user of the package this viewModel is representing
  * @param filterGroup An optional single group that should be shown, no other groups will be
  * shown
  */
 class AllAppPermissionsViewModel(
-    app: Application,
     packageName: String,
     user: UserHandle,
     filterGroup: String?
@@ -83,7 +80,6 @@ class AllAppPermissionsViewModel(
  * shown
  */
 class AllAppPermissionsViewModelFactory(
-    private val app: Application,
     private val packageName: String,
     private val user: UserHandle,
     private val filterGroup: String?
@@ -91,6 +87,6 @@ class AllAppPermissionsViewModelFactory(
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
-        return AllAppPermissionsViewModel(app, packageName, user, filterGroup) as T
+        return AllAppPermissionsViewModel(packageName, user, filterGroup) as T
     }
 }

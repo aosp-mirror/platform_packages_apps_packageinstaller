@@ -54,7 +54,7 @@ class PermissionControllerServiceModel(private val service: PermissionController
      * @param onChangedFun The function we wish to be called upon livedata updates
      * @param <T> The type of the livedata and observer
      */
-    private fun <T> observeAndCheckForLifecycleState(
+    fun <T> observeAndCheckForLifecycleState(
         liveData: LiveData<T>,
         onChangedFun: (t: T?) -> Unit
     ) {

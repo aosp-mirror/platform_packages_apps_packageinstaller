@@ -28,6 +28,7 @@ import kotlinx.coroutines.launch
 abstract class SmartAsyncMediatorLiveData<T> : SmartUpdateMediatorLiveData<T>() {
 
     private var currentJob: Job? = null
+    private var jobQueued = false
 
     /**
      * The main function which will load data. It should periodically check isCancelled to see if
@@ -40,15 +41,26 @@ abstract class SmartAsyncMediatorLiveData<T> : SmartUpdateMediatorLiveData<T>() 
     }
 
     open fun updateAsync() {
-        cancelJobIfRunning()
-        GlobalScope.launch(Dispatchers.Default) {
+        if (currentJob?.isActive == true) {
+            jobQueued = true
+            return
+        }
+
+        GlobalScope.launch(Dispatchers.IO) {
             currentJob = coroutineContext[Job]
             loadDataAndPostValue(currentJob!!)
+        }
+
+        if (jobQueued) {
+            jobQueued = false
+            currentJob?.cancel()
+            updateAsync()
         }
     }
 
     override fun onInactive() {
         cancelJobIfRunning()
+        jobQueued = false
         super.onInactive()
     }
 

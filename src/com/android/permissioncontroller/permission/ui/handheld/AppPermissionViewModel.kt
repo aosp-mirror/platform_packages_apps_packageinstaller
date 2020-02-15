@@ -79,12 +79,16 @@ class AppPermissionViewModel(
         private val LOG_TAG = AppPermissionViewModel::class.java.simpleName
     }
 
-    enum class ChangeTarget(val value: Int) {
-        CHANGE_FOREGROUND(1),
-        CHANGE_BACKGROUND(2),
-        CHANGE_BOTH(CHANGE_FOREGROUND.value or CHANGE_BACKGROUND.value);
+    enum class ChangeRequest(val value: Int) {
+        GRANT_FOREGROUND(1),
+        REVOKE_FOREGROUND(2),
+        GRANT_BACKGROUND(4),
+        REVOKE_BACKGROUND(8),
+        GRANT_BOTH(GRANT_FOREGROUND.value or GRANT_BACKGROUND.value),
+        REVOKE_BOTH(REVOKE_FOREGROUND.value or REVOKE_BACKGROUND.value),
+        GRANT_FOREGROUND_ONLY(GRANT_FOREGROUND.value or REVOKE_BACKGROUND.value);
 
-        infix fun andValue(other: ChangeTarget): Int {
+        infix fun andValue(other: ChangeRequest): Int {
             return value and other.value
         }
     }
@@ -119,7 +123,7 @@ class AppPermissionViewModel(
         var isChecked: Boolean,
         var isEnabled: Boolean,
         var isShown: Boolean,
-        var customTarget: ChangeTarget?
+        var customRequest: ChangeRequest?
     ) {
         constructor() : this(false, true, false, null)
     }
@@ -225,10 +229,6 @@ class AppPermissionViewModel(
             value = mapOf(ALLOW to allowedState, ALLOW_ALWAYS to allowedAlwaysState,
                 ALLOW_FOREGROUND to allowedForegroundState, ASK_ONCE to askOneTimeState,
                 ASK to askState, DENY to deniedState, DENY_FOREGROUND to deniedForegroundState)
-        }
-
-        override fun onActive() {
-            super.onActive()
         }
     }
 
@@ -343,18 +343,16 @@ class AppPermissionViewModel(
      *
      *  * Default grant permissions
      *
-     * @param requestGrant If this group should be granted
-     * @param changeTarget Which permission group (foreground/background/both) should be changed
+     * @param changeRequest Which permission group (foreground/background/both) should be changed
      * @param buttonClicked button which was pressed to initiate the change, one of
      *                      AppPermissionFragmentActionReported.button_pressed constants
      *
      * @return The dialogue to show, if applicable, or if the request was processed.
      */
     fun requestChange(
-        requestGrant: Boolean,
         userFixed: Boolean,
         fragment: AppPermissionFragment,
-        changeTarget: ChangeTarget,
+        changeRequest: ChangeRequest,
         buttonClicked: Int
     ) {
         val context = fragment.context ?: return
@@ -367,98 +365,99 @@ class AppPermissionViewModel(
             LocationUtils.showLocationDialog(context, packageLabel)
         }
 
-        val shouldChangeForeground = changeTarget andValue ChangeTarget.CHANGE_FOREGROUND != 0
-        val shouldChangeBackground = changeTarget andValue ChangeTarget.CHANGE_BACKGROUND != 0
+        val shouldGrantForeground = changeRequest andValue ChangeRequest.GRANT_FOREGROUND != 0
+        val shouldGrantBackground = changeRequest andValue ChangeRequest.GRANT_BACKGROUND != 0
+        val shouldRevokeForeground = changeRequest andValue ChangeRequest.REVOKE_FOREGROUND != 0
+        val shouldRevokeBackground = changeRequest andValue ChangeRequest.REVOKE_BACKGROUND != 0
+        var showDefaultDenyDialog = false
+        var showGrantedByDefaultWarning = false
 
-        if (requestGrant) {
-            var newGroup = group
-            val oldGroup = group
-            if (shouldChangeForeground) {
-                newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, newGroup)
-
-                if (!wasForegroundGranted) {
-                    SafetyNetLogger.logPermissionToggled(newGroup)
-                }
-            }
-            if (shouldChangeBackground && group.hasBackgroundGroup) {
-                newGroup = KotlinUtils.grantBackgroundRuntimePermissions(app, newGroup)
-
-                if (!wasBackgroundGranted) {
-                    SafetyNetLogger.logPermissionToggled(newGroup, true)
-                }
-            }
-            logPermissionChanges(oldGroup, newGroup, buttonClicked)
-        } else {
-            var showDefaultDenyDialog = false
-            var showGrantedByDefaultWarning = false
-
-            if (shouldChangeForeground && wasForegroundGranted) {
-                showDefaultDenyDialog = (group.foreground.isGrantedByDefault ||
+        if (shouldRevokeForeground && wasForegroundGranted) {
+            showDefaultDenyDialog = (group.foreground.isGrantedByDefault ||
                     !group.supportsRuntimePerms ||
                     group.hasInstallToRuntimeSplit)
-                showGrantedByDefaultWarning = showGrantedByDefaultWarning ||
+            showGrantedByDefaultWarning = showGrantedByDefaultWarning ||
                     group.foreground.isGrantedByDefault
-            }
+        }
 
-            if (shouldChangeBackground && wasBackgroundGranted) {
-                showDefaultDenyDialog = showDefaultDenyDialog ||
+        if (shouldRevokeBackground && wasBackgroundGranted) {
+            showDefaultDenyDialog = showDefaultDenyDialog ||
                     group.background.isGrantedByDefault ||
                     !group.supportsRuntimePerms ||
                     group.hasInstallToRuntimeSplit
-                showGrantedByDefaultWarning = showGrantedByDefaultWarning ||
+            showGrantedByDefaultWarning = showGrantedByDefaultWarning ||
                     group.background.isGrantedByDefault
-            }
+        }
 
-            if (showDefaultDenyDialog && !hasConfirmedRevoke && showGrantedByDefaultWarning) {
-                fragment.showDefaultDenyDialog(changeTarget, R.string.system_warning, userFixed,
+        if (showDefaultDenyDialog && !hasConfirmedRevoke && showGrantedByDefaultWarning) {
+            fragment.showDefaultDenyDialog(changeRequest, R.string.system_warning, userFixed,
                     buttonClicked)
-                return
-            } else if (showDefaultDenyDialog && !hasConfirmedRevoke) {
-                fragment.showDefaultDenyDialog(changeTarget, R.string.old_sdk_deny_warning,
+            return
+        }
+
+        if (showDefaultDenyDialog && !hasConfirmedRevoke) {
+            fragment.showDefaultDenyDialog(changeRequest, R.string.old_sdk_deny_warning,
                     userFixed, buttonClicked)
-                return
-            } else {
-                var newGroup = group
-                val oldGroup = group
-                if (shouldChangeForeground &&
-                    (wasForegroundGranted || userFixed != group.foreground.isUserFixed)) {
-                    newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, newGroup,
-                        userFixed)
+            return
+        }
 
-                    // only log if we have actually denied permissions, not if we switch from
-                    // "ask every time" to denied
-                    if (wasForegroundGranted) {
-                        SafetyNetLogger.logPermissionToggled(newGroup)
-                    }
-                }
-                if (shouldChangeBackground && group.hasBackgroundGroup &&
-                    (wasBackgroundGranted || userFixed != group.background.isUserFixed)) {
-                    newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app,
-                        newGroup, userFixed)
+        var newGroup = group
+        val oldGroup = group
 
-                    // only log if we have actually denied permissions, not if we switch from
-                    // "ask every time" to denied
-                    if (wasBackgroundGranted) {
-                        SafetyNetLogger.logPermissionToggled(newGroup, true)
-                    }
-                }
-                logPermissionChanges(oldGroup, newGroup, buttonClicked)
+        if (shouldGrantForeground) {
+            newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, newGroup)
+
+            if (!wasForegroundGranted) {
+                SafetyNetLogger.logPermissionToggled(newGroup)
             }
         }
+
+        if (shouldGrantBackground && group.hasBackgroundGroup) {
+            newGroup = KotlinUtils.grantBackgroundRuntimePermissions(app, newGroup)
+
+            if (!wasBackgroundGranted) {
+                SafetyNetLogger.logPermissionToggled(newGroup, true)
+            }
+        }
+
+        if (shouldRevokeForeground &&
+            (wasForegroundGranted || userFixed != group.foreground.isUserFixed)) {
+            newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, newGroup,
+                userFixed)
+
+            // only log if we have actually denied permissions, not if we switch from
+            // "ask every time" to denied
+            if (wasForegroundGranted) {
+                SafetyNetLogger.logPermissionToggled(newGroup)
+            }
+        }
+
+        if (shouldRevokeBackground && group.hasBackgroundGroup &&
+            (wasBackgroundGranted || userFixed != group.background.isUserFixed)) {
+            newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app,
+                newGroup, userFixed)
+
+            // only log if we have actually denied permissions, not if we switch from
+            // "ask every time" to denied
+            if (wasBackgroundGranted) {
+                SafetyNetLogger.logPermissionToggled(newGroup, true)
+            }
+        }
+        logPermissionChanges(oldGroup, newGroup, buttonClicked)
     }
 
     /**
      * Once the user has confirmed that he/she wants to revoke a permission that was granted by
      * default, actually revoke the permissions.
      *
-     * @param changeTarget whether to change foreground, background, or both.
+     * @param changeRequest whether to change foreground, background, or both.
      * @param userFixed whether the user has stated they do not wish to be prompted about the
      * permission any more.
      * @param buttonPressed button pressed to initiate the change, one of
      *                      AppPermissionFragmentActionReported.button_pressed constants
      *
      */
-    fun onDenyAnyWay(changeTarget: ChangeTarget, userFixed: Boolean, buttonPressed: Int) {
+    fun onDenyAnyWay(changeRequest: ChangeRequest, userFixed: Boolean, buttonPressed: Int) {
         val group = lightAppPermGroup ?: return
         val wasForegroundGranted = group.foreground.isGranted
         val wasBackgroundGranted = group.background.isGranted
@@ -466,14 +465,15 @@ class AppPermissionViewModel(
 
         var newGroup = group
         val oldGroup = group
-        if (changeTarget andValue ChangeTarget.CHANGE_FOREGROUND != 0) {
+        if (changeRequest andValue ChangeRequest.REVOKE_FOREGROUND != 0) {
             newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, newGroup, userFixed)
             if (wasForegroundGranted) {
                 SafetyNetLogger.logPermissionToggled(newGroup)
             }
             hasDefaultPermissions = group.foreground.isGrantedByDefault
         }
-        if (changeTarget andValue ChangeTarget.CHANGE_BACKGROUND != 0 && group.hasBackgroundGroup) {
+        if (changeRequest andValue ChangeRequest.REVOKE_BACKGROUND != 0 &&
+            group.hasBackgroundGroup) {
             newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, newGroup, userFixed)
 
             if (wasBackgroundGranted) {

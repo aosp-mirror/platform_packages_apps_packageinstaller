@@ -40,6 +40,7 @@ import static com.android.permissioncontroller.permission.ui.GrantPermissionsVie
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ALWAYS;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_FOREGROUND_ONLY;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ONE_TIME;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.LINKED_TO_SETTINGS;
 import static com.android.permissioncontroller.permission.utils.Utils.getRequestMessage;
 
 import android.Manifest;
@@ -73,6 +74,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.Consumer;
 
+import com.android.permissioncontroller.Constants;
 import com.android.permissioncontroller.DeviceUtils;
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
@@ -98,7 +100,7 @@ public class GrantPermissionsActivity extends Activity
             + "_REQUEST_ID";
     public static final String ANNOTATION_ID = "link";
 
-    public static final int NEXT_BUTTON = 10;
+    public static final int NEXT_BUTTON = 11;
     public static final int ALLOW_BUTTON = 0;
     //    public static int LABEL_ALLOW_ALWAYS_BUTTON = 1; RESERVED
     public static final int ALLOW_FOREGROUND_BUTTON = 2;
@@ -109,6 +111,7 @@ public class GrantPermissionsActivity extends Activity
     public static final int NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON = 7;
     public static final int NO_UPGRADE_OT_BUTTON = 8; // one-time
     public static final int NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON = 9; // one-time
+    public static final int LINK_TO_SETTINGS = 10;
 
     private static final int APP_PERMISSION_REQUEST_CODE = 1;
 
@@ -144,6 +147,9 @@ public class GrantPermissionsActivity extends Activity
     private String mCallingPackage;
     /** uid of {@link #mCallingPackage} */
     private int mCallingUid;
+    /** Notifier for auto-granted permissions */
+    private AutoGrantPermissionsNotifier mAutoGrantPermissionsNotifier;
+    private PackageInfo mCallingPackageInfo;
 
     private int getPermissionPolicy() {
         DevicePolicyManager devicePolicyManager = getSystemService(DevicePolicyManager.class);
@@ -211,6 +217,7 @@ public class GrantPermissionsActivity extends Activity
                 state.mState = GroupState.STATE_ALLOWED;
                 skipGroup = true;
 
+                getAutoGrantNotifier().onPermissionAutoGranted(permName);
                 reportRequestResult(permName,
                         PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_GRANTED);
             } break;
@@ -322,6 +329,8 @@ public class GrantPermissionsActivity extends Activity
             setResultAndFinish();
             return;
         }
+
+        mCallingPackageInfo = callingPackageInfo;
 
         mCallingUid = callingPackageInfo.applicationInfo.uid;
 
@@ -825,6 +834,7 @@ public class GrantPermissionsActivity extends Activity
                                     new SpannableString(detailMessage);
                             spannableString.setSpan(clickableSpan, start, end, 0);
                             detailMessage = spannableString;
+                            mButtonVisibilities[LINK_TO_SETTINGS] = true;
                             break;
                         }
                     }
@@ -851,6 +861,7 @@ public class GrantPermissionsActivity extends Activity
         return new ClickableSpan() {
             @Override
             public void onClick(View widget) {
+                logGrantPermissionActivityButtons(groupState.mGroup.getName(), LINKED_TO_SETTINGS);
                 startAppPermissionFragment(groupState);
                 mActivityResultCallback = data -> {
                     if (data != null) {
@@ -923,6 +934,7 @@ public class GrantPermissionsActivity extends Activity
                 .putExtra(Intent.EXTRA_USER, groupState.mGroup.getUser())
                 .putExtra(AppPermissionActivity.EXTRA_CALLER_NAME,
                         GrantPermissionsActivity.class.getName())
+                .putExtra(Constants.EXTRA_SESSION_ID, mRequestId)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivityForResult(intent, APP_PERMISSION_REQUEST_CODE);
     }
@@ -1080,6 +1092,9 @@ public class GrantPermissionsActivity extends Activity
     @Override
     public void finish() {
         setResultIfNeeded(RESULT_CANCELED);
+        if (mAutoGrantPermissionsNotifier != null) {
+            mAutoGrantPermissionsNotifier.notifyOfAutoGrantPermissions(true);
+        }
         super.finish();
     }
 
@@ -1221,6 +1236,8 @@ public class GrantPermissionsActivity extends Activity
             case GRANTED_ONE_TIME:
                 clickedButton = 1 << ALLOW_ONE_TIME_BUTTON;
                 break;
+            case LINKED_TO_SETTINGS:
+                clickedButton = 1 << LINK_TO_SETTINGS;
             case CANCELED:
                 // fall through
             default:
@@ -1229,10 +1246,11 @@ public class GrantPermissionsActivity extends Activity
 
         PermissionControllerStatsLog.write(GRANT_PERMISSIONS_ACTIVITY_BUTTON_ACTIONS,
                 permissionGroupName, mCallingUid, mCallingPackage, presentedButtons,
-                clickedButton);
+                clickedButton, mRequestId);
         Log.v(LOG_TAG, "Logged buttons presented and clicked permissionGroupName="
                 + permissionGroupName + " uid=" + mCallingUid + " package=" + mCallingPackage
-                + " presentedButtons=" + presentedButtons + " clickedButton=" + clickedButton);
+                + " presentedButtons=" + presentedButtons + " clickedButton=" + clickedButton
+                + " sessionId=" + mRequestId);
     }
 
     private int getButtonState() {
@@ -1279,5 +1297,20 @@ public class GrantPermissionsActivity extends Activity
                 updateIfPermissionsWereGranted();
             }
         }
+    }
+
+    /**
+     * Creates the AutoGrantPermissionsNotifier lazily in case there's no policy set
+     * device-wide (common case).
+     *
+     * @return An initalized {@code AutoGrantPermissionsNotifier} instance.
+     */
+    private @NonNull AutoGrantPermissionsNotifier getAutoGrantNotifier() {
+        if (mAutoGrantPermissionsNotifier == null) {
+            mAutoGrantPermissionsNotifier = new AutoGrantPermissionsNotifier(
+                    this, mCallingPackageInfo);
+        }
+
+        return mAutoGrantPermissionsNotifier;
     }
 }

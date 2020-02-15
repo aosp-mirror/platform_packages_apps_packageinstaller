@@ -17,7 +17,8 @@
 package com.android.permissioncontroller.permission.data
 
 import android.app.Application
-import android.content.pm.PackageManager
+import android.content.pm.PackageManager.GET_PERMISSIONS
+import android.content.pm.PackageManager.MATCH_ALL
 import android.os.UserHandle
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
@@ -58,8 +59,7 @@ class UserPackageInfosLiveData private constructor(
             return
         }
         val packageInfos = app.applicationContext.packageManager
-            .getInstalledPackagesAsUser(PackageManager.GET_PERMISSIONS,
-                user.identifier)
+            .getInstalledPackagesAsUser(GET_PERMISSIONS or MATCH_ALL, user.identifier)
         postValue(packageInfos.map { packageInfo -> LightPackageInfo(packageInfo) })
     }
 

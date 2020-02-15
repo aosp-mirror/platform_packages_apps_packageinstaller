@@ -109,7 +109,6 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         if (DEBUG_UPDATES) {
             Log.i(LOG_TAG, "updateIfActive ${javaClass.simpleName} ${shortStackTrace()}")
         }
-        ensureMainThread()
         onUpdate()
     }
 
@@ -168,7 +167,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
 
     private fun <S : Any?> addChild(
         liveData: SmartUpdateMediatorLiveData<S>,
-        onChanged: Observer< in T>,
+        onChanged: Observer<in T>,
         sendStaleUpdates: Boolean
     ) {
         children.add(Triple(liveData, onChanged, sendStaleUpdates))
@@ -207,8 +206,9 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
             liveData.updateStaleChildNotify(this, hasStaleObserver())
         }
 
-        // if all sources are not stale, and we just requested stale updates, update ourselves
-        if (sources.all { !it.isStale } && newHasStale) {
+        // if all sources are not stale, and we just requested stale updates, and we are stale,
+        // update our value
+        if (sources.all { !it.isStale } && newHasStale && isStale) {
             updateIfActive()
         }
     }
