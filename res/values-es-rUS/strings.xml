@@ -108,7 +108,7 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ver todos los permisos de <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ver todas las apps que tienen este permiso"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Las apps con este permiso pueden <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Las apps que tienen este permiso pueden acceder a tu actividad física, recorridos a pie o en bicicleta, trayectos en automóvil, recuento de pasos y mucho más"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Las apps que tienen este permiso pueden acceder a tu actividad física, recorridos a pie o en bicicleta, trayectos en automóvil, recuento de pasos y más"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Las apps con este permiso pueden acceder a tu calendario"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Las apps que tienen este permiso pueden leer el registro de llamadas del teléfono y escribir en él"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Las apps que tienen este permiso pueden tomar fotos y grabar videos"</string>
@@ -261,4 +261,7 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"¿Permitir que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; acceda al registro de las llamadas telefónicas?"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"¿Permitir que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; haga y administre las llamadas telefónicas?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"¿Permitir que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; acceda a los datos del sensor de tus signos vitales?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"Permisos controlados"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Una app puede acceder a la ubicación"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> ahora puede acceder a tu ubicación. Comunícate con tu administrador de TI para obtener más información."</string>
 </resources>

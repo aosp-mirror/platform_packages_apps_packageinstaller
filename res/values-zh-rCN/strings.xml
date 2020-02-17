@@ -25,8 +25,7 @@
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"拒绝"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"拒绝，不要再询问"</string>
     <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"保留“在使用该应用期间”"</string>
-    <!-- no translation found for grant_dialog_button_no_upgrade_one_time (5984372927399472031) -->
-    <skip />
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"继续使用“仅限这一次”设置"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"更多信息"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"仍然拒绝"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"第 <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> 项权限（共 <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> 项）"</string>
@@ -262,4 +261,7 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;访问您的手机通话记录吗？"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"允许“&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;”拨打电话和管理通话吗？"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;访问与您的生命体征相关的传感器数据吗？"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"受控权限"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"应用可访问位置信息"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g>现在可访问您的位置信息。要了解详情，请与您的 IT 管理员联系。"</string>
 </resources>

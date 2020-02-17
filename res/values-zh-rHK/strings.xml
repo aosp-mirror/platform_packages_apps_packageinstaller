@@ -44,7 +44,7 @@
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"一律允許"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"應用程式"</string>
     <string name="app_permissions" msgid="2778362347879465223">"應用程式權限"</string>
-    <string name="app_permission_manager" msgid="3802609813311662642">"權限管理員"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"權限管理工具"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"不要再詢問"</string>
     <string name="no_permissions" msgid="2193893107241172888">"沒有權限"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"其他權限"</string>
@@ -261,4 +261,7 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;存取您的手機通話記錄嗎？"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;撥打電話和管理通話嗎？"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;存取與您身體機能相關的感應器資料嗎？"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"由管理員控制的權限"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"某個應用程式可存取位置"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"「<xliff:g id="APP_NAME">%s</xliff:g>」現可存取您的位置。請聯絡您的 IT 管理員以瞭解詳情。"</string>
 </resources>

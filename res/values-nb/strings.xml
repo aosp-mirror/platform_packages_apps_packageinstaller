@@ -56,8 +56,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Denne appen er laget for en eldre versjon av Android. Hvis du ikke gir tillatelse, kan det føre til at den ikke lenger fungerer som den skal."</string>
     <string name="default_permission_description" msgid="692254823411049573">"utføre en ukjent handling"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> av <xliff:g id="COUNT_1">%2$d</xliff:g> apper er tillatt"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"Vis systemapper"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"Skjul systemapper"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Vis systemet"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Skjul systemet"</string>
     <string name="no_apps" msgid="2377153782338039463">"Ingen apper"</string>
     <string name="location_settings" msgid="547378321761364906">"Posisjonsinnstillinger"</string>
     <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> er en leverandør av posisjonstjenester for denne enheten. Tilgang til posisjon kan endres fra posisjonsinnstillingene."</string>
@@ -261,4 +261,7 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Vil du gi &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tilgang til samtaleloggene dine?"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Vil du la &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ringe og administrere telefonsamtaler?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Vil du gi &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tilgang til sensordata om de vitale tegnene dine?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"Kontrollerte tillatelser"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"En app har tilgang til posisjonen"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> har nå tilgang til posisjonen din. Kontakt IT-administratoren din for å finne ut mer."</string>
 </resources>
