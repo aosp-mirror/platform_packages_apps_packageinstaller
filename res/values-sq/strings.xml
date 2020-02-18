@@ -25,8 +25,7 @@
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Refuzo"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Refuzo dhe mos pyet përsëri"</string>
     <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"Mbaje \"Kur aplikacioni është në përdorim\""</string>
-    <!-- no translation found for grant_dialog_button_no_upgrade_one_time (5984372927399472031) -->
-    <skip />
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Mbaje “Vetëm këtë herë”"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Më shumë info."</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Refuzo sidoqoftë"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> nga <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -262,4 +261,7 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Të lejohet &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; të ketë qasje në evidencat e tua të telefonatave?"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Të lejohet që &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; të kryejë dhe të menaxhojë telefonata?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Të lejohet që &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; të ketë qasje te të dhënat e sensorëve rreth shenjave të tua jetësore?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"Lejet e kontrolluara"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Një aplikacion mund të ketë qasje te vendndodhja"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> tani mund të ketë qasje te vendndodhja jote. Kontakto me administratorin e teknologjisë së informacionit për të mësuar më shumë."</string>
 </resources>

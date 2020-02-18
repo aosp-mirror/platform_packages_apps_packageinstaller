@@ -25,8 +25,7 @@
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Баш тартуу"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Баш тартам жана экинчи суралбасын"</string>
     <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"\"Колдонмо пайдаланылып жаткан учурда\" режимин калтыруу"</string>
-    <!-- no translation found for grant_dialog_button_no_upgrade_one_time (5984372927399472031) -->
-    <skip />
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"\"Ушул жолу гана\" жөндөөсү калсын"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Дагы маалымат"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Баары бир баш тартуу"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> уруксаттын ичинен <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
@@ -88,7 +87,7 @@
     <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Орнотуу/чыгарып салуу аракеттери Android Wear\'де колдоого алынбайт."</string>
     <string name="permission_review_title_template_install" msgid="8131698354985303888">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; колдонмосу үчүн уруксаттарды тандаңыз"</string>
-    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; жаңыртылды. Ал үчүн уруксаттарды тандаңыз."</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; жаңырды. Ал үчүн уруксаттарды тандаңыз."</string>
     <string name="review_button_cancel" msgid="7108377593627664194">"Жок"</string>
     <string name="review_button_continue" msgid="1367925420132212571">"Улантуу"</string>
     <string name="new_permissions_category" msgid="7242713808413888679">"Жаңы уруксаттар"</string>
@@ -262,4 +261,7 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; колдонмосуна телефондогу чалуулар тизмесин пайдаланууга уруксат берилсинби?"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; колдонмосуна телефон чалууга жана чалууларды башкарууга уруксат бересизби?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; колдонмосуна организмдин абалына көз салган сенсордун көрсөткүчтөрүн көрүүгө уруксат бересизби?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"Көзөмөлдөнгөн уруксаттар"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Колдонмо кайда жүргөнүңүздү көрөт"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"Эми <xliff:g id="APP_NAME">%s</xliff:g> кайда жүргөнүңүздү көрөт. Толук маалымат алуу үчүн IT администраторуңузга кайрылыңыз."</string>
 </resources>
