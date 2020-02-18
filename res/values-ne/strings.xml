@@ -25,8 +25,7 @@
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"अस्वीकार गर्नु…"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"अस्वीकार गर्नुहोस् र अब उप्रान्त नसोध्नुहोला"</string>
     <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"“अनुप्रयोग प्रयोगमा भएको बेलामा” शीर्षक कायम राख्नुहोस्"</string>
-    <!-- no translation found for grant_dialog_button_no_upgrade_one_time (5984372927399472031) -->
-    <skip />
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"“यस बेला मात्र” राख्नुहोस्"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"थप जानकारी"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"जे भए पनि अस्वीकार गर्नु…"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> मध्ये <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
@@ -262,4 +261,7 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई तपाईंको फोन कलका लगहरूमाथि पहुँच राख्न अनुमति दिने हो?"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई फोन कलहरू गर्न र तिनीहरूको व्यवस्थापन गर्न दिने हो?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई आफ्ना महत्त्वपूर्ण लक्षणहरूसम्बन्धी सेन्सर डेटामाथि पहुँच राख्न दिने हो?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"नियन्त्रित अनुमतिहरू"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"अनुप्रयोगले स्थानमाथि पहुँच राख्न सक्छ"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> ले अब तपाईंको स्थानमाथि पहुँच राख्न सक्छ। थप जानकारी प्राप्त गर्न आफ्ना IT प्रशासकसँग सम्पर्क गर्नुहोस्।"</string>
 </resources>

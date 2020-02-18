@@ -108,7 +108,7 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ver todas as autorizações da aplicação <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ver todas as aplicações com esta autorização"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"As aplicações com esta autorização podem <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"As aplicações com esta autorização podem aceder aos dados da sua atividade física, como caminhar, andar de bicicleta, conduzir, contagem de passos, etc."</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"As aplicações com esta autorização podem aceder aos dados da sua atividade física, como caminhar, andar de bicicleta, conduzir, contar os passos, etc."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"As aplicações com esta autorização podem aceder ao seu calendário"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"As aplicações com esta autorização podem ler e escrever no registo de chamadas do telemóvel"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"As aplicações com esta autorização podem tirar fotos e gravar vídeo"</string>
@@ -125,7 +125,7 @@
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Recusado/nunca foi acedido"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Permitidas"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Permitidas sempre"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Apenas permitido durante a utilização"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Apenas permitidas durante a utilização"</string>
     <string name="allowed_storage_scoped" msgid="3967195189363409314">"Permitido apenas para multimédia."</string>
     <string name="allowed_storage_full" msgid="6802526449595533370">"Permitido para todos os ficheiros."</string>
     <string name="ask_header" msgid="4471670860332046665">"Perguntar sempre"</string>
@@ -152,10 +152,10 @@
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Apenas enquanto a aplicação está a ser utilizada"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nenhuma autorização permitida."</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nenhuma autorização recusada."</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"Nenhuma aplicação permitida."</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Nenhuma app permitida"</string>
     <string name="no_apps_allowed_full" msgid="5857725855406253991">"Nenhuma app permitida para todos os ficheiros."</string>
     <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Nenhuma app permitida apenas para multimédia."</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"Nenhuma aplicação recusada."</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Nenhuma app recusada"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Selecionada"</string>
     <string name="settings" msgid="2884124136779508907">"Definições"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"O serviço <xliff:g id="SERVICE_NAME">%s</xliff:g> tem acesso total ao seu dispositivo"</string>
@@ -261,4 +261,7 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Pretende permitir que a aplicação &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aceda aos registos de chamadas do seu telemóvel?"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Pretende permitir que a aplicação &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; faça e gira chamadas telefónicas?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Pretende permitir que a aplicação &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aceda aos dados do sensor acerca dos seus sinais vitais?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"Autorizações controladas"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Uma app pode aceder à localização."</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"Agora, a app <xliff:g id="APP_NAME">%s</xliff:g> pode aceder à sua localização. Contacte o administrador de TI para saber mais."</string>
 </resources>
