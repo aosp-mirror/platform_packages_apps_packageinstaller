@@ -40,7 +40,6 @@ import androidx.preference.PreferenceViewHolder;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.ui.AppPermissionActivity;
-import com.android.permissioncontroller.permission.ui.Category;
 
 import java.util.List;
 
@@ -59,6 +58,7 @@ public class PermissionControlPreference extends Preference {
     private @NonNull String mPermGroupName;
     private @NonNull String mCaller;
     private @NonNull long mSessionId;
+    private boolean mHasNavGraph;
     private @NonNull UserHandle mUser;
 
     public PermissionControlPreference(@NonNull Context context,
@@ -69,12 +69,12 @@ public class PermissionControlPreference extends Preference {
     public PermissionControlPreference(@NonNull Context context,
             @NonNull AppPermissionGroup group, @NonNull String caller, long sessionId) {
         this(context, group.getApp().packageName, group.getName(), group.getUser(), caller,
-                sessionId, null);
+                sessionId, null, false);
     }
 
     public PermissionControlPreference(@NonNull Context context,
             @NonNull String packageName, @NonNull String permGroupName, @NonNull UserHandle user,
-            @NonNull String caller, long sessionId, Category category) {
+            @NonNull String caller, long sessionId, String granted, boolean hasNavGraph) {
         super(context);
         mContext = context;
         mWidgetIcon = null;
@@ -87,7 +87,8 @@ public class PermissionControlPreference extends Preference {
         mPermGroupName = permGroupName;
         mSessionId = sessionId;
         mUser = user;
-        mGranted = category.getCategoryName();
+        mGranted = granted;
+        mHasNavGraph = hasNavGraph;
     }
 
     /**
@@ -182,17 +183,20 @@ public class PermissionControlPreference extends Preference {
         setIcons(holder, mSummaryIcons, R.id.summary_widget_frame);
         setIcons(holder, mTitleIcons, R.id.title_widget_frame);
 
-        setOnPreferenceClickListener(pref -> {
-            Bundle args = new Bundle();
-            args.putString(Intent.EXTRA_PACKAGE_NAME, mPackageName);
-            args.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, mPermGroupName);
-            args.putParcelable(Intent.EXTRA_USER, mUser);
-            args.putString(AppPermissionActivity.EXTRA_CALLER_NAME, mCaller);
-            args.putLong(EXTRA_SESSION_ID, mSessionId);
-            args.putString(GRANT_CATEGORY, mGranted);
-            Navigation.findNavController(holder.itemView).navigate(R.id.perm_groups_to_app, args);
-            return true;
-        });
+        if (mHasNavGraph) {
+            setOnPreferenceClickListener(pref -> {
+                Bundle args = new Bundle();
+                args.putString(Intent.EXTRA_PACKAGE_NAME, mPackageName);
+                args.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, mPermGroupName);
+                args.putParcelable(Intent.EXTRA_USER, mUser);
+                args.putString(AppPermissionActivity.EXTRA_CALLER_NAME, mCaller);
+                args.putLong(EXTRA_SESSION_ID, mSessionId);
+                args.putString(GRANT_CATEGORY, mGranted);
+                Navigation.findNavController(holder.itemView).navigate(R.id.perm_groups_to_app,
+                        args);
+                return true;
+            });
+        }
     }
 
     private void setIcons(PreferenceViewHolder holder, @Nullable List<Integer> icons, int frameId) {
