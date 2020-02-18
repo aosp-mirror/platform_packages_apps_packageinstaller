@@ -175,21 +175,21 @@ class AppPermissionViewModel(
                 }
 
                 allowedAlwaysState.isChecked = group.background.isGranted &&
-                        group.foreground.isGranted
+                    group.foreground.isGranted
                 allowedForegroundState.isChecked = group.foreground.isGranted &&
-                        !group.background.isGranted && !group.isOneTime
+                    !group.background.isGranted && !group.isOneTime
                 val groupUserFixed = group.foreground.isUserFixed || group.background.isUserFixed
                 askState.isChecked = !group.foreground.isGranted && !groupUserFixed
                 deniedState.isChecked = !group.foreground.isGranted && groupUserFixed
 
                 if (applyFixToForegroundBackground(group, group.foreground.isSystemFixed,
-                                group.background.isSystemFixed, allowedAlwaysState,
-                                allowedForegroundState, askState, deniedState,
-                                deniedForegroundState) ||
-                        applyFixToForegroundBackground(group, group.foreground.isPolicyFixed,
-                                group.background.isPolicyFixed, allowedAlwaysState,
-                                allowedForegroundState, askState, deniedState,
-                                deniedForegroundState)) {
+                        group.background.isSystemFixed, allowedAlwaysState,
+                        allowedForegroundState, askState, deniedState,
+                        deniedForegroundState) ||
+                    applyFixToForegroundBackground(group, group.foreground.isPolicyFixed,
+                        group.background.isPolicyFixed, allowedAlwaysState,
+                        allowedForegroundState, askState, deniedState,
+                        deniedForegroundState)) {
                     showAdminSupportLiveData.value = admin
                     val detailId = getDetailResIdForFixedByPolicyPermissionGroup(group,
                         admin != null)
@@ -213,7 +213,7 @@ class AppPermissionViewModel(
                     askState.isEnabled = false
                     deniedState.isEnabled = false
                     val detailId = getDetailResIdForFixedByPolicyPermissionGroup(group,
-                            admin != null)
+                        admin != null)
                     if (detailId != 0) {
                         detailResIdLiveData.value = detailId to null
                     }
@@ -224,7 +224,7 @@ class AppPermissionViewModel(
                 askState.isShown = false
                 deniedState.isChecked = askState.isChecked || deniedState.isChecked
                 deniedForegroundState.isChecked = askState.isChecked ||
-                        deniedForegroundState.isChecked
+                    deniedForegroundState.isChecked
             }
             value = mapOf(ALLOW to allowedState, ALLOW_ALWAYS to allowedAlwaysState,
                 ALLOW_FOREGROUND to allowedForegroundState, ASK_ONCE to askOneTimeState,
@@ -404,18 +404,14 @@ class AppPermissionViewModel(
         var newGroup = group
         val oldGroup = group
 
-        if (shouldGrantForeground) {
-            newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, newGroup)
+        if (shouldRevokeBackground && group.hasBackgroundGroup &&
+            (wasBackgroundGranted || userFixed != group.background.isUserFixed)) {
+            newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app,
+                newGroup, userFixed)
 
-            if (!wasForegroundGranted) {
-                SafetyNetLogger.logPermissionToggled(newGroup)
-            }
-        }
-
-        if (shouldGrantBackground && group.hasBackgroundGroup) {
-            newGroup = KotlinUtils.grantBackgroundRuntimePermissions(app, newGroup)
-
-            if (!wasBackgroundGranted) {
+            // only log if we have actually denied permissions, not if we switch from
+            // "ask every time" to denied
+            if (wasBackgroundGranted) {
                 SafetyNetLogger.logPermissionToggled(newGroup, true)
             }
         }
@@ -432,17 +428,22 @@ class AppPermissionViewModel(
             }
         }
 
-        if (shouldRevokeBackground && group.hasBackgroundGroup &&
-            (wasBackgroundGranted || userFixed != group.background.isUserFixed)) {
-            newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app,
-                newGroup, userFixed)
+        if (shouldGrantForeground) {
+            newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, newGroup)
 
-            // only log if we have actually denied permissions, not if we switch from
-            // "ask every time" to denied
-            if (wasBackgroundGranted) {
+            if (!wasForegroundGranted) {
+                SafetyNetLogger.logPermissionToggled(newGroup)
+            }
+        }
+
+        if (shouldGrantBackground && group.hasBackgroundGroup) {
+            newGroup = KotlinUtils.grantBackgroundRuntimePermissions(app, newGroup)
+
+            if (!wasBackgroundGranted) {
                 SafetyNetLogger.logPermissionToggled(newGroup, true)
             }
         }
+
         logPermissionChanges(oldGroup, newGroup, buttonClicked)
     }
 
@@ -465,13 +466,7 @@ class AppPermissionViewModel(
 
         var newGroup = group
         val oldGroup = group
-        if (changeRequest andValue ChangeRequest.REVOKE_FOREGROUND != 0) {
-            newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, newGroup, userFixed)
-            if (wasForegroundGranted) {
-                SafetyNetLogger.logPermissionToggled(newGroup)
-            }
-            hasDefaultPermissions = group.foreground.isGrantedByDefault
-        }
+
         if (changeRequest andValue ChangeRequest.REVOKE_BACKGROUND != 0 &&
             group.hasBackgroundGroup) {
             newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, newGroup, userFixed)
@@ -481,6 +476,14 @@ class AppPermissionViewModel(
             }
             hasDefaultPermissions = hasDefaultPermissions ||
                 group.background.isGrantedByDefault
+        }
+
+        if (changeRequest andValue ChangeRequest.REVOKE_FOREGROUND != 0) {
+            newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, newGroup, userFixed)
+            if (wasForegroundGranted) {
+                SafetyNetLogger.logPermissionToggled(newGroup)
+            }
+            hasDefaultPermissions = group.foreground.isGrantedByDefault
         }
         logPermissionChanges(oldGroup, newGroup, buttonPressed)
 
@@ -517,7 +520,7 @@ class AppPermissionViewModel(
     ): Int {
         val isForegroundPolicyDenied = group.foreground.isPolicyFixed && !group.foreground.isGranted
         val isPolicyFullyFixedWithGrantedOrNoBkg = group.isPolicyFullyFixed &&
-                (group.background.isGranted || !group.hasBackgroundGroup)
+            (group.background.isGranted || !group.hasBackgroundGroup)
         if (group.foreground.isSystemFixed || group.background.isSystemFixed) {
             return R.string.permission_summary_enabled_system_fixed
         } else if (hasAdmin) {

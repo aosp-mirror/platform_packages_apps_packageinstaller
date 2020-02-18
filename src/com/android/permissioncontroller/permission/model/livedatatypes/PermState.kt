@@ -16,10 +16,23 @@
 
 package com.android.permissioncontroller.permission.model.livedatatypes
 
+import android.content.pm.PackageManager
+
 /**
  * A class representing the state of one permission for one package.
  *
  * @param permFlags The system flags of the permission
  * @param granted whether or not the permission is granted
  */
-data class PermState(val permFlags: Int, val granted: Boolean)
+data class PermState(val permFlags: Int, val granted: Boolean) {
+
+    override fun toString(): String {
+        return "granted: $granted, " +
+            "user fixed: ${permFlags and PackageManager.FLAG_PERMISSION_USER_FIXED != 0} " +
+            "user set: ${permFlags and PackageManager.FLAG_PERMISSION_USER_SET != 0} " +
+            "one time: ${permFlags and PackageManager.FLAG_PERMISSION_ONE_TIME != 0} " +
+            "review required: " +
+            "${permFlags and PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED != 0} " +
+            "revoked compat: ${permFlags and PackageManager.FLAG_PERMISSION_REVOKED_COMPAT != 0}"
+    }
+}

@@ -16,6 +16,8 @@
 
 package com.android.permissioncontroller.permission.data
 
+import android.os.Handler
+import android.os.Looper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
@@ -28,7 +30,11 @@ import kotlinx.coroutines.launch
 abstract class SmartAsyncMediatorLiveData<T> : SmartUpdateMediatorLiveData<T>() {
 
     private var currentJob: Job? = null
+    @Volatile
     private var jobQueued = false
+    @Volatile
+    private var jobRunning = false
+    private val mainHandler = Handler(Looper.getMainLooper())
 
     /**
      * The main function which will load data. It should periodically check isCancelled to see if
@@ -41,20 +47,23 @@ abstract class SmartAsyncMediatorLiveData<T> : SmartUpdateMediatorLiveData<T>() 
     }
 
     open fun updateAsync() {
-        if (currentJob?.isActive == true) {
+        if (jobRunning) {
             jobQueued = true
             return
+        } else {
+            jobRunning = true
         }
 
         GlobalScope.launch(Dispatchers.IO) {
             currentJob = coroutineContext[Job]
             loadDataAndPostValue(currentJob!!)
-        }
-
-        if (jobQueued) {
-            jobQueued = false
-            currentJob?.cancel()
-            updateAsync()
+            jobRunning = false
+            if (jobQueued) {
+                jobQueued = false
+                mainHandler.post {
+                    updateAsync()
+                }
+            }
         }
     }
 
