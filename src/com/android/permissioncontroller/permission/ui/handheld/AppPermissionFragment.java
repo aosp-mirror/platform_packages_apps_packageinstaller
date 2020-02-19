@@ -38,6 +38,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.UserHandle;
 import android.text.BidiFormatter;
 import android.view.LayoutInflater;
@@ -77,6 +79,7 @@ import kotlin.Pair;
  */
 public class AppPermissionFragment extends SettingsWithLargeHeader {
     private static final String LOG_TAG = "AppPermissionFragment";
+    private static final long POST_DELAY_MS = 20;
 
     static final String GRANT_CATEGORY = "grant_category";
 
@@ -173,7 +176,17 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                 getActivity().getApplication(), mPackageName, mPermGroupName, mUser, sessionId);
         mViewModel = new ViewModelProvider(this, factory).get(AppPermissionViewModel.class);
 
-        mViewModel.getButtonStateLiveData().observe(this, this::setRadioButtonsState);
+        boolean[] firstRun = new boolean[] { true };
+        Handler delayHandler = new Handler(Looper.getMainLooper());
+        mViewModel.getButtonStateLiveData().observe(this, buttonState -> {
+            if (firstRun[0]) {
+                firstRun[0] = false;
+                setRadioButtonsState(buttonState);
+            } else {
+                delayHandler.removeCallbacksAndMessages(null);
+                delayHandler.postDelayed(() -> setRadioButtonsState(buttonState), POST_DELAY_MS);
+            }
+        });
         mViewModel.getDetailResIdLiveData().observe(this, this::setDetail);
         mViewModel.getShowAdminSupportLiveData().observe(this, this::setAdminSupportDetail);
     }
