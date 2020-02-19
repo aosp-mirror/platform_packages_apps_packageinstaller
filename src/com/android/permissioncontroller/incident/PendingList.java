@@ -269,6 +269,7 @@ class PendingList {
                         .setDeleteIntent(deny)
                         .setColor(mContext.getColor(
                                     android.R.color.system_notification_accent_color))
+                        .extend(new Notification.TvExtender())
                         .build();
 
                 // Show the notification
