@@ -248,7 +248,7 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
 
                 PermissionControlPreference preference = new PermissionControlPreference(context,
                         mPackageName, groupName, mUser, AppPermissionGroupsFragment.class.getName(),
-                        sessionId, grantCategory);
+                        sessionId, grantCategory.getCategoryName(), true);
                 preference.setTitle(KotlinUtils.INSTANCE.getPermGroupLabel(context, groupName));
                 preference.setIcon(KotlinUtils.INSTANCE.getPermGroupIcon(context, groupName));
                 preference.setKey(preference.getTitle().toString());
