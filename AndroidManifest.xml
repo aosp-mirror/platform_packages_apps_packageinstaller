@@ -52,6 +52,7 @@
             android:allowClearUserData="false"
             android:supportsRtl="true"
             android:defaultToDeviceProtectedStorage="true"
+            android:forceQueryable="true"
             android:directBootAware="true">
 
         <provider
