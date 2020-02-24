@@ -16,10 +16,12 @@
 
 package com.android.permissioncontroller.permission.data
 
+import android.Manifest
 import android.Manifest.permission_group.STORAGE
 import android.app.AppOpsManager
-import android.app.AppOpsManager.MODE_IGNORED
+import android.app.AppOpsManager.MODE_ALLOWED
 import android.app.AppOpsManager.OPSTR_LEGACY_STORAGE
+import android.app.AppOpsManager.OPSTR_MANAGE_EXTERNAL_STORAGE
 import android.app.Application
 import android.os.Build
 import android.os.UserHandle
@@ -32,11 +34,18 @@ import kotlinx.coroutines.Job
  *
  */
 object FullStoragePermissionAppsLiveData :
-    SmartAsyncMediatorLiveData<List<Pair<String, UserHandle>>>() {
+    SmartAsyncMediatorLiveData<List<FullStoragePermissionAppsLiveData.FullStoragePackageState>>() {
 
     private val app: Application = PermissionControllerApplication.get()
     private val standardPermGroupsPackagesLiveData = PermGroupsPackagesLiveData.get(
         customGroups = false)
+
+    data class FullStoragePackageState(
+        val packageName: String,
+        val user: UserHandle,
+        val isLegacy: Boolean,
+        val isGranted: Boolean
+    )
 
     init {
         addSource(standardPermGroupsPackagesLiveData) {
@@ -48,25 +57,37 @@ object FullStoragePermissionAppsLiveData :
         val storagePackages = standardPermGroupsPackagesLiveData.value?.get(STORAGE) ?: return
         val appOpsManager = app.getSystemService(AppOpsManager::class.java) ?: return
 
-        val legacyPackages = mutableListOf<Pair<String, UserHandle>>()
+        val fullStoragePackages = mutableListOf<FullStoragePackageState>()
         for ((user, packageInfoList) in AllPackageInfosLiveData.value ?: emptyMap()) {
             val userPackages = packageInfoList.filter {
-                storagePackages.contains(it.packageName to user)
+                storagePackages.contains(it.packageName to user) ||
+                    it.requestedPermissions.contains(Manifest.permission.MANAGE_EXTERNAL_STORAGE)
             }
 
             for (packageInfo in userPackages) {
                 val sdk = packageInfo.targetSdkVersion
                 if (sdk < Build.VERSION_CODES.P) {
-                    legacyPackages.add(packageInfo.packageName to user)
-                } else if (sdk < Build.VERSION_CODES.R &&
+                    fullStoragePackages.add(FullStoragePackageState(packageInfo.packageName, user,
+                        isLegacy = true, isGranted = true))
+                    continue
+                } else if (sdk <= Build.VERSION_CODES.Q &&
                     appOpsManager.unsafeCheckOpNoThrow(OPSTR_LEGACY_STORAGE, packageInfo.uid,
-                        packageInfo.packageName) != MODE_IGNORED) {
-                    legacyPackages.add(packageInfo.packageName to user)
+                        packageInfo.packageName) == MODE_ALLOWED) {
+                    fullStoragePackages.add(FullStoragePackageState(packageInfo.packageName, user,
+                        isLegacy = true, isGranted = true))
+                    continue
+                }
+                if (packageInfo.requestedPermissions.contains(
+                        Manifest.permission.MANAGE_EXTERNAL_STORAGE)) {
+                    val granted = appOpsManager.unsafeCheckOpNoThrow(OPSTR_MANAGE_EXTERNAL_STORAGE,
+                            packageInfo.uid, packageInfo.packageName) == MODE_ALLOWED
+                    fullStoragePackages.add(FullStoragePackageState(packageInfo.packageName, user,
+                        isLegacy = false, isGranted = granted))
                 }
             }
         }
 
-        postValue(legacyPackages)
+        postValue(fullStoragePackages)
     }
 
     override fun onActive() {

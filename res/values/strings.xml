@@ -106,6 +106,12 @@
     <!-- Title for the dialog button to allow a change from foreground to background permission grant. [CHAR LIMIT=60]  -->
     <string name="grant_dialog_button_allow_background">Allow all the time</string>
 
+    <!-- Title for the dialog button to allow a permission grant for all files. [CHAR LIMIT=60]  -->
+    <string name="grant_dialog_button_allow_all_files">Allow management of all files</string>
+
+    <!-- Title for the dialog button to allow a permission grant for media files only. [CHAR LIMIT=60]  -->
+    <string name="grant_dialog_button_allow_media_only">Allow access to media files</string>
+
     <!-- Breadcrumb for page of managing application permissions [CHAR LIMIT=50] -->
     <string name="app_permissions_breadcrumb">Apps</string>
 
@@ -290,6 +296,12 @@
     <!-- Title for the dialog button to allow a permission grant when you cannot only allow in the foreground. [CHAR LIMIT=60] -->
     <string name="app_permission_button_allow">Allow</string>
 
+    <!-- Title for the dialog button to allow a storage permission grant for all files [CHAR LIMIT=60] -->
+    <string name="app_permission_button_allow_all_files">Allow management of all files</string>
+
+    <!-- Title for the dialog button to allow a storage permission grant for media files only [CHAR LIMIT=60] -->
+    <string name="app_permission_button_allow_media_only">Allow access to media only</string>
+
     <!-- Title for the dialog button to allow a permission grant when you can also only allow in the foreground. [CHAR LIMIT=60] -->
     <string name="app_permission_button_allow_always">Allow all the time</string>
 
@@ -362,6 +374,12 @@
     <!-- Summary for showing when an app was last used, shorter version [CHAR LIMIT=none] -->
     <string name="last_opened_summary_short">Last opened <xliff:g id="date" example="March 12, 2020">%s</xliff:g></string>
 
+    <!-- Text that explains that an app has access to all files[CHAR LIMIT=none] -->
+    <string name="app_permission_footer_special_file_access">If you allow management of all files, this app can access, modify, and delete any files in common storage on this device or connected storage devices. The app may access files without asking you.</string>
+
+    <!-- Text that explains that an app requests full file access, and links to the settings page[CHAR LIMIT=none] -->
+    <string name="special_file_access_dialog">Allow this app to access, modify and delete files on the device, or any connected storage devices? This app may access files without asking you.</string>
+
     <!-- Label for showing a permission group's description in the header of the list of apps that have that permission [CHAR LIMIT=none] -->
     <string name="permission_description_summary_generic">Apps with this permission can <xliff:g id="description" example="record audio">%1$s</xliff:g></string>
 
@@ -420,10 +438,10 @@
     <string name="allowed_foreground_header">Allowed only while in use</string>
 
     <!-- Subtitle for scoped storage permissions, showing apps that have access to media files only [CHAR LIMIT=45] -->
-    <string name="allowed_storage_scoped">Allowed for media only</string>
+    <string name="allowed_storage_scoped">Allowed access to media only</string>
 
     <!-- Subtitle for full storage permissions, showing apps that have access to all files [CHAR LIMIT=45] -->
-    <string name="allowed_storage_full">Allowed for all files</string>
+    <string name="allowed_storage_full">Allowed to manage all files</string>
 
     <!-- Header for permissions/apps which need to ask next time they want to use the permission. Note: Permission may or may not be currently granted [CHAR LIMIT=60] -->
     <string name="ask_header">Ask every time</string>
@@ -511,6 +529,12 @@
 
     <!-- Subtitle for the preference that is currently granted only when the app is in the foreground. [CHAR LIMIT=60] -->
     <string name="permission_subtitle_only_in_foreground">Only while app is in use</string>
+
+    <!-- Subtitle for a storage preference that is currently granted for Media files only. [CHAR LIMIT=60] -->
+    <string name="permission_subtitle_media_only">Media</string>
+
+    <!-- Subtitle for a storage preference that is currently granted for all files. [CHAR LIMIT=60] -->
+    <string name="permission_subtitle_all_files">All Files</string>
 
     <!-- Label when app has been granted no permissions [CHAR LIMIT=none] -->
     <string name="no_permissions_allowed">No permissions allowed</string>
