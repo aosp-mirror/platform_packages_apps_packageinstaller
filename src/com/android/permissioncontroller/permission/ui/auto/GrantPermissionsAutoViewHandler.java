@@ -82,7 +82,7 @@ public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHand
                 .setPositiveButton(mContext.getString(R.string.grant_dialog_button_allow), this);
         if (buttonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON]) {
             builder.setNeutralButton(
-                    mContext.getString(R.string.grant_dialog_button_deny_dont_ask_again), this);
+                    mContext.getString(R.string.grant_dialog_button_deny_and_dont_ask_again), this);
         }
         if (groupCount > 1) {
             builder.setSubtitle(mContext.getString(R.string.current_permission_template,
