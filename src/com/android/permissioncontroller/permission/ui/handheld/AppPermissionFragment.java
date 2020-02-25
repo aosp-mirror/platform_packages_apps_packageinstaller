@@ -151,6 +151,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setHasOptionsMenu(true);
         ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
