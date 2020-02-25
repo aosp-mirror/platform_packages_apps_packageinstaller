@@ -23,12 +23,10 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.findNavController
 import androidx.preference.AndroidResources
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.android.permissioncontroller.R
-import com.android.permissioncontroller.permission.ui.AppPermissionActivity
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 
 /**
@@ -40,22 +38,12 @@ import com.android.permissioncontroller.permission.utils.KotlinUtils
  * @param packageName The name of the package whose icon this preference will retrieve
  * @param user The user whose package icon will be retrieved
  * @param context The current context
- * @param groupName The name of the permission group this Preference is showing for
- * @param caller The name of the caller of this constructor. See
- * @see AppPermissionActivity.EXTRA_CALLER_NAME
- * @param sessionId An int representing the current session
- * @param grantCategory The granted state of the app represented by this preference, will be
- * passed on to the App Permission Fragment
  */
 open class SmartIconLoadPackagePermissionPreference @JvmOverloads constructor(
     private val app: Application,
     private val packageName: String,
     private val user: UserHandle,
-    context: Context,
-    private val groupName: String,
-    private val caller: String,
-    private val sessionId: Long = 0,
-    var grantCategory: String
+    context: Context
 ) : Preference(context) {
 
     /**
@@ -84,12 +72,6 @@ open class SmartIconLoadPackagePermissionPreference @JvmOverloads constructor(
         }
         if (imageFrame != null) {
             imageFrame.visibility = View.VISIBLE
-        }
-        setOnPreferenceClickListener {
-            val args = AppPermissionFragment.createArgs(packageName, null, groupName,
-                user, caller, sessionId, grantCategory)
-            holder.itemView.findNavController().navigate(R.id.perm_apps_to_app, args)
-            true
         }
     }
 }

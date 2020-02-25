@@ -34,6 +34,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -146,7 +147,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                 getActivity().invalidateOptionsMenu());
 
         if (!mViewModel.arePackagesLoaded()) {
-            Handler handler = new Handler();
+            Handler handler = new Handler(Looper.getMainLooper());
             handler.postDelayed(() -> {
                 if (!mViewModel.arePackagesLoaded()) {
                     setLoading(true /* loading */, false /* animate */);
@@ -311,22 +312,21 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
 
                 Preference existingPref = existingPrefs.get(key);
                 if (existingPref != null) {
-                    if (existingPref instanceof SmartIconLoadPackagePermissionPreference) {
-                        ((SmartIconLoadPackagePermissionPreference) existingPref).setGrantCategory(
-                                grantCategory.getCategoryName());
-                    }
                     category.addPreference(existingPref);
                     continue;
                 }
 
                 SmartIconLoadPackagePermissionPreference pref =
                         new SmartIconLoadPackagePermissionPreference(getActivity().getApplication(),
-                                packageName, user, context, mPermGroupName,
-                                PermissionAppsFragment.class.getName(), sessionId,
-                                grantCategory.getCategoryName());
+                                packageName, user, context);
                 pref.setKey(key);
                 pref.setTitle(KotlinUtils.INSTANCE.getPackageLabel(getActivity().getApplication(),
                         packageName, user));
+                pref.setOnPreferenceClickListener((Preference p) -> {
+                    mViewModel.navigateToAppPermission(this, packageName, user,
+                            sessionId, grantCategory.getCategoryName());
+                    return true;
+                });
 
                 category.addPreference(pref);
                 if (!mViewModel.getCreationLogged()) {
