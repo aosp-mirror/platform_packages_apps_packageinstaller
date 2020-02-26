@@ -16,6 +16,7 @@
 
 package com.android.permissioncontroller.permission.data
 
+import android.Manifest
 import android.app.Application
 import android.content.pm.PackageManager
 import android.content.pm.PermissionInfo
@@ -222,7 +223,7 @@ class AppPermGroupUiInfoLiveData private constructor(
         }
 
         val anyAllowed = getIsSpecialLocationState() ?: permissionState.any { it.value.granted }
-        if (anyAllowed && hasPermWithBackground) {
+        if (anyAllowed && (hasPermWithBackground || shouldShowAsForegroundGroup())) {
             if (isOneTime) {
                 return PermGrantState.PERMS_ASK
             } else {
@@ -238,7 +239,10 @@ class AppPermGroupUiInfoLiveData private constructor(
         if (isUserFixed) {
             return PermGrantState.PERMS_DENIED
         }
-        return PermGrantState.PERMS_ASK
+        if (isOneTime) {
+            return PermGrantState.PERMS_ASK
+        }
+        return PermGrantState.PERMS_DENIED
     }
 
     private fun getIsSpecialLocationState(): Boolean? {
@@ -256,17 +260,23 @@ class AppPermGroupUiInfoLiveData private constructor(
         return null
     }
 
+    // TODO moltmann-team: Actually change mic/camera to be a foreground only permission
+    private fun shouldShowAsForegroundGroup(): Boolean {
+        return permGroupName.equals(Manifest.permission_group.CAMERA) ||
+                permGroupName.equals(Manifest.permission_group.MICROPHONE)
+    }
+
     /**
      * Repository for AppPermGroupUiInfoLiveDatas.
      * <p> Key value is a triple of string package name, string permission group name, and UserHandle,
      * value is its corresponding LiveData.
      */
     companion object : DataRepository<Triple<String, String, UserHandle>,
-        AppPermGroupUiInfoLiveData>() {
+            AppPermGroupUiInfoLiveData>() {
         override fun newValue(key: Triple<String, String, UserHandle>):
-            AppPermGroupUiInfoLiveData {
+                AppPermGroupUiInfoLiveData {
             return AppPermGroupUiInfoLiveData(PermissionControllerApplication.get(),
-                key.first, key.second, key.third)
+                    key.first, key.second, key.third)
         }
     }
 }
