@@ -656,7 +656,6 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
                 logOneTimeSessionRevoke(packageName, uid, group, requestId);
                 group.revokeRuntimePermissions(false);
             }
-            group.setOneTime(false);
             group.persistChanges(false);
         }
     }
