@@ -499,7 +499,33 @@ object KotlinUtils {
         userFixed: Boolean,
         filterPermissions: List<String> = group.permissions.keys.toList()
     ): LightAppPermGroup {
-        return revokeRuntimePermissions(app, group, false, userFixed, filterPermissions)
+        return revokeForegroundRuntimePermissions(app, group, userFixed, false, filterPermissions)
+    }
+
+    /**
+     * Revoke all foreground runtime permissions of a LightAppPermGroup
+     *
+     * <p>This also disallows all app ops for permissions that have app ops.
+     *
+     * @param app The current application
+     * @param group The group whose permissions should be revoked
+     * @param userFixed If the user requested that they do not want to be asked again
+     * @param oneTime If the permission should be mark as one-time
+     * @param filterPermissions If not specified, all permissions of the group will be revoked.
+     *                          Otherwise only permissions in {@code filterPermissions} will be
+     *                          revoked.
+     *
+     * @return a LightAppPermGroup representing the new state
+     */
+    @JvmOverloads
+    fun revokeForegroundRuntimePermissions(
+        app: Application,
+        group: LightAppPermGroup,
+        userFixed: Boolean,
+        oneTime: Boolean,
+        filterPermissions: List<String> = group.permissions.keys.toList()
+    ): LightAppPermGroup {
+        return revokeRuntimePermissions(app, group, false, userFixed, oneTime, filterPermissions)
     }
 
     /**
@@ -523,7 +549,7 @@ object KotlinUtils {
         userFixed: Boolean,
         filterPermissions: List<String> = group.permissions.keys.toList()
     ): LightAppPermGroup {
-        return revokeRuntimePermissions(app, group, true, userFixed, filterPermissions)
+        return revokeRuntimePermissions(app, group, true, userFixed, false, filterPermissions)
     }
 
     private fun revokeRuntimePermissions(
@@ -531,6 +557,7 @@ object KotlinUtils {
         group: LightAppPermGroup,
         revokeBackground: Boolean,
         userFixed: Boolean,
+        oneTime: Boolean,
         filterPermissions: List<String>
     ): LightAppPermGroup {
         val newPerms = group.permissions.toMutableMap()
@@ -539,7 +566,8 @@ object KotlinUtils {
             val perm = group.permissions[permName] ?: continue
             val isBackgroundPerm = permName in group.backgroundPermNames
             if (isBackgroundPerm == revokeBackground) {
-                val (newPerm, shouldKill) = revokeRuntimePermission(app, perm, userFixed, group)
+                val (newPerm, shouldKill) =
+                        revokeRuntimePermission(app, perm, userFixed, oneTime, group)
                 newPerms[newPerm.name] = newPerm
                 shouldKillForAnyPermission = shouldKillForAnyPermission || shouldKill
             }
@@ -569,6 +597,7 @@ object KotlinUtils {
         app: Application,
         perm: LightPermission,
         userFixed: Boolean,
+        oneTime: Boolean,
         group: LightAppPermGroup
     ): Pair<LightPermission, Boolean> {
         // Do not touch permissions fixed by the system.
@@ -612,7 +641,8 @@ object KotlinUtils {
         newFlags = if (userFixed) newFlags.setFlag(PackageManager.FLAG_PERMISSION_USER_FIXED)
             else newFlags.clearFlag(PackageManager.FLAG_PERMISSION_USER_FIXED)
         newFlags = newFlags.setFlag(PackageManager.FLAG_PERMISSION_USER_SET)
-        newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_ONE_TIME)
+        newFlags = if (oneTime) newFlags.setFlag(PackageManager.FLAG_PERMISSION_ONE_TIME)
+            else newFlags.clearFlag(PackageManager.FLAG_PERMISSION_ONE_TIME)
 
         if (perm.flags != newFlags) {
             val flagMask = PackageManager.FLAG_PERMISSION_USER_SET or
