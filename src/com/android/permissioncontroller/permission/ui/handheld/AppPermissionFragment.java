@@ -308,17 +308,17 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         });
         // mAskOneTimeButton only shows if checked hence should do nothing
         mAskButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(false, this, ChangeRequest.REVOKE_BOTH,
+            mViewModel.requestChange(true, this, ChangeRequest.REVOKE_BOTH,
                     APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ASK_EVERY_TIME);
             setResult(DENIED);
         });
         mDenyButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(true, this, ChangeRequest.REVOKE_BOTH,
+            mViewModel.requestChange(false, this, ChangeRequest.REVOKE_BOTH,
                     APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__DENY);
             setResult(DENIED_DO_NOT_ASK_AGAIN);
         });
         mDenyForegroundButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(true, this, ChangeRequest.REVOKE_FOREGROUND,
+            mViewModel.requestChange(false, this, ChangeRequest.REVOKE_FOREGROUND,
                     APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__DENY_FOREGROUND);
             setResult(DENIED_DO_NOT_ASK_AGAIN);
         });
@@ -415,18 +415,16 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      *  1. [AppPermissionViewModel.onDenyAnyWay]
      * TODO: Remove once data can be passed between dialogs and fragments with nav component
      *
-     * @param changeTarget Whether background or foreground should be changed
+     * @param changeRequest Whether background or foreground should be changed
      * @param messageId The Id of the string message to show
-     * @param userFixed Whether the permission state should be user fixed
      * @param buttonPressed Button which was pressed to initiate the dialog, one of
      *                      AppPermissionFragmentActionReported.button_pressed constants
      */
     void showDefaultDenyDialog(ChangeRequest changeRequest, @StringRes int messageId,
-            boolean userFixed, int buttonPressed) {
+            int buttonPressed) {
         Bundle args = getArguments().deepCopy();
         args.putInt(DefaultDenyDialog.MSG, messageId);
         args.putSerializable(DefaultDenyDialog.CHANGE_REQUEST, changeRequest);
-        args.putBoolean(DefaultDenyDialog.USER_FIXED, userFixed);
         args.putInt(DefaultDenyDialog.BUTTON, buttonPressed);
         DefaultDenyDialog defaultDenyDialog = new DefaultDenyDialog();
         defaultDenyDialog.setCancelable(true);
@@ -439,7 +437,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      * A dialog warning the user that they are about to deny a permission that was granted by
      * default, or that they are denying a permission on a Pre-M app
      *
-     * @see #showDefaultDenyDialog(ChangeTarget, int, boolean, int)
+     * @see #showDefaultDenyDialog(ChangeRequest, int, int)
      */
     public static class DefaultDenyDialog extends DialogFragment {
         static final String MSG = DefaultDenyDialog.class.getName() + ".arg.msg";
@@ -447,8 +445,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                 + ".arg.changeRequest";
         private static final String KEY = DefaultDenyDialog.class.getName() + ".arg.key";
         private static final String BUTTON = DefaultDenyDialog.class.getName() + ".arg.button";
-        static final String USER_FIXED = DefaultDenyDialog.class.getName()
-                + ".arg.userFixed";
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -461,7 +457,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                             (DialogInterface dialog, int which) ->
                                     fragment.mViewModel.onDenyAnyWay((ChangeRequest)
                                             getArguments().getSerializable(CHANGE_REQUEST),
-                                            getArguments().getBoolean(USER_FIXED, false),
                                             getArguments().getInt(BUTTON)));
             Dialog d = b.create();
             d.setCanceledOnTouchOutside(true);
