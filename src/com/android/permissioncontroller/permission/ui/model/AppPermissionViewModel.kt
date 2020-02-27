@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.ui.handheld
+package com.android.permissioncontroller.permission.ui.model
 
 import android.Manifest
 import android.app.Activity
@@ -25,6 +25,7 @@ import android.os.Bundle
 import android.os.UserHandle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.StringRes
 import androidx.lifecycle.MutableLiveData
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
@@ -42,13 +43,13 @@ import com.android.permissioncontroller.permission.model.livedatatypes.LightPerm
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.LocationUtils
 import com.android.permissioncontroller.permission.utils.SafetyNetLogger
-import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonType.ALLOW
-import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonType.ALLOW_ALWAYS
-import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonType.ALLOW_FOREGROUND
-import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonType.ASK_ONCE
-import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonType.ASK
-import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonType.DENY
-import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonType.DENY_FOREGROUND
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.ALLOW
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.ALLOW_ALWAYS
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.ALLOW_FOREGROUND
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.ASK_ONCE
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.ASK
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.DENY
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.DENY_FOREGROUND
 import com.android.permissioncontroller.permission.utils.Utils
 import com.android.settingslib.RestrictedLockUtils
 import java.util.Random
@@ -78,6 +79,14 @@ class AppPermissionViewModel(
 
     companion object {
         private val LOG_TAG = AppPermissionViewModel::class.java.simpleName
+    }
+
+    interface DefaultDenyShowingFragment {
+        fun showDefaultDenyDialog(
+            changeRequest: ChangeRequest,
+            @StringRes messageId: Int,
+            buttonPressed: Int
+        )
     }
 
     enum class ChangeRequest(val value: Int) {
@@ -330,15 +339,12 @@ class AppPermissionViewModel(
      * Navigate to either the App Permission Groups screen, or the Permission Apps Screen.
      * @param fragment The current fragment
      * @param action The action to be taken
+     * @param args The arguments to pass to the fragment
      */
-    fun showBottomLinkPage(fragment: Fragment, action: String) {
-        lateinit var args: Bundle
-        var actionId = R.id.app_to_perm_apps
+    fun showBottomLinkPage(fragment: Fragment, action: String, args: Bundle) {
+        var actionId = R.id.app_to_perm_groups
         if (action == Intent.ACTION_MANAGE_PERMISSION_APPS) {
-            args = PermissionAppsFragment.createArgs(permGroupName, sessionId)
-        } else {
-            args = AppPermissionGroupsFragment.createArgs(packageName, user, sessionId, true)
-            actionId = R.id.app_to_perm_groups
+            actionId = R.id.app_to_perm_apps
         }
 
         fragment.findNavController().navigate(actionId, args)
@@ -356,6 +362,10 @@ class AppPermissionViewModel(
      *
      *  * Default grant permissions
      *
+     * @param setOneTime Whether or not to set this permission as one time
+     * @param fragment The fragment calling this method
+     * @param defaultDeny The system which will show the default deny dialog. Usually the same as
+     * the fragment.
      * @param changeRequest Which permission group (foreground/background/both) should be changed
      * @param buttonClicked button which was pressed to initiate the change, one of
      *                      AppPermissionFragmentActionReported.button_pressed constants
@@ -364,7 +374,8 @@ class AppPermissionViewModel(
      */
     fun requestChange(
         setOneTime: Boolean,
-        fragment: AppPermissionFragment,
+        fragment: Fragment,
+        defaultDeny: DefaultDenyShowingFragment,
         changeRequest: ChangeRequest,
         buttonClicked: Int
     ) {
@@ -403,12 +414,12 @@ class AppPermissionViewModel(
         }
 
         if (showDefaultDenyDialog && !hasConfirmedRevoke && showGrantedByDefaultWarning) {
-            fragment.showDefaultDenyDialog(changeRequest, R.string.system_warning, buttonClicked)
+            defaultDeny.showDefaultDenyDialog(changeRequest, R.string.system_warning, buttonClicked)
             return
         }
 
         if (showDefaultDenyDialog && !hasConfirmedRevoke) {
-            fragment.showDefaultDenyDialog(changeRequest, R.string.old_sdk_deny_warning,
+            defaultDeny.showDefaultDenyDialog(changeRequest, R.string.old_sdk_deny_warning,
                     buttonClicked)
             return
         }
@@ -504,8 +515,7 @@ class AppPermissionViewModel(
      *
      * @param fragment The current fragment we wish to transition from
      */
-    fun showAllPermissions(fragment: AppPermissionFragment) {
-        val args = AllAppPermissionsFragment.createArgs(packageName, permGroupName, user)
+    fun showAllPermissions(fragment: Fragment, args: Bundle) {
         fragment.findNavController().navigate(R.id.app_to_all_perms, args)
     }
 
