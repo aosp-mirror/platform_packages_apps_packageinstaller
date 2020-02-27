@@ -40,6 +40,8 @@ import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.Permission;
+import com.android.permissioncontroller.permission.ui.model.AllAppPermissionsViewModel;
+import com.android.permissioncontroller.permission.ui.model.AllAppPermissionsViewModelFactory;
 import com.android.permissioncontroller.permission.utils.ArrayUtils;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
@@ -92,6 +94,17 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
         arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, filterGroup);
         arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         return arguments;
+    }
+
+    /**
+     * Create a bundle with the arguments needed by this fragment
+     *
+     * @param packageName The name of the package
+     * @param userHandle The user of this package
+     * @return A bundle with all of the args placed
+     */
+    public static Bundle createArgs(@NonNull String packageName, @NonNull UserHandle userHandle) {
+        return createArgs(packageName, null, userHandle);
     }
 
     @Override
