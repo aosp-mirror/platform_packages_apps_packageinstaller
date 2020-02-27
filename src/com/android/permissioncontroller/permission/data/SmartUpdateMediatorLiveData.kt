@@ -91,7 +91,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
                 observer.onChanged(newValue)
             }
 
-            for ((liveData, observer, shouldUpdate) in children) {
+            for ((liveData, observer, shouldUpdate) in children.toList()) {
                 if (liveData.hasActiveObservers() && shouldUpdate) {
                     observer.onChanged(newValue)
                 }
