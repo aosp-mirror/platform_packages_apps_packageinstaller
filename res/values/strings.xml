@@ -475,11 +475,11 @@
     <!-- Short label for the dialer role. [CHAR LIMIT=30] -->
     <string name="role_dialer_short_label">Phone app</string>
     <!-- Description for the dialer role. [CHAR LIMIT=NONE] -->
-    <string name="role_dialer_description">Phone apps allow you to make and receive telephone calls on your device\n\nPhone apps can also access and record call audio</string>
+    <string name="role_dialer_description">Apps that allow you to make and receive telephone calls on your device</string>
     <!-- Template for the title when an app requests to become the default dialer app. [CHAR LIMIT=100] -->
     <string name="role_dialer_request_title">Set <xliff:g id="app_name" example="Super Phone">%1$s</xliff:g> as your default phone app?</string>
     <!-- Description when an app requests to become the default dialer app. [CHAR LIMIT=60] -->
-    <string name="role_dialer_request_description">Gets access to call log and call audio, send SMS</string>
+    <string name="role_dialer_request_description">Gets access to call log, send SMS</string>
     <!-- Search keywords for the dialer role. [CHAR LIMIT=NONE] -->
     <string name="role_dialer_search_keywords">dialer</string>
 
