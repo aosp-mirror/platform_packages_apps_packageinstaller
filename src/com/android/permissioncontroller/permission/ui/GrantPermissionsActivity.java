@@ -691,6 +691,7 @@ public class GrantPermissionsActivity extends Activity
                         isForegroundPermissionUserSet = foregroundGroupState.mGroup.isUserSet();
                     }
                 }
+                boolean isOneTime = groupState.mGroup.isOneTime();
 
                 mButtonVisibilities = new boolean[NEXT_BUTTON];
                 mButtonVisibilities[ALLOW_BUTTON] = true;
@@ -743,9 +744,9 @@ public class GrantPermissionsActivity extends Activity
                         // Case: sdk >= R, Requesting normal permission
                         messageId = groupState.mGroup.getRequest();
                         mButtonVisibilities[DENY_BUTTON] =
-                                !isForegroundPermissionUserSet;
+                                !isForegroundPermissionUserSet || isOneTime;
                         mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                                isForegroundPermissionUserSet;
+                                isForegroundPermissionUserSet && !isOneTime;
                         if (groupState.mGroup.getName().equals(Manifest.permission_group.CAMERA)
                                 || groupState.mGroup.getName().equals(
                                 Manifest.permission_group.MICROPHONE)) {
@@ -763,18 +764,18 @@ public class GrantPermissionsActivity extends Activity
                             mButtonVisibilities[ALLOW_BUTTON] = false;
                             mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
                             mButtonVisibilities[DENY_BUTTON] =
-                                    !isForegroundPermissionUserSet;
+                                    !isForegroundPermissionUserSet || isOneTime;
                             mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                                    isForegroundPermissionUserSet;
+                                    isForegroundPermissionUserSet && !isOneTime;
                         } else if (needForegroundPermission) {
                             // Case: sdk < R, BG/FG permission requesting FG only
                             messageId = groupState.mGroup.getRequest();
                             mButtonVisibilities[ALLOW_BUTTON] = false;
                             mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
                             mButtonVisibilities[DENY_BUTTON] =
-                                    !isForegroundPermissionUserSet;
+                                    !isForegroundPermissionUserSet || isOneTime;
                             mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                                    isForegroundPermissionUserSet;
+                                    isForegroundPermissionUserSet && !isOneTime;
                         } else if (needBackgroundPermission) {
                             // Case: sdk < R, BG/FG permission requesting BG only
                             messageId = groupState.mGroup.getUpgradeRequest();
@@ -802,9 +803,9 @@ public class GrantPermissionsActivity extends Activity
                         // Case: sdk < R, Requesting normal permission
                         messageId = groupState.mGroup.getRequest();
                         mButtonVisibilities[DENY_BUTTON] =
-                                !isForegroundPermissionUserSet;
+                                !isForegroundPermissionUserSet || isOneTime;
                         mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                                isForegroundPermissionUserSet;
+                                isForegroundPermissionUserSet && !isOneTime;
                         if (groupState.mGroup.getName().equals(Manifest.permission_group.CAMERA)
                                 || groupState.mGroup.getName().equals(
                                         Manifest.permission_group.MICROPHONE)) {
@@ -1064,6 +1065,8 @@ public class GrantPermissionsActivity extends Activity
                     groupState.mGroup.setOneTime(true);
                     permissionGrantRequestResult =
                             PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED_ONE_TIME;
+                } else {
+                    groupState.mGroup.setOneTime(false);
                 }
 
                 groupState.mGroup.grantRuntimePermissions(doNotAskAgain,
@@ -1074,6 +1077,7 @@ public class GrantPermissionsActivity extends Activity
             } else {
                 groupState.mGroup.revokeRuntimePermissions(doNotAskAgain,
                         groupState.affectedPermissions);
+                groupState.mGroup.setOneTime(false);
                 groupState.mState = GroupState.STATE_DENIED;
 
                 reportRequestResult(groupState.affectedPermissions, doNotAskAgain

@@ -1447,7 +1447,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
 
         String packageName = mPackageInfo.packageName;
-        if (isOneTime()) {
+        if (isOneTime() && areRuntimePermissionsGranted()) {
             mContext.getSystemService(PermissionManager.class)
                     .startOneTimePermissionSession(packageName,
                             Utils.getOneTimePermissionsTimeout(),
