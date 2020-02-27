@@ -51,6 +51,8 @@ import androidx.preference.PreferenceCategory;
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.ui.Category;
+import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModel;
+import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModelFactory;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 import com.android.settingslib.HelpUtils;
@@ -166,7 +168,8 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
             }
 
             case MENU_ALL_PERMS: {
-                mViewModel.showAllPermissions(this);
+                mViewModel.showAllPermissions(this, AllAppPermissionsFragment.createArgs(
+                        mPackageName, mUser));
                 return true;
             }
         }
@@ -298,7 +301,8 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         extraPerms.setTitle(R.string.additional_permissions);
         extraPerms.setKey(extraPerms.getTitle() + category);
         extraPerms.setOnPreferenceClickListener(preference -> {
-            mViewModel.showExtraPerms(this, getArguments().getLong(EXTRA_SESSION_ID));
+            mViewModel.showExtraPerms(this, AppPermissionGroupsFragment.createArgs(
+                    mPackageName, mUser, getArguments().getLong(EXTRA_SESSION_ID), false));
             return true;
         });
         extraPerms.setSummary(getResources().getQuantityString(

@@ -26,6 +26,8 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
 import com.android.permissioncontroller.R;
+import com.android.permissioncontroller.permission.ui.model.ManageStandardPermissionsViewModel;
+import com.android.permissioncontroller.permission.ui.model.ManageStandardPermissionsViewModelFactory;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 
@@ -127,7 +129,8 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                 additionalPermissionsPreference.setTitle(R.string.additional_permissions);
                 additionalPermissionsPreference.setOnPreferenceClickListener(preference -> {
                     mViewModel.showCustomPermissions(this,
-                            getArguments().getLong(EXTRA_SESSION_ID));
+                            ManageCustomPermissionsFragment.createArgs(
+                                    getArguments().getLong(EXTRA_SESSION_ID)));
                     return true;
                 });
 
@@ -143,7 +146,7 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
 
     @Override
     public void showPermissionApps(String permissionGroupName) {
-        mViewModel.showPermissionApps(this, permissionGroupName,
-                getArguments().getLong(EXTRA_SESSION_ID));
+        mViewModel.showPermissionApps(this, PermissionAppsFragment.createArgs(
+                permissionGroupName, getArguments().getLong(EXTRA_SESSION_ID)));
     }
 }
