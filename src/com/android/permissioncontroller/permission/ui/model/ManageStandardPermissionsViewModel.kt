@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.ui.handheld
+package com.android.permissioncontroller.permission.ui.model
 
 import android.app.Application
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
@@ -43,14 +44,24 @@ class ManageStandardPermissionsViewModel(
         StandardPermGroupNamesLiveData)
     val numCustomPermGroups = NumCustomPermGroupsWithPackagesLiveData()
 
-    fun showCustomPermissions(fragment: Fragment, sessionId: Long) {
-        fragment.findNavController().navigate(R.id.standard_to_custom,
-            ManageCustomPermissionsFragment.createArgs(sessionId))
+    /**
+     * Navigate to the Custom Permissions screen
+     *
+     * @param fragment The fragment we are navigating from
+     * @param args The args to pass to the new fragment
+     */
+    fun showCustomPermissions(fragment: Fragment, args: Bundle) {
+        fragment.findNavController().navigate(R.id.standard_to_custom, args)
     }
 
-    fun showPermissionApps(fragment: Fragment, groupName: String, sessionId: Long) {
-        fragment.findNavController().navigate(R.id.manage_to_perm_apps,
-            PermissionAppsFragment.createArgs(groupName, sessionId))
+    /**
+     * Navigate to a Permission Apps fragment
+     *
+     * @param fragment The fragment we are navigating from
+     * @param args The args to pass to the new fragment
+     */
+    fun showPermissionApps(fragment: Fragment, args: Bundle) {
+        fragment.findNavController().navigate(R.id.manage_to_perm_apps, args)
     }
 }
 
