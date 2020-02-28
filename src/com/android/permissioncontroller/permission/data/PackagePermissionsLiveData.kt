@@ -44,6 +44,11 @@ class PackagePermissionsLiveData private constructor(
 
     init {
         addSource(packageInfoLiveData) {
+            if (packageInfoLiveData.isInitialized && packageInfoLiveData.value == null) {
+                invalidateSingle(packageName to user)
+                value = null
+                return@addSource
+            }
             updateIfActive()
         }
     }

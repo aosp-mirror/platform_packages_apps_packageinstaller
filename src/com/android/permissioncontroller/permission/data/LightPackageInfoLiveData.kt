@@ -79,6 +79,7 @@ class LightPackageInfoLiveData private constructor(
                 PackageManager.GET_PERMISSIONS))
         } catch (e: PackageManager.NameNotFoundException) {
             Log.w(LOG_TAG, "Package \"$packageName\" not found")
+            invalidateSingle(packageName to user)
             null
         })
     }
