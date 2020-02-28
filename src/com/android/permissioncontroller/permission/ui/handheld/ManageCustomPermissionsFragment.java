@@ -23,6 +23,9 @@ import android.view.MenuItem;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import com.android.permissioncontroller.permission.ui.model.ManageCustomPermissionsViewModel;
+import com.android.permissioncontroller.permission.ui.model.ManageCustomPermissionsViewModelFactory;
+
 import java.util.HashMap;
 
 /**
@@ -75,8 +78,8 @@ public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
 
     @Override
     public void showPermissionApps(String permissionGroupName) {
-        mViewModel.showPermissionApps(this, permissionGroupName,
-                getArguments().getLong(EXTRA_SESSION_ID));
+        mViewModel.showPermissionApps(this, PermissionAppsFragment.createArgs(
+                permissionGroupName, getArguments().getLong(EXTRA_SESSION_ID)));
     }
 
     @Override

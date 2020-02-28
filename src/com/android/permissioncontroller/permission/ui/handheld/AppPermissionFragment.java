@@ -60,15 +60,18 @@ import androidx.lifecycle.ViewModelProvider;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler;
-import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonState;
-import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ButtonType;
-import com.android.permissioncontroller.permission.ui.handheld.AppPermissionViewModel.ChangeRequest;
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel;
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonState;
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType;
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ChangeRequest;
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModelFactory;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 import com.android.settingslib.widget.ActionBarShadowController;
 
 import java.util.Map;
+import java.util.Objects;
 
 import kotlin.Pair;
 
@@ -77,7 +80,8 @@ import kotlin.Pair;
  *
  * <p>Allows the user to control whether the app is granted the permission.
  */
-public class AppPermissionFragment extends SettingsWithLargeHeader {
+public class AppPermissionFragment extends SettingsWithLargeHeader
+        implements AppPermissionViewModel.DefaultDenyShowingFragment {
     private static final String LOG_TAG = "AppPermissionFragment";
     private static final long POST_DELAY_MS = 20;
 
@@ -99,6 +103,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
     private @NonNull String mPermGroupName;
     private @NonNull UserHandle mUser;
     private boolean mIsInitialLoad;
+    private long mSessionId;
 
     private @NonNull String mPackageLabel;
     private @NonNull String mPermGroupLabel;
@@ -171,10 +176,10 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                 mPermGroupName).toString();
         mPackageIcon = KotlinUtils.INSTANCE.getBadgedPackageIcon(getActivity().getApplication(),
                 mPackageName, mUser);
-        long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
+        mSessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
 
         AppPermissionViewModelFactory factory = new AppPermissionViewModelFactory(
-                getActivity().getApplication(), mPackageName, mPermGroupName, mUser, sessionId);
+                getActivity().getApplication(), mPackageName, mPermGroupName, mUser, mSessionId);
         mViewModel = new ViewModelProvider(this, factory).get(AppPermissionViewModel.class);
 
         boolean[] firstRun = new boolean[] { true };
@@ -250,14 +255,21 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
     }
 
     private void setBottomLinkState(TextView view, String caller, String action) {
-        if ((caller.equals(AppPermissionGroupsFragment.class.getName())
+        if ((Objects.equals(caller, AppPermissionGroupsFragment.class.getName())
                 && action.equals(Intent.ACTION_MANAGE_APP_PERMISSIONS))
-                || (caller.equals(PermissionAppsFragment.class.getName()))
-                && action.equals(Intent.ACTION_MANAGE_PERMISSION_APPS)) {
+                || (Objects.equals(caller, PermissionAppsFragment.class.getName())
+                && action.equals(Intent.ACTION_MANAGE_PERMISSION_APPS))) {
             view.setVisibility(View.GONE);
         } else {
             view.setOnClickListener((v) -> {
-                mViewModel.showBottomLinkPage(this, action);
+                Bundle args;
+                if (action.equals(Intent.ACTION_MANAGE_APP_PERMISSIONS)) {
+                    args = AppPermissionGroupsFragment.createArgs(mPackageName, mUser,
+                            mSessionId, true);
+                } else {
+                    args = PermissionAppsFragment.createArgs(mPermGroupName, mSessionId);
+                }
+                mViewModel.showBottomLinkPage(this, action, args);
             });
         }
     }
@@ -292,33 +304,33 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
 
         mAllowButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(false, this, ChangeRequest.GRANT_FOREGROUND,
+            mViewModel.requestChange(false, this, this, ChangeRequest.GRANT_FOREGROUND,
                     APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ALLOW);
             setResult(GRANTED_ALWAYS);
         });
         mAllowAlwaysButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(false, this, ChangeRequest.GRANT_BOTH,
+            mViewModel.requestChange(false, this, this, ChangeRequest.GRANT_BOTH,
                     APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ALLOW_ALWAYS);
             setResult(GRANTED_ALWAYS);
         });
         mAllowForegroundButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(false, this, ChangeRequest.GRANT_FOREGROUND_ONLY,
+            mViewModel.requestChange(false, this, this, ChangeRequest.GRANT_FOREGROUND_ONLY,
                     APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ALLOW_FOREGROUND);
             setResult(GRANTED_FOREGROUND_ONLY);
         });
         // mAskOneTimeButton only shows if checked hence should do nothing
         mAskButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(true, this, ChangeRequest.REVOKE_BOTH,
+            mViewModel.requestChange(true, this, this, ChangeRequest.REVOKE_BOTH,
                     APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ASK_EVERY_TIME);
             setResult(DENIED);
         });
         mDenyButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(false, this, ChangeRequest.REVOKE_BOTH,
+            mViewModel.requestChange(false, this, this, ChangeRequest.REVOKE_BOTH,
                     APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__DENY);
             setResult(DENIED_DO_NOT_ASK_AGAIN);
         });
         mDenyForegroundButton.setOnClickListener((v) -> {
-            mViewModel.requestChange(false, this, ChangeRequest.REVOKE_FOREGROUND,
+            mViewModel.requestChange(false, this, this, ChangeRequest.REVOKE_FOREGROUND,
                     APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__DENY_FOREGROUND);
             setResult(DENIED_DO_NOT_ASK_AGAIN);
         });
@@ -368,7 +380,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             // lets you control them.
             mDivider.setVisibility(View.VISIBLE);
             showRightIcon(R.drawable.ic_settings);
-            mWidgetFrame.setOnClickListener(v -> mViewModel.showAllPermissions(this));
+            Bundle args = AllAppPermissionsFragment.createArgs(mPackageName, mPermGroupName, mUser);
+            mWidgetFrame.setOnClickListener(v -> mViewModel.showAllPermissions(this, args));
             mPermissionDetails.setText(getPreferenceManager().getContext().getString(
                     detailResIds.getFirst(), detailResIds.getSecond()));
         } else {
@@ -420,7 +433,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      * @param buttonPressed Button which was pressed to initiate the dialog, one of
      *                      AppPermissionFragmentActionReported.button_pressed constants
      */
-    void showDefaultDenyDialog(ChangeRequest changeRequest, @StringRes int messageId,
+    @Override
+    public void showDefaultDenyDialog(ChangeRequest changeRequest, @StringRes int messageId,
             int buttonPressed) {
         Bundle args = getArguments().deepCopy();
         args.putInt(DefaultDenyDialog.MSG, messageId);
