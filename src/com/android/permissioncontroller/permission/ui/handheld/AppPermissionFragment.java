@@ -71,6 +71,7 @@ import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 import com.android.settingslib.widget.ActionBarShadowController;
 
 import java.util.Map;
+import java.util.Objects;
 
 import kotlin.Pair;
 
@@ -254,10 +255,10 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
     }
 
     private void setBottomLinkState(TextView view, String caller, String action) {
-        if ((caller.equals(AppPermissionGroupsFragment.class.getName())
+        if ((Objects.equals(caller, AppPermissionGroupsFragment.class.getName())
                 && action.equals(Intent.ACTION_MANAGE_APP_PERMISSIONS))
-                || (caller.equals(PermissionAppsFragment.class.getName()))
-                && action.equals(Intent.ACTION_MANAGE_PERMISSION_APPS)) {
+                || (Objects.equals(caller, PermissionAppsFragment.class.getName())
+                && action.equals(Intent.ACTION_MANAGE_PERMISSION_APPS))) {
             view.setVisibility(View.GONE);
         } else {
             view.setOnClickListener((v) -> {
