@@ -47,6 +47,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.UserHandle;
 import android.text.BidiFormatter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,6 +55,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -314,7 +316,11 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
 
     private void setRadioButtonsState(Map<ButtonType, ButtonState> states) {
         if (states == null && mViewModel.getButtonStateLiveData().isInitialized()) {
-            mViewModel.finishActivity(getActivity());
+            getActivity().onBackPressed();
+            Log.w(LOG_TAG, "invalid package " + mPackageName + " or perm group "
+                    + mPermGroupName);
+            Toast.makeText(
+                    getActivity(), R.string.app_not_found_dlg_title, Toast.LENGTH_LONG).show();
             return;
         } else if (states == null) {
             return;
