@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.ui.handheld
+package com.android.permissioncontroller.permission.ui.model
 
 import android.app.Application
+import android.os.Bundle
 import android.os.UserHandle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
@@ -137,13 +138,11 @@ class AppPermissionGroupsViewModel(
         }
     }
 
-    fun showExtraPerms(fragment: Fragment, sessionId: Long) {
-        val args = AppPermissionGroupsFragment.createArgs(packageName, user, sessionId, false)
+    fun showExtraPerms(fragment: Fragment, args: Bundle) {
         fragment.findNavController().navigate(R.id.perm_groups_to_extra, args)
     }
 
-    fun showAllPermissions(fragment: Fragment) {
-        val args = AllAppPermissionsFragment.createArgs(packageName, null, user)
+    fun showAllPermissions(fragment: Fragment, args: Bundle) {
         fragment.findNavController().navigate(R.id.perm_groups_to_all_perms, args)
     }
 }
