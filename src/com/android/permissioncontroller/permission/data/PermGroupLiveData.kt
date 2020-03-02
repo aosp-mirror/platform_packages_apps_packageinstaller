@@ -87,6 +87,7 @@ class PermGroupLiveData private constructor(
 
         groupInfo = Utils.getGroupInfo(groupName, context) ?: run {
             Log.e(LOG_TAG, "Invalid permission group $groupName")
+            invalidateSingle(groupName)
             value = null
             return
         }
@@ -98,6 +99,7 @@ class PermGroupLiveData private constructor(
                         groupName)
                 } catch (e: PackageManager.NameNotFoundException) {
                     Log.e(LOG_TAG, "Invalid permission group $groupName")
+                    invalidateSingle(groupName)
                     value = null
                     return
                 }
