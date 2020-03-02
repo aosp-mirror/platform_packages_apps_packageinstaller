@@ -91,7 +91,7 @@
     <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"‏لا تتوافق إجراءات التثبيت/إلغاء التثبيت مع نظام Android Wear."</string>
     <string name="permission_review_title_template_install" msgid="8131698354985303888">"‏اختيار ما تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بالوصول إليه"</string>
-    <string name="permission_review_title_template_update" msgid="7597155653571395485">"‏تمّ إعادة تحميل &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;. وعليك اختيار ما تريد السماح لهذا التطبيق بالوصول إليه."</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"‏تمّ تحديث &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;. وعليك اختيار ما تريد السماح لهذا التطبيق بالوصول إليه."</string>
     <string name="review_button_cancel" msgid="7108377593627664194">"إلغاء"</string>
     <string name="review_button_continue" msgid="1367925420132212571">"متابعة"</string>
     <string name="new_permissions_category" msgid="7242713808413888679">"الأذونات الجديدة"</string>
@@ -264,7 +264,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"إبراز بيانات الاستخدام لما يلي:"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"‏عرض رمز رصد تشغيل \"مساعد Google\""</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"عرض الرمز في شريط الحالة عند استخدام الميكروفون لتفعيل المساعد الصوتي."</string>
-    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بقراءة ملفات الوسائط في هذا الجهاز؟"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بالدخول إلى الصور والوسائط على جهازك؟"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بالوصول إلى جهات الاتصال؟"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بالوصول إلى الموقع الجغرافي لهذا الجهاز؟"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"لن يكون بإمكان التطبيق الوصول إلى الموقع الجغرافي إلا عند استخدامك لهذا التطبيق."</string>
@@ -281,10 +281,7 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بالوصول إلى سجلّ مكالماتك الهاتفية؟"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"‏هل تريد السماح لـ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بإجراء المكالمات الهاتفية وإدارتها؟"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"‏هل تريد السماح لتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بالدخول إلى بيانات المستشعر حول علاماتك الحيوية؟"</string>
-    <!-- no translation found for auto_granted_permissions (5726065128917092357) -->
-    <skip />
-    <!-- no translation found for auto_granted_location_permission_notification_title (5058977868989759266) -->
-    <skip />
-    <!-- no translation found for auto_granted_permission_notification_body (6650181834574213734) -->
-    <skip />
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"الأذونات خاضعة لتحكّم المشرف"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"يمكن للتطبيق الوصول إلى الموقع الجغرافي"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"يمكن لتطبيق <xliff:g id="APP_NAME">%s</xliff:g> الوصول الآن إلى موقعك الجغرافي. يُرجى التواصل مع مشرف تكنولوجيا المعلومات لمعرفة المزيد من المعلومات."</string>
 </resources>
