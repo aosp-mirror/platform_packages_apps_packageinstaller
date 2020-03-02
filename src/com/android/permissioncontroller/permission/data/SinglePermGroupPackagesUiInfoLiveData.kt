@@ -29,15 +29,15 @@ import com.android.permissioncontroller.permission.utils.Utils
  * not.
  *
  * @param app The current application
- * @param permissionGroupName The name of the permission group this LiveData represents
+ * @param permGroupName The name of the permission group this LiveData represents
  */
 class SinglePermGroupPackagesUiInfoLiveData private constructor(
     private val app: Application,
-    private val permissionGroupName: String
+    private val permGroupName: String
 ) : SmartUpdateMediatorLiveData<Map<Pair<String, UserHandle>, AppPermGroupUiInfo>>() {
 
-    private val permGroupLiveData = PermGroupLiveData[permissionGroupName]
-    private val isCustomGroup = !Utils.getPlatformPermissionGroups().contains(permissionGroupName)
+    private val permGroupLiveData = PermGroupLiveData[permGroupName]
+    private val isCustomGroup = !Utils.getPlatformPermissionGroups().contains(permGroupName)
     private val permGroupPackagesLiveData = PermGroupsPackagesLiveData.get(
         customGroups = isCustomGroup)
 
@@ -55,6 +55,7 @@ class SinglePermGroupPackagesUiInfoLiveData private constructor(
     init {
         addSource(permGroupLiveData) { newPermGroup ->
             if (newPermGroup == null) {
+                invalidateSingle(permGroupName)
                 value = null
             }
         }
@@ -65,7 +66,7 @@ class SinglePermGroupPackagesUiInfoLiveData private constructor(
     }
 
     override fun onUpdate() {
-        val thisPermGroupPackages = permGroupPackagesLiveData.value?.get(permissionGroupName)
+        val thisPermGroupPackages = permGroupPackagesLiveData.value?.get(permGroupName)
         if (thisPermGroupPackages != null) {
             addAndRemoveAppPermGroupLiveDatas(thisPermGroupPackages.toList())
 
@@ -88,7 +89,7 @@ class SinglePermGroupPackagesUiInfoLiveData private constructor(
         for ((packageName, userHandle) in toAdd) {
             val key = packageName to userHandle
             val appPermGroupLiveData =
-                AppPermGroupUiInfoLiveData[packageName, permissionGroupName, userHandle]
+                AppPermGroupUiInfoLiveData[packageName, permGroupName, userHandle]
 
             appPermGroupLiveDatas[key] = appPermGroupLiveData
         }

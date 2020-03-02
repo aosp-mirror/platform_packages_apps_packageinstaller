@@ -105,9 +105,15 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
         // Do nothing, but required to override by interface
     }
 
+    fun invalidateSingle(key: K) {
+        data.remove(key)
+    }
+
     private fun trimInactiveData(threshold: Long) {
-        data.entries.removeAll { (_, value) ->
-            value.timeInactive?.let { it >= threshold } ?: false
+        data.keys.toList().forEach { key ->
+            if (data[key]?.timeInactive?.let { it >= threshold } == true) {
+                data.remove(key)
+            }
         }
     }
 
