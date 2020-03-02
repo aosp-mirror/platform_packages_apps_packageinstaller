@@ -77,6 +77,7 @@ class PermStateLiveData private constructor(
         val packageInfo = currentPackageInfo
         val permissionGroup = groupLiveData.value
         if (packageInfo == null || permissionGroup == null) {
+            invalidateSingle(Triple(packageName, permGroupName, user))
             postValue(null)
             return
         }

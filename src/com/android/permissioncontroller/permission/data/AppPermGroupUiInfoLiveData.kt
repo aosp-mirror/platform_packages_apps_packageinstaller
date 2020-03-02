@@ -78,6 +78,7 @@ class AppPermGroupUiInfoLiveData private constructor(
         if (packageInfo == null || permissionGroup == null || permissionState == null) {
             if (packageInfoLiveData.isInitialized && permGroupLiveData.isInitialized &&
                 permissionStateLiveData.isInitialized) {
+                invalidateSingle(Triple(packageName, permGroupName, user))
                 value = null
             }
             return
