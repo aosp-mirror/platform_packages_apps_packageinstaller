@@ -85,7 +85,8 @@ class AppPermissionViewModel(
         fun showDefaultDenyDialog(
             changeRequest: ChangeRequest,
             @StringRes messageId: Int,
-            buttonPressed: Int
+            buttonPressed: Int,
+            oneTime: Boolean
         )
     }
 
@@ -414,13 +415,15 @@ class AppPermissionViewModel(
         }
 
         if (showDefaultDenyDialog && !hasConfirmedRevoke && showGrantedByDefaultWarning) {
-            defaultDeny.showDefaultDenyDialog(changeRequest, R.string.system_warning, buttonClicked)
+            defaultDeny.showDefaultDenyDialog(changeRequest, R.string.system_warning, buttonClicked,
+                    setOneTime)
             return
         }
 
         if (showDefaultDenyDialog && !hasConfirmedRevoke) {
             defaultDeny.showDefaultDenyDialog(changeRequest, R.string.old_sdk_deny_warning,
-                    buttonClicked)
+                    buttonClicked,
+                    setOneTime)
             return
         }
 
@@ -428,7 +431,8 @@ class AppPermissionViewModel(
         val oldGroup = group
 
         if (shouldRevokeBackground && group.hasBackgroundGroup && wasBackgroundGranted) {
-            newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, newGroup, false)
+            newGroup = KotlinUtils
+                    .revokeBackgroundRuntimePermissions(app, newGroup, false, setOneTime)
 
             // only log if we have actually denied permissions, not if we switch from
             // "ask every time" to denied
@@ -474,9 +478,10 @@ class AppPermissionViewModel(
      * @param changeRequest whether to change foreground, background, or both.
      * @param buttonPressed button pressed to initiate the change, one of
      *                      AppPermissionFragmentActionReported.button_pressed constants
+     * @param oneTime whether the change should show that the permission was selected as one-time
      *
      */
-    fun onDenyAnyWay(changeRequest: ChangeRequest, buttonPressed: Int) {
+    fun onDenyAnyWay(changeRequest: ChangeRequest, buttonPressed: Int, oneTime: Boolean) {
         val group = lightAppPermGroup ?: return
         val wasForegroundGranted = group.foreground.isGranted
         val wasBackgroundGranted = group.background.isGranted
@@ -487,7 +492,7 @@ class AppPermissionViewModel(
 
         if (changeRequest andValue ChangeRequest.REVOKE_BACKGROUND != 0 &&
             group.hasBackgroundGroup) {
-            newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, newGroup, false)
+            newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, newGroup, false, oneTime)
 
             if (wasBackgroundGranted) {
                 SafetyNetLogger.logPermissionToggled(newGroup)
@@ -497,7 +502,7 @@ class AppPermissionViewModel(
         }
 
         if (changeRequest andValue ChangeRequest.REVOKE_FOREGROUND != 0) {
-            newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, newGroup, false)
+            newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, newGroup, false, oneTime)
             if (wasForegroundGranted) {
                 SafetyNetLogger.logPermissionToggled(newGroup)
             }

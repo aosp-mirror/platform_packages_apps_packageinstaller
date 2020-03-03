@@ -486,30 +486,6 @@ object KotlinUtils {
      * @param app The current application
      * @param group The group whose permissions should be revoked
      * @param userFixed If the user requested that they do not want to be asked again
-     * @param filterPermissions If not specified, all permissions of the group will be revoked.
-     *                          Otherwise only permissions in {@code filterPermissions} will be
-     *                          revoked.
-     *
-     * @return a LightAppPermGroup representing the new state
-     */
-    @JvmOverloads
-    fun revokeForegroundRuntimePermissions(
-        app: Application,
-        group: LightAppPermGroup,
-        userFixed: Boolean,
-        filterPermissions: List<String> = group.permissions.keys.toList()
-    ): LightAppPermGroup {
-        return revokeForegroundRuntimePermissions(app, group, userFixed, false, filterPermissions)
-    }
-
-    /**
-     * Revoke all foreground runtime permissions of a LightAppPermGroup
-     *
-     * <p>This also disallows all app ops for permissions that have app ops.
-     *
-     * @param app The current application
-     * @param group The group whose permissions should be revoked
-     * @param userFixed If the user requested that they do not want to be asked again
      * @param oneTime If the permission should be mark as one-time
      * @param filterPermissions If not specified, all permissions of the group will be revoked.
      *                          Otherwise only permissions in {@code filterPermissions} will be
@@ -521,8 +497,8 @@ object KotlinUtils {
     fun revokeForegroundRuntimePermissions(
         app: Application,
         group: LightAppPermGroup,
-        userFixed: Boolean,
-        oneTime: Boolean,
+        userFixed: Boolean = false,
+        oneTime: Boolean = false,
         filterPermissions: List<String> = group.permissions.keys.toList()
     ): LightAppPermGroup {
         return revokeRuntimePermissions(app, group, false, userFixed, oneTime, filterPermissions)
@@ -546,10 +522,11 @@ object KotlinUtils {
     fun revokeBackgroundRuntimePermissions(
         app: Application,
         group: LightAppPermGroup,
-        userFixed: Boolean,
+        userFixed: Boolean = false,
+        oneTime: Boolean = false,
         filterPermissions: List<String> = group.permissions.keys.toList()
     ): LightAppPermGroup {
-        return revokeRuntimePermissions(app, group, true, userFixed, false, filterPermissions)
+        return revokeRuntimePermissions(app, group, true, userFixed, oneTime, filterPermissions)
     }
 
     private fun revokeRuntimePermissions(
