@@ -16,7 +16,6 @@
 package com.android.permissioncontroller.permission.utils;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -54,10 +53,10 @@ public class LocationUtils {
     }
 
     /** Start the settings page for the location controller extra package. */
-    public static void startLocationControllerExtraPackageSettings(@NonNull Activity activity,
+    public static void startLocationControllerExtraPackageSettings(@NonNull Context context,
             @NonNull UserHandle user) {
         try {
-            activity.startActivityAsUser(new Intent(
+            context.startActivityAsUser(new Intent(
                         Settings.ACTION_LOCATION_CONTROLLER_EXTRA_PACKAGE_SETTINGS), user);
         } catch (ActivityNotFoundException e) {
             // In rare cases where location controller extra package is set, but
