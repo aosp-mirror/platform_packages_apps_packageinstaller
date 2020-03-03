@@ -64,11 +64,6 @@
                     style="@style/PermissionGrantButtonBarSpace"/>
 
                 <Button
-                    android:id="@+id/permission_allow_one_time_button"
-                    android:text="@string/grant_dialog_button_allow_one_time"
-                    style="@style/PermissionGrantButtonAllowOneTime" />
-
-                <Button
                     android:id="@+id/permission_allow_button"
                     android:text="@string/grant_dialog_button_allow"
                     style="@style/PermissionGrantButtonAllow" />
@@ -77,6 +72,11 @@
                     android:id="@+id/permission_allow_foreground_only_button"
                     android:text="@string/grant_dialog_button_allow_foreground"
                     style="@style/PermissionGrantButtonAllowForeground" />
+
+                <Button
+                    android:id="@+id/permission_allow_one_time_button"
+                    android:text="@string/grant_dialog_button_allow_one_time"
+                    style="@style/PermissionGrantButtonAllowOneTime" />
 
                 <Button
                     android:id="@+id/permission_deny_button"
