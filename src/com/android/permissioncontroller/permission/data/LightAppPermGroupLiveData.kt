@@ -59,8 +59,11 @@ class LightAppPermGroupLiveData private constructor(
             updateIfActive()
         }
 
+        val key = Triple(packageName, permGroupName, user)
+
         addSource(permStateLiveData) { permStates ->
             if (permStates == null && permStateLiveData.isInitialized) {
+                invalidateSingle(key)
                 value = null
             } else {
                 updateIfActive()
@@ -69,6 +72,7 @@ class LightAppPermGroupLiveData private constructor(
 
         addSource(permGroupLiveData) { permGroup ->
             if (permGroup == null && permGroupLiveData.isInitialized) {
+                invalidateSingle(key)
                 value = null
             } else {
                 updateIfActive()
@@ -77,6 +81,7 @@ class LightAppPermGroupLiveData private constructor(
 
         addSource(packageInfoLiveData) { packageInfo ->
             if (packageInfo == null && packageInfoLiveData.isInitialized) {
+                invalidateSingle(key)
                 value = null
             } else {
                 updateIfActive()
