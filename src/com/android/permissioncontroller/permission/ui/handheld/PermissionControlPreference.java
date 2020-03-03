@@ -40,6 +40,8 @@ import androidx.preference.PreferenceViewHolder;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.ui.AppPermissionActivity;
+import com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog;
+import com.android.permissioncontroller.permission.utils.LocationUtils;
 
 import java.util.List;
 
@@ -184,7 +186,16 @@ public class PermissionControlPreference extends Preference {
         setIcons(holder, mTitleIcons, R.id.title_widget_frame);
 
         setOnPreferenceClickListener(pref -> {
-            if (mHasNavGraph) {
+            if (LocationUtils.isLocationGroupAndProvider(
+                    mContext, mPermGroupName, mPackageName)) {
+                Intent intent = new Intent(mContext, LocationProviderInterceptDialog.class);
+                intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mPackageName);
+                mContext.startActivityAsUser(intent, mUser);
+            } else if (LocationUtils.isLocationGroupAndControllerExtraPackage(
+                    mContext, mPermGroupName, mPackageName)) {
+                // Redirect to location controller extra package settings.
+                LocationUtils.startLocationControllerExtraPackageSettings(mContext, mUser);
+            } else if (mHasNavGraph) {
                 Bundle args = new Bundle();
                 args.putString(Intent.EXTRA_PACKAGE_NAME, mPackageName);
                 args.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, mPermGroupName);
