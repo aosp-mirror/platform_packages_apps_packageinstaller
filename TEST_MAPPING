@@ -18,11 +18,8 @@
             "file_patterns": ["res/xml/roles\\.xml"]
         },
         {
-            "name": "CtsAppSecurityHostTestCases",
+            "name": "CtsPermission3TestCases",
             "options": [
-                {
-                    "include-filter": "android.appsecurity.cts.PermissionsHostTest"
-                },
                 {
                     "exclude-annotation": "android.platform.test.annotations.FlakyTest"
                 }
