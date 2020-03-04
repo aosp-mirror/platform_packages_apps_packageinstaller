@@ -303,6 +303,7 @@ class AppPermissionViewModel(
             if (group.foreground.isGranted) {
                 // Foreground is fixed as granted, background flexible.
                 // Allow switching between foreground and background. No denying
+                allowedForegroundState.isEnabled = allowedAlwaysState.isShown
                 askState.isEnabled = false
                 deniedState.isEnabled = false
             } else {
