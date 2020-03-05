@@ -737,7 +737,7 @@ Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug repo
     <!-- Notification shown to the user when location permissions are auto-granted by admin policy. These are for when the admin is forcing the permission and the user cannot control it. [CHAR LIMIT=120]-->
     <string name="auto_granted_permissions">Controlled permissions</string>
     <!-- Content of the notification [CHAR LIMIT=120]-->
-    <string name="auto_granted_location_permission_notification_title">An app can access location</string>
+    <string name="auto_granted_location_permission_notification_title">Location can be accessed</string>
     <!-- Body of the notification, that does not include the app name and is specific to location permissions. [CHAR LIMIT=120]-->
-    <string name="auto_granted_permission_notification_body"><xliff:g id="app_name" example="Gmail">%s</xliff:g>  can now access your location. Contact your IT admin to learn more.</string>
+    <string name="auto_granted_permission_notification_body">Your IT admin is allowing <xliff:g id="app_name" example="Gmail">%s</xliff:g> to access your location</string>
 </resources>
