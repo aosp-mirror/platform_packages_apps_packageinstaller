@@ -432,14 +432,16 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
      * @param messageId The Id of the string message to show
      * @param buttonPressed Button which was pressed to initiate the dialog, one of
      *                      AppPermissionFragmentActionReported.button_pressed constants
+     * @param oneTime Whether the one-time (ask) button was clicked rather than the deny button
      */
     @Override
     public void showDefaultDenyDialog(ChangeRequest changeRequest, @StringRes int messageId,
-            int buttonPressed) {
+            int buttonPressed, boolean oneTime) {
         Bundle args = getArguments().deepCopy();
         args.putInt(DefaultDenyDialog.MSG, messageId);
         args.putSerializable(DefaultDenyDialog.CHANGE_REQUEST, changeRequest);
         args.putInt(DefaultDenyDialog.BUTTON, buttonPressed);
+        args.putBoolean(DefaultDenyDialog.ONE_TIME, oneTime);
         DefaultDenyDialog defaultDenyDialog = new DefaultDenyDialog();
         defaultDenyDialog.setCancelable(true);
         defaultDenyDialog.setArguments(args);
@@ -451,7 +453,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
      * A dialog warning the user that they are about to deny a permission that was granted by
      * default, or that they are denying a permission on a Pre-M app
      *
-     * @see #showDefaultDenyDialog(ChangeRequest, int, int)
+     * @see AppPermissionViewModel.DefaultDenyShowingFragment#showDefaultDenyDialog(ChangeRequest,
+     * int, int, boolean)
      */
     public static class DefaultDenyDialog extends DialogFragment {
         static final String MSG = DefaultDenyDialog.class.getName() + ".arg.msg";
@@ -459,6 +462,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
                 + ".arg.changeRequest";
         private static final String KEY = DefaultDenyDialog.class.getName() + ".arg.key";
         private static final String BUTTON = DefaultDenyDialog.class.getName() + ".arg.button";
+        private static final String ONE_TIME = DefaultDenyDialog.class.getName() + ".arg.onetime";
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -471,7 +475,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
                             (DialogInterface dialog, int which) ->
                                     fragment.mViewModel.onDenyAnyWay((ChangeRequest)
                                             getArguments().getSerializable(CHANGE_REQUEST),
-                                            getArguments().getInt(BUTTON)));
+                                            getArguments().getInt(BUTTON),
+                                            getArguments().getBoolean(ONE_TIME)));
             Dialog d = b.create();
             d.setCanceledOnTouchOutside(true);
             return d;
