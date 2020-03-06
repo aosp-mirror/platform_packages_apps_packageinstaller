@@ -62,7 +62,6 @@ import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.never
-import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 
 /**
@@ -695,7 +694,7 @@ class GrantRevokeTests {
         val group = createMockGroup(perms)
         resetMockAppState()
 
-        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, false)
+        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
 
         val newFlags = FLAG_PERMISSION_USER_SET
         verifyPermissionState(permName = FG_PERM_NAME, expectPermChange = true,
@@ -718,7 +717,7 @@ class GrantRevokeTests {
         val group = createMockGroup(perms)
         resetMockAppState()
 
-        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, false)
+        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
 
         val newFlags = FLAG_PERMISSION_USER_SET
         verifyPermissionState(permName = FG_PERM_NAME, expectPermChange = true,
@@ -744,7 +743,7 @@ class GrantRevokeTests {
         perms[FG_PERM_NAME_NO_APP_OP] = createMockPerm(FG_PERM_NAME_NO_APP_OP, true)
         val group = createMockGroup(perms)
         resetMockAppState()
-        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, false)
+        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
 
         val newFlags = FLAG_PERMISSION_USER_SET
         verifyPermissionState(permName = FG_PERM_NAME_NO_APP_OP, expectPermChange = true,
@@ -770,7 +769,7 @@ class GrantRevokeTests {
         val group = createMockGroup(perms)
         resetMockAppState()
 
-        val newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, group, false)
+        val newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, group)
 
         val newFlags = FLAG_PERMISSION_USER_SET
         verifyPermissionState(permName = FG_PERM_NAME, expectPermChange = false)
@@ -835,7 +834,7 @@ class GrantRevokeTests {
         val group = createMockGroup(perms)
         resetMockAppState()
 
-        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, false)
+        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
 
         val newFlags = FLAG_PERMISSION_USER_SET
         verifyPermissionState(permName = FG_PERM_NAME, expectPermChange = true,
@@ -864,7 +863,7 @@ class GrantRevokeTests {
         val group = createMockGroup(perms)
         resetMockAppState()
 
-        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, false)
+        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
 
         val newFlags = FLAG_PERMISSION_USER_SET
         verifyPermissionState(permName = FG_PERM_NAME, expectPermChange = true,
@@ -877,7 +876,7 @@ class GrantRevokeTests {
         assertGroupPermState(newGroup, expectedState)
 
         resetMockAppState()
-        val newGroup2 = KotlinUtils.revokeBackgroundRuntimePermissions(app, newGroup, false)
+        val newGroup2 = KotlinUtils.revokeBackgroundRuntimePermissions(app, newGroup)
 
         verifyPermissionState(permName = BG_PERM_NAME, expectPermChange = false)
         verifyAppOpState(appOpName = OP_NAME, expectAppOpSet = false)
@@ -900,7 +899,7 @@ class GrantRevokeTests {
         val group = createMockGroup(perms)
         resetMockAppState()
 
-        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, false)
+        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
 
         val newFlags = FLAG_PERMISSION_USER_SET
         verifyPermissionState(permName = FG_PERM_NAME, expectPermChange = true,
@@ -923,7 +922,7 @@ class GrantRevokeTests {
         val group = createMockGroup(perms, isPreMApp = true)
         resetMockAppState()
 
-        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, false)
+        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
 
         val newFlags = FLAG_PERMISSION_USER_SET or FLAG_PERMISSION_REVOKED_COMPAT
         verifyPermissionState(permName = FG_PERM_NAME, expectPermChange = false,
@@ -947,7 +946,7 @@ class GrantRevokeTests {
         val group = createMockGroup(perms)
         resetMockAppState()
 
-        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, false)
+        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
 
         verifyPermissionState(permName = FG_PERM_NAME, expectPermChange = false)
         verifyAppOpState(appOpName = OP_NAME, expectAppOpSet = false)
@@ -993,7 +992,7 @@ class GrantRevokeTests {
         val group = createMockGroup(perms)
         resetMockAppState()
 
-        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, false)
+        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
 
         val newFlags = FLAG_PERMISSION_USER_SET
         verifyPermissionState(permName = FG_PERM_NAME, expectPermChange = true,
@@ -1041,7 +1040,7 @@ class GrantRevokeTests {
         val group = createMockGroup(perms)
         resetMockAppState()
 
-        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, false)
+        val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
 
         val newFlags = FLAG_PERMISSION_USER_SET
         verifyPermissionState(permName = FG_PERM_NAME, expectPermChange = false,
