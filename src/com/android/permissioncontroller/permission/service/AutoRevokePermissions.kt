@@ -190,11 +190,13 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
                     .getPackageImportance(pkg.packageName)
                 if (packageImportance > IMPORTANCE_TOP_SLEEPING) {
                     KotlinUtils.revokeBackgroundRuntimePermissions(
-                        context.application, group,
-                        userFixed = false, filterPermissions = revocablePermissions)
+                            context.application, group,
+                            userFixed = false, oneTime = false,
+                            filterPermissions = revocablePermissions)
                     KotlinUtils.revokeForegroundRuntimePermissions(
-                        context.application, group,
-                        userFixed = false, filterPermissions = revocablePermissions)
+                            context.application, group,
+                            userFixed = false, oneTime = false,
+                            filterPermissions = revocablePermissions)
 
                     for (permission in revocablePermissions) {
                         context.packageManager.updatePermissionFlags(
