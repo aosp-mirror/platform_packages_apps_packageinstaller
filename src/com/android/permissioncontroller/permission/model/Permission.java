@@ -261,20 +261,6 @@ public final class Permission {
         return (mFlags & PackageManager.FLAG_PERMISSION_ONE_TIME) != 0;
     }
 
-    /**
-     * @see PackageManager#FLAG_PERMISSION_AUTO_REVOKE_IF_UNUSED
-     */
-    public boolean isAutoRevoke() {
-        return (mFlags & PackageManager.FLAG_PERMISSION_AUTO_REVOKE_IF_UNUSED) != 0;
-    }
-
-    /**
-     * @see PackageManager#FLAG_PERMISSION_AUTO_REVOKE_USER_SET
-     */
-    public boolean isAutoRevokeUserSet() {
-        return (mFlags & PackageManager.FLAG_PERMISSION_AUTO_REVOKE_USER_SET) != 0;
-    }
-
     public void setUserSet(boolean userSet) {
         if (userSet) {
             mFlags |= PackageManager.FLAG_PERMISSION_USER_SET;
