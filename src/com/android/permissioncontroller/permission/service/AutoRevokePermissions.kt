@@ -20,6 +20,8 @@ package com.android.permissioncontroller.permission.service
 
 import android.app.ActivityManager
 import android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_TOP_SLEEPING
+import android.app.AppOpsManager
+import android.app.AppOpsManager.OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED
 import android.app.job.JobInfo
 import android.app.job.JobParameters
 import android.app.job.JobScheduler
@@ -41,10 +43,7 @@ import com.android.permissioncontroller.Constants
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
-import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
-import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
-import com.android.permissioncontroller.permission.data.UserPackageInfosLiveData
-import com.android.permissioncontroller.permission.data.get
+import com.android.permissioncontroller.permission.data.*
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.utils.KotlinUtils
@@ -145,6 +144,21 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
             return@forEachInParallel
         }
 
+        val whitelistAppOpMode =
+            AppOpLiveData[pkg.packageName, OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED, pkg.uid]
+                .getInitializedValue()
+        if (whitelistAppOpMode == AppOpsManager.MODE_IGNORED
+                || whitelistAppOpMode == AppOpsManager.MODE_DEFAULT) {
+            // User exempt
+            return@forEachInParallel
+        }
+        if (whitelistAppOpMode != AppOpsManager.MODE_ALLOWED) {
+            // Override whitelist exemption when debugging to allow for testing
+            if (!DEBUG) {
+                // TODO eugenesusla: if manifest flag exempt -> return
+            }
+        }
+
         val pkgPermGroups: Map<String, List<String>> =
             PackagePermissionsLiveData[pkg.packageName, myUserHandle()]
                 .getInitializedValue(staleOk = true)
@@ -165,10 +179,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
                 !group.isGrantedByDefault &&
                 !group.isGrantedByRole) {
 
-                val revocablePermissions = group.permissions.filter { (_, perm) ->
-                    // Override whitelist with DEBUG to allow testing
-                    DEBUG || perm.isAutoRevokable
-                }.keys.toList()
+                val revocablePermissions = group.permissions.keys.toList()
 
                 if (revocablePermissions.isEmpty()) {
                     return@forEachInParallel
