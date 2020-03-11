@@ -147,7 +147,8 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
         val whitelistAppOpMode =
             AppOpLiveData[pkg.packageName, OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED, pkg.uid]
                 .getInitializedValue()
-        if (whitelistAppOpMode == AppOpsManager.MODE_IGNORED) {
+        if (whitelistAppOpMode == AppOpsManager.MODE_IGNORED
+                || whitelistAppOpMode == AppOpsManager.MODE_DEFAULT) {
             // User exempt
             return@forEachInParallel
         }
