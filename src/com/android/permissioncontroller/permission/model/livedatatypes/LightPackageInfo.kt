@@ -44,14 +44,15 @@ data class LightPackageInfo(
     val uid: Int,
     val targetSdkVersion: Int,
     val isInstantApp: Boolean,
-    val enabled: Boolean
+    val enabled: Boolean,
+    val appFlags: Int
 ) {
     constructor(pI: PackageInfo) : this(pI.packageName,
         pI.permissions?.map { perm -> LightPermInfo(perm) } ?: emptyList(),
         pI.requestedPermissions?.toList() ?: emptyList(),
         pI.requestedPermissionsFlags?.toList() ?: emptyList(),
         pI.applicationInfo.uid, pI.applicationInfo.targetSdkVersion,
-        pI.applicationInfo.isInstantApp, pI.applicationInfo.enabled)
+        pI.applicationInfo.isInstantApp, pI.applicationInfo.enabled, pI.applicationInfo.flags)
 
     /**
      * Permissions which are granted according to the [requestedPermissionsFlags]
