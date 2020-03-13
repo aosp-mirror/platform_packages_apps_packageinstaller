@@ -17,6 +17,7 @@
 package com.android.permissioncontroller.permission.ui.handheld;
 
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
+import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_CALLER_NAME;
 import static com.android.permissioncontroller.permission.ui.handheld.AppPermissionFragment.GRANT_CATEGORY;
 
 import android.content.Context;
@@ -39,7 +40,6 @@ import androidx.preference.PreferenceViewHolder;
 
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
-import com.android.permissioncontroller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog;
 import com.android.permissioncontroller.permission.utils.LocationUtils;
 
@@ -200,7 +200,7 @@ public class PermissionControlPreference extends Preference {
                 args.putString(Intent.EXTRA_PACKAGE_NAME, mPackageName);
                 args.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, mPermGroupName);
                 args.putParcelable(Intent.EXTRA_USER, mUser);
-                args.putString(AppPermissionActivity.EXTRA_CALLER_NAME, mCaller);
+                args.putString(EXTRA_CALLER_NAME, mCaller);
                 args.putLong(EXTRA_SESSION_ID, mSessionId);
                 args.putString(GRANT_CATEGORY, mGranted);
                 Navigation.findNavController(holder.itemView).navigate(R.id.perm_groups_to_app,
@@ -212,7 +212,7 @@ public class PermissionControlPreference extends Preference {
                 intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mPackageName);
                 intent.putExtra(Intent.EXTRA_PERMISSION_GROUP_NAME, mPermGroupName);
                 intent.putExtra(Intent.EXTRA_USER, mUser);
-                intent.putExtra(AppPermissionActivity.EXTRA_CALLER_NAME, mCaller);
+                intent.putExtra(EXTRA_CALLER_NAME, mCaller);
                 intent.putExtra(EXTRA_SESSION_ID, mSessionId);
                 mContext.startActivity(intent);
             }
