@@ -17,6 +17,7 @@
 package com.android.permissioncontroller.permission.service;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission_group.LOCATION;
 import static android.app.AppOpsManager.OPSTR_FINE_LOCATION;
 import static android.app.NotificationManager.IMPORTANCE_LOW;
 import static android.app.PendingIntent.FLAG_ONE_SHOT;
@@ -24,8 +25,9 @@ import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 import static android.app.PendingIntent.getBroadcast;
 import static android.app.job.JobScheduler.RESULT_SUCCESS;
 import static android.content.Context.MODE_PRIVATE;
+import static android.content.Intent.ACTION_MANAGE_APP_PERMISSION;
 import static android.content.Intent.EXTRA_PACKAGE_NAME;
-import static android.content.Intent.EXTRA_PERMISSION_NAME;
+import static android.content.Intent.EXTRA_PERMISSION_GROUP_NAME;
 import static android.content.Intent.EXTRA_UID;
 import static android.content.Intent.EXTRA_USER;
 import static android.content.Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
@@ -103,7 +105,6 @@ import androidx.core.util.Preconditions;
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
-import com.android.permissioncontroller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 import java.io.BufferedReader;
@@ -906,9 +907,9 @@ public class LocationAccessCheck {
                     "Location access check notification clicked with sessionId=" + sessionId + ""
                             + " uid=" + uid + " pkgName=" + pkg);
 
-            Intent manageAppPermission = new Intent(context, AppPermissionActivity.class);
+            Intent manageAppPermission = new Intent(ACTION_MANAGE_APP_PERMISSION);
             manageAppPermission.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
-            manageAppPermission.putExtra(EXTRA_PERMISSION_NAME, ACCESS_FINE_LOCATION);
+            manageAppPermission.putExtra(EXTRA_PERMISSION_GROUP_NAME, LOCATION);
             manageAppPermission.putExtra(EXTRA_PACKAGE_NAME, pkg);
             manageAppPermission.putExtra(EXTRA_USER, user);
             manageAppPermission.putExtra(EXTRA_SESSION_ID, sessionId);
