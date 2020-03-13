@@ -17,7 +17,6 @@
 package com.android.permissioncontroller.role.model;
 
 import android.app.ActivityManager;
-import android.app.Application;
 import android.app.role.RoleManager;
 import android.content.Context;
 import android.content.Intent;
@@ -40,7 +39,6 @@ import androidx.annotation.Nullable;
 
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.utils.CollectionUtils;
-import com.android.permissioncontroller.permission.utils.Utils;
 import com.android.permissioncontroller.role.utils.UserUtils;
 
 import org.xmlpull.v1.XmlPullParserException;
@@ -225,11 +223,5 @@ public class AssistantRoleBehavior implements RoleBehavior {
         }
 
         return true;
-    }
-
-    @Override
-    public void onHolderChangedAsUser(@NonNull Role role, @NonNull UserHandle user,
-            @NonNull Context context) {
-        Utils.updateUserSensitive((Application) context.getApplicationContext(), user);
     }
 }
