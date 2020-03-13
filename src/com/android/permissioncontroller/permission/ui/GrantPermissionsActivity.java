@@ -41,6 +41,9 @@ import static com.android.permissioncontroller.permission.ui.GrantPermissionsVie
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_FOREGROUND_ONLY;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ONE_TIME;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.LINKED_TO_SETTINGS;
+import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_CALLER_NAME;
+import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_RESULT_PERMISSION_INTERACTED;
+import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_RESULT_PERMISSION_RESULT;
 import static com.android.permissioncontroller.permission.utils.Utils.getRequestMessage;
 
 import android.Manifest;
@@ -723,8 +726,8 @@ public class GrantPermissionsActivity extends Activity
                             if (mActivityResultCallback == null) {
                                 startAppPermissionFragment(groupState);
                                 mActivityResultCallback = data -> {
-                                    if (data == null || data.getStringExtra(AppPermissionActivity
-                                            .EXTRA_RESULT_PERMISSION_INTERACTED) == null) {
+                                    if (data == null || data.getStringExtra(
+                                            EXTRA_RESULT_PERMISSION_INTERACTED) == null) {
                                         // User didn't interact, count against rate limit
                                         if (groupState.mGroup.isUserSet()) {
                                             groupState.mGroup.setUserFixed(true);
@@ -866,13 +869,10 @@ public class GrantPermissionsActivity extends Activity
                 startAppPermissionFragment(groupState);
                 mActivityResultCallback = data -> {
                     if (data != null) {
-                        String groupName = data.getStringExtra(
-                                AppPermissionActivity.EXTRA_RESULT_PERMISSION_INTERACTED);
+                        String groupName = data.getStringExtra(EXTRA_RESULT_PERMISSION_INTERACTED);
                         if (groupName != null) {
                             mPermissionGroupsToSkip.add(groupName);
-                            int result = data.getIntExtra(
-                                            AppPermissionActivity.EXTRA_RESULT_PERMISSION_RESULT,
-                                    -1);
+                            int result = data.getIntExtra(EXTRA_RESULT_PERMISSION_RESULT, -1);
                             logSettingsInteraction(groupName, result);
                         }
                     }
@@ -933,8 +933,7 @@ public class GrantPermissionsActivity extends Activity
                 .putExtra(Intent.EXTRA_PACKAGE_NAME, mAppPermissions.getPackageInfo().packageName)
                 .putExtra(Intent.EXTRA_PERMISSION_GROUP_NAME, groupState.mGroup.getName())
                 .putExtra(Intent.EXTRA_USER, groupState.mGroup.getUser())
-                .putExtra(AppPermissionActivity.EXTRA_CALLER_NAME,
-                        GrantPermissionsActivity.class.getName())
+                .putExtra(EXTRA_CALLER_NAME, GrantPermissionsActivity.class.getName())
                 .putExtra(Constants.EXTRA_SESSION_ID, mRequestId)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivityForResult(intent, APP_PERMISSION_REQUEST_CODE);
