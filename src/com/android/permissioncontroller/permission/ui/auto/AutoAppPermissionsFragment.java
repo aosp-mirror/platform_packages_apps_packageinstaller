@@ -16,6 +16,8 @@
 
 package com.android.permissioncontroller.permission.ui.auto;
 
+import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_CALLER_NAME;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -36,7 +38,6 @@ import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.auto.AutoSettingsFrameFragment;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissions;
-import com.android.permissioncontroller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 import java.text.Collator;
@@ -251,8 +252,7 @@ public class AutoAppPermissionsFragment extends AutoSettingsFrameFragment {
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, group.getApp().packageName);
             intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getPermissions().get(0).getName());
             intent.putExtra(Intent.EXTRA_USER, group.getUser());
-            intent.putExtra(AppPermissionActivity.EXTRA_CALLER_NAME,
-                    AutoAppPermissionsFragment.class.getName());
+            intent.putExtra(EXTRA_CALLER_NAME, AutoAppPermissionsFragment.class.getName());
             context.startActivity(intent);
             return true;
         });

@@ -28,6 +28,9 @@ import static com.android.permissioncontroller.permission.ui.GrantPermissionsVie
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.DENIED_DO_NOT_ASK_AGAIN;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_ALWAYS;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler.GRANTED_FOREGROUND_ONLY;
+import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_CALLER_NAME;
+import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_RESULT_PERMISSION_INTERACTED;
+import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_RESULT_PERMISSION_RESULT;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -58,7 +61,6 @@ import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler;
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel;
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonState;
@@ -146,7 +148,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
             arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, groupName);
         }
         arguments.putParcelable(Intent.EXTRA_USER, userHandle);
-        arguments.putString(AppPermissionActivity.EXTRA_CALLER_NAME, caller);
+        arguments.putString(EXTRA_CALLER_NAME, caller);
         arguments.putLong(EXTRA_SESSION_ID, sessionId);
         arguments.putString(GRANT_CATEGORY, grantCategory);
         return arguments;
@@ -211,7 +213,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mPermGroupLabel));
 
-        String caller = getArguments().getString(AppPermissionActivity.EXTRA_CALLER_NAME);
+        String caller = getArguments().getString(EXTRA_CALLER_NAME);
 
         TextView footer1Link = root.requireViewById(R.id.footer_link_1);
         footer1Link.setText(context.getString(R.string.app_permission_footer_app_permissions_link,
@@ -363,8 +365,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
 
     private void setResult(@GrantPermissionsViewHandler.Result int result) {
         Intent intent = new Intent()
-                .putExtra(AppPermissionActivity.EXTRA_RESULT_PERMISSION_INTERACTED, mPermGroupName)
-                .putExtra(AppPermissionActivity.EXTRA_RESULT_PERMISSION_RESULT, result);
+                .putExtra(EXTRA_RESULT_PERMISSION_INTERACTED, mPermGroupName)
+                .putExtra(EXTRA_RESULT_PERMISSION_RESULT, result);
         getActivity().setResult(Activity.RESULT_OK, intent);
     }
 
