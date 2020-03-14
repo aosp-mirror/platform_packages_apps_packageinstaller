@@ -43,8 +43,15 @@ import com.android.permissioncontroller.permission.utils.Utils;
 import java.util.List;
 
 /**
- * Manage a single permission of a single app
+ * Manage a single permission of a single app.
+ *
+ * @deprecated This class is deprecated for handheld UI, and will throw an error if used for
+ * handheld (read: non auto, TV, or wear) UIs. Instead, users should create an intent with the
+ * ACTION_MANAGE_APP_PERMISSION action, which will intent into the ManagePermissionsActivity.
+ *
+ * @see ManagePermissionsActivity
  */
+@Deprecated
 public final class AppPermissionActivity extends FragmentActivity {
     private static final String LOG_TAG = AppPermissionActivity.class.getSimpleName();
 
@@ -62,6 +69,11 @@ public final class AppPermissionActivity extends FragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        if (!DeviceUtils.isAuto(this) && !DeviceUtils.isWear(this)
+                && !DeviceUtils.isTelevision(this)) {
+            throw new IllegalStateException("Do not use AppPermissionActivity for handheld ui. "
+                    + "Create intent with ACTION_MANAGE_APP_PERMISSION instead.");
+        }
         if (DeviceUtils.isAuto(this)) {
             // Automotive relies on a different theme. Apply before calling super so that
             // fragments are restored properly on configuration changes.
