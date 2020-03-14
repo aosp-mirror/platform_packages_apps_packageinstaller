@@ -16,7 +16,6 @@
 
 package com.android.permissioncontroller.permission.utils;
 
-import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission_group.ACTIVITY_RECOGNITION;
 import static android.Manifest.permission_group.CALENDAR;
 import static android.Manifest.permission_group.CALL_LOG;
@@ -28,22 +27,15 @@ import static android.Manifest.permission_group.PHONE;
 import static android.Manifest.permission_group.SENSORS;
 import static android.Manifest.permission_group.SMS;
 import static android.Manifest.permission_group.STORAGE;
-import static android.app.role.RoleManager.ROLE_ASSISTANT;
 import static android.content.Context.MODE_PRIVATE;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED;
-import static android.content.pm.PackageManager.MATCH_DIRECT_BOOT_AWARE;
-import static android.content.pm.PackageManager.MATCH_DIRECT_BOOT_UNAWARE;
 import static android.os.UserHandle.myUserId;
 
-import static com.android.permissioncontroller.Constants.ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY;
-import static com.android.permissioncontroller.Constants.FORCED_USER_SENSITIVE_UIDS_KEY;
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
-import static com.android.permissioncontroller.Constants.PREFERENCES_FILE;
 
 import android.Manifest;
 import android.app.Application;
-import android.app.role.RoleManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -53,7 +45,6 @@ import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
-import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.graphics.Bitmap;
@@ -71,7 +62,6 @@ import android.text.format.DateFormat;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
-import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -85,7 +75,6 @@ import androidx.core.util.Preconditions;
 import com.android.launcher3.icons.IconFactory;
 import com.android.permissioncontroller.Constants;
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.permission.data.PerUserUidToSensitivityLiveData;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 
 import java.util.ArrayList;
@@ -94,7 +83,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-import java.util.Set;
 
 public final class Utils {
 
@@ -149,9 +137,6 @@ public final class Utils {
     private static final ArrayMap<String, Integer> PERM_GROUP_BACKGROUND_REQUEST_DETAIL_RES;
     private static final ArrayMap<String, Integer> PERM_GROUP_UPGRADE_REQUEST_RES;
     private static final ArrayMap<String, Integer> PERM_GROUP_UPGRADE_REQUEST_DETAIL_RES;
-
-    private static final Intent LAUNCHER_INTENT = new Intent(Intent.ACTION_MAIN, null)
-            .addCategory(Intent.CATEGORY_LAUNCHER);
 
     public static final int FLAGS_ALWAYS_USER_SENSITIVE =
             FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
@@ -607,15 +592,6 @@ public final class Utils {
     }
 
     /**
-     * Get the names of the platform permissions.
-     *
-     * @return the names of the platform permissions.
-     */
-    public static Set<String> getPlatformPermissions() {
-        return PLATFORM_PERMISSIONS.keySet();
-    }
-
-    /**
      * Should UI show this permission.
      *
      * <p>If the user cannot change the group, it should not be shown.
@@ -649,16 +625,6 @@ public final class Utils {
 
     public static Drawable applyTint(Context context, int iconResId, int attr) {
         return applyTint(context, context.getDrawable(iconResId), attr);
-    }
-
-    public static ArraySet<String> getLauncherPackages(Context context) {
-        ArraySet<String> launcherPkgs = new ArraySet<>();
-        for (ResolveInfo info : context.getPackageManager().queryIntentActivities(LAUNCHER_INTENT,
-                MATCH_DIRECT_BOOT_AWARE | MATCH_DIRECT_BOOT_UNAWARE)) {
-            launcherPkgs.add(info.activityInfo.packageName);
-        }
-
-        return launcherPkgs;
     }
 
     public static List<ApplicationInfo> getAllInstalledApplications(Context context) {
@@ -904,82 +870,6 @@ public final class Utils {
     public static long getOneTimePermissionsTimeout() {
         return DeviceConfig.getLong(DeviceConfig.NAMESPACE_PERMISSIONS,
                 PROPERTY_ONE_TIME_PERMISSIONS_TIMEOUT_MILLIS, ONE_TIME_PERMISSIONS_TIMEOUT_MILLIS);
-    }
-
-    /**
-     * Update the {@link PackageManager#FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED} and
-     * {@link PackageManager#FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED} for all apps of this user.
-     *
-     * @see PerUserUidToSensitivityLiveData#loadValueInBackground()
-     */
-    public static void updateUserSensitive(@NonNull Application application,
-            @NonNull UserHandle user) {
-        Context userContext = getParentUserContext(application);
-        PackageManager pm = userContext.getPackageManager();
-        RoleManager rm = userContext.getSystemService(RoleManager.class);
-        SharedPreferences prefs = userContext.getSharedPreferences(PREFERENCES_FILE, MODE_PRIVATE);
-
-        boolean showAssistantRecordAudio = prefs.getBoolean(
-                ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY, false);
-        Set<String> overriddenUids = prefs.getStringSet(FORCED_USER_SENSITIVE_UIDS_KEY,
-                Collections.emptySet());
-
-        List<String> assistants = rm.getRoleHolders(ROLE_ASSISTANT);
-        String assistant = null;
-        if (!assistants.isEmpty()) {
-            if (assistants.size() > 1) {
-                Log.wtf(LOG_TAG, "Assistant role is not exclusive");
-            }
-
-            // Assistant is an exclusive role
-            assistant = assistants.get(0);
-        }
-
-        PerUserUidToSensitivityLiveData appUserSensitivityLiveData =
-                PerUserUidToSensitivityLiveData.get(user, application);
-
-        // uid -> permission -> flags
-        SparseArray<ArrayMap<String, Integer>> uidUserSensitivity =
-                appUserSensitivityLiveData.loadValueInBackground();
-
-        // Apply the update
-        int numUids = uidUserSensitivity.size();
-        for (int uidNum = 0; uidNum < numUids; uidNum++) {
-            int uid = uidUserSensitivity.keyAt(uidNum);
-
-            String[] uidPkgs = pm.getPackagesForUid(uid);
-            if (uidPkgs == null) {
-                continue;
-            }
-
-            boolean isOverridden = overriddenUids.contains(String.valueOf(uid));
-            boolean isAssistantUid = ArrayUtils.contains(uidPkgs, assistant);
-
-            ArrayMap<String, Integer> uidPermissions = uidUserSensitivity.valueAt(uidNum);
-
-            int numPerms = uidPermissions.size();
-            for (int permNum = 0; permNum < numPerms; permNum++) {
-                String perm = uidPermissions.keyAt(permNum);
-
-                for (String uidPkg : uidPkgs) {
-                    int flags = isOverridden ? FLAGS_ALWAYS_USER_SENSITIVE : uidPermissions.valueAt(
-                            permNum);
-
-                    if (isAssistantUid && perm.equals(RECORD_AUDIO)) {
-                        flags = showAssistantRecordAudio ? FLAGS_ALWAYS_USER_SENSITIVE : 0;
-                    }
-
-                    try {
-                        pm.updatePermissionFlags(perm, uidPkg, FLAGS_ALWAYS_USER_SENSITIVE, flags,
-                                user);
-                        break;
-                    } catch (IllegalArgumentException e) {
-                        Log.e(LOG_TAG, "Unexpected exception while updating flags for "
-                                + uidPkg + " permission " + perm, e);
-                    }
-                }
-            }
-        }
     }
 
     /**
