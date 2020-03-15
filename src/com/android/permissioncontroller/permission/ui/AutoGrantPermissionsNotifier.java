@@ -16,11 +16,11 @@
 
 package com.android.permissioncontroller.permission.ui;
 
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 import static android.app.PendingIntent.getActivity;
+import static android.content.Intent.ACTION_MANAGE_APP_PERMISSION;
 import static android.content.Intent.EXTRA_PACKAGE_NAME;
-import static android.content.Intent.EXTRA_PERMISSION_NAME;
+import static android.content.Intent.EXTRA_PERMISSION_GROUP_NAME;
 import static android.content.Intent.EXTRA_USER;
 import static android.content.Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
@@ -199,14 +199,14 @@ public class AutoGrantPermissionsNotifier {
     private @NonNull Intent getSettingsPermissionIntent(long sessionId) {
         UserHandle callingUser = getUserHandleForUid(mPackageInfo.applicationInfo.uid);
 
-        return new Intent(mContext, AppPermissionActivity.class)
-        .addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK)
-        .putExtra(EXTRA_PERMISSION_NAME, ACCESS_FINE_LOCATION)
-        .putExtra(EXTRA_PACKAGE_NAME, mPackageInfo.packageName)
-        .putExtra(EXTRA_USER, callingUser)
-        .putExtra(EXTRA_SESSION_ID, sessionId)
-        .putExtra(AppPermissionActivity.EXTRA_CALLER_NAME,
-                AutoGrantPermissionsNotifier.class.getName());
+        return new Intent(ACTION_MANAGE_APP_PERMISSION)
+                .addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK)
+                .putExtra(EXTRA_PERMISSION_GROUP_NAME, Manifest.permission_group.LOCATION)
+                .putExtra(EXTRA_PACKAGE_NAME, mPackageInfo.packageName)
+                .putExtra(EXTRA_USER, callingUser)
+                .putExtra(EXTRA_SESSION_ID, sessionId)
+                .putExtra(ManagePermissionsActivity.EXTRA_CALLER_NAME,
+                        AutoGrantPermissionsNotifier.class.getName());
     }
 
     private @NonNull Bitmap getPackageIcon(@NonNull Drawable pkgIcon) {
