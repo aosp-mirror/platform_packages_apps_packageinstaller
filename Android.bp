@@ -42,6 +42,8 @@ android_app {
         "src/**/*.proto",
     ],
 
+    libs: ["android.car-stubs"],
+
     static_libs: [
         "iconloader",
         "com.google.android.material_material",
@@ -69,7 +71,8 @@ android_app {
         "SettingsLibActionBarShadow",
         "SettingsLibProgressBar",
         "androidx.annotation_annotation",
-        "permissioncontroller-statsd"
+        "permissioncontroller-statsd",
+        "car-ui-lib-bp"
     ],
 
     proto: {
