@@ -11,3 +11,5 @@
 -keep class * implements com.android.packageinstaller.role.model.RoleBehavior {
     *;
 }
+
+-keep class com.android.car.ui.** {*;}

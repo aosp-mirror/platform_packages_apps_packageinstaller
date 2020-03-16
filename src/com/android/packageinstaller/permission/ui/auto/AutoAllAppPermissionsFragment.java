@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.permission.ui.auto;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -41,6 +40,7 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceViewHolder;
 import androidx.preference.SwitchPreference;
 
+import com.android.car.ui.AlertDialogBuilder;
 import com.android.packageinstaller.auto.AutoSettingsFrameFragment;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
@@ -251,7 +251,7 @@ public class AutoAllAppPermissionsFragment extends AutoSettingsFrameFragment {
         final CharSequence desc = perm.loadDescription(pm);
 
         pref.setOnPreferenceClickListener((Preference preference) -> {
-            new AlertDialog.Builder(getContext())
+            new AlertDialogBuilder(getContext())
                     .setMessage(desc)
                     .setPositiveButton(android.R.string.ok, /* listener= */ null)
                     .show();
