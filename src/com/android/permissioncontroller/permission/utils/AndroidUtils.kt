@@ -26,7 +26,7 @@ import android.os.Looper
 import android.os.UserHandle
 
 /**
- * Gets an [Application] instance form a regular [Context]
+ * Gets an [Application] instance from a regular [Context]
  */
 val Context.application: Application get() = when (this) {
     is Activity -> application
