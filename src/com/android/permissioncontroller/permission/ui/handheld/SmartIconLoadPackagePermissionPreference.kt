@@ -39,7 +39,7 @@ import com.android.permissioncontroller.permission.utils.KotlinUtils
  * @param user The user whose package icon will be retrieved
  * @param context The current context
  */
-open class SmartIconLoadPackagePermissionPreference @JvmOverloads constructor(
+open class SmartIconLoadPackagePermissionPreference constructor(
     private val app: Application,
     private val packageName: String,
     private val user: UserHandle,

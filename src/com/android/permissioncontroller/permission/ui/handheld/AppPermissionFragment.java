@@ -154,7 +154,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
         return arguments;
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -337,7 +336,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
             setResult(DENIED_DO_NOT_ASK_AGAIN);
         });
 
-        // TODO(ntmyren): pass button states in a non-order specific way
         setButtonState(mAllowButton, states.get(ButtonType.ALLOW));
         setButtonState(mAllowAlwaysButton, states.get(ButtonType.ALLOW_ALWAYS));
         setButtonState(mAllowForegroundButton, states.get(ButtonType.ALLOW_FOREGROUND));
@@ -360,8 +358,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
             button.jumpDrawablesToCurrentState();
         }
     }
-
-
 
     private void setResult(@GrantPermissionsViewHandler.Result int result) {
         Intent intent = new Intent()
@@ -428,7 +424,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
      *  1. `showDefaultDenyDialog`
      *  1. [DefaultDenyDialog.onCreateDialog]
      *  1. [AppPermissionViewModel.onDenyAnyWay]
-     * TODO: Remove once data can be passed between dialogs and fragments with nav component
+     * TODO ntmyren: Remove once data can be passed between dialogs and fragments with nav component
      *
      * @param changeRequest Whether background or foreground should be changed
      * @param messageId The Id of the string message to show

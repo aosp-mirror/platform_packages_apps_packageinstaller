@@ -29,6 +29,9 @@ import androidx.lifecycle.Observer
 import com.android.permissioncontroller.permission.utils.ensureMainThread
 import com.android.permissioncontroller.permission.utils.getInitializedValue
 import com.android.permissioncontroller.permission.utils.shortStackTrace
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  * A MediatorLiveData which tracks how long it has been inactive, compares new values before setting
@@ -159,6 +162,14 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
             sources.remove(toRemote)
         }
         super.removeSource(toRemote)
+    }
+
+    fun <S : Any?> postAddSource(source: LiveData<S>, onChanged: Observer<in S>) {
+        GlobalScope.launch(Main) { addSource(source, onChanged) }
+    }
+
+    fun <S : Any?> postRemoveSource(toRemote: LiveData<S>) {
+        GlobalScope.launch(Main) { removeSource(toRemote) }
     }
 
     private fun <S : Any?> removeChild(liveData: LiveData<S>) {
