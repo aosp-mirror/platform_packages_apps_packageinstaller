@@ -16,15 +16,21 @@
 
 package com.android.permissioncontroller.permission.ui.model
 
-import android.app.Application
+import android.app.AppOpsManager
+import android.app.AppOpsManager.MODE_ALLOWED
+import android.app.AppOpsManager.MODE_IGNORED
+import android.app.AppOpsManager.OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED
 import android.os.Bundle
 import android.os.UserHandle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AppPermGroupUiInfoLiveData
+import com.android.permissioncontroller.permission.data.AutoRevokeStateLiveData
+import com.android.permissioncontroller.permission.data.LightPackageInfoLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
@@ -33,34 +39,29 @@ import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGr
 import com.android.permissioncontroller.permission.ui.Category
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  * ViewModel for the AppPermissionGroupsFragment. Has a liveData with the UI information for all
  * permission groups that this package requests runtime permissions from
  *
- * @param app The current application
  * @param packageName The name of the package this viewModel is representing
  * @param user The user of the package this viewModel is representing
  */
 class AppPermissionGroupsViewModel(
-    app: Application,
     private val packageName: String,
     private val user: UserHandle
 ) : ViewModel() {
 
-    val packagePermGroupsLiveData = PackagePermGroupsLiveData(app, packageName, user)
-
     /**
      * LiveData whose data is a map of grant category (either allowed or denied) to a list
      * of permission group names that match the key, and two booleans representing if this is a
-     * system group, and, if it is allowed in the foreground only.
+     * system group, and a subtitle resource ID, if applicable.
      */
-    inner class PackagePermGroupsLiveData(
-        private val app: Application,
-        private val packageName: String,
-        private val user: UserHandle
-    ) : SmartUpdateMediatorLiveData<@JvmSuppressWildcards
-    Map<Category, List<Triple<String, Boolean, Boolean>>>>() {
+    val packagePermGroupsLiveData = object : SmartUpdateMediatorLiveData<@JvmSuppressWildcards
+    Map<Category, List<GroupUiInfo>>>() {
 
         private val packagePermsLiveData =
             PackagePermissionsLiveData[packageName, user]
@@ -89,7 +90,7 @@ class AppPermissionGroupsViewModel(
             }
 
             val groupGrantStates = mutableMapOf<Category,
-                MutableList<Triple<String, Boolean, Boolean>>>()
+                MutableList<GroupUiInfo>>()
             groupGrantStates[Category.ALLOWED] = mutableListOf()
             groupGrantStates[Category.ASK] = mutableListOf()
             groupGrantStates[Category.DENIED] = mutableListOf()
@@ -99,15 +100,16 @@ class AppPermissionGroupsViewModel(
                 appPermGroupUiInfoLiveDatas[groupName]?.value?.let { uiInfo ->
                     when (uiInfo.permGrantState) {
                         PermGrantState.PERMS_ALLOWED -> groupGrantStates[Category.ALLOWED]!!.add(
-                                Triple(groupName, isSystem, false))
+                            GroupUiInfo(groupName, isSystem))
                         PermGrantState.PERMS_ALLOWED_ALWAYS -> groupGrantStates[
-                            Category.ALLOWED]!!.add(Triple(groupName, isSystem, false))
+                            Category.ALLOWED]!!.add(GroupUiInfo(groupName, isSystem))
                         PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY -> groupGrantStates[
-                            Category.ALLOWED]!!.add(Triple(groupName, isSystem, true))
+                            Category.ALLOWED]!!.add(GroupUiInfo(groupName, isSystem,
+                            isForeground = true))
                         PermGrantState.PERMS_DENIED -> groupGrantStates[Category.DENIED]!!.add(
-                                Triple(groupName, isSystem, false))
+                            GroupUiInfo(groupName, isSystem))
                         PermGrantState.PERMS_ASK -> groupGrantStates[Category.ASK]!!.add(
-                                Triple(groupName, isSystem, false))
+                            GroupUiInfo(groupName, isSystem))
                     }
                 }
             }
@@ -138,6 +140,28 @@ class AppPermissionGroupsViewModel(
         }
     }
 
+    data class GroupUiInfo(
+        val groupName: String,
+        val isSystem: Boolean = false,
+        val isForeground: Boolean = false
+    )
+
+    val autoRevokeLiveData = AutoRevokeStateLiveData[packageName, user]
+
+    fun setAutoRevoke(enabled: Boolean) {
+        GlobalScope.launch(IO) {
+            val aom = PermissionControllerApplication.get()
+                .getSystemService(AppOpsManager::class.java)!!
+            val packageInfo = LightPackageInfoLiveData[packageName, user].getInitializedValue()
+            val mode = if (enabled) {
+                MODE_ALLOWED
+            } else {
+                MODE_IGNORED
+            }
+            aom.setUidMode(OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED, packageInfo.uid, mode)
+        }
+    }
+
     fun showExtraPerms(fragment: Fragment, args: Bundle) {
         fragment.findNavController().navigate(R.id.perm_groups_to_extra, args)
     }
@@ -150,18 +174,16 @@ class AppPermissionGroupsViewModel(
 /**
  * Factory for an AppPermissionGroupsViewModel
  *
- * @param app The current application
  * @param packageName The name of the package this viewModel is representing
  * @param user The user of the package this viewModel is representing
  */
 class AppPermissionGroupsViewModelFactory(
-    private val app: Application,
     private val packageName: String,
     private val user: UserHandle
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
-        return AppPermissionGroupsViewModel(app, packageName, user) as T
+        return AppPermissionGroupsViewModel(packageName, user) as T
     }
 }
