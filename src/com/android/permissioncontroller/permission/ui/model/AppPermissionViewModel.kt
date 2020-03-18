@@ -118,10 +118,6 @@ class AppPermissionViewModel(
     private var lightAppPermGroup: LightAppPermGroup? = null
 
     /**
-     * A livedata which computes the state of the radio buttons
-     */
-    val buttonStateLiveData = AppPermButtonStateLiveData()
-    /**
      * A livedata which determines which detail string, if any, should be shown
      */
     val detailResIdLiveData = MutableLiveData<Pair<Int, Int?>>()
@@ -139,7 +135,10 @@ class AppPermissionViewModel(
         constructor() : this(false, true, false, null)
     }
 
-    inner class AppPermButtonStateLiveData
+    /**
+     * A livedata which computes the state of the radio buttons
+     */
+    val buttonStateLiveData = object
         : SmartUpdateMediatorLiveData<@JvmSuppressWildcards Map<ButtonType, ButtonState>>() {
 
         private val appPermGroupLiveData = LightAppPermGroupLiveData[packageName, permGroupName,

@@ -257,7 +257,12 @@ object KotlinUtils {
      *
      * @return The package's icon, or null, if the package does not exist
      */
-    fun getBadgedPackageIcon(app: Application, packageName: String, user: UserHandle): Drawable? {
+    @JvmOverloads
+    fun getBadgedPackageIcon(
+        app: Application,
+        packageName: String,
+        user: UserHandle
+    ): Drawable? {
         return try {
             val userContext = Utils.getUserContext(app, user)
             val appInfo = userContext.packageManager.getApplicationInfo(packageName, 0)
@@ -444,6 +449,7 @@ object KotlinUtils {
         newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_USER_FIXED)
         newFlags = newFlags.setFlag(PackageManager.FLAG_PERMISSION_USER_SET)
         newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_ONE_TIME)
+        newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_AUTO_REVOKED)
 
         // If we newly grant background access to the fine location, double-guess the user some
         // time later if this was really the right choice.
@@ -453,9 +459,9 @@ object KotlinUtils {
                 val bgPerm = group.permissions[perm.backgroundPermission]
                 triggerLocationAccessCheck = bgPerm?.isGrantedIncludingAppOp == true
             } else if (perm.name == ACCESS_BACKGROUND_LOCATION) {
-                    val fgPerm = group.permissions[ACCESS_FINE_LOCATION]
-                    triggerLocationAccessCheck = fgPerm?.isGrantedIncludingAppOp == true
-                }
+                val fgPerm = group.permissions[ACCESS_FINE_LOCATION]
+                triggerLocationAccessCheck = fgPerm?.isGrantedIncludingAppOp == true
+            }
             if (triggerLocationAccessCheck) {
                 // trigger location access check
                 LocationAccessCheck(app, null).checkLocationAccessSoon()
@@ -544,7 +550,7 @@ object KotlinUtils {
             val isBackgroundPerm = permName in group.backgroundPermNames
             if (isBackgroundPerm == revokeBackground) {
                 val (newPerm, shouldKill) =
-                        revokeRuntimePermission(app, perm, userFixed, oneTime, group)
+                    revokeRuntimePermission(app, perm, userFixed, oneTime, group)
                 newPerms[newPerm.name] = newPerm
                 shouldKillForAnyPermission = shouldKillForAnyPermission || shouldKill
             }
@@ -616,10 +622,10 @@ object KotlinUtils {
         // Update the permission flags.
         // Take a note that the user fixed the permission, if applicable.
         newFlags = if (userFixed) newFlags.setFlag(PackageManager.FLAG_PERMISSION_USER_FIXED)
-            else newFlags.clearFlag(PackageManager.FLAG_PERMISSION_USER_FIXED)
+        else newFlags.clearFlag(PackageManager.FLAG_PERMISSION_USER_FIXED)
         newFlags = newFlags.setFlag(PackageManager.FLAG_PERMISSION_USER_SET)
         newFlags = if (oneTime) newFlags.setFlag(PackageManager.FLAG_PERMISSION_ONE_TIME)
-            else newFlags.clearFlag(PackageManager.FLAG_PERMISSION_ONE_TIME)
+        else newFlags.clearFlag(PackageManager.FLAG_PERMISSION_ONE_TIME)
 
         if (perm.flags != newFlags) {
             val flagMask = PackageManager.FLAG_PERMISSION_USER_SET or
