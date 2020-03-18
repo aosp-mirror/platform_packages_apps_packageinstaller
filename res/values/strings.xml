@@ -307,6 +307,24 @@
     <!-- Text for linking to the page that shows the apps with a given permission [CHAR LIMIT=none] -->
     <string name="app_permission_footer_permission_apps_link">See all apps with this permission</string>
 
+    <!-- Label for the auto revoke switch [CHAR LIMIT=60] -->
+    <string name="auto_revoke_label">Auto revoke permissions</string>
+
+    <!-- Summary for stating that auto revoke is disabled for this app[CHAR LIMIT=none] -->
+    <string name="auto_revoke_summary">To protect your data, permissions for this app will be removed if the app isn\u2019t used for a few months.</string>
+
+    <!-- Summary for stating that no permission groups that are granted and auto revocable[CHAR LIMIT=none] -->
+    <string name="auto_revocable_permissions_none">No auto revocable permissions are currently granted</string>
+
+    <!-- Summary for stating that one permission will be auto revoked[CHAR LIMIT=none] -->
+    <string name="auto_revocable_permissions_one"><xliff:g id="perm" example="location">%1$s</xliff:g> permission will be removed.</string>
+
+    <!-- Summary for stating that two permissions will be auto revoked[CHAR LIMIT=none] -->
+    <string name="auto_revocable_permissions_two"><xliff:g id="perm" example="location">%1$s</xliff:g> and <xliff:g id="perm" example="contacts">%2$s</xliff:g> permissions will be removed.</string>
+
+    <!-- Summary for stating that more than two permissions will be auto revoked[CHAR LIMIT=none] -->
+    <string name="auto_revocable_permissions_many">Permissions that will be removed: <xliff:g id="perms" example="location, contacts, and phone">%1$s</xliff:g>.</string>
+
     <!-- Label for showing a permission group's description in the header of the list of apps that have that permission [CHAR LIMIT=none] -->
     <string name="permission_description_summary_generic">Apps with this permission can <xliff:g id="description" example="record audio">%1$s</xliff:g></string>
 

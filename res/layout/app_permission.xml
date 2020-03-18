@@ -36,20 +36,20 @@
             <include layout="@layout/header_large" />
 
             <View
-                style="@style/LargeHeaderDivider"/>
+                style="@style/LargeHeaderDivider" />
 
             <LinearLayout
                 style="@style/AppPermissionSelection">
 
                 <TextView
                     android:id="@+id/permission_message"
-                    style="@style/AppPermissionMessage"/>
+                    style="@style/AppPermissionMessage" />
 
                 <RadioGroup
                     android:id="@+id/radiogroup"
                     android:animateLayoutChanges="true"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content">
 
                     <RadioButton
                         android:id="@+id/allow_radio_button"
@@ -108,7 +108,7 @@
 
                     <LinearLayout
                         android:id="@+id/widget_frame"
-                        style="@style/AppPermissionWidgetFrame"/>
+                        style="@style/AppPermissionWidgetFrame" />
 
                 </LinearLayout>
 
