@@ -159,6 +159,7 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         if (mViewModel.getPackagePermGroupsLiveData().getValue() != null) {
             updatePreferences(mViewModel.getPackagePermGroupsLiveData().getValue());
         }
+        logAppPermissionsFragmentView();
     }
 
     @Override
@@ -429,13 +430,14 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         for (int i = 0; i < numAllowed; i++) {
             Preference preference = allowed.getPreference(i);
 
-            if (preference.getSummary() == null) {
+            if (preference.getTitle().equals(getString(R.string.no_permissions_allowed))) {
                 // R.string.no_permission_allowed was added to PreferenceCategory
                 continue;
             }
 
             int category = APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__ALLOWED;
-            if (permissionSubtitleOnlyInForeground.contentEquals(preference.getSummary())) {
+            if (preference.getSummary() != null
+                    && permissionSubtitleOnlyInForeground.contentEquals(preference.getSummary())) {
                 category = APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
             }
 
@@ -448,7 +450,7 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         int numDenied = denied.getPreferenceCount();
         for (int i = 0; i < numDenied; i++) {
             Preference preference = denied.getPreference(i);
-            if (preference.getSummary() == null) {
+            if (preference.getTitle().equals(getString(R.string.no_permissions_denied))) {
                 // R.string.no_permission_denied was added to PreferenceCategory
                 continue;
             }
