@@ -73,6 +73,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.Executor;
 import java.util.function.Consumer;
 import java.util.function.IntConsumer;
 
@@ -620,11 +621,14 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
     }
 
     @Override
-    public void onUpdateUserSensitivePermissionFlags(int uid, Runnable callback) {
+    public void onUpdateUserSensitivePermissionFlags(int uid, Executor executor,
+            Runnable callback) {
         if (uid == Process.INVALID_UID) {
-            UserSensitiveFlagsUtils.updateUserSensitiveForUser(Process.myUserHandle(), callback);
+            UserSensitiveFlagsUtils.updateUserSensitiveForUser(Process.myUserHandle(),
+                    () -> executor.execute(callback));
         } else {
-            UserSensitiveFlagsUtils.updateUserSensitiveForUid(uid, callback);
+            UserSensitiveFlagsUtils.updateUserSensitiveForUid(uid,
+                    () -> executor.execute(callback));
         }
     }
 
