@@ -20,7 +20,8 @@ package com.android.permissioncontroller.permission.service
 
 import android.app.ActivityManager
 import android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_TOP_SLEEPING
-import android.app.AppOpsManager
+import android.app.AppOpsManager.MODE_DEFAULT
+import android.app.AppOpsManager.MODE_IGNORED
 import android.app.AppOpsManager.OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED
 import android.app.job.JobInfo
 import android.app.job.JobParameters
@@ -36,6 +37,7 @@ import android.content.Intent
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
 import android.os.Process.myUserHandle
+import android.permission.PermissionManager
 import android.provider.DeviceConfig
 import android.util.Log
 import androidx.annotation.MainThread
@@ -43,7 +45,11 @@ import com.android.permissioncontroller.Constants
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
-import com.android.permissioncontroller.permission.data.*
+import com.android.permissioncontroller.permission.data.get
+import com.android.permissioncontroller.permission.data.AppOpLiveData
+import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
+import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
+import com.android.permissioncontroller.permission.data.UserPackageInfosLiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.utils.KotlinUtils
@@ -139,28 +145,24 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
         Log.i(LOG_TAG, "Unused apps: ${unusedApps.map { it.packageName }}")
     }
 
+    val manifestExemptPackages: Set<String> = withContext(IO) {
+        context.getSystemService(PermissionManager::class.java)
+                .getAutoRevokeExemptionGrantedPackages()
+    }
+
     unusedApps.forEachInParallel(Main) { pkg: LightPackageInfo ->
         if (pkg.grantedPermissions.isEmpty()) {
             return@forEachInParallel
         }
 
-        val whitelistAppOpMode =
-            AppOpLiveData[pkg.packageName, OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED, pkg.uid]
-                .getInitializedValue()
-        if (whitelistAppOpMode == AppOpsManager.MODE_IGNORED
-                || whitelistAppOpMode == AppOpsManager.MODE_DEFAULT) {
-            // User exempt
+        val packageName = pkg.packageName
+        val packageUid = pkg.uid
+        if (isPackageAutoRevokeExempt(packageName, packageUid, manifestExemptPackages)) {
             return@forEachInParallel
-        }
-        if (whitelistAppOpMode != AppOpsManager.MODE_ALLOWED) {
-            // Override whitelist exemption when debugging to allow for testing
-            if (!DEBUG) {
-                // TODO eugenesusla: if manifest flag exempt -> return
-            }
         }
 
         val pkgPermGroups: Map<String, List<String>> =
-            PackagePermissionsLiveData[pkg.packageName, myUserHandle()]
+            PackagePermissionsLiveData[packageName, myUserHandle()]
                 .getInitializedValue(staleOk = true)
 
         pkgPermGroups.entries.forEachInParallel(Main) { (groupName, groupPermNames) ->
@@ -169,7 +171,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
             }
 
             val group: LightAppPermGroup =
-                LightAppPermGroupLiveData[pkg.packageName, groupName, myUserHandle()]
+                LightAppPermGroupLiveData[packageName, groupName, myUserHandle()]
                     .getInitializedValue(staleOk = true)
                     ?: return@forEachInParallel
 
@@ -186,19 +188,19 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
                 }
 
                 if (DEBUG) {
-                    Log.i(LOG_TAG, "revokeUnused ${pkg.packageName} - $revocablePermissions")
+                    Log.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions")
                 }
 
                 val uid = group.packageInfo.uid
                 for (permName in revocablePermissions) {
                     PermissionControllerStatsLog.write(
                         PERMISSION_GRANT_REQUEST_RESULT_REPORTED,
-                        Random.nextLong(), uid, pkg.packageName, permName, false, SERVER_LOG_ID)
+                        Random.nextLong(), uid, packageName, permName, false, SERVER_LOG_ID)
                 }
 
                 val packageImportance = context
                     .getSystemService(ActivityManager::class.java)!!
-                    .getPackageImportance(pkg.packageName)
+                    .getPackageImportance(packageName)
                 if (packageImportance > IMPORTANCE_TOP_SLEEPING) {
                     KotlinUtils.revokeBackgroundRuntimePermissions(
                             context.application, group,
@@ -211,7 +213,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
 
                     for (permission in revocablePermissions) {
                         context.packageManager.updatePermissionFlags(
-                            permission, pkg.packageName, myUserHandle(),
+                            permission, packageName, myUserHandle(),
                             FLAG_PERMISSION_AUTO_REVOKED to true,
                             FLAG_PERMISSION_USER_SET to false)
                     }
@@ -222,6 +224,41 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
             }
         }
     }
+}
+
+private suspend fun isPackageAutoRevokeExempt(
+    packageName: String,
+    packageUid: Int,
+    manifestExemptPackages: Set<String>
+): Boolean {
+    val whitelistAppOpMode =
+            AppOpLiveData[packageName, OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED, packageUid]
+                    .getInitializedValue()
+    if (!DEBUG && whitelistAppOpMode == MODE_DEFAULT) {
+        // Initial state - consider exempt until this is set by installer(or user)
+        return true
+    }
+
+    // TODO eugenesusla: use @SystemApi reference
+    val OPSTR_AUTO_REVOKE_MANAGED_BY_INSTALLER = "android:auto_revoke_managed_by_installer"
+    val appOpUserSet =
+            AppOpLiveData[packageName, OPSTR_AUTO_REVOKE_MANAGED_BY_INSTALLER, packageUid]
+                    .getInitializedValue() == MODE_IGNORED
+    if (appOpUserSet) {
+        if (whitelistAppOpMode == MODE_IGNORED) {
+            // User exempt
+            return true
+        } else {
+            // User explicitly opted it
+        }
+    } else if (packageName in manifestExemptPackages) {
+        // Manifest exempt
+        return true
+    } else if (whitelistAppOpMode == MODE_IGNORED) {
+        // Installer exempt
+        return true
+    }
+    return false
 }
 
 /**
