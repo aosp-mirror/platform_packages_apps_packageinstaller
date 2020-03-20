@@ -86,6 +86,7 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
 
     private AppPermissionGroupsViewModel mViewModel;
     private boolean mIsSystemPermsScreen;
+    private boolean mIsFirstLoad;
     private String mPackageName;
     private UserHandle mUser;
 
@@ -159,7 +160,6 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         if (mViewModel.getPackagePermGroupsLiveData().getValue() != null) {
             updatePreferences(mViewModel.getPackagePermGroupsLiveData().getValue());
         }
-        logAppPermissionsFragmentView();
     }
 
     @Override
@@ -296,6 +296,11 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         }
 
         setAutoRevokeToggleState(mViewModel.getAutoRevokeLiveData().getValue());
+
+        if (mIsFirstLoad) {
+            logAppPermissionsFragmentView();
+            mIsFirstLoad = false;
+        }
     }
 
     private void addAutoRevokePreferences(PreferenceScreen screen) {
