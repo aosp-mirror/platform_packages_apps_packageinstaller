@@ -107,6 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"Funktsiooni <xliff:g id="PERM">%1$s</xliff:g> juurdepääs sellele rakendusele"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Kuva rakenduse <xliff:g id="APP">%1$s</xliff:g> kõik load"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Kuva kõik selle loaga rakendused"</string>
+    <!-- no translation found for auto_revoke_label (8843908519716851025) -->
+    <skip />
+    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
+    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Selle loaga rakendused saavad teha järgmist: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Selle loaga rakendused pääsevad juurde teie füüsiliste tegevuste andmetele (nt kõndimise, ratta- ja autosõidu andmed, sammuloendur ning muud)"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Selle loaga rakendustel on juurdepääs teie kalendrile"</string>
@@ -162,8 +174,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> juurdepääsetavusrakendusel on täielik juurdepääs teie seadmele"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> saab vaadata teie ekraanikuva, toiminguid ja sisendeid, teha toiminguid ning juhtida ekraani."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Need rakendused saavad vaadata teie ekraanikuva, toiminguid ja sisendeid, teha toiminguid ning juhtida ekraani."</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"Vaikeabirakendus"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"Abirakendus"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Digitaalse assistendi vaikerakendus"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Digitaalse assistendi rakendus"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Abirakendused saavad aidata teid kuvatud ekraaniteabe alusel. Mõned rakendused toetavad integreeritud abi pakkumisel nii käivitusprogrammi kui ka häälsisendi teenuseid."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Kas määrata <xliff:g id="APP_NAME">%1$s</xliff:g> vaikeabirakenduseks?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Saab juurdepääsu SMS-idele ja kõnelogile"</string>
@@ -244,7 +256,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Järgmise puhul kasutuse esiletõstmine"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Assistendi käivitamise tuvastamise kuvamine"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Ikooni kuvamine olekuribal, kui häälassistendi aktiveerimiseks kasutatakse mikrofoni"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Kas lubada rakendusel &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; lugeda selles seadmes olevaid meediafaile?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Kas lubada rakendusele &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; juurdepääs seadmes olevatele fotodele ja meediale?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Kas lubada rakendusele &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; juurdepääs teie kontaktidele?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Kas lubada rakendusele &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; juurdepääs selle seadme asukohale?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Rakendusel on juurdepääs asukohale vaid sel ajal, kui rakendust kasutate"</string>
@@ -262,6 +274,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Kas lubada rakendusel &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; teha ja hallata telefonikõnesid?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Kas lubada rakendusele &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; juurdepääs anduri andmetele teie eluliste näitajate kohta?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Hallatud load"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Rakendus pääseb asukohale juurde"</string>
-    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"Rakendus <xliff:g id="APP_NAME">%s</xliff:g> pääseb nüüd teie asukohale juurde. Lisateabe saamiseks võtke ühendust IT-administraatoriga."</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Asukohale pääseb juurde"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"IT-administraator lubab rakendusel <xliff:g id="APP_NAME">%s</xliff:g> teie asukohale juurde pääseda"</string>
 </resources>

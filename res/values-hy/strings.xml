@@ -39,7 +39,7 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"ոչինչ չի չեղարկվել"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Թույլատրել"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Միշտ թույլատրել"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Հավելվածն օգտագործելիս"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Երբ հավելվածն օգտագործվում է"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Միայն այս անգամ"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Միշտ թույլատրել"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Հավելվածներ"</string>
@@ -59,8 +59,8 @@
     <string name="menu_show_system" msgid="7623002570829860709">"Ցույց տալ համակարգի հավելվածները"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Թաքցնել համակարգի հավելվածները"</string>
     <string name="no_apps" msgid="2377153782338039463">"Հավելվածներ չկան"</string>
-    <string name="location_settings" msgid="547378321761364906">"Տեղորոշման կարգավորումներ"</string>
-    <string name="location_warning" msgid="4687406043150343369">"Այս սարքի տեղորոշման ծառայությունները տրամադրում է <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը: Տեղադրության ցուցադրման կարգավորումները կարող եք փոխել տեղորոշման կարգավորումներից:"</string>
+    <string name="location_settings" msgid="547378321761364906">"Տեղադրության կարգավորումներ"</string>
+    <string name="location_warning" msgid="4687406043150343369">"Այս սարքի տեղորոշման ծառայությունները տրամադրում է <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը: Տեղադրության ցուցադրման կարգավորումները կարող եք փոխել տեղադրության կարգավորումներում:"</string>
     <string name="system_warning" msgid="6868290533389195836">"Եթե այս թույլտվությունը մերժեք, ձեր սարքի հիմնական գործառույթները հնարավոր է պատշաճ չաշխատեն:"</string>
     <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Կանոնների համաձայն"</string>
     <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Հասանելիությունը ֆոնային ռեժիմում անջատած է կանոնի համաձայն"</string>
@@ -107,6 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>ն օգտագործելու թույլտվություն այս հավելվածի համար"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Դիտել <xliff:g id="APP">%1$s</xliff:g> հավելվածի բոլոր թույլտվությունները"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Դիտել այս թույլտվությունն ունեցող հավելվածների ցանկը"</string>
+    <!-- no translation found for auto_revoke_label (8843908519716851025) -->
+    <skip />
+    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
+    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Այս թույլտվությունն ունեցող հավելվածները կարող են <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Այս թույլտվությունն ունեցող հավելվածներին հասանելի են ձեր ֆիզիկական ակտիվության տվյալները (օրինակ՝ զբոսանքների, հեծանվային ուղևորությունների, անցած քայլերի և այլն)"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Այս թույլտվությունն ունեցող հավելվածներին հասանելի կլինի ձեր օրացույցը"</string>
@@ -162,8 +174,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"Ձեր սարքն օգտագործելու լրիվ թույլտվություն ունի <xliff:g id="NUM_SERVICES">%s</xliff:g> հատուկ գործառույթ"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ծառայությունը կարող է տեսնել ձեր էկրանը, գործողությունները և մուտքագրած տեքստը, ինչպես նաև կատարել գործողություններ և կառավարել էկրանը:"</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Այս հավելվածները կարող են տեսնել ձեր էկրանը, գործողությունները և մուտքագրած տեքստը, ինչպես նաև կատարել գործողություններ և կառավարել էկրանը:"</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"Կանխադրված օգնական հավելված"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"Օգնական հավելված"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Կանխադրված թվային օգնականի հավելված"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Թվային օգնականի հավելված"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Օգնական հավելվածներն աշխատում են էկրանին առկա տեղեկությունների հետ: Որոշ հավելվածներ աջակցում են և՛ գործարկիչի, և՛ ձայնային ներածման ծառայությունները, ինչը ավելի լայն հնարավորություններ է տալիս ձեզ:"</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Նշե՞լ <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը որպես կանխադրված օգնական հավելված"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Տրվում է SMS-ների և զանգերի մատյանի հասանելիություն"</string>
@@ -244,7 +256,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Ցույց տալ ընտրված հավելվածները"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Ցույց տալ ձայնային օգնականի ակտիվացման պատկերակը"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Ցույց տալ պատկերակը կարգավիճակի գոտում, երբ ձայնային օգնականի ակտիվացման համար օգտագործվում է խոսափողը"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Թույլատրե՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին կարդալ այս սարքի մուլտիմեդիա ֆայլերը։"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Թույլատրե՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին օգտագործել սարքի լուսանկարներն ու մուլտիմեդիա ֆայլերը"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Թույլատրե՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին օգտագործել ձեր կոնտակտները"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Թույլ տա՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին օգտագործել այս սարքի տեղադրության տվյալները։"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Տեղադրության տվյալները հասանելի կլինեն հավելվածին, միայն երբ այն օգտագործելիս լինեք"</string>
@@ -262,6 +274,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Թույլատրե՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին կատարել հեռախոսազանգեր և կառավարել դրանք"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Թույլատրե՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին սենսորից ստանալ ձեր կենսագործունեության հիմնական տվյալները:"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Կառավարվող թույլտվություններ"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Հավելվածը կարող է օգտագործել տեղադրության մասին տվյալները"</string>
-    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> հավելվածը կարող է օգտագործել ձեր տեղադրության մասին տվյալները։ Ավելին իմանալու համար կապվեք ձեր ՏՏ ադմինիստրատորի հետ։"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Հավելվածին հասանելի են ձեր տեղադրության մասին տվյալները"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Ձեր ՏՏ ադմինիստրատորը <xliff:g id="APP_NAME">%s</xliff:g> հավելվածին թույլատրել է օգտագործել ձեր տեղադրության մասին տվյալները։"</string>
 </resources>

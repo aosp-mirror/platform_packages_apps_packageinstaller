@@ -107,6 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"Bu uygulamanın <xliff:g id="PERM">%1$s</xliff:g> erişimine"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Tüm <xliff:g id="APP">%1$s</xliff:g> izinlerini göster"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Bu izne sahip tüm uygulamaları göster"</string>
+    <!-- no translation found for auto_revoke_label (8843908519716851025) -->
+    <skip />
+    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
+    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Bu izne sahip uygulamalar şunu yapabilir: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Bu izne sahip uygulamalar, yürüyüş, bisiklete binme, araba kullanma, adım sayısı gibi fiziksel aktivitelerinize erişebilir."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Bu izne sahip uygulamalar takviminize erişebilir"</string>
@@ -162,8 +174,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> erişilebilirlik uygulamalarının, cihazınıza tam erişimi var"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ekranınızı, işlemlerinizi ve girişlerinizi görebilir, işlemler gerçekleştirebilir ve ekranı kontrol edebilir."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Bu uygulamalar ekranınızı, işlemlerinizi ve girişlerinizi görebilir, işlemler gerçekleştirebilir ve ekranı kontrol edebilir."</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"Varsayılan asistan uygulaması"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"Asistan uygulaması"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Varsayılan dijital asistan uygulaması"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Dijital asistan uygulaması"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Asistan uygulamaları, görüntülemekte olduğunuz ekrandaki bilgilere dayalı olarak size yardım edebilir. Bazı uygulamalar, entegre yardım sağlamak için hem başlatıcıyı hem de ses girişi hizmetlerini destekler."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan asistan uygulamanız olarak ayarlansın mı?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"SMS, arama kaydına erişim sağlar"</string>
@@ -244,7 +256,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Şu öğelere ilişkin kullanımı göster"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Asistan tetikleyici algılamayı göster"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Sesli yardımı etkinleştirmek için mikrofon kullanıldığında simgeyi durum çubuğunda göster"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasına bu cihazın medya dosyalarını okuma izni verilsin mi?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasının cihazınızdaki fotoğraf ve dosyalara erişmesine izin verilsin mi?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasının kişilerinize erişmesine izin verilsin mi?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasının bu cihazın konumuna erişmesine izin verilsin mi?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Bu uygulama konum bilgisine yalnızca kullanıldığı sırada erişebilecektir"</string>
@@ -262,6 +274,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasının telefon etmesine ve çağrıları yönetmesine izin verilsin mi?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uygulamasının hayati belirtilerinizle ilgili sensör verilerine erişmesine izin verilsin mi?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Kontrol edilen izinler"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Bir uygulama konuma erişebilir"</string>
-    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> artık konumunuza erişebilir. Daha fazla bilgi edinmek için BT yöneticinizle iletişim kurun."</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Konuma erişilebilir"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"BT yöneticiniz, <xliff:g id="APP_NAME">%s</xliff:g> uygulamasının konumunuza erişmesine izin veriyor"</string>
 </resources>
