@@ -91,8 +91,6 @@
     <!-- Message that no permissions are disabled. [CHAR LIMIT=30]  -->
     <string name="permission_revoked_none">none disabled</string>
 
-    <!-- Permissions -->
-
     <!-- Title for the dialog button to allow a permission grant. [CHAR LIMIT=15]  -->
     <string name="grant_dialog_button_allow">Allow</string>
 
@@ -308,10 +306,16 @@
     <string name="app_permission_footer_permission_apps_link">See all apps with this permission</string>
 
     <!-- Label for the auto revoke switch [CHAR LIMIT=60] -->
-    <string name="auto_revoke_label">Auto revoke permissions</string>
+    <string name="auto_revoke_label">Remove permissions if app isn\u2019t used</string>
 
-    <!-- Summary for stating that auto revoke is disabled for this app[CHAR LIMIT=none] -->
+    <!-- Summary for stating that permissions will be removed[CHAR LIMIT=none] -->
     <string name="auto_revoke_summary">To protect your data, permissions for this app will be removed if the app isn\u2019t used for a few months.</string>
+
+    <!-- Summary for stating that permissions will be removed, which includes a list of permissions which will be removed [CHAR LIMIT=none] -->
+    <string name="auto_revoke_summary_with_permissions">To protect your data, if the app hasn\u2019 been used for a few months, the following permissions will be removed: <xliff:g id="perms" example="location, contacts, and phone">%1$s</xliff:g>.</string>
+
+    <!-- Summary for stating that auto revoke is disabled for the current app [CHAR LIMIT=none] -->
+    <string name="auto_revoke_disabled">Automatic removal is currently disabled for this app.</string>
 
     <!-- Summary for stating that no permission groups that are granted and auto revocable[CHAR LIMIT=none] -->
     <string name="auto_revocable_permissions_none">No auto revocable permissions are currently granted</string>
@@ -324,6 +328,18 @@
 
     <!-- Summary for stating that more than two permissions will be auto revoked[CHAR LIMIT=none] -->
     <string name="auto_revocable_permissions_many">Permissions that will be removed: <xliff:g id="perms" example="location, contacts, and phone">%1$s</xliff:g>.</string>
+
+    <!-- Title for a page where users can manage whether or not they want Android to automatically remove permissions [CHAR LIMIT=40] -->
+    <string name="auto_manage_title">Manage permissions automatically</string>
+
+    <!-- Label for an "off" button [CHAR LIMIT=30] -->
+    <string name="off">Off</string>
+
+    <!-- Summary for showing when an app was last used [CHAR LIMIT=none]-->
+    <string name="last_opened_summary">App last opened on <xliff:g id="date" example="March 12, 2020">%s</xliff:g></string>
+
+    <!-- Summary for showing when an app was last used, shorter version [CHAR LIMIT=none]-->
+    <string name="last_opened_summary_short">Last opened <xliff:g id="date" example="March 12, 2020">%s</xliff:g></string>
 
     <!-- Label for showing a permission group's description in the header of the list of apps that have that permission [CHAR LIMIT=none] -->
     <string name="permission_description_summary_generic">Apps with this permission can <xliff:g id="description" example="record audio">%1$s</xliff:g></string>
@@ -426,6 +442,45 @@
 
     <!-- The notification content for background location access reminder notification [CHAR LIMIT=none] -->
     <string name="background_location_access_reminder_notification_content">This app can always access your location. Tap to change.</string>
+
+    <!-- The notification title for the notification that a permission auto revoke has happened [CHAR LIMIT=60] -->
+    <string name="auto_revoke_after_notification_title">App permissions removed to protect privacy</string>
+
+    <!-- The notification content for the notification that a permission auto revoke has happened for one app [CHAR LIMIT=none] -->
+    <string name="auto_revoke_after_notification_content_one"><xliff:g id="app_name" example="Gmail">%s</xliff:g> hasn\u2019t been used in a few months. Tap to review.</string>
+
+    <!-- The notification content for the notification that a permission auto revoke has happened for two apps [CHAR LIMIT=none] -->
+    <string name="auto_revoke_after_notification_content_two"><xliff:g id="app_name" example="Gmail">%s</xliff:g> and 1 other app haven\u2019t been used in a few months. Tap to review.</string>
+
+    <!-- The notification content for the notification that a permission auto revoke has happened for more than two apps [CHAR LIMIT=none] -->
+    <string name="auto_revoke_after_notification_content_many"><xliff:g id="app_name" example="Gmail">%1$s</xliff:g> and <xliff:g id="number_of_apps" example="4">%2$s</xliff:g> other apps haven\u2019t been used in a few months. Tap to review.</string>
+
+    <!-- The notification title for the notification that 1 app is unused [CHAR LIMIT=60] -->
+    <string name="auto_revoke_before_notification_title_one">1 app is unused</string>
+
+    <!-- The notification title for the notification that a permission auto revoke has happened [CHAR LIMIT=60] -->
+    <string name="auto_revoke_before_notification_title_many"><xliff:g id="number_of_apps" example="4">%s</xliff:g> apps are unused</string>
+
+    <!-- The notification content for the notification that a permission auto revoke has happened for one app [CHAR LIMIT=none] -->
+    <string name="auto_revoke_before_notification_content_one">Permissions will be removed to protect your privacy. Tap to review.</string>
+
+    <!-- Title for the unused app screen [CHAR LIMIT=30] -->
+    <string name="unused_apps_title">Unused apps</string>
+
+    <!-- Subtitle for the unused app screen, after permissions have been removed [CHAR LIMIT=none] -->
+    <string name="unused_apps_subtitle_after">Permissions removed from</string>
+
+    <!-- Subtitle for the unused app screen, before permissions have been removed [CHAR LIMIT=none] -->
+    <string name="unused_apps_subtitle_before">Permissions will be removed from</string>
+
+    <!-- Subtitle for an app with unused permissions, listing two permissions [CHAR LIMIT=none] -->
+    <string name="unused_permissions_subtitle_two"><xliff:g id="perm_name" example="Location">%1$s</xliff:g> and <xliff:g id="perm_name" example="Contacts">%2$s</xliff:g></string>
+
+    <!-- Subtitle for an app with unused permissions, listing more than two permissions [CHAR LIMIT=none] -->
+    <string name="unused_permissions_subtitle_many"><xliff:g id="perm_name" example="Location">%1$s</xliff:g>, <xliff:g id="perm_name" example="Contacts">%2$s</xliff:g>, and <xliff:g id="number_of_permissions" example="4">%3$s</xliff:g> more</string>
+
+    <!-- Summary explaining that permissions for unused apps have be removed [CHAR LIMIT=none] -->
+    <string name="unused_app_permissions_removed_summary">To protect your data, permissions have been removed from apps that you haven\u2019t used in a few months</string>
 
     <!-- Subtitle for the preference that is currently granted only when the app is in the foreground. [CHAR LIMIT=60] -->
     <string name="permission_subtitle_only_in_foreground">Only while app is in use</string>
