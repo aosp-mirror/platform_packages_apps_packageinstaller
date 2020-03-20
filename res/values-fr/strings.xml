@@ -107,6 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g> : accès pour cette application"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Afficher toutes les autorisations pour <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Afficher toutes les applications disposant de cette autorisation"</string>
+    <!-- no translation found for auto_revoke_label (8843908519716851025) -->
+    <skip />
+    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
+    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Les applications disposant de cette autorisation peuvent <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Les applications disposant de cette autorisation peuvent accéder à votre activité physique (marche, vélo, voiture, nombre de pas, etc.)"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Les applications disposant de cette autorisation peuvent accéder à votre agenda"</string>
@@ -162,8 +174,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> applications d\'accessibilité bénéficient d\'un accès complet à votre appareil"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> peut voir votre écran, vos actions et ce que vous saisissez, réaliser des actions et contrôler l\'affichage."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Ces applications peuvent voir votre écran, vos actions, ce que vous saisissez, réaliser des actions et contrôler l\'affichage."</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"Appli. d\'assistance par défaut"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"Application d\'assistance"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Assistant numérique par défaut"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Assistant numérique"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Les applications d\'assistance peuvent vous aider en fonction des informations affichées à l\'écran. Certaines applications sont compatibles à la fois avec le lanceur d\'applications et les services de saisie vocale, de sorte que vous puissiez bénéficier d\'une assistance intégrée."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme votre application d\'assistance par défaut ?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Peut accéder aux SMS et au journal d\'appels"</string>
