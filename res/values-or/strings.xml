@@ -16,295 +16,295 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="6793827020090537173">"ଅନୁମତି ନିୟନ୍ତ୍ରକ"</string>
-    <string name="ok" msgid="3468756155452870475">"ଠିକ୍‍ ଅଛି"</string>
-    <string name="permission_search_keyword" msgid="3970416730023831175">"ଅନୁମତିଗୁଡ଼ିକ"</string>
-    <string name="cancel" msgid="8360346460165114585">"କ୍ୟାନ୍ସଲ୍‍ କରନ୍ତୁ"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"ଆପ୍‍ ମିଳିଲା ନାହିଁ"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ପ୍ରତ୍ୟାଖ୍ୟାନ"</string>
-    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"ମନା କରନ୍ତୁ ଏବଂ ପୁଣି ପଚାରନ୍ତୁ ନାହିଁ"</string>
-    <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"ବ୍ୟବହାର ଉପଯୁକ୍ତ ଆକ୍ସେସ୍ ରଖନ୍ତୁ"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"ରଖନ୍ତୁ ଏବଂ ପୁଣି ପଚାରନ୍ତୁ ନାହିଁ"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ଅଧିକ ସୂଚନା"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ତଥାପି ଖାରଜ କରନ୍ତୁ"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>ଟିରୁ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>ଟି"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;କୁ <xliff:g id="ACTION">%2$s</xliff:g> ପାଇଁ ଅନୁମତି ଦେବେ କି?"</string>
-    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ସବୁବେଳେ <xliff:g id="ACTION">%2$s</xliff:g>କୁ ଅନୁମତି ଦେବେ?"</string>
-    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"କେବଳ ଆପ୍‍ ବ୍ୟବହାର କରୁଥିବା ସମୟରେ"</string>
-    <string name="allow_permission_always" msgid="7047379650123289823">"ସର୍ବଦା"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"ମନାକରନ୍ତୁ ଏବଂ ପୁଣି ପଚାରନ୍ତୁ ନାହିଁ"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g>ଟି ଅକ୍ଷମ କରାଯାଇଛି"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"ସମସ୍ତ ଅକ୍ଷମ କରାଯାଇଛି"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"କିଛିବି ଅକ୍ଷମ କରାଯାଇନାହିଁ"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"ଅନୁମତି ଦିଅନ୍ତୁ"</string>
-    <string name="grant_dialog_button_allow_always" msgid="6276498220009293138">"ସବୁବେଳେ ଅନୁମତି ଦିଅନ୍ତୁ"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="3906778905426475934">"ଆପ୍ ବ୍ୟବହାର ବେଳେ କେବଳ ଅନୁମତି ଦିଅନ୍ତୁ"</string>
-    <string name="grant_dialog_button_allow_background" msgid="7108882589014856771">"ସର୍ବଦା ଅନୁମତି ଦିଅନ୍ତୁ"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"ଆପ୍‌‍"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"ଆପ୍‌ ଅନୁମତି"</string>
-    <string name="app_permission_manager" msgid="5714101012506837810">"ଅନୁମତି ପରିଚାଳକ"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"ପୁଣି ପଚାରନ୍ତୁ ନାହିଁ"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"କୌଣସି ଅନୁମତି ନାହିଁ"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"ଅତିରିକ୍ତ ଅନୁମତି"</string>
-    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"ଆପ୍‌ର ତଥ୍ୟ ଖୋଲନ୍ତୁ"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g>ଟି ଅଧିକ</item>
-      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g>ଟି ଅଧିକ</item>
+    <string name="app_name" msgid="2792757108872430971">"ଅନୁମତି ନିୟନ୍ତ୍ରକ"</string>
+    <string name="ok" msgid="4417794827535157922">"ଓକେ"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"ଅନୁମତିଗୁଡ଼ିକ"</string>
+    <string name="cancel" msgid="7279939269964834974">"ବାତିଲ୍‌ କରନ୍ତୁ"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ଆପ୍‍ ମିଳିଲା ନାହିଁ"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"ଅସ୍ଵୀକାର କରନ୍ତୁ"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"ମନା କରନ୍ତୁ ଏବଂ ପୁଣି ପଚାରନ୍ତୁ ନାହିଁ"</string>
+    <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"ବ୍ୟବହାର ଉପଯୁକ୍ତ ଆକ୍ସେସ୍ ରଖନ୍ତୁ"</string>
+    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"ରଖନ୍ତୁ ଏବଂ ପୁଣି ପଚାରନ୍ତୁ ନାହିଁ"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ଅଧିକ ସୂଚନା"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"ତଥାପି ମନାକରନ୍ତୁ"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> ରୁ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;କୁ <xliff:g id="ACTION">%2$s</xliff:g> ପାଇଁ ଅନୁମତି ଦେବେ କି?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ସବୁବେଳେ <xliff:g id="ACTION">%2$s</xliff:g>କୁ ଅନୁମତି ଦେବେ?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"କେବଳ ଆପ୍‍ ବ୍ୟବହାର ସମୟରେ"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"ସର୍ବଦା"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"ମନାକରନ୍ତୁ ଏବଂ ପୁଣି ପଚାରନ୍ତୁ ନାହିଁ"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> ଅନୁମତି ଅକ୍ଷମ କରାଯାଇଛି"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"ସମସ୍ତ ଅନୁମତି ଅକ୍ଷମ କରାଯାଇଛି"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"କୌଣସି ଅନୁମତି ଅକ୍ଷମ କରାଯାଇନାହିଁ"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"ଅନୁମତି ଦିଅନ୍ତୁ"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"ସବୁବେଳେ ଅନୁମତି ଦିଅନ୍ତୁ"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"ଆପ୍ ବ୍ୟବହାର ବେଳେ କେବଳ ଅନୁମତି ଦିଅନ୍ତୁ"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"ସର୍ବଦା ଅନୁମତି ଦିଅନ୍ତୁ"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ଆପ୍ସ"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"ଆପ୍‌ ଅନୁମତିଗୁଡ଼ିକ"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"ଅନୁମତି ପରିଚାଳକ"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"ପୁଣି ପଚାରନ୍ତୁ ନାହିଁ"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"କୌଣସି ଅନୁମତିଗୁଡ଼ିକ ନାହିଁ"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"ଅତିରିକ୍ତ ଅନୁମତିଗୁଡ଼ିକ"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"ଆପ୍‌ର ସୂଚନା ଖୋଲନ୍ତୁ"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ଅଧିକ</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ଅଧିକ</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"ଏହି ଆପ୍‍ Androidର ଏକ ପୁରୁଣା ସଂସ୍କରଣ ପାଇଁ ଡିଜାଇନ୍‍ କରାଯାଇଥିଲା। ଅନୁମତି ପ୍ରତ୍ୟାଖ୍ୟାନ କରିବା ଦ୍ୱାରା ଏହା ଠିକ୍‍ ଭାବେ ଆଉ କାମ ନକରିପାରେ।"</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"ଏକ ଅଜଣା କାମ କରେ"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g>ଟି ଆପରୁ <xliff:g id="COUNT_0">%1$d</xliff:g>ଟିକୁ ଅନୁମତି ଦିଆଯାଇଛି"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"ସିଷ୍ଟମ୍‌କୁ ଦେଖାନ୍ତୁ"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"ସିଷ୍ଟମ୍‌କୁ ଲୁଚାନ୍ତୁ"</string>
-    <string name="no_apps" msgid="1965493419005012569">"କୌଣସି ଆପ୍‌ ନାହିଁ"</string>
-    <string name="location_settings" msgid="1774875730854491297">"ଲୋକେସନ୍‌ ସେଟିଙ୍ଗ"</string>
-    <string name="location_warning" msgid="8778701356292735971">"ଏହି ଡିଭାଇସ୍‍ ପାଇଁ <xliff:g id="APP_NAME">%1$s</xliff:g> ଲୋକେସନ୍‍ ସେବା ପ୍ରଦାନ କରେ। ଲୋକେସନ୍‍ ସେଟିଙ୍ଗରୁ ଲୋକେସନ୍‍ ଆକ୍ସେସ୍‍ ସଂଶୋଧନ କରାଯାଇପାରିବ।"</string>
-    <string name="system_warning" msgid="7103819124542305179">"ଏହି ଅନୁମତିକୁ ଯଦି ଆପଣ ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତି, ଆପଣଙ୍କ ଡିଭାଇସ୍‌ର ସାଧାରଣ ସୁବିଧାଗୁଡ଼ିକ ଆଉ କାମ ନକରିପାରେ।"</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"ପଲିସୀ ଦ୍ୱାରା ଲାଗୁ"</string>
-    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"ନିତୀ ଅନୁସାରେ ବ୍ୟାକ୍‌ଗ୍ରାଉଣ୍ଡ ଆକ୍ସେସ୍‌ ଅକ୍ଷମ କରାଯାଇଛି"</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"ନିତୀ ଅନୁସାରେ ପୃଷ୍ଠପଟ ଆକ୍ସେସ୍‌ ସକ୍ଷମ କରାଯାଇଛି"</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"ନିତୀ ଅନୁସାରେ ସମ୍ମୁଖଭାଗ ଆକ୍ସେସ୍‌ ସକ୍ଷମ କରାଯାଇଛି"</string>
-    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"ଆଡ୍‌ମିନ୍‌ ଦ୍ୱାରା ନିୟନ୍ତ୍ରିତ"</string>
-    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"ବ୍ୟବସ୍ଥାପକଙ୍କ ଦ୍ୱାରା ପୃଷ୍ଠଭୂମି ଆକ୍ସେସ୍‌ ଅକ୍ଷମ କରାଯାଇଛି"</string>
-    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"ବ୍ୟବସ୍ଥାପକଙ୍କ ଦ୍ୱାରା ପୃଷ୍ଠଭୂମି ଆକ୍ସେସ୍‌ ସକ୍ଷମ କରାଯାଇଛି"</string>
-    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"ବ୍ୟବସ୍ଥାପକଙ୍କ ଦ୍ୱାରା ସମ୍ମୁଖଭାଗ ଆକ୍ସେସ୍‌ ସକ୍ଷମ କରାଯାଇଛି"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"ଡିଭାଇସ୍ ଚାଲିବାକୁ ଏହି ଅନୁମତି ଆବଶ୍ୟକ କରେ"</string>
-    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <string name="permission_access_always" msgid="8746815855070494802">"ସର୍ବଦା ଅନୁମତି ଦିଅନ୍ତୁ"</string>
-    <string name="permission_access_only_foreground" msgid="1653942358383006807">"ଆପ୍ ବ୍ୟବହାର ବେଳେ ଅନୁମତି ଦେବା"</string>
-    <string name="permission_access_never" msgid="6189440007697689967">"ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତୁ"</string>
-    <string name="loading" msgid="7811651799620593731">"ଲୋଡ୍ କରାଯାଉଛି…"</string>
-    <string name="all_permissions" msgid="5156669007784613042">"ସମସ୍ତ ଅନୁମତି"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"ଅନ୍ୟାନ୍ୟ ଆପ୍‍ ଦକ୍ଷତା"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"ଅନୁମତି ଅନୁରୋଧ"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"ସ୍କ୍ରୀନ୍‍ ଓଭର୍‌ଲେ ଚିହ୍ନଟ ହୋଇଛି"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"ଏହି ଅନୁମତି ସେଟିଙ୍ଗ ବଦଳାଇବାକୁ, ପ୍ରଥମେ ଆପଣ ସେଟିଙ୍ଗ ଓ ଆପ୍‌ରୁ ସ୍କ୍ରୀନ୍‍ ଅଫ୍‍ କରନ୍ତୁ"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"ସେଟିଙ୍ଗ ଖୋଲନ୍ତୁ"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android ୱିୟର୍‍"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wearରେ ଇନଷ୍ଟଲ୍‍/ଅନଇନଷ୍ଟଲ୍‍ କାର୍ଯ୍ୟ ସପୋର୍ଟ କରେ ନାହିଁ।"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ଆକ୍ସେସ୍‍ କରିବା ପାଇଁ କ\'ଣ କ\'ଣ ଅନୁମତି ଦିଆଯିବ, ତାହା ବାଛନ୍ତୁ"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ଅପଡେଟ୍‍ କରାଯାଇଛି। ଏହି ଆପ୍‍ କ\'ଣ କ\'ଣ ଆକ୍ସେସ୍‍ କରିପାରିବ, ତାହା ବାଛନ୍ତୁ।"</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"କ୍ୟାନ୍ସଲ୍‍ କରନ୍ତୁ"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"ଜାରି ରଖନ୍ତୁ"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"ନୂଆ ଅନୁମତି"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"ବର୍ତ୍ତମାନର ଅନୁମତି"</string>
-    <string name="message_staging" msgid="6151794817691100003">"ଆପ୍‍ ପର୍ଯ୍ୟାୟଭୁକ୍ତ କରାଯାଉଛି…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"ଅଜଣା"</string>
-    <string name="permission_usage_title" msgid="2836714315390340012">"ଡ୍ୟାସ୍‍‍ବୋର୍ଡ"</string>
-    <string name="permission_usage_summary_foreground" msgid="926040696577673055">"ଶେଷ ଆକ୍ସେସ୍: ଆପ୍ ବ୍ୟବହାର କରିବା ସମୟରେ <xliff:g id="TIME">%1$s</xliff:g>\nରେ ଶେଷଥର ଆକ୍ସେସ୍ କରାଯାଇଥିଲା"</string>
-    <string name="permission_usage_summary_background" msgid="9179526841353882748">"ଗତ ଆକ୍ସେସ୍:<xliff:g id="TIME">%1$s</xliff:g>\n ପୃଷ୍ଠଭୂମିରେ  ଗତଥର ଆକ୍ସେସ୍ କରାଯାଇଥିଲା"</string>
-    <string name="permission_usage_any_permission" msgid="8832731783727406380">"ଯେକୌଣସି ଅନୁମତି"</string>
-    <string name="permission_usage_any_time" msgid="1476491940247458210">"ଯେକୌଣସି ସମୟରେ"</string>
-    <string name="permission_usage_last_7_days" msgid="4888188421845723880">"ଗତ 7 ଦିନ"</string>
-    <string name="permission_usage_last_day" msgid="8645320285604363072">"ଗତ 24 ଘଣ୍ଟା"</string>
-    <string name="permission_usage_last_hour" msgid="2604532770472032956">"ଗତ 1 ଘଣ୍ଟା"</string>
-    <string name="permission_usage_last_15_minutes" msgid="5426881076086895200">"ଗତ 15 ମିନିଟ୍"</string>
-    <string name="permission_usage_last_minute" msgid="3067561801126564567">"ଗତ 1 ମିନିଟ୍‌ରେ"</string>
-    <string name="no_permission_usages" msgid="5322488885313825032">"ବ୍ୟବହାର ପାଇଁ କୌଣସି ଅନୁମତି ନାହିଁ"</string>
-    <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"ଯେକୌଣସି ସମୟରେ କରାଯାଇଥିବା ସମ୍ପ୍ରତ୍ତି ଆକ୍ସେସ୍‍"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"ଗତ 7 ଦିନରେ ଅତି ସମ୍ପ୍ରତ୍ତି ହୋଇଥିବା ଆକ୍ସେସ୍‍"</string>
-    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"ଗତ 24 ଘଣ୍ଟାରେ ଅତି ନିକଟରେ ହୋଇଥିବା ଆକ୍ସେସ୍"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"ଗତ 1 ଘଣ୍ଟାରେ ଅତି ନିକଟରେ ହୋଇଥିବା ଆକ୍ସେସ୍"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"ଗତ 15 ମିନିଟ୍‌ରେ କରାଯାଇଥିବା ଅତି ସମ୍ପ୍ରତ୍ତି ଆକ୍ସେସ୍‍"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"ଗତ 1 ମିନିଟ୍‌ରେ ହୋଇଥିବା ଅତି ସମ୍ପ୍ରତ୍ତି ଆକ୍ସେସ୍‍"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"ଯେକୌଣସି ସମୟରେ ଅନୁମତିର ବ୍ୟବହାର ହେବ"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"ଗତ 7 ଦିନରେ ବ୍ୟବହୃତ ହୋଇଥିବା ଅନୁମତି"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"ଗତ 24 ଘଣ୍ଟାରେ ବ୍ୟବହୃତ ହୋଇଥିବା ଅନୁମତି"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"ଗତ 1 ଘଣ୍ଟାରେ ବ୍ୟବହୃତ ଅନୁମତି"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"ଗତ 15 ମିନିଟ୍‌ରେ ବ୍ୟବହୃତ ହୋଇଥିବା ଅନୁମତି"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"ଗତ 1 ମିନିଟ୍‌ରେ ବ୍ୟବହୃତ ହୋଇଥିବା ଅନୁମତି"</string>
-    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"ଏହି ଆପ୍‍ Androidର ଏକ ପୁରୁଣା ସଂସ୍କରଣ ପାଇଁ ଡିଜାଇନ୍‍ କରାଯାଇଥିଲା। ଅନୁମତି ପ୍ରତ୍ୟାଖ୍ୟାନ କରିବା ଦ୍ୱାରା ଏହା ଠିକ୍‍ ଭାବେ ଆଉ କାମ ନକରିପାରେ।"</string>
+    <string name="default_permission_description" msgid="692254823411049573">"ଏହା ଏକ ଅଜଣା କାର୍ଯ୍ୟ ସମ୍ପାଦନ କରିଥାଏ"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>ଆପ୍ସରୁ <xliff:g id="COUNT_0">%1$d</xliff:g>କୁ ଅନୁମତି ଦିଆଯାଇଛି"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"ସିଷ୍ଟମ୍‌ ଦେଖାନ୍ତୁ"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"ସିଷ୍ଟମ୍‌କୁ ଲୁଚାନ୍ତୁ"</string>
+    <string name="no_apps" msgid="2377153782338039463">"କୌଣସି ଆପ୍‌ ନାହିଁ"</string>
+    <string name="location_settings" msgid="547378321761364906">"ଲୋକେ‍ସନ୍‌ ସେଟିଂସ୍‌"</string>
+    <string name="location_warning" msgid="4687406043150343369">"ଏହି ଡିଭାଇସ୍‍ ପାଇଁ <xliff:g id="APP_NAME">%1$s</xliff:g> ଲୋକେସନ୍‍ ସେବା ପ୍ରଦାନ କରେ। ଲୋକେସନ୍‌ ସେଟିଂସ୍‌ରୁ ଲୋକେସନ୍‍ ଆକ୍ସେସ୍‍ ବଦଳାଯାଇପାରିବ।"</string>
+    <string name="system_warning" msgid="6868290533389195836">"ଏହି ଅନୁମତିକୁ ଯଦି ଆପଣ ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତି, ଆପଣଙ୍କ ଡିଭାଇସ୍‌ର ସାଧାରଣ ସୁବିଧାଗୁଡ଼ିକ ଆଉ କାର୍ଯ୍ୟ ନକରିପାରେ।"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"ନିତୀଦ୍ୱାରା ଲାଗୁ କରାଯାଇଛି"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"ନିତୀ ଅନୁସାରେ ବ୍ୟାକ୍‌ଗ୍ରାଉଣ୍ଡ ଆକ୍ସେସ୍‌ ଅକ୍ଷମ କରାଯାଇଛି"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"ନିତୀ ଅନୁସାରେ ପୃଷ୍ଠପଟ ଆକ୍ସେସ୍‌ ସକ୍ଷମ କରାଯାଇଛି"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"ନିତୀ ଅନୁସାରେ ସମ୍ମୁଖଭାଗ ଆକ୍ସେସ୍‌ ସକ୍ଷମ କରାଯାଇଛି"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"ବ୍ୟବସ୍ଥାପକଙ୍କ ଦ୍ୱାରା ନିୟନ୍ତ୍ରିତ"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"ବ୍ୟବସ୍ଥାପକଙ୍କ ଦ୍ୱାରା ପୃଷ୍ଠଭୂମି ଆକ୍ସେସ୍‌ ଅକ୍ଷମ କରାଯାଇଛି"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"ବ୍ୟବସ୍ଥାପକଙ୍କ ଦ୍ୱାରା ପୃଷ୍ଠଭୂମି ଆକ୍ସେସ୍‌ ସକ୍ଷମ କରାଯାଇଛି"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"ବ୍ୟବସ୍ଥାପକଙ୍କ ଦ୍ୱାରା ସମ୍ମୁଖଭାଗ ଆକ୍ସେସ୍‌ ସକ୍ଷମ କରାଯାଇଛି"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="5463084832974856683">"ଡିଭାଇସ୍ ଚାଲିବାକୁ ଏହି ଅନୁମତି ଆବଶ୍ୟକ କରେ"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="5419580764084361573">"ସର୍ବଦା ଅନୁମତି ଦିଅନ୍ତୁ"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"ଆପ୍ ବ୍ୟବହାର ବେଳେ ଅନୁମତି ଦେବା"</string>
+    <string name="permission_access_never" msgid="425385910378172045">"ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତୁ"</string>
+    <string name="loading" msgid="323483393167148377">"ଲୋଡ୍ ହେଉଛି…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"ସମସ୍ତ ଅନୁମତିଗୁଡ଼ିକ"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"ଅନ୍ୟାନ୍ୟ ଆପ୍‍ ଦକ୍ଷତା"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"ଅନୁମତି ଅନୁରୋଧ"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"ସ୍କ୍ରୀନ୍‍ ଓଭର୍‌ଲେ ଚିହ୍ନଟ ହୋଇଛି"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"ଏହି ଅନୁମତି ସେଟିଙ୍ଗ ବଦଳାଇବାକୁ, ପ୍ରଥମେ ଆପଣଙ୍କୁ ସେଟିଂସ୍‍ରୁ ଓ ଆପ୍‌ରୁ ସ୍କ୍ରୀନ୍‍ ଓଭର୍‍ଲେ ବନ୍ଦ କରିବାକୁ ପଡିବ"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"ସେଟିଂସ୍‌ ଖୋଲନ୍ତୁ"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android ୱିୟର୍‌"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"ୱିୟର୍‌ରେ ଇନଷ୍ଟଲ୍‍/ଅନଇନଷ୍ଟଲ୍‍ କାର୍ଯ୍ୟଗୁଡ଼ିକ ସମର୍ଥନ କରେନାହିଁ।"</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ଆକ୍ସେସ୍‍ କରିବା ପାଇଁ କେଉଁସବୁ ଅନୁମତି ଦିଆଯିବ, ତାହା ବାଛନ୍ତୁ"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ଅପଡେଟ୍‍ କରାଯାଇଛି। ଏହି ଆପ୍‍ କେଉଁସବୁ ଆକ୍ସେସ୍‍ କରିପାରିବ, ତାହା ବାଛନ୍ତୁ।"</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"ବାତିଲ୍‌"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"ଜାରି ରଖନ୍ତୁ"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"ନୂଆ ଅନୁମତିଗୁଡ଼ିକ"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"ବର୍ତ୍ତମାନର ଅନୁମତିଗୁଡ଼ିକ"</string>
+    <string name="message_staging" msgid="641286607664721291">"ଆପ୍‍ ପର୍ଯ୍ୟାୟଭୁକ୍ତ କରାଯାଉଛି…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"ଅଜଣା"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ଡ୍ୟାସ୍‍‍ବୋର୍ଡ"</string>
+    <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"ଶେଷ ଆକ୍ସେସ୍: ଆପ୍ ବ୍ୟବହାର କରିବା ସମୟରେ <xliff:g id="TIME">%1$s</xliff:g>\nରେ ଶେଷଥର ଆକ୍ସେସ୍ କରାଯାଇଥିଲା"</string>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"ଗତ ଆକ୍ସେସ୍:<xliff:g id="TIME">%1$s</xliff:g>\n ପୃଷ୍ଠଭୂମିରେ  ଗତଥର ଆକ୍ସେସ୍ କରାଯାଇଥିଲା"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"ଯେକୌଣସି ଅନୁମତି"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"ଯେକୌଣସି ସମୟରେ"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"ଗତ 7 ଦିନ"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"ଗତ 24 ଘଣ୍ଟା"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"ଗତ 1 ଘଣ୍ଟା"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"ଗତ 15 ମିନିଟ୍"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"ଗତ 1 ମିନିଟ୍‌ରେ"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"ବ୍ୟବହାର ପାଇଁ କୌଣସି ଅନୁମତି ନାହିଁ"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"ଯେକୌଣସି ସମୟରେ କରାଯାଇଥିବା ସମ୍ପ୍ରତ୍ତି ଆକ୍ସେସ୍‍"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"ଗତ 7 ଦିନରେ ଅତି ସମ୍ପ୍ରତ୍ତି ହୋଇଥିବା ଆକ୍ସେସ୍‍"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"ଗତ 24 ଘଣ୍ଟାରେ କରାଯାଇଥିବା ଏବେର ଆକ୍ସେସ୍‍"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"ଗତ 1 ଘଣ୍ଟାରେ କରାଯାଇଥିବା ଅତି ସମ୍ପ୍ରତ୍ତି ଆକ୍ସେସ୍‍"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"ଗତ 15 ମିନିଟ୍‌ରେ କରାଯାଇଥିବା ଅତି ସମ୍ପ୍ରତ୍ତି ଆକ୍ସେସ୍‍"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"ଗତ 1 ମିନିଟ୍‌ରେ ହୋଇଥିବା ଅତି ସମ୍ପ୍ରତ୍ତି ଆକ୍ସେସ୍‍"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"ଯେକୌଣସି ସମୟରେ ଅନୁମତିର ବ୍ୟବହାର ହେବ"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"ଗତ 7 ଦିନରେ ବ୍ୟବହୃତ ହୋଇଥିବା ଅନୁମତି"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"ଗତ 24 ଘଣ୍ଟାରେ ବ୍ୟବହୃତ ହୋଇଥିବା ଅନୁମତି"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"ଗତ 1 ଘଣ୍ଟାରେ ବ୍ୟବହୃତ ଅନୁମତି"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"ଗତ 15 ମିନିଟ୍‌ରେ ବ୍ୟବହୃତ ହୋଇଥିବା ଅନୁମତି"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"ଗତ 1 ମିନିଟ୍‌ରେ ବ୍ୟବହୃତ ହୋଇଥିବା ଅନୁମତି"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g>ଟି ଆପ୍ସ</item>
       <item quantity="one">1 ଆପ୍</item>
     </plurals>
-    <string name="permission_usage_view_details" msgid="7240872485880156540">"ଡ୍ୟାସ୍‍‍ବୋର୍ଡରେ ସବୁ ଦେଖନ୍ତୁ"</string>
-    <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"<xliff:g id="PERM">%1$s</xliff:g> ଦ୍ବାରା ଫିଲ୍ଟର୍ କରାଯାଇଛି"</string>
-    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"ଡ୍ୟାସ୍‍ବୋର୍ଡରେ ସବୁ ଦେଖନ୍ତୁ"</string>
-    <string name="filter_by_title" msgid="7213659781851489723">"ଏହି ଅନୁସାରେ ଫିଲ୍ଟର୍ କରନ୍ତୁ"</string>
-    <string name="filter_by_permissions" msgid="6808193127145660341">"ଅନୁମତି ଅନୁଯାୟୀ ଫିଲ୍ଟର୍ କରନ୍ତୁ"</string>
-    <string name="filter_by_time" msgid="4037550957826791975">"ସମୟ ଅନୁସାରେ ଫିଲ୍ଟର୍ କରନ୍ତୁ"</string>
-    <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"ଅଧିକ ଅନୁମତିଗୁଡିକ"</string>
-    <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"ସର୍ବାଧିକ ଆକ୍ସେସ୍‍ଗୁଡିକ"</string>
-    <string name="sort_spinner_recent" msgid="1418334780798429342">"ସମ୍ପ୍ରତି"</string>
-    <string name="sort_by_app" msgid="5836911326872031928">"ଆପ୍ ବ୍ୟବହାର ଅନୁସାରେ ସଜାନ୍ତୁ"</string>
-    <string name="sort_by_time" msgid="5904361063977286957">"ସମୟ ଅନୁସାରେ ସଜାନ୍ତୁ"</string>
-    <string name="item_separator" msgid="5590105992485222167">", "</string>
-    <string name="permission_usage_refresh" msgid="2424637977565575554">"ରିଫ୍ରେଶ୍ କରନ୍ତୁ"</string>
-    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="3432752017977609387">
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"ଡ୍ୟାସ୍‍‍ବୋର୍ଡରେ ସବୁ ଦେଖନ୍ତୁ"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"<xliff:g id="PERM">%1$s</xliff:g> ଦ୍ବାରା ଫିଲ୍ଟର୍ କରାଯାଇଛି"</string>
+    <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"ଡ୍ୟାସ୍‍‍ବୋର୍ଡରେ ସବୁ ଦେଖନ୍ତୁ"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"ଏହି ଅନୁସାରେ ଫିଲ୍ଟର୍ କରନ୍ତୁ"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"ଅନୁମତି ଅନୁଯାୟୀ ଫିଲ୍ଟର୍ କରନ୍ତୁ"</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"ସମୟ ଅନୁସାରେ ଫିଲ୍ଟର୍ କରନ୍ତୁ"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"ଅଧିକ ଅନୁମତିଗୁଡିକ"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"ସର୍ବାଧିକ ଆକ୍ସେସ୍‍ଗୁଡିକ"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"ସମ୍ପ୍ରତି"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"ଆପ୍‌ ବ୍ୟବହାର ଅନୁସାରେ  ସଜାନ୍ତୁ"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"ସମୟ ଅନୁସାରେ ସଜାନ୍ତୁ"</string>
+    <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"ରିଫ୍ରେଶ୍ କରନ୍ତୁ"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g>ଟି ଆପ୍ସ</item>
       <item quantity="one">1 ଆପ୍</item>
     </plurals>
-    <string name="app_permission_usage_title" msgid="7581866247837360658">"ଆପ୍‍ ଅନୁମତି ବ୍ୟବହାର"</string>
-    <string name="app_permission_usage_summary" msgid="5658348946460016420">"ଆକ୍ସେସ୍‍: <xliff:g id="NUM">%1$s</xliff:g>ଥର। ସମୁଦାୟ ଅବଧି: <xliff:g id="DURATION">%2$s</xliff:g>। ଅନ୍ତିମ ଥର <xliff:g id="TIME">%3$s</xliff:g> ପୂର୍ବେ ବ୍ୟବହୃତ ହୋଇଥିଲା।"</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="2632566955455027044">"ଆକ୍ସେସ୍‍: <xliff:g id="NUM">%1$s</xliff:g>ଥର। ଅନ୍ତିମ ଥର <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବେ ବ୍ୟବହୃତ ହୋଇଥିଲା।"</string>
-    <string name="app_permission_button_allow" msgid="7196632414370900342">"ଅନୁମତି ଦିଅନ୍ତୁ"</string>
-    <string name="app_permission_button_allow_always" msgid="865855803108309194">"ସବୁ ସମୟ ପାଇଁ ଅନୁମତି ଦିଅନ୍ତୁ"</string>
-    <string name="app_permission_button_allow_foreground" msgid="5274626376926140236">"ଆପ୍ ବ୍ୟବହାର ବେଳେ ଅନୁମତି ଦେବା"</string>
-    <string name="app_permission_button_deny" msgid="6476351587498235802">"ଖାରଜ କରନ୍ତୁ"</string>
-    <string name="app_permission_title" msgid="5335967448269243651">"<xliff:g id="PERM">%1$s</xliff:g> ଅନୁମତି"</string>
-    <string name="app_permission_header" msgid="6247289774554173809">"ଏହି ଆପ୍‍ ପାଇଁ <xliff:g id="PERM">%1$s</xliff:g> ଆକ୍ସେସ୍‌ କରନ୍ତୁ"</string>
-    <string name="app_permission_footer_usage_summary_generic" msgid="8066565238703750648">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ <xliff:g id="PERM">%2$s</xliff:g> ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="6224606940699705802">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ଶାରୀରିକ କାର୍ଯ୍ୟକଳାପ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_usage_summary_calendar" msgid="7675173035887568420">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ କ୍ୟାଲେଣ୍ଡର୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_usage_summary_call_log" msgid="4987849901381920883">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ କଲ୍ ଲଗ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_usage_summary_camera" msgid="2472049066125117479">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ କ୍ୟାମେରା ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ଯୋଗାଯୋଗଗୁଡ଼ିକୁ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ଲୋକେସନ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_usage_summary_microphone" msgid="5389687207650592055">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କର ମାଇକ୍ରୋଫୋନ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_usage_summary_phone" msgid="2837455934182233739">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ଫୋନ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_usage_summary_sensors" msgid="1884302729411890466">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ସେନ୍ସର୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_usage_summary_sms" msgid="8773249966836488293">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ SMS ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_usage_summary_storage" msgid="4229213694450790269">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ଷ୍ଟୋରେଜ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_no_usages_generic" msgid="8379981388202799895">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ <xliff:g id="PERM">%2$s</xliff:g> ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
-    <string name="app_permission_footer_no_usages_activity_recognition" msgid="2088781216296754537">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ଶାରୀରିକ କାର୍ଯ୍ୟକଳାପ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
-    <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ କ୍ୟାଲେଣ୍ଡର୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
-    <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ କଲ୍ ଲଗ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
-    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ କ୍ୟାମେରା ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
-    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ଯୋଗାଯୋଗ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
-    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ଲୋକେସନ୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
-    <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ମାଇକ୍ରୋଫୋନ୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
-    <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ଫୋନ୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
-    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ସେନ୍ସର୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
-    <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ SMS ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
-    <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ଷ୍ଟୋରେଜ୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
-    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"ଏହି ଅନୁମତି ପାଇଁ ଗତ ଥର ଆକ୍ସେସ୍ ହୋଇଥିବା ଡାଟା ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ନାହିଁ"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"ସମସ୍ତ <xliff:g id="APP">%1$s</xliff:g> ଅନୁମତିଗୁଡ଼ିକ ଦେଖନ୍ତୁ"</string>
-    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"ଏହି ଅନୁମତି ଥିବା ସମସ୍ତ ଆପ୍ସ ଦେଖନ୍ତୁ"</string>
-    <string name="permission_description_summary_generic" msgid="1134416469764865198">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଆପଣଙ୍କର ଶାରୀରିକ କାର୍ଯ୍ୟକଳାପ, ଯେପରିକି ଚାଲିବା, ବାଇକ୍ ଚଲାଇବା, ଗାଡ଼ି ଚଲାଇବା, କେତେ ପାଦ ଚାଲିଲେ ତାହା ଗଣିବା ଏବଂ ଆହୁରି ଅନେକ କିଛି ଆକ୍ସେସ୍ କରିପାରିବ"</string>
-    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଆପଣଙ୍କର କ୍ୟାଲେଣ୍ଡର୍ ଆକ୍ସେସ୍ କରିପାରିବ"</string>
-    <string name="permission_description_summary_call_log" msgid="4715804544768878751">"ଏହି ଅନୁମତି ଥିବା ଆପ୍‌ଗୁଡ଼ିକ ଫୋନ୍‌ କଲ୍ ଲଗ୍ ପଢ଼ିପାରିବେ ଏବଂ ଲେଖିପାରିବେ"</string>
-    <string name="permission_description_summary_camera" msgid="7879547592935186291">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଛବି ଉଠାଇପାରିବେ ଏବଂ ଭିଡିଓ ରେକର୍ଡ କରିପାରିବେ"</string>
-    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଆପଣଙ୍କର ଯୋଗାଯୋଗଗୁଡ଼ିକୁ ଆକ୍ସେସ୍ କରିପାରିବ"</string>
-    <string name="permission_description_summary_location" msgid="4722113806360938675">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଏହି ଡିଭାଇସ୍‌ର ଲୋକେସନ୍‍ ଆକ୍ସେସ୍‍ କରିପାରିବ"</string>
-    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଅଡିଓ ରେକର୍ଡ କରିପାରିବ"</string>
-    <string name="permission_description_summary_phone" msgid="6972180067860067462">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଫୋନ୍ କଲ୍ କରିପାରେ ଏବଂ ପରିଚାଳନା କରିପାରେ"</string>
-    <string name="permission_description_summary_sensors" msgid="5747969909098898581">"ଏହି ଅନୁମତି ଥିବା ଆପ୍‌ଗୁଡ଼ିକ ଆପଣଙ୍କ ଗୁରୁତପୂର୍ଣ୍ଣ ସଂକେତଗୁଡ଼ିକ ବିଷୟରେ ସେନ୍ସର୍ ଡାଟା ଆକ୍ସେସ୍ କରିପାରିବ"</string>
-    <string name="permission_description_summary_sms" msgid="1394630256073587627">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ, SMS ମେସେଜ୍‌ଗୁଡ଼ିକୁ ପଠାଇପାରିବେ ଏବଂ ଦେଖିପାରିବେ"</string>
-    <string name="permission_description_summary_storage" msgid="3947962757455327167">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଆପଣଙ୍କର ଡିଭାଇସ୍‌ର ଫଟୋ, ମିଡିଆ, ଏବଂ ଫାଇଲ୍‌ଗୁଡ଼ିକୁ ଆକ୍ସେସ୍ କରିପାରିବ"</string>
-    <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"ଗତଥର ଆକ୍ସେସ୍ କରାଯାଇଛି: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"ବର୍ତ୍ତମାନ ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଗଲା / ଶେଷ ଥର ଆକ୍ସେସ୍: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"କେବେବି ଆକ୍ସେସ୍ ହୋଇନାହିଁ"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଯାଇଛି / ଆଦୌ ଆକ୍ସେସ୍ ହୋଇନାହିଁ"</string>
-    <string name="allowed_header" msgid="670868581011741572">"ଅନୁମୋଦିତ"</string>
-    <string name="allowed_always_header" msgid="3129163790476916487">"ସର୍ବଦା ଅନୁମତି ଦିଆଯାଇଛି"</string>
-    <string name="allowed_foreground_header" msgid="508441909373674270">"କେବଳ ବ୍ୟବହାର ପାଇଁ ଅନୁମତି ଦିଆଯାଇଛି"</string>
-    <string name="denied_header" msgid="4716097249466859449">"ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଗଲା"</string>
-    <string name="detailed_usage_link" msgid="3213629980587953904">"ବିସ୍ତାରିତ ବ୍ୟବହାର ଦେଖନ୍ତୁ"</string>
-    <plurals name="days" formatted="false" msgid="7685720539370448104">
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"ଆପ୍‍ ଅନୁମତି ବ୍ୟବହାର"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"ଆକ୍ସେସ୍‍: <xliff:g id="NUM">%1$s</xliff:g>ଥର। ସମୁଦାୟ ଅବଧି: <xliff:g id="DURATION">%2$s</xliff:g>। ଅନ୍ତିମ ଥର <xliff:g id="TIME">%3$s</xliff:g> ପୂର୍ବେ ବ୍ୟବହୃତ ହୋଇଥିଲା।"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ଆକ୍ସେସ୍‍: <xliff:g id="NUM">%1$s</xliff:g>ଥର। ଅନ୍ତିମ ଥର <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବେ ବ୍ୟବହୃତ ହୋଇଥିଲା।"</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"ଅନୁମତି ଦିଅନ୍ତୁ"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ସବୁ ସମୟ ପାଇଁ ଅନୁମତି ଦିଅନ୍ତୁ"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"ଆପ୍ ବ୍ୟବହାର ବେଳେ ଅନୁମତି ଦେବା"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"ଖାରଜ କରନ୍ତୁ"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> ଅନୁମତି"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"ଏହି ଆପ୍‍ ପାଇଁ <xliff:g id="PERM">%1$s</xliff:g> ଆକ୍ସେସ୍‌ କରନ୍ତୁ"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ <xliff:g id="PERM">%2$s</xliff:g> ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ଶାରୀରିକ କାର୍ଯ୍ୟକଳାପ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ କ୍ୟାଲେଣ୍ଡର୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ କଲ୍ ଲଗ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ କ୍ୟାମେରା ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ଯୋଗାଯୋଗଗୁଡ଼ିକୁ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ଲୋକେସନ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କର ମାଇକ୍ରୋଫୋନ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ଫୋନ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ସେନ୍ସର୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ SMS ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ପୂର୍ବରୁ ଆପଣଙ୍କ ଷ୍ଟୋରେଜ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ <xliff:g id="PERM">%2$s</xliff:g> ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ଶାରୀରିକ କାର୍ଯ୍ୟକଳାପ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ କ୍ୟାଲେଣ୍ଡର୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ କଲ୍ ଲଗ୍ ଆକ୍ସେସ୍ କରିଥିଲା"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ କ୍ୟାମେରା ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ଯୋଗାଯୋଗ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ଲୋକେସନ୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ମାଇକ୍ରୋଫୋନ୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ଫୋନ୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ସେନ୍ସର୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ SMS ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ ଷ୍ଟୋରେଜ୍ ଆକ୍ସେସ୍ କରି ନାହିଁ"</string>
+    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"ଏହି ଅନୁମତି ପାଇଁ ଗତ ଆକ୍ସେସ୍ ଡାଟା ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ନାହିଁ"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ସମସ୍ତ <xliff:g id="APP">%1$s</xliff:g> ଅନୁମତିଗୁଡ଼ିକ ଦେଖନ୍ତୁ"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ଏହି ଅନୁମତି ଥିବା ସମସ୍ତ ଆପ୍ସ ଦେଖନ୍ତୁ"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଆପଣଙ୍କର ଶାରୀରିକ କାର୍ଯ୍ୟକଳାପ, ଯେପରିକି ଚାଲିବା, ସାଇକେଲ ଚଲେଇବା, ଗାଡ଼ି ଚଲାଇବା, କେତେ ପାଦ ଚାଲିଲେ ତାହା ଗଣିବା ଏବଂ ଆହୁରି ଅନେକ କିଛି ଆକ୍ସେସ୍ କରିପାରିବ"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଆପଣଙ୍କର କ୍ୟାଲେଣ୍ଡର୍ ଆକ୍ସେସ୍ କରିପାରିବ"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"ଏହି ଅନୁମତି ଥିବା ଆପ୍‌ଗୁଡ଼ିକ ଫୋନ୍‌ କଲ୍ ଲଗ୍ ପଢ଼ିପାରିବେ ଏବଂ ଲେଖିପାରିବେ"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଛବି ନେଇପାରିବେ ଏବଂ ଭିଡିଓ ରେକର୍ଡ କରିପାରିବେ"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଆପଣଙ୍କର ଯୋଗାଯୋଗଗୁଡ଼ିକୁ ଆକ୍ସେସ୍ କରିପାରିବ"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଏହି ଡିଭାଇସ୍‌ର ଲୋକେସନ୍‍ ଆକ୍ସେସ୍‍ କରିପାରିବ"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଅଡିଓ ରେକର୍ଡ କରିପାରିବେ"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଫୋନ୍ କଲ୍ କରିପାରେ ଏବଂ ପରିଚାଳନା କରିପାରେ"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"ଏହି ଅନୁମତି ଥିବା ଆପ୍‌ଗୁଡ଼ିକ ଆପଣଙ୍କ ଗୁରୁତପୂର୍ଣ୍ଣ ସଂକେତଗୁଡ଼ିକ ବିଷୟରେ ସେନ୍ସର୍ ଡାଟା ଆକ୍ସେସ୍ କରିପାରିବ"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ, SMS ମେସେଜ୍‌ଗୁଡ଼ିକୁ ପଠାଇପାରିବେ ଏବଂ ଦେଖିପାରିବେ"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଆପଣଙ୍କର ଡିଭାଇସ୍‌ର ଫଟୋ, ମିଡିଆ, ଏବଂ ଫାଇଲ୍‌ଗୁଡ଼ିକୁ ଆକ୍ସେସ୍ କରିପାରେ"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"ଗତଥର ଆକ୍ସେସ୍ କରାଯାଇଛି: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"ବର୍ତ୍ତମାନ ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଗଲା / ଶେଷ ଥର ଆକ୍ସେସ୍: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"କେବେବି ଆକ୍ସେସ୍ ହୋଇନାହିଁ"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଯାଇଛି / କେବେବି ଆକ୍ସେସ୍ ହୋଇନାହିଁ"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"ଅନୁମତି ଦିଆଯାଇଛି"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"ସର୍ବଦା ଅନୁମତି ଦିଆଯାଇଥିବା ଆପ୍ସ"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"କେବଳ ବ୍ୟବହାର ପାଇଁ ଅନୁମତି ଦିଆଯାଇଛି"</string>
+    <string name="denied_header" msgid="2277998574238617699">"ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଗଲା"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"ବିସ୍ତାରିତ ବ୍ୟବହାର ଦେଖନ୍ତୁ"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ଦିନ</item>
       <item quantity="one">1 ଦିନ</item>
     </plurals>
-    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ଘଣ୍ଟା</item>
       <item quantity="one">1 ଘଣ୍ଟା</item>
     </plurals>
-    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ମିନିଟ୍</item>
       <item quantity="one">1 ମିନିଟ୍</item>
     </plurals>
-    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ସେକେଣ୍ଡ</item>
       <item quantity="one">1 ସେକେଣ୍ଡ</item>
     </plurals>
-    <string name="permission_reminders" msgid="7692569306867004285">"ଅନୁମତି ରିମାଇଣ୍ଡର୍"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g> ପୃଷ୍ଠପଟରେ ଆପଣଙ୍କ ଲୋକେସନ୍ ପାଇଛି"</string>
-    <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"ଏହି ଆପ୍ ସବୁବେଳେ ଆପଣଙ୍କ ଲୋକେସନ୍ ଆକ୍ସେସ୍ କରିପାରିବ। ବଦଳାଇବା ପାଇଁ ଟାପ୍ କରନ୍ତୁ"</string>
-    <string name="permission_subtitle_only_in_foreground" msgid="4173535624805161577">"କେବଳ ଆପ୍‍ ବ୍ୟବହାରରେ ରହିଥିବା ବେଳେ"</string>
-    <string name="no_permissions_allowed" msgid="3972033828052568206">"କୌଣସି ଅନୁମତି ଦିଆଯାଇ ନାହିଁ"</string>
-    <string name="no_permissions_denied" msgid="4148813660212679056">"କୌଣସି ଅନୁମତି ଅଗ୍ରାହ୍ୟ କରାଯାଇନାହିଁ"</string>
-    <string name="no_apps_allowed" msgid="4959324189831343508">"କୌଣସି ଆପ୍‌କୁ ଅନୁମତି ନାହିଁ"</string>
-    <string name="no_apps_denied" msgid="4966465333227047186">"କୌଣସି ଆପ୍‌କୁ ଅଗ୍ରାହ୍ୟ କରାଯାଇନାହିଁ"</string>
-    <string name="car_permission_selected" msgid="5788441628706535323">"ଚୟନ କରାଯାଇଛି"</string>
-    <string name="settings" msgid="6743583734099755409">"ସେଟିଙ୍ଗ"</string>
-    <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ <xliff:g id="SERVICE_NAME">%s</xliff:g>ର ସମ୍ପୂର୍ଣ୍ଣ ଆକ୍ସେସ୍‌ ଅଛି"</string>
-    <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"<xliff:g id="NUM_SERVICES">%s</xliff:g>ଟି ଆକ୍ସେସିବିଲିଟୀ ଆପ୍ସର ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ ସମ୍ପୂର୍ଣ୍ଣ ଆକ୍ସେସ୍‌ ଅଛି"</string>
-    <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ଆପଣଙ୍କର ସ୍କ୍ରିନ୍‌, କାର୍ଯ୍ୟ ଏବଂ ଇନ୍‌ପୁଟ୍‍ ଦେଖିପାରିବ ଏବଂ କାର୍ଯ୍ୟ ସମ୍ପାଦନ କରିପାରିବ ଏବଂ ଡିସ୍‌ପ୍ଲେ ନିୟନ୍ତ୍ରଣ କରିପାରିବ।"</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"ଏହି ଆପ୍ସ ଆପଣଙ୍କର ସ୍କ୍ରିନ୍, କାର୍ଯ୍ୟ ଏବଂ ଇନ୍‌ପୁଟ୍ ଦେଖିପାରିବ ଏବଂ କାର୍ଯ୍ୟ ସମ୍ପାଦନ କରିପାରିବ ଏବଂ ଡିସ୍‌ପ୍ଲେ ନିୟନ୍ତ୍ରଣ କରିପାରିବ।"</string>
-    <string name="role_assistant_label" msgid="325607225419991524">"ଡିଫଲ୍ଟ ସହାୟକ ଆପ୍"</string>
-    <string name="role_assistant_short_label" msgid="5324338887042810318">"ସହାୟକ ଆପ୍"</string>
-    <string name="role_assistant_description" msgid="5980622464037768572">"ଆପଣ ଦେଖୁଥିବା ସ୍କ୍ରୀନ୍‌ ସୂଚନାକୁ ଆଧାର କରି ସହାୟକ ଆପ୍‌ ଆପଣଙ୍କୁ ସାହାଯ୍ୟ କରିପାରିବ। କେତେକ ଆପ୍‌, ଆପଣଙ୍କୁ ଉତ୍ତମ ସହାୟତା ଦେବା ପାଇଁ, ଉଭୟ ଲଞ୍ଚର୍ ଓ ଭଏସ୍‍ ଇନପୁଟ୍‍ ସେବାକୁ ସମର୍ଥନ କରନ୍ତି।"</string>
-    <string name="role_assistant_request_title" msgid="2198246079117996249">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ ସହାୟକ ଆପ୍‌ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
-    <string name="role_assistant_request_description" msgid="9007538649849881727">"SMS, କଲ୍ ଲଗ୍‌କୁ ଆକ୍ସେସ୍ ପ୍ରାପ୍ତ କରେ"</string>
-    <string name="role_browser_label" msgid="1452186785584890151">"ଡିଫଲ୍ଟ ବ୍ରାଉଜର୍‌ ଆପ୍‌"</string>
-    <string name="role_browser_short_label" msgid="7008704096614388208">"ବ୍ରାଉଜର୍ ଆପ୍"</string>
-    <string name="role_browser_description" msgid="3733812642667691329">"ଆପ୍ସ ଯାହା ଆପଣଙ୍କୁ ଇଣ୍ଟର୍ନେଟ୍ ପାଇଁ ଆକ୍ସେସ୍ ଦିଏ ଏବଂ ଆପଣ ଟାପ୍ କରିଥିବା ଲିଙ୍କ୍‌ଗୁଡ଼ିକ ପ୍ରଦର୍ଶନ କରେ"</string>
-    <string name="role_browser_request_title" msgid="6682328732125865006">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ ବ୍ରାଉଜର୍ ଭାବେ ସେଟ୍ କରିବେ କି?"</string>
-    <string name="role_browser_request_description" msgid="5273230084027848407">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
-    <string name="role_dialer_label" msgid="596483535824303996">"ଡିଫଲ୍ଟ ଫୋନ୍‌ ଆପ୍‌"</string>
-    <string name="role_dialer_short_label" msgid="6852083763162503355">"ଫୋନ୍ ଆପ୍"</string>
-    <string name="role_dialer_description" msgid="8168811763060055520">"ଆପ୍ସ, ଯାହା ଆପଣଙ୍କୁ ଆପଣଙ୍କର ଡିଭାଇସ୍‌ରେ ଟେଲିଫୋନ୍ କଲ୍ କରିବାକୁ ଏବଂ ଗ୍ରହଣ କରିବାକୁ ଅନୁମତି ଦିଏ"</string>
-    <string name="role_dialer_request_title" msgid="2281942809560056462">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ ଫୋନ୍ ଆପ୍ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
-    <string name="role_dialer_request_description" msgid="1597958203339261473">"କଲ୍‌ ଲଗ୍‌କୁ ଆକ୍ସେସ୍ ପ୍ରାପ୍ତ କରେ, SMS ପଠାଏ"</string>
-    <string name="role_sms_label" msgid="1282375330984375167">"ଡିଫଲ୍ଟ SMS ଆପ୍"</string>
-    <string name="role_sms_short_label" msgid="4774295162759580727">"SMS ଆପ୍‌"</string>
-    <string name="role_sms_description" msgid="8688975508844386261">"ଆପ୍ସ, ଯାହା ଆପଣଙ୍କ ଫୋନ୍ ନମ୍ବର ବ୍ୟବହାର କରି ଛୋଟ ଟେକ୍ସଟ୍ ମେସେଜ୍, ଫଟୋ, ଭିଡିଓ, ଏବଂ ଅନେକ କିଛି ପଠାଇବା ଏବଂ ପ୍ରାପ୍ତ କରିବାକୁ ଅନୁମତି ଦିଏ"</string>
-    <string name="role_sms_request_title" msgid="3942676190809695139">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ SMS ଆପ୍ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
-    <string name="role_sms_request_description" msgid="6079312070314434582">"ଯୋଗାଯୋଗଗୁଡ଼ିକୁ, SMS, ଫୋନ୍‌କୁ ଆକ୍ସେସ୍ ପ୍ରାପ୍ତ କରେ"</string>
-    <string name="role_emergency_label" msgid="8510350771744625248">"ଡିଫଲ୍ଟ ଜରୁରୀକାଳୀନ ଆପ୍"</string>
-    <string name="role_emergency_short_label" msgid="594672497758636578">"ଜରୁରୀକାଳୀନ ଆପ୍"</string>
-    <string name="role_emergency_description" msgid="1328017704085954407">"ଆପ୍ସ ଯାହା ଆପଣଙ୍କୁ ଗମ୍ଭୀର ପାଣିପାଗ ଇଭେଣ୍ଟ ଏବଂ ଦୈବ ଦୁର୍ବିପାକ ବିଷୟରେ ଆଲର୍ଟ ପାଇବା ପାଇଁ ଏବଂ ଆପଣ ସାହାଯ୍ୟ ଆବଶ୍ୟକ କରୁଥିବା ସମୟରେ ଅନ୍ୟମାନଙ୍କୁ ଜଣାଇବାକୁ ଦିଏ; ଆପଣଙ୍କୁ ନିଜର ଚିକିତ୍ସା ସୂଚନୀ ରେକର୍ଡ କରିବାକୁ ଦିଏ ଏବଂ ସେହି ରେକର୍ଡକୁ ଜରୁରିକାଳୀନ ସହାୟତା କର୍ମଚାରୀଙ୍କ ପାଇଁ ଆକ୍ସେସ୍ ଯୋଗ୍ୟ କରାଇଥାଏ"</string>
-    <string name="role_emergency_request_title" msgid="862426026906033381">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କର ଡିଫଲ୍ଟ ଜରୁରୀକାଳୀନ ଆପ୍ ଭାବେ ସେଟ୍ କରିବେ କି?"</string>
-    <string name="role_emergency_request_description" msgid="6604461788824945209">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
-    <string name="role_home_label" msgid="2403568779207064895">"ଡିଫଲ୍ଟ ଫୋନ୍ ଆପ୍"</string>
-    <string name="role_home_short_label" msgid="8293261293243062773">"ମୂଳ ଆପ୍"</string>
-    <string name="role_home_description" msgid="4692657963991101103">"ଯେଉଁ ଆପ୍ସକୁ ସାଧାରଣତଃ ଲଞ୍ଚର୍ କୁହାଯାଏ, ସେହି ଆପ୍ସ ଆପଣଙ୍କର Android ଡିଭାଇସ୍‌ରେ ମୂଳ ସ୍କ୍ରୀନ୍‌କୁ ପ୍ରତିସ୍ଥାପନ କରିଥାଏ ଏବଂ ଆପଣଙ୍କର ଡିଭାଇସ୍‌ର ବିଷୟବସ୍ତୁ ଏବଂ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକୁ ଆକ୍ସେସ୍ ପ୍ରଦାନ କରିଥାଏ।"</string>
-    <string name="role_home_request_title" msgid="7254377742128731004">"<xliff:g id="APP_NAME">%1$s</xliff:g> କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ ମୂଳ ଆପ୍ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
-    <string name="role_home_request_description" msgid="1649615419642117675">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
-    <string name="role_call_redirection_label" msgid="8614962962542193455">"ଡିଫଲ୍ଟ କଲ୍ ପୁନଃନିର୍ଦ୍ଦେଶିତ ଆପ୍‌"</string>
-    <string name="role_call_redirection_short_label" msgid="7030817671864547206">"କଲ୍ ପୁନଃନିର୍ଦ୍ଦେଶିତ କରା ଆପ୍"</string>
-    <string name="role_call_redirection_description" msgid="1118180396571102108">"ସେହି ଆପ୍ସ ଯାହା ଆଉଟ୍‌ଗୋଇଂ କଲ୍‍ଗୁଡ଼ିକୁ ଅନ୍ୟ ଏକ ଫୋନ୍ ନମ୍ବରକୁ ଫର୍‍ୱାର୍ଡ କରିବାକୁ ଆପଣଙ୍କୁ ଅନୁମତି ଦିଏ"</string>
-    <string name="role_call_redirection_request_title" msgid="3292712900764740951">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ କଲ୍ ପୁନଃନିର୍ଦ୍ଦେଶନା ଆପ୍ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
-    <string name="role_call_redirection_request_description" msgid="9130097590698779041">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
-    <string name="role_call_screening_label" msgid="6762278758943136846">"ଡିଫଲ୍ଟ କଲର୍ ID &amp; ସ୍ପାମ୍ ଆପ୍"</string>
-    <string name="role_call_screening_short_label" msgid="4405732075031564902">"କଲର୍ ID &amp; ସ୍ପାମ୍ ଆପ୍"</string>
-    <string name="role_call_screening_description" msgid="630332789277798256">"ସେହି ଆପ୍ସ ଯାହା ଆପଣଙ୍କୁ କଲ୍‍ଗୁଡ଼ିକୁ ଚିହ୍ନଟ କରିବା, ସ୍ପାମ୍ ଓ ରୋବୋକଲ୍‍ଗୁଡ଼ିକୁ ବ୍ଲକ୍ କରିବା ଏବଂ ଅଦରକାରୀ ନମ୍ବରଗୁଡ଼ିକୁ ବ୍ଲାକ୍‍ଲିଷ୍ଟ କରିବାକୁ ଅନୁମତି ଦେଇଥାଏ"</string>
-    <string name="role_call_screening_request_title" msgid="2918540778717341412">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କର ଡିଫଲ୍ଟ କଲର୍ ଆଇଡି &amp; ସ୍ପାମ୍ ଆପ୍ ଭାବ୍ ସେଟ୍ କରିବେ କି?"</string>
-    <string name="role_call_screening_request_description" msgid="2238766550271106517">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
-    <string name="request_role_current_default" msgid="8010053122057418777">"ସମ୍ପ୍ରତ୍ତି ଡିଫଲ୍ଟ"</string>
-    <string name="request_role_dont_ask_again" msgid="1002776641382604316">"ଆଉ ପଚାରନ୍ତୁ ନାହିଁ"</string>
-    <string name="request_role_set_as_default" msgid="161884072789965631">"ଡିଫଲ୍ଟ ଭାବେ ସେଟ୍ କରନ୍ତୁ"</string>
-    <string name="default_app_search_keyword" msgid="5893328509368498565">"ଡିଫଲ୍ଟ ଆପ୍ସ"</string>
-    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"ବୁଝିଗଲି"</string>
-    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"ଗୋପନୀୟତା ସେଟିଂସ୍"</string>
-    <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"ଆପ୍ସ ଆପଣଙ୍କର <xliff:g id="TYPES_LIST">%s</xliff:g> ବ୍ୟବହାର କରୁଛନ୍ତି"</string>
-    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
-    <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" ଏବଂ "</string>
-    <string name="settings_button" msgid="1808682743475842576">"ସେଟିଂସ୍"</string>
-    <string name="default_apps" msgid="5730264737920158250">"ଡିଫଲ୍ଟ ଆପ୍ସ"</string>
-    <string name="no_default_apps" msgid="2998405086652908867">"କୌଣସି ଡିଫଲ୍ଟ ଆପ୍ସ ନାହିଁ"</string>
-    <string name="default_apps_more" msgid="2432881430817521134">"ଅଧିକ ଡିଫଲ୍ଟଗୁଡ଼ିକ"</string>
-    <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"ଓପନିଂ ଲିଙ୍କ୍"</string>
-    <string name="default_apps_for_work" msgid="6893448061977233772">"କାର୍ଯ୍ୟ ପାଇଁ ଡିଫଲ୍ଟ ଅଛି"</string>
-    <string name="default_app_none" msgid="4430855885741769064">"କିଛି ଆପ୍‌ ସେଟ୍‌ କରାଯାଇନାହିଁ"</string>
-    <string name="default_app_system_default" msgid="330065926244492508">"(ସିଷ୍ଟମ୍ ଡିଫଲ୍ଟ)"</string>
-    <string name="default_app_no_apps" msgid="295747201345391862">"କୌଣସି ଆପ୍‌ ନାହିଁ"</string>
-    <string name="car_default_app_selected" msgid="5041173040939570813">"ଚୟନ କରାଯାଇଛି"</string>
-    <string name="car_default_app_selected_with_info" msgid="846119554232771428">"ଚୟନ କରାଯାଇଛି - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
-    <string name="special_app_access_search_keyword" msgid="1933225255981974193">"ବିଶେଷ ଆପ୍‌ ଆକ୍ସେସ୍‌"</string>
-    <string name="special_app_access" msgid="1809336016722693481">"ସ୍ୱତନ୍ତ୍ର ଆପ୍‌ ଆକ୍ସେସ୍‌"</string>
-    <string name="no_special_app_access" msgid="1990650297459671983">"କୌଣସି ସ୍ଵତନ୍ତ୍ର ଆପ୍‍ ଆକ୍ସେସ୍‍ ନାହିଁ"</string>
-    <string name="special_app_access_no_apps" msgid="4500324676362932725">"କୌଣସି ଆପ୍‌ ନାହିଁ"</string>
-    <string name="home_missing_work_profile_support" msgid="1172382464555492915">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍କୁ ସମର୍ଥନ କରେନାହିଁ"</string>
-    <string name="encryption_unaware_confirmation_message" msgid="5402573583668296906">"ଟିପ୍ପଣୀ: ଯଦି ଆପଣ ଆପଣଙ୍କ ଡିଭାଇସ୍ ରିଷ୍ଟାର୍ଟ କରିବେ ଏବଂ ଏକ ସ୍କ୍ରିନ୍ ଲକ୍ ସେଟ୍ ହେବ, ଆପଣଙ୍କ ଡିଭାଇସ୍ ଅନ୍‌ଲକ୍ ନହେବା ପର୍ଯ୍ୟନ୍ତ ଏହି ଆପ୍ ଆରମ୍ଭ ହୋଇପାରିବ ନାହିଁ।"</string>
-    <string name="assistant_confirmation_message" msgid="381445592546930">"ଏହି ସହାୟକ, ସ୍କ୍ରିନ୍‌ରେ ଦେଖାଦେଉଥିବା କିମ୍ୱା ଆପ୍‌ଗୁଡ଼ିକ ମଧ୍ୟରେ ଆକ୍ସେସ୍ ହୋଇପାରିବା ଭଳି ସୂଚନା ସମେତ ଆପଣଙ୍କ ସିଷ୍ଟମ୍‌ରେ ଥିବା ଆପ୍‌ଗୁଡ଼ିକ ବିଷୟରେ ସୂଚନା ପଢ଼ିପାରିବ।"</string>
-    <string name="incident_report_channel_name" msgid="434475342655406223">"ଡିବଗିଂ ଡାଟା ସେୟାର୍ କରନ୍ତୁ"</string>
-    <string name="incident_report_notification_title" msgid="5639002400773574216">"ବିସ୍ତୃତ ଡିବଗିଂ ଡାଟା ସେୟାର୍ କରିବେ?"</string>
-    <string name="incident_report_notification_text" msgid="3982379040142711581">"<xliff:g id="APP_NAME">%1$s</xliff:g> ଡିବଗିଂ ସୂଚନା ଅପ୍‌ଲୋଡ୍ କରିବାକୁ ଚାହାନ୍ତି।"</string>
-    <string name="incident_report_dialog_title" msgid="7779774651136791681">"ଡିବଗିଂ ଡାଟା ସେୟାର୍ କରନ୍ତୁ"</string>
-    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"ସିଷ୍ଟମ୍ ଗୋଟିଏ ସମସ୍ୟା ଚିହ୍ନଟ କରିଛି"</string>
-    <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> <xliff:g id="DATE">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g>ରେ ଏହି ଡିଭାଇସ୍‌ରୁ ନିଆଯାଇଥିବା ଏକ ବଗ୍ ରିପୋର୍ଟ ଅପ୍‌ଲୋଡ୍ କରିବାକୁ ଅନୁରୋଧ କରିଛି। ବଗ୍ ରିପୋର୍ଟରେ ଆପଣଙ୍କ ଡିଭାଇସ୍ ସମ୍ବନ୍ଧରେ ବ୍ୟକ୍ତିଗତ ସୂଚନା ବା ଆପ୍ସ ଲଗ୍‌ଇନ୍ ସମୟରେ ଦେଇଥିବା ବ୍ୟକ୍ତିଗତ ସୂଚନା ଉଦାହରଣ ସ୍ବରୂପ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ନାମ, ଲୋକେସନ୍, ଡିଭାଇସ୍ ଚିହ୍ନଟକାରୀ, ଏବଂ ନେଟ୍‍ୱର୍କ ସୂଚନା ଅନ୍ତର୍ଭୂକ୍ତ ରହିଛି। ଏହି ସୂଚନା ସେୟାର୍ କରିବା ପାଇଁ ଆପଣ ଯାହାଙ୍କୁ ଭରସା କରୁଛନ୍ତି କେବଳ ସେହି ଲୋକ ଏବଂ ଆପ୍ସ ସହିତ ବଗ୍ ରିପୋର୍ଟ ସେୟାର୍ କରନ୍ତୁ। ଏକ ବଗ୍ ରିପୋର୍ଟ ଅପ୍‌ଲୋଡ୍ କରିବା ପାଇଁ <xliff:g id="APP_NAME_1">%4$s</xliff:g>କୁ ଅନୁମତି ଦେବେ?"</string>
-    <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"<xliff:g id="APP_NAME">%1$s</xliff:g> ପାଇଁ ବଗ୍ ରିପୋର୍ଟ ପ୍ରକ୍ରିୟାକରଣରେ ଏକ ତ୍ରୁଟି ହୋଇଛି। ତେଣୁ ଡିବଗିଂ ବିବରଣୀ ଡାଟା ସେୟାରିଂ ପ୍ରତ୍ୟାକ୍ଷାନ ହୋଇଛି। ଅସୁବିଧା ପାଇଁ ଦୁଃଖିତ।"</string>
-    <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"ଅନୁମତି ଦିଅନ୍ତୁ"</string>
-    <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତୁ"</string>
-    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"ଆଡଭାନ୍ସଡ୍ ସେଟିଂ"</string>
-    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"ଆଡଭାନ୍ସଡ୍ ସେଟିଂ"</string>
-    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"ସିଷ୍ଟମ୍ ଆପ୍ ବ୍ୟବହାର ଦେଖାନ୍ତୁ"</string>
-    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"ସିଷ୍ଟମ୍ ଆପ୍ ଦ୍ୱାରା ବ୍ୟବହୃତ ଅନୁମତିଗୁଡ଼ିକ ଷ୍ଟାଟସ୍ ବାର୍, ଡ୍ୟାସ୍‍ବୋର୍ଡ &amp; କୌଣସି ଏକ ସ୍ଥାନରେ ଦେଖାନ୍ତୁ"</string>
-    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"ନିମ୍ନୋକ୍ତ ପାଇଁ ବ୍ୟବହାରର ହାଇଲାଇଟ୍ କରନ୍ତୁ"</string>
-    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Assistant ଟ୍ରିଗର୍ ଚିହ୍ନଟକରଣ ଦେଖାନ୍ତୁ"</string>
-    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"ଭଏସ୍ ଆସିଷ୍ଟାଣ୍ଟ ସକ୍ରିୟ କରିବା ପାଇଁ ମାଇକ୍ରୋଫୋନ୍ ବ୍ୟବହାର କରୁଥିବା ସମୟରେ ଷ୍ଟାଟସ୍ ବାର୍‌ରେ ଆଇକନ୍ ଦେଖାନ୍ତୁ"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌ରେ ଥିବା ଫଟୋ ଓ ମିଡିଆ ଆକ୍‌ସେସ୍ କରିବା ପାଇଁ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;କୁ ଅନୁମତି ଦେବେ?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"ଅନୁମତି ରିମାଇଣ୍ଡର୍"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ପୃଷ୍ଠପଟରେ ଆପଣଙ୍କ ଲୋକେସନ୍ ପାଇଛି"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ଏହି ଆପ୍ ସବୁବେଳେ ଆପଣଙ୍କ ଲୋକେସନ୍ ଆକ୍ସେସ୍ କରିପାରିବ। ବଦଳାଇବା ପାଇଁ ଟାପ୍ କରନ୍ତୁ"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"କେବଳ ଆପ୍‍ ବ୍ୟବହାରରେ ରହିଥିବା ବେଳେ"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"କୌଣସି ଅନୁମତି ଦିଆଯାଇ ନାହିଁ"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"କୌଣସି ଅନୁମତି ଅଗ୍ରାହ୍ୟ କରାଯାଇନାହିଁ"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"କୌଣସି ଆପ୍‌କୁ ଅନୁମତି ନାହିଁ"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"କୌଣସି ଆପ୍‌କୁ ଅଗ୍ରାହ୍ୟ କରାଯାଇନାହିଁ"</string>
+    <string name="car_permission_selected" msgid="2163426344720483487">"ଚୟନ କରାଯାଇଛି"</string>
+    <string name="settings" msgid="2884124136779508907">"ସେଟିଂସ୍"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ <xliff:g id="SERVICE_NAME">%s</xliff:g>ର ସମ୍ପୂର୍ଣ୍ଣ ଆକ୍ସେସ୍‌ ଅଛି"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g>ଟି ଆକ୍ସେସିବିଲିଟୀ ଆପ୍ସର ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ ସମ୍ପୂର୍ଣ୍ଣ ଆକ୍ସେସ୍‌ ଅଛି"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ଆପଣଙ୍କର ସ୍କ୍ରିନ୍‌, କାର୍ଯ୍ୟ ଏବଂ ଇନ୍‌ପୁଟ୍‍ ଦେଖିପାରିବ ଏବଂ କାର୍ଯ୍ୟ ସମ୍ପାଦନ କରିପାରିବ ଏବଂ ଡିସ୍‌ପ୍ଲେ ନିୟନ୍ତ୍ରଣ କରିପାରିବ।"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"ଏହି ଆପ୍ସ ଆପଣଙ୍କର ସ୍କ୍ରିନ୍‌, କାର୍ଯ୍ୟକଳାପ ଏବଂ ଇନ୍‌ପୁଟ୍‍ ଦେଖିପାରିବ ଏବଂ କାର୍ଯ୍ୟ ସମ୍ପାଦନ କରିପାରିବ ଏବଂ ଡିସ୍‌ପ୍ଲେ ନିୟନ୍ତ୍ରଣ କରିପାରିବ।"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"ଡିଫଲ୍ଟ ସହାୟକ ଆପ୍"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"ସହାୟକ ଆପ୍"</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"ଆପଣ ଦେଖୁଥିବା ସ୍କ୍ରୀନ୍‌ ସୂଚନାକୁ ଆଧାର କରି ସହାୟକ ଆପ୍‌ ଆପଣଙ୍କୁ ସାହାଯ୍ୟ କରିପାରିବ। କେତେକ ଆପ୍‌, ଆପଣଙ୍କୁ ଉତ୍ତମ ସହାୟତା ଦେବା ପାଇଁ, ଉଭୟ ଲଞ୍ଚର୍ ଓ ଭଏସ୍‍ ଇନପୁଟ୍‍ ସେବାକୁ ସମର୍ଥନ କରନ୍ତି।"</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ ସହାୟକ ଆପ୍‌ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
+    <string name="role_assistant_request_description" msgid="1086168907357494789">"SMS, କଲ୍ ଲଗ୍‌କୁ ଆକ୍ସେସ୍ ପ୍ରାପ୍ତ କରେ"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"ଡିଫଲ୍ଟ ବ୍ରାଉଜର୍‌ ଆପ୍‌"</string>
+    <string name="role_browser_short_label" msgid="6222206565850006894">"ବ୍ରାଉଜର୍‌ ଆପ୍‌"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"ଆପ୍ସ ଯାହା ଆପଣଙ୍କୁ ଇଣ୍ଟର୍ନେଟ୍ ପାଇଁ ଆକ୍ସେସ୍ ଦିଏ ଏବଂ ଆପଣ ଟାପ୍ କରିଥିବା ଲିଙ୍କ୍‌ଗୁଡ଼ିକ ପ୍ରଦର୍ଶନ କରେ"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ ବ୍ରାଉଜର୍ ଭାବେ ସେଟ୍ କରିବେ କି?"</string>
+    <string name="role_browser_request_description" msgid="3204873553391043604">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"ଡିଫଲ୍ଟ ଫୋନ୍‌ ଆପ୍‌"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"ଫୋନ୍ ଆପ୍"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"ଆପ୍ସ, ଯାହା ଆପଣଙ୍କୁ ଆପଣଙ୍କର ଡିଭାଇସ୍‌ରେ ଟେଲିଫୋନ୍ କଲ୍ କରିବାକୁ ଏବଂ ଗ୍ରହଣ କରିବାକୁ ଅନୁମତି ଦିଏ"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ ଫୋନ୍ ଆପ୍ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
+    <string name="role_dialer_request_description" msgid="2931069491309771312">"କଲ୍‌ ଲଗ୍‌କୁ ଆକ୍ସେସ୍ ପ୍ରାପ୍ତ କରେ, SMS ପଠାଏ"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"ଡିଫଲ୍ଟ SMS ଆପ୍‌"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"SMS ଆପ୍‌"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"ଆପ୍ସ, ଯାହା ଆପଣଙ୍କ ଫୋନ୍ ନମ୍ବର ବ୍ୟବହାର କରି ଛୋଟ ଟେକ୍ସଟ୍ ମେସେଜ୍, ଫଟୋ, ଭିଡିଓ, ଏବଂ ଅନେକ କିଛି ପଠାଇବା ଏବଂ ପ୍ରାପ୍ତ କରିବାକୁ ଅନୁମତି ଦିଏ"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ SMS ଆପ୍ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
+    <string name="role_sms_request_description" msgid="4920787411350418630">"ଯୋଗାଯୋଗଗୁଡ଼ିକୁ, SMS, ଫୋନ୍‌କୁ ଆକ୍ସେସ୍ ପ୍ରାପ୍ତ କରେ"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"ଡିଫଲ୍ଟ ଜରୁରୀକାଳୀନ ଆପ୍"</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"ଜରୁରୀକାଳୀନ ଆପ୍"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"ଆପ୍ସ ଯାହା ଆପଣଙ୍କୁ ଗମ୍ଭୀର ପାଣିପାଗ ଇଭେଣ୍ଟ ଏବଂ ଦୈବ ଦୁର୍ବିପାକ ବିଷୟରେ ଆଲର୍ଟ ପାଇବା ପାଇଁ ଏବଂ ଆପଣ ସାହାଯ୍ୟ ଆବଶ୍ୟକ କରୁଥିବା ସମୟରେ ଅନ୍ୟମାନଙ୍କୁ ଜଣାଇବାକୁ ଦିଏ; ଆପଣଙ୍କୁ ନିଜର ଚିକିତ୍ସା ସୂଚନୀ ରେକର୍ଡ କରିବାକୁ ଦିଏ ଏବଂ ସେହି ରେକର୍ଡକୁ ଜରୁରିକାଳୀନ ସହାୟତା କର୍ମଚାରୀଙ୍କ ପାଇଁ ଆକ୍ସେସ୍ ଯୋଗ୍ୟ କରାଇଥାଏ"</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କର ଡିଫଲ୍ଟ ଜରୁରୀକାଳୀନ ଆପ୍ ଭାବେ ସେଟ୍ କରିବେ କି?"</string>
+    <string name="role_emergency_request_description" msgid="2824966073894226992">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"ଡିଫଲ୍ଟ୍ ହୋମ୍ ଆପ୍"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"ମୂଳ ଆପ୍"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"ଯେଉଁ ଆପ୍ସକୁ ସାଧାରଣତଃ ଲଞ୍ଚର୍ କୁହାଯାଏ, ସେହି ଆପ୍ସ ଆପଣଙ୍କର Android ଡିଭାଇସ୍‌ରେ ମୂଳ ସ୍କ୍ରୀନ୍‌କୁ ପ୍ରତିସ୍ଥାପନ କରିଥାଏ ଏବଂ ଆପଣଙ୍କର ଡିଭାଇସ୍‌ର ବିଷୟବସ୍ତୁ ଏବଂ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକୁ ଆକ୍ସେସ୍ ପ୍ରଦାନ କରିଥାଏ।"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ ମୂଳ ଆପ୍ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
+    <string name="role_home_request_description" msgid="6437733879812403277">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"ଡିଫଲ୍ଟ କଲ୍ ପୁନଃନିର୍ଦ୍ଦେଶିତ ଆପ୍‌"</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"କଲ୍ ପୁନଃନିର୍ଦ୍ଦେଶିତ କରା ଆପ୍"</string>
+    <string name="role_call_redirection_description" msgid="769231030043298555">"ସେହି ଆପ୍ସ ଯାହା ଆଉଟ୍‌ଗୋଇଂ କଲ୍‍ଗୁଡ଼ିକୁ ଅନ୍ୟ ଏକ ଫୋନ୍ ନମ୍ବରକୁ ଫର୍‍ୱାର୍ଡ କରିବାକୁ ଆପଣଙ୍କୁ ଅନୁମତି ଦିଏ"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କ ଡିଫଲ୍ଟ କଲ୍ ପୁନଃନିର୍ଦ୍ଦେଶନା ଆପ୍ ଭାବରେ ସେଟ୍ କରିବେ କି?"</string>
+    <string name="role_call_redirection_request_description" msgid="6117172580087594081">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"ଡିଫଲ୍ଟ କଲର୍ ID &amp; ସ୍ପାମ୍ ଆପ୍"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"କଲର୍ ID &amp; ସ୍ପାମ୍ ଆପ୍"</string>
+    <string name="role_call_screening_description" msgid="4470066768170089758">"ସେହି ଆପ୍ସ ଯାହା ଆପଣଙ୍କୁ କଲ୍‍ଗୁଡ଼ିକୁ ଚିହ୍ନଟ କରିବା, ସ୍ପାମ୍ ଓ ରୋବୋକଲ୍‍ଗୁଡ଼ିକୁ ବ୍ଲକ୍ କରିବା ଏବଂ ଅଦରକାରୀ ନମ୍ବରଗୁଡ଼ିକୁ ବ୍ଲାକ୍‍ଲିଷ୍ଟ କରିବାକୁ ଅନୁମତି ଦିଏ"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କର ଡିଫଲ୍ଟ କଲର୍ ଆଇଡି &amp; ସ୍ପାମ୍ ଆପ୍ ଭାବ୍ ସେଟ୍ କରିବେ କି?"</string>
+    <string name="role_call_screening_request_description" msgid="7788142583532880646">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
+    <string name="request_role_current_default" msgid="7512045433655289638">"ସମ୍ପ୍ରତ୍ତି ଡିଫଲ୍ଟ"</string>
+    <string name="request_role_dont_ask_again" msgid="6250680190065090205">"ଆଉ ପଚାରନ୍ତୁ ନାହିଁ"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"ଡିଫଲ୍ଟ ଭାବେ ସେଟ୍ କରନ୍ତୁ"</string>
+    <string name="default_app_search_keyword" msgid="6938709626391437391">"ଡିଫଲ୍ଟ ଆପ୍ସ"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"ବୁଝିଗଲି"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"ଗୋପନୀୟତା ସେଟିଂସ୍"</string>
+    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"ଆପ୍ସ ଆପଣଙ୍କର <xliff:g id="TYPES_LIST">%s</xliff:g> ବ୍ୟବହାର କରୁଛନ୍ତି"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" ଏବଂ "</string>
+    <string name="settings_button" msgid="4747434541214595321">"ସେଟିଂସ୍"</string>
+    <string name="default_apps" msgid="8554530939151957828">"ଡିଫଲ୍ଟ ଆପ୍ସ"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"କୌଣସି ଡିଫଲ୍ଟ ଆପ୍ସ ନାହିଁ"</string>
+    <string name="default_apps_more" msgid="3908067305593075127">"ଅଧିକ ଡିଫଲ୍ଟଗୁଡ଼ିକ"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"ଓପନିଂ ଲିଙ୍କ୍"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"କାର୍ଯ୍ୟ ପାଇଁ ଡିଫଲ୍ଟ ଅଛି"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"କିଛି ଆପ୍‌ ସେଟ୍‌ କରାଯାଇନାହିଁ"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(ସିଷ୍ଟମ୍ ଡିଫଲ୍ଟ)"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"କୌଣସି ଆପ୍‌ ନାହିଁ"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"ଚୟନ କରାଯାଇଛି"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"ଚୟନ କରାଯାଇଛି - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"ବିଶେଷ ଆପ୍‌ ଆକ୍ସେସ୍‌"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"ସ୍ୱତନ୍ତ୍ର ଆପ୍‌ ଆକ୍ସେସ୍‌"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"କୌଣସି ସ୍ଵତନ୍ତ୍ର ଆପ୍‍ ଆକ୍ସେସ୍‍ ନାହିଁ"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"କୌଣସି ଆପ୍‌ ନାହିଁ"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍କୁ ସମର୍ଥନ କରେନାହିଁ"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"ଟିପ୍ପଣୀ: ଯଦି ଆପଣ ଆପଣଙ୍କ ଡିଭାଇସ୍ ରିଷ୍ଟାର୍ଟ କରିବେ ଏବଂ ଏକ ସ୍କ୍ରିନ୍ ଲକ୍ ସେଟ୍ ହେବ, ଆପଣଙ୍କ ଡିଭାଇସ୍ ଅନ୍‌ଲକ୍ ନହେବା ପର୍ଯ୍ୟନ୍ତ ଏହି ଆପ୍ ଆରମ୍ଭ ହୋଇପାରିବ ନାହିଁ।"</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"ଏହି ସହାୟକ, ସ୍କ୍ରିନ୍‌ରେ ଦେଖାଦେଉଥିବା କିମ୍ୱା ଆପ୍‌ଗୁଡ଼ିକ ମଧ୍ୟରେ ଆକ୍ସେସ୍ ହୋଇପାରିବା ଭଳି ସୂଚନା ସମେତ ଆପଣଙ୍କ ସିଷ୍ଟମ୍‌ରେ ଥିବା ଆପ୍‌ଗୁଡ଼ିକ ବିଷୟରେ ସୂଚନା ପଢ଼ିପାରିବ।"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"ଡିବଗିଂ ଡାଟା ସେୟାର୍ କରନ୍ତୁ"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"ବିସ୍ତୃତ ଡିବଗିଂ ଡାଟା ସେୟାର୍ କରିବେ?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ଡିବଗିଂ ସୂଚନା ଅପ୍‌ଲୋଡ୍ କରିବାକୁ ଚାହାନ୍ତି।"</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"ଡିବଗିଂ ଡାଟା ସେୟାର୍ କରନ୍ତୁ"</string>
+    <string name="incident_report_dialog_intro" msgid="153446034925770956">"ସିଷ୍ଟମ୍ ଗୋଟିଏ ସମସ୍ୟା ଚିହ୍ନଟ କରିଛି"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> <xliff:g id="DATE">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g>ରେ ଏହି ଡିଭାଇସ୍‌ରୁ ନିଆଯାଇଥିବା ଏକ ବଗ୍ ରିପୋର୍ଟ ଅପ୍‌ଲୋଡ୍ କରିବାକୁ ଅନୁରୋଧ କରିଛି। ବଗ୍ ରିପୋର୍ଟରେ ଆପଣଙ୍କ ଡିଭାଇସ୍ ସମ୍ବନ୍ଧରେ ବ୍ୟକ୍ତିଗତ ସୂଚନା ବା ଆପ୍ସ ଲଗ୍‌ଇନ୍ ସମୟରେ ଦେଇଥିବା ବ୍ୟକ୍ତିଗତ ସୂଚନା ଉଦାହରଣ ସ୍ବରୂପ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ନାମ, ଲୋକେସନ୍, ଡିଭାଇସ୍ ଚିହ୍ନଟକାରୀ, ଏବଂ ନେଟ୍‍ୱର୍କ ସୂଚନା ଅନ୍ତର୍ଭୂକ୍ତ ରହିଛି। ଏହି ସୂଚନା ସେୟାର୍ କରିବା ପାଇଁ ଆପଣ ଯାହାଙ୍କୁ ଭରସା କରୁଛନ୍ତି କେବଳ ସେହି ଲୋକ ଏବଂ ଆପ୍ସ ସହିତ ବଗ୍ ରିପୋର୍ଟ ସେୟାର୍ କରନ୍ତୁ। ଏକ ବଗ୍ ରିପୋର୍ଟ ଅପ୍‌ଲୋଡ୍ କରିବା ପାଇଁ <xliff:g id="APP_NAME_1">%4$s</xliff:g>କୁ ଅନୁମତି ଦେବେ?"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> ପାଇଁ ବଗ୍ ରିପୋର୍ଟ ପ୍ରକ୍ରିୟାକରଣରେ ଏକ ତ୍ରୁଟି ହୋଇଛି। ତେଣୁ ଡିବଗିଂ ବିବରଣୀ ଡାଟା ସେୟାରିଂ ପ୍ରତ୍ୟାକ୍ଷାନ ହୋଇଛି। ଅସୁବିଧା ପାଇଁ ଦୁଃଖିତ।"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"ଅନୁମତି ଦିଅନ୍ତୁ"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତୁ"</string>
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"ଉନ୍ନତ ସେଟିଂସ୍"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"ଉନ୍ନତ ସେଟିଂସ୍"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"ସିଷ୍ଟମ୍ ଆପ୍ ବ୍ୟବହାର ଦେଖାନ୍ତୁ"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"ସିଷ୍ଟମ୍ ଆପ୍ ଦ୍ବାରା ବ୍ୟବହୃତ ଅନୁମତି ସ୍ଥିତି ବାର୍, ଡ୍ୟାସ୍‍‍ବୋର୍ଡ &amp; କୌଣସି ଏକ ସ୍ଥାନରେ ଦେଖାନ୍ତୁ"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"ନିମ୍ନୋକ୍ତ ପାଇଁ ବ୍ୟବହାରର ହାଇଲାଇଟ୍‍ କରନ୍ତୁ"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Assistant ଟ୍ରିଗର୍ ଚିହ୍ନଟକରଣ ଦେଖାନ୍ତୁ"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"ଭଏସ୍ ଆସିଷ୍ଟାଣ୍ଟ୍ ସକ୍ରିୟ କରିବା ପାଇଁ ମାଇକ୍ରୋଫାନ୍ ବ୍ୟବହାର କରୁଥିବା ସମୟରେ ସ୍ଥିତି ବାର୍‌ରେ ଆଇକନ୍ ଦେଖାନ୍ତୁ"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌ରେ ଥିବା ଫଟୋ ଓ ମିଡିଆ ଆକ୍‌ସେସ୍ କରିବା ପାଇଁ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;କୁ ଅନୁମତି ଦେବେ?"</string>
 </resources>
