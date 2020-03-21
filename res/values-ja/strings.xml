@@ -54,8 +54,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"このアプリは Android の以前のバージョンを対象としています。権限を許可しないと、意図されたとおりに動作しなくなる可能性があります。"</string>
     <string name="default_permission_description" msgid="692254823411049573">"不明な操作の実行"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> 個のアプリを許可"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"システムを表示"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"システムを表示しない"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"システムアプリを表示"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"システムアプリを表示しない"</string>
     <string name="no_apps" msgid="2377153782338039463">"アプリがありません"</string>
     <string name="location_settings" msgid="547378321761364906">"位置情報の設定"</string>
     <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g>はこのデバイスの位置情報サービスのプロバイダです。位置情報へのアクセスは位置情報の設定から変更できます。"</string>
@@ -172,8 +172,8 @@
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"現在、この権限の最終アクセスデータはご利用いただけません"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g>の権限をすべて表示"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"この権限があるアプリをすべて表示"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"この権限があるアプリで可能な操作: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"この権限があるアプリは、ウォーキング、自転車、運転、歩数など、運動データにアクセスできます"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"この権限があるアプリは、<xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"この権限があるアプリは、ウォーキング、自転車、運転、歩数などの運動データにアクセスできます"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"この権限があるアプリはカレンダーにアクセスできます"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"この権限があるアプリは通話履歴の読み取りと書き込みを行えます"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"この権限があるアプリは写真や動画を撮影できます"</string>

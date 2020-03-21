@@ -66,8 +66,8 @@
     <string name="system_warning" msgid="6868290533389195836">"في حال رفض هذا الإذن، قد لا تعمل ميزات أساسية في جهازك على النحو المطلوب."</string>
     <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"فرضته إحدى السياسات"</string>
     <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"تمّ إيقاف الوصول إلى الخلفية بواسطة السياسة."</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"تمّ تفعيل الوصول إلى الخلفية بواسطة السياسة."</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"تمّ تفعيل الوصول إلى المقدمة بواسطة السياسة."</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"تمّ تمكين الوصول إلى الخلفية بواسطة السياسة."</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"تمّ تمكين الوصول إلى المقدمة بواسطة السياسة."</string>
     <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"إعدادات يتحكم فيها المشرف"</string>
     <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"أوقف المشرف وصول التطبيق للبيانات أثناء عدم نشاطه."</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"فعَّل المشرف وصول التطبيق للبيانات أثناء عدم نشاطه."</string>
@@ -323,7 +323,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"يريد تطبيق <xliff:g id="APP_NAME">%1$s</xliff:g> تحميل معلومات تصحيح الأخطاء."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"مشاركة بيانات تصحيح الأخطاء"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"رصَد النظام مشكلة."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"يطلب تطبيق <xliff:g id="APP_NAME_0">%1$s</xliff:g> تحميل تقرير خطأ من هذا الجهاز تم تسجيله بتاريخ <xliff:g id="DATE">%2$s</xliff:g> في <xliff:g id="TIME">%3$s</xliff:g>. وتشمل تقارير الأخطاء المعلومات الشخصية حول جهازك أو المعلومات التي سجلتها التطبيقات، مثل أسماء المستخدمين وبيانات الموقع الجغرافي ومعرّفات الأجهزة ومعلومات الشبكة. ويجب عدم مشاركة تقارير الأخطاء إلا مع المستخدمين والتطبيقات التي تثق بمشاركة هذه المعلومات معها. هل تريد السماح لتطبيق <xliff:g id="APP_NAME_1">%4$s</xliff:g> بتحميل تقرير خطأ؟"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"يطلب تطبيق <xliff:g id="APP_NAME_0">%1$s</xliff:g> تحميل تقرير للأخطاء من هذا الجهاز تم تسجيله بتاريخ <xliff:g id="DATE">%2$s</xliff:g> في <xliff:g id="TIME">%3$s</xliff:g>. وتشمل تقارير الأخطاء المعلومات الشخصية حول جهازك أو المعلومات التي سجلتها التطبيقات، مثل أسماء المستخدمين وبيانات الموقع الجغرافي ومعرّفات الأجهزة ومعلومات الشبكة. ويجب عدم مشاركة تقارير الأخطاء إلا مع المستخدمين والتطبيقات التي تثق بمشاركة هذه المعلومات معها. هل تريد السماح لتطبيق <xliff:g id="APP_NAME_1">%4$s</xliff:g> بتحميل تقرير أخطاء؟"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"حدث خطأ أثناء معالجة تقرير الخطأ لتطبيق <xliff:g id="APP_NAME">%1$s</xliff:g>، ولذلك تم رفض مشاركة بيانات تصحيح الأخطاء التفصيلية. نأسف للمقاطعة."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"سماح"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"رفض"</string>
