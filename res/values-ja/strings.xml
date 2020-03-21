@@ -107,6 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"このアプリの<xliff:g id="PERM">%1$s</xliff:g>へのアクセス権限"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g>の権限をすべて表示"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"この権限があるアプリをすべて表示"</string>
+    <!-- no translation found for auto_revoke_label (8843908519716851025) -->
+    <skip />
+    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
+    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"この権限があるアプリは、<xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"この権限があるアプリは、ウォーキング、自転車、運転、歩数などの運動データにアクセスできます"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"この権限があるアプリはカレンダーにアクセスできます"</string>
@@ -162,8 +174,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> 個のユーザー補助アプリにデバイスへのフルアクセスを許可しています"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> に、画面、アクション、入力の読み取り、アクションの実行、ディスプレイの操作を許可しています。"</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"これらのアプリでは、画面、アクション、入力の表示、アクションの実行、ディスプレイの操作を行えます。"</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"デフォルトのアシストアプリ"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"アシストアプリ"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"デフォルトのデジタル アシスタント アプリ"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"デジタル アシスタント アプリ"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"アシストアプリは、表示している画面の情報に基づいてアシスタントを提供します。一部のアプリはランチャーと音声入力サービスの両方に対応しており、統合されたアシスタントを提供します。"</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g> をデフォルトのアシストアプリとして設定しますか？"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"SMS、通話履歴へのアクセス権が必要です"</string>
