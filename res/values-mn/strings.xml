@@ -107,6 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"Энэ аппад <xliff:g id="PERM">%1$s</xliff:g>-р хандах"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g>-н бүх зөвшөөрлийг харах"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Энэ зөвшөөрөлтэй бүх аппыг харах"</string>
+    <!-- no translation found for auto_revoke_label (8843908519716851025) -->
+    <skip />
+    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
+    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Энэ зөвшөөрөлтэй аппууд <xliff:g id="DESCRIPTION">%1$s</xliff:g> боломжтой"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Энэ зөвшөөрөлтэй аппууд таны алхалт, дугуй унах, жолоодлого, алхмын тоо болон бусад биеийн дасгал хөдөлгөөнд хандах боломжтой"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Энэ зөвшөөрөлтэй аппууд таны хуанлид хандах боломжтой"</string>
@@ -162,8 +174,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"Таны төхөөрөмжид хүртээмжийн <xliff:g id="NUM_SERVICES">%s</xliff:g> апп хандах бүрэн эрхтэй байна"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> таны дэлгэц, үйлдэл, оролтыг харах, үйлдэл гүйцэтгэх болон дэлгэцийг хянах боломжтой."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Эдгээр апп таны дэлгэц, үйлдэл, оролтыг харах, үйлдэл хийх болон дэлгэцийг хянах боломжтой."</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"Өгөгдмөл туслах апп"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"Туслах апп"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Өгөгдмөл дижитал туслах апп"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Дижитал туслах апп"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Туслах аппууд нь таны харж байгаа дэлгэцийн мэдээлэлд тулгуурлан танд туслах боломжтой. Зарим апп танд нэгтгэсэн тусламж үзүүлэх зорилгоор эхлүүлэгч болон дуугаар оруулах үйлчилгээг аль алиныг нь дэмждэг."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g>-г өгөгдмөл туслах аппаараа тохируулах уу?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"SMS болон дуудлагын жагсаалтад хандах эрх авдаг"</string>
@@ -244,7 +256,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Дараахын ашиглалтыг тодруулах"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Туслахын өдөөгч илрүүлэлтийг харуулах"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Дуут туслахыг идэвхжүүлэхийн тулд микрофоныг ашиглах үед статус самбарт дүрс тэмдэг харуулах"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Энэ төхөөрөмжийн медиа файлуудыг уншихыг &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-д зөвшөөрөх үү?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-д төхөөрөмжийнхөө зураг болон медиад хандахыг зөвшөөрөх үү?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-д таны харилцагчид хандахыг зөвшөөрөх үү?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-д энэ төхөөрөмжийн байршилд хандахыг зөвшөөрөх үү?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Та тухайн аппыг ашиглаж байгаа үед энэ нь зөвхөн байршилд хандах эрхтэй болно"</string>
@@ -262,6 +274,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-д утасны дуудлага хийх, дуудлагад хариулахыг зөвшөөрөх үү?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-д таны биеийн ерөнхий байдлын үзүүлэлтүүдийн мэдрэгчийн өгөгдөлд хандахыг зөвшөөрөх үү?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Хяналттай зөвшөөрөл"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Апп байршилд хандах боломжтой"</string>
-    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> одоо таны байршилд хандах боломжтой. Нэмэлт мэдээлэл авахын тулд мэдээлэл технологийн админтайгаа холбогдоно уу."</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Байршилд хандах боломжтой"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Таны IT админ таны байршилд хандахыг <xliff:g id="APP_NAME">%s</xliff:g>-д зөвшөөрч байна"</string>
 </resources>

@@ -109,6 +109,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: доступ для гэтай праграмы"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Паказаць усе дазволы праграмы \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Паказаць усе праграмы з гэтым дазволам"</string>
+    <!-- no translation found for auto_revoke_label (8843908519716851025) -->
+    <skip />
+    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
+    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Характарыстыка дазволу: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Праграмы з такім дазволам могуць мець доступ да звестак пра вашу фізічную актыўнасць, напрыклад перамяшчэнні пешшу, язду на веласіпедзе, на аўтамабілі, колькасць крокаў і многае іншае"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Праграмы з гэтым дазволам могуць мець доступ да календара"</string>
@@ -172,8 +184,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"Праграмы са спецыяльнымі магчымасцямі (<xliff:g id="NUM_SERVICES">%s</xliff:g> шт.) маюць поўны доступ да даных вашай прылады"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> можа праглядаць ваш экран, дзеянні і ўводы, самастойна выконваць дзеянні і кіраваць дысплэем."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Гэтыя праграмы могуць праглядаць ваш экран, дзеянні і ўводы, а таксама самастойна выконваць дзеянні і кіраваць экранам."</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"Стандартная праграма-памочнік"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"Праграма-памочнік"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Стандартны лічбавы памочнік"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Лічбавая праграма-памочнік"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Праграмы-памочнікі кіруюцца інфармацыяй на экране. Для вашай зручнасці некаторыя з іх падтрымліваюць панэль запуску і галасавы ўвод."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай-памочнікам?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Патрабуе доступу да SMS і журнала выклікаў"</string>
@@ -254,7 +266,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Паказваць выбраныя праграмы"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Паказваць значок актывацыі Памочніка"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Паказваць значок на панэлі стану, калі мікрафон выкарыстоўваецца для актывацыі галасавога памочніка"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Дазволіць праграме &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; счытваць файлы мультымедыя на гэтай прыладзе?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Дазволіць праграме &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ да фота і мультымедыя на вашай прыладзе?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Дазволіць праграме &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ да вашых кантактаў?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Дазволіць праграме &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ да звестак пра месцазнаходжанне гэтай прылады?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Праграма будзе мець доступ да звестак пра месцазнаходжанне толькі падчас карыстання ёю"</string>
@@ -272,6 +284,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Дазволіць праграме &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; рабіць тэлефонныя выклікі і кіраваць імі?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Дазволіць праграме &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ да даных з датчыкаў пра вашы асноўныя фізіялагічныя паказчыкі?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Кіраваныя дазволы"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Праграма мае доступ да звестак пра месцазнаходжанне"</string>
-    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"Цяпер праграма \"<xliff:g id="APP_NAME">%s</xliff:g>\" можа атрымліваць даныя пра месцазнаходжанне. Каб даведацца больш, звярніцеся да ІТ-адміністратара."</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Доступ да даных пра месцазнаходжанне атрыманы"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Ваш ІТ-адміністратар дазваляе праграме \"<xliff:g id="APP_NAME">%s</xliff:g>\" мець доступ да даных пра ваша месцазнаходжанне"</string>
 </resources>

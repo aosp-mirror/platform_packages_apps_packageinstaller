@@ -107,6 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"這個應用程式的<xliff:g id="PERM">%1$s</xliff:g>存取權"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看「<xliff:g id="APP">%1$s</xliff:g>」的所有權限"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"查看擁有此權限的所有應用程式"</string>
+    <!-- no translation found for auto_revoke_label (8843908519716851025) -->
+    <skip />
+    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
+    <skip />
+    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
+    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"擁有此權限的應用程式可以<xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"擁有此權限的應用程式可以存取您的體能活動資料，例如步行、踏單車、駕駛、步數及其他資料"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"擁有此權限的應用程式可以存取您的日曆"</string>
@@ -162,8 +174,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> 個無障礙應用程式可以取得您裝置的完整存取權"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"「<xliff:g id="SERVICE_NAME">%s</xliff:g>」可以查看您的螢幕、操作和輸入內容、執行操作以及控制顯示屏。"</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"這些應用程式可以查看您的螢幕、動作和輸入內容、執行動作以及控制顯示屏。"</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"預設小幫手應用程式"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"小幫手應用程式"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"預設數碼助理應用程式"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"數碼助理應用程式"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"小幫手應用程式能根據您正在查看的螢幕資訊提供協助。部分應用程式可同時支援啟動器及語音輸入服務，以提供更全面的協助。"</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"要將 <xliff:g id="APP_NAME">%1$s</xliff:g> 設為預設小幫手應用程式嗎？"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"獲得短訊和通話記錄的存取權"</string>
@@ -244,7 +256,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"突顯以下應用程式的使用情況"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"顯示 Google 助理觸發偵測"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"使用麥克風啟用語音助手時，在狀態列中顯示圖示"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;讀取此裝置的媒體檔案嗎？"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"要允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;存取您裝置上的相片和媒體嗎？"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;存取您的聯絡人嗎？"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;存取此裝置的位置資訊嗎？"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"此應用程式目前只有您在使用時才能存取位置資訊"</string>
@@ -262,6 +274,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;撥打電話和管理通話嗎？"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;存取與您身體機能相關的感應器資料嗎？"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"由管理員控制的權限"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"某個應用程式可存取位置"</string>
-    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"「<xliff:g id="APP_NAME">%s</xliff:g>」現可存取您的位置。請聯絡您的 IT 管理員以瞭解詳情。"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"應用程式可存取位置"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"您的 IT 管理員允許「<xliff:g id="APP_NAME">%s</xliff:g>」存取您的位置"</string>
 </resources>
