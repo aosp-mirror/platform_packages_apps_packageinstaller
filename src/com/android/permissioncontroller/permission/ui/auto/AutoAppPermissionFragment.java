@@ -19,7 +19,6 @@ package com.android.permissioncontroller.permission.ui.auto;
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -45,6 +44,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceViewHolder;
 import androidx.preference.TwoStatePreference;
 
+import com.android.car.ui.AlertDialogBuilder;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.auto.AutoSettingsFrameFragment;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
@@ -778,15 +778,14 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AutoAppPermissionFragment fragment = (AutoAppPermissionFragment) getTargetFragment();
-            AlertDialog.Builder b = new AlertDialog.Builder(getContext())
+            return new AlertDialogBuilder(getContext())
                     .setMessage(getArguments().getInt(MSG))
                     .setNegativeButton(R.string.cancel,
                             (dialog, which) -> fragment.updateUi())
                     .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
                             (dialog, which) ->
-                                    fragment.onDenyAnyWay(getArguments().getInt(CHANGE_TARGET)));
-
-            return b.create();
+                                    fragment.onDenyAnyWay(getArguments().getInt(CHANGE_TARGET)))
+                    .create();
         }
     }
 
