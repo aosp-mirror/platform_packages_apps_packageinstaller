@@ -11,3 +11,5 @@
 -keep class * implements com.android.permissioncontroller.role.model.RoleBehavior {
     *;
 }
+
+-keep class com.android.car.ui.** {*;}
