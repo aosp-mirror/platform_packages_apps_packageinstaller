@@ -142,6 +142,16 @@ object PackageBroadcastReceiver : BroadcastReceiver() {
                 callback.onPackageUpdate(packageName)
             }
         }
+
+        if (intent.action == Intent.ACTION_PACKAGE_REMOVED) {
+            // Invalidate all livedatas associated with this package
+            LightPackageInfoLiveData.invalidateAllForPackage(packageName)
+            PermStateLiveData.invalidateAllForPackage(packageName)
+            PackagePermissionsLiveData.invalidateAllForPackage(packageName)
+            AutoRevokeStateLiveData.invalidateAllForPackage(packageName)
+            LightAppPermGroupLiveData.invalidateAllForPackage(packageName)
+            AppPermGroupUiInfoLiveData.invalidateAllForPackage(packageName)
+        }
     }
 
     /**
