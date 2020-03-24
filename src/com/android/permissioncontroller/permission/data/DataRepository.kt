@@ -41,7 +41,7 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
     private val TIME_THRESHOLD_TIGHT_NANOS: Long = TimeUnit.NANOSECONDS.convert(1, TimeUnit.MINUTES)
     private val TIME_THRESHOLD_ALL_NANOS: Long = 0
 
-    private val data = mutableMapOf<K, V>()
+    protected val data = mutableMapOf<K, V>()
 
     /**
      * Whether or not this data repository has been registered as a component callback yet
@@ -139,6 +139,28 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
                 val time = timeWentInactive ?: return null
                 return System.nanoTime() - time
             }
+    }
+}
+
+/**
+ * A DataRepository where all values are contingent on the existence of a package. Supports
+ * invalidating all values tied to a package. Expects key to be a pair or triple, with the package
+ * name as the first value of the key.
+ */
+abstract class DataRepositoryForPackage<K, V : DataRepository.InactiveTimekeeper>
+    : DataRepository<K, V>() {
+
+    /**
+     * Invalidates every value with the packageName in the key.
+     *
+     * @param packageName The package to be invalidated
+     */
+    fun invalidateAllForPackage(packageName: String) {
+        for (key in data.keys) {
+            if (key is Pair<*, *> || key is Triple<*, *, *> && key.first == packageName) {
+                data.remove(key)
+            }
+        }
     }
 }
 
