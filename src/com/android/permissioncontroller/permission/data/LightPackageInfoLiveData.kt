@@ -117,7 +117,7 @@ class LightPackageInfoLiveData private constructor(
      * <p> Key value is a string package name and UserHandle pair, value is its corresponding
      * LiveData.
      */
-    companion object : DataRepository<Pair<String, UserHandle>,
+    companion object : DataRepositoryForPackage<Pair<String, UserHandle>,
         LightPackageInfoLiveData>() {
         override fun newValue(key: Pair<String, UserHandle>): LightPackageInfoLiveData {
             return LightPackageInfoLiveData(PermissionControllerApplication.get(),
