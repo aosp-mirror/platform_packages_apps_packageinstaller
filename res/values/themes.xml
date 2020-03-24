@@ -77,14 +77,8 @@
            parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
     </style>
 
-    <style name="CarSettings" parent="@android:style/Theme.DeviceDefault.NoActionBar">
-        <item name="preferenceTheme">@style/CarPreferenceTheme</item>
+    <style name="CarSettings" parent="Theme.CarUi">
         <item name="carDividerColor">@*android:color/car_list_divider</item>
-    </style>
-
-    <style name="CarPreferenceTheme">
-        <item name="preferenceFragmentCompatStyle">@style/CarPreferenceFragment</item>
-        <item name="preferenceFragmentListStyle">@style/CarPreferenceFragmentList</item>
     </style>
 
 </resources>
