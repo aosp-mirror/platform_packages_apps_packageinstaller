@@ -151,7 +151,8 @@ class AutoRevokeStateLiveData private constructor(
      * <p> Key value is a pair of string package name and UserHandle, value is its corresponding
      * LiveData.
      */
-    companion object : DataRepository<Pair<String, UserHandle>, AutoRevokeStateLiveData>() {
+    companion object : DataRepositoryForPackage<Pair<String, UserHandle>,
+        AutoRevokeStateLiveData>() {
         override fun newValue(key: Pair<String, UserHandle>): AutoRevokeStateLiveData {
             return AutoRevokeStateLiveData(PermissionControllerApplication.get(),
                 key.first, key.second)
