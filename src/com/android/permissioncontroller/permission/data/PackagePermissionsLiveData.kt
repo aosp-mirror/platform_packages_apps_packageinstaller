@@ -103,7 +103,7 @@ class PackagePermissionsLiveData private constructor(
      * Repository for PackagePermissionsLiveData objects
      * <p> Key value is a string package name and userHandle, value is its corresponding LiveData.
      */
-    companion object : DataRepository<Pair<String, UserHandle>,
+    companion object : DataRepositoryForPackage<Pair<String, UserHandle>,
         PackagePermissionsLiveData>() {
         override fun newValue(key: Pair<String, UserHandle>):
             PackagePermissionsLiveData {

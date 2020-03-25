@@ -189,7 +189,7 @@ class LightAppPermGroupLiveData private constructor(
      * <p> Key value is a triple of string package name, string permission group name, and
      * UserHandle, value is its corresponding LiveData.
      */
-    companion object : DataRepository<Triple<String, String, UserHandle>,
+    companion object : DataRepositoryForPackage<Triple<String, String, UserHandle>,
         LightAppPermGroupLiveData>() {
         override fun newValue(key: Triple<String, String, UserHandle>):
             LightAppPermGroupLiveData {

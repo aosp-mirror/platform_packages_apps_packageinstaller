@@ -107,12 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g> access for this app"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"See all <xliff:g id="APP">%1$s</xliff:g> permissions"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"See all apps with this permission"</string>
-    <string name="auto_revoke_label" msgid="8843908519716851025">"Auto-revoke permissions"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Remove permissions if app isn’t used"</string>
     <string name="auto_revoke_summary" msgid="1842110019199306298">"To protect your data, permissions for this app will be removed if the app isn’t used for a few months."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"To protect your data, if the app hasn’t been used for a few months, the following permissions will be removed: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatic removal is currently disabled for this app."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"No auto-revocable permissions are currently granted"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> permission will be removed."</string>
     <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> and <xliff:g id="PERM_1">%2$s</xliff:g> permissions will be removed."</string>
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Permissions that will be removed: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"Manage permissions automatically"</string>
+    <string name="off" msgid="4561379152328580345">"Off"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"App last opened on <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"Last opened <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apps with this permission can <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apps with this permission can access your physical activity, such as walking, cycling, driving, step count and more"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Apps with this permission can access your calendar"</string>
@@ -155,6 +161,19 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Permission reminders"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> got your location in the background"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"This app can always access your location. Tap to change."</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"App permissions removed to protect privacy"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> hasn’t been used for a few months. Tap to review."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> and one other app haven’t been used for a few months. Tap to review."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> and <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> other apps haven’t been used for a few months. Tap to review."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"One app is unused"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps are unused"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Permissions will be removed to protect your privacy. Tap to review."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"Unused apps"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Permissions removed from"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Permissions will be removed from"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> and <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> and <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> more"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"To protect your data, permissions have been removed from apps that you haven’t used for a few months"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Only while app is in use"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"No permissions allowed"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"No permissions denied"</string>
