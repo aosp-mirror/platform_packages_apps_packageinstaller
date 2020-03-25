@@ -79,8 +79,8 @@ class UserSensitivityLiveData private constructor(
             if (packageLiveDatas.isEmpty() || packageLiveDatas.all { it.value.isInitialized &&
                 it.value.value == null }) {
                 packageLiveDatas.clear()
-                postValue(null)
                 invalidateSingle(uid to user)
+                postValue(null)
                 return
             } else if (!packageLiveDatas.all { it.value.isInitialized }) {
                 return
