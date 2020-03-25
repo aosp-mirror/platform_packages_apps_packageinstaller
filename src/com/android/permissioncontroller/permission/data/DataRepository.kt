@@ -156,7 +156,7 @@ abstract class DataRepositoryForPackage<K, V : DataRepository.InactiveTimekeeper
      * @param packageName The package to be invalidated
      */
     fun invalidateAllForPackage(packageName: String) {
-        for (key in data.keys) {
+        for (key in data.keys.toSet()) {
             if (key is Pair<*, *> || key is Triple<*, *, *> && key.first == packageName) {
                 data.remove(key)
             }
