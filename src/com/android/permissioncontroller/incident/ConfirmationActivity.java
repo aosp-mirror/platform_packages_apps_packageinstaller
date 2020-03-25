@@ -26,11 +26,14 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IncidentManager;
+import android.provider.Settings;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.BulletSpan;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -185,13 +188,18 @@ public class ConfirmationActivity extends Activity implements OnClickListener, O
             }
         }
 
-        new AlertDialog.Builder(this)
+        final AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.incident_report_dialog_title)
                 .setPositiveButton(R.string.incident_report_dialog_allow_label, this)
                 .setNegativeButton(R.string.incident_report_dialog_deny_label, this)
                 .setOnDismissListener(this)
                 .setView(content)
-                .show();
+                .create();
+        if (Settings.canDrawOverlays(this)) {
+            final Window w = dialog.getWindow();
+            w.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        }
+        dialog.show();
     }
 
     /**
