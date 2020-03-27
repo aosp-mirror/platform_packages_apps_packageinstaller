@@ -216,7 +216,6 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         if (getPreferenceScreen() == null) {
             addPreferencesFromResource(R.xml.allowed_denied);
             addAutoRevokePreferences(getPreferenceScreen());
-            logAppPermissionsFragmentView();
             bindUi(this, mPackageName, mUser);
         }
     }
@@ -298,7 +297,7 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         setAutoRevokeToggleState(mViewModel.getAutoRevokeLiveData().getValue());
 
         if (mIsFirstLoad) {
-            logAppPermissionsFragmentView();
+            logAppPermissionGroupsFragmentView();
             mIsFirstLoad = false;
         }
     }
@@ -417,7 +416,7 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         category.addPreference(empty);
     }
 
-    private void logAppPermissionsFragmentView() {
+    private void logAppPermissionGroupsFragmentView() {
         Context context = getPreferenceManager().getContext();
         if (context == null) {
             return;
