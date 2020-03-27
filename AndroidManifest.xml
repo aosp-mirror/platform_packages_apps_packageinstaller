@@ -147,7 +147,7 @@
 
         <activity android:name="com.android.permissioncontroller.permission.ui.OverlayWarningDialog"
                 android:excludeFromRecents="true"
-                android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+                android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert" />
 
         <activity android:name="com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog"
                   android:excludeFromRecents="true"
@@ -290,7 +290,7 @@
         </receiver>
 
         <activity android:name="com.android.permissioncontroller.incident.ConfirmationActivity"
-                android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar"
+                android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert"
                 android:exported="false"
                 android:excludeFromRecents="true"
                 android:noHistory="true" />
