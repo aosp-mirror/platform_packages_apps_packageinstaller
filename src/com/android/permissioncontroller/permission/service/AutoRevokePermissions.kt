@@ -149,6 +149,15 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
     for (stat in stats) {
         var lastTimeVisible: Long = stat.lastTimeVisible
         val pkg = stat.packageName
+
+        // Limit by install time
+        unusedApps.find {
+            it.packageName == pkg
+        }?.let {
+            lastTimeVisible = Math.max(lastTimeVisible, it.firstInstallLime)
+        }
+
+        // Handle cross-profile apps
         if (context.isPackageCrossProfile(pkg)) {
             profileUsersStats
                     .await()
@@ -161,6 +170,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
                     }
         }
 
+        // Threshold check
         if (now - lastTimeVisible <= UNUSED_THRESHOLD_MS) {
             unusedApps.removeAll { it.packageName == pkg }
         }
