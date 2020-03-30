@@ -174,7 +174,7 @@ class GrantRevokeTests {
         }
 
         val pI = LightPackageInfo(TEST_PACKAGE_NAME, listOf(), permNames, permFlags,
-            TEST_UID, targetSdk, isInstantApp, true, 0)
+            TEST_UID, targetSdk, isInstantApp, true, 0, 0L)
         val pGi = LightPermGroupInfo(PERM_GROUP_NAME, TEST_PACKAGE_NAME, 0, 0, 0, false)
         return LightAppPermGroup(pI, pGi, perms, false, false)
     }
