@@ -69,7 +69,7 @@ private suspend fun updateUserSensitiveForUidsInternal(
         jobs.add(GlobalScope.launch(IO) {
             for (pkg in uidState.packages) {
                 for (perm in pkg.requestedPermissions) {
-                    val flags = uidState.permStates[perm] ?: 0
+                    val flags = uidState.permStates[perm] ?: continue
 
                     try {
                         pm.updatePermissionFlags(perm, pkg.packageName, FLAGS_ALWAYS_USER_SENSITIVE,
