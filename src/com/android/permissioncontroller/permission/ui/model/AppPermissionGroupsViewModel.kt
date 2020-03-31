@@ -37,9 +37,9 @@ import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveD
 import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.ui.Category
+import com.android.permissioncontroller.permission.utils.IPC
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -149,7 +149,7 @@ class AppPermissionGroupsViewModel(
     val autoRevokeLiveData = AutoRevokeStateLiveData[packageName, user]
 
     fun setAutoRevoke(enabled: Boolean) {
-        GlobalScope.launch(IO) {
+        GlobalScope.launch(IPC) {
             val aom = PermissionControllerApplication.get()
                 .getSystemService(AppOpsManager::class.java)!!
             val packageInfo = LightPackageInfoLiveData[packageName, user].getInitializedValue()
