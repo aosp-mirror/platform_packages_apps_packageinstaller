@@ -37,9 +37,9 @@ import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveDat
 import com.android.permissioncontroller.permission.data.UserPackageInfosLiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
+import com.android.permissioncontroller.permission.utils.IPC
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -56,7 +56,7 @@ internal object RuntimePermissionsUpgradeController {
         val permissionManager = context.getSystemService(PermissionManager::class.java)
         val currentVersion = permissionManager!!.runtimePermissionsVersion
 
-        GlobalScope.launch(IO) {
+        GlobalScope.launch(IPC) {
             whitelistAllSystemAppPermissions(context)
 
             val upgradedVersion = onUpgradeLocked(context, currentVersion)
