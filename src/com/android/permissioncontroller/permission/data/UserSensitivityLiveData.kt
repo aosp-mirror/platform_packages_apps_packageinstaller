@@ -101,6 +101,8 @@ class UserSensitivityLiveData private constructor(
         // map of <uid, userSensitiveState>
         val sensitiveStatePerUid = mutableMapOf<Int, UidSensitivityState>()
 
+        val runtimePerms = getAllRuntimePermNames()
+
         for (pkg in pkgs) {
             // sensitivityState for one uid
             val userSensitiveState = sensitiveStatePerUid.getOrPut(pkg.uid) {
@@ -110,7 +112,8 @@ class UserSensitivityLiveData private constructor(
 
             val pkgHasLauncherIcon = pkgsWithLauncherIcon.contains(pkg.packageName)
             val pkgIsSystemApp = pkg.appFlags and ApplicationInfo.FLAG_SYSTEM != 0
-            for (perm in pkg.requestedPermissions) {
+            // Iterate through all runtime perms, setting their keys
+            for (perm in pkg.requestedPermissions.intersect(runtimePerms)) {
                 /*
                  * Permissions are considered user sensitive for a package, when
                  * - the package has a launcher icon, or
@@ -154,6 +157,17 @@ class UserSensitivityLiveData private constructor(
             }
         }
         postValue(sensitiveStatePerUid)
+    }
+
+    private suspend fun getAllRuntimePermNames(): Set<String> {
+        val permNames = mutableSetOf<String>()
+        val allGroups = Utils.getPlatformPermissionGroups()
+        allGroups.addAll(CustomPermGroupNamesLiveData.getInitializedValue())
+        for (groupName in allGroups) {
+            val permGroup = PermGroupLiveData[groupName].getInitializedValue() ?: continue
+            permNames.addAll(permGroup.permissionInfos.keys)
+        }
+        return permNames
     }
 
     private fun getAndObservePackageLiveDatas() {
