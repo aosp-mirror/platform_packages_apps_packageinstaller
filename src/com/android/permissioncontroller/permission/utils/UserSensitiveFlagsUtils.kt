@@ -25,7 +25,6 @@ import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.data.UserSensitivityLiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.UidSensitivityState
 import com.android.permissioncontroller.permission.utils.Utils.FLAGS_ALWAYS_USER_SENSITIVE
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.joinAll
@@ -44,7 +43,7 @@ private const val LOG_TAG = "UserSensitiveFlagsUtils"
  * @param callback A callback which will be executed when finished
  */
 fun updateUserSensitiveForUser(user: UserHandle, callback: Runnable) {
-    GlobalScope.launch(IO) {
+    GlobalScope.launch(IPC) {
         // a map of <uid, uid state>
         val uidUserSensitivity = UserSensitivityLiveData[user].getInitializedValue()
         if (uidUserSensitivity == null) {
@@ -66,7 +65,7 @@ private suspend fun updateUserSensitiveForUidsInternal(
     // Apply the update for apps in parallel
     val jobs = mutableListOf<Job>()
     for ((uid, uidState) in uidsUserSensitivity) {
-        jobs.add(GlobalScope.launch(IO) {
+        jobs.add(GlobalScope.launch(IPC) {
             for (pkg in uidState.packages) {
                 for (perm in pkg.requestedPermissions) {
                     val flags = uidState.permStates[perm] ?: 0
@@ -97,7 +96,7 @@ private suspend fun updateUserSensitiveForUidsInternal(
  * @param callback A callback which will be executed when finished
  */
 fun updateUserSensitiveForUid(uid: Int, callback: Runnable) {
-    GlobalScope.launch(IO) {
+    GlobalScope.launch(IPC) {
         val uidSensitivityState = UserSensitivityLiveData[uid].getInitializedValue()
         if (uidSensitivityState != null) {
             updateUserSensitiveForUidsInternal(uidSensitivityState,
