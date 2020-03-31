@@ -18,7 +18,7 @@ package com.android.permissioncontroller.permission.data
 
 import android.os.Handler
 import android.os.Looper
-import kotlinx.coroutines.Dispatchers
+import com.android.permissioncontroller.permission.utils.IPC
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -54,7 +54,7 @@ abstract class SmartAsyncMediatorLiveData<T> : SmartUpdateMediatorLiveData<T>() 
             jobRunning = true
         }
 
-        GlobalScope.launch(Dispatchers.IO) {
+        GlobalScope.launch(IPC) {
             currentJob = coroutineContext[Job]
             loadDataAndPostValue(currentJob!!)
             jobRunning = false
