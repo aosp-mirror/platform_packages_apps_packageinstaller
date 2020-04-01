@@ -133,6 +133,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         return valOne != valTwo
     }
 
+    @MainThread
     fun observeStale(owner: LifecycleOwner, observer: Observer<in T>) {
         val oldStaleObserver = hasStaleObserver()
         staleObservers.add(owner to observer)
@@ -144,38 +145,33 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         }
     }
 
-    @MainThread
     override fun <S : Any?> addSource(source: LiveData<S>, onChanged: Observer<in S>) {
-        // ensureMainThread() //TODO (b/148458939): violated in PackagePermissionsLiveData
-        if (source is SmartUpdateMediatorLiveData) {
-            source.addChild(this, onChanged,
-                staleObservers.isNotEmpty() || children.any { it.third })
-            sources.add(source)
+        GlobalScope.launch(Main.immediate) {
+            if (source is SmartUpdateMediatorLiveData) {
+                source.addChild(this@SmartUpdateMediatorLiveData, onChanged,
+                    staleObservers.isNotEmpty() || children.any { it.third })
+                sources.add(source)
+            }
+            super.addSource(source, onChanged)
         }
-        super.addSource(source, onChanged)
+    }
+
+    override fun <S : Any?> removeSource(toRemote: LiveData<S>) {
+        GlobalScope.launch(Main.immediate) {
+            if (toRemote is SmartUpdateMediatorLiveData) {
+                toRemote.removeChild(this@SmartUpdateMediatorLiveData)
+                sources.remove(toRemote)
+            }
+            super.removeSource(toRemote)
+        }
     }
 
     @MainThread
-    override fun <S : Any?> removeSource(toRemote: LiveData<S>) {
-        if (toRemote is SmartUpdateMediatorLiveData) {
-            toRemote.removeChild(this)
-            sources.remove(toRemote)
-        }
-        super.removeSource(toRemote)
-    }
-
-    fun <S : Any?> postAddSource(source: LiveData<S>, onChanged: Observer<in S>) {
-        GlobalScope.launch(Main) { addSource(source, onChanged) }
-    }
-
-    fun <S : Any?> postRemoveSource(toRemote: LiveData<S>) {
-        GlobalScope.launch(Main) { removeSource(toRemote) }
-    }
-
     private fun <S : Any?> removeChild(liveData: LiveData<S>) {
         children.removeIf { it.first == liveData }
     }
 
+    @MainThread
     private fun <S : Any?> addChild(
         liveData: SmartUpdateMediatorLiveData<S>,
         onChanged: Observer<in T>,
@@ -184,6 +180,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         children.add(Triple(liveData, onChanged, sendStaleUpdates))
     }
 
+    @MainThread
     private fun <S : Any?> updateStaleChildNotify(
         liveData: SmartUpdateMediatorLiveData<S>,
         sendStaleUpdates: Boolean
@@ -195,6 +192,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         }
     }
 
+    @MainThread
     override fun removeObserver(observer: Observer<in T>) {
         val oldStaleObserver = hasStaleObserver()
         staleObservers.removeIf { it.second == observer }
@@ -202,6 +200,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         super.removeObserver(observer)
     }
 
+    @MainThread
     override fun removeObservers(owner: LifecycleOwner) {
         val oldStaleObserver = hasStaleObserver()
         staleObservers.removeIf { it.first == owner }
@@ -209,6 +208,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         super.removeObservers(owner)
     }
 
+    @MainThread
     private fun notifySourcesOnStaleUpdates(oldHasStale: Boolean, newHasStale: Boolean) {
         if (oldHasStale == newHasStale) {
             return
