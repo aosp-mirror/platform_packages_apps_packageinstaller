@@ -226,7 +226,7 @@ public class RequestRoleFragment extends DialogFragment {
         // Postponed to onStart() so that the list view in dialog is created.
         mViewModel = ViewModelProviders.of(this, new RequestRoleViewModel.Factory(mRole,
                 requireActivity().getApplication())).get(RequestRoleViewModel.class);
-        mViewModel.getRoleLiveData().observe(this, mAdapter::replace);
+        mViewModel.getRoleLiveData().observe(this, this::onRoleDataChanged);
         mViewModel.getManageRoleHolderStateLiveData().observe(this,
                 this::onManageRoleHolderStateChanged);
     }
@@ -260,6 +260,12 @@ public class RequestRoleFragment extends DialogFragment {
                 PermissionControllerStatsLog.ROLE_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED,
                 null);
         setDeniedOnceAndFinish();
+    }
+
+    private void onRoleDataChanged(
+            @NonNull List<Pair<ApplicationInfo, Boolean>> qualifyingApplications) {
+        mAdapter.replace(qualifyingApplications);
+        updateUi();
     }
 
     private void onItemClicked(int position) {
@@ -344,8 +350,9 @@ public class RequestRoleFragment extends DialogFragment {
         boolean dontAskAgain = mDontAskAgainCheck != null && mDontAskAgainCheck.isChecked();
         mAdapter.setDontAskAgain(dontAskAgain);
         AlertDialog dialog = getDialog();
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(enabled && (dontAskAgain
-                || !mAdapter.isHolderApplicationChecked()));
+        boolean hasRoleData = mViewModel.getRoleLiveData().getValue() != null;
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(enabled && hasRoleData
+                && (dontAskAgain || !mAdapter.isHolderApplicationChecked()));
         dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(enabled);
     }
 
