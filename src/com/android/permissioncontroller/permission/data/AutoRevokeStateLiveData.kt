@@ -119,13 +119,13 @@ class AutoRevokeStateLiveData private constructor(
         }
 
         for (groupToAdd in toAdd) {
-            postAddSource(permStateLiveDatas[groupToAdd]!!, Observer {
+            addSource(permStateLiveDatas[groupToAdd]!!, Observer {
                 updateIfActive()
             })
         }
 
         for (groupToRemove in toRemove) {
-            postRemoveSource(permStateLiveDatas[groupToRemove]!!)
+            removeSource(permStateLiveDatas[groupToRemove]!!)
             permStateLiveDatas.remove(groupToRemove)
         }
     }
