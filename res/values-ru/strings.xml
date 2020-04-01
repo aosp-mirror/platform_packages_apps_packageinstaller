@@ -109,30 +109,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: доступ для этого приложения"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Все разрешения приложения \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Все приложения с этим разрешением"</string>
-    <!-- no translation found for auto_revoke_label (8755748230070160969) -->
-    <skip />
-    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
-    <skip />
-    <!-- no translation found for auto_revoke_summary_with_permissions (160422052726006109) -->
-    <skip />
-    <!-- no translation found for auto_revoke_disabled (4480748641016277290) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
-    <skip />
-    <!-- no translation found for auto_manage_title (4059499629753336321) -->
-    <skip />
-    <!-- no translation found for off (4561379152328580345) -->
-    <skip />
-    <!-- no translation found for last_opened_summary (8038737442154732) -->
-    <skip />
-    <!-- no translation found for last_opened_summary_short (403134890404955437) -->
-    <skip />
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Отзывать разрешения у неиспользуемых приложений"</string>
+    <string name="auto_revoke_summary" msgid="1842110019199306298">"Для защиты ваших данных мы отзовем разрешения, предоставленные этому приложению, если вы не будете пользоваться им несколько месяцев"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Если вы не будете пользоваться приложением несколько месяцев, в целях защиты ваших данных мы отзовем следующие разрешения: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Для этого приложения отключен автоматический отзыв разрешений."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Сейчас не предоставлено разрешений, которые можно отозвать автоматически"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Разрешение \"<xliff:g id="PERM">%1$s</xliff:g>\" будет отозвано"</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Разрешения \"<xliff:g id="PERM_0">%1$s</xliff:g>\" и \"<xliff:g id="PERM_1">%2$s</xliff:g>\" будут отозваны"</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Разрешения, которые будут отозваны: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"Автоматическое управление разрешениями"</string>
+    <string name="off" msgid="4561379152328580345">"Отключить"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"Вы открывали это приложение <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"Использовалось <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Приложения с этим разрешением могут выполнять следующие действия: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Приложения с этим разрешением могут получить доступ к данным о вашей физической активности, например прогулках, поездках на велосипеде, количестве пройденных шагов и пр."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Приложения с этим разрешением могут получать доступ к календарю."</string>
@@ -183,32 +171,19 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Напоминания о разрешениях"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Приложению \"<xliff:g id="APP_NAME">%s</xliff:g>\" в фоновом режиме доступны геоданные"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"У этого приложения есть постоянный доступ к сведениям о вашем местоположении. Нажмите, чтобы изменить настройки."</string>
-    <!-- no translation found for auto_revoke_after_notification_title (6256474332719286120) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_one (2599193525413390339) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_two (1866307724849983054) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_many (830111995719692890) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_one (5487334486889306216) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_many (1512657862051262697) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_content_one (2070547291547064792) -->
-    <skip />
-    <!-- no translation found for unused_apps_title (4528745145780586943) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_after (7664277360480735253) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_before (6907087239793765525) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_two (8377946866912481356) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_many (3293109339018555084) -->
-    <skip />
-    <!-- no translation found for unused_app_permissions_removed_summary (323483158593998019) -->
-    <skip />
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Разрешения для приложения отозваны в целях защиты данных"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"Вы уже несколько месяцев не пользовались приложением \"<xliff:g id="APP_NAME">%s</xliff:g>\". Нажмите, чтобы посмотреть подробности."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"Вы уже несколько месяцев не пользовались некоторыми приложениями: \"<xliff:g id="APP_NAME">%s</xliff:g>\" и ещё одним. Нажмите, чтобы посмотреть подробности."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"Вы уже несколько месяцев не пользовались некоторыми приложениями: \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" и ещё <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g>. Нажмите, чтобы посмотреть подробности."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 неиспользуемое приложение"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"Неиспользуемых приложений: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Чтобы защитить конфиденциальность ваших данных, разрешения будут отозваны. Нажмите, чтобы посмотреть подробности."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"Неиспользуемые приложения"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Разрешения отозваны у следующих приложений:"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Разрешения будут отозваны у следующих приложений:"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> и <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> и ещё <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"В целях защиты ваших данных мы отозвали разрешения для приложений, которыми вы не пользовались несколько месяцев."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Разрешить только в активном режиме"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Разрешения не предоставлены"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Предоставлены все разрешения"</string>
