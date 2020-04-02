@@ -19,6 +19,7 @@ package com.android.permissioncontroller.permission.data
 import android.app.ActivityManager
 import android.content.ComponentCallbacks2
 import android.content.res.Configuration
+import androidx.annotation.GuardedBy
 import androidx.annotation.MainThread
 import com.android.permissioncontroller.PermissionControllerApplication
 import java.util.concurrent.TimeUnit
@@ -41,7 +42,9 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
     private val TIME_THRESHOLD_TIGHT_NANOS: Long = TimeUnit.NANOSECONDS.convert(1, TimeUnit.MINUTES)
     private val TIME_THRESHOLD_ALL_NANOS: Long = 0
 
+    @GuardedBy("lock")
     protected val data = mutableMapOf<K, V>()
+    protected val lock = Any()
 
     /**
      * Whether or not this data repository has been registered as a component callback yet
@@ -61,7 +64,9 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
      * @return The cached or newly created Value for the given Key
      */
     operator fun get(key: K): V {
-        return data.getOrPut(key) { newValue(key) }
+        synchronized(lock) {
+            return data.getOrPut(key) { newValue(key) }
+        }
     }
 
     /**
@@ -106,13 +111,17 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
     }
 
     fun invalidateSingle(key: K) {
-        data.remove(key)
+        synchronized(lock) {
+            data.remove(key)
+        }
     }
 
     private fun trimInactiveData(threshold: Long) {
-        data.keys.toList().forEach { key ->
-            if (data[key]?.timeInactive?.let { it >= threshold } == true) {
-                data.remove(key)
+        synchronized(lock) {
+            data.keys.toList().forEach { key ->
+                if (data[key]?.timeInactive?.let { it >= threshold } == true) {
+                    data.remove(key)
+                }
             }
         }
     }
@@ -156,9 +165,11 @@ abstract class DataRepositoryForPackage<K, V : DataRepository.InactiveTimekeeper
      * @param packageName The package to be invalidated
      */
     fun invalidateAllForPackage(packageName: String) {
-        for (key in data.keys.toSet()) {
-            if (key is Pair<*, *> || key is Triple<*, *, *> && key.first == packageName) {
-                data.remove(key)
+        synchronized(lock) {
+            for (key in data.keys.toSet()) {
+                if (key is Pair<*, *> || key is Triple<*, *, *> && key.first == packageName) {
+                    data.remove(key)
+                }
             }
         }
     }
