@@ -107,30 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"या अ‍ॅपसाठी <xliff:g id="PERM">%1$s</xliff:g> अ‍ॅक्सेस केला"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"सर्व <xliff:g id="APP">%1$s</xliff:g> परवानग्या पहा"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ही परवानगी असलेली सर्व अ‍ॅप्स पहा"</string>
-    <!-- no translation found for auto_revoke_label (8755748230070160969) -->
-    <skip />
-    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
-    <skip />
-    <!-- no translation found for auto_revoke_summary_with_permissions (160422052726006109) -->
-    <skip />
-    <!-- no translation found for auto_revoke_disabled (4480748641016277290) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
-    <skip />
-    <!-- no translation found for auto_manage_title (4059499629753336321) -->
-    <skip />
-    <!-- no translation found for off (4561379152328580345) -->
-    <skip />
-    <!-- no translation found for last_opened_summary (8038737442154732) -->
-    <skip />
-    <!-- no translation found for last_opened_summary_short (403134890404955437) -->
-    <skip />
+    <string name="auto_revoke_label" msgid="8755748230070160969">"अ‍ॅप वापरले नसल्यास, परवानग्या काढून टाका"</string>
+    <string name="auto_revoke_summary" msgid="1842110019199306298">"काही महिन्यांसाठी ॲप वापरले नसल्यास, तुमचा डेटा संरक्षित करण्यासाठी या अ‍ॅपच्या परवानग्या काढून टाकल्या जातील."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"तुमचा डेटा संरक्षित करण्यासाठी काही महिन्यांपासून अ‍ॅप वापरले नसल्यास, पुढील परवानग्या काढून टाकल्या जातील: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"या अ‍ॅपसाठी ऑटोमॅटिक काढून टाकणे सध्या बंद केले आहे."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"कोणत्याही आपोआप रद्द करण्यायोग्य परवानग्या सध्या मंजूर केलेल्या नाहीत"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> परवानगी काढून टाकली जाईल."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> आणि <xliff:g id="PERM_1">%2$s</xliff:g> परवानग्या काढून टाकल्या जातील."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"परवानग्या काढून टाकल्या जातील: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"परवानग्या आपोआप व्यवस्थापित करा"</string>
+    <string name="off" msgid="4561379152328580345">"बंद करा"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"<xliff:g id="DATE">%s</xliff:g> रोजी ॲप शेवटचे उघडलेले"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"<xliff:g id="DATE">%s</xliff:g> रोजी शेवटचे उघडलेले"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"ही परवानगी असलेली अ‍ॅप्स <xliff:g id="DESCRIPTION">%1$s</xliff:g> करू शकतात"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ही परवानगी असलेली अ‍ॅप्स तुमची शारीरिक अ‍ॅक्टिव्हिटी जसे चालणे, सायकल चालवणे, ड्राइव्ह करणे, किती पावले चाललात ती संख्या आणि आणखी बर्‍याच गोष्टी अ‍ॅक्सेस करू शकतात"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ही परवानगी असलेली अ‍ॅप्स तुमचे कॅलेंडर अ‍ॅक्सेस करू शकतात"</string>
@@ -173,32 +161,19 @@
     <string name="permission_reminders" msgid="8040710767178843151">"परवानगी रिमाइंडर"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ने बॅकग्राउंडमध्ये तुमचे स्थान मिळवले"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"हे अ‍ॅप नेहमी तुमचे स्थान अ‍ॅक्सेस करू शकते. बदलण्यासाठी टॅप करा."</string>
-    <!-- no translation found for auto_revoke_after_notification_title (6256474332719286120) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_one (2599193525413390339) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_two (1866307724849983054) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_many (830111995719692890) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_one (5487334486889306216) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_many (1512657862051262697) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_content_one (2070547291547064792) -->
-    <skip />
-    <!-- no translation found for unused_apps_title (4528745145780586943) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_after (7664277360480735253) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_before (6907087239793765525) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_two (8377946866912481356) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_many (3293109339018555084) -->
-    <skip />
-    <!-- no translation found for unused_app_permissions_removed_summary (323483158593998019) -->
-    <skip />
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"गोपनीयता संरक्षित करण्यासाठी अ‍ॅप परवानग्या काढून टाकल्या"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> काही महिन्यांपासून वापरलेले नाही. परीक्षण करण्यासाठी टॅप करा."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> आणि एक इतर ॲप काही महिन्यांपासून वापरलेले नाही. परीक्षण करण्यासाठी टॅप करा."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> आणि <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> इतर ॲप काही महिन्यांपासून वापरलेले नाही. परीक्षण करण्यासाठी टॅप करा."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"एक ॲप वापरलेले नाही"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ॲप्स वापरलेली नाहीत"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"तुमची गोपनीयता संरक्षित करण्यासाठी परवानग्या काढून टाकल्या जातील. परीक्षण करण्यासाठी टॅप करा."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"न वापरलेली अ‍ॅप्स"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"यामधून परवानग्या काढून टाकल्या आहेत"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"यामधून परवानग्या काढून टाकल्या जातील"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> आणि <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> आणि आणखी <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"तुमचा डेटा संरक्षित करण्यासाठी तुम्ही काही महिन्यांपासून न वापरलेल्या ॲप्सवरून परवानग्या काढून टाकल्या आहेत"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"फक्त अ‍ॅप वापरत असताना"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"कोणत्याही परवानगीची अनुमती नाही"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"कोणत्याही परवानग्या नाकारल्या नाहीत"</string>

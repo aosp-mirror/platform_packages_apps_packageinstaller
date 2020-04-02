@@ -107,25 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"इस ऐप्लिकेशन के लिए <xliff:g id="PERM">%1$s</xliff:g> इस्तेमाल करने की अनुमति"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"सभी <xliff:g id="APP">%1$s</xliff:g> अनुमतियां देखें"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"इस अनुमति वाले सभी ऐप्लिकेशन देखें"</string>
-    <!-- no translation found for auto_revoke_label (8755748230070160969) -->
-    <skip />
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"अगर ऐप्लिकेशन का इस्तेमाल कुछ महीनों तक नहीं किया गया, तो डेटा सुरक्षित रखने के लिए इस ऐप्लिकेशन को दी गई अनुमतियां हटा दी जाएंगी."</string>
-    <!-- no translation found for auto_revoke_summary_with_permissions (160422052726006109) -->
-    <skip />
-    <!-- no translation found for auto_revoke_disabled (4480748641016277290) -->
-    <skip />
+    <string name="auto_revoke_label" msgid="8755748230070160969">"ऐप्लिकेशन का इस्तेमाल न होने पर अनुमतियां हटाएं"</string>
+    <string name="auto_revoke_summary" msgid="1842110019199306298">"अगर ऐप्लिकेशन का इस्तेमाल कुछ महीनों तक नहीं किया गया, तो आपके डेटा को सुरक्षित रखने के लिए इस ऐप्लिकेशन को दी गई अनुमतियां हटा दी जाएंगी."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"अगर ऐप्लिकेशन कुछ महीनों से इस्तेमाल नहीं हुआ है, तो ये अनुमतियां हटा दी जाएंगी. ऐसा आपके निजी डेटा की सुरक्षा के लिए किया जाता है: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"फ़िलहाल, इस ऐप्लिकेशन को अपने-आप नहीं हटाया जा सकता."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"फ़िलहाल, अपने-आप वापस होने वाली कोई भी अनुमति नहीं दी गई है"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> की अनुमति हटा दी जाएगी."</string>
     <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> और <xliff:g id="PERM_1">%2$s</xliff:g> की अनुमतियां हटा दी जाएंगी."</string>
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"वे अनुमतियां जो हटा दी जाएंगी: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <!-- no translation found for auto_manage_title (4059499629753336321) -->
-    <skip />
-    <!-- no translation found for off (4561379152328580345) -->
-    <skip />
-    <!-- no translation found for last_opened_summary (8038737442154732) -->
-    <skip />
-    <!-- no translation found for last_opened_summary_short (403134890404955437) -->
-    <skip />
+    <string name="auto_manage_title" msgid="4059499629753336321">"अपने-आप अनुमतियां प्रबंधित करें"</string>
+    <string name="off" msgid="4561379152328580345">"बंद करें"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"ऐप्लिकेशन पिछली बार <xliff:g id="DATE">%s</xliff:g> को खोला गया था"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"पिछली बार <xliff:g id="DATE">%s</xliff:g> को खोला गया था"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"इस अनुमति वाली ऐप्लिकेशन <xliff:g id="DESCRIPTION">%1$s</xliff:g> कर सकते हैं"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"इसकी अनुमति वाले ऐप्लिकेशन आपकी शारीरिक गतिविधियों की जानकारी ऐक्सेस कर सकते हैं जिसमें चलने, साइकल चलाने, गाड़ी चलाने और कदमों की संख्या जैसी कई जानकारियां शामिल हैं"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"इस अनुमति वाले ऐप्लिकेशन आपके कैलेंडर को ऐक्सेस कर सकते हैं"</string>
@@ -168,32 +161,19 @@
     <string name="permission_reminders" msgid="8040710767178843151">"अनुमति रिमाइंडर"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> अब बैकग्राउंड में आपकी जगह की जानकारी ऐक्सेस कर सकता है"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"यह ऐप्लिकेशन हमेशा आपकी जगह की जानकारी ऐक्सेस कर सकता है. बदलने के लिए टैप करें."</string>
-    <!-- no translation found for auto_revoke_after_notification_title (6256474332719286120) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_one (2599193525413390339) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_two (1866307724849983054) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_many (830111995719692890) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_one (5487334486889306216) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_many (1512657862051262697) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_content_one (2070547291547064792) -->
-    <skip />
-    <!-- no translation found for unused_apps_title (4528745145780586943) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_after (7664277360480735253) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_before (6907087239793765525) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_two (8377946866912481356) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_many (3293109339018555084) -->
-    <skip />
-    <!-- no translation found for unused_app_permissions_removed_summary (323483158593998019) -->
-    <skip />
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"निजता की सुरक्षा के लिए ऐप्लिकेशन की अनुमतियां हटाई गई हैं"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> का कुछ महीनों से इस्तेमाल नहीं किया गया है. देखने के लिए टैप करें."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> और 1 दूसरी ऐप्लिकेशन का कुछ महीनों से इस्तेमाल नहीं किया गया है. देखने के लिए टैप करें."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> और <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> दूसरे ऐप्लिकेशन का कुछ महीनों से इस्तेमाल नहीं किया गया है. देखने के लिए टैप करें."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 ऐप्लिकेशन इस्तेमाल नहीं हुआ है"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ऐप्लिकेशन का इस्तेमाल नहीं हुआ है"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"आपकी निजता की सुरक्षा करने के लिए ऐप्लिकेशन को दी गई अनुमतियां हटा दी जाएंगी. देखने के लिए टैप करें."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"ऐप जिनका इस्तेमाल नहीं हुआ है"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"अनुमतियां हटाई गई हैं"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"इस ऐप्लिकेशन से अनुमतियां हटा दी जाएंगी"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> और <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, और अन्य<xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> अनुमतियां"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"जिन ऐप्लिकेशन का इस्तेमाल कुछ महीनों से नहीं हुआ है उन्हें दी गई अनुमतियां हटा दी गई हैं. ऐसा आपके डेटा को सुरक्षित रखने के लिए किया गया है"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"सिर्फ़ ऐप्लिकेशन इस्तेमाल में होने के दौरान"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"कोई अनुमति नहीं मिली है"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"सभी अनुमतियां मंज़ूर की गई हैं"</string>

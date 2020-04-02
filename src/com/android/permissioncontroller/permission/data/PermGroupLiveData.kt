@@ -50,7 +50,7 @@ class PermGroupLiveData private constructor(
     /**
      * Map<packageName, LiveData<PackageInfo>>
      */
-    private val pkgsUsingGroup = mutableMapOf<String, LightPackageInfoLiveData>()
+    private val packageLiveDatas = mutableMapOf<String, LightPackageInfoLiveData>()
 
     private lateinit var groupInfo: PackageItemInfo
 
@@ -70,11 +70,8 @@ class PermGroupLiveData private constructor(
      * @param liveData the PackageInfoLiveData to be inserted
      */
     private fun addPackageLiveData(packageName: String, liveData: LightPackageInfoLiveData) {
-        if (!pkgsUsingGroup.contains(packageName)) {
-            pkgsUsingGroup[packageName] = liveData
-            addSource(liveData) {
-                updateIfActive()
-            }
+        if (!packageLiveDatas.contains(packageName)) {
+            packageLiveDatas[packageName] = liveData
         }
     }
 
@@ -124,18 +121,25 @@ class PermGroupLiveData private constructor(
         addPackageLiveData(groupInfo.packageName,
             LightPackageInfoLiveData[groupInfo.packageName, UserHandle.SYSTEM])
 
-        val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(packageNames, pkgsUsingGroup)
-        for (packageName in toAdd) {
-            if (!packageNames.contains(packageName)) {
-                addPackageLiveData(groupInfo.packageName,
-                    LightPackageInfoLiveData[packageName, UserHandle.SYSTEM])
+        val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(packageNames, packageLiveDatas)
+        val toAddWithGroupPkg = toAdd.toMutableSet()
+        if (!packageLiveDatas.contains(groupInfo.packageName)) {
+                toAddWithGroupPkg.add(groupInfo.packageName)
             }
-        }
 
         for (packageName in toRemove) {
-            pkgsUsingGroup[packageName]?.let { liveData ->
+            packageLiveDatas[packageName]?.let { liveData ->
+                packageLiveDatas.remove(packageName)
                 removeSource(liveData)
-                pkgsUsingGroup.remove(packageName)
+            }
+        }
+        for (packageName in toAddWithGroupPkg) {
+            packageLiveDatas[packageName] = LightPackageInfoLiveData[packageName, UserHandle.SYSTEM]
+        }
+
+        for (packageName in toAddWithGroupPkg) {
+            addSource(packageLiveDatas[packageName]!!) {
+                onUpdate()
             }
         }
     }

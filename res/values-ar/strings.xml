@@ -113,20 +113,15 @@
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"الاطّلاع على جميع التطبيقات التي لديها هذا الإذن"</string>
     <!-- no translation found for auto_revoke_label (8755748230070160969) -->
     <skip />
-    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
-    <skip />
+    <string name="auto_revoke_summary" msgid="1842110019199306298">"لحماية بياناتك، ستتم إزالة أذونات هذا التطبيق إذا لم يتم استخدامه خلال عدة أشهر."</string>
     <!-- no translation found for auto_revoke_summary_with_permissions (160422052726006109) -->
     <skip />
     <!-- no translation found for auto_revoke_disabled (4480748641016277290) -->
     <skip />
-    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
-    <skip />
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"لا يتم حاليًا منح أذونات قابلة للإلغاء تلقائيًا."</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ستتم إزالة الإذن <xliff:g id="PERM">%1$s</xliff:g>."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"ستتم إزالة إذنَي <xliff:g id="PERM_0">%1$s</xliff:g> و<xliff:g id="PERM_1">%2$s</xliff:g>."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"الأذونات التي ستتم إزالتها: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <!-- no translation found for auto_manage_title (4059499629753336321) -->
     <skip />
     <!-- no translation found for off (4561379152328580345) -->
