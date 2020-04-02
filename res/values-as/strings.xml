@@ -107,30 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"এই এপ্‌টোৰ বাবে <xliff:g id="PERM">%1$s</xliff:g>ৰ এক্সেছ"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"সকলো <xliff:g id="APP">%1$s</xliff:g> অনুমতি চাওক"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"এই অনুমতি থকা সকলো এপ্ চাওক"</string>
-    <!-- no translation found for auto_revoke_label (8755748230070160969) -->
-    <skip />
-    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
-    <skip />
-    <!-- no translation found for auto_revoke_summary_with_permissions (160422052726006109) -->
-    <skip />
-    <!-- no translation found for auto_revoke_disabled (4480748641016277290) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
-    <skip />
-    <!-- no translation found for auto_manage_title (4059499629753336321) -->
-    <skip />
-    <!-- no translation found for off (4561379152328580345) -->
-    <skip />
-    <!-- no translation found for last_opened_summary (8038737442154732) -->
-    <skip />
-    <!-- no translation found for last_opened_summary_short (403134890404955437) -->
-    <skip />
+    <string name="auto_revoke_label" msgid="8755748230070160969">"যদি এপ্‌টো ব্যৱহাৰ কৰা নাই অনুমতিসমূহ আঁতৰাওক"</string>
+    <string name="auto_revoke_summary" msgid="1842110019199306298">"এই এপ্‌টো কেইমাহমানৰ বাবে ব্যৱহাৰ নকৰিলে, আপোনাৰ ডেটা সুৰক্ষিত কৰিবলৈ এই এপ্‌টোৰ বাবে থকা অনুমতিসমূহ আঁতৰোৱা হ’ব।"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"যদি এপ্‌টো কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই, তেন্তে আপোনাৰ ডেটা সুৰক্ষিত কৰিবলৈ তলত উল্লেখ কৰা অনুমতিসমূহ আঁতৰোৱা হ\'ব: <xliff:g id="PERMS">%1$s</xliff:g>।"</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"এই এপ্‌টোৰ বাবে স্বয়ংক্ৰিয়ভাৱে আঁতৰোৱা সুবিধাটো বৰ্তমান অক্ষম কৰা আছে।"</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"স্বয়ংক্ৰিয়ভাৱে প্ৰত্যাহাৰ কৰিব পৰা কোনো অনুমতি সম্প্ৰতি দিয়া হোৱা নাই"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g>ৰ অনুমতি আঁতৰোৱা হ’ব।"</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> আৰু <xliff:g id="PERM_1">%2$s</xliff:g>ৰ অনুমতিসমূহ আঁতৰোৱা হ’ব।"</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"আঁতৰাবলগা অনুমতিসমূহ: <xliff:g id="PERMS">%1$s</xliff:g>।"</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"অনুমতিসমূহ স্বয়ংক্ৰিয়ভাৱে পৰিচালনা কৰক"</string>
+    <string name="off" msgid="4561379152328580345">"অফ আছে"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"এপ্‌টো অন্তিমবাৰ <xliff:g id="DATE">%s</xliff:g>ত খোলা হৈছিল"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"অন্তিমবাৰ <xliff:g id="DATE">%s</xliff:g>ত খোলা হৈছিল"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"অনুমতি থকা এপ্‌সমূহে <xliff:g id="DESCRIPTION">%1$s</xliff:g> কৰিব পাৰে"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"এই অনুমতিটো লাভ কৰা এপে আপোনাৰ শাৰীৰিক কাৰ্যকলাপ, যেনে খোজকঢ়া, বাইক চলোৱা, গাড়ী চলোৱা, পদক্ষেপৰ পৰিমাণ আৰু বহুতো তথ্য এক্সেছ কৰিব পাৰে"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"এই অনুমতি থকা এপ্‌সমূহে আপোনাৰ কেলেণ্ডাৰ এক্সেছ কৰিব পাৰে"</string>
@@ -173,32 +161,19 @@
     <string name="permission_reminders" msgid="8040710767178843151">"অনুমতি বিষয়ক ৰিমাইণ্ডাৰ"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>এ নেপথ্যত আপোনাৰ অৱস্থান লাভ কৰিছে"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"এই এপটোৱে সদায় আপোনাৰ অৱস্থান এক্সেছ কৰিব পাৰে। সলনি কৰিবলৈ টিপক।"</string>
-    <!-- no translation found for auto_revoke_after_notification_title (6256474332719286120) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_one (2599193525413390339) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_two (1866307724849983054) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_many (830111995719692890) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_one (5487334486889306216) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_many (1512657862051262697) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_content_one (2070547291547064792) -->
-    <skip />
-    <!-- no translation found for unused_apps_title (4528745145780586943) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_after (7664277360480735253) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_before (6907087239793765525) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_two (8377946866912481356) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_many (3293109339018555084) -->
-    <skip />
-    <!-- no translation found for unused_app_permissions_removed_summary (323483158593998019) -->
-    <skip />
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"গোপনীয়তা সুৰক্ষিত কৰিবলৈ এপৰ অনুমতিসমূহক আঁতৰোৱা হ\'ল"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই। পর্যালোচনা কৰিবলৈ টিপক।"</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> আৰু অন্য এটা এপ্ কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই। পর্যালোচনা কৰিবলৈ টিপক।"</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> আৰু অন্য <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> টা এপ্ কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই। পর্যালোচনা কৰিবলৈ টিপক।"</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"১ টা এপ্ অব্যৱহৃত"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> টা এপ্ অব্যৱহৃত"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"আপোনাৰ গোপনীয়তা সুৰক্ষিত কৰিবলৈ অনুমতিসমূহ আঁতৰোৱা হ\'ব। পর্যালোচনা কৰিবলৈ টিপক।"</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"অব্যৱহৃত এপ্‌সমূহ"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"ইয়াৰ পৰা অনুমতিসমূহ আঁতৰোৱা হ\'ল"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"ইয়াৰ পৰা অনুমতিসমূহ আঁতৰোৱা হ\'ব"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> আৰু <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> আৰু <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> টা অধিক"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"আপোনাৰ ডেটা সুৰক্ষিত কৰিবলৈ আপুনি কেইমাহমান ব্যৱহাৰ নকৰা এপ্‌টোৰ পৰা অনুমতিসমূহ আঁতৰোৱা হ\'ব"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"কেৱল এপটো ব্যৱহাৰ হৈ থকা সময়ত"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"কোনো অনুমতি দিয়া নাই"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"কোনো অনুমতি প্ৰত্যাখ্যান কৰা নাই"</string>

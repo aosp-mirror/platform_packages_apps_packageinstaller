@@ -108,25 +108,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"Aplikacija ima pristup značajci: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Pogledajte sva dopuštenja aplikacije <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Pogledajte sve aplikacije s tim dopuštenjem"</string>
-    <!-- no translation found for auto_revoke_label (8755748230070160969) -->
-    <skip />
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Ukloni dopuštenja ako se aplikacija ne upotrebljava"</string>
     <string name="auto_revoke_summary" msgid="1842110019199306298">"Ako se aplikacija ne upotrebljava nekoliko mjeseci, dopuštenja za tu aplikaciju bit će uklonjena radi zaštite vaših podataka."</string>
-    <!-- no translation found for auto_revoke_summary_with_permissions (160422052726006109) -->
-    <skip />
-    <!-- no translation found for auto_revoke_disabled (4480748641016277290) -->
-    <skip />
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Radi zaštite vaše privatnosti sljedeća će se dopuštenja ukloniti ako aplikaciju ne upotrebljavate nekoliko mjeseci: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatsko uklanjanje trenutačno je onemogućeno za ovu aplikaciju."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Trenutačno nema dodijeljenih dopuštenja s automatskim opozivom"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Bit će uklonjeno dopuštenje <xliff:g id="PERM">%1$s</xliff:g>."</string>
     <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Bit će uklonjena dopuštenja <xliff:g id="PERM_0">%1$s</xliff:g> i <xliff:g id="PERM_1">%2$s</xliff:g>."</string>
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Dopuštenja koja će biti uklonjena: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <!-- no translation found for auto_manage_title (4059499629753336321) -->
-    <skip />
-    <!-- no translation found for off (4561379152328580345) -->
-    <skip />
-    <!-- no translation found for last_opened_summary (8038737442154732) -->
-    <skip />
-    <!-- no translation found for last_opened_summary_short (403134890404955437) -->
-    <skip />
+    <string name="auto_manage_title" msgid="4059499629753336321">"Automatsko upravljanje dopuštenjima"</string>
+    <string name="off" msgid="4561379152328580345">"Isključeno"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"Aplikacija je posljednji put otvorena <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"Posljednje otvaranje <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacije s tim dopuštenjem mogu <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacije s tim dopuštenjem mogu pristupati podacima o vašim fizičkim aktivnostima kao što su hodanje, vožnja biciklom, vožnja automobila, broj koraka i ostalo"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikacije s tim dopuštenjem mogu pristupiti vašem kalendaru"</string>
@@ -173,32 +166,19 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Podsjetnici za dopuštenja"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Aplikacija <xliff:g id="APP_NAME">%s</xliff:g> pristupa vašoj lokaciji u pozadini"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ova aplikacija može uvijek pristupiti vašoj lokaciji. Dodirnite za promjenu."</string>
-    <!-- no translation found for auto_revoke_after_notification_title (6256474332719286120) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_one (2599193525413390339) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_two (1866307724849983054) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_many (830111995719692890) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_one (5487334486889306216) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_many (1512657862051262697) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_content_one (2070547291547064792) -->
-    <skip />
-    <!-- no translation found for unused_apps_title (4528745145780586943) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_after (7664277360480735253) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_before (6907087239793765525) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_two (8377946866912481356) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_many (3293109339018555084) -->
-    <skip />
-    <!-- no translation found for unused_app_permissions_removed_summary (323483158593998019) -->
-    <skip />
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Dopuštenja aplikacije uklonjena su radi zaštite privatnosti"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"Aplikaciju <xliff:g id="APP_NAME">%s</xliff:g> niste upotrebljavali nekoliko mjeseci. Dodirnite za pregled."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"Aplikaciju <xliff:g id="APP_NAME">%s</xliff:g> i još jednu aplikaciju niste upotrebljavali nekoliko mjeseci. Dodirnite za pregled."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> i još njih <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> niste upotrebljavali nekoliko mjeseci. Dodirnite za pregled."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"Jedna aplikacija se ne upotrebljava"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"Ne upotrebljava se sljedeći broj aplikacija: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Dopuštenja će se ukloniti radi zaštite vaše privatnosti. Dodirnite za pregled."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"Nekorištene aplikacije"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Dopuštenja uklonjena iz"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Dopuštenja će se ukloniti iz"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> i <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> i još <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Radi zaštite vaših podataka iz aplikacija koje nekoliko mjeseci niste upotrebljavali uklonjena su dopuštenja"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Samo dok je aplikacija u upotrebi"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nije odobreno nijedno dopuštenje"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nije odbijeno nijedno dopuštenje"</string>
