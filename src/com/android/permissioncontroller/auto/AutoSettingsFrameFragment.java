@@ -16,6 +16,8 @@
 
 package com.android.permissioncontroller.auto;
 
+import static com.android.car.ui.core.CarUi.getToolbar;
+
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -28,7 +30,6 @@ import androidx.annotation.Nullable;
 import com.android.car.ui.preference.PreferenceFragment;
 import com.android.car.ui.toolbar.MenuItem;
 import com.android.car.ui.toolbar.ToolbarController;
-import com.android.permissioncontroller.R;
 
 import java.util.Collections;
 
@@ -47,7 +48,7 @@ public abstract class AutoSettingsFrameFragment extends PreferenceFragment {
             @Nullable Bundle savedInstanceState) {
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
 
-        mToolbar = rootView.findViewById(R.id.toolbar);
+        mToolbar = getToolbar(requireActivity());
 
         updateHeaderLabel();
         updateLoading();
