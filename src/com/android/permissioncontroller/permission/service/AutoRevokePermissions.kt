@@ -44,9 +44,11 @@ import android.os.UserHandle
 import android.os.UserManager
 import android.permission.PermissionManager
 import android.provider.DeviceConfig
+import android.provider.Settings
 import android.util.Log
 import androidx.annotation.MainThread
 import com.android.permissioncontroller.Constants
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
@@ -80,17 +82,25 @@ import kotlin.random.Random
 private const val LOG_TAG = "AutoRevokePermissions"
 private const val DEBUG = false
 
-private val UNUSED_THRESHOLD_MS = if (DEBUG)
-    SECONDS.toMillis(1)
-else
-    DeviceConfig.getLong(DeviceConfig.NAMESPACE_PERMISSIONS,
-        PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS,
-        DAYS.toMillis(90))
+private val TEAMFOOD_SETTINGS = TeamfoodSettings.get()
 
-private val CHECK_FREQUENCY_MS = DeviceConfig.getLong(
-    DeviceConfig.NAMESPACE_PERMISSIONS,
-    PROPERTY_AUTO_REVOKE_CHECK_FREQUENCY_MILLIS,
-    DAYS.toMillis(1))
+private val DEFAULT_UNUSED_THRESHOLD_MS = DAYS.toMillis(90)
+private val UNUSED_THRESHOLD_MS = when {
+    DEBUG -> SECONDS.toMillis(1)
+    TEAMFOOD_SETTINGS != null -> TEAMFOOD_SETTINGS.unusedThresholdMs
+    else -> DeviceConfig.getLong(DeviceConfig.NAMESPACE_PERMISSIONS,
+            PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS,
+            DEFAULT_UNUSED_THRESHOLD_MS)
+}
+
+private val DEFAULT_CHECK_FREQUENCY_MS = DAYS.toMillis(15)
+private val CHECK_FREQUENCY_MS = when {
+    TEAMFOOD_SETTINGS != null -> TEAMFOOD_SETTINGS.checkFrequencyMs
+    else -> DeviceConfig.getLong(
+            DeviceConfig.NAMESPACE_PERMISSIONS,
+            PROPERTY_AUTO_REVOKE_CHECK_FREQUENCY_MILLIS,
+            DEFAULT_CHECK_FREQUENCY_MS)
+}
 
 private val SERVER_LOG_ID =
     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
@@ -353,3 +363,45 @@ class AutoRevokeService : JobService() {
         return true
     }
 }
+
+private data class TeamfoodSettings(
+    val enabledForPreRApps: Boolean,
+    val unusedThresholdMs: Long,
+    val checkFrequencyMs: Long
+) {
+    companion object {
+        fun get(): TeamfoodSettings? {
+            return Settings.Global.getString(USER_CONTEXT.contentResolver,
+                "auto_revoke_parameters" /* Settings.Global.AUTO_REVOKE_PARAMETERS */)?.let { str ->
+
+                if (DEBUG) {
+                    Log.i(LOG_TAG, "Parsing teamfood setting value: $str")
+                }
+                str.split(",")
+                    .mapNotNull {
+                        val keyValue = it.split("=")
+                        keyValue.getOrNull(0)?.let { key ->
+                            key to keyValue.getOrNull(1)
+                        }
+                    }
+                    .toMap()
+                    .let { pairs ->
+                        TeamfoodSettings(
+                            enabledForPreRApps = pairs["enabledForPreRApps"] == "true",
+                            unusedThresholdMs =
+                                pairs["unusedThresholdMs"]?.toLongOrNull()
+                                        ?: DEFAULT_UNUSED_THRESHOLD_MS,
+                            checkFrequencyMs = pairs["checkFrequencyMs"]?.toLongOrNull()
+                                    ?: DEFAULT_CHECK_FREQUENCY_MS)
+                    }
+            }.also {
+                if (DEBUG) {
+                    Log.i(LOG_TAG, "Parsed teamfood setting value: $it")
+                }
+            }
+        }
+    }
+}
+
+private val APP = PermissionControllerApplication.get()
+private val USER_CONTEXT = APP.forUser(myUserHandle())
