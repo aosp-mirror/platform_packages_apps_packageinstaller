@@ -17,7 +17,6 @@
 package com.android.permissioncontroller.permission.data
 
 import android.app.AppOpsManager
-import android.app.AppOpsManager.MODE_ALLOWED
 import android.app.AppOpsManager.OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED
 import android.app.Application
 import android.content.pm.PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT
@@ -28,6 +27,7 @@ import androidx.lifecycle.Observer
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
 import com.android.permissioncontroller.permission.model.livedatatypes.AutoRevokeState
+import com.android.permissioncontroller.permission.service.isPackageAutoRevokeExempt
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils
 import kotlinx.coroutines.Job
@@ -41,7 +41,7 @@ import java.util.concurrent.TimeUnit
  * @param user The user for whom we want the package
  */
 class AutoRevokeStateLiveData private constructor(
-    app: Application,
+    private val app: Application,
     private val packageName: String,
     private val user: UserHandle
 ) : SmartAsyncMediatorLiveData<AutoRevokeState>(), AppOpsManager.OnOpChangedListener {
@@ -84,8 +84,7 @@ class AutoRevokeStateLiveData private constructor(
             return
         }
 
-        val revocable = appOpsManager.unsafeCheckOpNoThrow(
-            OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED, uid, packageName) == MODE_ALLOWED
+        val revocable = !isPackageAutoRevokeExempt(app, packageLiveData.getInitializedValue())
         val autoRevokeState = mutableListOf<String>()
         permStateLiveDatas.forEach { (groupName, liveData) ->
             val default = liveData.value?.any { (_, permState) ->
