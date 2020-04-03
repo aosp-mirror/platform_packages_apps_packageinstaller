@@ -77,7 +77,7 @@
            parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
     </style>
 
-    <style name="CarSettings" parent="Theme.CarUi">
+    <style name="CarSettings" parent="Theme.CarUi.WithToolbar">
         <item name="carDividerColor">@*android:color/car_list_divider</item>
     </style>
 
