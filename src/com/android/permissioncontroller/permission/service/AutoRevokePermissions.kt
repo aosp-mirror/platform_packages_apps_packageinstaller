@@ -273,6 +273,14 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
     }
 }
 
+suspend fun isPackageAutoRevokeExempt(
+    context: Context,
+    pkg: LightPackageInfo
+) = isPackageAutoRevokeExempt(pkg, withContext(IPC) {
+    context.getSystemService<PermissionManager>()
+            .getAutoRevokeExemptionGrantedPackages()
+})
+
 private suspend fun isPackageAutoRevokeExempt(
     pkg: LightPackageInfo,
     manifestExemptPackages: Set<String>
