@@ -109,18 +109,6 @@
     <string name="app_permission_header" msgid="228974007660007656">"Dovoljenje »<xliff:g id="PERM">%1$s</xliff:g>« za to aplikacijo"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ogled vseh dovoljenj za aplikacijo <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ogled vseh aplikacij s tem dovoljenjem"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"Odstrani dovoljenja, če aplikacija ni v uporabi"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Z namenom zaščite vaših podatkov bodo dovoljenja odstranjena, če aplikacija nekaj mesecev ne bo uporabljena."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Če aplikacije ne uporabljate več mesecev, bodo za zaščito podatkov odstranjena naslednja dovoljenja: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Samodejna odstranitev je trenutno onemogočena za to aplikacijo."</string>
-    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Trenutno ni dodeljeno nobeno samodejno preklicno dovoljenje"</string>
-    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Dovoljenje <xliff:g id="PERM">%1$s</xliff:g> bo odstranjeno."</string>
-    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Dovoljenji <xliff:g id="PERM_0">%1$s</xliff:g> in <xliff:g id="PERM_1">%2$s</xliff:g> bosta odstranjeni."</string>
-    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Dovoljenja, ki bodo odstranjena: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_manage_title" msgid="4059499629753336321">"Samodejno upravljanje dovoljenj"</string>
-    <string name="off" msgid="4561379152328580345">"Izklopi"</string>
-    <string name="last_opened_summary" msgid="8038737442154732">"Aplikacija je bila nazadnje odprta <xliff:g id="DATE">%s</xliff:g>"</string>
-    <string name="last_opened_summary_short" msgid="403134890404955437">"Nazadnje odprto: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacije s tem dovoljenjem imajo te možnosti: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacije s tem dovoljenjem lahko dostopajo do podatkov o vaši telesni dejavnosti, na primer hoji, kolesarjenju, vožnji, številu korakov itd."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikacije s tem dovoljenjem lahko dostopajo do koledarja"</string>
@@ -171,19 +159,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Opomniki za dovoljenja"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Aplikacija <xliff:g id="APP_NAME">%s</xliff:g> je podatek o lokaciji pridobila v ozadju"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ta aplikacija lahko vedno dostopa do vaše lokacije. Dotaknite se, če želite spremeniti dovoljenje."</string>
-    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Dovoljenja za aplikacije odstranjena za zaščito zasebnosti"</string>
-    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"Več mesecev niste uporabljali aplikacije <xliff:g id="APP_NAME">%s</xliff:g>. Dotaknite se za pregled."</string>
-    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"Več mesecev niste uporabljali aplikacije <xliff:g id="APP_NAME">%s</xliff:g> in 1 druge aplikacije. Dotaknite se za pregled."</string>
-    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"Več mesecev niste uporabljali aplikacije <xliff:g id="APP_NAME">%1$s</xliff:g> in več drugih aplikacij (<xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g>). Dotaknite se za pregled."</string>
-    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 neuporabljena aplikacija"</string>
-    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"Več neuporabljenih aplikacij (<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>)"</string>
-    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Dovoljenja bodo odstranjena za zaščito zasebnosti. Dotaknite se za pregled."</string>
-    <string name="unused_apps_title" msgid="4528745145780586943">"Neuporabljene aplikacije"</string>
-    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Dovoljenja so bila odstranjena za:"</string>
-    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Dovoljenja bodo odstranjena za:"</string>
-    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> in <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
-    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> in še <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Za zaščito podatkov so bila dovoljenja za aplikacije, ki jih niste uporabljali več mesecev, odstranjena"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Samo, ko je aplikacija v uporabi"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Aplikacija nima nobenih dovoljenj"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nobeno dovoljenje ni odvzeto"</string>
@@ -197,8 +172,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"Poln dostop do naprave ima toliko aplikacij za ljudi s posebnimi potrebami: <xliff:g id="NUM_SERVICES">%s</xliff:g>"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"Storitev <xliff:g id="SERVICE_NAME">%s</xliff:g> si lahko ogleduje zaslon, dejanja in vnose, izvaja dejanja in upravlja prikaz."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Te aplikacije si lahko ogledujejo zaslon, dejanja in vnose, izvajajo dejanja in upravljajo prikaz."</string>
-    <string name="role_assistant_label" msgid="4296361982493275449">"Privzeti digitalni pomočnik"</string>
-    <string name="role_assistant_short_label" msgid="2965228260285438681">"Digitalni pomočnik"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"Privzeta aplikacija za pomoč"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"Aplikacija za pomoč"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Aplikacije za pomoč vam pomagajo na podlagi podatkov na zaslonu, ki si ga ogledujete. Nekatere aplikacije podpirajo storitve zaganjalnika in glasovnega vnosa pri zagotavljanju integrirane pomoči."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Želite aplikacijo <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviti kot privzeto aplikacijo za pomoč?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Dobi dostop do sporočil SMS in dnevnika klicev"</string>
@@ -279,7 +254,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Izpostavitev uporabe za naslednje"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Prikaz zaznavanja sprožilca za pomočnika"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Prikaz ikone v vrstici stanja, ko z mikrofonom aktivirate glasovnega pomočnika"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Dovolite aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; dostop do fotografij in predstavnosti v napravi?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Želite aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; dovoliti branje datotek predstavnosti v tej napravi?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Dovolite aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; dostop do stikov?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Želite aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; dovoliti dostop do lokacije te naprave?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Aplikacija bo imela dostop do lokacije samo, ko aplikacijo uporabljate"</string>
@@ -297,6 +272,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Dovolite aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; opravljanje in upravljanje telefonskih klicev?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Dovolite aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; dostop do podatkov tipala o vitalnih znakih?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Zunanje upravljana dovoljenja"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Omogočen je dostop do lokacije"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Skrbnik za IT aplikaciji <xliff:g id="APP_NAME">%s</xliff:g> dovoljuje dostop do vaše lokacije"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Ena od aplikacij ima dostop do lokacije"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"Aplikacija <xliff:g id="APP_NAME">%s</xliff:g> ima zdaj dostop do vaše lokacije. Za več informacij se obrnite na skrbnika za IT."</string>
 </resources>

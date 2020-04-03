@@ -107,18 +107,6 @@
     <string name="app_permission_header" msgid="228974007660007656">"Quyền truy cập <xliff:g id="PERM">%1$s</xliff:g> cho ứng dụng này"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Xem tất cả các quyền của <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Xem tất cả ứng dụng có quyền này"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"Thu hồi quyền nếu chưa dùng ứng dụng"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Để bảo vệ dữ liệu của bạn, các quyền cấp cho ứng dụng này sẽ bị xóa nếu bạn không dùng ứng dụng trong vài tháng."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Nhằm bảo vệ dữ liệu của bạn, nếu bạn chưa dùng ứng dụng này trong vài tháng thì các quyền sau đây sẽ bị thu hồi: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Tính năng tự động thu hồi quyền hiện đã bị tắt đối với ứng dụng này."</string>
-    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Không có quyền có thể tự động thu hồi nào đang được cấp"</string>
-    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Quyền <xliff:g id="PERM">%1$s</xliff:g> sẽ bị xóa."</string>
-    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Các quyền <xliff:g id="PERM_0">%1$s</xliff:g> và <xliff:g id="PERM_1">%2$s</xliff:g> sẽ bị xóa."</string>
-    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Các quyền sau sẽ bị xóa: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_manage_title" msgid="4059499629753336321">"Tự động quản lý các quyền"</string>
-    <string name="off" msgid="4561379152328580345">"Tắt"</string>
-    <string name="last_opened_summary" msgid="8038737442154732">"Lần gần đây nhất bạn mở ứng dụng này là vào <xliff:g id="DATE">%s</xliff:g>"</string>
-    <string name="last_opened_summary_short" msgid="403134890404955437">"Lần mở gần đây nhất là vào <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Các ứng dụng có quyền này có thể <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Các ứng dụng có quyền này có thể truy cập vào thông tin về hoạt động thể chất của bạn, như đi bộ, đạp xe, lái xe, số bước và nhiều thông tin khác"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Các ứng dụng có quyền này có thể truy cập vào lịch của bạn"</string>
@@ -161,19 +149,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Lời nhắc về quyền"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> đã truy cập thông tin vị trí của bạn trong nền"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ứng dụng này luôn có thể truy cập vào thông tin vị trí của bạn. Hãy nhấn để thay đổi."</string>
-    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Đã thu hồi các quyền ứng dụng nhằm bảo vệ quyền riêng tư"</string>
-    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"Bạn chưa dùng <xliff:g id="APP_NAME">%s</xliff:g> trong vài tháng. Nhấn để xem lại."</string>
-    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"Bạn chưa dùng <xliff:g id="APP_NAME">%s</xliff:g> và 1 ứng dụng khác trong vài tháng. Nhấn để xem lại."</string>
-    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"Bạn chưa dùng <xliff:g id="APP_NAME">%1$s</xliff:g> và <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> ứng dụng khác trong vài tháng. Nhấn để xem lại."</string>
-    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 ứng dụng chưa dùng đến"</string>
-    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"6 <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ứng dụng chưa dùng đến"</string>
-    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Các quyền sẽ bị thu hồi nhằm bảo vệ quyền riêng tư của bạn. Nhấn để xem lại."</string>
-    <string name="unused_apps_title" msgid="4528745145780586943">"Những ứng dụng chưa dùng đến"</string>
-    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Đã thu hồi các quyền đối với"</string>
-    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Sẽ thu hồi các quyền đối với"</string>
-    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> và <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
-    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> và <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> quyền khác"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Để bảo vệ dữ liệu của bạn, quản trị viên CNTT đã thu hồi các quyền đối với những ứng dụng bạn chưa dùng đến trong vài tháng"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Chỉ khi đang sử dụng ứng dụng"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Chưa cấp quyền nào"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Chưa từ chối quyền nào"</string>
@@ -187,8 +162,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> ứng dụng hỗ trợ tiếp cận có toàn quyền truy cập vào thiết bị của bạn"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> có thể xem màn hình, hành động và dữ liệu nhập của bạn cũng như thực hiện hành động và điều khiển màn hình."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Những ứng dụng này có thể xem màn hình, hành động và dữ liệu nhập của bạn cũng như thực hiện hành động và điều khiển màn hình."</string>
-    <string name="role_assistant_label" msgid="4296361982493275449">"Ứng dụng trợ lý kỹ thuật số mặc định"</string>
-    <string name="role_assistant_short_label" msgid="2965228260285438681">"Ứng dụng trợ lý kỹ thuật số"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"Ứng dụng trợ lý mặc định"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"Ứng dụng trợ lý"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Các ứng dụng trợ lý có thể giúp bạn dựa trên thông tin từ màn hình bạn đang xem. Một số ứng dụng hỗ trợ cả dịch vụ nhập bằng giọng nói và trình chạy để hỗ trợ bạn toàn diện hơn."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng trợ lý mặc định?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Có quyền truy cập vào SMS, nhật ký cuộc gọi"</string>
@@ -269,7 +244,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Hiển thị mức sử dụng của"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Hiển thị tính năng phát hiện trình kích hoạt của Trợ lý"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Hiển thị biểu tượng trong thanh trạng thái khi sử dụng micrô để kích hoạt trợ lý thoại"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Bạn có cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào ảnh và nội dung nghe nhìn trên thiết bị của mình không?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; đọc tệp nội dung nghe nhìn trên thiết bị này?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào danh bạ của bạn?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào thông tin vị trí của thiết bị này?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Ứng dụng này sẽ chỉ có quyền truy cập vào vị trí khi bạn đang sử dụng ứng dụng này"</string>
@@ -286,7 +261,7 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào nhật ký cuộc gọi điện thoại của bạn?"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; thực hiện và quản lý cuộc gọi điện thoại?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào dữ liệu cảm biến về các dấu hiệu sinh tồn của bạn?"</string>
-    <string name="auto_granted_permissions" msgid="5726065128917092357">"Các quyền bị kiểm soát"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Có thể truy cập vào thông tin vị trí"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Quản trị viên CNTT đang cho phép <xliff:g id="APP_NAME">%s</xliff:g> truy cập vào thông tin vị trí của bạn"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"Đã kiểm soát các quyền"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Một ứng dụng có thể truy cập vào vị trí"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> hiện có thể truy cập vào vị trí của bạn. Hãy liên hệ với quản trị viên CNTT để tìm hiểu thêm."</string>
 </resources>

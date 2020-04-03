@@ -107,18 +107,6 @@
     <string name="app_permission_header" msgid="228974007660007656">"Adgang til <xliff:g id="PERM">%1$s</xliff:g> for denne app"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Se alle tilladelser for <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Se alle apps med denne tilladelse"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"Fjern tilladelser, hvis appen ikke bruges"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"For at beskytte dine data fjernes tilladelserne til denne app, hvis appen ikke bruges i et par måneder."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Hvis appen ikke er blevet brugt i et par måneder, fjernes følgende tilladelser af hensyn til beskyttelsen af dine data: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatisk fjernelse er i øjeblikket deaktiveret for denne app."</string>
-    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Der gives i øjeblikket ingen tilladelser, som kan tilbagekaldes automatisk"</string>
-    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Adgangen til <xliff:g id="PERM">%1$s</xliff:g> fjernes."</string>
-    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Adgangen til <xliff:g id="PERM_0">%1$s</xliff:g> og <xliff:g id="PERM_1">%2$s</xliff:g> fjernes."</string>
-    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Tilladelser, der ikke fjernes: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_manage_title" msgid="4059499629753336321">"Administrer automatisk tilladelser"</string>
-    <string name="off" msgid="4561379152328580345">"Fra"</string>
-    <string name="last_opened_summary" msgid="8038737442154732">"Appen blev sidst åbnet <xliff:g id="DATE">%s</xliff:g>"</string>
-    <string name="last_opened_summary_short" msgid="403134890404955437">"Sidst åbnet <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apps med denne tilladelse kan <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apps med denne tilladelse har adgang til dine fysiske aktiviteter, f.eks. hvor meget du har gået, cyklet eller kørt, skridttæller m.m."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Apps med denne tilladelse kan få adgang til din kalender"</string>
@@ -161,19 +149,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Påmindelser om tilladelse"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> har din placering i baggrunden"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Denne app kan altid få adgang til din placering. Tryk for at ændre denne indstilling."</string>
-    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Apptilladelserne blev fjernet for at beskytte dine personlige oplysninger"</string>
-    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> er ikke blevet brugt i et par måneder. Tryk for at gennemgå."</string>
-    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> og 1 anden app er ikke blevet brugt i et par måneder. Tryk for at gennemgå."</string>
-    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> og <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> andre apps er ikke blevet brugt i et par måneder. Tryk for at gennemgå."</string>
-    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 app bruges ikke"</string>
-    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps bruges ikke"</string>
-    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Tilladelserne fjernes for at beskytte dine personlige oplysninger. Tryk for at gennemgå."</string>
-    <string name="unused_apps_title" msgid="4528745145780586943">"Apps, du ikke bruger"</string>
-    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Tilladelserne blev fjernet fra"</string>
-    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Tilladelserne fjernes fra"</string>
-    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> og <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
-    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> og <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> mere"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Tilladelserne til apps, du ikke har brugt i et par måneder, er blevet fjernet af hensyn til beskyttelsen af dine data"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Kun mens appen er i brug"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Der ikke givet nogen tilladelser"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Ingen tilladelser er blevet afvist"</string>
@@ -187,8 +162,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> apps med hjælpefunktioner har fuld adgang til din enhed"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> kan se din skærm, dine handlinger og dine input samt udføre handlinger og styre skærmen"</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Disse apps kan se din skærm, dine handlinger og dine input samt udføre handlinger og styre skærmen."</string>
-    <string name="role_assistant_label" msgid="4296361982493275449">"Standardapp for digital assis."</string>
-    <string name="role_assistant_short_label" msgid="2965228260285438681">"App for digital assistent"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"Standardapp til assistance"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"Assistanceapp"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Assistanceapps kan hjælpe dig på baggrund af oplysningerne på den aktuelle skærm. Nogle apps understøtter både startertjenester og tjenester til indtaling for at give dig integreret assistance."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Vil du angive <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp til assistance?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Appen får adgang til sms-beskeder og opkaldsliste"</string>
@@ -269,7 +244,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Fremhæv brugen af følgende"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Vis aktiveringsregistrering for assistent"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Vis ikon på statusbjælken, når mikrofonen bruges til at aktivere taleassistenten"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; adgang til billeder og medier på din enhed?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tilladelse til at læse denne enheds mediefiler?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; adgang til dine kontakter?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; adgang til enhedens placering?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Appen har kun adgang til placeringen, når du bruger appen"</string>
@@ -287,6 +262,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tilladelse til at foretage og administrere telefonopkald?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Vil du give &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; adgang til sensordata om dine livstegn?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Administrerede tilladelser"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Der er adgang til din placering"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Din it-administrator har givet <xliff:g id="APP_NAME">%s</xliff:g> adgang til din placering"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"En app kan få adgang til din placering"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> kan nu få adgang til din placering. Kontakt din it-administrator for at få flere oplysninger."</string>
 </resources>

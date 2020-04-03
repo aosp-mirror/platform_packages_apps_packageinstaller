@@ -109,18 +109,6 @@
     <string name="app_permission_header" msgid="228974007660007656">"אפליקציה זו יכולה לגשת אל <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"הצגת כל ההרשאות של \'<xliff:g id="APP">%1$s</xliff:g>\'"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"הצגת כל האפליקציות עם ההרשאה הזו"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"יש להסיר הרשאות אם האפליקציה לא נמצאת בשימוש"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"כדי להגן על הנתונים שלך, ההרשאות לאפליקציה זו יוסרו אם לא ייעשה שימוש באפליקציה במשך מספר חודשים."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"כדי להגן על הנתונים שלך, אם האפליקציה לא הייתה בשימוש במשך מספר חודשים, יוסרו ההרשאות הבאות: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_revoke_disabled" msgid="4480748641016277290">"ההסרה האוטומטית מושבתת בשלב זה לאפליקציה הזו."</string>
-    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"אין הרשאות שמוענקות כרגע, שניתנות לביטול אוטומטית"</string>
-    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"הרשאת <xliff:g id="PERM">%1$s</xliff:g> תוסר."</string>
-    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"הרשאות של <xliff:g id="PERM_0">%1$s</xliff:g> ו<xliff:g id="PERM_1">%2$s</xliff:g> יוסרו."</string>
-    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"ההרשאות שיוסרו: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_manage_title" msgid="4059499629753336321">"ניהול הרשאות באופן אוטומטי"</string>
-    <string name="off" msgid="4561379152328580345">"כבוי"</string>
-    <string name="last_opened_summary" msgid="8038737442154732">"האפליקציה נפתחה לאחרונה בתאריך <xliff:g id="DATE">%s</xliff:g>"</string>
-    <string name="last_opened_summary_short" msgid="403134890404955437">"נפתחה לאחרונה: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"אפליקציות עם ההרשאה הזו יכולות <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"אפליקציות עם ההרשאה הזו יכולות לקבל גישה לפעילות הגופנית שלך, למשל הליכה, רכיבה על אופניים, נהיגה, ספירת צעדים ועוד"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"אפליקציות עם ההרשאה הזו יכולות לגשת אל היומן"</string>
@@ -171,19 +159,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"תזכורות להרשאות"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"האפליקציה <xliff:g id="APP_NAME">%s</xliff:g> קיבלה גישה ברקע למיקום שלך"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"האפליקציה הזו יכולה תמיד לגשת למיקום שלך. יש להקיש כדי לשנות הגדרה זו."</string>
-    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"הוסרו הרשאות הניתנות לאפליקציה כדי להגן על הפרטיות"</string>
-    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"כבר כמה חודשים לא נעשה שימוש באפליקציה <xliff:g id="APP_NAME">%s</xliff:g>. יש להקיש כדי לבדוק."</string>
-    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"כבר כמה חודשים לא נעשה שימוש באפליקציה <xliff:g id="APP_NAME">%s</xliff:g> ובאפליקציה אחת נוספת. יש להקיש כדי לבדוק."</string>
-    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"כבר כמה חודשים לא נעשה שימוש באפליקציה <xliff:g id="APP_NAME">%1$s</xliff:g> וב-<xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> אפליקציות נוספות. יש להקיש כדי לבדוק."</string>
-    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"אפליקציה אחת לא נמצאת בשימוש"</string>
-    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> אפליקציות לא נמצאות בשימוש"</string>
-    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"הרשאות יוסרו כדי להגן על הפרטיות שלך. יש להקיש כדי לבדוק."</string>
-    <string name="unused_apps_title" msgid="4528745145780586943">"אפליקציות שמזמן לא השתמשת בהן"</string>
-    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"הרשאות הוסרו מהאפליקציות"</string>
-    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"הרשאות יוסרו מהאפליקציות"</string>
-    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> וגם <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
-    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ועוד <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"כדי להגן על הנתונים שלך, הוסרו הרשאות מאפליקציות שלא השתמשת בהן כבר כמה חודשים"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"רק בזמן שהאפליקציה בשימוש"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"לא ניתנו הרשאות"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"אין הרשאות שנדחו"</string>
@@ -197,8 +172,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"ל-<xliff:g id="NUM_SERVICES">%s</xliff:g> אפליקציות נגישות יש גישה מלאה אל המכשיר שלך"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"השירות <xliff:g id="SERVICE_NAME">%s</xliff:g> יכול להציג את המסך, הפעולות ופריטי הפלט שלך, וכן לבצע פעולות ולשלוט בתצוגה."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"האפליקציות האלה יכולות להציג את המסך, הפעולות והקלט שלך, וכן לבצע פעולות ולשלוט בתצוגה."</string>
-    <string name="role_assistant_label" msgid="4296361982493275449">"אפל\' עוזר דיגיטלי בברירת המחדל"</string>
-    <string name="role_assistant_short_label" msgid="2965228260285438681">"אפליקציית עוזר דיגיטלי"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"אפליקציית ברירת מחדל לעזרה"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"אפליקציית עזרה"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"אפליקציות עזרה יכולות לסייע על סמך המידע שמוצג לך במסך. אפליקציות מסוימות תומכות בשירותי מרכז אפליקציות וגם בקלט קולי כדי לספק סיוע משולב."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"להגדיר את <xliff:g id="APP_NAME">%1$s</xliff:g> בתור אפליקציית העזרה שתשמש כברירת מחדל?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"‏מקבלת גישה אל SMS ויומן שיחות"</string>
@@ -279,7 +254,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"הדגשת השימוש לאפליקציות הבאות"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"‏הצגת הזיהוי של הפעלת ה-Assistant"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"הצגת הסמל בשורת הסטטוס כשהמיקרופון בשימוש לצורך הפעלת האסיסטנט"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; הרשאת גישה לתמונות ולמדיה במכשיר שלך?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"‏לאשר לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; לקרוא את קובצי המדיה של המכשיר הזה?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; הרשאת גישה לאנשי הקשר שלך?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; הרשאת גישה למיקום המכשיר?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"לאפליקציה תהיה גישה אל נתוני המיקום רק בזמן השימוש באפליקציה"</string>
@@ -296,7 +271,7 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; הרשאת גישה ליומני השיחות של הטלפון?"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; הרשאה להתקשרות ולניהול של שיחות טלפון?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; הרשאת גישה לנתוני חיישנים העוקבים אחר הסימנים החיוניים שלך?"</string>
-    <string name="auto_granted_permissions" msgid="5726065128917092357">"הרשאות בבקרה"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"ניתן לגשת למיקום"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"‏לאפליקציה <xliff:g id="APP_NAME">%s</xliff:g> ניתנה הרשאה ממנהל ה-IT לגשת למיקום שלך"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"הרשאות שמבוצעת להן בקרה"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"אפליקציה כלשהי יכולה לקבל גישה למיקום"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"‏לאפליקציה <xliff:g id="APP_NAME">%s</xliff:g> יש עכשיו גישה למיקום שלך. יש לפנות למנהל ה-IT כדי לקבל מידע נוסף."</string>
 </resources>

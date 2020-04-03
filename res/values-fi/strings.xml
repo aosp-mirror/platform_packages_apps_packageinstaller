@@ -107,18 +107,6 @@
     <string name="app_permission_header" msgid="228974007660007656">"Sovellus pyytää käyttöoikeutta: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Näytä kaikki käyttöoikeudet: <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Näytä kaikki sovellukset, joilla on tämä käyttöoikeus"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"Poista luvat, jos sovellusta ei käytetä"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Datan suojaamiseksi tämän sovelluksen käyttöluvat perutaan, jos sovellusta ei käytetä pariin kuukauteen."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Jos sovellusta ei ole käytetty muutamaan kuukauteen, seuraavat luvat poistetaan datasi suojaamiseksi: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automaattinen poisto ei ole tällä hetkellä käytössä tässä sovelluksessa."</string>
-    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Automaattisesti peruutettavia lupia ei ole tällä hetkellä myönnetty"</string>
-    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Seuraava käyttölupa poistetaan: <xliff:g id="PERM">%1$s</xliff:g>."</string>
-    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Seuraavat käyttöluvat poistetaan: <xliff:g id="PERM_0">%1$s</xliff:g> ja <xliff:g id="PERM_1">%2$s</xliff:g>."</string>
-    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Nämä käyttöluvat poistetaan: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_manage_title" msgid="4059499629753336321">"Lupien automaattinen ylläpito"</string>
-    <string name="off" msgid="4561379152328580345">"Pois päältä"</string>
-    <string name="last_opened_summary" msgid="8038737442154732">"Sovellus avattiin viimeksi <xliff:g id="DATE">%s</xliff:g>"</string>
-    <string name="last_opened_summary_short" msgid="403134890404955437">"Avattu viimeksi <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Sovellukset, joilla on tämä käyttöoikeus, voivat <xliff:g id="DESCRIPTION">%1$s</xliff:g>."</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Sovelluksilla, joilla on tämä käyttöoikeus, on pääsy liikuntatietoihisi, kuten kävelyyn, pyöräilyyn, ajamiseen, ja askelmääriin."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Sovelluksilla, joilla on tämä käyttöoikeus, on pääsy kalenteriisi."</string>
@@ -161,19 +149,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Käyttölupamuistutukset"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> sai sijaintitietosi taustalla"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Tämä sovellus voi aina käyttää sijaintiasi. Muuta napauttamalla."</string>
-    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Sovellusten luvat poistettu tietoturvasyistä"</string>
-    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> ei ole ollut käytössä muutamaan kuukauteen. Tarkista napauttamalla."</string>
-    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> ja 1 muu sovellus ei ole ollut käytössä muutamaan kuukauteen. Tarkista napauttamalla."</string>
-    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> ja <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> muuta sovellusta ei ole ollut käytössä muutamaan kuukauteen Tarkista napauttamalla."</string>
-    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 sovellus ei ole käytössä"</string>
-    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> sovellusta ei ole käytössä"</string>
-    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Luvat poistetaan tietoturvasyistä. Tarkista napauttamalla."</string>
-    <string name="unused_apps_title" msgid="4528745145780586943">"Käyttämättömät sovellukset"</string>
-    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Luvat poistettu seuraavilta:"</string>
-    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Luvat poistetaan seuraavilta:"</string>
-    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> ja <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
-    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ja <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> muuta"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Datasi suojaamiseksi luvat on poistettu sovelluksilta, joita et ole käyttänyt muutamaan kuukauteen"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Vain, kun sovellusta käytetään"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Käyttöoikeuksia ei ole myönnetty"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Ei estettyjä käyttöoikeuksia"</string>
@@ -187,8 +162,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> esteettömyyssovelluksella on laitteen täydet käyttöoikeudet"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> voi nähdä näyttösi, toimintasi ja syöttämäsi tiedot, suorittaa toimintoja ja muuttaa näytön asetuksia."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Nämä sovellukset voivat nähdä näyttösi, toimintasi ja syöttämäsi tiedot, suorittaa toimintoja ja muuttaa näytön asetuksia."</string>
-    <string name="role_assistant_label" msgid="4296361982493275449">"Oletus-digiavustajasovellus"</string>
-    <string name="role_assistant_short_label" msgid="2965228260285438681">"Digiavustajasovellus"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"Oletusavustajasovellus"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"Avustajasovellus"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Avustajasovellukset voivat auttaa sinua näytöllä näkyvien tietojen perusteella. Jotkin sovellukset tukevat myös käynnistysohjelma- ja äänisyötepalveluja, joten ne voivat tarjota sinulle integroitua apua."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> oletusarvoiseksi avustajasovellukseksi?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Saa tekstiviestien ja puhelulokin käyttöoikeudet"</string>
@@ -269,7 +244,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Korosta seuraavien käyttö"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Näytä Assistantin käynnistyskomennon havaitseminen"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Näytä tilarivillä kuvake, kun ääniapuri aktivoidaan mikrofonin avulla."</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; käyttää laitteellasi olevia kuvia ja mediaa?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; lukea tämän laitteen mediatiedostoja?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; yhteystietojesi käyttöoikeuden?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tämän laitteen sijainnin käyttöoikeuden?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Sovellus saa sijainnin käyttöoikeuden vain silloin, kun käytät sovellusta"</string>
@@ -287,6 +262,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; soittaa ja hallinnoida puheluita?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; käyttää anturitietoja elintoiminnoistasi?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Automaattisesti myönnetyt käyttöoikeudet"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Sijainnin käyttöoikeus myönnetty"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"<xliff:g id="APP_NAME">%s</xliff:g> on saanut sijaintisi käyttöoikeuden järjestelmänvalvojalta"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Sovellus voi käyttää sijaintia"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> voi nyt käyttää sijaintiasi. Saat lisätietoja järjestelmänvalvojalta."</string>
 </resources>

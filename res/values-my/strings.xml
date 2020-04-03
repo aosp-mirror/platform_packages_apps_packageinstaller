@@ -107,18 +107,6 @@
     <string name="app_permission_header" msgid="228974007660007656">"ဤအက်ပ်အတွက် <xliff:g id="PERM">%1$s</xliff:g> အသုံးပြုခွင့်"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> ခွင့်ပြုချက်အားလုံး ကြည့်ရန်"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်အားလုံးကို ကြည့်ရန်"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"အက်ပ်ကိုအသုံးမပြုလျှင် ခွင့်ပြုချက်များ ဖယ်ရှားရန်"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"အက်ပ်ကို လအနည်းငယ် အသုံးမပြုပါက သင့်ဒေတာကာကွယ်ရန် ဤအက်ပ်အတွက် ခွင့်ပြုချက်များကို ဖယ်ရှားလိုက်ပါမည်။"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"အက်ပ်ကို လအနည်းငယ် အသုံးမပြုပါက သင်၏ဒေတာကို ကာကွယ်ရန် အောက်ပါခွင့်ပြုချက်များကို ဖယ်ရှားပါမည်- <xliff:g id="PERMS">%1$s</xliff:g>။"</string>
-    <string name="auto_revoke_disabled" msgid="4480748641016277290">"ဤအက်ပ်အတွက် အလိုအလျောက်ဖယ်ရှားခြင်းကို လောလောဆယ် ပိတ်လိုက်သည်။"</string>
-    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"လက်ရှိတွင် အလိုအလျောက်ရုပ်သိမ်းနိုင်သော ခွင့်ပြုချက်များကို ပေးမထားပါ"</string>
-    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> ခွင့်ပြုချက်များကို ဖယ်ရှားလိုက်ပါမည်။"</string>
-    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> နှင့် <xliff:g id="PERM_1">%2$s</xliff:g> ခွင့်ပြုချက်များကို ဖယ်ရှားလိုက်ပါမည်။"</string>
-    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"ဖယ်ရှားလိုက်မည့် ခွင့်ပြုချက်များ− <xliff:g id="PERMS">%1$s</xliff:g>။"</string>
-    <string name="auto_manage_title" msgid="4059499629753336321">"ခွင့်ပြုချက်များ အလိုအလျောက် စီမံခြင်း"</string>
-    <string name="off" msgid="4561379152328580345">"ပိတ်ရန်"</string>
-    <string name="last_opened_summary" msgid="8038737442154732">"အက်ပ်ကို <xliff:g id="DATE">%s</xliff:g> တွင် နောက်ဆုံးဖွင့်ခဲ့သည်"</string>
-    <string name="last_opened_summary_short" msgid="403134890404955437">"<xliff:g id="DATE">%s</xliff:g> တွင် နောက်ဆုံး ဖွင့်ခဲ့သည်"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက လမ်းလျှောက်ခြင်း၊ စက်ဘီးစီးခြင်း၊ ကားမောင်းခြင်း၊ ခြေလှမ်းအရေအတွက်နှင့် အခြားအရာများကဲ့သို့ သင့်ကိုယ်လက်လှုပ်ရှားမှုကို ဝင်သုံးနိုင်သည်"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက သင့်ပြက္ခဒိန်ကို ဝင်သုံးနိုင်သည်"</string>
@@ -161,19 +149,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"ခွင့်ပြုချက် သတိပေးမှုများ"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> သည် နောက်ခံတွင် သင့်တည်နေရာကို ရရှိထားသည်"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ဤအက်ပ်က သင်၏တည်နေရာကို အမြဲဝင်ကြည့်နိုင်ပါသည်။ ပြောင်းရန် တို့ပါ။"</string>
-    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"ပုဂ္ဂိုလ်ရေးလုံခြုံစေရန် အက်ပ်ခွင့်ပြုချက်များ ဖယ်လိုက်သည်"</string>
-    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> ကို အသုံးမပြုသည်မှာ လအနည်းငယ် ရှိပါပြီ။ ပြန်ကြည့်ရန် တို့ပါ။"</string>
-    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> နှင့် အခြားအက်ပ် ၁ ခုကို အသုံးမပြုသည်မှာ လအနည်းငယ် ရှိပါပြီ။ ပြန်ကြည့်ရန် တို့ပါ။"</string>
-    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> နှင့် အခြားအက်ပ် <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> ခုကို အသုံးမပြုသည်မှာ လအနည်းငယ် ရှိပါပြီ။ ပြန်ကြည့်ရန် တို့ပါ။"</string>
-    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"အက်ပ် ၁ ခုကို အသုံးမပြုပါ"</string>
-    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"အက်ပ် <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ခုကို အသုံးမပြုပါ"</string>
-    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"သင့်ပုဂ္ဂိုလ်ရေးလုံခြုံမှုကို ကာကွယ်ရန် ခွင့်ပြုချက်များ ဖယ်ရှားပါမည် ပြန်ကြည့်ရန် တို့ပါ။"</string>
-    <string name="unused_apps_title" msgid="4528745145780586943">"အသုံးမပြုသော အက်ပ်များ"</string>
-    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"အောက်ပါအက်ပ်မှ ခွင့်ပြုချက်များ ဖယ်ရှားလိုက်သည်-"</string>
-    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"အောက်ပါအက်ပ်မှ ခွင့်ပြုချက်များ ဖယ်ရှားပါမည်-"</string>
-    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> နှင့် <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
-    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>၊ <xliff:g id="PERM_NAME_1">%2$s</xliff:g> နှင့် နောက်ထပ် <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ခု"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"သင်၏ဒေတာကို ကာကွယ်ရန် လအနည်းငယ်အတွင်း အသုံးမပြုသော အက်ပ်များမှ ခွင့်ပြုချက်များကို ဖယ်ရှားလိုက်သည်"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"အက်ပ်ကို အသုံးပြုနေစဉ်သာ"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ခွင့်ပြုချက်များ ပေးမထားပါ"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"ခွင့်ပြုချက်များကို ငြင်းပယ်မထားပါ"</string>
@@ -187,8 +162,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"အများသုံးစွဲနိုင်မှုဆိုင်ရာ အက်ပ် <xliff:g id="NUM_SERVICES">%s</xliff:g> ခုက သင့်စက်ပစ္စည်းကို အပြည့်အဝ အသုံးပြုခွင့်ရှိသည်"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> သည် သင်၏ မျက်နှာပြင်၊ လုပ်ဆောင်ချက်များ၊ ထည့်သွင်းမှုများကို ကြည့်နိုင်ပြီး လုပ်ဆောင်ချက်များကို ဆောင်ရွက်နိုင်သည့်အပြင် မျက်နှာပြင်သမှုကိုလည်း ထိန်းချုပ်နိုင်သည်။"</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"ဤအက်ပ်များက သင်၏ မျက်နှာပြင်၊ လုပ်ဆောင်ချက်များ၊ ထည့်သွင်းမှုများကို ကြည့်နိုင်ပြီး လုပ်ဆောင်ချက်များကို ဆောင်ရွက်နိုင်သည့်အပြင် မျက်နှာပြင်ပြသမှုကိုလည်း ထိန်းချုပ်နိုင်သည်။"</string>
-    <string name="role_assistant_label" msgid="4296361982493275449">"မူလဒစ်ဂျစ်တယ် assistant အက်ပ်"</string>
-    <string name="role_assistant_short_label" msgid="2965228260285438681">"ဒစ်ဂျစ်တယ် assistant အက်ပ်"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"မူရင်း အကူအညီအက်ပ်"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"အကူအညီ အက်ပ်"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"အကူအညီအက်ပ်များသည် သင်ကြည့်နေသည့် မျက်နှာပြင်မှ အချက်အလက်ကို အခြေခံ၍ ပံ့ပိုးပေးနိုင်ပါသည်။ ဘက်စုံ အထောက်အကူပေးနိုင်ရန်အတွက် အချို့အက်ပ်များသည် စဖွင့်စနစ်နှင့် အသံဖြင့်ထည့်သွင်းဝန်ဆောင်မှု နှစ်ခုလုံးကို ပံ့ပိုးပါသည်။"</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို သင့်မူရင်း အကူအညီအက်ပ်အဖြစ် သတ်မှတ်လိုပါသလား။"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"SMS နှင့် ခေါ်ဆိုမှတ်တမ်းကို ဝင်သုံးခွင့် ရယူသည်"</string>
@@ -269,7 +244,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"အောက်ပါအတွက် အသုံးပြုမှုကို အထူးအသားပေးခြင်း"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Assistant စတင်မှုဆိုင်ရာ သိရှိစနစ်ကို ပြပါ"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"အသံအကူအညီ စတင်ရန် မိုက်ခရိုဖုန်းအသုံးပြုသည့်အခါ သင်္ကေတကို အခြေအနေဘားတွင် ပြပါ"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; အား သင့်စက်ပေါ်ရှိ ဓာတ်ပုံနှင့် မီဒီယာဖိုင်များ ဝင်သုံးခွင့်ပေးလိုပါသလား။"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; အား ဤစက်ပစ္စည်းရှိ မီဒီယာဖိုင်များကို ဖတ်ခွင့်ပြုပါသလား။"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; အား သင်၏အဆက်အသွယ်များကို သုံးခွင့်ပေးလိုပါသလား။"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; အား ဤစက်ပစ္စည်း၏တည်နေရာကို သုံးခွင့်ပေးလိုပါသလား။"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"အက်ပ်ကိုအသုံးပြုသည့် အချိန်တွင်သာ ၎င်းကတည်နေရာကို အသုံးပြုခွင့်ရပါမည်"</string>
@@ -287,6 +262,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ကို ဖုန်းခေါ်ဆိုမှုများ ပြုလုပ်ခွင့်နှင့် စီမံခွင့်ပေးလိုပါသလား။"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; အား သင်၏ အရေးကြီးသောလက္ခဏာ အာရုံခံကိရိယာ ဒေတာများကို သုံးခွင့်ပေးလိုပါသလား။"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"ထိန်းချုပ်ထားသော ခွင့်ပြုချက်များ"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"တည်နေရာကို ဝင်ကြည့်နိုင်သည်"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"သင့် IT စီမံခန့်ခွဲသူက <xliff:g id="APP_NAME">%s</xliff:g> အား သင်၏တည်နေရာကို ဝင်ကြည့်ခွင့်ပြုထားသည်"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"အက်ပ်တစ်ခုသည် တည်နေရာကို သုံးနိုင်သည်"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> က သင့်တည်နေရာကို ယခုသုံးနိုင်ပါပြီ။ ပိုမိုလေ့လာရန် သင်၏ အိုင်တီစီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
 </resources>

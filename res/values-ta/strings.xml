@@ -107,30 +107,6 @@
     <string name="app_permission_header" msgid="228974007660007656">"இந்த ஆப்ஸிற்கு <xliff:g id="PERM">%1$s</xliff:g> அணுகல்"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"அனைத்து <xliff:g id="APP">%1$s</xliff:g> அனுமதிகளையும் காட்டு"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"இந்த அனுமதியைக் கொண்டுள்ள அனைத்து ஆப்ஸையும் காட்டு"</string>
-    <!-- no translation found for auto_revoke_label (8755748230070160969) -->
-    <skip />
-    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
-    <skip />
-    <!-- no translation found for auto_revoke_summary_with_permissions (160422052726006109) -->
-    <skip />
-    <!-- no translation found for auto_revoke_disabled (4480748641016277290) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
-    <skip />
-    <!-- no translation found for auto_manage_title (4059499629753336321) -->
-    <skip />
-    <!-- no translation found for off (4561379152328580345) -->
-    <skip />
-    <!-- no translation found for last_opened_summary (8038737442154732) -->
-    <skip />
-    <!-- no translation found for last_opened_summary_short (403134890404955437) -->
-    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"இந்த அனுமதியைக் கொண்டுள்ள ஆப்ஸால் <xliff:g id="DESCRIPTION">%1$s</xliff:g> செய்ய இயலும்"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"இந்த அனுமதியைக் கொண்டுள்ள ஆப்ஸால் நடத்தல், சைக்கிள் ஓட்டுதல், வாகனம் ஓட்டுதல், படிகளில் ஏறி இறங்குதல் மற்றும் பல உடல்ரீதியான செயல்பாடுகளை அணுக இயலும்"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"இந்த அனுமதியைக் கொண்டுள்ள ஆப்ஸால் உங்கள் கேலெண்டரை அணுக இயலும்"</string>
@@ -173,32 +149,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"அனுமதிக்கான நினைவூட்டல்கள்"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ஆப்ஸ் உங்கள் இருப்பிடத்தைப் பின்புலத்தில் பெற்றது"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"எப்பொழுதும் உங்கள் இருப்பிடத்தை இந்த ஆப்ஸால் பயன்படுத்த இயலும். மாற்றத் தட்டவும்."</string>
-    <!-- no translation found for auto_revoke_after_notification_title (6256474332719286120) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_one (2599193525413390339) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_two (1866307724849983054) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_many (830111995719692890) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_one (5487334486889306216) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_many (1512657862051262697) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_content_one (2070547291547064792) -->
-    <skip />
-    <!-- no translation found for unused_apps_title (4528745145780586943) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_after (7664277360480735253) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_before (6907087239793765525) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_two (8377946866912481356) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_many (3293109339018555084) -->
-    <skip />
-    <!-- no translation found for unused_app_permissions_removed_summary (323483158593998019) -->
-    <skip />
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ஆப்ஸ் உபயோகத்தில் இருக்கும்போது மட்டும்"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"எந்த அனுமதிகளும் வழங்கப்படவில்லை"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"எந்த அனுமதிகளும் மறுக்கப்படவில்லை"</string>
@@ -212,8 +162,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"உங்கள் சாதனத்திற்கான முழு அணுகல் <xliff:g id="NUM_SERVICES">%s</xliff:g> அணுகல்தன்மை ஆப்ஸிற்கு உள்ளது"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"உங்கள் திரை, செயல்கள் மற்றும் உள்ளீடுகளைப் பார்க்கவும், செயல்களை நிறைவேற்றவும், காட்சியைக் கட்டுப்படுத்தவும் <xliff:g id="SERVICE_NAME">%s</xliff:g> சேவையால் இயலும்."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"இந்த ஆப்ஸால் உங்கள் திரை, செயல்கள் மற்றும் உள்ளீடுகளைப் பார்க்கவும், செயல்களை நிறைவேற்றவும், காட்சியைக் கட்டுப்படுத்தவும் இயலும்."</string>
-    <string name="role_assistant_label" msgid="4296361982493275449">"இயல்பான டிஜிட்டல் அசிஸ்டண்ட்"</string>
-    <string name="role_assistant_short_label" msgid="2965228260285438681">"டிஜிட்டல் அசிஸ்டண்ட் ஆப்ஸ்"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"இயல்புநிலை அசிஸ்ட் ஆப்ஸ்"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"அசிஸ்ட் ஆப்ஸ்"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"நீங்கள் பார்க்கும் திரையில் உள்ள தகவலின் அடிப்படையில் அசிஸ்ட் ஆப்ஸ் உதவும். ஒருங்கிணைந்த உதவியை வழங்குவதற்காக \'தொடக்கியையும்\' \'குரல் உள்ளீட்டுச் சேவைகளையும்\' சில ஆப்ஸ் பயன்படுத்துகின்றன."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g>ஐ இயல்பான அசிஸ்ட் ஆப்ஸாக அமைக்கவா?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"மெசேஜ், அழைப்புப் பதிவுக்கான அணுகலைப் பெறும்"</string>
@@ -294,7 +244,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"பின்வருபவற்றின் உபயோகத்தைத் தனிப்படுத்திக் காட்டு"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"அசிஸ்டண்ட் இயக்கப்படுவதைக் கண்டறியும் ஐகானைக் காட்டு"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"குரல் உதவியை இயக்க மைக்ரோஃபோனைப் பயன்படுத்தும்போது நிலைப் பட்டியில் ஐகானைக் காட்டு"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"இந்தச் சாதனத்திலுள்ள படங்களையும் மீடியாவையும் அணுகுவதற்கு &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"இந்த சாதனத்தின் மீடியா ஃபைல்களைப் பார்க்க &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"தொடர்புகளை அணுகுவதற்கு &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"இந்தச் சாதனத்தின் இருப்பிடத்தை அணுகுவதற்கு &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"இந்த ஆப்ஸை நீங்கள் உபயோகிக்கும்போது மட்டுமே இருப்பிடத்தை அணுகும்"</string>
@@ -311,7 +261,10 @@
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"உங்கள் மொபைல் அழைப்புப் பதிவுகளை அணுக, &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"மொபைல் அழைப்புகள் செய்யவும், அவற்றை நிர்வகிக்கவும், &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"உங்கள் உடலியக்கக் குறிகள் பற்றிய சென்சார் தரவை அணுகுவதற்கு &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
-    <string name="auto_granted_permissions" msgid="5726065128917092357">"கட்டுப்படுத்தப்பட்ட அனுமதிகள்"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"இருப்பிடத்தை அணுகலாம்"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"<xliff:g id="APP_NAME">%s</xliff:g> ஆப்ஸ் உங்கள் இருப்பிடத்தை அணுக உங்கள் IT நிர்வாகி அனுமதித்துள்ளார்"</string>
+    <!-- no translation found for auto_granted_permissions (5726065128917092357) -->
+    <skip />
+    <!-- no translation found for auto_granted_location_permission_notification_title (5058977868989759266) -->
+    <skip />
+    <!-- no translation found for auto_granted_permission_notification_body (6650181834574213734) -->
+    <skip />
 </resources>

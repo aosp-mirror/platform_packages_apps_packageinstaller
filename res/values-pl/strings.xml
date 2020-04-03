@@ -109,18 +109,6 @@
     <string name="app_permission_header" msgid="228974007660007656">"Dostęp aplikacji do: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Zobacz wszystkie uprawnienia aplikacji <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Wyświetl wszystkie aplikacje z tymi uprawnieniami"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"Usuń uprawnienia, jeśli aplikacja jest nieużywana"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Aby chronić Twoje dane, usuniemy uprawnienia tej aplikacji, jeśli nie będzie używana przez kilka miesięcy."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Aby chronić Twoje dane, usuniemy te uprawnienia, jeśli aplikacja nie będzie używana przez kilka miesięcy: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatyczne usuwanie jest obecnie wyłączone w przypadku tej aplikacji."</string>
-    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Obecnie nie są przyznane żadne uprawnienia, które można anulować automatycznie"</string>
-    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"To uprawnienie zostanie usunięte: <xliff:g id="PERM">%1$s</xliff:g>."</string>
-    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Te uprawnienia zostaną usunięte: <xliff:g id="PERM_0">%1$s</xliff:g> i <xliff:g id="PERM_1">%2$s</xliff:g>."</string>
-    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Uprawnienia, które zostaną usunięte: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_manage_title" msgid="4059499629753336321">"Automatyczne zarządzanie uprawnieniami"</string>
-    <string name="off" msgid="4561379152328580345">"Wyłącz"</string>
-    <string name="last_opened_summary" msgid="8038737442154732">"Aplikacja została ostatnio otwarta <xliff:g id="DATE">%s</xliff:g>"</string>
-    <string name="last_opened_summary_short" msgid="403134890404955437">"Ostatnio otwarto <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacje z tymi uprawnieniami mają <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacje z tymi uprawnieniami mają dostęp do danych o Twojej aktywności fizycznej takiej jak spacery, jazda na rowerze, jazda samochodem, liczba kroków i inne"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikacje z tymi uprawnieniami mają dostęp do kalendarza"</string>
@@ -171,19 +159,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Przypomnienia o uprawnieniach"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Aplikacja <xliff:g id="APP_NAME">%s</xliff:g> uzyskała dostęp do Twojej lokalizacji w tle"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ta aplikacja może zawsze uzyskać dostęp do Twojej lokalizacji. Kliknij, by to zmienić."</string>
-    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Usunięto uprawnienia aplikacji, by chronić prywatność"</string>
-    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"Aplikacja <xliff:g id="APP_NAME">%s</xliff:g> nie była używana od kilku miesięcy. Kliknij, by sprawdzić."</string>
-    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"Aplikacja <xliff:g id="APP_NAME">%s</xliff:g> i 1 inna aplikacja nie były używane od kilku miesięcy. Kliknij, by sprawdzić."</string>
-    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"Aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> i inne aplikacje (<xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g>) nie były używane od kilku miesięcy. Kliknij, by sprawdzić."</string>
-    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 aplikacja jest nieużywana"</string>
-    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"Nieużywane aplikacje (<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>)"</string>
-    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Usuniemy uprawnienia, by chronić Twoją prywatność. Kliknij, by sprawdzić."</string>
-    <string name="unused_apps_title" msgid="4528745145780586943">"Nieużywane aplikacje"</string>
-    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Usunięto uprawnienia:"</string>
-    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Zostaną usunięte uprawnienia:"</string>
-    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> i <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
-    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> i jeszcze <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Aby chronić Twoje dane, usunęliśmy uprawnienia aplikacji, których nie używano od kilku miesięcy"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Tylko podczas używania aplikacji"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nie przyznano żadnych uprawnień"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nie odmówiono żadnych uprawnień"</string>
@@ -197,8 +172,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"Usługi ułatwień dostępu (<xliff:g id="NUM_SERVICES">%s</xliff:g>) mają pełny dostęp do urządzenia"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"Usługa <xliff:g id="SERVICE_NAME">%s</xliff:g> może wyświetlać ekran, działania i wprowadzane dane, wykonywać działania i zarządzać wyświetlaczem."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Te aplikacje mogą wyświetlać ekran wprowadzane dane, wyświetlać oraz wykonywać działania i zarządzać wyświetlaczem."</string>
-    <string name="role_assistant_label" msgid="4296361982493275449">"Domyślny asystent cyfrowy"</string>
-    <string name="role_assistant_short_label" msgid="2965228260285438681">"Aplikacja asystent cyfrowy"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"Domyślna aplikacja asystująca"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"Aplikacja asystująca"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Aplikacje asystujące mogą Ci pomagać na podstawie informacji wyświetlanych na ekranie, który oglądasz. Niektóre aplikacje obsługują programy uruchamiające i usługi rozpoznawania mowy, by zapewnić Ci zintegrowane wsparcie."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Czy aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> ma być domyślną aplikacją asystującą?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Otrzymuje dostęp do SMS-ów, rejestru połączeń"</string>
@@ -279,7 +254,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Wyróżnij informacje o użyciu uprawnień przez"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Pokaż wykrywanie wyzwalacza Asystenta"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Pokaż ikonę na pasku stanu, gdy używany jest mikrofon do uruchomienia asystenta głosowego"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Zezwolić aplikacji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; na dostęp do zdjęć i multimediów na urządzeniu?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Zezwolić aplikacji „<xliff:g id="APP_NAME">%1$s</xliff:g>” na odczyt multimediów na tym urządzeniu?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Zezwolić aplikacji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; na dostęp do kontaktów?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Zezwolić aplikacji „<xliff:g id="APP_NAME">%1$s</xliff:g>” na dostęp do lokalizacji urządzenia?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Aplikacja będzie mieć dostęp do lokalizacji tylko wtedy, gdy będzie używana"</string>
@@ -297,6 +272,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Zezwolić aplikacji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; na wykonywanie połączeń telefonicznych i zarządzanie nimi?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Zezwolić aplikacji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; na dostęp do danych z czujnika podstawowych funkcji życiowych?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Pozwolenia kontrolowane"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Można użyć lokalizacji"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Administrator IT zezwala aplikacji <xliff:g id="APP_NAME">%s</xliff:g> na dostęp do Twojej lokalizacji"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Aplikacja może używać lokalizacji"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> może teraz używać lokalizacji Więcej informacji udzieli Ci administrator IT"</string>
 </resources>

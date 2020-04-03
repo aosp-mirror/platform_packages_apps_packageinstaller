@@ -107,18 +107,6 @@
     <string name="app_permission_header" msgid="228974007660007656">"Akses <xliff:g id="PERM">%1$s</xliff:g> untuk apl ini"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Lihat semua kebenaran <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Lihat semua apl dengan kebenaran ini"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"Alih keluar kebenaran jika apl tidak digunakan"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Untuk melindungi data anda, kebenaran untuk apl ini akan dialih keluar jika apl tidak digunakan selama beberapa bulan."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Untuk melindungi data anda, jika apl tidak digunakan selama beberapa bulan, kebenaran berikut akan dialih keluar: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Pengalihan keluar automatik dilumpuhkan pada masa ini untuk apl ini."</string>
-    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Tiada kebenaran yang boleh dibatalkan secara automatik dibenarkan pada masa ini"</string>
-    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> kebenaran dialih keluar."</string>
-    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> dan <xliff:g id="PERM_1">%2$s</xliff:g> kebenaran akan dialih keluar."</string>
-    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Kebenaran yang akan dialih keluar: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_manage_title" msgid="4059499629753336321">"Urus kebenaran secara automatik"</string>
-    <string name="off" msgid="4561379152328580345">"Mati"</string>
-    <string name="last_opened_summary" msgid="8038737442154732">"Apl dibuka kali terakhir pada <xliff:g id="DATE">%s</xliff:g>"</string>
-    <string name="last_opened_summary_short" msgid="403134890404955437">"Terakhir dibuka <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apl dengan kebenaran ini boleh <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apl dengan kebenaran ini boleh mengakses aktiviti fizikal anda, seperti berjalan, berbasikal, memandu, kiraan langkah dan pelbagai lagi"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Apl dengan kebenaran ini boleh mengakses kalendar anda"</string>
@@ -161,19 +149,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Peringatan kebenaran"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> mendapat lokasi anda di latar belakang"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Apl ini boleh mengakses lokasi anda pada setiap masa. Ketik untuk menukar."</string>
-    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Kebenaran apl dialih keluar untuk melindungi privasi"</string>
-    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> tidak digunakan selama beberapa bulan. Ketik untuk menyemak."</string>
-    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> dan 1 apl lain tidak digunakan selama beberapa bulan. Ketik untuk menyemak."</string>
-    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> dan <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> apl lain belum digunakan selama beberapa bulan. Ketik untuk menyemak."</string>
-    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 apl tidak digunakan"</string>
-    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apl tidak digunakan"</string>
-    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Kebenaran akan dialih keluar untuk melindungi privasi anda. Ketik untuk menyemak."</string>
-    <string name="unused_apps_title" msgid="4528745145780586943">"Apl yang tidak digunakan"</string>
-    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Kebenaran dialih keluar daripada"</string>
-    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Kebenaran akan dialih keluar daripada"</string>
-    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> dan <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
-    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> dan <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> lagi"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Untuk melindungi data anda, kebenaran telah dialih keluar daripada apl yang tidak anda gunakan selama beberapa bulan."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Hanya semasa apl sedang digunakan"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Tiada kebenaran dibenarkan"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Tiada kebenaran ditolak"</string>
@@ -187,8 +162,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> apl kebolehaksesan mempunyai akses penuh kepada peranti anda"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> dapat melihat skrin, tindakan dan input anda, melaksanakan tindakan serta mengawal paparan."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Apl ini dapat melihat skrin, tindakan dan input anda, melaksanakan tindakan serta mengawal paparan."</string>
-    <string name="role_assistant_label" msgid="4296361982493275449">"Apl pembantu digital lalai"</string>
-    <string name="role_assistant_short_label" msgid="2965228260285438681">"Apl pembantu digital"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"Apl bantu lalai"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"Apl bantu"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Apl bantu dapat membantu anda berdasarkan maklumat daripada skrin yang sedang dilihat. Sesetengah apl menyokong perkhidmatan pelancar dan input suara untuk memberi anda bantuan bersepadu."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai apl bantu lalai anda?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Mendapat akses kepada SMS, log panggilan"</string>
@@ -269,7 +244,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Serlahkan penggunaan untuk item berikut"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Tunjukkan pengesanan cetusan Assistant"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Tunjukkan ikon dalam bar status apabila mikrofon digunakan untuk mengaktifkan pembantu suara"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Benarkan &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; mengakses foto dan media pada peranti anda?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Benarkan &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; membaca fail media peranti ini?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Benarkan &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; mengakses kenalan anda?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Benarkan &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; mengakses lokasi peranti ini?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Apl ini hanya dapat mengakses lokasi semasa anda menggunakan apl tersebut"</string>
@@ -287,6 +262,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Benarkan &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; membuat dan mengurus panggilan telefon?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Benarkan &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; mengakses data penderia tentang tanda vital anda?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Kebenaran terkawal"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Lokasi dapat diakses"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Pentadbir IT anda membenarkan <xliff:g id="APP_NAME">%s</xliff:g> mengakses lokasi anda"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Satu apl boleh mengakses lokasi"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"Kini, <xliff:g id="APP_NAME">%s</xliff:g> boleh mengakses lokasi anda. Hubungi pentadbir IT anda untuk mengetahui lebih lanjut."</string>
 </resources>

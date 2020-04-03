@@ -107,18 +107,6 @@
     <string name="app_permission_header" msgid="228974007660007656">"यस अनुप्रयोगमाथि <xliff:g id="PERM">%1$s</xliff:g> पहुँच"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> का सबै अनुमतिहरू हेर्नुहोस्"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"यो अनुमति पाएका सबै अनुप्रयोगहरू हेर्नुहोस्"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"अनुप्रयोग प्रयोग भएको छैन भने त्यसलाई दिइएका अनुमतिहरू रद्द गरियोस्"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"तपाईंको डेटाको सुरक्षा गर्न यो अनुप्रयोग केही महिना प्रयोग नगरिएका खण्डमा यो अनुप्रयोगलाई दिइएका अनुमतिहरू हटाइने छन्।"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"तपाईंले यो अनुप्रयोग केही महिनादेखि प्रयोग गर्नुभएको छैन भने तपाईंका डेटाको सुरक्षार्थ निम्न अनुमतिहरू रद्द गरिने छन्: <xliff:g id="PERMS">%1$s</xliff:g>।"</string>
-    <string name="auto_revoke_disabled" msgid="4480748641016277290">"यो अनुप्रयोगलाई दिइएका अनुमतिहरू हाल स्वतः रद्द गर्न मिल्दैन।"</string>
-    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"हाल स्वतः रद्द गर्न सकिने खालको कुनै पनि अनुमति दिइएको छैन"</string>
-    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> सम्बन्धी अनुमति हटाइने छ।"</string>
-    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> र <xliff:g id="PERM_1">%2$s</xliff:g> सम्बन्धी अनुमतिहरू हटाइने छन्।"</string>
-    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"निम्न अनुमतिहरू हटाइने छन्: <xliff:g id="PERMS">%1$s</xliff:g>।"</string>
-    <string name="auto_manage_title" msgid="4059499629753336321">"अनुमतिहरू स्वतः व्यवस्थापन गरियोस्"</string>
-    <string name="off" msgid="4561379152328580345">"निष्क्रिय"</string>
-    <string name="last_opened_summary" msgid="8038737442154732">"यो अनुप्रयोग पछिल्लो पटक <xliff:g id="DATE">%s</xliff:g> मा खोलिएको थियो"</string>
-    <string name="last_opened_summary_short" msgid="403134890404955437">"पछिल्लो पटक <xliff:g id="DATE">%s</xliff:g> मा खोलिएको थियो"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"यो अनुमति पाएका अनुप्रयोगहरूले निम्न कार्य गर्न सक्छन् <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"यो अनुमति भएका अनुप्रयोगहरूले तपाईंको हिँड्ने, साइकल चलाउने, गाडी चलाउने, पाइला गन्नेलगायत थप कुराहरूमाथि पहुँच राख्न सक्छन्"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"यो अनुमति पाएका अनुप्रयोगहरूले तपाईंको पात्रोमाथि पहुँच गर्न सक्छन्"</string>
@@ -161,19 +149,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"अनुमतिसम्बन्धी रिमाइन्डरहरू"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ले पृष्ठभूमिमा तपाईंको स्थानमाथिको पहुँच प्राप्त गर्‍यो"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"यो अनुप्रयोगले सधैँ तपाईंको स्थान प्रयोग गर्न सक्छ। बदल्न ट्याप गर्नुहोस्‌।"</string>
-    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"गोपनीयताको संरक्षण गर्न अनुप्रयोगलाई दिइएका अनुमति रद्द गरिए"</string>
-    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"केही महिनादेखि <xliff:g id="APP_NAME">%s</xliff:g> प्रयोग भएको छैन। समीक्षा गर्न ट्याप गर्नुहोस्।"</string>
-    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"केही महिनादेखि <xliff:g id="APP_NAME">%s</xliff:g> र अर्को १ अनुप्रयोग प्रयोग भएका छैनन्। समीक्षा गर्न ट्याप गर्नुहोस्।"</string>
-    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"केही महिनादेखि <xliff:g id="APP_NAME">%1$s</xliff:g> र अन्य <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> अनुप्रयोगहरू प्रयोग भएका छैनन्। समीक्षा गर्न ट्याप गर्नुहोस्।"</string>
-    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"१ अनुप्रयोग प्रयोग भएको छैन"</string>
-    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> अनुप्रयोगहरू प्रयोग भएका छैनन्"</string>
-    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"तपाईंको गोपनीयताको संरक्षण गर्न अनुमतिहरू रद्द गरिने छन्। समीक्षा गर्न ट्याप गर्नुहोस्।"</string>
-    <string name="unused_apps_title" msgid="4528745145780586943">"प्रयोग नगरिएका अनुप्रयोगहरू"</string>
-    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"निम्न अनुप्रयोगलाई दिइएका अनुमतिहरू रद्द गरिए:"</string>
-    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"निम्न अनुप्रयोगलाई दिइएका अनुमतिहरू रद्द गरिने छन्:"</string>
-    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> र <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
-    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> र थप <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"तपाईंका डेटाको सुरक्षार्थ तपाईंले केही महिनादेखि प्रयोग गर्न छाड्नुभएका अनुप्रयोगलाई दिइएका अनुमतिहरू रद्द गरिएका छन्"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"अनुप्रयोग प्रयोगमा भएको बेला मात्र"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"कुनै पनि अनुमति छैन"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"कुनै पनि अनुमति अस्वीकार गरिएको छैन"</string>
@@ -187,8 +162,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"पहुँचसम्बन्धी <xliff:g id="NUM_SERVICES">%s</xliff:g> अनुप्रयोगहरूले तपाईंको यन्त्रमाथि पूर्ण रूपमा पहुँच राख्न सक्छन्"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ले तपाईंको स्क्रिन, कारबाही र इनपुट हेर्न, कारबाहीहरू गर्न र डिस्प्ले नियन्त्रण गर्न सक्छ।"</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"यी अनुप्रयोगहरूले तपाईंको स्क्रिन, कारबाही र इनपुट हेर्न, कारबाहीहरू सम्पादन गर्न र प्रदर्शन नियन्त्रण गर्न सक्छन्।"</string>
-    <string name="role_assistant_label" msgid="4296361982493275449">"पूर्वनिर्धारित डिजिटल सहायक अनुप्रयोग"</string>
-    <string name="role_assistant_short_label" msgid="2965228260285438681">"डिजिटल सहायक अनुप्रयोग"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"पूर्वनिर्धारित सहायक अनुप्रयोग"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"सहायक अनुप्रयोग"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"सहायक अनुप्रयोगहरूले तपाईंले हेर्दै गर्नुभएको स्क्रिनबाट प्राप्त जानकारीमा आधारित भई तपाईंलाई मद्दत गर्न सक्छन्।केही अनुप्रयोगहरूले तपाईंलाई एकीकृत सहायता दिन दुवै लन्चर र आवाज संलग्न इनपुट सेवाहरूलाई समर्थन गर्दछन्।"</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"तपाईंको पूर्वनिर्धारित सहायक अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"यसले SMS र कल लगमाथि पहुँच प्राप्त गर्छ"</string>
@@ -269,7 +244,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"निम्न अनुप्रयोगको प्रयोगसम्बन्धी जानकारी हाइलाइट गर्नुहोस्"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"सहायक ट्रिगर भएको पत्ता लागेमा सो कुरा देखाउनुहोस्"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"आवाज सहायक सक्रिय गर्न माइक्रोफोनको प्रयोग गरिँदा वस्तुस्थिति पट्टीमा आइकन देखाउनुहोस्"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई आफ्नो यन्त्रका तस्बिर र मिडियामाथि पहुँच राख्न दिने हो?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई यो यन्त्रका मिडियासम्बन्धी फाइलहरू पढ्न दिने हो?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई तपाईंका सम्पर्क ठेगानाहरूमाथि पहुँच राख्न दिने हो?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई यो यन्त्रको स्थानमाथि पहुँच राख्न दिने हो?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"तपाईंले अनुप्रयोग प्रयोग गरिरहेका बेला मात्र उक्त अनुप्रयोगले स्थानमाथि पहुँच राख्न सक्ने छ"</string>
@@ -287,6 +262,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई फोन कलहरू गर्न र तिनीहरूको व्यवस्थापन गर्न दिने हो?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई आफ्ना महत्त्वपूर्ण लक्षणहरूसम्बन्धी सेन्सर डेटामाथि पहुँच राख्न दिने हो?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"नियन्त्रित अनुमतिहरू"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"स्थानमाथि पहुँच राखिन सक्छ"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"तपाईंका IT प्रशासकले <xliff:g id="APP_NAME">%s</xliff:g> लाई तपाईंको स्थानमाथि पहुँच राख्ने अनुमति दिँदै हुनुहुन्छ"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"अनुप्रयोगले स्थानमाथि पहुँच राख्न सक्छ"</string>
+    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> ले अब तपाईंको स्थानमाथि पहुँच राख्न सक्छ। थप जानकारी प्राप्त गर्न आफ्ना IT प्रशासकसँग सम्पर्क गर्नुहोस्।"</string>
 </resources>
