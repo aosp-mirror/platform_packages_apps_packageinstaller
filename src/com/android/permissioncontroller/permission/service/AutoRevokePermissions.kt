@@ -48,7 +48,6 @@ import android.provider.Settings
 import android.util.Log
 import androidx.annotation.MainThread
 import com.android.permissioncontroller.Constants
-import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
@@ -82,20 +81,18 @@ import kotlin.random.Random
 private const val LOG_TAG = "AutoRevokePermissions"
 private const val DEBUG = false
 
-private val TEAMFOOD_SETTINGS = TeamfoodSettings.get()
-
 private val DEFAULT_UNUSED_THRESHOLD_MS = DAYS.toMillis(90)
-private val UNUSED_THRESHOLD_MS = when {
+private fun getUnusedThresholdMs(context: Context) = when {
     DEBUG -> SECONDS.toMillis(1)
-    TEAMFOOD_SETTINGS != null -> TEAMFOOD_SETTINGS.unusedThresholdMs
+    TeamfoodSettings.get(context) != null -> TeamfoodSettings.get(context)!!.unusedThresholdMs
     else -> DeviceConfig.getLong(DeviceConfig.NAMESPACE_PERMISSIONS,
             PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS,
             DEFAULT_UNUSED_THRESHOLD_MS)
 }
 
 private val DEFAULT_CHECK_FREQUENCY_MS = DAYS.toMillis(15)
-private val CHECK_FREQUENCY_MS = when {
-    TEAMFOOD_SETTINGS != null -> TEAMFOOD_SETTINGS.checkFrequencyMs
+private fun getCheckFrequencyMs(context: Context) = when {
+    TeamfoodSettings.get(context) != null -> TeamfoodSettings.get(context)!!.checkFrequencyMs
     else -> DeviceConfig.getLong(
             DeviceConfig.NAMESPACE_PERMISSIONS,
             PROPERTY_AUTO_REVOKE_CHECK_FREQUENCY_MILLIS,
@@ -105,10 +102,9 @@ private val CHECK_FREQUENCY_MS = when {
 private val SERVER_LOG_ID =
     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
 
-private val isAutoRevokeEnabled: Boolean
-    get() {
-        return CHECK_FREQUENCY_MS > 0 && UNUSED_THRESHOLD_MS > 0
-    }
+private fun isAutoRevokeEnabled(context: Context): Boolean {
+    return getCheckFrequencyMs(context) > 0 && getUnusedThresholdMs(context) > 0
+}
 
 /**
  * Receiver of the onBoot event.
@@ -118,13 +114,13 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
         if (DEBUG) {
             Log.i(LOG_TAG, "scheduleAutoRevokePermissions " +
-                "with frequency ${CHECK_FREQUENCY_MS}ms" +
-                "and threshold ${UNUSED_THRESHOLD_MS}ms")
+                "with frequency ${getCheckFrequencyMs(context)}ms" +
+                "and threshold ${getUnusedThresholdMs(context)}ms")
         }
         val jobInfo = JobInfo.Builder(
             Constants.AUTO_REVOKE_JOB_ID,
             ComponentName(context, AutoRevokeService::class.java))
-            .setPeriodic(CHECK_FREQUENCY_MS)
+            .setPeriodic(getCheckFrequencyMs(context))
             .build()
         val status = context.getSystemService(JobScheduler::class.java)!!.schedule(jobInfo)
         if (status != JobScheduler.RESULT_SUCCESS) {
@@ -136,7 +132,7 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
 
 @MainThread
 private suspend fun revokePermissionsOnUnusedApps(context: Context) {
-    if (!isAutoRevokeEnabled) {
+    if (!isAutoRevokeEnabled(context)) {
         return
     }
 
@@ -151,7 +147,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
         context.getSystemService<UsageStatsManager>()
             .queryUsageStats(
                 if (DEBUG) INTERVAL_DAILY else INTERVAL_MONTHLY,
-                now - UNUSED_THRESHOLD_MS,
+                now - getUnusedThresholdMs(context),
                 now)
     }
     val profileUsersStats: Deferred<List<List<UsageStats>>> =
@@ -164,7 +160,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
                         .getSystemService<UsageStatsManager>()
                         .queryUsageStats(
                             if (DEBUG) INTERVAL_DAILY else INTERVAL_MONTHLY,
-                            now - UNUSED_THRESHOLD_MS,
+                            now - getUnusedThresholdMs(context),
                             now)
                 }
         }
@@ -194,7 +190,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context) {
         }
 
         // Threshold check
-        if (now - lastTimeVisible <= UNUSED_THRESHOLD_MS) {
+        if (now - lastTimeVisible <= getUnusedThresholdMs(context)) {
             unusedApps.removeAll { it.packageName == pkg }
         }
     }
@@ -341,8 +337,8 @@ private fun Context.forParentUser(): Context {
 private inline fun <reified T> Context.getSystemService() = getSystemService(T::class.java)!!
 
 /**
- * A job to check for apps unused in the last [UNUSED_THRESHOLD_MS]ms every
- * [CHECK_FREQUENCY_MS]ms and [revokePermissionsOnUnusedApps] for them
+ * A job to check for apps unused in the last [getUnusedThresholdMs]ms every
+ * [getCheckFrequencyMs]ms and [revokePermissionsOnUnusedApps] for them
  */
 class AutoRevokeService : JobService() {
     var job: Job? = null
@@ -378,8 +374,12 @@ private data class TeamfoodSettings(
     val checkFrequencyMs: Long
 ) {
     companion object {
-        fun get(): TeamfoodSettings? {
-            return Settings.Global.getString(USER_CONTEXT.contentResolver,
+        private var cached: TeamfoodSettings? = null
+
+        fun get(context: Context): TeamfoodSettings? {
+            if (cached != null) return cached
+
+            return Settings.Global.getString(context.contentResolver,
                 "auto_revoke_parameters" /* Settings.Global.AUTO_REVOKE_PARAMETERS */)?.let { str ->
 
                 if (DEBUG) {
@@ -403,6 +403,7 @@ private data class TeamfoodSettings(
                                     ?: DEFAULT_CHECK_FREQUENCY_MS)
                     }
             }.also {
+                cached = it
                 if (DEBUG) {
                     Log.i(LOG_TAG, "Parsed teamfood setting value: $it")
                 }
@@ -410,6 +411,3 @@ private data class TeamfoodSettings(
         }
     }
 }
-
-private val APP = PermissionControllerApplication.get()
-private val USER_CONTEXT = APP.forUser(myUserHandle())
