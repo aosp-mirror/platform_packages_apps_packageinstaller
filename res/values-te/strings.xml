@@ -107,25 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"ఈ యాప్ కోసం <xliff:g id="PERM">%1$s</xliff:g> యాక్సెస్"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"అన్ని \'<xliff:g id="APP">%1$s</xliff:g>\' అనుమతులను చూడండి"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ఈ అనుమతి ఉన్న అన్ని యాప్‌లను చూడండి"</string>
-    <!-- no translation found for auto_revoke_label (8755748230070160969) -->
-    <skip />
+    <string name="auto_revoke_label" msgid="8755748230070160969">"యాప్‌ని ఉపయోగించకపోతే, అనుమతులను తీసివేయండి"</string>
     <string name="auto_revoke_summary" msgid="1842110019199306298">"మీ డేటాను సురక్షితంగా ఉంచడానికి, ఈ యాప్‌ను కొన్ని నెలల పాటు ఉపయోగించకపోతే, దానికి ఇచ్చిన అనుమతులు తీసివేయబడతాయి."</string>
-    <!-- no translation found for auto_revoke_summary_with_permissions (160422052726006109) -->
-    <skip />
-    <!-- no translation found for auto_revoke_disabled (4480748641016277290) -->
-    <skip />
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"మీ డేటాను రక్షించడానికి, కొన్ని నెలలు యాప్ ఉపయోగించబడకపోతే, కింది అనుమతులు తొలగించబడతాయి: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"ఈ యాప్‌కి సంబంధించి ఆటోమేటిక్ తీసివేత ప్రస్తుతం నిలిపివేయబడింది."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ఆటోమేటిక్‌గా రద్దు చేయగల అనుమతులేవీ ప్రస్తుతం ఇవ్వబడలేదు"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> అనుమతి తీసివేయబడుతుంది."</string>
     <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> అలాగే <xliff:g id="PERM_1">%2$s</xliff:g> అనుమతులు తీసివేయబడతాయి."</string>
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"తీసివేయబడే అనుమతులు: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <!-- no translation found for auto_manage_title (4059499629753336321) -->
-    <skip />
-    <!-- no translation found for off (4561379152328580345) -->
-    <skip />
-    <!-- no translation found for last_opened_summary (8038737442154732) -->
-    <skip />
-    <!-- no translation found for last_opened_summary_short (403134890404955437) -->
-    <skip />
+    <string name="auto_manage_title" msgid="4059499629753336321">"అనుమతులను ఆటోమేటిక్‌గా నిర్వహించండి"</string>
+    <string name="off" msgid="4561379152328580345">"ఆఫ్"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"యాప్ చివరిసారిగా <xliff:g id="DATE">%s</xliff:g> తేదీన తెరవబడింది"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"చివరిగా తెరిచినది <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"ఈ యాప్‌ల‌కు ఈ అనుమ‌తి ఇస్తుంది- <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ఈ అనుమతి ఉన్న యాప్‌లు వాకింగ్, బైకింగ్, డ్రైవింగ్, అడుగుల గణన వంటి మీ భౌతిక కార్యాకలాపాన్ని ఇంకా మరిన్నింటిని యాక్సెస్ చేయగలవు"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ఈ అనుమతి ఉన్న యాప్‌లు మీ క్యాలెండర్‌ను యాక్సెస్ చేయగలవు"</string>
@@ -168,32 +161,19 @@
     <string name="permission_reminders" msgid="8040710767178843151">"అనుమతి రిమైండర్‌లు"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"మీ స్థానాన్ని <xliff:g id="APP_NAME">%s</xliff:g> నేపథ్యంలో ఉపయోగిస్తోంది"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ఈ యాప్ మీ స్థానాన్ని ఎల్లప్పుడూ యాక్సెస్ చేయగలదు. మార్చడానికి నొక్కండి."</string>
-    <!-- no translation found for auto_revoke_after_notification_title (6256474332719286120) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_one (2599193525413390339) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_two (1866307724849983054) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_many (830111995719692890) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_one (5487334486889306216) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_many (1512657862051262697) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_content_one (2070547291547064792) -->
-    <skip />
-    <!-- no translation found for unused_apps_title (4528745145780586943) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_after (7664277360480735253) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_before (6907087239793765525) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_two (8377946866912481356) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_many (3293109339018555084) -->
-    <skip />
-    <!-- no translation found for unused_app_permissions_removed_summary (323483158593998019) -->
-    <skip />
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"గోప్యతను కాపాడడానికి యాప్ అనుమతులు తీసివేయబడ్డాయి"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"కొన్ని నెలలుగా <xliff:g id="APP_NAME">%s</xliff:g> ఉపయోగంలో లేదు. రివ్యూ చేయడానికి నొక్కండి."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> మరియు మరో 1 యాప్ కొన్ని నెలలుగా ఉపయోగంలో లేవు. రివ్యూ చేయడానికి నొక్కండి."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> మరియు ఇతర <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> యాప్‌లు కొన్ని నెలలుగా ఉపయోగంలో లేవు. రివ్యూ చేయడానికి నొక్కండి."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 యాప్ నిరుపయోగంగా ఉంది"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> యాప్‌లు నిరుపయోగంగా ఉన్నాయి"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"గోప్యతను కాపాడడానికి అనుమతులు తీసివేయబడతాయి. రివ్యూ చేయడానికి నొక్కండి."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"ఉపయోగించని యాప్‌లు"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"దీని నుండి అనుమతులు తీసివేయబడ్డాయి"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"దీని నుండి అనుమతులు తీసవేయబడతాయి"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, మరియు మరో <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"మీ డేటాను రక్షించడానికి, కొన్ని నెలలుగా ఉపయోగించని యాప్‌ల నుండి అనుమతులు తీసివేయబడ్డాయి"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"యాప్ వినియోగంలో ఉన్నప్పుడు మాత్రమే"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"అనుమతులు ఏవీ ఇవ్వలేదు"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"అన్ని అనుమతులు ఇచ్చారు"</string>
