@@ -107,25 +107,18 @@
     <string name="app_permission_header" msgid="228974007660007656">"ଏହି ଆପ୍‍ ପାଇଁ <xliff:g id="PERM">%1$s</xliff:g> ଆକ୍ସେସ୍‌ କରନ୍ତୁ"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ସମସ୍ତ <xliff:g id="APP">%1$s</xliff:g> ଅନୁମତିଗୁଡ଼ିକ ଦେଖନ୍ତୁ"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ଏହି ଅନୁମତି ଥିବା ସମସ୍ତ ଆପ୍ସ ଦେଖନ୍ତୁ"</string>
-    <!-- no translation found for auto_revoke_label (8755748230070160969) -->
-    <skip />
+    <string name="auto_revoke_label" msgid="8755748230070160969">"ଯଦି ଆପ୍ ବ୍ୟବହାର କରାଯାଇନାହିଁ, ତେବେ ଅନୁମତିଗୁଡ଼ିକୁ କାଢ଼ି ଦିଅନ୍ତୁ"</string>
     <string name="auto_revoke_summary" msgid="1842110019199306298">"ଆପଣଙ୍କ ଡାଟା ସୁରକ୍ଷା କରିବାକୁ, ଯଦି କିଛି ମାସ ପାଇଁ ଆପକୁ ବ୍ୟବହାର କରାନଯାଏ, ତେବେ ଏହି ଆପ୍ ପାଇଁ ଅନୁମତିଗୁଡ଼ିକୁ କାଢ଼ିଦିଆଯିବ।"</string>
-    <!-- no translation found for auto_revoke_summary_with_permissions (160422052726006109) -->
-    <skip />
-    <!-- no translation found for auto_revoke_disabled (4480748641016277290) -->
-    <skip />
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"ଯଦି ଆପକୁ କିଛି ମାସ ପାଇଁ ବ୍ୟବହାର କରାଯାଇନାହିଁ, ତେବେ ଆପଣଙ୍କ ଡାଟାର ସୁରକ୍ଷା କରିବା ପାଇଁ ନିମ୍ନୋକ୍ତ ଅନୁମତିଗୁଡ଼ିକ କାଢ଼ି ଦିଆଯିବ: <xliff:g id="PERMS">%1$s</xliff:g>।"</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"ଏହି ଆପ୍ ପାଇଁ ’ସ୍ୱଚାଳିତ ଭାବେ କାଢ଼ିବା’ ସୁବିଧା ବର୍ତ୍ତମାନ ଅକ୍ଷମ ଅଛି।"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"କୌଣସି ସ୍ୱତଃ ପ୍ରତ୍ୟାହାର କରି ହେଉଥିବା ଅନୁମତିକୁ ବର୍ତ୍ତମାନ ଅନୁମୋଦନ ଦିଆଯାଇନାହିଁ"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> ଅନୁମତିକୁ କାଢ଼ି ଦିଆଯିବ।"</string>
     <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> ଏବଂ <xliff:g id="PERM_1">%2$s</xliff:g> ଅନୁମତିଗୁଡ଼ିକୁ କାଢ଼ି ଦିଆଯିବ।"</string>
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"ଅନୁମତିଗୁଡ଼ିକୁ କାଢ଼ି ଦିଆଯିବ: <xliff:g id="PERMS">%1$s</xliff:g>।"</string>
-    <!-- no translation found for auto_manage_title (4059499629753336321) -->
-    <skip />
-    <!-- no translation found for off (4561379152328580345) -->
-    <skip />
-    <!-- no translation found for last_opened_summary (8038737442154732) -->
-    <skip />
-    <!-- no translation found for last_opened_summary_short (403134890404955437) -->
-    <skip />
+    <string name="auto_manage_title" msgid="4059499629753336321">"ଅନୁମତିଗୁଡ଼ିକୁ ସ୍ୱଚାଳିତ ଭାବେ ପରିଚାଳନା କର"</string>
+    <string name="off" msgid="4561379152328580345">"ବନ୍ଦ ଅଛି"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"ଗତ ଥର <xliff:g id="DATE">%s</xliff:g>ରେ ଆପକୁ ଖୋଲାଯାଇଥିଲା"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"ଗତ ଥର <xliff:g id="DATE">%s</xliff:g>ରେ ଖୋଲାଯାଇଥିଲା"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଆପଣଙ୍କର ଶାରୀରିକ କାର୍ଯ୍ୟକଳାପ, ଯେପରିକି ଚାଲିବା, ସାଇକେଲ ଚଲେଇବା, ଗାଡ଼ି ଚଲାଇବା, କେତେ ପାଦ ଚାଲିଲେ ତାହା ଗଣିବା ଏବଂ ଆହୁରି ଅନେକ କିଛି ଆକ୍ସେସ୍ କରିପାରିବ"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ଏହି ଅନୁମତି ଥିବା ଆପ୍ସ ଆପଣଙ୍କର କ୍ୟାଲେଣ୍ଡର୍ ଆକ୍ସେସ୍ କରିପାରିବ"</string>
@@ -168,32 +161,19 @@
     <string name="permission_reminders" msgid="8040710767178843151">"ଅନୁମତି ରିମାଇଣ୍ଡର୍"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ପୃଷ୍ଠପଟରେ ଆପଣଙ୍କ ଲୋକେସନ୍ ପାଇଛି"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ଏହି ଆପ୍ ସବୁବେଳେ ଆପଣଙ୍କ ଲୋକେସନ୍ ଆକ୍ସେସ୍ କରିପାରିବ। ବଦଳାଇବା ପାଇଁ ଟାପ୍ କରନ୍ତୁ"</string>
-    <!-- no translation found for auto_revoke_after_notification_title (6256474332719286120) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_one (2599193525413390339) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_two (1866307724849983054) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_many (830111995719692890) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_one (5487334486889306216) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_many (1512657862051262697) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_content_one (2070547291547064792) -->
-    <skip />
-    <!-- no translation found for unused_apps_title (4528745145780586943) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_after (7664277360480735253) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_before (6907087239793765525) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_two (8377946866912481356) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_many (3293109339018555084) -->
-    <skip />
-    <!-- no translation found for unused_app_permissions_removed_summary (323483158593998019) -->
-    <skip />
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"ଗୋପନୀୟତାକୁ ସୁରକ୍ଷା ଦେବା ପାଇଁ ଆପ୍ ଅନୁମତିଗୁଡ଼ିକ କାଢ଼ି ଦିଆଯାଇଛି"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g>କୁ କିଛି ମାସ ହେଲା ବ୍ୟବହାର କରାଯାଇନାହିଁ। ସମୀକ୍ଷା କରିବାକୁ ଟାପ୍ କରନ୍ତୁ।"</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> ଏବଂ ଅନ୍ୟ 1ଟି ଆପ୍ କିଛି ମାସ ହେଲା ବ୍ୟବହାର କରାଯାଇନାହିଁ। ସମୀକ୍ଷା କରିବାକୁ ଟାପ୍ କରନ୍ତୁ।"</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> ଏବଂ ଅନ୍ୟ <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g>ଟି ଆପ୍ କିଛି ମାସ ହେଲା ବ୍ୟବହାର କରାଯାଇନାହିଁ। ସମୀକ୍ଷା କରିବାକୁ ଟାପ୍ କରନ୍ତୁ।"</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1ଟି ଆପ୍ ବ୍ୟବହାର କରାଯାଇନାହିଁ"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>ଟି ଆପ୍ ବ୍ୟବହାର କରାଯାଇନାହିଁ"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"ଆପଣଙ୍କ ଗୋପନୀୟତାକୁ ସୁରକ୍ଷା ଦେବା ପାଇଁ ଅନୁମତିଗୁଡ଼ିକୁ କାଢ଼ି ଦିଆଯିବ। ସମୀକ୍ଷା କରିବାକୁ ଟାପ୍ କରନ୍ତୁ।"</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"ଅବ୍ୟବହୃତ ଆପଗୁଡ଼ିକ"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"ଏଥିରୁ ଅନୁମତିଗୁଡ଼ିକ କାଢ଼ି ଦିଆଯାଇଛି"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"ଏଥିରୁ ଅନୁମତିଗୁଡ଼ିକ କାଢ଼ି ଦିଆଯିବ"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> ଏବଂ <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ଏବଂ <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>ଟି ଅଧିକ"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ଆପଣଙ୍କ ଡାଟାକୁ ସୁରକ୍ଷିତ କରିବାକୁ, ଆପଣ କିଛି ମାସ ହେଲା ବ୍ୟବହାର କରିନଥିବା ଆପଗୁଡ଼ିକରୁ ଅନୁମତିଗୁଡ଼ିକ କାଢ଼ି ଦିଆଯାଇଛି"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"କେବଳ ଆପ୍‍ ବ୍ୟବହାରରେ ରହିଥିବା ବେଳେ"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"କୌଣସି ଅନୁମତି ଦିଆଯାଇ ନାହିଁ"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"କୌଣସି ଅନୁମତି ଅଗ୍ରାହ୍ୟ କରାଯାଇନାହିଁ"</string>
