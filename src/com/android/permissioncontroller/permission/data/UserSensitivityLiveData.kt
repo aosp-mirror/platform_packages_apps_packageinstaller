@@ -101,7 +101,8 @@ class UserSensitivityLiveData private constructor(
         // map of <uid, userSensitiveState>
         val sensitiveStatePerUid = mutableMapOf<Int, UidSensitivityState>()
 
-        val runtimePerms = getAllRuntimePermNames()
+        // TODO ntmyren: Figure out how to get custom runtime permissions in a less costly manner
+        val runtimePerms = Utils.getRuntimePlatformPermissionNames()
 
         for (pkg in pkgs) {
             // sensitivityState for one uid
@@ -157,17 +158,6 @@ class UserSensitivityLiveData private constructor(
             }
         }
         postValue(sensitiveStatePerUid)
-    }
-
-    private suspend fun getAllRuntimePermNames(): Set<String> {
-        val permNames = mutableSetOf<String>()
-        val allGroups = Utils.getPlatformPermissionGroups()
-        allGroups.addAll(CustomPermGroupNamesLiveData.getInitializedValue())
-        for (groupName in allGroups) {
-            val permGroup = PermGroupLiveData[groupName].getInitializedValue() ?: continue
-            permNames.addAll(permGroup.permissionInfos.keys)
-        }
-        return permNames
     }
 
     private fun getAndObservePackageLiveDatas() {
