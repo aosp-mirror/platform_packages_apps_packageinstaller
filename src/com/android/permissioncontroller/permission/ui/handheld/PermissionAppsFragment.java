@@ -358,10 +358,10 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                     empty.setTitle(getString(R.string.no_apps_allowed_scoped));
                     scoped.addPreference(empty);
                 }
-                KotlinUtils.INSTANCE.sortPreferenceGroup(full, false, this::comparePreference);
-                KotlinUtils.INSTANCE.sortPreferenceGroup(scoped, false, this::comparePreference);
+                KotlinUtils.INSTANCE.sortPreferenceGroup(full, this::comparePreference, false);
+                KotlinUtils.INSTANCE.sortPreferenceGroup(scoped, this::comparePreference, false);
             } else {
-                KotlinUtils.INSTANCE.sortPreferenceGroup(category, false, this::comparePreference);
+                KotlinUtils.INSTANCE.sortPreferenceGroup(category, this::comparePreference, false);
             }
 
             mViewModel.setCreationLogged(true);
