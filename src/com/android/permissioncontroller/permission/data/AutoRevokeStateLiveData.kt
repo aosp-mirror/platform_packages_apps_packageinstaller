@@ -23,7 +23,6 @@ import android.content.pm.PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT
 import android.content.pm.PackageManager.FLAG_PERMISSION_GRANTED_BY_ROLE
 import android.os.UserHandle
 import android.provider.DeviceConfig
-import androidx.lifecycle.Observer
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
 import com.android.permissioncontroller.permission.model.livedatatypes.AutoRevokeState
@@ -118,9 +117,9 @@ class AutoRevokeStateLiveData private constructor(
         }
 
         for (groupToAdd in toAdd) {
-            addSource(permStateLiveDatas[groupToAdd]!!, Observer {
+            addSource(permStateLiveDatas[groupToAdd]!!) {
                 updateIfActive()
-            })
+            }
         }
 
         for (groupToRemove in toRemove) {
