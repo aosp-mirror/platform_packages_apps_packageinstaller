@@ -112,6 +112,15 @@
     <!-- Title for page of managing application permissions [CHAR LIMIT=30] -->
     <string name="app_permissions">App permissions</string>
 
+    <!-- Title for the page of manage unused apps [CHAR LIMIT=30] -->
+    <string name="unused_apps">Unused apps</string>
+
+    <!-- [CHAR LIMIT=30] Manage applications, label for option to disable app -->
+    <string name="app_disable_dlg_positive">Disable app</string>
+
+    <!-- [CHAR LIMIT=NONE] Manage applications, text for dialog when disabling apps -->
+    <string name="app_disable_dlg_text">If you disable this app, Android and other apps may no longer function as intended. Keep in mind, you can\u2019t delete this app since it came pre-installed on your device. By disabling, you turn this app off and hide it on your device.</string>
+
     <!-- Title for page of managing application permissions [CHAR LIMIT=30] -->
     <string name="app_permission_manager">Permission manager</string>
 
@@ -335,10 +344,22 @@
     <!-- Label for an "off" button [CHAR LIMIT=30] -->
     <string name="off">Off</string>
 
-    <!-- Summary for showing when an app was last used [CHAR LIMIT=none]-->
+    <!-- Summary describing the permissions that have been removed from an app, when one permission is removed [CHAR LIMIT=none] -->
+    <string name="auto_revoked_app_summary_one"><xliff:g id="permission_name" example="Location">%s</xliff:g> permission removed</string>
+
+    <!-- Summary describing the permissions that have been removed from an app, when two permissions are removed [CHAR LIMIT=none] -->
+    <string name="auto_revoked_app_summary_two"><xliff:g id="permission_name" example="Camera">%1$s</xliff:g> and <xliff:g id="permission_name" example="Contacts">%2$s</xliff:g> permissions removed</string>
+
+    <!-- Summary describing the permissions that have been removed from an app, when more than two permissions are removed [CHAR LIMIT=none] -->
+    <string name="auto_revoked_app_summary_many"><xliff:g id="permission_name" example="Microphone">%1$s</xliff:g> and <xliff:g id="number" example="2">%2$s</xliff:g> other permissions removed</string>
+
+    <!-- Title for a category of apps that were last used several months ago [CHAR LIMIT=none] -->
+    <string name="last_opened_category_title">Last opened more than <xliff:g id="number" example="3">%s</xliff:g> months ago</string>
+
+    <!-- Summary for showing when an app was last used [CHAR LIMIT=none] -->
     <string name="last_opened_summary">App last opened on <xliff:g id="date" example="March 12, 2020">%s</xliff:g></string>
 
-    <!-- Summary for showing when an app was last used, shorter version [CHAR LIMIT=none]-->
+    <!-- Summary for showing when an app was last used, shorter version [CHAR LIMIT=none] -->
     <string name="last_opened_summary_short">Last opened <xliff:g id="date" example="March 12, 2020">%s</xliff:g></string>
 
     <!-- Label for showing a permission group's description in the header of the list of apps that have that permission [CHAR LIMIT=none] -->
@@ -436,6 +457,12 @@
 
     <!-- The name of the notification channel containing reminders about permission [CHAR LIMIT=60]-->
     <string name="permission_reminders">Permission reminders</string>
+
+    <!-- The notification title for the auto revoke reminder notification [CHAR LIMIT=60] -->
+    <string name="auto_revoke_permission_reminder_notification_title">App permissions automatically removed</string>
+
+    <!-- The notification content for the auto revoke reminder notification [CHAR LIMIT=none] -->
+    <string name="auto_revoke_permission_reminder_notification_content">Some apps haven\u2019t been used for a few months. Tap for more info.</string>
 
     <!-- The notification title for background location access reminder notification [CHAR LIMIT=60] -->
     <string name="background_location_access_reminder_notification_title"><xliff:g id="app_name" example="Gmail">%s</xliff:g> got your location in the background</string>

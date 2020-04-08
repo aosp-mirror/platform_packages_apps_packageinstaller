@@ -20,10 +20,12 @@ import android.app.Application
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.android.permissioncontroller.R
+import com.android.permissioncontroller.permission.data.AutoRevokedPackagesLiveData
 import com.android.permissioncontroller.permission.data.PermGroupsPackagesLiveData
 import com.android.permissioncontroller.permission.data.PermGroupsPackagesUiInfoLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
@@ -43,6 +45,9 @@ class ManageStandardPermissionsViewModel(
     val uiDataLiveData = PermGroupsPackagesUiInfoLiveData(app,
         StandardPermGroupNamesLiveData)
     val numCustomPermGroups = NumCustomPermGroupsWithPackagesLiveData()
+    val shouldShowAutoRevoke = Transformations.map(AutoRevokedPackagesLiveData) {
+        it != null && it.isNotEmpty()
+    }
 
     /**
      * Navigate to the Custom Permissions screen
@@ -62,6 +67,10 @@ class ManageStandardPermissionsViewModel(
      */
     fun showPermissionApps(fragment: Fragment, args: Bundle) {
         fragment.findNavController().navigate(R.id.manage_to_perm_apps, args)
+    }
+
+    fun showAutoRevoke(fragment: Fragment, args: Bundle) {
+        fragment.findNavController().navigate(R.id.manage_to_auto_revoke)
     }
 }
 
