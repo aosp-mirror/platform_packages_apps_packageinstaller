@@ -122,6 +122,11 @@ data class LightAppPermGroup(
      */
     val isGrantedByRole = foreground.isGrantedByRole || background.isGrantedByRole
 
+    /*
+     * Whether any permissions in this group are user sensitive
+     */
+    val isUserSensitive = permissions.any { it.value.isUserSensitive }
+
     /**
      * A subset of the AppPermssionGroup, representing either the background or foreground permissions
      * of the full group.

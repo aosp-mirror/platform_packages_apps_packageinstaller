@@ -30,7 +30,9 @@ import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 import java.text.Collator;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -95,10 +97,19 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         if (screen == null) {
             screen = getPreferenceManager().createPreferenceScreen(context);
             setPreferenceScreen(screen);
-        } else {
-            screen.removeAll();
         }
-        screen.setOrderingAsAdded(true);
+
+        List<Preference> toRemove = new ArrayList<>();
+        for (int i = screen.getPreferenceCount() - 1; i >= 0; i--) {
+            Preference group = screen.getPreference(i);
+            if (!mPermissionGroups.containsKey(group.getKey())) {
+                toRemove.add(group);
+            }
+        }
+
+        for (Preference pref: toRemove) {
+            screen.removePreference(pref);
+        }
 
         for (String groupName : mPermissionGroups.keySet()) {
 
@@ -130,9 +141,10 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
             preference.setSummary(summary);
         }
 
-        KotlinUtils.INSTANCE.sortPreferenceGroup(screen, false,
-                (Preference lhs, Preference rhs) ->
-                        mCollator.compare(lhs.getTitle().toString(), rhs.getTitle().toString()));
+        KotlinUtils.INSTANCE.sortPreferenceGroup(screen, (Preference lhs, Preference rhs) ->
+                mCollator.compare(lhs.getTitle().toString(), rhs.getTitle().toString()),
+                false
+        );
 
         return screen;
     }
