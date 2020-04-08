@@ -16,9 +16,7 @@
 
 package com.android.permissioncontroller.permission.data
 
-import android.app.Application
 import android.os.UserHandle
-import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData.addSource
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.utils.KotlinUtils
@@ -29,19 +27,17 @@ import com.android.permissioncontroller.permission.utils.KotlinUtils
 object AllPackageInfosLiveData :
     SmartUpdateMediatorLiveData<Map<UserHandle, List<LightPackageInfo>>>() {
 
-    private val app: Application = PermissionControllerApplication.get()
-    private val usersLiveData = UsersLiveData.get(app)
     private val userPackageInfosLiveDatas = mutableMapOf<UserHandle, UserPackageInfosLiveData>()
     private val userPackageInfos = mutableMapOf<UserHandle, List<LightPackageInfo>>()
 
     init {
-        addSource(usersLiveData) {
+        addSource(UsersLiveData) {
             updateIfActive()
         }
     }
 
     override fun onUpdate() {
-        usersLiveData.value?.let { users ->
+        UsersLiveData.value?.let { users ->
             val (usersToAdd, usersToRemove) =
                 KotlinUtils.getMapAndListDifferences(users, userPackageInfosLiveDatas)
             for (user in usersToRemove) {

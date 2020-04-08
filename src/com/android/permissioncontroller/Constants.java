@@ -54,6 +54,17 @@ public class Constants {
     public static final int LOCATION_ACCESS_CHECK_NOTIFICATION_ID = 0;
 
     /**
+     * ID for notification shown by
+     * {@link com.android.permissioncontroller.permission.service.AutoRevokeService}.
+     */
+    public static final int AUTO_REVOKE_NOTIFICATION_ID = 1;
+
+    /**
+     * String action for navigating to the auto revoke screen.
+     */
+    public static final String ACTION_MANAGE_AUTO_REVOKE = "manageAutoRevoke";
+
+    /**
      * Key for Notification.Builder.setGroup() for the incident report approval notification.
      */
     public static final String INCIDENT_NOTIFICATION_GROUP_KEY = "incident confirmation";

@@ -519,6 +519,17 @@
 
     <!-- END PREFERENCE USAGE -->
 
+    <!-- START AUTO REVOKE SCREEN -->
+
+    <style name="SettingsActionButton"
+           parent="android:Widget.DeviceDefault.Button.Borderless.Colored">
+        <item name="android:drawableTint">@*android:color/btn_colored_borderless_text_material
+        </item>
+        <item name="android:tint">@*android:color/btn_colored_borderless_text_material</item>
+    </style>
+
+    <!-- END AUTO REVOKE SCREEN -->
+
     <!-- START TITLE SUMMARY IMAGE VIEW -->
 
     <style name="TitleSummaryImageViewIcon">
