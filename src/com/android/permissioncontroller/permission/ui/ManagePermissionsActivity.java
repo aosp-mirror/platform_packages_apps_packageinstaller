@@ -18,6 +18,7 @@ package com.android.permissioncontroller.permission.ui;
 
 import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
+import static com.android.permissioncontroller.Constants.ACTION_MANAGE_AUTO_REVOKE;
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
 
@@ -46,6 +47,7 @@ import com.android.permissioncontroller.permission.ui.auto.AutoManageStandardPer
 import com.android.permissioncontroller.permission.ui.auto.AutoPermissionAppsFragment;
 import com.android.permissioncontroller.permission.ui.handheld.AppPermissionFragment;
 import com.android.permissioncontroller.permission.ui.handheld.AppPermissionGroupsFragment;
+import com.android.permissioncontroller.permission.ui.handheld.AutoRevokeFragment;
 import com.android.permissioncontroller.permission.ui.handheld.PermissionAppsFragment;
 import com.android.permissioncontroller.permission.ui.wear.AppPermissionsFragmentWear;
 import com.android.permissioncontroller.permission.utils.Utils;
@@ -209,6 +211,17 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                     Bundle args = PermissionAppsFragment.createArgs(permissionGroupName, sessionId);
                     args.putString(Intent.EXTRA_PERMISSION_NAME, permissionName);
                     setNavGraph(args, R.id.permission_apps);
+                    return;
+                }
+            } break;
+
+            case ACTION_MANAGE_AUTO_REVOKE: {
+                if (DeviceUtils.isWear(this) || DeviceUtils.isAuto(this)
+                        || DeviceUtils.isTelevision(this)) {
+                    androidXFragment = com.android.permissioncontroller.permission.ui.handheld
+                            .AutoRevokeFragment.newInstance();
+                } else {
+                    setNavGraph(AutoRevokeFragment.createArgs(sessionId), R.id.auto_revoke);
                     return;
                 }
             } break;
