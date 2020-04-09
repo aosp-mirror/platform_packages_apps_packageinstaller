@@ -46,7 +46,7 @@ data class LightPackageInfo(
     val isInstantApp: Boolean,
     val enabled: Boolean,
     val appFlags: Int,
-    val firstInstallLime: Long
+    val firstInstallTime: Long
 ) {
     constructor(pI: PackageInfo) : this(pI.packageName,
         pI.permissions?.map { perm -> LightPermInfo(perm) } ?: emptyList(),

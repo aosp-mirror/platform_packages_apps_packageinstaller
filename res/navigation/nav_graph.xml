@@ -45,6 +45,14 @@
             app:enterAnim="@anim/activity_open_enter"
             app:popEnterAnim="@anim/activity_open_enter"
             app:popExitAnim="@anim/activity_close_exit"/>
+
+        <action
+            android:id="@+id/manage_to_auto_revoke"
+            app:destination="@id/auto_revoke"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popEnterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"/>
+
     </fragment>
 
     <fragment
@@ -55,6 +63,20 @@
         <action
             android:id="@+id/manage_to_perm_apps"
             app:destination="@id/permission_apps"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/auto_revoke"
+        android:name="com.android.permissioncontroller.permission.ui.handheld.AutoRevokeFragment"
+        android:label="AutoRevoke">
+
+        <action
+            android:id="@+id/auto_revoke_to_app_perms"
+            app:destination="@id/app_permission_groups"
             app:enterAnim="@anim/activity_open_enter"
             app:popExitAnim="@anim/activity_close_exit"
             app:popEnterAnim="@anim/activity_open_enter"/>

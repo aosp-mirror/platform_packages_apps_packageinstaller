@@ -199,8 +199,9 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
         } else {
             otherGroup.setVisible(true);
         }
-        KotlinUtils.INSTANCE.sortPreferenceGroup(getPreferenceScreen(), true,
-                this::comparePreferences);
+        KotlinUtils.INSTANCE.sortPreferenceGroup(getPreferenceScreen(), this::comparePreferences,
+                true
+        );
 
         setLoading(false, true);
     }
