@@ -93,7 +93,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.random.Random
 
 private const val LOG_TAG = "AutoRevokePermissions"
-private const val DEBUG = true
+private const val DEBUG = false
 
 private val DEFAULT_UNUSED_THRESHOLD_MS = DAYS.toMillis(90)
 private fun getUnusedThresholdMs(context: Context) = when {
