@@ -93,7 +93,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.random.Random
 
 private const val LOG_TAG = "AutoRevokePermissions"
-private const val DEBUG = true
+private const val DEBUG = false
 
 // TODO eugenesusla: temporarily disabled due to issues in droidfood
 private const val AUTO_REVOKE_ENABLED = false
