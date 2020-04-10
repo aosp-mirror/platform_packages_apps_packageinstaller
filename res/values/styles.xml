@@ -534,9 +534,8 @@
 
     <style name="SettingsActionButton"
            parent="android:Widget.DeviceDefault.Button.Borderless.Colored">
-        <item name="android:drawableTint">@*android:color/btn_colored_borderless_text_material
-        </item>
-        <item name="android:tint">@*android:color/btn_colored_borderless_text_material</item>
+        <item name="android:drawableTint">@color/open_btn_enabled_disabled_color</item>
+        <item name="android:tint">@color/open_btn_enabled_disabled_color</item>
     </style>
 
     <!-- END AUTO REVOKE SCREEN -->
