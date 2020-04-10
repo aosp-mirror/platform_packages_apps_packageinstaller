@@ -93,7 +93,10 @@ import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.random.Random
 
 private const val LOG_TAG = "AutoRevokePermissions"
-private const val DEBUG = true
+private const val DEBUG = false
+
+// TODO eugenesusla: temporarily disabled due to issues in droidfood
+private const val AUTO_REVOKE_ENABLED = false
 
 private val DEFAULT_UNUSED_THRESHOLD_MS = DAYS.toMillis(90)
 private fun getUnusedThresholdMs(context: Context) = when {
@@ -117,7 +120,9 @@ private val SERVER_LOG_ID =
     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
 
 private fun isAutoRevokeEnabled(context: Context): Boolean {
-    return getCheckFrequencyMs(context) > 0 && getUnusedThresholdMs(context) > 0
+    return AUTO_REVOKE_ENABLED &&
+            getCheckFrequencyMs(context) > 0 &&
+            getUnusedThresholdMs(context) > 0
 }
 
 /**
