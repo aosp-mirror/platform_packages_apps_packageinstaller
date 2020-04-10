@@ -147,7 +147,7 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
             if (packages.isEmpty()) {
                 category.isVisible = false
             }
-            for ((pkgName, user, shouldDisable, permSet) in packages) {
+            for ((pkgName, user, shouldDisable, canOpen, permSet) in packages) {
                 val revokedPerms = permSet.toList()
                 val key = createKey(pkgName, user)
 
@@ -159,9 +159,11 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
                     pref.title = KotlinUtils.getPackageLabel(activity!!.application, pkgName, user)
                 }
 
+                pref.canOpen = canOpen
                 pref.openClickListener = View.OnClickListener {
                     viewModel.openApp(pkgName, user)
                 }
+
                 if (shouldDisable) {
                     pref.removeIcon = resources.getDrawable(R.drawable.ic_settings_disable)
                     pref.removeClickListener = View.OnClickListener {
@@ -169,7 +171,7 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
                     }
                 } else {
                     pref.removeClickListener = View.OnClickListener {
-                        viewModel.requestUninstallApp(pkgName, user)
+                        viewModel.requestUninstallApp(this, pkgName, user)
                     }
                 }
 
