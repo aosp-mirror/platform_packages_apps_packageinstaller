@@ -307,7 +307,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                 String key = user + packageName;
 
                 if (isStorage && grantCategory.equals(ALLOWED)) {
-                    category = mViewModel.shouldUseFullStorageString(packageName, user)
+                    category = mViewModel.packageHasFullStorage(packageName, user)
                             ? findPreference(STORAGE_ALLOWED_FULL)
                             : findPreference(STORAGE_ALLOWED_SCOPED);
                 }
