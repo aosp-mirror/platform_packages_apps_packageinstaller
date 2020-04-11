@@ -35,15 +35,25 @@ import com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandle
  * permissions dialog is displayed using car-ui-lib {@link AlertDialogBuilder}
  */
 public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHandler,
-        DialogInterface.OnClickListener {
+        DialogInterface.OnClickListener, DialogInterface.OnDismissListener {
     private static final String ARG_GROUP_NAME = "ARG_GROUP_NAME";
+    private static final String ARG_GROUP_COUNT = "ARG_GROUP_COUNT";
+    private static final String ARG_GROUP_INDEX = "ARG_GROUP_INDEX";
+    private static final String ARG_GROUP_ICON = "ARG_GROUP_ICON";
+    private static final String ARG_GROUP_MESSAGE = "ARG_GROUP_MESSAGE";
+    private static final String ARG_GROUP_DETAIL_MESSAGE = "ARG_GROUP_DETAIL_MESSAGE";
+    private static final String ARG_BUTTON_VISIBILITIES = "ARG_BUTTON_VISIBILITIES";
 
     private final Context mContext;
-
     private ResultListener mResultListener;
     private AlertDialog mDialog;
-
     private String mGroupName;
+    private int mGroupCount;
+    private int mGroupIndex;
+    private Icon mGroupIcon;
+    private CharSequence mGroupMessage;
+    private CharSequence mDetailMessage;
+    private boolean[] mButtonVisibilities;
 
     public GrantPermissionsAutoViewHandler(Context context, String appPackageName) {
         mContext = context;
@@ -69,50 +79,78 @@ public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHand
     @Override
     public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
             CharSequence message, CharSequence detailMessage, boolean[] buttonVisibilities) {
+        mGroupName = groupName;
+        mGroupCount = groupCount;
+        mGroupIndex = groupIndex;
+        mGroupIcon = icon;
+        mGroupMessage = message;
+        mDetailMessage = detailMessage;
+        mButtonVisibilities = buttonVisibilities;
+
+        update();
+    }
+
+    private void update() {
         if (mDialog != null) {
+            mDialog.setOnDismissListener(null);
             mDialog.dismiss();
         }
 
         AlertDialogBuilder builder = new AlertDialogBuilder(mContext)
                 .setTitle(mContext.getString(R.string.permission_request_title))
-                .setMessage(message)
-                .setIcon(icon.loadDrawable(mContext))
+                .setMessage(mGroupMessage)
+                .setIcon(mGroupIcon.loadDrawable(mContext))
                 .setIconTinted(true)
-                .setNegativeButton(mContext.getString(R.string.grant_dialog_button_deny), this)
+                .setOnDismissListener(this)
+                .setNeutralButton(mContext.getString(R.string.grant_dialog_button_deny), this)
                 .setPositiveButton(mContext.getString(R.string.grant_dialog_button_allow), this);
-        if (buttonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON]) {
-            builder.setNeutralButton(
-                    mContext.getString(R.string.grant_dialog_button_deny_and_dont_ask_again), this);
+        if (mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON]) {
+            builder.setNegativeButton(mContext.getString(R.string.never_ask_again), this);
         }
-        if (groupCount > 1) {
+        if (mGroupCount > 1) {
             builder.setSubtitle(mContext.getString(R.string.current_permission_template,
-                    groupIndex + 1, groupCount));
+                    mGroupIndex + 1, mGroupCount));
         }
-        mGroupName = groupName;
         mDialog = builder.create();
         mDialog.show();
     }
 
     @Override
-    public void saveInstanceState(Bundle outState) {
-        outState.putString(ARG_GROUP_NAME, mGroupName);
+    public void saveInstanceState(Bundle arguments) {
+        arguments.putString(ARG_GROUP_NAME, mGroupName);
+        arguments.putInt(ARG_GROUP_COUNT, mGroupCount);
+        arguments.putInt(ARG_GROUP_INDEX, mGroupIndex);
+        arguments.putParcelable(ARG_GROUP_ICON, mGroupIcon);
+        arguments.putCharSequence(ARG_GROUP_MESSAGE, mGroupMessage);
+        arguments.putCharSequence(ARG_GROUP_DETAIL_MESSAGE, mDetailMessage);
+        arguments.putBooleanArray(ARG_BUTTON_VISIBILITIES, mButtonVisibilities);
+
     }
 
     @Override
     public void loadInstanceState(Bundle savedInstanceState) {
         mGroupName = savedInstanceState.getString(ARG_GROUP_NAME);
+        mGroupMessage = savedInstanceState.getCharSequence(ARG_GROUP_MESSAGE);
+        mGroupIcon = savedInstanceState.getParcelable(ARG_GROUP_ICON);
+        mGroupCount = savedInstanceState.getInt(ARG_GROUP_COUNT);
+        mGroupIndex = savedInstanceState.getInt(ARG_GROUP_INDEX);
+        mDetailMessage = savedInstanceState.getCharSequence(ARG_GROUP_DETAIL_MESSAGE);
+        mButtonVisibilities = savedInstanceState.getBooleanArray(ARG_BUTTON_VISIBILITIES);
+
+        update();
     }
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
+        mDialog.setOnDismissListener(null);
         switch (which) {
             case DialogInterface.BUTTON_POSITIVE:
                 mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ALWAYS);
                 break;
-            case DialogInterface.BUTTON_NEGATIVE:
+            case DialogInterface.BUTTON_NEUTRAL:
                 mResultListener.onPermissionGrantResult(mGroupName, DENIED);
                 break;
-            case DialogInterface.BUTTON_NEUTRAL:
+            case DialogInterface.BUTTON_NEGATIVE:
                 mResultListener.onPermissionGrantResult(mGroupName, DENIED_DO_NOT_ASK_AGAIN);
                 break;
         }
@@ -120,6 +158,13 @@ public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHand
 
     @Override
     public void onBackPressed() {
+        if (mResultListener != null) {
+            mResultListener.onPermissionGrantResult(mGroupName, DENIED);
+        }
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
         if (mResultListener != null) {
             mResultListener.onPermissionGrantResult(mGroupName, DENIED);
         }
