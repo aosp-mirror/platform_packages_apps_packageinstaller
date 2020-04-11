@@ -114,8 +114,7 @@ public class RoleParser {
         this(context, false);
     }
 
-    @VisibleForTesting
-    public RoleParser(@NonNull Context context, boolean validationEnabled) {
+    RoleParser(@NonNull Context context, boolean validationEnabled) {
         mContext = context;
         mValidationEnabled = validationEnabled;
     }
