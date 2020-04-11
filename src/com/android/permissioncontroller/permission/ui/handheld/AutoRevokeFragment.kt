@@ -144,9 +144,8 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
             } else {
                 getString(R.string.last_opened_category_title, "6")
             }
-            if (packages.isEmpty()) {
-                category.isVisible = false
-            }
+            category.isVisible = packages.isNotEmpty()
+
             for ((pkgName, user, shouldDisable, canOpen, permSet) in packages) {
                 val revokedPerms = permSet.toList()
                 val key = createKey(pkgName, user)
