@@ -473,7 +473,8 @@ object KotlinUtils {
                 PackageManager.FLAG_PERMISSION_ONE_TIME or
                 PackageManager.FLAG_PERMISSION_REVOKED_COMPAT or
                 PackageManager.FLAG_PERMISSION_ONE_TIME or
-                PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED
+                PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED or
+                PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 
             app.packageManager.updatePermissionFlags(perm.name, group.packageInfo.packageName,
                 flagMask, newFlags, user)
@@ -626,6 +627,7 @@ object KotlinUtils {
         else newFlags.setFlag(PackageManager.FLAG_PERMISSION_USER_SET)
         newFlags = if (oneTime) newFlags.setFlag(PackageManager.FLAG_PERMISSION_ONE_TIME)
         else newFlags.clearFlag(PackageManager.FLAG_PERMISSION_ONE_TIME)
+        newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_AUTO_REVOKED)
 
         if (perm.flags != newFlags) {
             val flagMask = PackageManager.FLAG_PERMISSION_USER_SET or
@@ -633,7 +635,8 @@ object KotlinUtils {
                 PackageManager.FLAG_PERMISSION_ONE_TIME or
                 PackageManager.FLAG_PERMISSION_REVOKED_COMPAT or
                 PackageManager.FLAG_PERMISSION_ONE_TIME or
-                PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED
+                PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED or
+                PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 
             app.packageManager.updatePermissionFlags(perm.name, group.packageInfo.packageName,
                 flagMask, newFlags, user)
