@@ -42,8 +42,18 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Mentre s\'utilitza l\'aplicació"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Només aquesta vegada"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Permet sempre"</string>
+    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
+    <skip />
+    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
+    <skip />
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplicacions"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Permisos d\'aplicacions"</string>
+    <!-- no translation found for unused_apps (3935514133237470759) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
+    <skip />
     <string name="app_permission_manager" msgid="3802609813311662642">"Gestor de permisos"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"No m\'ho tornis a preguntar"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Sense permisos"</string>
@@ -56,6 +66,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Aquesta aplicació es va dissenyar per a una versió anterior d\'Android. És possible que no funcioni com està previst si li denegues el permís."</string>
     <string name="default_permission_description" msgid="692254823411049573">"dur a terme una acció desconeguda"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicacions permeses"</string>
+    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
+    <skip />
     <string name="menu_show_system" msgid="7623002570829860709">"Mostra el sistema"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Amaga el sistema"</string>
     <string name="no_apps" msgid="2377153782338039463">"Cap aplicació"</string>
@@ -99,6 +111,10 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Filtra per hora"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Permet"</string>
+    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
+    <skip />
+    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
+    <skip />
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Permet sempre"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Permet mentre s\'utilitza l\'aplicació"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Pregunta sempre"</string>
@@ -107,17 +123,41 @@
     <string name="app_permission_header" msgid="228974007660007656">"Accés a <xliff:g id="PERM">%1$s</xliff:g> per a aquesta aplicació"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Mostra tots els permisos de: <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Mostra totes les aplicacions amb aquest permís"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Les aplicacions que tinguin aquest permís poden <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Suprimeix els permisos si no s\'utilitza l\'aplicació"</string>
+    <string name="auto_revoke_summary" msgid="1842110019199306298">"Per protegir les teves dades, els permisos d\'aquesta aplicació se suprimiran si no la utilitzes durant uns mesos."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Si l\'aplicació no s\'ha utilitzat durant els darrers mesos, se suprimiran els permisos següents per protegir les teves dades: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"La supressió automàtica està desactivada per a aquesta aplicació."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"En aquests moments no es concedeixen permisos automàticament revocables"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Se suprimirà el permís <xliff:g id="PERM">%1$s</xliff:g>."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Se suprimiran els permisos <xliff:g id="PERM_0">%1$s</xliff:g> i <xliff:g id="PERM_1">%2$s</xliff:g>."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Permisos que se suprimiran: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"Gestiona els permisos automàticament"</string>
+    <string name="off" msgid="4561379152328580345">"Desactiva"</string>
+    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
+    <skip />
+    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
+    <skip />
+    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
+    <skip />
+    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
+    <skip />
+    <string name="last_opened_summary" msgid="8038737442154732">"Aplicació oberta per darrera vegada el dia <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"Oberta per darrera vegada el dia <xliff:g id="DATE">%s</xliff:g>"</string>
+    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
+    <skip />
+    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
+    <skip />
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Les aplicacions amb aquest permís poden <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Les aplicacions amb aquest permís poden accedir a la teva activitat física, com ara els passejos a peu, els trajectes amb bici o cotxe, el recompte de passos, etc."</string>
-    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Les aplicacions que tinguin aquest permís poden accedir al teu calendari"</string>
-    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Les aplicacions que tinguin aquest permís poden llegir i editar el registre de trucades del telèfon"</string>
-    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Les aplicacions que tinguin aquest permís poden fer fotos i gravar vídeos"</string>
-    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Les aplicacions que tinguin aquest permís poden accedir als teus contactes"</string>
-    <string name="permission_description_summary_location" msgid="687820658574645201">"Les aplicacions que tinguin aquest permís poden accedir a la ubicació d\'aquest dispositiu"</string>
-    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Les aplicacions que tinguin aquest permís poden gravar àudio"</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Les aplicacions que tinguin aquest permís poden fer i gestionar trucades"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Les aplicacions que tinguin aquest permís poden accedir a les dades dels sensors sobre les teves constants vitals"</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Les aplicacions que tinguin aquest permís poden veure i enviar missatges SMS"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Les aplicacions amb aquest permís poden accedir al teu calendari"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Les aplicacions amb aquest permís poden llegir i editar el registre de trucades del telèfon"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Les aplicacions amb aquest permís poden fer fotos i gravar vídeos"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Les aplicacions amb aquest permís poden accedir als teus contactes"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"Les aplicacions amb aquest permís poden accedir a la ubicació d\'aquest dispositiu"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Les aplicacions amb aquest permís poden gravar àudio"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Les aplicacions amb aquest permís poden fer i gestionar trucades"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Les aplicacions amb aquest permís poden accedir a les dades dels sensors sobre les teves constants vitals"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Les aplicacions amb aquest permís poden veure i enviar missatges SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Les aplicacions amb aquest permís poden accedir a les fotos, al contingut multimèdia i als fitxers del dispositiu"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Últim accés: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Actualment denegat / Últim accés: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -126,8 +166,10 @@
     <string name="allowed_header" msgid="6279244592227088158">"Permès"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Permès sempre"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Només es permet mentre s\'utilitza"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Pot accedir només a fitxers multimèdia"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Pot accedir a tots els fitxers"</string>
+    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"Pregunta sempre"</string>
     <string name="denied_header" msgid="2277998574238617699">"Denegat"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -147,9 +189,30 @@
       <item quantity="one">1 segon</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Recordatoris de permisos"</string>
+    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
+    <skip />
+    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
+    <skip />
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ha obtingut la teva ubicació en segon pla"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Aquesta aplicació pot accedir a la teva ubicació en qualsevol moment. Toca per canviar-ho."</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"S\'han suprimit permisos d\'aplicació per protegir la privadesa"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"Durant els darrers mesos, no has utilitzat <xliff:g id="APP_NAME">%s</xliff:g>. Toca per revisar-ho."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"Durant els darrers mesos, no has utilitzat <xliff:g id="APP_NAME">%s</xliff:g> ni 1 aplicació més. Toca per revisar-ho."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"Durant els darrers mesos, no has utilitzat <xliff:g id="APP_NAME">%1$s</xliff:g> ni <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> aplicacions més. Toca per revisar-ho."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"No utilitzes 1 aplicació"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"No utilitzes <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplicacions"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Se suprimiran els permisos per protegir la teva privadesa. Toca per revisar-ho."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"Aplicacions no utilitzades"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"S\'han suprimit els permisos de:"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Se suprimiran els permisos de:"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> i <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> i <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> més"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Per protegir les teves dades, s\'han suprimit els permisos de les aplicacions que no has utilitzat durant els darrers mesos"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Només mentre s\'utilitza l\'aplicació"</string>
+    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
+    <skip />
+    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
+    <skip />
     <string name="no_permissions_allowed" msgid="5781278485002145993">"No s\'ha concedit cap permís"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"No s\'ha denegat cap permís"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Cap aplicació amb permís"</string>
@@ -162,8 +225,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> aplicacions d\'accessibilitat tenen accés complet al dispositiu"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> pot veure la pantalla, les accions i el text que s\'introdueix, dur a terme accions i controlar la pantalla."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Aquestes aplicacions poden veure la pantalla, les accions i el text que s\'introdueix, dur a terme accions i controlar la pantalla."</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"Aplicació d\'assistència predeterminada"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"Aplicació d\'assistència"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Assistent digital predeterminat"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Assistent digital"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Les aplicacions d\'assistència et poden ajudar en funció de la informació que es mostri a la pantalla. Algunes aplicacions admeten tant el menú d\'aplicacions com els serveis d\'entrada de veu per oferir-te una assistència integrada."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Vols establir <xliff:g id="APP_NAME">%1$s</xliff:g> com a aplicació d\'assistència predeterminada?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Tindrà accés als SMS i al registre de trucades"</string>
@@ -244,7 +307,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Destaca l\'ús d\'aquestes aplicacions"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Mostra la detecció d\'activador de l\'Assistent"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Mostra una icona a la barra d\'estat quan s\'utilitzi el micròfon per activar l\'assistent de veu"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Vols permetre que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; llegeixi els fitxers multimèdia del dispositiu?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Vols permetre que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; accedeixi a les fotos i al contingut multimèdia del dispositiu?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Vols permetre que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; accedeixi als contactes?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"Vols permetre que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; accedeixi a la ubicació del dispositiu?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"L\'aplicació només tindrà accés a la ubicació quan l\'estiguis utilitzant"</string>
@@ -262,6 +325,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Vols permetre que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; faci trucades i les gestioni?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Vols permetre que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; accedeixi a les dades del sensor de constants vitals?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Permisos controlats"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Una aplicació pot accedir a la ubicació"</string>
-    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"Ara <xliff:g id="APP_NAME">%s</xliff:g> pot accedir a la teva ubicació. Contacta amb l\'administrador de TI per obtenir més informació."</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Es pot accedir a la ubicació"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"El teu administrador de TI permet que <xliff:g id="APP_NAME">%s</xliff:g> accedeixi a la teva ubicació"</string>
 </resources>
