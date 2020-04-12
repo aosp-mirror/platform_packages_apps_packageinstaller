@@ -24,6 +24,14 @@
                     "exclude-annotation": "android.platform.test.annotations.FlakyTest"
                 }
             ]
+        },
+        {
+            "name": "CtsOsTestCases",
+            "options": [
+                {
+                    "include-filter": "android.os.cts.AutoRevokeTest"
+                }
+            ]
         }
     ]
 }
