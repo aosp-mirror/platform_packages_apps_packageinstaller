@@ -39,11 +39,21 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"არაფერია გათიშული"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"დაშვება"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"ყოველთვის დაშვება"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"აპის გამოყენების პროცესში"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"აპის გამოყენებისას"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"მხოლოდ ამ ერთხელ"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"ყოველთვის დაშვება"</string>
+    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
+    <skip />
+    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
+    <skip />
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"აპები"</string>
     <string name="app_permissions" msgid="2778362347879465223">"აპის ნებართვები"</string>
+    <!-- no translation found for unused_apps (3935514133237470759) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
+    <skip />
     <string name="app_permission_manager" msgid="3802609813311662642">"ნებართვების მმართველი"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"აღარ მკითხო"</string>
     <string name="no_permissions" msgid="2193893107241172888">"ნებართვები არ არის"</string>
@@ -56,6 +66,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"ეს აპი Android-ის ძველი ვერსიისთვის შეიქმნა. ნებართვის უარყოფამ შესაძლოა მისი არასათანადო ფუნქციონირება გამოიწვიოს."</string>
     <string name="default_permission_description" msgid="692254823411049573">"უცნობი ქმედების შესრულება"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"დაშვებულია <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> აპიდან"</string>
+    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
+    <skip />
     <string name="menu_show_system" msgid="7623002570829860709">"სისტემის ჩვენება"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"სისტემური პროცესების დამალვა"</string>
     <string name="no_apps" msgid="2377153782338039463">"აპები არ არის"</string>
@@ -99,6 +111,10 @@
     <string name="filter_by_time" msgid="1763143592970195407">"გაფილტვრა დროის მიხედვით"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"დაშვება"</string>
+    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
+    <skip />
+    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
+    <skip />
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ყოველთვის დაშვება"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"მხოლოდ აპის გამოყენებისას დაშვება"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"ყოველთვის მკითხეთ"</string>
@@ -107,6 +123,30 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g> წვდომა ამ აპისთვის"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ყველა <xliff:g id="APP">%1$s</xliff:g> ნებართვის ნახვა"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ამ ნებართვის მქონე ყველა აპის ნახვა"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"ნებართვების ამოშლა აპის გამოუყენებლობის შემთხვევაში."</string>
+    <string name="auto_revoke_summary" msgid="1842110019199306298">"თქვენი მონაცემების დასაცავად, ამ აპის ნებართვები ამოიშლება, თუ მას რამდენიმე თვის განმავლობაში არ გამოიყენებთ."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"თქვენი მონაცემების დაცვის მიზნით, თუ აპს რამდენიმე თვის განმავლობაში არ გამოიყენებთ, ამოიშლება შემდეგი ნებართვები: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"ავტომატური ამოშლა ამჟამად გათიშულია ამ აპისთვის."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ამჟამად არცერთი ავტომატურად გაუქმებადი ნებართვა არ არის მინიჭებული"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ნებართვა <xliff:g id="PERM">%1$s</xliff:g> ამოიშლება."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> და <xliff:g id="PERM_1">%2$s</xliff:g> ნებართვები ამოიშლება."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"ნებართვები, რომლებიც ამოიშლება: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"ნებართვების ავტომატურად მართვა"</string>
+    <string name="off" msgid="4561379152328580345">"გამორთულია"</string>
+    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
+    <skip />
+    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
+    <skip />
+    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
+    <skip />
+    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
+    <skip />
+    <string name="last_opened_summary" msgid="8038737442154732">"აპის ბოლო გახსნა: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"ბოლო გახსნა: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
+    <skip />
+    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
+    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"ამ ნებართვის მქონე აპებს შეუძლიათ <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ამ ნებართვის მქონე აპებს შეუძლიათ წვდომა თქვენს ფიზიკურ აქტივობაზე, როგორიც არის, ქვეითად ან ველოსიპედით სიარული, მანქანის მართვა, ნაბიჯების რაოდენობა და სხვა"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ამ ნებართვის მქონე აპებს შეუძლიათ წვდომა თქვენს კალენდარზე"</string>
@@ -126,8 +166,10 @@
     <string name="allowed_header" msgid="6279244592227088158">"დაშვებულია"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"დაშვებულია ყოველთვის"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"დაშვებულია მხოლოდ გამოყენებისას"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"დაშვებულია მხოლოდ მედიისთვის"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"დაშვებულია ყველა ფაილისთვის"</string>
+    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"ყოველთვის მკითხეთ"</string>
     <string name="denied_header" msgid="2277998574238617699">"უარყოფილია"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -147,9 +189,30 @@
       <item quantity="one">1 წამი</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"შეხსენებები ნებართვის შესახებ"</string>
+    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
+    <skip />
+    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
+    <skip />
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>-მა მიიღო თქვენი მდებარეობა ფონურ რეჟიმში"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ამ აპს ყოველთვის შეუძლია თქვენს მდებარეობაზე წვდომა. შეეხეთ შესაცვლელად."</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"აპის ნებართვა ამოშლილია კონფიდენციალურობის დაცვის მიზნით"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> რამდენიმე თვის განმავლობაში არ გამოგიყენებიათ. შეეხეთ გადასახედად."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> და 1 სხვა აპი რამდენიმე თვის განმავლობაში არ გამოგიყენებიათ. შეეხეთ გადასახედად."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> და <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> სხვა აპი რამდენიმე თვის განმავლობაში არ გამოგიყენებიათ. შეეხეთ გადასახედად."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 აპი გამოუყენებელია"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> აპი გამოუყენებელია"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"ნებართვები ამოიშლება თქვენი კონფიდენციალურობის დასაცავად. შეეხეთ გადასახედად."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"გამოუყენებელი აპები"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"ნებართვები ამოშლილია შემდეგიდან:"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"ნებართვები ამოიშლება შემდეგიდან:"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> და <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> და <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> სხვა"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"თქვენი მონაცემების დასაცავად ნებართვები ამოიშალა აპებიდან, რომლებიც რამდენიმე თვის განმავლობაში არ გამოგიყენებიათ."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"მხოლოდ აპის გამოყენებისას"</string>
+    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
+    <skip />
+    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
+    <skip />
     <string name="no_permissions_allowed" msgid="5781278485002145993">"დაშვებული ნებართვები არ არის"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"უარყოფილი ნებართვები არ არის"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"დაშვებული აპები არ არის"</string>
@@ -162,8 +225,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"თქვენს მოწყობილობაზე სრული წვდომით სარგებლობს მარტივი წვდომის <xliff:g id="NUM_SERVICES">%s</xliff:g> აპი"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g>-ს შეუძლია თქვენი ეკრანის, ქმედებებისა და შენატანების ნახვა, ქმედებების შესრულება და ეკრანის მართვა."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"ამ აპებს შეუძლია თქვენი ეკრანის, ქმედებებისა და შენატანების ნახვა, ქმედებების შესრულება და ეკრანის მართვა."</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"დახმარების ნაგულისხმევი აპი"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"დახმარების აპი"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"ნაგულისხმ. ციფრული ასისტ. აპი"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"ციფრული ასისტენტის აპი"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"დახმარების აპებს შეუძლიათ დაგეხმარონ იმ ეკრანიდან მიღებულ ინფორმაციაზე დაყრდნობით, რომელსაც ათვალიერებთ. ზოგიერთი აპის მიერ მხარდაჭერილია როგორც გამშვები, ისე ხმოვანი შეყვანის სერვისები, თქვენთვის კომპლექსური დახმარების გასაწევად."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"დაყენდეს <xliff:g id="APP_NAME">%1$s</xliff:g> ნაგულისხმევ დახმარების აპად?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"იღებს წვდომას SMS-ებზე, ზარების ჟურნალზე"</string>
@@ -244,7 +307,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"მოხმარების გამოყოფა შემდეგისთვის:"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"ასისტენტის გაშვების ხატულის ჩვენება"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"მიკროფონის მეშვეობით ხმოვანი ასისტენტის გააქტიურებისას სტატუსის ზოლში ხატულის ჩვენება"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"გსურთ მიანიჭოთ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>-ს&lt;/b&gt; ამ მოწყობილობის მედია ფაილების წაკითხვის ნებართვა?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"გსურთ, მიანიჭოთ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-ს თქვენს მოწყობილობაზე არსებულ ფოტოებზე და მედია-კონტენტზე წვდომის ნებართვა?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"გსურთ, მიანიჭოთ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>-ს&lt;/b&gt; თქვენს კონტაქტებზე წვდომის ნებართვა?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"გსურთ, მიანიჭოთ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>-ს&lt;/b&gt; ამ მოწყობილობის მდებარეობაზე წვდომის ნებართვა?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"ამ აპს მდებარეობაზე წვდომა მხოლოდ მაშინ ექნება, როცა თქვენ მას გამოიყენებთ"</string>
@@ -262,6 +325,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"გსურთ, მიანიჭოთ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>-ს&lt;/b&gt; სატელეფონო ზარების განხორციელების და მართვის ნებართვა?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"გსურთ, მიანიჭოთ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>-ს&lt;/b&gt; თქვენი სასიცოცხლო ფუნქციების შესახებ სენსორის მონაცემებზე წვდომის ნებართვა?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"კონტროლირებული ნებართვები"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"აპს შეუძლია მდებარეობაზე წვდომა"</string>
-    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"ახლა <xliff:g id="APP_NAME">%s</xliff:g>-ს შეუძლია მდებარეობაზე წვდომა. მეტის შესატყობად დაუკავშირდით თქვენს IT ადმინისტრატორს."</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"მდებარეობაზე წვდომა შესაძლებელია"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"თქვენი IT ადმინისტრატორი <xliff:g id="APP_NAME">%s</xliff:g>-ს თქვენს მდებარეობაზე წვდომის საშუალებას აძლევს"</string>
 </resources>
