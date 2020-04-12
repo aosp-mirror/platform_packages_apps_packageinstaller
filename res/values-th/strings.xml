@@ -40,10 +40,20 @@
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"อนุญาต"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"อนุญาตตลอด"</string>
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ขณะใช้แอป"</string>
-    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"เฉพาะครั้งนี้:"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"เฉพาะครั้งนี้"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"อนุญาตตลอด"</string>
+    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
+    <skip />
+    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
+    <skip />
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"แอป"</string>
     <string name="app_permissions" msgid="2778362347879465223">"สิทธิ์ของแอป"</string>
+    <!-- no translation found for unused_apps (3935514133237470759) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
+    <skip />
     <string name="app_permission_manager" msgid="3802609813311662642">"เครื่องมือจัดการสิทธิ์"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"ไม่ต้องถามอีก"</string>
     <string name="no_permissions" msgid="2193893107241172888">"ไม่มีสิทธิ์"</string>
@@ -56,6 +66,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"แอปนี้ออกแบบมาเพื่อ Android เวอร์ชันเก่า การปฏิเสธสิทธิ์อาจทำให้แอปไม่ทำงานตามที่ต้องการอีกต่อไป"</string>
     <string name="default_permission_description" msgid="692254823411049573">"ดำเนินการทำงานที่ไม่รู้จัก"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"อนุญาตแล้ว <xliff:g id="COUNT_0">%1$d</xliff:g> จาก <xliff:g id="COUNT_1">%2$d</xliff:g> แอป"</string>
+    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
+    <skip />
     <string name="menu_show_system" msgid="7623002570829860709">"แสดงระบบ"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"ซ่อนระบบ"</string>
     <string name="no_apps" msgid="2377153782338039463">"ไม่มีแอป"</string>
@@ -99,6 +111,10 @@
     <string name="filter_by_time" msgid="1763143592970195407">"กรองตามเวลา"</string>
     <string name="item_separator" msgid="8266062815210378175">" "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"อนุญาต"</string>
+    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
+    <skip />
+    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
+    <skip />
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"อนุญาตตลอด"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"อนุญาตขณะมีการใช้แอปเท่านั้น"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"ถามทุกครั้ง"</string>
@@ -107,6 +123,30 @@
     <string name="app_permission_header" msgid="228974007660007656">"สิทธิ์การเข้าถึง \"<xliff:g id="PERM">%1$s</xliff:g>\" สำหรับแอปนี้"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ดูสิทธิ์ทั้งหมดของ \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ดูแอปทั้งหมดที่มีสิทธิ์นี้"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"นำสิทธิ์ออกหากไม่ได้ใช้งานแอป"</string>
+    <string name="auto_revoke_summary" msgid="1842110019199306298">"ระบบจะนำสิทธิ์เข้าถึงของแอปนี้ออกหากไม่มีการใช้งานแอปเป็นเวลา 2-3 เดือน"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"หากไม่มีการใช้งานแอปนาน 2-3 เดือน ระบบจะปกป้องข้อมูลของคุณด้วยการนำสิทธิ์ต่อไปนี้ออก ได้แก่ <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"การนำออกโดยอัตโนมัติสำหรับแอปนี้ปิดใช้อยู่ในขณะนี้"</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ปัจจุบันไม่มีการให้สิทธิ์ที่เพิกถอนได้โดยอัตโนมัติ"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ระบบจะนำสิทธิ์เข้าถึง<xliff:g id="PERM">%1$s</xliff:g>ออก"</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"ระบบจะนำสิทธิ์เข้าถึง<xliff:g id="PERM_0">%1$s</xliff:g>และ<xliff:g id="PERM_1">%2$s</xliff:g>ออก"</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"สิทธิ์ที่จะนำออก ได้แก่ การเข้าถึง<xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"จัดการสิทธิ์โดยอัตโนมัติ"</string>
+    <string name="off" msgid="4561379152328580345">"ปิด"</string>
+    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
+    <skip />
+    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
+    <skip />
+    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
+    <skip />
+    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
+    <skip />
+    <string name="last_opened_summary" msgid="8038737442154732">"เปิดแอปล่าสุดเมื่อวันที่ <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"เปิดล่าสุดเมื่อวันที่ <xliff:g id="DATE">%s</xliff:g>"</string>
+    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
+    <skip />
+    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
+    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"แอปที่มีสิทธิ์นี้จะ<xliff:g id="DESCRIPTION">%1$s</xliff:g> ได้"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"แอปที่มีสิทธิ์นี้จะเข้าถึงกิจกรรมการเคลื่อนไหวร่างกายได้ เช่น การเดิน การปั่นจักรยาน การขับรถ การนับจำนวนก้าว และอื่นๆ"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"แอปที่มีสิทธิ์นี้จะเข้าถึงปฏิทินของคุณได้"</string>
@@ -126,8 +166,10 @@
     <string name="allowed_header" msgid="6279244592227088158">"อนุญาต"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"อนุญาตตลอด"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"อนุญาตขณะใช้งานอยู่เท่านั้น"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"อนุญาตเฉพาะสื่อเท่านั้น"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"อนุญาตไฟล์ทั้งหมด"</string>
+    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"ถามทุกครั้ง"</string>
     <string name="denied_header" msgid="2277998574238617699">"ปฏิเสธ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -147,9 +189,30 @@
       <item quantity="one">1 วินาที</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"การช่วยเตือนเกี่ยวกับสิทธิ์"</string>
+    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
+    <skip />
+    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
+    <skip />
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> เข้าถึงตำแหน่งของคุณอยู่เบื้องหลัง"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"แอปนี้เข้าถึงตำแหน่งของคุณได้ตลอดเวลา แตะเพื่อเปลี่ยน"</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"ระบบนำสิทธิ์ของแอปออกเพื่อปกป้องความเป็นส่วนตัว"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> ไม่มีการใช้งานมา 2-3 เดือนแล้ว แตะเพื่อตรวจสอบ"</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> และอีก 1 แอปไม่มีการใช้งานมา 2-3 เดือนแล้ว แตะเพื่อตรวจสอบ"</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> และอีก <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> แอปไม่มีการใช้งานมา 2-3 เดือนแล้ว แตะเพื่อตรวจสอบ"</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"ไม่มีการใช้งานแอป 1 แอป"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"ไม่มีการใช้งานแอป <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> แอป"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"ระบบจะนำสิทธิ์ออกเพื่อปกป้องความเป็นส่วนตัวของคุณ แตะเพื่อตรวจสอบ"</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"แอปที่ไม่ได้ใช้"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"ระบบได้นำสิทธิ์ออกจาก"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"ระบบจะนำสิทธิ์ออกจาก"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>และ<xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> <xliff:g id="PERM_NAME_1">%2$s</xliff:g> และอีก <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> รายการ"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ระบบได้นำสิทธิ์ออกจากแอปที่คุณไม่ได้ใช้งานนาน 2-3 เดือนเพื่อปกป้องข้อมูลของคุณ"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"เมื่อมีการใช้แอปเท่านั้น"</string>
+    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
+    <skip />
+    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
+    <skip />
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ไม่ได้ให้สิทธิ์ใดเลย"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"ไม่ได้ปฏิเสธสิทธิ์ใดเลย"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"ไม่ได้อนุญาตแอปใดเลย"</string>
@@ -162,8 +225,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"แอปการช่วยเหลือพิเศษ <xliff:g id="NUM_SERVICES">%s</xliff:g> รายการมีสิทธิ์เข้าถึงอุปกรณ์ได้โดยสมบูรณ์"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> จะดูหน้าจอ การทำงาน และอินพุตของคุณได้ รวมถึงดำเนินการต่างๆ และควบคุมหน้าจอ"</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"แอปเหล่านี้จะดูหน้าจอ การทำงาน และอินพุตของคุณได้ รวมถึงดำเนินการต่างๆ และควบคุมหน้าจอได้ด้วย"</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"แอปผู้ช่วยเริ่มต้น"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"แอปผู้ช่วย"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"แอปผู้ช่วยดิจิทัลเริ่มต้น"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"แอปผู้ช่วยดิจิทัล"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"แอปผู้ช่วยจะช่วยเหลือคุณโดยใช้ข้อมูลจากหน้าจอที่คุณกำลังดูอยู่ แอปบางแอปรองรับทั้ง Launcher และบริการป้อนข้อมูลด้วยเสียงเพื่อให้ความช่วยเหลือแบบบูรณาการแก่คุณ"</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"ตั้งค่า <xliff:g id="APP_NAME">%1$s</xliff:g> เป็นแอปผู้ช่วยเริ่มต้นไหม"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"มีสิทธิ์เข้าถึง SMS และประวัติการโทร"</string>
@@ -244,7 +307,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"ไฮไลต์การใช้งานแอปต่อไปนี้"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"แสดงไอคอน Assistant"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"แสดงไอคอนในแถบสถานะเมื่อมีการใช้ไมโครโฟนเพื่อเปิดใช้งานผู้ช่วยสั่งการด้วยเสียง"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"อนุญาต &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ให้อ่านไฟล์สื่อของอุปกรณ์นี้ไหม"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงรูปภาพและสื่อในอุปกรณ์ไหม"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงรายชื่อติดต่อไหม"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงตำแหน่งของอุปกรณ์นี้ไหม"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"แอปจะมีสิทธิ์เข้าถึงตำแหน่งในขณะที่คุณใช้แอปเท่านั้น"</string>
@@ -255,13 +318,13 @@
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงปฏิทินไหม"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ส่งและดูข้อความ SMS ไหม"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงรูปภาพ สื่อ และไฟล์ในอุปกรณ์ไหม"</string>
-    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"อนุญาตให้&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;บันทึกเสียงไหม"</string>
+    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; บันทึกเสียงไหม"</string>
     <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงกิจกรรมการเคลื่อนไหวร่างกายของคุณไหม"</string>
     <string name="permgrouprequest_camera" msgid="5379726026447957660">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ถ่ายรูปและบันทึกวิดีโอไหม"</string>
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงประวัติการโทรในโทรศัพท์ไหม"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; โทรและจัดการการโทรไหม"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงข้อมูลเซ็นเซอร์เกี่ยวกับสัญญาณชีพไหม"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"สิทธิ์ที่มีการควบคุม"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"มีแอปหนึ่งเข้าถึงตำแหน่งได้"</string>
-    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> เข้าถึงตำแหน่งของคุณได้แล้วตอนนี้ โปรดสอบถามข้อมูลเพิ่มเติมจากผู้ดูแลระบบ IT"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"เข้าถึงตำแหน่งได้"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"ผู้ดูแลระบบไอทีของคุณอนุญาตให้ <xliff:g id="APP_NAME">%s</xliff:g> เข้าถึงตำแหน่งของคุณได้"</string>
 </resources>
