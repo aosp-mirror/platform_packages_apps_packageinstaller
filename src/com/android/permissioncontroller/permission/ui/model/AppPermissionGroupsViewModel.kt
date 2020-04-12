@@ -20,6 +20,7 @@ import android.app.AppOpsManager
 import android.app.AppOpsManager.MODE_ALLOWED
 import android.app.AppOpsManager.MODE_IGNORED
 import android.app.AppOpsManager.OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED
+import android.Manifest
 import android.os.Bundle
 import android.os.UserHandle
 import androidx.fragment.app.Fragment
@@ -30,6 +31,7 @@ import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AppPermGroupUiInfoLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokeStateLiveData
+import com.android.permissioncontroller.permission.data.FullStoragePermissionAppsLiveData
 import com.android.permissioncontroller.permission.data.LightPackageInfoLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
@@ -55,6 +57,22 @@ class AppPermissionGroupsViewModel(
     private val user: UserHandle
 ) : ViewModel() {
 
+    enum class PermSubtitle(val value: Int) {
+        NONE(0),
+        MEDIA_ONLY(1),
+        ALL_FILES(2),
+        FOREGROUND_ONLY(3),
+    }
+
+    data class GroupUiInfo(
+        val groupName: String,
+        val isSystem: Boolean = false,
+        val subtitle: PermSubtitle
+    ) {
+        constructor(groupName: String, isSystem: Boolean) :
+            this(groupName, isSystem, PermSubtitle.NONE)
+    }
+
     /**
      * LiveData whose data is a map of grant category (either allowed or denied) to a list
      * of permission group names that match the key, and two booleans representing if this is a
@@ -66,9 +84,13 @@ class AppPermissionGroupsViewModel(
         private val packagePermsLiveData =
             PackagePermissionsLiveData[packageName, user]
         private val appPermGroupUiInfoLiveDatas = mutableMapOf<String, AppPermGroupUiInfoLiveData>()
+        private val fullStoragePermsLiveData = FullStoragePermissionAppsLiveData
 
         init {
             addSource(packagePermsLiveData) {
+                updateIfActive()
+            }
+            addSource(fullStoragePermsLiveData) {
                 updateIfActive()
             }
             updateIfActive()
@@ -79,9 +101,14 @@ class AppPermissionGroupsViewModel(
             if (groups == null && packagePermsLiveData.isInitialized) {
                 value = null
                 return
-            } else if (groups == null) {
+            } else if (groups == null || (Manifest.permission_group.STORAGE in groups &&
+                    !fullStoragePermsLiveData.isInitialized)) {
                 return
             }
+
+            val hasFullStorage = fullStoragePermsLiveData.value?.any { pkg ->
+                pkg.packageName == packageName && pkg.user == user && pkg.isGranted
+            } ?: false
 
             addAndRemoveAppPermGroupLiveDatas(groups)
 
@@ -99,13 +126,23 @@ class AppPermissionGroupsViewModel(
                 val isSystem = Utils.getPlatformPermissionGroups().contains(groupName)
                 appPermGroupUiInfoLiveDatas[groupName]?.value?.let { uiInfo ->
                     when (uiInfo.permGrantState) {
-                        PermGrantState.PERMS_ALLOWED -> groupGrantStates[Category.ALLOWED]!!.add(
-                            GroupUiInfo(groupName, isSystem))
+                        PermGrantState.PERMS_ALLOWED -> {
+                            var subtitle = PermSubtitle.NONE
+                            if (groupName == Manifest.permission_group.STORAGE) {
+                                subtitle = if (hasFullStorage) {
+                                    PermSubtitle.ALL_FILES
+                                } else {
+                                    PermSubtitle.MEDIA_ONLY
+                                }
+                            }
+                            groupGrantStates[Category.ALLOWED]!!.add(
+                                GroupUiInfo(groupName, isSystem, subtitle))
+                        }
                         PermGrantState.PERMS_ALLOWED_ALWAYS -> groupGrantStates[
                             Category.ALLOWED]!!.add(GroupUiInfo(groupName, isSystem))
                         PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY -> groupGrantStates[
                             Category.ALLOWED]!!.add(GroupUiInfo(groupName, isSystem,
-                            isForeground = true))
+                            PermSubtitle.FOREGROUND_ONLY))
                         PermGrantState.PERMS_DENIED -> groupGrantStates[Category.DENIED]!!.add(
                             GroupUiInfo(groupName, isSystem))
                         PermGrantState.PERMS_ASK -> groupGrantStates[Category.ASK]!!.add(
@@ -139,12 +176,6 @@ class AppPermissionGroupsViewModel(
             }
         }
     }
-
-    data class GroupUiInfo(
-        val groupName: String,
-        val isSystem: Boolean = false,
-        val isForeground: Boolean = false
-    )
 
     val autoRevokeLiveData = AutoRevokeStateLiveData[packageName, user]
 

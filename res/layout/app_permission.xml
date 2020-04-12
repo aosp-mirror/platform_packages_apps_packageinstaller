@@ -95,7 +95,7 @@
 
                     <TextView
                         android:id="@+id/permission_details"
-                        style="@style/AppPermissionDetails"/>
+                        style="@style/AppPermissionDetails" />
 
                     <LinearLayout
                         android:id="@+id/two_target_divider"
@@ -119,21 +119,29 @@
 
                 <View
                     android:id="@+id/divider"
-                    style="@style/AppPermissionFooterDivider"/>
+                    style="@style/AppPermissionFooterDivider" />
 
                 <TextView
                     android:id="@+id/footer_link_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    style="@style/AppPermissionFooterLink"/>
+                    style="@style/AppPermissionFooterLink" />
 
                 <TextView
                     android:id="@+id/footer_link_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    style="@style/AppPermissionFooterLink"/>
+                    style="@style/AppPermissionFooterLink" />
+
+                <TextView
+                    android:id="@+id/footer_storage_special_app_access"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_info_outline"
+                    style="@style/AppPermissionFooterTextWithIcon" />
 
             </LinearLayout>
 

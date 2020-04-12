@@ -109,15 +109,29 @@ object AutoRevokedPackagesLiveData
             val liveData = permStateLiveDatas[packagePermGroup]!!
             addSource(liveData) { permState ->
                 val packageUser = packagePermGroup.first to packagePermGroup.third
+                var added = false
                 for ((_, state) in permState) {
                     if (state.permFlags and FLAG_PERMISSION_AUTO_REVOKED != 0) {
                         packageAutoRevokedPermsList.getOrPut(packageUser) { mutableSetOf() }
                             .add(packagePermGroup.second)
+                        added = true
                         break
                     }
                 }
+                if (!added) {
+                    packageAutoRevokedPermsList[packageUser]?.remove(packagePermGroup.second)
+                    if (packageAutoRevokedPermsList[packageUser]?.isEmpty() == true) {
+                        packageAutoRevokedPermsList.remove(packageUser)
+                    }
+                }
+
                 if (permStateLiveDatas.all { it.value.isInitialized }) {
-                    postValue(packageAutoRevokedPermsList.toMap())
+                    val autoRevokedCopy =
+                            mutableMapOf<Pair<String, UserHandle>, Set<String>>()
+                    for ((userPackage, permGroups) in packageAutoRevokedPermsList) {
+                        autoRevokedCopy[userPackage] = permGroups.toSet()
+                    }
+                    postValue(autoRevokedCopy)
                 }
             }
         }

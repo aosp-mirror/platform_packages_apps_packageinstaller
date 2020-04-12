@@ -53,6 +53,11 @@ class AutoRevokePermissionPreference(
             openButton?.setOnClickListener(listener)
             field = listener
         }
+    var canOpen: Boolean = true
+        set(open) {
+            field = open
+            openButton?.isEnabled = open
+        }
     var removeClickListener: View.OnClickListener? = null
         set(listener) {
             removeButton?.setOnClickListener(listener)
@@ -68,6 +73,7 @@ class AutoRevokePermissionPreference(
 
         openButton = holder.findViewById(R.id.open_button) as ImageButton
         openButton?.setOnClickListener(openClickListener)
+        openButton?.isEnabled = canOpen
 
         removeButton = holder.findViewById(R.id.uninstall_button) as ImageButton
         removeButton?.setOnClickListener(removeClickListener)

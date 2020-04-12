@@ -57,6 +57,7 @@ import com.android.permissioncontroller.permission.model.livedatatypes.AutoRevok
 import com.android.permissioncontroller.permission.ui.Category;
 import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModel;
 import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModel.GroupUiInfo;
+import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModel.PermSubtitle;
 import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModelFactory;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
@@ -162,8 +163,8 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         mUser = getArguments().getParcelable(Intent.EXTRA_USER);
         mIsSystemPermsScreen = getArguments().getBoolean(IS_SYSTEM_PERMS_SCREEN, true);
 
-        AppPermissionGroupsViewModelFactory factory = new AppPermissionGroupsViewModelFactory(
-                mPackageName, mUser);
+        AppPermissionGroupsViewModelFactory factory =
+                new AppPermissionGroupsViewModelFactory(mPackageName, mUser);
 
         mViewModel = new ViewModelProvider(this, factory).get(AppPermissionGroupsViewModel.class);
         mViewModel.getPackagePermGroupsLiveData().observe(this, this::updatePreferences);
@@ -273,8 +274,8 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
                 }
             }
 
-            for (GroupUiInfo uiInfo : groupMap.get(grantCategory)) {
-                String groupName = uiInfo.getGroupName();
+            for (GroupUiInfo groupInfo : groupMap.get(grantCategory)) {
+                String groupName = groupInfo.getGroupName();
 
                 PermissionControlPreference preference = new PermissionControlPreference(context,
                         mPackageName, groupName, mUser, AppPermissionGroupsFragment.class.getName(),
@@ -282,12 +283,23 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
                 preference.setTitle(KotlinUtils.INSTANCE.getPermGroupLabel(context, groupName));
                 preference.setIcon(KotlinUtils.INSTANCE.getPermGroupIcon(context, groupName));
                 preference.setKey(groupName);
-                if (uiInfo.isForeground()) {
+                switch (groupInfo.getSubtitle()) {
+                    case FOREGROUND_ONLY:
+                        preference.setSummary(R.string.permission_subtitle_only_in_foreground);
+                        break;
+                    case MEDIA_ONLY:
+                        preference.setSummary(R.string.permission_subtitle_media_only);
+                        break;
+                    case ALL_FILES:
+                        preference.setSummary(R.string.permission_subtitle_all_files);
+                        break;
+                }
+                if (groupInfo.getSubtitle() == PermSubtitle.FOREGROUND_ONLY) {
                     preference.setSummary(R.string.permission_subtitle_only_in_foreground);
                 }
-                if (uiInfo.isSystem() == mIsSystemPermsScreen) {
+                if (groupInfo.isSystem() == mIsSystemPermsScreen) {
                     category.addPreference(preference);
-                } else if (!uiInfo.isSystem()) {
+                } else if (!groupInfo.isSystem()) {
                     numExtraPerms++;
                 }
             }

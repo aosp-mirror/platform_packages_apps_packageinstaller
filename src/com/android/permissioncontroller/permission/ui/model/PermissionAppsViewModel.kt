@@ -31,6 +31,7 @@ import androidx.savedstate.SavedStateRegistryOwner
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.FullStoragePermissionAppsLiveData
+import com.android.permissioncontroller.permission.data.FullStoragePermissionAppsLiveData.FullStoragePackageState
 import com.android.permissioncontroller.permission.data.SinglePermGroupPackagesUiInfoLiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.ui.Category
@@ -102,7 +103,8 @@ class PermissionAppsViewModel(
                 fullStorageLiveData = FullStoragePermissionAppsLiveData
                 addSource(FullStoragePermissionAppsLiveData) { fullAccessPackages ->
                     if (fullAccessPackages != packagesWithFullFileAccess) {
-                        packagesWithFullFileAccess = fullAccessPackages ?: emptyList()
+                        packagesWithFullFileAccess = fullAccessPackages.filter { it.isGranted }
+                            ?: emptyList()
                         if (packagesUiInfoLiveData.isInitialized) {
                             update()
                         }
@@ -167,10 +169,12 @@ class PermissionAppsViewModel(
         }
     }
 
-    // If this is the storage permission group, some apps have full access to storage, while
-    // Others just have access to media files. This list contains the packages with full access
-    // To listen for changes, create and observe a FullStoragePermissionAppsLiveData
-    private var packagesWithFullFileAccess = listOf<Pair<String, UserHandle>>()
+    /**
+     * If this is the storage permission group, some apps have full access to storage, while
+     * others just have access to media files. This list contains the packages with full access.
+     * To listen for changes, create and observe a FullStoragePermissionAppsLiveData
+     */
+    private var packagesWithFullFileAccess = listOf<FullStoragePackageState>()
 
     /**
      * Whether or not to show the "Files and Media" subtitle label for a package, vs. the normal
@@ -180,10 +184,11 @@ class PermissionAppsViewModel(
      * @param packageName The name of the package we want to check
      * @param user The name of the user whose package we want to check
      *
-     * @return true if the package and user should show the full files subtitle
+     * @return true if the package and user has full file access
      */
-    fun shouldUseFullStorageString(packageName: String, user: UserHandle): Boolean {
-        return (packageName to user) in packagesWithFullFileAccess
+    fun packageHasFullStorage(packageName: String, user: UserHandle): Boolean {
+        return packagesWithFullFileAccess.any {
+            it.packageName == packageName && it.user == user }
     }
 
     /**
