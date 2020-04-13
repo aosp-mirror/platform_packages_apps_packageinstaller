@@ -42,8 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Terwyl die program gebruik word"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Net hierdie keer"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Laat altyd toe"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Laat toe dat alles lêers bestuur word"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Laat toegang tot medialêers toe"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Programme"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Programtoestemmings"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Ongebruikte programme"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Deaktiveer program"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"As jy hierdie program deaktiveer, sal Android en ander programme dalk nie meer soos bedoel werk nie. Hou in gedagte dat jy nie hierdie program kan uitvee nie, want dit is vooraf op jou toestel geïnstalleer. Deur dit te deaktiveer, skakel jy hierdie program af en versteek jy dit op jou toestel."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Toestemmingbestuurder"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Moenie weer vra nie"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Geen toestemmings nie"</string>
@@ -56,6 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Hierdie program is vir \'n ouer weergawe van Android ontwerp. As toestemming geweier word, kan dit veroorsaak dat dit dalk nie meer soos bedoel werk nie."</string>
     <string name="default_permission_description" msgid="692254823411049573">"voer \'n onbekende handeling uit"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> van <xliff:g id="COUNT_1">%2$d</xliff:g> programme toegelaat"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> programme toegelaat"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Wys stelsel"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Versteek stelsel"</string>
     <string name="no_apps" msgid="2377153782338039463">"Geen programme nie"</string>
@@ -99,6 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Filtreer volgens tyd"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Laat toe"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Laat toe dat alles lêers bestuur word"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Laat net toegang tot media toe"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Laat altyd toe"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Laat net toe terwyl jy program gebruik"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Vra elke keer"</string>
@@ -117,8 +125,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Toestemmings wat verwyder sal word: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Bestuur toestemmings outomaties"</string>
     <string name="off" msgid="4561379152328580345">"Af"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g>-toestemming verwyder"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>- en <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>-toestemming verwyder"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> en <xliff:g id="NUMBER">%2$s</xliff:g> ander toestemmings verwyder"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Meer as <xliff:g id="NUMBER">%s</xliff:g> maande gelede laas oopgemaak"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Program is <xliff:g id="DATE">%s</xliff:g> laas oopgemaak"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"<xliff:g id="DATE">%s</xliff:g> laas oopgemaak"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"As jy toelaat dat alle lêers bestuur word, kan hierdie program enige lêers in gedeelde bergingspasie op hierdie toestel en gekoppelde bergingtoestelle kry, wysig en uitvee. Die program kan toegang tot lêers kry sonder om jou te vra."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Laat hierdie program toe om lêers op die toestel en enige gekoppelde bergingtoestelle te kry, te wysig en uit te vee? Hierdie program kan toegang tot lêers kry sonder om jou te vra."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Programme met hierdie toestemming kan <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Programme met hierdie toestemming kan ingaan by fisieke aktiwiteit, soos stap, fiets, ry, treëtelling, en meer"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Programme met hierdie toestemming kan toegang tot jou kalender kry"</string>
@@ -138,8 +152,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Toegelaat"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Altyd toegelaat"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Net toegelaat wanneer dit gebruik word"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Toestemming net vir media"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Toestemming vir alle lêers"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Net toegang tot media toegelaat"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Toegelaat om alle lêers te bestuur"</string>
     <string name="ask_header" msgid="4471670860332046665">"Vra elke keer"</string>
     <string name="denied_header" msgid="2277998574238617699">"Geweier"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -159,6 +173,8 @@
       <item quantity="one">1 sekonde</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Toestemmingonthounotas"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Programtoestemmings is outomaties verwyder"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Sommige programme is \'n paar maande gelede laas gebruik. Tik vir meer inligting."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> het jou ligging op die agtergrond gekry"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Hierdie program het altyd toegang tot jou ligging. Tik om te verander."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Programtoestemmings is verwyder om privaatheid te beskerm"</string>
@@ -175,6 +191,8 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> en nog <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Toestemmings is verwyder uit programme wat jy vir \'n paar maande nie gebruik het nie om jou data te beskerm"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Net terwyl die program gebruik word"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Media"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Alle lêers"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Geen toestemmings toegelaat nie"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Geen toestemmings geweier nie"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Geen programme toegelaat nie"</string>
