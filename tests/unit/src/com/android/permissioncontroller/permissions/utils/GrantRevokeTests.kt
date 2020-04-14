@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.tests.unit.permissions
+package com.android.permissioncontroller.permissions.utils
 
 import android.Manifest
 import android.app.ActivityManager
@@ -40,7 +40,6 @@ import android.content.pm.PermissionInfo.PROTECTION_FLAG_INSTANT
 import android.content.pm.PermissionInfo.PROTECTION_FLAG_RUNTIME_ONLY
 import android.os.Build
 import android.os.UserHandle
-import androidx.test.runner.AndroidJUnit4
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermGroupInfo
@@ -63,6 +62,8 @@ import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.never
 import org.mockito.Mockito.verify
+
+import androidx.test.ext.junit.runners.AndroidJUnit4
 
 /**
  * A suite of unit tests to test the granting and revoking of permissions. Note- does not currently
