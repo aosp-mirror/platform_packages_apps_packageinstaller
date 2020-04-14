@@ -42,8 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Az alkalmazás használata közben"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Csak most"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Mindig engedélyezett"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Az összes fájl kezelésének engedélyezése"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Hozzáférés engedélyezése médiafájlokhoz"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Alkalmazások"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Alkalmazásengedélyek"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Nem használt alkalmazások"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Alkalmazás letiltása"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Ha letiltja ezt az alkalmazást, akkor előfordulhat, hogy az Android- és más alkalmazások nem működnek majd megfelelően. Ne feledje, hogy az alkalmazást nem törölheti, mert előre telepítették az eszközre. A letiltással kikapcsolja ezt az alkalmazást, és elrejti az eszközön."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Engedélykezelő"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Ne jelenjen meg többé"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Nincs engedély"</string>
@@ -56,6 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Ez az alkalmazás az Android egy korábbi verziójához készült. Az engedély megtagadása esetén előfordulhat, hogy az alkalmazás a továbbiakban nem működik majd megfelelően."</string>
     <string name="default_permission_description" msgid="692254823411049573">"végrehajt egy ismeretlen műveletet"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>/<xliff:g id="COUNT_0">%1$d</xliff:g> alkalmazás kapott engedélyt"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_1">%2$d</xliff:g>/<xliff:g id="COUNT_0">%1$d</xliff:g> alkalmazás engedélyezve"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Rendszer megjelenítése"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Rendszer elrejtése"</string>
     <string name="no_apps" msgid="2377153782338039463">"Nincsenek alkalmazások"</string>
@@ -99,6 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Szűrés idő szerint"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Engedélyezés"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Az összes fájl kezelésének engedélyezése"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Csak a médiatartalmakhoz való hozzáférés engedélyezése"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Mindig engedélyezett"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Engedélyezés csak az alkalmazás használatakor"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Mindig kérdezzen rá"</string>
@@ -117,8 +125,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Eltávolításra kerülő engedélyek: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Engedélyek automatikus kezelése"</string>
     <string name="off" msgid="4561379152328580345">"Ki"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"A(z) <xliff:g id="PERMISSION_NAME">%s</xliff:g> engedély visszavonva"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"A(z) <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> és a(z) <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> engedély visszavonva"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"A(z) <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> és <xliff:g id="NUMBER">%2$s</xliff:g> másik engedély visszavonva"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Utoljára több mint <xliff:g id="NUMBER">%s</xliff:g> hónapja nyitotta meg"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Az alkalmazás legutóbbi megnyitása: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Legutóbb megnyitva ekkor: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Ha engedélyezi az összes fájl kezelését, ez az alkalmazás hozzáférhet az eszköz tárhelyén és a csatlakoztatott tárolóeszközökön található fájlokhoz, valamint módosíthatja és törölheti őket. Az alkalmazás anélkül férhet hozzá a fájlokhoz, hogy Önt megkérdezné róla."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Engedélyezi ennek az alkalmazásnak, hogy hozzáférjen az eszközön és a csatlakoztatott tárolóeszközökön található összes fájlhoz, illetve módosíthassa és törölhesse őket? Ez az alkalmazás anélkül férhet hozzá a fájlokhoz, hogy Önt megkérdezné róla."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Az ezzel az engedéllyel rendelkező alkalmazások a következőket tehetik: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Az ezzel az engedéllyel rendelkező alkalmazások hozzáférhetnek az Ön fizikai tevékenységekkel (pl. séta, kerékpározás, vezetés, lépésszámlálás stb.) kapcsolatos adataihoz"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Az ezzel az engedéllyel rendelkező alkalmazások hozzáférhetnek a naptárához"</string>
@@ -138,10 +152,10 @@
     <string name="allowed_header" msgid="6279244592227088158">"Engedélyezett"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Mindig engedélyezett"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Csak használat közben engedélyezett"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Csak médiatartalmakhoz engedélyezett"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Engedélyezett az összes fájlhoz"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Csak médiatartalmak eléréséhez engedélyezett"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Engedélyezve az összes fájl kezeléséhez"</string>
     <string name="ask_header" msgid="4471670860332046665">"Mindig kérdezzen rá"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Elutasítva"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Elutasított"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> nap</item>
       <item quantity="one">1 nap</item>
@@ -159,6 +173,8 @@
       <item quantity="one">1 másodperc</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Engedélyekre vonatkozó emlékeztetők"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Alkalmazásengedélyek automatikusan visszavonva"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Egyes alkalmazásokat már több hónapja nem használt. Koppintson, ha további információra van szüksége."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"A(z) <xliff:g id="APP_NAME">%s</xliff:g> hozzáfér az Ön helyadataihoz a háttérben"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ez az alkalmazás bármikor hozzáférhet az Ön tartózkodási helyéhez. A módosításhoz koppintson."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Alkalmazásengedélyek eltávolítva az adatvédelem érdekében"</string>
@@ -175,6 +191,8 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, valamint további <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Az adatvédelem érdekében a rendszer eltávolította a néhány hónapja nem használt alkalmazások engedélyeit."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Csak az alkalmazás használata közben"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Médiafájlok"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Minden fájl"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nincs megadott engedély"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nincs megtagadott engedély"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Nincs engedélyezett alkalmazás"</string>

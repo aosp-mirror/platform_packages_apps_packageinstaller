@@ -42,8 +42,15 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Habang ginagamit ang app"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Sa pagkakataong ito lang"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Palaging payagan"</string>
+    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
+    <skip />
+    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
+    <skip />
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Mga App"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Mga pahintulot sa app"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Mga hindi ginagamit na app"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"I-disable ang app"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Kung idi-disable mo ang app na ito, baka hindi na gumana ang Android at iba pang app gaya ng inaasahan. Tandaan, hindi mo made-delete ang app na ito dahil naka-preinstall ito sa iyong device. Sa pamamagitan ng pag-disable nito, io-off mo ang app na ito at itatago mo ito sa iyong device."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Manager ng pahintulot"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Huwag nang itanong muli"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Walang pahintulot"</string>
@@ -56,6 +63,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Ang app na ito ay idinisenyo para sa mas lumang bersyon ng Android. Kapag tinanggihan ang pahintulot, maaaring hindi na ito gumana gaya ng inaasahan."</string>
     <string name="default_permission_description" msgid="692254823411049573">"magsagawa ng hindi kilalang pagkilos"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Pinapayagan ang <xliff:g id="COUNT_0">%1$d</xliff:g> sa <xliff:g id="COUNT_1">%2$d</xliff:g> (na) app"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> app ang pinayagan"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Ipakita ang system"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Itago ang system"</string>
     <string name="no_apps" msgid="2377153782338039463">"Walang app"</string>
@@ -99,6 +107,10 @@
     <string name="filter_by_time" msgid="1763143592970195407">"I-filter ayon sa oras"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Payagan"</string>
+    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
+    <skip />
+    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
+    <skip />
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Payagan sa lahat ng oras"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Payagan lang habang ginagamit ang app"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Magtanong palagi"</string>
@@ -117,8 +129,16 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Mga pahintulot na maaalis: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Awtomatikong pamahalaan ang pahintulot"</string>
     <string name="off" msgid="4561379152328580345">"I-off"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Inalis ang pahintulot na <xliff:g id="PERMISSION_NAME">%s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Inalis ang mga pahintulot na <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> at <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Inalis ang <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> at <xliff:g id="NUMBER">%2$s</xliff:g> pang pahintulot"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Huling binuksan mahigit <xliff:g id="NUMBER">%s</xliff:g> (na) buwan na ang nakakalipas"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Huling binuksan ang app noong <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Huling binuksan noong <xliff:g id="DATE">%s</xliff:g>"</string>
+    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
+    <skip />
+    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
+    <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Magagawa ng mga app na may ganitong pahintulot na <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Maa-access ng mga app na mayroon ng pahintulot na ito ang iyong pisikal na aktibidad, gaya ng paglalakad, pagbibisikleta, pagmamaneho, bilang ng hakbang, at higit pa"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Maa-access ng mga app na may ganitong pahintulot ang iyong kalendaryo"</string>
@@ -138,8 +158,10 @@
     <string name="allowed_header" msgid="6279244592227088158">"Pinapayagan"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Palaging pinapayagan"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Pinapayagan lang habang ginagamit"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Para sa media lang pinapayagan"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Pinapayagan para sa lahat ng file"</string>
+    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"Magtanong palagi"</string>
     <string name="denied_header" msgid="2277998574238617699">"Tinanggihan"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -159,6 +181,8 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> na segundo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Mga paalala sa pahintulot"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Awtomatikong inalis ang mga pahintulot sa app"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"May ilang app na ilang buwan nang hindi ginagamit. Mag-tap para sa higit pang impormasyon"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Kinuha ng <xliff:g id="APP_NAME">%s</xliff:g> ang iyong lokasyon sa background"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Maa-access ng app na ito ang iyong lokasyon anumang oras. I-tap para baguhin."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Inalis ang pahintulot sa app para protektahan ang privacy"</string>
@@ -175,6 +199,10 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, at <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> pa"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Para protektahan ang iyong data, inalis na ang mga pahintulot sa mga app na ilang buwan mo nang hindi ginagamit"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Habang ginagamit lang ang app"</string>
+    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
+    <skip />
+    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
+    <skip />
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Walang pinayagang pahintulot"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Walang tinanggihang pahintulot"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Walang pinayagang app"</string>

@@ -42,8 +42,15 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Док користим апликацију"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Само овај пут"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Дозволи увек"</string>
+    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
+    <skip />
+    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
+    <skip />
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Апликације"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Дозволе за апликације"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Апликације које се не користе"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Онемогући апликацију"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Ако онемогућите ову апликацију, Android и друге апликације можда више неће радити исправно. Имајте на уму да не можете да избришете ову апликацију јер је била унапред инсталирана на уређају. Ако је онемогућите, искључићете је и сакрити на уређају."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Менаџер дозвола"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Не питај поново"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Нема дозвола"</string>
@@ -57,6 +64,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Ова апликација је дизајнирана за старију верзију Android-а. Ако одбијете дозволу, можда неће радити исправно."</string>
     <string name="default_permission_description" msgid="692254823411049573">"обавља непознату радњу"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Апликације са дозволом: <xliff:g id="COUNT_0">%1$d</xliff:g> од <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"Дозвољено апликација: <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Прикажи системске"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Сакриј системске"</string>
     <string name="no_apps" msgid="2377153782338039463">"Нема апликација"</string>
@@ -100,13 +108,17 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Филтрирај према времену"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Дозволи"</string>
+    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
+    <skip />
+    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
+    <skip />
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Дозволи увек"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Дозв. само док се апл. користи"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Питај сваки пут"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Одбиј"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> - дозвола"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Приступ ове апликације функцији „<xliff:g id="PERM">%1$s</xliff:g>“"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Прикажи све дозволе (<xliff:g id="APP">%1$s</xliff:g>)"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Прикажи све дозволе за <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Прикажи све апликације са овом дозволом"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Уклоните дозволе ако се апликација не користи"</string>
     <string name="auto_revoke_summary" msgid="1842110019199306298">"Ради заштите података, дозволе за ову апликацију се уклањају ако се апликација не користи пар месеци."</string>
@@ -118,9 +130,17 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Дозволе које ће се уклонити: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Управљајте дозволама аутоматски"</string>
     <string name="off" msgid="4561379152328580345">"Искључено"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Дозвола <xliff:g id="PERMISSION_NAME">%s</xliff:g> је уклоњена"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> и још <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> дозволе су уклоњене"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> и још <xliff:g id="NUMBER">%2$s</xliff:g> дозвола је уклоњено"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Последњи пут отворено пре више од <xliff:g id="NUMBER">%s</xliff:g> месеца/и"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Апликација је последњи пут отворена: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Последњи пут отворено: <xliff:g id="DATE">%s</xliff:g>"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Апликације са овом дозволом могу: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
+    <skip />
+    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
+    <skip />
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Апликације са овом дозволом могу <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Апликације са овом дозволом могу да приступају подацима о физичким активностима, попут ходања, вожње бицикла, вожње аутомобила, броја корака и друго"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Апликације са овом дозволом могу да приступају календару"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Апликације са овом дозволом могу да читају и додају ставке у евиденцију позива на телефону"</string>
@@ -139,8 +159,10 @@
     <string name="allowed_header" msgid="6279244592227088158">"Дозвољено"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Дозвољено увек"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Дозвољено само док се апликација користи"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Омогућено само за медије"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Омогућено за све датотеке"</string>
+    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"Питај сваки пут"</string>
     <string name="denied_header" msgid="2277998574238617699">"Одбијено"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -164,6 +186,8 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунди</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Подсетници за дозволе"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Дозволе за апликације су аутоматски уклоњене"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Неке апликације нису коришћене неколико месеци. Додирните за више информација."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> има вашу локацију у позадини"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ова апликација може увек да приступа локацији. Додирните да бисте то променили."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Дозволе за апликације су уклоњене ради заштите приватности"</string>
@@ -180,9 +204,13 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> и још <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Ради заштите података, дозволе су уклоњене из апликација које нисте користили пар месеци"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Само док се апликација користи"</string>
+    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
+    <skip />
+    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
+    <skip />
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Дозволе нису одобрене"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Ниједна дозвола није одбијена"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"Апликације нису дозвољене"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Ниједна апликација"</string>
     <string name="no_apps_allowed_full" msgid="5857725855406253991">"Ниједна апликација није омогућена за све датотеке"</string>
     <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Ниједна апликација није омогућена само за медије"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Није одбијена ниједна апликација"</string>

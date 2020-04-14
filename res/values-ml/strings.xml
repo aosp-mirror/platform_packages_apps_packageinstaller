@@ -42,8 +42,18 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ആപ്പ് ഉപയോഗിക്കുമ്പോൾ"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"ഇപ്പോഴത്തേക്ക് മാത്രം"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"ഏതുസമയത്തും അനുവദിക്കുക"</string>
+    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
+    <skip />
+    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
+    <skip />
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ആപ്പുകൾ"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ആപ്പ് അനുമതികൾ"</string>
+    <!-- no translation found for unused_apps (3935514133237470759) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
+    <skip />
     <string name="app_permission_manager" msgid="3802609813311662642">"അനുമതി മാനേജർ"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"വീണ്ടും ആവശ്യപ്പെടരുത്"</string>
     <string name="no_permissions" msgid="2193893107241172888">"അനുമതികൾ ഇല്ല"</string>
@@ -56,8 +66,10 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"ഈ ആപ്പ് Android-ന്റെ പഴയ പതിപ്പിനായാണ് രൂപകൽപ്പന ചെയ്‌തിരിക്കുന്നത്. അനുമതി നിരസിക്കുന്നത് തുടർന്ന് ഉദ്ദേശിച്ചവിധം പ്രവർത്തിക്കാതിരിക്കാനിടയാക്കുന്നു."</string>
     <string name="default_permission_description" msgid="692254823411049573">"ഒരു അജ്ഞാത പ്രവർത്തനം നടത്തുക"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g> ആപ്പുകൾ അനുവദനീയം"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"സിസ്‌റ്റം ദൃശ്യമാക്കുക"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"സിസ്‌റ്റം അദൃശ്യമാക്കുക"</string>
+    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
+    <skip />
+    <string name="menu_show_system" msgid="7623002570829860709">"സിസ്‌റ്റം കാണിക്കുക"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"സിസ്‌റ്റം മറയ്ക്കുക"</string>
     <string name="no_apps" msgid="2377153782338039463">"ആപ്പുകൾ ഒന്നുമില്ല"</string>
     <string name="location_settings" msgid="547378321761364906">"ലൊക്കേഷൻ ക്രമീകരണം"</string>
     <string name="location_warning" msgid="4687406043150343369">"ഈ ഉപകരണത്തിനായുള്ള ലൊക്കേഷൻ സേവനങ്ങളുടെ ദാതാവ് <xliff:g id="APP_NAME">%1$s</xliff:g> ആണ്. ലൊക്കേഷൻ ക്രമീകരണത്തിൽ നിന്ന് ലൊക്കേഷൻ ആക്‌സസ് പരിഷ്‌കരിക്കാവുന്നതാണ്."</string>
@@ -99,6 +111,10 @@
     <string name="filter_by_time" msgid="1763143592970195407">"സമയമനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"അനുവദിക്കുക"</string>
+    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
+    <skip />
+    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
+    <skip />
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ഏതുസമയത്തും അനുവദിക്കുക"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"ആപ്പ് ഉപയോഗിക്കുമ്പോൾ മാത്രം"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"എപ്പോഴും ചോദിക്കുക"</string>
@@ -117,16 +133,28 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"നീക്കം ചെയ്യപ്പെടുന്ന അനുമതികൾ: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"അനുമതികൾ സ്വയമേവ മാനേജ് ചെയ്യുക"</string>
     <string name="off" msgid="4561379152328580345">"ഓഫാക്കുക"</string>
+    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
+    <skip />
+    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
+    <skip />
+    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
+    <skip />
+    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
+    <skip />
     <string name="last_opened_summary" msgid="8038737442154732">"ആപ്പ് അവസാനം തുറന്നത് <xliff:g id="DATE">%s</xliff:g>-നാണ്"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"അവസാനം തുറന്നത് <xliff:g id="DATE">%s</xliff:g>"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് <xliff:g id="DESCRIPTION">%1$s</xliff:g> ചെയ്യാം"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"നടത്തം, സൈക്ലിംഗ്, ഡ്രൈവിംഗ്, സ്‌റ്റെപ് കൗണ്ട് എന്നിവപോലുള്ള നിങ്ങളുടെ ശാരീരിക പ്രവർത്തനം ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ആക്‌സസ് ചെയ്യാനാകും"</string>
+    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
+    <skip />
+    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
+    <skip />
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"നടത്തം, സൈക്ലിംഗ്, ഡ്രൈവിംഗ്, സ്‌റ്റെപ് കൗണ്ട് എന്നിവപോലുള്ള നിങ്ങളുടെ കായിക പ്രവർത്തനം ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ആക്‌സസ് ചെയ്യാനാകും"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് നിങ്ങളുടെ കലണ്ടർ ആക്‌സസ് ചെയ്യാനാവും"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ഫോൺ കോൾ ചരിത്രം വായിക്കാനും എഴുതാനുമാവും"</string>
-    <string name="permission_description_summary_camera" msgid="6699611334403400091">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് വീഡിയോ റിക്കോർഡ് ചെയ്യുകയും ചിത്രങ്ങളെടുക്കുകയും ചെയ്യാം"</string>
-    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് നിങ്ങളുടെ കോൺടാക്റ്റുകളെ ആക്‌സസ് ചെയ്യാം"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് വീഡിയോ റെക്കോർഡ് ചെയ്യുകയും ചിത്രങ്ങളെടുക്കുകയും ചെയ്യാം"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് നിങ്ങളുടെ കോൺടാക്റ്റുകൾ ആക്‌സസ് ചെയ്യാം"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ഈ ഉപകരണത്തിന്റെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാം"</string>
-    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ഓഡിയോ റിക്കോർഡ് ചെയ്യാം"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ഓഡിയോ റെക്കോർഡ് ചെയ്യാം"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് കോളുകൾ ചെയ്യാനും അവ മാനേജ് ചെയ്യാനുമാവും"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് നിങ്ങളുടെ ജീവാധാര ലക്ഷണങ്ങളെ കുറിച്ചുള്ള സെൻസർ വിവരങ്ങൾ ആക്‌സസ് ചെയ്യാനാവും"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് SMS സന്ദേശങ്ങൾ കാണാനും അയയ്ക്കാനുമാവും"</string>
@@ -136,10 +164,12 @@
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ഒരിക്കലും ആക്‌‌സസ് ചെയ്‌തിട്ടില്ല"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"നിരസിച്ചത് / ഒരിക്കലും ആക്‌‌സസ് ചെയ്യാത്തത്"</string>
     <string name="allowed_header" msgid="6279244592227088158">"അനുവദിച്ചവ"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"ഏതുസമയത്തും അനുവദിച്ചത്"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"എല്ലാസമയത്തും അനുവദിച്ചത്"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ഉപയോഗിക്കുമ്പോൾ മാത്രം അനുവദനീയം"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"മീഡിയക്ക് മാത്രം അനുവദിച്ചിരിക്കുന്നു"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"എല്ലാ ഫയലുകൾക്കും അനുവദിച്ചിരിക്കുന്നു"</string>
+    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"എപ്പോഴും ചോദിക്കുക"</string>
     <string name="denied_header" msgid="2277998574238617699">"നിരസിച്ചവ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -159,6 +189,10 @@
       <item quantity="one">ഒരു സെക്കൻഡ്</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"അനുമതിയ്ക്കുള്ള റിമൈൻഡറുകൾ"</string>
+    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
+    <skip />
+    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
+    <skip />
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>-ന് നിങ്ങളുടെ ലൊക്കേഷൻ പശ്ചാത്തലത്തിൽ ലഭിച്ചു"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ഈ ആപ്പിന് എപ്പോഴും നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാനാവും. മാറ്റാൻ ടാപ്പ് ചെയ്യുക."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"സ്വകാര്യത പരിരക്ഷിക്കാൻ ആപ്പ് അനുമതികൾ നീക്കം ചെയ്തു"</string>
@@ -175,6 +209,10 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> എന്നിവയും <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> കൂടുതലും"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"നിങ്ങളുടെ ഡാറ്റ പരിരക്ഷിക്കാൻ, കുറച്ച് മാസങ്ങളായി ഉപയോഗിക്കാത്ത ആപ്പുകളിൽ നിന്ന് അനുമതികൾ നീക്കം ചെയ്തു"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ആപ്പ് ഉപയോഗത്തിലുള്ളപ്പോൾ മാത്രം"</string>
+    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
+    <skip />
+    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
+    <skip />
     <string name="no_permissions_allowed" msgid="5781278485002145993">"അനുമതികളൊന്നും നൽകിയിട്ടില്ല"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"അനുമതികളൊന്നും നിഷേധിച്ചിട്ടില്ല"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"ആപ്പുകൾക്കൊന്നും അനുമതി നൽകിയിട്ടില്ല"</string>

@@ -42,8 +42,18 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ஆப்ஸைப் பயன்படுத்தும்போது"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"இப்போது மட்டும்"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"எப்போதும் அனுமதி"</string>
+    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
+    <skip />
+    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
+    <skip />
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ஆப்ஸ்"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ஆப்ஸ் அனுமதிகள்"</string>
+    <!-- no translation found for unused_apps (3935514133237470759) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
+    <skip />
     <string name="app_permission_manager" msgid="3802609813311662642">"அனுமதி நிர்வாகம்"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"மீண்டும் கேட்காதே"</string>
     <string name="no_permissions" msgid="2193893107241172888">"அனுமதிகள் தேவையில்லை"</string>
@@ -56,6 +66,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Androidன் பழைய பதிப்புக்காக இந்த ஆப்ஸ் வடிவமைக்கப்பட்டது. அனுமதியை மறுத்தால் அது சரியாகச் செயல்படாமல் போகலாம்."</string>
     <string name="default_permission_description" msgid="692254823411049573">"அறியப்படாத செயலைச் செய்யும்"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"அனுமதிக்கப்பட்ட ஆப்ஸ்: <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
+    <skip />
     <string name="menu_show_system" msgid="7623002570829860709">"சிஸ்டம் ஆப்ஸைக் காட்டு"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"சிஸ்டம் ஆப்ஸை மறை"</string>
     <string name="no_apps" msgid="2377153782338039463">"எந்த ஆப்ஸிற்கும் தேவையில்லை"</string>
@@ -99,6 +111,10 @@
     <string name="filter_by_time" msgid="1763143592970195407">"நேரத்தின்படி வடிகட்டு"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"அனுமதி"</string>
+    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
+    <skip />
+    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
+    <skip />
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"அனைத்து நேரங்களிலும் அனுமதி"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"ஆப்ஸை உபயோகிக்கும்போது மட்டும் அனுமதி"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"ஒவ்வொரு முறையும் கேள்"</string>
@@ -107,24 +123,29 @@
     <string name="app_permission_header" msgid="228974007660007656">"இந்த ஆப்ஸிற்கு <xliff:g id="PERM">%1$s</xliff:g> அணுகல்"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"அனைத்து <xliff:g id="APP">%1$s</xliff:g> அனுமதிகளையும் காட்டு"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"இந்த அனுமதியைக் கொண்டுள்ள அனைத்து ஆப்ஸையும் காட்டு"</string>
-    <!-- no translation found for auto_revoke_label (8755748230070160969) -->
-    <skip />
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"இந்த ஆப்ஸைச் சில மாதங்கள் பயன்படுத்தவில்லை என்றால் உங்கள் தரவைப் பாதுகாப்பதற்காக இந்த ஆப்ஸுக்கான அனுமதிகள் அகற்றப்படும்."</string>
-    <!-- no translation found for auto_revoke_summary_with_permissions (160422052726006109) -->
-    <skip />
-    <!-- no translation found for auto_revoke_disabled (4480748641016277290) -->
-    <skip />
+    <string name="auto_revoke_label" msgid="8755748230070160969">"இந்த ஆப்ஸ் பயன்படுத்தப்படவில்லை என்றால் அனுமதிகளை அகற்றவும்"</string>
+    <string name="auto_revoke_summary" msgid="1842110019199306298">"உங்கள் தரவைப் பாதுகாப்பதற்காக, இந்த ஆப்ஸைச் சில மாதங்கள் பயன்படுத்தவில்லை என்றால் இதற்கான அனுமதிகள் அகற்றப்படும்."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"உங்கள் தரவைப் பாதுகாக்கும் பொருட்டு ஆப்ஸ் சில மாதங்களாகப் பயன்படுத்தப்படவில்லை எனில் பின்வரும் அனுமதிகள் அகற்றப்படும்: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"\'தானாக அகற்றுதல்\' இந்த ஆப்ஸிற்குத் தற்சமயம் முடக்கப்பட்டுள்ளது."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"தானாக ரத்தாகக்கூடிய அனுமதிகள் எதுவும் வழங்கப்படவில்லை"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> அனுமதி அகற்றப்படும்."</string>
     <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g>, <xliff:g id="PERM_1">%2$s</xliff:g> அனுமதிகள் அகற்றப்படும்."</string>
-    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"அகற்றப்படும் அனுமதிகள்: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <!-- no translation found for auto_manage_title (4059499629753336321) -->
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"அகற்றப்படவிருக்கும் அனுமதிகள்: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"அனுமதிகளைத் தானாகவே நிர்வகித்தல்"</string>
+    <string name="off" msgid="4561379152328580345">"ஆஃப்"</string>
+    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
     <skip />
-    <!-- no translation found for off (4561379152328580345) -->
+    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
     <skip />
-    <!-- no translation found for last_opened_summary (8038737442154732) -->
+    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
     <skip />
-    <!-- no translation found for last_opened_summary_short (403134890404955437) -->
+    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
+    <skip />
+    <string name="last_opened_summary" msgid="8038737442154732">"கடைசியாக <xliff:g id="DATE">%s</xliff:g> அன்று ஆப்ஸ் திறக்கப்பட்டது"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"கடைசியாகத் திறந்தது: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
+    <skip />
+    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
     <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"இந்த அனுமதியைக் கொண்டுள்ள ஆப்ஸால் <xliff:g id="DESCRIPTION">%1$s</xliff:g> செய்ய இயலும்"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"இந்த அனுமதியைக் கொண்டுள்ள ஆப்ஸால் நடத்தல், சைக்கிள் ஓட்டுதல், வாகனம் ஓட்டுதல், படிகளில் ஏறி இறங்குதல் மற்றும் பல உடல்ரீதியான செயல்பாடுகளை அணுக இயலும்"</string>
@@ -145,8 +166,10 @@
     <string name="allowed_header" msgid="6279244592227088158">"அனுமதிக்கப்பட்டவை"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"எப்போதும் அனுமதிக்கப்படுபவை"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"உபயோகத்தில் மட்டுமே அனுமதிக்கப்படும்"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"மீடியா ஃபைல்கள் மட்டுமே அனுமதிக்கப்படும்"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"அனைத்து ஃபைல்களும் அனுமதிக்கப்படும்"</string>
+    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"ஒவ்வொரு முறையும் கேள்"</string>
     <string name="denied_header" msgid="2277998574238617699">"மறுக்கப்பட்டது"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -166,35 +189,30 @@
       <item quantity="one">1 விநாடி</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"அனுமதிக்கான நினைவூட்டல்கள்"</string>
+    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
+    <skip />
+    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
+    <skip />
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ஆப்ஸ் உங்கள் இருப்பிடத்தைப் பின்புலத்தில் பெற்றது"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"எப்பொழுதும் உங்கள் இருப்பிடத்தை இந்த ஆப்ஸால் பயன்படுத்த இயலும். மாற்றத் தட்டவும்."</string>
-    <!-- no translation found for auto_revoke_after_notification_title (6256474332719286120) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_one (2599193525413390339) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_two (1866307724849983054) -->
-    <skip />
-    <!-- no translation found for auto_revoke_after_notification_content_many (830111995719692890) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_one (5487334486889306216) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_title_many (1512657862051262697) -->
-    <skip />
-    <!-- no translation found for auto_revoke_before_notification_content_one (2070547291547064792) -->
-    <skip />
-    <!-- no translation found for unused_apps_title (4528745145780586943) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_after (7664277360480735253) -->
-    <skip />
-    <!-- no translation found for unused_apps_subtitle_before (6907087239793765525) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_two (8377946866912481356) -->
-    <skip />
-    <!-- no translation found for unused_permissions_subtitle_many (3293109339018555084) -->
-    <skip />
-    <!-- no translation found for unused_app_permissions_removed_summary (323483158593998019) -->
-    <skip />
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"தனியுரிமையைப் பாதுகாக்க ஆப்ஸ் அனுமதிகள் அகற்றப்பட்டன"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"கடந்த சில மாதங்களில் <xliff:g id="APP_NAME">%s</xliff:g> ஆப்ஸ் பயன்படுத்தப்படவில்லை. பார்க்க தட்டவும்."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"கடந்த சில மாதங்களில் <xliff:g id="APP_NAME">%s</xliff:g> ஆப்ஸும் 1 பிற ஆப்ஸும் பயன்படுத்தப்படவில்லை. பார்க்க தட்டவும்."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"கடந்த சில மாதங்களில் <xliff:g id="APP_NAME">%1$s</xliff:g> ஆப்ஸும் <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> பிற ஆப்ஸும் பயன்படுத்தப்படவில்லை. பார்க்க தட்டவும்."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 ஆப்ஸ் பயன்படுத்தப்படவில்லை"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ஆப்ஸ் பயன்படுத்தப்படவில்லை"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"தனியுரிமையைப் பாதுகாக்க அனுமதிகள் அகற்றப்படும். பார்க்க தட்டவும்."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"பயன்படுத்தாத ஆப்ஸ்"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"இவற்றிலிருந்து அனுமதிகள் அகற்றப்பட்டன:"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"இவற்றிலிருந்து அனுமதிகள் அகற்றப்படும்:"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, மேலும் <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"உங்கள் தரவைப் பாதுகாக்கும் பொருட்டு கடந்த சில மாதங்களில் நீங்கள் பயன்படுத்தப்படாத ஆப்ஸில் இருந்து அனுமதிகள் அகற்றப்பட்டன"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ஆப்ஸ் உபயோகத்தில் இருக்கும்போது மட்டும்"</string>
+    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
+    <skip />
+    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
+    <skip />
     <string name="no_permissions_allowed" msgid="5781278485002145993">"எந்த அனுமதிகளும் வழங்கப்படவில்லை"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"எந்த அனுமதிகளும் மறுக்கப்படவில்லை"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"எந்த ஆப்ஸும் அனுமதிக்கப்படவில்லை"</string>
