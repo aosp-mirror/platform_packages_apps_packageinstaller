@@ -27,6 +27,12 @@ import android.app.AppOpsManager.permissionToOp
 import android.app.Application
 import android.content.Context
 import android.content.pm.PackageManager
+import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
+import android.content.pm.PackageManager.FLAG_PERMISSION_ONE_TIME
+import android.content.pm.PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED
+import android.content.pm.PackageManager.FLAG_PERMISSION_REVOKED_COMPAT
+import android.content.pm.PackageManager.FLAG_PERMISSION_USER_FIXED
+import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
 import android.content.pm.PermissionGroupInfo
 import android.content.pm.PermissionInfo
 import android.graphics.drawable.Drawable
@@ -60,6 +66,14 @@ import kotlin.coroutines.suspendCoroutine
  * A set of util functions designed to work with kotlin, though they can work with java, as well.
  */
 object KotlinUtils {
+
+    private const val PERMISSION_CONTROLLER_CHANGED_FLAG_MASK = FLAG_PERMISSION_USER_SET or
+            FLAG_PERMISSION_USER_FIXED or
+            FLAG_PERMISSION_ONE_TIME or
+            FLAG_PERMISSION_REVOKED_COMPAT or
+            FLAG_PERMISSION_ONE_TIME or
+            FLAG_PERMISSION_REVIEW_REQUIRED or
+            FLAG_PERMISSION_AUTO_REVOKED
 
     private const val KILL_REASON_APP_OP_CHANGE = "Permission related app op changed"
 
@@ -468,16 +482,8 @@ object KotlinUtils {
         }
 
         if (perm.flags != newFlags) {
-            val flagMask = PackageManager.FLAG_PERMISSION_USER_SET or
-                PackageManager.FLAG_PERMISSION_USER_FIXED or
-                PackageManager.FLAG_PERMISSION_ONE_TIME or
-                PackageManager.FLAG_PERMISSION_REVOKED_COMPAT or
-                PackageManager.FLAG_PERMISSION_ONE_TIME or
-                PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED or
-                PackageManager.FLAG_PERMISSION_AUTO_REVOKED
-
             app.packageManager.updatePermissionFlags(perm.name, group.packageInfo.packageName,
-                flagMask, newFlags, user)
+                    PERMISSION_CONTROLLER_CHANGED_FLAG_MASK, newFlags, user)
         }
 
         val newState = PermState(newFlags, isGranted)
@@ -630,16 +636,8 @@ object KotlinUtils {
         newFlags = newFlags.clearFlag(PackageManager.FLAG_PERMISSION_AUTO_REVOKED)
 
         if (perm.flags != newFlags) {
-            val flagMask = PackageManager.FLAG_PERMISSION_USER_SET or
-                PackageManager.FLAG_PERMISSION_USER_FIXED or
-                PackageManager.FLAG_PERMISSION_ONE_TIME or
-                PackageManager.FLAG_PERMISSION_REVOKED_COMPAT or
-                PackageManager.FLAG_PERMISSION_ONE_TIME or
-                PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED or
-                PackageManager.FLAG_PERMISSION_AUTO_REVOKED
-
             app.packageManager.updatePermissionFlags(perm.name, group.packageInfo.packageName,
-                flagMask, newFlags, user)
+                    PERMISSION_CONTROLLER_CHANGED_FLAG_MASK, newFlags, user)
         }
 
         val newState = PermState(newFlags, isGranted)

@@ -27,6 +27,7 @@ import android.app.Application
 import android.content.Context.ACTIVITY_SERVICE
 import android.content.Context.APP_OPS_SERVICE
 import android.content.pm.PackageManager
+import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_ONE_TIME
 import android.content.pm.PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED
 import android.content.pm.PackageManager.FLAG_PERMISSION_REVOKED_COMPAT
@@ -64,6 +65,14 @@ import org.mockito.Mockito.never
 import org.mockito.Mockito.verify
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
+
+private const val PERMISSION_CONTROLLER_CHANGED_FLAG_MASK = FLAG_PERMISSION_USER_SET or
+        FLAG_PERMISSION_USER_FIXED or
+        FLAG_PERMISSION_ONE_TIME or
+        FLAG_PERMISSION_REVOKED_COMPAT or
+        FLAG_PERMISSION_ONE_TIME or
+        FLAG_PERMISSION_REVIEW_REQUIRED or
+        FLAG_PERMISSION_AUTO_REVOKED
 
 /**
  * A suite of unit tests to test the granting and revoking of permissions. Note- does not currently
@@ -275,7 +284,7 @@ class GrantRevokeTests {
 
         if (expectedFlags != originalFlags) {
             verify(pm).updatePermissionFlags(permName, TEST_PACKAGE_NAME,
-                expectedFlags xor originalFlags, expectedFlags, TEST_USER)
+                    PERMISSION_CONTROLLER_CHANGED_FLAG_MASK, expectedFlags, TEST_USER)
         } else {
             verify(pm, never()).updatePermissionFlags(eq(permName), eq(TEST_PACKAGE_NAME), anyInt(),
                 anyInt(), eq(TEST_USER))
