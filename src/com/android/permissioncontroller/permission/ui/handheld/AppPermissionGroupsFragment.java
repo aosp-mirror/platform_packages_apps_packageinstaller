@@ -81,7 +81,6 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
     private static final String AUTO_REVOKE_CATEGORY_KEY = "_AUTO_REVOKE_KEY";
     private static final String AUTO_REVOKE_SWITCH_KEY = "_AUTO_REVOKE_SWITCH_KEY";
     private static final String AUTO_REVOKE_SUMMARY_KEY = "_AUTO_REVOKE_SUMMARY_KEY";
-    private static final String AUTO_REVOKE_PERMS_KEY = "_AUTO_REVOKE_PERMS_KEY";
 
     static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
@@ -348,12 +347,7 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         autoRevokeSummary.setIcon(Utils.applyTint(getActivity(), R.drawable.ic_info_outline,
                 android.R.attr.colorControlNormal));
         autoRevokeSummary.setKey(AUTO_REVOKE_SUMMARY_KEY);
-        autoRevokeSummary.setSummary(R.string.auto_revoke_summary);
         autoRevokeCategory.addPreference(autoRevokeSummary);
-
-        Preference autoRevokePerms = new Preference(context);
-        autoRevokePerms.setKey(AUTO_REVOKE_PERMS_KEY);
-        autoRevokeCategory.addPreference(autoRevokePerms);
     }
 
     private void setAutoRevokeToggleState(AutoRevokeState state) {
@@ -366,17 +360,14 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
                 .findPreference(AUTO_REVOKE_CATEGORY_KEY);
         SwitchPreference autoRevokeSwitch = autoRevokeCategory.findPreference(
                 AUTO_REVOKE_SWITCH_KEY);
-        Preference autoRevokePerms = autoRevokeCategory.findPreference(AUTO_REVOKE_PERMS_KEY);
         Preference autoRevokeSummary = autoRevokeCategory.findPreference(AUTO_REVOKE_SUMMARY_KEY);
 
         if (!state.isEnabledGlobal() || !state.getShouldShowSwitch()) {
             autoRevokeSwitch.setVisible(false);
-            autoRevokePerms.setVisible(false);
             autoRevokeSummary.setVisible(false);
             return;
         }
         autoRevokeSwitch.setVisible(true);
-        autoRevokePerms.setVisible(true);
         autoRevokeSummary.setVisible(true);
         autoRevokeSwitch.setChecked(state.isEnabledForApp());
 
@@ -392,16 +383,9 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
 
         groupLabels.sort(mCollator);
         if (groupLabels.isEmpty()) {
-            autoRevokePerms.setSummary(R.string.auto_revocable_permissions_none);
-        } else if (groupLabels.size() == 1) {
-            autoRevokePerms.setSummary(getString(R.string.auto_revocable_permissions_one,
-                    groupLabels.get(0)));
-        } else if (groupLabels.size() == 2) {
-            autoRevokePerms.setSummary(getString(R.string.auto_revocable_permissions_two,
-                    groupLabels.get(0), groupLabels.get(1)));
-
+            autoRevokeSummary.setSummary(R.string.auto_revoke_summary);
         } else {
-            autoRevokePerms.setSummary(getString(R.string.auto_revocable_permissions_many,
+            autoRevokeSummary.setSummary(getString(R.string.auto_revoke_summary_with_permissions,
                     ListFormatter.getInstance().format(groupLabels)));
         }
     }
