@@ -332,11 +332,17 @@
     <!-- Label for the auto revoke switch [CHAR LIMIT=60] -->
     <string name="auto_revoke_label">Remove permissions if app isn\u2019t used</string>
 
-    <!-- Summary for stating that permissions will be removed[CHAR LIMIT=none] -->
-    <string name="auto_revoke_summary">To protect your data, permissions for this app will be removed if the app isn\u2019t used for a few months.</string>
+    <!-- Summary for stating that permissions will be removed [CHAR LIMIT=none] -->
+    <string name="auto_revoke_summary">To protect your data, permissions for this app will be removed if the app is unused for a few months.</string>
 
     <!-- Summary for stating that permissions will be removed, which includes a list of permissions which will be removed [CHAR LIMIT=none] -->
-    <string name="auto_revoke_summary_with_permissions">To protect your data, if the app hasn\u2019 been used for a few months, the following permissions will be removed: <xliff:g id="perms" example="location, contacts, and phone">%1$s</xliff:g>.</string>
+    <string name="auto_revoke_summary_with_permissions">To protect your data, if the app is unused for a few months, the following permissions will be removed: <xliff:g id="perms" example="location, contacts, and phone">%1$s</xliff:g></string>
+
+    <!-- Summary for the screen that shows all apps that have had permissions removed [CHAR LIMIT=none] -->
+    <string name="auto_revoked_apps_page_summary">To protect your data, permissions have been removed from apps that you haven\u2019t used in a few months.</string>
+
+    <!-- Message which tells users to open an app to grant permissions [CHAR LIMIT=none]-->
+    <string name="auto_revoke_open_app_message">If you want to allow permissions again, open the app</string>
 
     <!-- Summary for stating that auto revoke is disabled for the current app [CHAR LIMIT=none] -->
     <string name="auto_revoke_disabled">Automatic removal is currently disabled for this app.</string>
@@ -529,6 +535,12 @@
 
     <!-- Summary explaining that permissions for unused apps have be removed [CHAR LIMIT=none] -->
     <string name="unused_app_permissions_removed_summary">To protect your data, permissions have been removed from apps that you haven\u2019t used in a few months</string>
+
+    <!-- Summary listing that one app is unused [CHAR LIMIT=none] -->
+    <string name="one_unused_app_summary">1 app hasen\u2019t been used for a few months</string>
+
+    <!-- Summary listing how many apps are unused [CHAR LIMIT=none] -->
+    <string name="num_unused_apps_summary"><xliff:g id="number_of_apps" example="4">%s</xliff:g> apps haven\u2019t been used for a few months</string>
 
     <!-- Subtitle for the preference that is currently granted only when the app is in the foreground. [CHAR LIMIT=60] -->
     <string name="permission_subtitle_only_in_foreground">Only while app is in use</string>
