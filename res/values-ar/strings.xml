@@ -42,8 +42,15 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"أثناء استخدام التطبيق"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"هذه المرَّة فقط"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"السماح طوال الوقت"</string>
+    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
+    <skip />
+    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
+    <skip />
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"تطبيقات"</string>
     <string name="app_permissions" msgid="2778362347879465223">"أذونات التطبيق"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"التطبيقات غير المستخدمة"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"إيقاف التطبيق"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"‏قد يؤدي إيقاف هذا التطبيق إلى عدم عمل كل من نظام Android وتطبيقات أخرى على النحو المنشود. تجدر الإشارة إلى أنه لا يمكنك حذف هذا التطبيق لأنه تم تثبيته مسبقًا على جهازك. ويعني إيقاف التطبيق أنه سيتم إيقافه وإخفاؤه على جهازك."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"مدير الأذونات"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"عدم السؤال مجدّدًا"</string>
     <string name="no_permissions" msgid="2193893107241172888">"ليس هناك أيّ أذونات."</string>
@@ -60,8 +67,9 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"‏تمّ تصميم هذا التطبيق لإصدار قديم من Android. وقد يؤدي رفض الإذن إلى عدم العمل على النحو المطلوب مرة أخرى."</string>
     <string name="default_permission_description" msgid="692254823411049573">"تنفيذ إجراء غير معروف"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"تمّ السماح لـ <xliff:g id="COUNT_0">%1$d</xliff:g> من أصل <xliff:g id="COUNT_1">%2$d</xliff:g> تطبيق"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"عرض النظام"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"إخفاء النظام"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"التطبيقات التي تم منحها الإذن: <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"إظهار تطبيقات النظام"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"إخفاء تطبيقات النظام"</string>
     <string name="no_apps" msgid="2377153782338039463">"ليس هناك أيّ تطبيقات."</string>
     <string name="location_settings" msgid="547378321761364906">"إعدادات الموقع الجغرافي"</string>
     <string name="location_warning" msgid="4687406043150343369">"يعد <xliff:g id="APP_NAME">%1$s</xliff:g> أحد مقدِّمي خدمات الموقع الجغرافي لهذا الجهاز. ويمكن تعديل إمكانية الوصول إلى الموقع الجغرافي من إعدادات الموقع الجغرافي."</string>
@@ -103,6 +111,10 @@
     <string name="filter_by_time" msgid="1763143592970195407">"الفلترة حسب الوقت"</string>
     <string name="item_separator" msgid="8266062815210378175">"، "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"سماح"</string>
+    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
+    <skip />
+    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
+    <skip />
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"السماح طوال الوقت"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"السماح عند استخدام التطبيق فقط"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"الطلب في كل مرة"</string>
@@ -111,17 +123,25 @@
     <string name="app_permission_header" msgid="228974007660007656">"منح هذا التطبيق الإذن بالوصول إلى <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"الاطّلاع على جميع أذونات <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"الاطّلاع على جميع التطبيقات التي لديها هذا الإذن"</string>
-    <!-- no translation found for auto_revoke_label (8843908519716851025) -->
+    <string name="auto_revoke_label" msgid="8755748230070160969">"إزالة الأذونات في حال عدم استخدام التطبيق"</string>
+    <string name="auto_revoke_summary" msgid="1842110019199306298">"لحماية بياناتك، ستتم إزالة أذونات هذا التطبيق إذا لم يتم استخدامه خلال عدة أشهر."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"لحماية بياناتك، إذا لم يتم استخدام التطبيق لبضعة أشهر، ستتم إزالة الأذونات التالية: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"ميزة الإزالة التلقائية غير مفعّلة حاليًا لهذا التطبيق."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"لا يتم حاليًا منح أذونات قابلة للإلغاء تلقائيًا."</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ستتم إزالة الإذن <xliff:g id="PERM">%1$s</xliff:g>."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"ستتم إزالة إذنَي <xliff:g id="PERM_0">%1$s</xliff:g> و<xliff:g id="PERM_1">%2$s</xliff:g>."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"الأذونات التي ستتم إزالتها: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"إدارة الأذونات تلقائيًا"</string>
+    <string name="off" msgid="4561379152328580345">"إيقاف"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"تمت إزالة <xliff:g id="PERMISSION_NAME">%s</xliff:g>."</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"تمت إزالة إذنَي <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> و<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>."</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"تمت إزالة <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> و<xliff:g id="NUMBER">%2$s</xliff:g> إذن آخر."</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"آخر مرة تم فتح هذه التطبيقات فيها كانت قبل <xliff:g id="NUMBER">%s</xliff:g> شهر"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"آخر مرة تم فتح التطبيق فيها: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"آخر مرة تم فتحه: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
     <skip />
-    <!-- no translation found for auto_revoke_summary (1842110019199306298) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_none (2908881351941596829) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_one (8790555940010364058) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_two (1931722576733672966) -->
-    <skip />
-    <!-- no translation found for auto_revocable_permissions_many (1091636791684380583) -->
+    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
     <skip />
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"يمكن للتطبيقات التي لديها هذا الإذن <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"يمكن للتطبيقات التي لديها هذا الإذن الوصول إلى بيانات النشاط البدني، مثل المشي وركوب الدراجة وقيادة السيارة وعدّ الخطوات وغير ذلك."</string>
@@ -142,8 +162,10 @@
     <string name="allowed_header" msgid="6279244592227088158">"التطبيقات المسموح بها"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"التطبيقات المسموح بها طوال الوقت"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"التطبيقات المسموح بها فقط أثناء استخدامها"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"مسموح به مع الوسائط فقط"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"مسموح به مع كل الملفات"</string>
+    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
+    <skip />
+    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
+    <skip />
     <string name="ask_header" msgid="4471670860332046665">"الطلب في كل مرة"</string>
     <string name="denied_header" msgid="2277998574238617699">"التطبيقات المرفوضة"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -179,9 +201,28 @@
       <item quantity="one">ثانية واحدة</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"تذكيرات الأذونات"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"تمت إزالة أذونات التطبيقات تلقائيًا"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"لم يتم استخدام بعض التطبيقات لعدة شهور. انقر للحصول على مزيد من المعلومات."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"وضع <xliff:g id="APP_NAME">%s</xliff:g> الموقع الجغرافي لك في الخلفية"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"يمكن لهذا التطبيق دائمًا الوصول إلى بيانات موقعك الجغرافي. انقر لتغيير ذلك."</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"تمت إزالة أذونات التطبيقات لحماية الخصوصية"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"لم يتم استخدام <xliff:g id="APP_NAME">%s</xliff:g> منذ بضعة أشهر. انقر لمراجعة الأذونات."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"لم يتم استخدام <xliff:g id="APP_NAME">%s</xliff:g> وتطبيق واحد آخر منذ بضعة أشهر. انقر لمراجعة الأذونات."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"لم يتم استخدام <xliff:g id="APP_NAME">%1$s</xliff:g> و<xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> تطبيق آخر خلال بضعة أشهر. انقر لمراجعة الأذونات."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"لا يتم استخدام تطبيق واحد"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"لا يتم استخدام <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> تطبيق"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"ستتم إزالة الأذونات لحماية الخصوصية. انقر لمراجعة الأذونات."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"التطبيقات غير المستخدمة"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"تمت إزالة الأذونات من"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"ستتم إزالة الأذونات من"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> و<xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> و<xliff:g id="PERM_NAME_1">%2$s</xliff:g> و<xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> إذن آخر"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"لحماية بياناتك، تمت إزالة الأذونات من هذه التطبيقات التي لم تستخدمها منذ بضعة أشهر."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"أثناء استخدام التطبيق فقط"</string>
+    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
+    <skip />
+    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
+    <skip />
     <string name="no_permissions_allowed" msgid="5781278485002145993">"لم يتم منح أي أذونات."</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"لم يتم رفض أي أذونات."</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"لم يتم السماح لأي تطبيقات."</string>
