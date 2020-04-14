@@ -18,9 +18,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:key="three_months" />
+        android:key="three_months"/>
 
     <PreferenceCategory
-        android:key="six_months" />
+        android:key="six_months"/>
+
+    <PreferenceCategory
+        android:key="info_msg_category">
+        <Preference
+            android:key="info_msg_one"
+            android:summary="@string/auto_revoked_apps_page_summary"
+            android:icon="@drawable/ic_info_outline"/>
+        <Preference
+            android:key="info_msg_two"
+            android:summary="@string/auto_revoke_open_app_message"/>
+    </PreferenceCategory>
 
 </PreferenceScreen>
