@@ -363,9 +363,9 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
             } else {
                 KotlinUtils.INSTANCE.sortPreferenceGroup(category, this::comparePreference, false);
             }
-
-            mViewModel.setCreationLogged(true);
         }
+
+        mViewModel.setCreationLogged(true);
 
         setLoading(false /* loading */, true /* animate */);
     }
