@@ -14,31 +14,10 @@
 // limitations under the License.
 //
 
-android_test {
+android_test_helper_app {
+    name: "AppThatDefinesAdditionalPermission",
 
-    name: "PermissionControllerUnitTests",
+    sdk_version: "current",
 
-    srcs: ["src/**/*.kt"],
-
-    libs: [
-        "android.test.base",
-        "android.test.runner",
-    ],
-
-    static_libs: [
-        "androidx.test.espresso.core",
-        "androidx.test.espresso.contrib",
-        "androidx.test.rules",
-        "androidx.test.ext.truth",
-        "androidx.test.ext.junit",
-        "mockito-target-minus-junit4",
-        "compatibility-device-util-axt",
-        "permission-test-util-lib",
-    ],
-
-    certificate: "platform",
-
-    instrumentation_for: "PermissionController",
-
-    test_suites: ["device-tests"]
+    test_suites: [ "device-tests" ],
 }
