@@ -45,8 +45,8 @@ class ManageStandardPermissionsViewModel(
     val uiDataLiveData = PermGroupsPackagesUiInfoLiveData(app,
         StandardPermGroupNamesLiveData)
     val numCustomPermGroups = NumCustomPermGroupsWithPackagesLiveData()
-    val shouldShowAutoRevoke = Transformations.map(AutoRevokedPackagesLiveData) {
-        it != null && it.isNotEmpty()
+    val numAutoRevoked = Transformations.map(AutoRevokedPackagesLiveData) {
+        it?.size ?: 0
     }
 
     /**
