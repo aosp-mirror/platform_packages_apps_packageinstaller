@@ -42,8 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Κατά τη χρήση της εφαρμογής"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Μόνο αυτήν τη φορά"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Να επιτρέπεται πάντα"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Να επιτρέπεται η διαχείριση όλων των αρχείων"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Να επιτρέπεται η πρόσβαση σε αρχεία μέσων"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Εφαρμογές"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Άδειες εφαρμογών"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Εφαρ. που δεν χρησιμοποιούνται"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Απενεργοποίηση εφαρμογής"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Εάν απενεργοποιήσετε αυτήν την εφαρμογή, η λειτουργία του Android και άλλων εφαρμογών ενδέχεται να μην είναι η αναμενόμενη. Λάβετε υπόψη ότι δεν είναι δυνατή η διαγραφή αυτής της εφαρμογής καθώς ήταν προεγκατεστημένη στη συσκευή σας. Με την απενεργοποίηση, απενεργοποιείτε αυτήν την εφαρμογή και την αποκρύπτετε στη συσκευή σας."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Διαχείριση αδειών"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Να μην ερωτηθώ ξανά"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Δεν υπάρχουν άδειες"</string>
@@ -56,6 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Αυτή η εφαρμογή σχεδιάστηκε για παλαιότερη έκδοση του Android. Η άρνηση παραχώρησης άδειας μπορεί να έχει ως αποτέλεσμα να διακοπεί η κανονική λειτουργία της."</string>
     <string name="default_permission_description" msgid="692254823411049573">"εκτέλεση άγνωστης ενέργειας"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Επιτρέπονται <xliff:g id="COUNT_0">%1$d</xliff:g> από <xliff:g id="COUNT_1">%2$d</xliff:g> εφαρμογές"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"Επιτρέπονται <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> εφαρμογές"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Εμφάνιση συστήματος"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Απόκρυψη συστήματος"</string>
     <string name="no_apps" msgid="2377153782338039463">"Δεν υπάρχουν εφαρμογές"</string>
@@ -99,6 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Φιλτράρισμα κατά χρόνο"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Να επιτρέπεται"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Να επιτρέπεται η διαχείριση όλων των αρχείων"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Να επιτρέπεται η διαχείριση μόνο των μέσων"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Να επιτρέπεται πάντα"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Μόνο με τη χρήση της εφαρμογής"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Να ερωτώμαι κάθε φορά"</string>
@@ -117,8 +125,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Άδειες που θα καταργηθούν: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Αυτόματη διαχείριση αδειών."</string>
     <string name="off" msgid="4561379152328580345">"Απενεργοποίηση"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Καταργήθηκε η άδεια <xliff:g id="PERMISSION_NAME">%s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Καταργήθηκαν οι άδειες <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> και <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Καταργήθηκε η άδεια <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> και <xliff:g id="NUMBER">%2$s</xliff:g> ακόμη άδειες"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Τελευταίο άνοιγμα πάνω από <xliff:g id="NUMBER">%s</xliff:g> μήνες πριν"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Τελευταίο άνοιγμα εφαρμογής <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Τελευταίο άνοιγμα <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Εάν επιτρέψετε τη διαχείριση όλων των αρχείων, αυτή η εφαρμογή θα μπορεί να αποκτήσει πρόσβαση, να τροποποιήσει και να διαγράψει τυχόν αρχεία στον κοινό αποθηκευτικό χώρο αυτής της συσκευής ή συνδεδεμένων συσκευών αποθηκευτικού χώρου. Η εφαρμογή θα μπορεί να αποκτήσει πρόσβαση σε αρχεία χωρίς να σας ρωτήσει."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Να επιτρέπεται σε αυτήν την εφαρμογή η πρόσβαση, τροποποίηση και διαγραφή αρχείων στη συσκευή ή τυχόν συνδεδεμένες συσκευές αποθηκευτικού χώρου; Η εφαρμογή θα μπορεί να αποκτήσει πρόσβαση σε αρχεία χωρίς να σας ρωτήσει."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Οι εφαρμογές με αυτήν την άδεια μπορούν να <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Οι εφαρμογές με αυτήν την άδεια έχουν πρόσβαση σε φυσικές δραστηριότητες, όπως το περπάτημα, η ποδηλασία, η οδήγηση, ο αριθμός βημάτων και άλλα"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Οι εφαρμογές με αυτήν την άδεια μπορούν να αποκτήσουν πρόσβαση στο ημερολόγιό σας"</string>
@@ -136,10 +150,10 @@
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Δεν έγινε ποτέ πρόσβαση"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Απορρίφθηκε/Δεν έγινε ποτέ πρόσβαση"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Επιτρέπονται"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"Να επιτρέπεται πάντα"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Επιτρέπεται μόνο κατά τη χρήση"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Επιτρέπεται μόνο για μέσα"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Επιτρέπεται για όλα τα αρχεία"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Να επιτρέπονται πάντα"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Να επιτρέπονται μόνο κατά τη χρήση"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Επιτρέπεται η πρόσβαση μόνο σε μέσα"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Επιτρέπεται η διαχείριση όλων των αρχείων"</string>
     <string name="ask_header" msgid="4471670860332046665">"Ερώτηση κάθε φορά"</string>
     <string name="denied_header" msgid="2277998574238617699">"Απορρίφθηκαν"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -159,6 +173,8 @@
       <item quantity="one">1 δευτερόλεπτο</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Υπενθυμίσεις άδειας"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Οι άδειες εφαρμογών καταργήθηκαν αυτόματα"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Ορισμένες εφαρμογές δεν έχουν χρησιμοποιηθεί για αρκετούς μήνες. Πατήστε, για να δείτε περισσότερες πληροφορίες."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Η εφαρμογή <xliff:g id="APP_NAME">%s</xliff:g> έλαβε την τοποθεσία σας στο παρασκήνιο"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Αυτή η εφαρμογή μπορεί να έχει πάντα πρόσβαση στην τοποθεσία σας. Πατήστε για να αλλάξετε τη ρύθμιση."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Οι άδειες εφαρμογών καταργήθηκαν για προστασία απορρήτου."</string>
@@ -175,6 +191,8 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> και <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ακόμη"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Για την προστασία των δεδομένων σας, έχουν καταργηθεί οι άδειες εφαρμογών που δεν έχετε χρησιμοποιήσει κατά τους τελευταίους μήνες."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Μόνο κατά τη χρήση της εφαρμογής"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Μέσα"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Όλα τα αρχεία"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Δεν επιτρέπονται άδειες"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Δεν απαγορεύονται άδειες"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Δεν επιτρέπονται εφαρμογές"</string>
@@ -192,7 +210,7 @@
     <string name="role_assistant_description" msgid="8677846995018695304">"Οι εφαρμογές υποβοήθειας σάς προσφέρουν βοήθεια βάσει των πληροφοριών από την οθόνη που προβάλετε. Ορισμένες εφαρμογές υποστηρίζουν τόσο την εφαρμογή εκκίνησης όσο και τις υπηρεσίες εισόδου φωνής για να λαμβάνετε ολοκληρωμένη βοήθεια στο περιβάλλον εργασίας σας."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Ορισμός εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g> ως προεπιλεγμένης εφαρμογής υποβοήθειας;"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Αποκτά πρόσβαση στα SMS και το αρχείο καταγραφής κλήσεων"</string>
-    <string name="role_browser_label" msgid="814240075813716311">"Προεπ. εφαρ. προγρ. περιήγησης"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Προεπιλ. πρόγρ. περιήγησης"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"Πρόγραμμα περιήγησης"</string>
     <string name="role_browser_description" msgid="2326990202516329438">"Εφαρμογές που σας προσφέρουν πρόσβαση στο διαδίκτυο και εμφανίζουν τους συνδέσμους που πατάτε"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Ορισμός εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g> ως προεπιλεγμένης εφαρμογής προγράμματος περιήγησης;"</string>

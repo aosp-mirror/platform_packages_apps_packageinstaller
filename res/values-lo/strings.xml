@@ -42,8 +42,16 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ອະນຸຍາດສະເພາະໃນເວລາໃຊ້ແອັບ"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"ອະນຸຍາດສະເພາະເທື່ອນີ້"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"ອະນຸຍາດຕະຫຼອດເວລາ"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"ອະນຸຍາດການຈັດການໄຟລ໌ທັງໝົດ"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"ອະນຸຍາດໃຫ້ເຂົ້າເຖິງໄຟລ໌ມີເດຍ"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ແອັບ"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ສິດອະນຸຍາດແອັບ"</string>
+    <!-- no translation found for unused_apps (3935514133237470759) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
+    <skip />
+    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
+    <skip />
     <string name="app_permission_manager" msgid="3802609813311662642">"ຕົວຈັດການສິດອະນຸຍາດ"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"ບໍ່ຕ້ອງຖາມອີກ"</string>
     <string name="no_permissions" msgid="2193893107241172888">"ບໍ່ມີສິດອະນຸຍາດ"</string>
@@ -56,6 +64,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"ແອັບນີ້ຖືກອອກແບບມາສຳລັບ Android ເວີຊັນເກົ່າ. ການປະຕິເສດການອະນຸຍາດອາດຈະເຮັດໃຫ້ມັນບໍ່ເຮັດວຽກຕາມຕ້ອງການໄດ້ອີກ."</string>
     <string name="default_permission_description" msgid="692254823411049573">"ເຮັດການດຳເນີນການທີ່ບໍ່ຮູ້ຈັກ"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"ອະນຸຍາດແອັບ <xliff:g id="COUNT_0">%1$d</xliff:g> ຈາກທັງໝົດ <xliff:g id="COUNT_1">%2$d</xliff:g> ແອັບແລ້ວ"</string>
+    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
+    <skip />
     <string name="menu_show_system" msgid="7623002570829860709">"ສະແດງລະບົບ"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"ເຊື່ອງລະບົບ"</string>
     <string name="no_apps" msgid="2377153782338039463">"ບໍ່ມີແອັບ"</string>
@@ -99,6 +109,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"ກັ່ນຕອງຕາມເວລາ"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"ອະນຸຍາດ"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"ອະນຸຍາດການຈັດການໄຟລ໌ທັງໝົດ"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"ອະນຸຍາດການເຂົ້າເຖິງມີເດຍເທົ່ານັ້ນ"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ອະນຸຍາດຕະຫຼອດເວລາ"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"ອະນຸຍາດໃນເວລາທີ່ກຳລັງໃຊ້ແອັບເທົ່ານັ້ນ"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"ຖາມທຸກເທື່ອ"</string>
@@ -117,8 +129,18 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"ສິດອະນຸຍາດທີ່ຈະຖືກລຶບອອກ: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"ຈັດການສິດອະນຸຍາດອັດຕະໂນມັດ"</string>
     <string name="off" msgid="4561379152328580345">"ປິດ"</string>
+    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
+    <skip />
+    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
+    <skip />
+    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
+    <skip />
+    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
+    <skip />
     <string name="last_opened_summary" msgid="8038737442154732">"ເປີດແອັບຫຼ້າສຸດເມື່ອ <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"ເປີດຫຼ້າສຸດ <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"ຫາກທ່ານອະນຸຍາດໃຫ້ມີການຈັດການທຸກໄຟລ໌ໄດ້, ແອັບນີ້ຈະສາມາດເຂົ້າເຖິງ, ແກ້ໄຂ ແລະ ລຶບໄຟລ໌ໃດກໍຕາມໃນບ່ອນຈັດເກັບຂໍ້ມູນທົ່ວໄປຢູ່ອຸປະກອນນີ້ ຫຼື ອຸປະກອນບ່ອນຈັດເກັບຂໍ້ມູນທີ່ເຊື່ອມຕໍ່ໄວ້. ແອັບອາດເຂົ້າເຖິງໄຟລ໌ໂດຍບໍ່ຕ້ອງຖາມທ່ານ."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"ອະນຸຍາດໃຫ້ແອັບນີ້ເຂົ້າເຖິງ, ແກ້ໄຂ ແລະ ລຶບໄຟລ໌ຢູ່ອຸປະກອນ ຫຼື ອຸປະກອນບ່ອນຈັດເກັບຂໍ້ມູນທີ່ເຊື່ອມຕໍ່ໄວ້ບໍ? ແອັບນີ້ຈະສາມາດເຂົ້າເຖິງໄຟລ໌ໄດ້ໂດຍບໍ່ຕ້ອງຖາມທ່ານ."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"ແອັບທີ່ມີສິດອະນຸຍາດນີ້ຈະສາມາດ <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ແອັບທີ່ມີສິດອະນຸຍາດນີ້ຈະສາມາດເຂົ້າເຖິງການເຄື່ອນໄຫວທາງກາຍະພາບຂອງທ່ານໄດ້ ເຊັ່ນ: ການຍ່າງ, ການຖີບລົດ, ການຂັບລົດ, ຈຳນວນກ້າວຍ່າງ ແລະ ອື່ນໆ"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ແອັບທີ່ມີສິດອະນຸຍາດນີ້ຈະສາມາດເຂົ້າເຖິງປະຕິທິນຂອງທ່ານໄດ້"</string>
@@ -138,8 +160,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"ອະນຸຍາດແລ້ວ"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"ອະນຸຍາດຕະຫຼອດເວລາ"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ອະນຸຍາດສະເພາະໃນຕອນໃຊ້ຢູ່ເທົ່ານັ້ນ"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"ອະນຸຍາດສຳລັບມີເດຍເທົ່ານັ້ນ"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"ອະນຸຍາດສຳລັບທຸກໄຟລ໌"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"ອະນຸຍາດໃຫ້ເຂົ້າເຖິງມີເດຍເທົ່ານັ້ນແລ້ວ"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"ອະນຸຍາດໃຫ້ຈັດການໄຟລ໌ທັງໝົດແລ້ວ"</string>
     <string name="ask_header" msgid="4471670860332046665">"ຖາມທຸກເທື່ອ"</string>
     <string name="denied_header" msgid="2277998574238617699">"ຖືກປະຕິເສດ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -159,6 +181,10 @@
       <item quantity="one">1 ວິນາທີ</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"ການແຈ້ງເຕືອນການອະນຸຍາດ"</string>
+    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
+    <skip />
+    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
+    <skip />
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ໄດ້ຂໍ້ມູນສະຖານທີ່ຂອງທ່ານໃນພື້ນຫຼັງແລ້ວ"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ແອັບນີ້ສາມາດເຂົ້າເຖິງສະຖານທີ່ຂອງທ່ານໄດ້ຕະຫຼອດເວລາ. ແຕະເພື່ອປ່ຽນແປງ."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"ລຶບສິດອະນຸຍາດແອັບອອກແລ້ວເພື່ອປົກປ້ອງຄວາມເປັນສ່ວນຕົວ"</string>
@@ -175,6 +201,8 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ແລະ ອື່ນໆອີກ <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ແອັບ"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ເພື່ອປົກປ້ອງຂໍ້ມູນຂອງທ່ານ, ລະບົບໄດ້ລຶບສິດອະນຸຍາດອອກຈາກແອັບຕ່າງໆທີ່ທ່ານບໍ່ໄດ້ໃຊ້ສອງສາມເດືອນແລ້ວ"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ສະເພາະເມື່ອມີການໃຊ້ແອັບ"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"ມີເດຍ"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"ໄຟລ໌ທັງຫມົດ"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ບໍ່ມີສິດທີ່ອະນຸຍາດ"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"ບໍ່ມີສິດອະນຸຍາດຖືກປະຕິເສດ"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"ບໍ່ມີແອັບທີ່ອະນຸຍາດ"</string>

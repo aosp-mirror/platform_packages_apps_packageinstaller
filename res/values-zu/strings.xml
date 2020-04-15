@@ -42,8 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Ngenkathi usebenzisa uhlelo lokusebenza"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Ngalesi sikhathi kuphela"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Vumela sonke isikhathi"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Vumela ukuphathwa kwawo wonke amafayela"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Vumela ukufinyelela kumafayela emidiya"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Izinhlelo zokusebenza"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Izimvume zohlelo lokusebenza"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Izinhlelo zokusebenza ezingasetshenzisiwe"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Khubaza uhlelo lokusebenza"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Uma ukhubaza lolu hlelo lokusebenza, i-Android nezinye izinhlelo zokusebenza kungenzeka zingasasebenzi njengoba zihlosiwe. Khumbula, awukwazi ukususa lolu hlelo lokusebenza njengoba luze lufakwe ngaphambilini kudivayisi yakho. Ngokukhubaza, uvala lolu hlelo lokusebenza futhi uyalifihla kudivayisi yakho."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Isiphathi semvume"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Ungaphindi ubuze"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Akukho zimvume"</string>
@@ -56,6 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Lolu hlelo lokusebenza ludizayinelwe inguqulo endala ye-Android. Ukwala imvume kungalibangela ukuthi lingasasebenzi njengoba kuhlosiwe."</string>
     <string name="default_permission_description" msgid="692254823411049573">"Yenza isenzo esingaziwa"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> kuzinhlelo zokusebenza ezingu-<xliff:g id="COUNT_1">%2$d</xliff:g> ezivunyelwe"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> izinhlelo zokusebenza ezivunyelwe"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Bonisa isistimu"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Fihla isistimu"</string>
     <string name="no_apps" msgid="2377153782338039463">"Azikho izinhlelo zokusebenza"</string>
@@ -99,6 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Hlunga ngesikhathi"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Vumela"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Vumela ukuphathwa kwawo wonke amafayela"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Vumela ukufinyelela kumidiya kuphela"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Vumela sonke isikhathi"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Vumela kuphela ngenkathi usebenzisa uhlelo lokusebenza"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Buza njalo"</string>
@@ -117,8 +125,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Izimvume ezizosuswa: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Phatha izimvume ngokuzenzekelayo"</string>
     <string name="off" msgid="4561379152328580345">"Valiwe"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g> imvume isusiwe"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> nezimvume ze-<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> zisusiwe"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> nezinye izimvume ezingu-<xliff:g id="NUMBER">%2$s</xliff:g> zisusiwe"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Kugcine ukuvulwa ngaphezu kwezinyanga ezingu-<xliff:g id="NUMBER">%s</xliff:g> ezedlule"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Uhlelo lokusebenza lugcine ukuvulwa ngo-<xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Kugcine ukuvulwa ngo-<xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Uma uvumela ukuphathwa kwawo wonke amafayela, lolu hlelo lokusebenza lungafinyelela, lulungise, futhi lususe noma yimaphi amafayela akusitoreji esifanayo kule divayisi noma isitoreji samadivayisi axhunyiwe. Uhlelo lokusebenza lungafinyelela amafayela ngaphandle kokukubuza."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Uvumela lolu hlelo lokusebenza lufinyelele, lulungise futhi lususe amafayela kudivayisi, noma kunoma yiziphi izitoreji zamadivayisi axhunyiwe? Lolu hlelo lokusebenza lungafinyelela amafayela ngaphandle kokukubuza."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Izinhlelo zokusebenza ezinale mvume zingenza lokhu <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Izinhlelo zokusebenza ezinale mvume zingafinyelela umsebenzi wakho, njengokuhamba, ukugibela ibhayisikili, ukushayela, ukubala izinyathelo, nokuningi"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Izinhlelo zokusebenza ezinale mvume zingafinyelela kukhalenda yakho"</string>
@@ -138,8 +152,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Kuvumelekile"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Kuvunyelwe ngaso sonke isikhathi"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Kuvunyelwe kuphela ngenkathi kusetshenziswa"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Kuvunyelwe kumidiya kuphela"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Kuvunyelwe kuwo wonke amafayela"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Kuvumelekile ukufinyelela kumidiya kuphela"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Kuvumelekile ukuphatha wonke amafayela"</string>
     <string name="ask_header" msgid="4471670860332046665">"Buza njalo"</string>
     <string name="denied_header" msgid="2277998574238617699">"Kunqatshiwe"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -159,6 +173,8 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> amasekhondi</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Izikhumbuzi zemvume"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Izimvume zohlelo lokusebenza zisuswe ngokuzenzekelayo"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Ezinye izinhlelo azikakasetshenziswa izinyanga ezimbalwa. Thepha ukuthola ulwazi olwengeziwe."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> inendawo yakho ngasemuva"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Lolu hlelo lokusebenza lungahlala lufinyelela indawo yakho. Thepha ukuze ushintshe."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Izimvume zohlelo lokusebenza zisusiwe ukuze kuvikelwe ubumfihlo"</string>
@@ -175,6 +191,8 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, nokungu-<xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ngaphezulu"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Ukuze kuvikelwe idatha yakho, izimvume zisusiwe ezinhlelweni zokusebenza ongakazisebenzisi ezinyangeni ezimbalwa"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Kuphela ngenkathi uhlelo lokusebenza lusebenza"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Imidiya"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Wonke ama-Files"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Azikho izimvume ezivunyelwe"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Azikho izimvume ezinqatshelwe"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Azikho izinhlelo zokusebenza ezivunyelwe"</string>

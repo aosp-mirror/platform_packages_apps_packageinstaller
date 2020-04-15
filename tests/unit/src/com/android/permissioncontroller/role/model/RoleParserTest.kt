@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.tests.unit.role;
+package com.android.permissioncontroller.role.model
 
-import static com.google.common.truth.Truth.assertThat;
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import org.junit.Test
+import org.junit.runner.RunWith
 
-import androidx.test.runner.AndroidJUnit4;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-@RunWith(AndroidJUnit4.class)
-public class RoleControllerServiceImplTest {
+@RunWith(AndroidJUnit4::class)
+class RoleParserTest {
+    private val targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext()
 
     @Test
-    public void testTestRuns() {
-        assertThat(true).isTrue();
+    fun testParseRolesWithValidation() {
+        RoleParser(targetContext, true).parse()
     }
 }

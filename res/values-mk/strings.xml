@@ -42,8 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Додека се користи апликацијата"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Само овој пат"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Дозволи цело време"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Дозволете управување со сите датотеки"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Дозволете пристап до датотеките со аудиовизуелни содржини"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Апликации"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Дозволи за апликацијата"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Некористени апликации"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Оневозможете ја апликацијата"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Ако ја оневозможите оваа апликација, Android и другите апликации можеби веќе нема да функционираат како што треба. Имајте предвид, не може да ја избришете апликацијава бидејќи е однапред инсталирана на уредот. Ако ја оневозможите, ќе ја исклучите и ќе ја сокриете на уредот."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Управник со дозволи"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Не прашувај повторно"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Нема дозволи"</string>
@@ -56,6 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Оваа апликација е дизајнирана за постара верзија на Android. Одбивањето на дозволата може да предизвика веќе да не функционира како што треба."</string>
     <string name="default_permission_description" msgid="692254823411049573">"изврши непознато дејство"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Дозволени се <xliff:g id="COUNT_0">%1$d</xliff:g> од <xliff:g id="COUNT_1">%2$d</xliff:g> апликации"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> дозволени апликации"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Прикажи го системот"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Сокриј го системот"</string>
     <string name="no_apps" msgid="2377153782338039463">"Нема апликации"</string>
@@ -99,6 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Филтрирај според време"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Дозволи"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Дозволете управување со сите датотеки"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Дозволете пристап само до аудиовизуелните содржини"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Дозволи цело време"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Дозволи само додека се користи апликацијата"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Секогаш прашувај"</string>
@@ -117,8 +125,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Дозволи што ќе се отстранат: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Автоматско управување со дозволите"</string>
     <string name="off" msgid="4561379152328580345">"Исклучи"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Дозволата за „<xliff:g id="PERMISSION_NAME">%s</xliff:g>“ е отстранета"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Дозволите за <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>“ и „<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>“ се отстранети"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> и уште <xliff:g id="NUMBER">%2$s</xliff:g> други дозволи се отстранети"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Последно отворени пред повеќе од <xliff:g id="NUMBER">%s</xliff:g> месеци"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Последно отворање на апликацијата: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Последно отворање: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Ако дозволите управување со сите датотеки, апликацијава ќе може да ги менува, брише, како и да пристапува до сите датотеки во заедничката меморија на уредов или на поврзаните уреди за складирање. Апликацијата може да пристапува до датотеки без да ве праша."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Дали дозволувате апликацијава да менува, брише, како и да пристапува до датотеките на уредов или на поврзаните уреди за складирање? Апликацијава може да пристапува до датотеки без да ве праша."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Апликациите со оваа дозвола може да <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Апликациите со оваа дозвола може да пристапуваат до вашата физичка активност, како пешачење, возење велосипед, возење, броење чекори и друго."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Апликациите со оваа дозвола може да пристапуваат до вашиот календар"</string>
@@ -127,7 +141,7 @@
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Апликациите со оваа дозвола може да пристапуваат до вашите контакти"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Апликациите со оваа дозвола може да пристапуваат до локацијата на уредов"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Апликациите со оваа дозвола може да снимаат аудио"</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Апликациите со оваа дозвола може да прават и да управуваат со телефонски повици"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Апликациите со оваа дозвола може да упатуваат телефонски повици и да управуваат со нив"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Апликациите со оваа дозвола може да пристапуваат до податоци од сензорите за виталните знаци"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Апликациите со оваа дозвола може да испраќаат и прикажуваат SMS-пораки"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Апликациите со оваа дозвола може да пристапуваат до фотографии, аудиовизуелни содржини и датотеки на вашиот уред."</string>
@@ -136,10 +150,10 @@
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Никогаш не е пристапено"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Одбиена/Никогаш не е пристапено"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Дозволени"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"Дозволени цело време"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Дозволени само кога се користат"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Дозолено само за аудиовизуелни содржини"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Дозволено за сите датотеки"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Постојана дозвола"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Дозвола: само кога се користат"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Со пристап само до аудиовизуелните содржини"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Со дозвола за управување со сите датотеки"</string>
     <string name="ask_header" msgid="4471670860332046665">"Секогаш прашувај"</string>
     <string name="denied_header" msgid="2277998574238617699">"Одбиени"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -159,6 +173,8 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунди</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Потсетници за дозволата"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Дозволите за апликацијата автоматски се отстранети"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Некои апликации не се користени неколку месеци. Допрете за повеќе информации."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ја има вашата локација во заднина"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Апликацијава секогаш може да пристапува до вашата локација. Допрете за да го промените тоа."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Дозволите за аплик. се отстранети за заштита на приватноста"</string>
@@ -175,6 +191,8 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> и уште <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> други"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"За заштита на податоците, отстранети се дозволите од апликациите што не сте ги користеле неколку месеци"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Само додека се користи апликацијата"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Аудиовизуелни содржини"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Сите датотеки"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Нема овозможени дозволи"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Нема одбиени дозволи"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Нема дозволени апликации"</string>
@@ -211,7 +229,7 @@
     <string name="role_sms_search_keywords" msgid="6818482413212931585">"SMS-порака, испраќање SMS-пораки, пораки, испраќање пораки"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"Стандар. аплик. за итни случаи"</string>
     <string name="role_emergency_short_label" msgid="2546309839225058762">"Апликација за итни случаи"</string>
-    <string name="role_emergency_description" msgid="3567231505957373289">"Апликации што ви овозможуваат да ги снимите вашите медицински информации и да ги ставите на располагање на службите за спасување при итни случаи, да добивате предупредувања за лоши временски услови и несреќи, да ги известувате другите кога ви е потребна помош"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"Апликации што ви овозможуваат да ги снимите вашите медицински податоци и да ги ставите на располагање на службите за спасување при итни случаи, да добивате предупредувања за лоши временски услови и несреќи, да ги известувате другите кога ви е потребна помош"</string>
     <string name="role_emergency_request_title" msgid="6595296517085761522">"Да се постави <xliff:g id="APP_NAME">%1$s</xliff:g> како ваша стандардна апликација за итни случаи?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Не се потреби дозволи"</string>
     <string name="role_emergency_search_keywords" msgid="7310029268876820646">"мраз"</string>
@@ -271,19 +289,19 @@
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Прикажувај икона во статусната лента кога микрофонот се користи за активирање на гласовниот помошник"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до фотографии и аудиовизуелни содржини на уредот?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до контактите?"</string>
-    <string name="permgrouprequest_location" msgid="4367626296074714965">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до локацијата на уредот?"</string>
+    <string name="permgrouprequest_location" msgid="4367626296074714965">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до локацијата на уредов?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Апликацијата ќе има пристап до локацијата само додека ја користите"</string>
-    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до локацијата на уредот?"</string>
+    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до локацијата на уредов?"</string>
     <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"Апликацијава можеби ќе сака да пристапува до вашата локација цело време, дури и кога не ја користите. "<annotation id="link">"Дозволете во поставките."</annotation></string>
     <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"Да се промени пристапот до локацијата за &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;?"</string>
     <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"Апликцијава сака да пристапува до вашата локација цело време, дури и кога не ја користите. "<annotation id="link">"Дозволете во поставките."</annotation></string>
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до календарот?"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да испраќа и прегледува SMS-пораки?"</string>
-    <string name="permgrouprequest_storage" msgid="1092300826793175064">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до фотографиите, аудио-визуелните содржини и датотеките на уредот?"</string>
+    <string name="permgrouprequest_storage" msgid="1092300826793175064">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до фотографиите, аудиовизуелните содржини и датотеките на уредот?"</string>
     <string name="permgrouprequest_microphone" msgid="3490533265167914830">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да снима аудио?"</string>
     <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"Дозволувате ли &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до вашата физичка активност?"</string>
     <string name="permgrouprequest_camera" msgid="5379726026447957660">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да фотографира и да снима видео?"</string>
-    <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Дали да се дозволи пристап на &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; до евиденцијата на повици?"</string>
+    <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до евиденцијата на повици?"</string>
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да повикува и да управува со телефонските повици?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Дали да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до податоците на сензорот за витални знаци?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Контролирани дозволи"</string>

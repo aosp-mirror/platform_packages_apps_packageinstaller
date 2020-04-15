@@ -42,8 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Mens du bruger appen"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Kun denne gang"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Tillad altid"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Tillad administration af alle filer"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Tillad adgang til mediefiler"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Apps"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Apptilladelser"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Apps, du ikke bruger"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Deaktiver appen"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Hvis du deaktiverer denne app, kan det medføre, at Android-apps og andre apps ikke fungerer korrekt. Vær opmærksom på, at du ikke kan slette denne app, da den er forudinstalleret på din enhed. Hvis du slår appen fra, deaktiveres og skjules den på din enhed."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Tilladelsesadministrator"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Spørg ikke igen"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Ingen tilladelser"</string>
@@ -56,6 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Denne app er udviklet til en ældre version af Android. Hvis du ikke giver den tilladelse, vil den muligvis ikke længere virke efter hensigten."</string>
     <string name="default_permission_description" msgid="692254823411049573">"udføre en ukendt handling"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> ud af <xliff:g id="COUNT_1">%2$d</xliff:g> apps har tilladelse"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> apps er tilladt"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Vis system"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Skjul system"</string>
     <string name="no_apps" msgid="2377153782338039463">"Ingen apps"</string>
@@ -99,6 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Filtrér efter tidspunkt"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Tillad"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Tillad administration af alle filer"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Tillad kun adgang til mediefiler"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Tillad altid"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Tillad kun, mens appen er i brug"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Spørg hver gang"</string>
@@ -117,8 +125,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Tilladelser, der ikke fjernes: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Administrer automatisk tilladelser"</string>
     <string name="off" msgid="4561379152328580345">"Fra"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Tilladelsen <xliff:g id="PERMISSION_NAME">%s</xliff:g> blev fjernet"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Tilladelserne <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> og <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> blev fjernet"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> og <xliff:g id="NUMBER">%2$s</xliff:g> andre tilladelser blev fjernet"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Sidst åbnet for mere end <xliff:g id="NUMBER">%s</xliff:g> måneder siden"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Appen blev sidst åbnet <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Sidst åbnet <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Hvis du tillader administration af alle filer, får denne app adgang og tilladelse til at ændre og slette alle filer på enhedens almindelige lagerplads og tilsluttede lagerenheder. Appen kan få adgang til filer uden at spørge dig først."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Vil du give denne app adgang og tilladelse til at ændre og slette filer på denne enhed og tilsluttede lagerenheder? Appen kan få adgang til filer uden at spørge dig først."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apps med denne tilladelse kan <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apps med denne tilladelse har adgang til dine fysiske aktiviteter, f.eks. hvor meget du har gået, cyklet eller kørt, skridttæller m.m."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Apps med denne tilladelse kan få adgang til din kalender"</string>
@@ -138,8 +152,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Tilladt"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Altid tilladt"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Kun tilladt, mens de er i brug"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Kun tilladt for medier"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Tilladt for alle filer"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Har kun adgang til mediefiler"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Har tilladelse til at administrere alle filer"</string>
     <string name="ask_header" msgid="4471670860332046665">"Spørg hver gang"</string>
     <string name="denied_header" msgid="2277998574238617699">"Afvist"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -159,6 +173,8 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekunder</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Påmindelser om tilladelse"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Apptilladelser blev automatisk fjernet"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Nogle apps har ikke været brugt i et par måneder. Tryk for at få flere oplysninger."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> har din placering i baggrunden"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Denne app kan altid få adgang til din placering. Tryk for at ændre denne indstilling."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Apptilladelserne blev fjernet for at beskytte dine personlige oplysninger"</string>
@@ -175,6 +191,8 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> og <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> mere"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Tilladelserne til apps, du ikke har brugt i et par måneder, er blevet fjernet af hensyn til beskyttelsen af dine data"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Kun mens appen er i brug"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Mediefiler"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Alle filer"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Der ikke givet nogen tilladelser"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Ingen tilladelser er blevet afvist"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Ingen apps har denne tilladelse"</string>

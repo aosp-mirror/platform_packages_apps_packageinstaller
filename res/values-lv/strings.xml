@@ -42,8 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Lietotnes izmantošanas laikā"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Tikai šoreiz"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Vienmēr atļaut"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Atļaut pārvaldīt visus failus"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Atļaut piekļuvi multivides failiem"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Lietotnes"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Lietotņu atļaujas"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Neizmantotās lietotnes"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Atspējot lietotni"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Ja atspējosiet šo lietotni, Android un citas lietotnes, iespējams, vairs nedarbosies, kā paredzēts. Ņemiet vērā, ka šo lietotni nevar izdzēst, jo tā bija iepriekš instalēta ierīcē. Ja atspējosiet lietotni, tā tiks izslēgta un paslēpta jūsu ierīcē."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Atļauju pārvaldnieks"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Vairs nejautāt"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Nav atļauju"</string>
@@ -57,6 +62,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Šī lietotne ir paredzēta vecākai Android versijai. Ja noraidīsiet atļauju, iespējams, netiks nodrošināta paredzētā lietotnes darbība."</string>
     <string name="default_permission_description" msgid="692254823411049573">"veikt nezināmu darbību"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Atļautas <xliff:g id="COUNT_0">%1$d</xliff:g> lietotnes no <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"Šo atļauju saņēmušās lietotnes: <xliff:g id="COUNT_0">%1$d</xliff:g> no <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Rādīt sistēmas lietotnes"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Slēpt sistēmas lietotnes"</string>
     <string name="no_apps" msgid="2377153782338039463">"Nav lietotņu"</string>
@@ -100,6 +106,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Filtrēt pēc laika"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Atļaut"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Atļaut pārvaldīt visus failus"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Atļaut piekļūt tikai multivides failiem"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Vienmēr atļaut"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Atļaut tikai lietotnes izmantošanas laikā"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Vaicāt katru reizi"</string>
@@ -118,8 +126,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Tiks noņemtas šādas atļaujas: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Atļauju automātiska pārvaldība"</string>
     <string name="off" msgid="4561379152328580345">"Izslēgti"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Atļauja “<xliff:g id="PERMISSION_NAME">%s</xliff:g>” tika automātiski noņemta"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Atļauja “<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>” un “<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>” tika automātiski noņemta"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Atļauja “<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>” un vēl <xliff:g id="NUMBER">%2$s</xliff:g> tika automātiski noņemtas"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Pēdējoreiz atvērtas pirms vairāk nekā <xliff:g id="NUMBER">%s</xliff:g> mēnešiem"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Lietotne pēdējoreiz tika atvērta <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Pēdējoreiz atvērta <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Ja atļausiet pārvaldīt visus failus, šī lietotne varēs piekļūt visiem failiem un modificēt un dzēst visus failus, kas atrodas parastā krātuvē šajā ierīcē vai pievienotās atmiņas ierīcēs. Lietotne varēs piekļūt failiem, nepieprasot jūsu atļauju."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Vai atļaujat šai lietotnei piekļūt failiem, modificēt un dzēst failus šajā ierīcē un visās pievienotajās atmiņas ierīcēs? Lietotne varēs piekļūt failiem, nepieprasot jūsu atļauju."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Lietotnes, kurām ir šī atļauja, var <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Lietotnes, kurām ir šī atļauja, var piekļūt informācijai par jūsu fiziskajām aktivitātēm, piemēram, soļu skaitam, informācijai par iešanu, riteņbraukšanu un braukšanu automašīnā un citai informācijai"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Lietotnes, kurām ir šī atļauja, var piekļūt jūsu kalendāram"</string>
@@ -139,8 +153,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Atļauts"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Vienmēr atļauts"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Atļauts tikai izmantošanas laikā"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Atļaujas tikai multivides saturam"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Atļaujas visiem failiem"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Atļauts piekļūt tikai multivides failiem"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Atļauts pārvaldīt visus failus"</string>
     <string name="ask_header" msgid="4471670860332046665">"Vaicāt katru reizi"</string>
     <string name="denied_header" msgid="2277998574238617699">"Noraidīts"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -164,6 +178,8 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundes</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Atgādinājumi par atļauju"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Automātiski noņemtas lietotņu atļaujas"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Dažas lietotnes nav izmantotas vairākus mēnešus. Pieskarieties, lai uzzinātu vairāk."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Lietotne <xliff:g id="APP_NAME">%s</xliff:g> ieguva jūsu atrašanās vietas informāciju fonā"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Šī lietotne jebkurā laikā var piekļūt jūsu atrašanās vietai. Pieskarieties, lai mainītu šo iestatījumu."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Lietotņu atļaujas noņemtas, lai aizsargātu konfidencialitāti"</string>
@@ -180,6 +196,8 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> un vēl <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Lai aizsargātu jūsu datus, ir noņemtas atļaujas no lietotnes, kas nav izmantota vairākus mēnešus"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Tikai lietotnes izmantošanas laikā"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Multivide"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Visi faili"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nav piešķirta neviena atļauja"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nav noraidīta neviena atļauja"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Nav atļauta neviena lietotne"</string>

@@ -42,8 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Uygulamayı kullanırken"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Yalnız bu sefer"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Her zaman izin ver"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Tüm dosyaların yönetilmesine izin ver"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Medya dosyalarına erişim izni ver"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Uygulamalar"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Uygulama izinleri"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Kullanılmayan uygulamalar"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Uygulamayı devre dışı bırak"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Bu uygulamayı devre dışı bırakırsanız Android ve diğer uygulamalar artık beklendiği gibi çalışmayabilir. Cihazınızda önceden yüklü olarak geldiğinden bu uygulamayı silemeyeceğinizi unutmayın. Devre dışı bıraktığınızda bu uygulamayı kapatır ve cihazınızda gizlersiniz."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"İzin yöneticisi"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Tekrar sorma"</string>
     <string name="no_permissions" msgid="2193893107241172888">"İzin yok"</string>
@@ -56,6 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Bu uygulama, Android\'in daha eski bir sürümü için tasarlandı. İznin reddedilmesi, uygulamanın bundan sonra amaçlandığı gibi çalışmamasına neden olabilir."</string>
     <string name="default_permission_description" msgid="692254823411049573">"bilinmeyen bir işlem gerçekleştirme"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g> uygulamaya izin veriliyor"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> uygulamaya izin veriliyor"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Sisteme ait olanları göster"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Sisteme ait olanları gizle"</string>
     <string name="no_apps" msgid="2377153782338039463">"Uygulama yok"</string>
@@ -99,12 +105,14 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Zamana göre filtrele"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"İzin ver"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Tüm dosyaların yönetilmesine izin ver"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Yalnızca medyaya erişim izni ver"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Her zaman izin ver"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Yalnızca uygulama kullanılırken izin ver"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Her zaman sor"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Reddet"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> izni"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Bu uygulamanın <xliff:g id="PERM">%1$s</xliff:g> erişimine"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Bu uygulamanın <xliff:g id="PERM">%1$s</xliff:g> erişimi için"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Tüm <xliff:g id="APP">%1$s</xliff:g> izinlerini göster"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Bu izne sahip tüm uygulamaları göster"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Uygulama kullanılmıyorsa izinleri kaldır"</string>
@@ -117,8 +125,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Kaldırılacak izinler: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"İzinleri otomatik olarak yönetin"</string>
     <string name="off" msgid="4561379152328580345">"Kapalı"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g> izin kaldırıldı"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> ve <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> izni kaldırıldı"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> izni ve diğer <xliff:g id="NUMBER">%2$s</xliff:g> izin kaldırıldı"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"En son <xliff:g id="NUMBER">%s</xliff:g> aydan fazla bir süre önce açıldı"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Uygulama en son <xliff:g id="DATE">%s</xliff:g> tarihinde açıldı"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"En son <xliff:g id="DATE">%s</xliff:g> tarihinde açıldı"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Tüm dosyaların yönetilmesine izin verirseniz bu uygulama, bu cihazdaki ortak depolama alanında veya bu cihaza bağlı depolama cihazlarında bulunan tüm dosyalara erişebilir, bunları değiştirebilir ve silebilir. Uygulama, size sormadan dosyalara erişebilir."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Bu uygulamaya, bu cihazdaki veya bu cihaza bağlı herhangi bir depolama cihazındaki dosyalara erişim izni ve bu dosyaları değiştirme, silme izni verilsin mi? Bu uygulama, size sormadan dosyalara erişebilir."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Bu izne sahip uygulamalar şunu yapabilir: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Bu izne sahip uygulamalar, yürüyüş, bisiklete binme, araba kullanma, adım sayısı gibi fiziksel aktivitelerinize erişebilir."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Bu izne sahip uygulamalar takviminize erişebilir"</string>
@@ -138,8 +152,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"İzin verilenler"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Her zaman izin verilenler"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Yalnızca kullanımdayken izin verilenler"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Sadece medya için izin verildi"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Tüm dosyalar için izin verildi"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Yalnızca medyaya erişim izni verildi"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Tüm dosyaları yönetme izni verildi"</string>
     <string name="ask_header" msgid="4471670860332046665">"Her zaman sor"</string>
     <string name="denied_header" msgid="2277998574238617699">"Reddedilenler"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -159,6 +173,8 @@
       <item quantity="one">1 saniye</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"İzin hatırlatıcılar"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Uygulama izinleri otomatik olarak kaldırıldı"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Bazı uygulamalar birkaç aydır kullanılmadı. Daha fazla bilgi için dokunun."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>, arka planda konumunuza erişti"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Bu uygulama, konumunuza her zaman erişebilir. Değiştirmek için dokunun."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Uygulama izinleri gizliliği korumak için kaldırıldı"</string>
@@ -175,6 +191,8 @@
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ve <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> tane daha"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Verilerinizi korumak için birkaç aydır kullanmadığınız uygulamaların izinleri kaldırıldı"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Yalnızca uygulama kullanılırken"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Medya"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Tüm Dosyalar"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Hiçbir izin verilmedi"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Hiçbir izin reddedilmedi"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Hiçbir uygulamaya izin verilmedi"</string>
