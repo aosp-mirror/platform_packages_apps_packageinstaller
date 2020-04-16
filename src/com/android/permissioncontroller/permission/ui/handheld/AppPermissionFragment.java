@@ -228,13 +228,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
         footer2Link.setText(context.getString(R.string.app_permission_footer_permission_apps_link));
         setBottomLinkState(footer2Link, caller, Intent.ACTION_MANAGE_PERMISSION_APPS);
 
-        if (mViewModel.getFullStorageStateLiveData().isInitialized() && mIsStorageGroup) {
-            setSpecialStorageState(mViewModel.getFullStorageStateLiveData().getValue(), root);
-        } else {
-            TextView storageFooter = root.requireViewById(R.id.footer_storage_special_app_access);
-            storageFooter.setVisibility(View.GONE);
-        }
-
         mAllowButton = root.requireViewById(R.id.allow_radio_button);
         mAllowAlwaysButton = root.requireViewById(R.id.allow_always_radio_button);
         mAllowForegroundButton = root.requireViewById(R.id.allow_foreground_only_radio_button);
@@ -258,6 +251,13 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
             mAskButton.setVisibility(View.GONE);
             mDenyButton.setVisibility(View.GONE);
             mDenyForegroundButton.setVisibility(View.GONE);
+        }
+
+        if (mViewModel.getFullStorageStateLiveData().isInitialized() && mIsStorageGroup) {
+            setSpecialStorageState(mViewModel.getFullStorageStateLiveData().getValue(), root);
+        } else {
+            TextView storageFooter = root.requireViewById(R.id.footer_storage_special_app_access);
+            storageFooter.setVisibility(View.GONE);
         }
 
         getActivity().setTitle(
@@ -392,9 +392,12 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
     }
 
     private void setSpecialStorageState(FullStoragePackageState storageState, View v) {
-        TextView textView = v.requireViewById(R.id.footer_storage_special_app_access);
+        if (v == null) {
+            return;
+        }
 
-        if (v == null || mAllowButton == null || !mIsStorageGroup) {
+        TextView textView = v.requireViewById(R.id.footer_storage_special_app_access);
+        if (mAllowButton == null || !mIsStorageGroup) {
             textView.setVisibility(View.GONE);
             return;
         }
