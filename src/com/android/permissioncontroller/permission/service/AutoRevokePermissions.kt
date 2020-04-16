@@ -93,7 +93,9 @@ import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.random.Random
 
 private const val LOG_TAG = "AutoRevokePermissions"
-private const val DEBUG = false
+private const val DEBUG_OVERRIDE_THRESHOLDS = false
+// TODO eugenesusla: temporarily enabled for extra logs during dogfooding
+private const val DEBUG = true || DEBUG_OVERRIDE_THRESHOLDS
 
 // TODO eugenesusla: temporarily disabled due to issues in droidfood
 private const val AUTO_REVOKE_ENABLED = false
@@ -101,7 +103,7 @@ private const val AUTO_REVOKE_ENABLED = false
 private val DEFAULT_UNUSED_THRESHOLD_MS =
         if (AUTO_REVOKE_ENABLED) DAYS.toMillis(90) else Long.MAX_VALUE
 private fun getUnusedThresholdMs(context: Context) = when {
-    DEBUG -> SECONDS.toMillis(1)
+    DEBUG_OVERRIDE_THRESHOLDS -> SECONDS.toMillis(1)
     TeamfoodSettings.get(context) != null -> TeamfoodSettings.get(context)!!.unusedThresholdMs
     else -> DeviceConfig.getLong(DeviceConfig.NAMESPACE_PERMISSIONS,
             PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS,
@@ -167,7 +169,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
     val stats = withContext(IPC) {
         context.getSystemService<UsageStatsManager>()
             .queryUsageStats(
-                if (DEBUG) INTERVAL_DAILY else INTERVAL_MONTHLY,
+                if (DEBUG_OVERRIDE_THRESHOLDS) INTERVAL_DAILY else INTERVAL_MONTHLY,
                 now - getUnusedThresholdMs(context),
                 now)
     }
@@ -180,7 +182,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                     context.forUser(user)
                         .getSystemService<UsageStatsManager>()
                         .queryUsageStats(
-                            if (DEBUG) INTERVAL_DAILY else INTERVAL_MONTHLY,
+                            if (DEBUG_OVERRIDE_THRESHOLDS) INTERVAL_DAILY else INTERVAL_MONTHLY,
                             now - getUnusedThresholdMs(context),
                             now)
                 }
@@ -334,7 +336,7 @@ private suspend fun isPackageAutoRevokeExempt(
     if (whitelistAppOpMode == MODE_DEFAULT) {
         // Initial state - whitelist not explicitly overridden by either user or installer
 
-        if (DEBUG) {
+        if (DEBUG_OVERRIDE_THRESHOLDS) {
             // Suppress exemptions to allow debugging
             return false
         }
