@@ -153,6 +153,7 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        mIsFirstLoad = true;
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
