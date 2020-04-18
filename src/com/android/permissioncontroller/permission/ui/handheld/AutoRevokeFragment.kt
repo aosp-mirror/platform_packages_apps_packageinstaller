@@ -164,7 +164,6 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
                 }
 
                 if (shouldDisable) {
-                    pref.removeIcon = resources.getDrawable(R.drawable.ic_settings_disable)
                     pref.removeClickListener = View.OnClickListener {
                         createDisableDialog(pkgName, user)
                     }
