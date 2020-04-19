@@ -42,10 +42,8 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"යෙදුම භාවිත කරන අතරතුර"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"මෙම වතාවේ පමණී"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"සැම විටම ඉඩ දෙන්න"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"සියලු ගොනු කළමනාකරණය ඉඩ දෙන්න"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"සියලු මාධ්‍ය වෙත ප්‍රවේශ වීමට ඉඩ දෙන්න"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"යෙදුම්"</string>
     <string name="app_permissions" msgid="2778362347879465223">"යෙදුම් අවසර"</string>
     <string name="unused_apps" msgid="3935514133237470759">"භාවිත නොකළ යෙදුම්"</string>
@@ -107,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"වේලාවට අනුව පෙරහන්න"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"ඉඩ දෙන්න"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"සියලු ගොනු කළමනාකරණය ඉඩ දෙන්න"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"මාධ්‍ය වෙත ප්‍රවේශය පමණක් ඉඩ දෙන්න"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"සැම විටම ඉඩ දෙන්න"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"යෙදුම භාවිතයේදී පමණක් ඉඩ දෙන්න"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"සෑම විටම ඉල්ලන්න"</string>
@@ -120,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"සියලුම <xliff:g id="APP">%1$s</xliff:g> අවසර බලන්න"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"මෙම අවසරය සහිත සියලුම යෙදුම් බලන්න"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"යෙදුම භාවිත කර නැති නම් අවසර ඉවත් කරන්න"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"ඔබේ දත්ත ආරක්ෂා කිරීමට, යෙදුම මාස කීපයක් තිස්සේ භාවිත කර නැති නම් මෙම යෙදුම සඳහා අවසර ඉවත් කරනු ඇත."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"ඔබේ දත්ත ආරක්ෂා කිරීමට, යෙදුම මාස කීපයකට භාවිත කර නැති නම්, පහත අවසර ඉවත් කරනු ඇත: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"ඔබගේ දත්ත ආරක්ෂා කිරීම සඳහා, යෙදුම මාස කිහිපයක් භාවිතා නොකරන්නේ නම් මෙම යෙදුම සඳහා අවසර ඉවත් කරනු ලැබේ."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"ඔබගේ දත්ත ආරක්ෂා කිරීම සඳහා, යෙදුම මාස කිහිපයක් භාවිතා නොකරන්නේ නම් පහත අවසර ඉවත් කරනු ලැබේ: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"ඔබේ දත්ත ආරක්ෂා කිරීමට, ඔබ මාස කීපයක් තුළ භාවිත කර නැති යෙදුම්වලින් අවසර ඉවත් කර ඇත"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"ඔබට නැවත අවසර ලබා දීමට අවශ්‍ය නම්, යෙදුම විවෘත කරන්න"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"ස්වයංක්‍රිය ඉවත් කිරීම මෙම යෙදුම සඳහා දැනට අබල කර ඇත."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ස්වයංව අහෝසි කළ හැකි අවසර කිසිවක් දැනට ප්‍රදානය කර නැත"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"අවසර <xliff:g id="PERM">%1$s</xliff:g>ක් ඉවත් කරනු ඇත."</string>
@@ -135,10 +133,8 @@
     <string name="last_opened_category_title" msgid="4204626487716958146">"අවසන් වරට විවෘත කළේ මාස <xliff:g id="NUMBER">%s</xliff:g>කට පෙරය"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"යෙදුම අවසන් වරට විවෘත කළේ <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"අවසාන විවෘත කළේ <xliff:g id="DATE">%s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"ඔබ සියලු ගොනු කළමනාකරණය කිරීමට ඉඩ දෙන්නේ නම්, මෙම යෙදුමට මෙම උපාංගයේ හෝ සම්බන්ධිත ගබඩා උපාංගවල පොදු ගබඩාවේ ඇති ඕනෑම ගොනුවක් වෙත ප්‍රවේශ වීමට, වෙනස් කිරීමට සහ මැකීටම හැකිය. යෙදුම ඔබෙන් විමසීමෙන් තොරව ගොනු වෙත ප්‍රවේශ විය හැකිය."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"මෙම යෙදුමට උපාංගයේ හෝ ඕනෑම සම්බන්ධිත ගබඩා උපාංගයක ඇති ගොනු වෙත ප්‍රවේශ වීමට, වෙනස් කිරීමට සහ මැකීමට ඉඩ දෙන්නද? මෙම යෙදුම ඔබෙන් විමසීමෙන් තොරව ගොනු වෙත ප්‍රවේශ විය හැකිය."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"මෙම අවසරය සහිත යෙදුම්වලට <xliff:g id="DESCRIPTION">%1$s</xliff:g> කළ හැක"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"මෙම අවසරය සහිත යෙදුම්වලට ඇවිදීම, බයිසිකල් පැදීම, රිය පැදවීම, පියවර ගණනය සහ තවත් දෑ වැනි, ඔබේ ශාරීරික ක්‍රියාකාරකම්වලට ප්‍රවේශ විය හැක"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"මෙම අවසරය සහිත යෙදුම්වලට ඔබේ දින දර්ශනය වෙත ප්‍රවේශ විය හැක"</string>
@@ -158,10 +154,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"ඉඩ දුන්"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"සැම විටම ඉඩ දෙනු ලැබේ"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"භාවිත කෙරෙන විට පමණක් අනුමත කෙරේ"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"මාධ්‍ය වෙත පමණක් ප්‍රවේශය ඉඩ දී ඇත"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"සියලු පාලන කළමනාකරණය කිරීමට ඉඩ දී ඇත"</string>
     <string name="ask_header" msgid="4471670860332046665">"සෑම විටම ඉල්ලන්න"</string>
     <string name="denied_header" msgid="2277998574238617699">"ප්‍රතික්ෂේපයි"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -198,11 +192,11 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> සහ <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, සහ තවත් <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ඔබේ දත්ත ආරක්ෂා කිරීමට, ඔබ මාස කීපයක් තුළ භාවිත කර නැති යෙදුම්වලින් අවසර ඉවත් කර ඇත"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"යෙදුම් 1ක් මාස කිහිපයක් තිස්සේ භාවිත කර නැත."</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"යෙදුම් <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>ක් මාස කිහිපයක් තිස්සේ භාවිත කර නැත."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"යෙදුම භාවිතයේ දී පමණි"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"මාධ්‍ය"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"සියලු ගොනු"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"අවසරවලට ඉඩ නොදේ"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"අවසර ප්‍රතික්ෂේප නොකෙරේ"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"යෙදුම්වලට ඉඩ නොදේ"</string>

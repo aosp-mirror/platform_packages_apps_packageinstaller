@@ -42,10 +42,8 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Tətbiqi istifadə edərkən"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Yalnız bu dəfə"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Həmişə icazə verin"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Bütün faylların idarə edilməsinə icazə verin"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Media fayllarına giriş icazəsi verin"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Tətbiq"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Tətbiq icazələri"</string>
     <string name="unused_apps" msgid="3935514133237470759">"İstifadə olunmayan tətbiqlər"</string>
@@ -107,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Vaxta görə filtrləyin"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"İcazə verin"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Bütün faylların idarə edilməsinə icazə verin"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Yalnız mediaya giriş icazəsi verin"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Həmişə icazə verin"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Yalnız tətbiqdən istifadə edərkən icazə verin"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Hər dəfə soruşun"</string>
@@ -120,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Bütün <xliff:g id="APP">%1$s</xliff:g> icazələrinə baxın"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Bu icazəyə sahib olan bütün tətbiqlərə baxın"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Tətbiq istifadə edilmirsə, icazələri silin"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Datanızı qorumaq məqsədilə, bu tətbiq bir neçə ay istifadə edilmədikdə həmin tətbiq üzrə icazələr silinəcək."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Datanızı qorumaq üçün tətbiq bir neçə ay istifadə edilmədikdə aşağıdakı icazələr silinəcək: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Datanızı qorumaq üçün tətbiq bir neçə ay istifadə edilmədikdə həmin tətbiq üzrə icazələr silinəcək."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Datanızı qorumaq üçün tətbiq bir neçə ay istifadə edilmədikdə aşağıdakı icazələr silinəcək: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Datanızı qorumaq üçün bir neçə ay istifadə etmədiyiniz tətbiqlərdən icazələr silinib."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Yenidən icazələr vermək istəyirsinizsə, tətbiqi açın"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Bu tətbiq üçün avtomatik silinmə hazırda deaktivdir."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Hazırda avtomatik ləğv edilə bilən heç bir icazə verilməyib"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> icazəsi silinəcək."</string>
@@ -135,10 +133,8 @@
     <string name="last_opened_category_title" msgid="4204626487716958146">"Sonuncu dəfə ən azı <xliff:g id="NUMBER">%s</xliff:g> ay əvvəl açılıb"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Tətbiq sonuncu dəfə <xliff:g id="DATE">%s</xliff:g> tarixində açılıb"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Sonuncu dəfə <xliff:g id="DATE">%s</xliff:g> tarixində açılıb"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Bütün faylların idarə edilməsinə icazə versəniz, bu tətbiq bu cihazda və ya qoşulmuş yaddaş cihazlarında ümumi yaddaş yerindəki bütün fayllara daxil ola, dəyişiklik edə və ya onları silə bilər. Tətbiq sizdən soruşmadan fayllara daxil ola bilər."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Bu tətbiqə cihazdakı və ya istənilən qoşulmuş yaddaş cihazındakı fayllara daxil olmaq, dəyişiklik etmək və onları silmək icazəsi verilsin? Bu tətbiq sizdən soruşmadan fayllara daxil ola bilər."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Bu icazəyə sahib tətbiqlər edə bilər: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Bu icazəyə sahib tətbiqlər gəzmək, velosiped, avtomobil sürmək, addım sayı və s. kimi fiziki fəaliyyətə daxil ola bilər"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Bu icazəyə sahib tətbiqlər təqviminizə giriş edə bilər"</string>
@@ -158,10 +154,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"İcazə verilib"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Həmişə icazə verin"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Yalnız istifadədə olarkən icazə verildi"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Yalnız mediaya giriş icazəsi verildi"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Bütün faylları idarə etmək icazəsi verildi"</string>
     <string name="ask_header" msgid="4471670860332046665">"Hər dəfə soruşun"</string>
     <string name="denied_header" msgid="2277998574238617699">"Ləğv edildi"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -198,11 +192,11 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> və <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, və daha <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> icazə"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Datanızı qorumaq üçün bir neçə ay istifadə etmədiyiniz tətbiqlərdən icazələr silinib"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 tətbiq bir neçə aydır ki, istifadə edilməyib"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> tətbiq bir neçə aydır ki, istifadə edilməyib"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Yalnız tətbiqin istifadəsi zamanı"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Media"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Bütün Fayllar"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"İcazə verilmədi"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"İcazə verilib"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"İcazəli tətbiq yoxdur"</string>
@@ -245,7 +239,7 @@
     <string name="role_emergency_search_keywords" msgid="7310029268876820646">"ice"</string>
     <string name="role_home_label" msgid="6245106863177808486">"Defolt əsas səhifə tətbiqi"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Əsas səhifə tətbiqi"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"Android cihazında əsas səhifə ekranını əvəz edərək cihaz kontenti və funksiyalarına giriş təmin edən, adətən başladıcı adlanan tətbiqlər"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Android cihazınızda əsas səhifə ekranını əvəz edərək cihaz kontenti və funksiyalarına giriş təmin edən, adətən başladıcı adlanan tətbiqlər"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> defolt əsas səhifə tətbiqi olaraq ayarlansın?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"İcazəyə ehtiyac yoxdur"</string>
     <string name="role_home_search_keywords" msgid="8277315231013298175">"başladıcı"</string>

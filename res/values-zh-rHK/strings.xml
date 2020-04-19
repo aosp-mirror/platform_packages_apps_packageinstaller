@@ -42,10 +42,8 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"使用應用程式時"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"僅限這次"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"一律允許"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"允許管理所有檔案"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"允許存取媒體檔案"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"應用程式"</string>
     <string name="app_permissions" msgid="2778362347879465223">"應用程式權限"</string>
     <string name="unused_apps" msgid="3935514133237470759">"未使用的應用程式"</string>
@@ -107,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"按時間篩選"</string>
     <string name="item_separator" msgid="8266062815210378175">"、 "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"允許"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"允許管理所有檔案"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"僅允許存取媒體"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"一律允許"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"僅在使用此應用程式時允許"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"每次都詢問"</string>
@@ -120,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看「<xliff:g id="APP">%1$s</xliff:g>」的所有權限"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"查看擁有此權限的所有應用程式"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"移除未有使用應用程式的權限"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"為保護您的資料，如果您數個月未使用此應用程式，系統會移除應用程式的權限。"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"為保護您的資料，如果應用程式在過去幾個月未有使用，系統將會移除以下權限：<xliff:g id="PERMS">%1$s</xliff:g>。"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"為保護您的資料，系統已移除您在過去幾個月未使用應用程式的權限。"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"為保護您的資料，如果應用程式在過去幾個月未有使用，系統將會移除以下權限：<xliff:g id="PERMS">%1$s</xliff:g>。"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"為保護您的資料，系統已移除您在過去幾個月未使用應用程式的權限。"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"如要重新授予權限，請開啟應用程式"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"此應用程式已停用自動移除功能。"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"目前沒有授予任何自動撤銷權限"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"「<xliff:g id="PERM">%1$s</xliff:g>」權限將被移除。"</string>
@@ -135,20 +133,18 @@
     <string name="last_opened_category_title" msgid="4204626487716958146">"上次於超過 <xliff:g id="NUMBER">%s</xliff:g> 個月前開啟"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"應用程式上次於 <xliff:g id="DATE">%s</xliff:g>開啟"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"上次開啟日期：<xliff:g id="DATE">%s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"如允許管理所有檔案，此應用程式便可存取、修改和刪除此裝置或已連接儲存裝置上一般儲存的任何檔案。應用程式可能會在未通知您的情況下存取檔案。"</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"要允許此應用程式存取、修改和刪除此裝置或任何已連接儲存裝置上的檔案嗎？此應用程式可能會在未通知您的情況下存取檔案。"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"擁有此權限的應用程式可以<xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"擁有此權限的應用程式可以存取您的體能活動資料，例如步行、踏單車、駕駛、步數及其他資料"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"擁有此權限的應用程式可以存取您的日曆"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"擁有此權限的應用程式可以讀取及寫入手機通話記錄"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"擁有此權限的應用程式可以拍照及錄製影片"</string>
-    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"擁有此權限的應用程式可以存取您的聯絡人"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"擁有此權限的應用程式可以存取您的通訊錄"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"擁有此權限的應用程式可以存取此裝置的位置資訊"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"擁有此權限的應用程式可以錄音"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"擁有此權限的應用程式可以撥打電話和管理通話"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"擁有此權限的應用程式可以存取與您身體機能相關的感應器資料"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"擁有此權限的應用程式，可以取得與身體機能相關的感應器資料"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"擁有此權限的應用程式可以傳送及查看短訊"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"擁有此權限的應用程式可以存取裝置上的相片、媒體和檔案"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"上次存取時間：<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -158,10 +154,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"已允許"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"一律允許"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"只在使用時允許"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"僅允許媒體存取權"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"允許管理所有檔案"</string>
     <string name="ask_header" msgid="4471670860332046665">"每次都詢問"</string>
     <string name="denied_header" msgid="2277998574238617699">"已拒絕"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -198,11 +192,11 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>和<xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>、<xliff:g id="PERM_NAME_1">%2$s</xliff:g> 和另外 <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> 個權限"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"為保護您的資料，系統已移除您在過去幾個月未使用應用程式的權限"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 個應用程式在過去幾個月未曾使用"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 個應用程式在過去幾個月未曾使用"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"只在使用應用程式時"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"媒體"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"所有檔案"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"不允許任何權限"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"沒有拒絕任何權限"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"沒有允許任何應用程式"</string>
@@ -245,7 +239,7 @@
     <string name="role_emergency_search_keywords" msgid="7310029268876820646">"ICE"</string>
     <string name="role_home_label" msgid="6245106863177808486">"預設主畫面應用程式"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"主畫面應用程式"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"這類應用程式通常稱為啟動器，用於取代 Android 裝置的主畫面，讓您存取裝置的內容和功能"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"這類應用程式通常稱為啟動器，可以取代 Android 裝置的主畫面，讓您存取裝置的內容和功能"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設主畫面應用程式嗎？"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"無需任何權限"</string>
     <string name="role_home_search_keywords" msgid="8277315231013298175">"啟動器"</string>

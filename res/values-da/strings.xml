@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Se alle tilladelser for <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Se alle apps med denne tilladelse"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Fjern tilladelser, hvis appen ikke bruges"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"For at beskytte dine data fjernes tilladelserne til denne app, hvis appen ikke bruges i et par måneder."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Hvis appen ikke er blevet brugt i et par måneder, fjernes følgende tilladelser af hensyn til beskyttelsen af dine data: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Hvis appen ikke bliver brugt i et par måneder, fjernes tilladelser for denne app for at beskytte dine data."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Hvis appen ikke bliver brugt i et par måneder, fjernes følgende tilladelser for at beskytte dine data: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Tilladelserne til apps, du ikke har brugt i et par måneder, er blevet fjernet for at beskytte dine data."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Hvis du vil give tilladelser igen, skal du åbne appen"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatisk fjernelse er i øjeblikket deaktiveret for denne app."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Der gives i øjeblikket ingen tilladelser, som kan tilbagekaldes automatisk"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Adgangen til <xliff:g id="PERM">%1$s</xliff:g> fjernes."</string>
@@ -190,6 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> og <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> og <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> mere"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Tilladelserne til apps, du ikke har brugt i et par måneder, er blevet fjernet af hensyn til beskyttelsen af dine data"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 app har ikke været brugt i et par måneder"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps har ikke været brugt i et par måneder"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Kun mens appen er i brug"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Mediefiler"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Alle filer"</string>
@@ -246,7 +250,7 @@
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Der kræves ingen tilladelser"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Standardapp til Vis nummer og spam"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"App til Vis nummer og spam"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"Apps, der giver dig mulighed for at identificere opkald, blokere spamopkald og automatiske opkald og føje uønskede numre til din sortliste."</string>
+    <string name="role_call_screening_description" msgid="4470066768170089758">"Apps, der giver dig mulighed for at identificere opkald, blokere spamopkald og automatiske opkald og føje uønskede numre til din sortliste"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Vil du angive <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp til Vis nummer og spam?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Der kræves ingen tilladelser"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Nuværende standardapp"</string>

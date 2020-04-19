@@ -48,7 +48,7 @@
     <string name="app_permissions" msgid="2778362347879465223">"สิทธิ์ของแอป"</string>
     <string name="unused_apps" msgid="3935514133237470759">"แอปที่ไม่ได้ใช้"</string>
     <string name="app_disable_dlg_positive" msgid="3928516331670255309">"ปิดใช้แอป"</string>
-    <string name="app_disable_dlg_text" msgid="5218197617670218828">"หากคุณปิดใช้แอปนี้ Android และแอปอื่นๆ อาจไม่ทำงานตามที่ควรจะเป็นอีกต่อไป โปรดทราบว่าคุณลบแอปนี้ไม่ได้เนื่องจากเป็นแอปที่ติดตั้งมาล่วงหน้าในอุปกรณ์ การปิดใช้จะปิดแอปนี้และซ่อนในอุปกรณ์"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"หากคุณปิดใช้แอปนี้ Android และแอปอื่นๆ อาจไม่ทำงานตามที่ควรจะเป็นอีกต่อไป โปรดทราบว่าคุณลบแอปนี้ไม่ได้เนื่องจากเป็นแอปที่ติดตั้งมาล่วงหน้าในอุปกรณ์ แต่การปิดใช้จะปิดแอปนี้และซ่อนในอุปกรณ์"</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"เครื่องมือจัดการสิทธิ์"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"ไม่ต้องถามอีก"</string>
     <string name="no_permissions" msgid="2193893107241172888">"ไม่มีสิทธิ์"</string>
@@ -61,7 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"แอปนี้ออกแบบมาเพื่อ Android เวอร์ชันเก่า การปฏิเสธสิทธิ์อาจทำให้แอปไม่ทำงานตามที่ต้องการอีกต่อไป"</string>
     <string name="default_permission_description" msgid="692254823411049573">"ดำเนินการทำงานที่ไม่รู้จัก"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"อนุญาตแล้ว <xliff:g id="COUNT_0">%1$d</xliff:g> จาก <xliff:g id="COUNT_1">%2$d</xliff:g> แอป"</string>
-    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"ได้รับอนุญาต <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> แอป"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"อนุญาต <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> แอป"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"แสดงระบบ"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"ซ่อนระบบ"</string>
     <string name="no_apps" msgid="2377153782338039463">"ไม่มีแอป"</string>
@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ดูสิทธิ์ทั้งหมดของ \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ดูแอปทั้งหมดที่มีสิทธิ์นี้"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"นำสิทธิ์ออกหากไม่ได้ใช้งานแอป"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"ระบบจะนำสิทธิ์เข้าถึงของแอปนี้ออกหากไม่มีการใช้งานแอปเป็นเวลา 2-3 เดือน"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"หากไม่มีการใช้งานแอปนาน 2-3 เดือน ระบบจะปกป้องข้อมูลของคุณด้วยการนำสิทธิ์ต่อไปนี้ออก ได้แก่ <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"หากคุณไม่ได้ใช้งานแอปนาน 2-3 เดือน ระบบจะนำสิทธิ์ของแอปนี้ออกเพื่อปกป้องข้อมูลของคุณ"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"หากไม่มีการใช้งานแอปนาน 2-3 เดือน ระบบจะปกป้องข้อมูลของคุณด้วยการนำสิทธิ์ต่อไปนี้ออก ได้แก่ <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"ระบบได้นำสิทธิ์ออกจากแอปที่คุณไม่ได้ใช้งานนาน 2-3 เดือนเพื่อปกป้องข้อมูลของคุณ"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"โปรดเปิดแอปหากต้องการให้สิทธิ์อีกครั้ง"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"การนำออกโดยอัตโนมัติสำหรับแอปนี้ปิดใช้อยู่ในขณะนี้"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ปัจจุบันไม่มีการให้สิทธิ์ที่เพิกถอนได้โดยอัตโนมัติ"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ระบบจะนำสิทธิ์เข้าถึง<xliff:g id="PERM">%1$s</xliff:g>ออก"</string>
@@ -190,6 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>และ<xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> <xliff:g id="PERM_NAME_1">%2$s</xliff:g> และอีก <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> รายการ"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ระบบได้นำสิทธิ์ออกจากแอปที่คุณไม่ได้ใช้งานนาน 2-3 เดือนเพื่อปกป้องข้อมูลของคุณ"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"มี 1 แอปที่ไม่มีการใช้งานมา 2-3 เดือนแล้ว"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"มี <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> แอปที่ไม่มีการใช้งานมา 2-3 เดือนแล้ว"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"เมื่อมีการใช้แอปเท่านั้น"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"สื่อ"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"ทุกไฟล์"</string>

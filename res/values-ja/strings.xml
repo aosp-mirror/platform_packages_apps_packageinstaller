@@ -46,12 +46,9 @@
     <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"メディア ファイルへのアクセスを許可"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"アプリ"</string>
     <string name="app_permissions" msgid="2778362347879465223">"アプリの権限"</string>
-    <!-- no translation found for unused_apps (3935514133237470759) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
-    <skip />
+    <string name="unused_apps" msgid="3935514133237470759">"使用していないアプリ"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"アプリを無効にする"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"このアプリを無効にすると、Android などの他のアプリが正しく動作しなくなるおそれがあります。このアプリはデバイスにプリインストールされているため、削除できません。無効にするには、このアプリをオフにし、デバイスにアプリが表示されないようにします。"</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"権限マネージャ"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"今後表示しない"</string>
     <string name="no_permissions" msgid="2193893107241172888">"権限がありません"</string>
@@ -64,8 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"このアプリは Android の以前のバージョンを対象としています。権限を許可しないと、意図されたとおりに動作しなくなる可能性があります。"</string>
     <string name="default_permission_description" msgid="692254823411049573">"不明な操作の実行"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> 個のアプリを許可"</string>
-    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
-    <skip />
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> 件のアプリを許可"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"システムアプリを表示"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"システムアプリを表示しない"</string>
     <string name="no_apps" msgid="2377153782338039463">"アプリがありません"</string>
@@ -120,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g>の権限をすべて表示"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"この権限があるアプリをすべて表示"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"アプリが使用されていない場合に権限を削除"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"データを保護するため、このアプリが数か月間使用されていない場合にこのアプリの権限は削除されます。"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"データ保護のため、アプリが数か月使用されていない場合は、<xliff:g id="PERMS">%1$s</xliff:g>の権限を削除します。"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"データ保護のため、このアプリが数か月使用されていない場合はこのアプリの権限が削除されます。"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"データ保護のため、アプリが数か月使用されていない場合は<xliff:g id="PERMS">%1$s</xliff:g>の権限が削除されます。"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"データ保護のため、数か月使用していないアプリから権限を削除しました。"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"もう一度権限を許可するには、アプリを開いてください"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"このアプリでは現在、自動削除は無効になっています。"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"現在、自動取り消し可能な権限は付与されていません"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g>の権限が削除されます。"</string>
@@ -129,14 +127,10 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"削除される権限: <xliff:g id="PERMS">%1$s</xliff:g>。"</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"権限の自動管理"</string>
     <string name="off" msgid="4561379152328580345">"OFF"</string>
-    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
-    <skip />
-    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
-    <skip />
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g>の権限が削除されました"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>、<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>の権限が削除されました"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>、他 <xliff:g id="NUMBER">%2$s</xliff:g> 件の権限が削除されました"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"最後に開いたのが <xliff:g id="NUMBER">%s</xliff:g> か月以上前"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"アプリ最終使用日: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"最終使用日: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"すべてのファイルの管理を許可すると、このアプリは、このデバイスまたは接続されているストレージ デバイス内の共通ストレージに保存されているすべてのファイルへのアクセス、変更、削除を行えます。このアプリは、確認を求めずにファイルにアクセスすることもあります。"</string>
@@ -181,10 +175,8 @@
       <item quantity="one">1秒</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"権限のリマインダー"</string>
-    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
-    <skip />
-    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
-    <skip />
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"アプリの権限が自動的に削除されました"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"数か月使用していないアプリがあります。タップして詳細をご確認ください。"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> がバックグラウンドで位置情報を取得しました"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"このアプリは常に位置情報にアクセスできます。設定を変更するにはタップしてください。"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"プライバシー保護のためアプリの権限を削除しました"</string>
@@ -200,6 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>、<xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>、<xliff:g id="PERM_NAME_1">%2$s</xliff:g>、他 <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> 件"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"データ保護のため、数か月使用していないアプリから権限を削除しました"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"数か月使用していアプリ: 1 件"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"数か月使用していないアプリ: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 件"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"アプリが使用中の場合のみ"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"メディア"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"すべてのファイル"</string>
@@ -245,7 +239,7 @@
     <string name="role_emergency_search_keywords" msgid="7310029268876820646">"緊急時"</string>
     <string name="role_home_label" msgid="6245106863177808486">"デフォルトのホームアプリ"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"ホームアプリ"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"ランチャーとも呼ばれ、Android デバイスのホーム画面のように、デバイスのコンテンツや機能にアクセスできるアプリです"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Android デバイスのホーム画面を提供し、デバイスのコンテンツや機能にアクセスできるようにするアプリです。ランチャーとも呼ばれます。"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> をデフォルトのホームアプリとして設定しますか？"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"必要な権限がありません"</string>
     <string name="role_home_search_keywords" msgid="8277315231013298175">"ランチャー"</string>

@@ -42,18 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Колдонмо ачылып турганда"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Ушул жолу гана"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Бардык учурда уруксат берилет"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Бардык файлдарды башкарууга уруксат берүү"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Медиа файлдарга кирүүгө уруксат берүү"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Колдонмолор"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Колдонмонун уруксаттары"</string>
-    <!-- no translation found for unused_apps (3935514133237470759) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
-    <skip />
+    <string name="unused_apps" msgid="3935514133237470759">"Иштетилбеген колдонмолор"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Колдонмону өчүрүү"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Эгер бул колдонмону өчүрсөңүз, Android жана башка колдонмолор талаптагыдай иштебей калышы мүмкүн. Бул колдонмо түзмөгүңүздө алдын ала орнотулуп келген, андыктан аны өчүрө албайсыз. Өчүрүү менен, бул түзмөктү өчүрүп, түзмөгүңүздө жашырасыз."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Уруксаттарды башкаргыч"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Экинчи суралбасын"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Уруксаттар жок"</string>
@@ -66,8 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Бул колдонмо эски Android версиясы үчүн түзүлгөн. Уруксат берилбесе, ал туура эмес иштеп калышы мүмкүн."</string>
     <string name="default_permission_description" msgid="692254823411049573">"белгисиз аракеттерди жасайт"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> колдонмонун ичинен <xliff:g id="COUNT_0">%1$d</xliff:g> уруксат берилген"</string>
-    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
-    <skip />
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> колдонмого уруксат берилди"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Тутумдагы процесстерди көрсөтүү"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Тутумдагы процесстерди жашыруу"</string>
     <string name="no_apps" msgid="2377153782338039463">"Бир да колдонмо жок"</string>
@@ -111,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Убакыты боюнча чыпкалоо"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Уруксат берүү"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Бардык файлдарды башкарууга уруксат берүү"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Медиа файлдарга гана кирүүгө уруксат берүү"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Бардык учурда уруксат берилет"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Колдонмо колдонулуп жатканда гана уруксат берилет"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Ар дайым суралсын"</string>
@@ -124,8 +116,14 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Бардык <xliff:g id="APP">%1$s</xliff:g> уруксаттарын көрүү"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ушундай уруксат берилген бардык колдонмолорду көрүү"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Эгер колдонмо пайдаланылбаса, уруксаттар өчүрүлсүн"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Эгер колдонмо бир нече ай пайдаланылбаса, жеке дайын-даректериңизди коргоо үчүн, бул колдонмого берилген уруксаттар өчүрүлөт."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Эгер колдонмо бир нече айдан бери колдонулбаса, маалыматты коргоо максатында төмөнкү уруксаттар өчүрүлөт: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <!-- no translation found for auto_revoke_summary (308686883215278993) -->
+    <skip />
+    <!-- no translation found for auto_revoke_summary_with_permissions (5460568151204648005) -->
+    <skip />
+    <!-- no translation found for auto_revoked_apps_page_summary (2780912986594704165) -->
+    <skip />
+    <!-- no translation found for auto_revoke_open_app_message (7960965074929429500) -->
+    <skip />
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Учурда бул колдонмодо автоматтык түрдө өчүрүү иштебейт."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Учурда автоматтык түрдө жокко чыгарылуучу уруксаттар жок"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> уруксаты өчүрүлөт."</string>
@@ -133,22 +131,16 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Өчүрүлө турган уруксаттар: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Уруксаттарды автоматтык түрдө башкаруу"</string>
     <string name="off" msgid="4561379152328580345">"Өчүк"</string>
-    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
-    <skip />
-    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
-    <skip />
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g> уруксаты өчүрүлдү"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> жана <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> уруксаттары өчүрүлдү"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> жана дагы <xliff:g id="NUMBER">%2$s</xliff:g> уруксат өчүрүлдү"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Акыркы жолу <xliff:g id="NUMBER">%s</xliff:g> ай мурда ачылган"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Колдонмо акыркы жолу <xliff:g id="DATE">%s</xliff:g> ачылган"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Акыркы жолу <xliff:g id="DATE">%s</xliff:g> ачылган"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Эгерде бардык файлдарды башкарууга уруксат берсеңиз, бул колдонмо түзмөктүн жалпы сактагычындагы же туташтырылган сактагыч түзмөктөрүндөгү бардык файлдарды көрүп, өзгөртүп жана өчүрө алат. Колдонмо файлдарга сизден сурабай эле кире алат."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Бул колдонмого түзмөктөгү же башка туташтырылган сактагыч түзмөктөрүндөгү бардык файлдарды көрүп, өзгөртүп жана өчүрүүсүнө уруксат берилсинби? Бул колдонмо файлдарга сизден сурабай эле кире алат."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Мындай уруксаты бар колдонмолор төмөнкү аракеттерди жасай алышат: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Мындай уруксаты бар колдонмолор жөө басуу, велосипед тебүү, унаа айдоо, кадамдарды эсептөө сыяктуу кыймыл-аракеттериңизди көрө алышат"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Мындай уруксаты бар колдонмолор жөө басуу, велосипед тебүү, унаа айдоо, кадамдарды эсептөө сыяктуу кыймыл-аракеттериңизге көз сала алышат"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Мындай уруксаты бар колдонмолор жылнаамаңызга кире алышат"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Мындай уруксаты бар колдонмолор чалуулар тизмесин окуп, аны өзгөртө алышат"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Мындай уруксаты бар колдонмолор сүрөт жана видео тарта алышат"</string>
@@ -166,10 +158,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Уруксат берилген"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Бардык учурда уруксат берилген"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Колдонулган кезде гана уруксат"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Медиа файлдарга гана кирүүгө уруксат берилди"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Бардык файлдарды башкарууга уруксат берилди"</string>
     <string name="ask_header" msgid="4471670860332046665">"Ар дайым суралсын"</string>
     <string name="denied_header" msgid="2277998574238617699">"Четке кагылган"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -189,10 +179,8 @@
       <item quantity="one">1 секунд</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Уруксат жөнүндө эстеткичтер"</string>
-    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
-    <skip />
-    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
-    <skip />
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Колдонмонун уруксаттары автоматтык түрдө өчүрүлдү"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Айрым колдонмолор бир нече ай иштетилген жок. Кеңири маалымат алуу үчүн таптап коюңуз."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> жайгашкан жериңизди фондон алды"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Бул колдонмо кайда жүргөнүңүздү ар дайым билип турат. Аны өзгөртүү үчүн таптап коюңуз."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Колдонмонун уруксаттары купуялыкты сактоо үчүн өчүрүлдү"</string>
@@ -208,11 +196,13 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> жана <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, жана дагы <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Маалыматты коргоо максатында бир нече айдан бери ачылбаган колдонмолордогу уруксаттар өчүрүлдү"</string>
+    <!-- no translation found for one_unused_app_summary (4609894550969723046) -->
+    <skip />
+    <!-- no translation found for num_unused_apps_summary (2950515592303103371) -->
+    <skip />
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Колдонмо пайдаланылып жаткан учурда гана"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Медиа"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Бардык файлдар"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Колдонмого уруксаттар берилген жок"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Колдонмого бардык уруксаттар берилди"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Бир да колдонмого уруксат берилген жок"</string>
@@ -243,7 +233,7 @@
     <string name="role_dialer_search_keywords" msgid="6215791911228160821">"тергич"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"Демейки SMS колдонмо"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"\"SMS\" колдонмосу"</string>
-    <string name="role_sms_description" msgid="3228552135895420442">"Кыска SMS’терди, сүрөттөрдү, видеолорду жана башкаларды жөнөтүп, кабыл алуу үчүн телефон номериңизди колдонууга мүмкүнчүлүк берген колдонмолор"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Кыска SMS’терди, сүрөттөрдү, видеолорду жана башка нерселерди жөнөтүп, алууга мүмкүнчүлүк берген колдонмолор"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g> колдонмосун демейки \"SMS\" колдонмосу катары коёсузбу?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Байланыштарга, SMS’ке, телефонго мүмкүнчүлүк алат"</string>
     <string name="role_sms_search_keywords" msgid="6818482413212931585">"SMS билдирүү, SMS жазышуу, билдирүүлөр, билдирүү жазышуу"</string>

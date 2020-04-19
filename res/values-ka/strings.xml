@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ყველა <xliff:g id="APP">%1$s</xliff:g> ნებართვის ნახვა"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ამ ნებართვის მქონე ყველა აპის ნახვა"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"ნებართვების ამოშლა აპის გამოუყენებლობის შემთხვევაში."</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"თქვენი მონაცემების დასაცავად, ამ აპის ნებართვები ამოიშლება, თუ მას რამდენიმე თვის განმავლობაში არ გამოიყენებთ."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"თქვენი მონაცემების დაცვის მიზნით, თუ აპს რამდენიმე თვის განმავლობაში არ გამოიყენებთ, ამოიშლება შემდეგი ნებართვები: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"თქვენი მონაცემების დასაცავად ნებართვები ამოიშლება ამ აპიდან, თუ ის რამდენიმე თვის განმავლობაში არ გამოგიყენებიათ."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"თქვენი მონაცემების დაცვის მიზნით, თუ აპს რამდენიმე თვის განმავლობაში არ გამოიყენებთ, ამოიშლება შემდეგი ნებართვები: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"თქვენი მონაცემების დასაცავად ნებართვები ამოიშალა აპებიდან, რომლებიც რამდენიმე თვის განმავლობაში არ გამოგიყენებიათ."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"გახსენით აპი, თუ კვლავ გსურთ ნებართვების მინიჭება"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"ავტომატური ამოშლა ამჟამად გათიშულია ამ აპისთვის."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ამჟამად არცერთი ავტომატურად გაუქმებადი ნებართვა არ არის მინიჭებული"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ნებართვა <xliff:g id="PERM">%1$s</xliff:g> ამოიშლება."</string>
@@ -190,6 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> და <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> და <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> სხვა"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"თქვენი მონაცემების დასაცავად ნებართვები ამოიშალა აპებიდან, რომლებიც რამდენიმე თვის განმავლობაში არ გამოგიყენებიათ."</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 გამოუყენებელია რამდენიმე თვის განმავლობაში"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> გამოუყენებელია რამდენიმე თვის განმავლობაში"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"მხოლოდ აპის გამოყენებისას"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"მედია"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"ყველა ფაილი"</string>

@@ -46,12 +46,9 @@
     <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Leyfa aðgang að margmiðlunarskrám"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Forrit"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Heimildir forrits"</string>
-    <!-- no translation found for unused_apps (3935514133237470759) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
-    <skip />
+    <string name="unused_apps" msgid="3935514133237470759">"Ónotuð forrit"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Slökkva á forriti"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Ef þú slekkur á þessu forriti getur verið að Android og önnur forrit virki ekki lengur sem skyldi. Hafðu í huga að þú getur ekki eytt þessu forriti þar sem það var foruppsett í tækinu þínu. Ef þú gerir forritið óvirkt slekkur þú á því og felur það í tækinu."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Heimildastjóri"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Ekki spyrja aftur"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Engar heimildir"</string>
@@ -64,8 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Þetta forrit var hannað fyrir eldri útgáfu af Android. Ef ekki er veitt heimild fyrir því er hugsanlegt að það virki ekki rétt."</string>
     <string name="default_permission_description" msgid="692254823411049573">"framkvæma óþekkta aðgerð"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> af <xliff:g id="COUNT_1">%2$d</xliff:g> forritum leyfð"</string>
-    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
-    <skip />
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> forrit leyfð"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Sýna kerfi"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Fela kerfi"</string>
     <string name="no_apps" msgid="2377153782338039463">"Engin forrit"</string>
@@ -120,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Sjá allar heimildir fyrir <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Sjá öll forrit með þessa heimild"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Fjarlægja heimildir ef forrit er ekki notað"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Ef þú notar þetta forrit ekki í nokkra mánuði verða heimildir þess fjarlægðar til að vernda gögnin þín."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Til að vernda gögnin þín verða eftirfarandi heimildir fjarlægðar ef forritið hefur ekki verið notað í nokkra mánuði: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Til að vernda gögnin þín verða heimildir þessa forrits fjarlægðar ef það er ekki notað í nokkra mánuði."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Til að vernda gögnin þín verða eftirfarandi heimildir fjarlægðar ef forritið er ekki notað í nokkra mánuði: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Til að vernda gögnin þín hafa heimildir verið fjarlægðar úr forritum sem þú hefur ekki notað í nokkra mánuði."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Ef þú vilt veita heimild aftur skaltu opna forritið"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Ekki er hægt að fjarlægja sjálfkrafa í þessu forriti eins og er."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Ekki hafa verið veittar neinar heimildir sem hægt er að afturkalla sjálfkrafa"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> heimild verður fjarlægð"</string>
@@ -129,14 +127,10 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Heimildir sem verða fjarlægðar: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Stjórna heimildum sjálfkrafa"</string>
     <string name="off" msgid="4561379152328580345">"Slökkt"</string>
-    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
-    <skip />
-    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
-    <skip />
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Heimild fyrir <xliff:g id="PERMISSION_NAME">%s</xliff:g> fjarlægð"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Heimildirnar <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> og <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> fjarlægðar"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> og <xliff:g id="NUMBER">%2$s</xliff:g> heimildir í viðbót voru fjarlægðar"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Síðast opnað fyrir meira en <xliff:g id="NUMBER">%s</xliff:g> mánuðum"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Forrit síðast opnað <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Síðast opnað <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Ef þú leyfir stjórnun allra skráa getur þetta forrit opnað, breytt og eytt öllum skrám í sameiginlegri geymslu í þessu tæki eða tengdum geymslutækjum. Þetta forrit getur opnað skrár án þess að spyrja þig."</string>
@@ -181,10 +175,8 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekúndur</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Áminningar um heimild"</string>
-    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
-    <skip />
-    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
-    <skip />
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Forritaheimildir fjarlægðar sjálfkrafa"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Sum forrit hafa ekki verið notuð í nokkra mánuði. Ýttu til að fá frekari upplýsingar."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> er með staðsetningu þína í bakgrunni"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Þetta forrit hefur alltaf aðgang að staðsetningu þinni. Ýttu til að breyta."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Heimildir forrits fjarlægðar vegna persónuverndar"</string>
@@ -200,6 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> og <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> og <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> í viðbót"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Til að vernda gögnin þín hafa heimildir verið fjarlægðar úr forritum sem þú hefur ekki notað í nokkra mánuði"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 forrit hefur ekki verið notað í nokkra mánuði"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> forrit hafa ekki verið notuð í nokkra mánuði"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Aðeins þegar forritið er í notkun"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Margmiðlunarefni"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Allar skrár"</string>

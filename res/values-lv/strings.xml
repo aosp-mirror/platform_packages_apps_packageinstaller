@@ -117,8 +117,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Skatīt visas lietotnei <xliff:g id="APP">%1$s</xliff:g> piešķirtās atļaujas"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Skatīt visas lietotnes, kam ir šī atļauja"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Noņemt atļaujas, ja lietotne netiek izmantota"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Lai aizsargātu savus datus, šīs lietotnes atļaujas tiks noņemtas, ja lietotne nebūs lietota vairākus mēnešus."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Lai aizsargātu datus, ja lietotne nebūs izmantota vairākus mēnešus, tiks noņemtas tālāk norādītās atļaujas: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Lai aizsargātu jūsu datus, šīs lietotnes atļaujas tiks atsauktas, ja lietotne nebūs izmantota vairākus mēnešus."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Lai aizsargātu datus, ja lietotne nebūs izmantota vairākus mēnešus, tiks atsauktas tālāk norādītās atļaujas: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Lai aizsargātu jūsu datus, tika atsauktas atļaujas tām lietotnēm, kas nav izmantotas vairākus mēnešus."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Ja vēlaties atkal piešķirt atļaujas, atveriet lietotni"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automātiskā noņemšana šai lietotnei pašlaik ir atspējota."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Pašlaik nav piešķirta neviena automātiski atsaucama atļauja"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Tiks noņemta šāda atļauja: <xliff:g id="PERM">%1$s</xliff:g>."</string>
@@ -195,6 +197,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> un <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> un vēl <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Lai aizsargātu jūsu datus, ir noņemtas atļaujas no lietotnes, kas nav izmantota vairākus mēnešus"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"Viena lietotne nav izmantota vairākus mēnešus"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"Dažas lietotnes nav izmantotas vairākus mēnešus (šādu lietotņu skaits: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>)"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Tikai lietotnes izmantošanas laikā"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Multivide"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Visi faili"</string>

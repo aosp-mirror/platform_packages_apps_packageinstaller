@@ -46,12 +46,9 @@
     <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Медиа файлд хандахыг зөвшөөрөх"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Аппууд"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Аппын зөвшөөрөл"</string>
-    <!-- no translation found for unused_apps (3935514133237470759) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
-    <skip />
+    <string name="unused_apps" msgid="3935514133237470759">"Ашиглаагүй аппууд"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Aппыг идэвхгүй болгох"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Хэрэв та энэ аппыг идэвхгүй болговол Android болон бусад апп цаашид хэвийн ажиллахгүй байж болзошгүй. Энэ аппыг таны төхөөрөмжид урьдчилан суулгасан тул устгах боломжгүйг анхаарна уу. Идэвхгүй болгосноор та энэ аппыг унтрааж, төхөөрөмж дээрээсээ нуух болно."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Зөвшөөрлийн менежер"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Дахин бүү асуу"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Зөвшөөрөл алга"</string>
@@ -64,8 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Энэ аппыг Android-н хуучин хувилбарт зориулсан тул зөвшөөрлөөс татгалзсан тохиолдолд энэ нь зохих ёсоор ажиллахаа больж болзошгүй."</string>
     <string name="default_permission_description" msgid="692254823411049573">"тодорхойгүй үйлдэл хийх"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>-с <xliff:g id="COUNT_0">%1$d</xliff:g> аппыг зөвшөөрсөн"</string>
-    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
-    <skip />
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_1">%2$d</xliff:g>-с <xliff:g id="COUNT_0">%1$d</xliff:g> аппыг зөвшөөрсөн"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Системийг харуулах"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Системийг нуух"</string>
     <string name="no_apps" msgid="2377153782338039463">"Апп алга"</string>
@@ -120,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g>-н бүх зөвшөөрлийг харах"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Энэ зөвшөөрөлтэй бүх аппыг харах"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Аппыг ашигладаггүй бол зөвшөөрлийг нь хасах"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Таны өгөгдлийг хамгаалахын тулд хэрэв энэ аппыг хэдэн сарын турш ашиглаагүй бол зөвшөөрлүүдийг нь хасна."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Таны өгөгдлийг хамгаалахын тулд хэрэв аппыг хэдэн сарын турш ашиглаагүй бол дараах зөвшөөрлийг нь хасна: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Хэрэв энэ аппыг хэдэн сарын турш ашиглахгүй бол таны өгөгдлийг хамгаалах үүднээс зөвшөөрлийг нь хасах болно."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Хэрэв аппыг хэдэн сарын турш ашиглахгүй бол таны өгөгдлийг хамгаалах үүднээс дараах зөвшөөрлүүдийг хасах болно: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Таны өгөгдлийг хамгаалах үүднээс таны хэдэн сарын турш ашиглаагүй аппуудын зөвшөөрлийг нь хассан."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Та дахин зөвшөөрөл олгохыг хүсвэл аппыг нээнэ үү"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Автоматаар хасахыг энэ аппын хувьд одоогоор идэвхгүй болгосон байна."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Автоматаар цуцлах боломжтой ямар ч зөвшөөрлийг одоогоор олгоогүй байна"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> зөвшөөрлийг хасна."</string>
@@ -129,14 +127,10 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Хасах зөвшөөрлүүд: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Зөвшөөрлийг автоматаар удирдах"</string>
     <string name="off" msgid="4561379152328580345">"Унтраах"</string>
-    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
-    <skip />
-    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
-    <skip />
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g>-н зөвшөөрлийг хассан"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> болон <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>-н зөвшөөрлийг хассан"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>-н болон бусад <xliff:g id="NUMBER">%2$s</xliff:g> зөвшөөрлийг хассан"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Хамгийн сүүлд <xliff:g id="NUMBER">%s</xliff:g>-с олон сарын өмнө нээсэн"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Аппыг хамгийн сүүлд <xliff:g id="DATE">%s</xliff:g>-нд нээсэн"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Хамгийн сүүлд <xliff:g id="DATE">%s</xliff:g>-нд нээсэн"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Хэрэв та бүх файлыг удирдахыг зөвшөөрвөл энэ апп нь уг төхөөрөмжийн нийтлэг хадгалах сан дахь эсвэл холбогдсон хадгалах төхөөрөмж дэх дурын файлд хандах, түүнийг өөрчлөх болон устгах боломжтой. Апп танаас асуухгүйгээр файлуудад хандаж болзошгүй."</string>
@@ -181,10 +175,8 @@
       <item quantity="one">1 секунд</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Зөвшөөрлийн сануулагч"</string>
-    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
-    <skip />
-    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
-    <skip />
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Аппын зөвшөөрлийг автоматаар хассан"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Зарим аппыг хэдэн сарын турш ашиглаагүй байна. Дэлгэрэнгүйг үзэхийн тулд товшино уу."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> таны арын байршлыг авсан"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Энэ апп таны байршилд тогтмол хандах боломжтой байна. Өөрчлөхийн тулд товшино уу."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Апп-н зөвшөөрлийг таны нууцлалыг хамгаалахын тулд хассан"</string>
@@ -200,6 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> and <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> болон бусад <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Таны өгөгдлийг хамгаалахын тулд таны хэдэн сарын турш ашиглаагүй аппуудын зөвшөөрлийг нь хассан"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 аппыг хэдэн сарын турш ашиглаагүй байна"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> аппыг хэдэн сарын турш ашиглаагүй байна"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Зөвхөн аппыг ашиглаж байх үед"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Медиа"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Бүх файл"</string>
@@ -227,13 +221,13 @@
     <string name="role_browser_request_description" msgid="3204873553391043604">"Ямар ч зөвшөөрөл шаардлагагүй"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"Гар утасны өгөгдмөл апп"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"Гар утасны апп"</string>
-    <string name="role_dialer_description" msgid="2684882481061320467">"Танд төхөөрөмж дээрээ утасны дуудлага хийх болон хүлээн авах боломжийг олгодог аппууд"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"Танд төхөөрөмж дээрээ утасны дуудлага хийх болон хүлээн авах боломж олгодог аппууд"</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"<xliff:g id="APP_NAME">%1$s</xliff:g>-г гар утасныхаа өгөгдмөл аппаар тохируулах уу?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Дуудлагын жагсаалтад хандах эрхтэй болж, SMS илгээдэг"</string>
     <string name="role_dialer_search_keywords" msgid="6215791911228160821">"залгагч"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"SMS-н өгөгдмөл апп"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"SMS-н апп"</string>
-    <string name="role_sms_description" msgid="3228552135895420442">"Танд утасны дугаараа ашиглан богино мессеж, зураг, видео болон бусад зүйлийг илгээх болон хүлээн авах боломжийг олгодог аппууд"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Танд утасны дугаараа ашиглан богино мессеж, зураг, видео болон бусад зүйлийг илгээх, хүлээн авах боломж олгодог аппууд"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g>-г SMS-н өгөгдмөл аппаар тохируулах уу?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Харилцагчид, SMS болон утсанд хандах эрхтэй болдог"</string>
     <string name="role_sms_search_keywords" msgid="6818482413212931585">"мессеж, мессеж бичих, зурвас, зурвас бичих"</string>

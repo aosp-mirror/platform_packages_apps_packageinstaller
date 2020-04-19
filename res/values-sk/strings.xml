@@ -42,18 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Pri používaní aplikácie"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Iba tentokrát"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Povoliť vždy"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Povoliť správu všetkých súborov"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Povoliť prístup k súborom médií"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplikácie"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Povolenia aplikácií"</string>
-    <!-- no translation found for unused_apps (3935514133237470759) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
-    <skip />
+    <string name="unused_apps" msgid="3935514133237470759">"Nepoužívané aplikácie"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Deaktivovať aplikáciu"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Ak aplikáciu deaktivujete, systém a ďalšie aplikácie už nemusia fungovať podľa očakávaní. Upozorňujeme, že túto aplikáciu nemôžete odstrániť, pretože bola vo vašom zariadení predinštalovaná. Deaktiváciou ju vypnete a skryjete v zariadení."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Správca povolení"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Nabudúce sa nepýtať"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Žiadne povolenia"</string>
@@ -68,8 +63,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Táto aplikácia bola navrhnutá pre staršiu verziu Androidu. Odmietnutie povolenia môže spôsobiť, že nebude optimálne fungovať."</string>
     <string name="default_permission_description" msgid="692254823411049573">"umožňuje vykonať neznámu akciu"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Povolené pri <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikácií"</string>
-    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
-    <skip />
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"Počet povolených aplikácií: <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Zobraziť systémové"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Skryť systémové"</string>
     <string name="no_apps" msgid="2377153782338039463">"Žiadne aplikácie"</string>
@@ -113,10 +107,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Filtrovať podľa času"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Povoliť"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Povoliť správu všetkých súborov"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Povoliť prístup iba k médiám"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Povoliť vždy"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Povoliť iba pri používaní aplikácie"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Vždy sa opýtať"</string>
@@ -126,8 +118,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Zobraziť všetky povolenia aplikácie <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Zobraziť všetky aplikácie s týmto povolením"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Ak aplikáciu nepoužívate, odstráňte povolenia"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Keď aplikáciu nepoužívate niekoľko mesiacov, povolenia pre túto aplikáciu sa odstránia, aby sme tak ochránili vaše údaje."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Ak aplikácia nebola niekoľko mesiacov používaná, z dôvodu ochrany vašich údajov budú odstránené nasledujúce povolenia: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Ak aplikáciu nepoužívate niekoľko mesiacov, jej povolenia budú odstránené, aby sa zaistila ochrana vašich údajov."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Ak aplikáciu nepoužívate niekoľko mesiacov, budú odstránené povolenia (<xliff:g id="PERMS">%1$s</xliff:g>), aby sa zaistila ochrana vašich údajov"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Povolenia boli odstránené z aplikácií, ktoré ste niekoľko mesiacov nepoužívali, aby sa zaistila ochrana vašich údajov."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Ak chcete znova udeliť povolenie, otvorte aplikáciu"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatické odstránenie je pre túto aplikáciu momentálne zakázané."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Momentálne nie sú udelené žiadne automaticky odvolateľné povolenia"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Povolenie <xliff:g id="PERM">%1$s</xliff:g> bude odstránené."</string>
@@ -135,20 +129,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Povolenia, ktoré budú odstránené: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Automatické spravovanie povolení"</string>
     <string name="off" msgid="4561379152328580345">"Vypnuté"</string>
-    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
-    <skip />
-    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
-    <skip />
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Bolo odstránené povolenie <xliff:g id="PERMISSION_NAME">%s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Boli odstránené povolenia <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> a <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Bolo odstránené povolenie <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> a ďalšie (<xliff:g id="NUMBER">%2$s</xliff:g>)"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Naposledy otvorené pred viac ako <xliff:g id="NUMBER">%s</xliff:g> mesiacmi"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Aplikácia bola naposledy otvorená <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Naposledy otvorená <xliff:g id="DATE">%s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Ak povolíte správu všetkých súborov, táto aplikácia môže používať, upravovať a odstraňovať všetky súbory v spoločnom úložisku tohto zariadenia alebo pripojených ukladacích zariadeniach. Súbory môže používať bez toho, aby sa vás na to spýtala."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Chcete povoliť tejto aplikácii používať, upravovať a odstraňovať súbory v tomto zariadení alebo pripojených ukladacích zariadeniach? Súbory môže používať bez toho, aby sa vás na to spýtala."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikácie s týmto povolením môžu <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikácie s týmto povolením majú prístup k vašej fyzickej aktivite, napríklad chôdzi, bicyklovaniu, šoférovaniu, počtu krokov a ďalším"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikácie s týmto povolením majú prístup k vášmu kalendáru"</string>
@@ -168,10 +156,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Povolené"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Povolené vždy"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Povolené iba počas používania"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"S povoleným prístupom iba k médiám"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"S povolením spravovať všetky súbory"</string>
     <string name="ask_header" msgid="4471670860332046665">"Vždy sa opýtať"</string>
     <string name="denied_header" msgid="2277998574238617699">"Zamietnuté"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -199,10 +185,8 @@
       <item quantity="one">1 s</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Pripomenutia povolení"</string>
-    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
-    <skip />
-    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
-    <skip />
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Povolenia aplikácie boli automaticky odstránené"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Niektoré aplikácie neboli niekoľko mesiacov používané. Viac sa dozviete po klepnutí."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Aplikácia <xliff:g id="APP_NAME">%s</xliff:g> získala vašu polohu na pozadí"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Táto aplikácia má neobmedzený prístup k polohe. Klepnutím to zmeníte."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Povolenia apl. boli odstránené na zaistenie ochrany súkromia"</string>
@@ -218,11 +202,11 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> a <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> a ďalšie (<xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>)"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Povolenia boli odstránené z aplikácií, ktoré neboli niekoľko mesiacov používané, aby sa zaistila ochrana vašich údajov"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 aplikácia nebola niekoľko mesiacov používaná"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"Niektoré aplikácie <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> neboli niekoľko mesiacov používané"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Iba počas používania aplikácie"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Médiá"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Všetky súbory"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Žiadne udelené povolenia"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Žiadne zamietnuté povolenia"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Žiadne povolené aplikácie"</string>

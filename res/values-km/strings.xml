@@ -42,10 +42,8 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ខណៈពេល​កំពុងប្រើ​កម្មវិធី"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"តែពេលនេះ​ប៉ុណ្ណោះ"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"អនុញ្ញាតគ្រប់ពេល"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"អនុញ្ញាតឱ្យគ្រប់គ្រងឯកសារទាំងអស់"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"អនុញ្ញាតឱ្យចូលប្រើ​ឯកសារមេឌៀ"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"កម្មវិធី"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ការអនុញ្ញាតកម្មវិធី"</string>
     <string name="unused_apps" msgid="3935514133237470759">"កម្មវិធី​ដែលមិន​ប្រើ"</string>
@@ -107,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"ត្រងតាម​ពេលវេលា"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"អនុញ្ញាត"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"អនុញ្ញាតឱ្យគ្រប់គ្រងឯកសារទាំងអស់"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"អនុញ្ញាតឱ្យចូលប្រើ​មេឌៀតែប៉ុណ្ណោះ"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"អនុញ្ញាតគ្រប់ពេល"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"អនុញ្ញាត​ពេល​កំពុង​ប្រើប្រាស់​កម្មវិធីតែ​ប៉ុណ្ណោះ"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"សួរគ្រប់ពេល"</string>
@@ -120,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"មើល​ការអនុញ្ញាតឱ្យទៅ <xliff:g id="APP">%1$s</xliff:g> ទាំងអស់"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"មើលកម្មវិធី​ទាំងអស់​ដែលមាន​ការអនុញ្ញាត​នេះ"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"ដកការ​អនុញ្ញាតចេញ ប្រសិនបើ​មិនប្រើប្រាស់​កម្មវិធី"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"ដើម្បី​ការពារ​ទិន្នន័យ​របស់អ្នក ការអនុញ្ញាត​សម្រាប់​កម្មវិធី​នេះ​នឹងត្រូវ​ដកចេញ ប្រសិនបើ​មិនប្រើ​កម្មវិធីនេះ​រយៈពេល​ពីរបីខែ​។"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"ដើម្បី​ការពារ​ទិន្នន័យ​របស់អ្នក ប្រសិនបើ​មិនប្រើប្រាស់​កម្មវិធី​រយៈពេល​ពីរបីខែ ការ​អនុញ្ញាត​ខាងក្រោម​នឹងត្រូវបាន​ដកចេញ៖ <xliff:g id="PERMS">%1$s</xliff:g>។"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"ដើម្បីការពារ​ទិន្នន័យរបស់អ្នក ការអនុញ្ញាត​សម្រាប់កម្មវិធីនេះ​នឹងត្រូវ​ដកចេញ ប្រសិនបើ​មិនប្រើប្រាស់​កម្មវិធីនេះ​រយៈពេល​ពីរបីខែ។"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"ដើម្បីការពារ​ទិន្នន័យរបស់អ្នក ការអនុញ្ញាត​ខាងក្រោម​នឹងត្រូវដកចេញ ប្រសិនបើ​មិនប្រើប្រាស់​កម្មវិធីនេះ​រយៈពេល​ពីរបីខែ៖ <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"ដើម្បីការពារ​ទិន្នន័យរបស់អ្នក ការអនុញ្ញាត​ត្រូវបាន​ដកចេញ​ពីកម្មវិធី​ដែល​អ្នកមិនបាន​ប្រើប្រាស់​រយៈពេល​ពីរបីខែ។"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"ប្រសិនបើអ្នកចង់​ផ្ដល់ការអនុញ្ញាត​ម្ដងទៀត សូមបើក​កម្មវិធី"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"បច្ចុប្បន្ននេះ ការដកចេញ​ដោយ​ស្វ័យប្រវត្តិ​ត្រូវបានបិទ​សម្រាប់​កម្មវិធីនេះ។"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ការអនុញ្ញាត​ដែលអាចដកចេញ​ដោយស្វ័យប្រវត្តិ​មិនត្រូវបាន​ផ្ដល់ជូនទេ​នៅពេល​បច្ចុប្បន្ន"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ការអនុញ្ញាត <xliff:g id="PERM">%1$s</xliff:g> នឹងត្រូវ​ដកចេញ។"</string>
@@ -135,10 +133,8 @@
     <string name="last_opened_category_title" msgid="4204626487716958146">"បានបើក​លើកចុងក្រោយ​លើសពី <xliff:g id="NUMBER">%s</xliff:g> ខែមុន"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"បានបើក​កម្មវិធី​លើកចុងក្រោយ​នៅថ្ងៃទី <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"បានបើក​លើកចុងក្រោយ​នៅថ្ងៃទី <xliff:g id="DATE">%s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"ប្រសិនបើអ្នកអនុញ្ញាតឱ្យគ្រប់គ្រងឯកសារទាំងអស់ កម្មវិធី​នេះអាច​ចូលប្រើ កែសម្រួល និងលុបឯកសារទាំងឡាយនៅក្នុងទំហំផ្ទុកទូទៅនៅលើឧបករណ៍នេះ ឬឧបករណ៍ផ្ទុក​ដែលបានភ្ជាប់ទាំងឡាយ។ កម្មវិធីនេះអាចចូលប្រើឯកសារដោយមិនចាំបាច់សួរអ្នក។"</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"អនុញ្ញាតឱ្យ​កម្មវិធី​នេះ​ចូលប្រើ កែសម្រួល និងលុបឯកសារនៅលើឧបករណ៍ ឬឧបករណ៍ផ្ទុក​ដែលបានភ្ជាប់ទាំងឡាយឬ? កម្មវិធីនេះអាចចូលប្រើឯកសារដោយមិនចាំបាច់សួរអ្នក។"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"កម្មវិធី​ដែលមាន​ការអនុញ្ញាតនេះ​អាច<xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"កម្មវិធី​ដែលមាន​ការអនុញ្ញាត​នេះ​អាច​ចូលមើលសកម្មភាពរាងកាយរបស់អ្នកបាន ដូចជាការដើរ ការជិះកង់ ការបើកបរ ចំនួនជំហាន និងអ្វីៗជាច្រើនទៀត"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"កម្មវិធី​ដែល​មាន​ការអនុញ្ញាតនេះ​អាចចូល​ប្រើ​ប្រតិទិនរបស់អ្នក"</string>
@@ -158,10 +154,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"បាន​អនុញ្ញាត"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"បាន​អនុញ្ញាត​គ្រប់ពេល"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"អនុញ្ញាត​ខណៈពេល​ប្រើប្រាស់តែ​ប៉ុណ្ណោះ"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"បានអនុញ្ញាតឱ្យចូលប្រើមេឌៀតែប៉ុណ្ណោះ"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"បានអនុញ្ញាតឱ្យគ្រប់គ្រងឯកសារទាំងអស់"</string>
     <string name="ask_header" msgid="4471670860332046665">"សួរគ្រប់ពេល"</string>
     <string name="denied_header" msgid="2277998574238617699">"បានបដិសេធ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -198,16 +192,16 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> និង <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> និង <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ទៀត"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ដើម្បី​ការពារ​ទិន្នន័យ​របស់អ្នក ការអនុញ្ញាត​ត្រូវបាន​ដកចេញ​ពីកម្មវិធី​ដែល​អ្នកមិនបាន​ប្រើប្រាស់​រយៈពេល​ពីរបីខែ"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"កម្មវិធី 1 មិនត្រូវបានប្រើប្រាស់​រយៈពេល​ពីរបីខែហើយ"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"កម្មវិធី <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> មិនត្រូវបានប្រើប្រាស់​រយៈពេល​ពីរបីខែហើយ"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ពេល​កំពុង​ប្រើប្រាស់​កម្មវិធីតែ​ប៉ុណ្ណោះ"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"មេឌៀ"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"ឯកសារ​ទាំងអស់"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"មិន​បាន​ផ្ដល់ការអនុញ្ញាតទេ"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"មិន​បានបដិសេធការ​អនុញ្ញាតទេ"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"មិន​បានផ្ដល់​ការអនុញ្ញាត​ឱ្យ​កម្មវិធី​ទេ"</string>
     <string name="no_apps_allowed_full" msgid="5857725855406253991">"មិន​ផ្ដល់​ការអនុញ្ញាត​ឱ្យ​កម្មវិធី​ចូលប្រើ​ឯកសារ​ទាំងអស់"</string>
-    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"មិន​ផ្ដល់​ការអនុញ្ញាត​ឱ្យ​កម្មវិធី​ចូលប្រើ​មេឌៀ​តែប៉ុណ្ណោះ"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"គ្មានកម្មវិធី​ដែលត្រូវបាន​អនុញ្ញាត​ឱ្យ​ចូលប្រើ​មេឌៀ​តែប៉ុណ្ណោះនោះទេ"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"មិន​បានបដិសេធ​កម្មវិធីទេ"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"បានជ្រើសរើស"</string>
     <string name="settings" msgid="2884124136779508907">"ការកំណត់"</string>

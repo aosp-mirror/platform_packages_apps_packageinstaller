@@ -42,10 +42,8 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"앱 사용 중에만 허용"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"이번만 허용"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"항상 허용"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"모든 파일 관리 허용"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"미디어 파일 액세스 허용"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"앱"</string>
     <string name="app_permissions" msgid="2778362347879465223">"앱 권한"</string>
     <string name="unused_apps" msgid="3935514133237470759">"사용하지 않는 앱"</string>
@@ -107,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"시간으로 필터링"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"허용"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"모든 파일 관리 허용"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"미디어 액세스만 허용"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"항상 허용"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"앱 사용 중에만 허용"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"항상 확인"</string>
@@ -120,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> 앱 권한 모두 보기"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"이 권한이 있는 앱 모두 보기"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"앱이 사용되지 않는 경우 권한 삭제"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"데이터를 보호하기 위해 몇 개월 동안 앱을 사용하지 않을 경우 앱의 권한이 삭제됩니다."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"개인정보를 보호하기 위해 앱을 몇 개월 동안 사용하지 않으면 <xliff:g id="PERMS">%1$s</xliff:g> 권한을 삭제합니다."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"데이터를 보호하기 위해 몇 개월 동안 앱을 사용하지 않으면 앱의 권한이 삭제됩니다."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"데이터를 보호하기 위해 몇 개월 동안 앱을 사용하지 않으면 다음 권한이 삭제됩니다. <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"데이터를 보호하기 위해 몇 개월 동안 사용하지 않은 앱에서 권한이 삭제되었습니다."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"권한을 다시 허용하려면 앱을 여세요."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"이 앱의 자동 삭제가 사용 중지되어 있습니다."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"현재 자동 취소 가능한 권한이 부여되어 있지 않습니다."</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> 권한이 삭제됩니다."</string>
@@ -135,10 +133,8 @@
     <string name="last_opened_category_title" msgid="4204626487716958146">"마지막으로 실행한 지 <xliff:g id="NUMBER">%s</xliff:g>개월 이상 경과함"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"마지막 앱 실행 날짜: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"마지막 실행 날짜: <xliff:g id="DATE">%s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"모든 파일 관리를 허용하면 앱이 이 기기의 공통 저장용량 또는 연결된 저장장치에 있는 모든 파일에 액세스하거나 이러한 파일을 수정, 삭제할 수 있습니다. 앱이 사용자에게 요청하지 않고도 파일에 액세스할 수 있습니다."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"앱이 이 기기 또는 연결된 저장장치에 있는 파일에 액세스하거나 이러한 파일을 수정, 삭제하도록 허용하시겠습니까? 앱이 사용자에게 요청하지 않고도 파일에 액세스할 수 있습니다."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"이 권한이 있는 앱은 <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"이 권한이 있는 앱은 걷기, 자전거 타기, 운전, 걸음 수 등 내 신체 활동 정보에 액세스할 수 있습니다."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"이 권한이 있는 앱은 내 캘린더에 액세스할 수 있습니다."</string>
@@ -158,10 +154,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"허용됨"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"항상 허용됨"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"사용 중에만 허용됨"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"미디어에만 액세스하도록 허용됨"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"모든 파일을 관리하도록 허용됨"</string>
     <string name="ask_header" msgid="4471670860332046665">"항상 확인"</string>
     <string name="denied_header" msgid="2277998574238617699">"거부됨"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -198,11 +192,11 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> 외 <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>개"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"개인정보 보호를 위해 몇 개월 동안 사용하지 않은 앱에서 권한이 삭제됩니다."</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1개 앱을 몇 개월 동안 사용하지 않았습니다."</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>개 앱을 몇 개월 동안 사용하지 않았습니다."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"앱 사용 중에만"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"미디어"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"모든 파일"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"허용된 권한 없음"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"거부된 권한 없음"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"허용된 앱 없음"</string>

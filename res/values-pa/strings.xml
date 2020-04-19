@@ -42,18 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ਐਪ ਵਰਤਣ ਦੌਰਾਨ"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"ਸਿਰਫ਼ ਇਸ ਵਾਰ"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"ਹਰ ਵੇਲੇ ਕਰਨ ਦਿਓ"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦਿਓ"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"ਮੀਡੀਆ ਫ਼ਾਈਲਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਦਿਓ"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ਐਪਾਂ"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ਐਪ ਇਜਾਜ਼ਤਾਂ"</string>
-    <!-- no translation found for unused_apps (3935514133237470759) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
-    <skip />
+    <string name="unused_apps" msgid="3935514133237470759">"ਅਣਵਰਤੀਆਂ ਐਪਾਂ"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"ਐਪ ਨੂੰ ਬੰਦ ਕਰੋ"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"ਜੇ ਤੁਸੀਂ ਇਸ ਐਪ ਨੂੰ ਬੰਦ ਕਰਦੇ ਹੋ, ਤਾਂ ਹੋ ਸਕਦਾ ਹੈ ਕਿ Android ਅਤੇ ਹੋਰ ਐਪਾਂ ਉਸ ਤਰ੍ਹਾਂ ਕੰਮ ਨਾ ਕਰਨ ਜਿਵੇਂ ਇਹਨਾਂ ਤੋਂ ਉਮੀਦ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਧਿਆਨ ਵਿੱਚ ਰੱਖੋ, ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਵਿੱਚ ਇਹ ਐਪ ਪਹਿਲਾਂ ਤੋਂ ਸਥਾਪਤ ਮਿਲੀ ਹੋਣ ਕਰਕੇ ਤੁਸੀਂ ਇਸ ਨੂੰ ਮਿਟਾ ਨਹੀਂ ਸਕਦੇ। ਬੰਦ ਕਰਕੇ, ਤੁਸੀਂ ਆਪਣੇ ਡੀਵਾਈਸ \'ਤੇ ਇਹ ਐਪ ਬੰਦ ਕਰ ਅਤੇ ਲੁਕਾ ਰਹੇ ਹੋ।"</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"ਇਜਾਜ਼ਤ ਪ੍ਰਬੰਧਕ"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"ਦੁਬਾਰਾ ਨਾ ਪੁੱਛੋ"</string>
     <string name="no_permissions" msgid="2193893107241172888">"ਕੋਈ ਇਜਾਜ਼ਤਾਂ ਨਹੀਂ"</string>
@@ -66,8 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"ਇਹ ਐਪ Android ਦੇ ਕਿਸੇ ਪੁਰਾਣੇ ਵਰਜਨ ਲਈ ਬਣਾਈ ਗਈ ਸੀ। ਇਜਾਜ਼ਤ ਨੂੰ ਅਸਵੀਕਾਰ ਕਰਨ ਨਾਲ ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਇਹ ਇਸਦੇ ਨਿਯਤ ਤਰੀਕੇ ਨਾਲ ਕੰਮ ਨਾ ਕਰੇ।"</string>
     <string name="default_permission_description" msgid="692254823411049573">"ਕੋਈ ਅਗਿਆਤ ਕਾਰਵਾਈ ਕਰੋ"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> ਵਿੱਚੋਂ <xliff:g id="COUNT_0">%1$d</xliff:g> ਐਪਾਂ ਨੂੰ ਆਗਿਆ ਦਿੱਤੀ"</string>
-    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
-    <skip />
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> ਐਪਾਂ ਨੂੰ ਇਜਾਜ਼ਤ ਦਿੱਤੀ"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"ਸਿਸਟਮ ਦਿਖਾਓ"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"ਸਿਸਟਮ ਲੁਕਾਓ"</string>
     <string name="no_apps" msgid="2377153782338039463">"ਕੋਈ ਐਪਾਂ ਨਹੀਂ"</string>
@@ -111,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"ਸਮੇਂ ਮੁਤਾਬਕ ਫਿਲਟਰ ਕਰੋ"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"ਕਰਨ ਦਿਓ"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦਿਓ"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"ਸਿਰਫ਼ ਮੀਡੀਆ ਲਈ ਪਹੁੰਚ ਕਰਨ ਦਿਓ"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ਹਰ ਵੇਲੇ ਕਰਨ ਦਿਓ"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"ਸਿਰਫ਼ ਐਪ ਵਰਤੇ ਜਾਣ ਵੇਲੇ ਕਰਨ ਦਿਓ"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"ਹਰ ਵਾਰ ਪੁੱਛੋ"</string>
@@ -124,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> ਦੀਆਂ ਸਾਰੀਆਂ ਇਜਾਜ਼ਤਾਂ ਦੇਖੋ"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ਇਸ ਇਜਾਜ਼ਤ ਵਾਲੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਦੇਖੋ"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"ਐਪ ਨੂੰ ਨਾ ਵਰਤੇ ਜਾਣ \'ਤੇ ਇਸ ਲਈ ਦਿੱਤੀਆਂ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਹਟਾ ਦਿਓ"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"ਤੁਹਾਡੀ ਡਾਟਾ ਸੁਰੱਖਿਆ ਲਈ, ਕੁਝ ਮਹੀਨਿਆਂ ਤੱਕ ਐਪ ਨੂੰ ਨਾ ਵਰਤੇ ਜਾਣ \'ਤੇ ਇਸ ਲਈ ਦਿੱਤੀਆਂ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਹਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"ਤੁਹਾਡੀ ਡਾਟਾ ਸੁਰੱਖਿਆ ਲਈ, ਜੇ ਐਪ ਨੂੰ ਕੁਝ ਮਹੀਨਿਆਂ ਲਈ ਵਰਤਿਆ ਨਹੀਂ ਜਾਂਦਾ, ਤਾਂ ਅੱਗੇ ਦਿੱਤੀਆਂ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਹਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"ਤੁਹਾਡੀ ਡਾਟਾ ਸੁਰੱਖਿਆ ਲਈ, ਜੇ ਇਹ ਐਪ ਕਈ ਮਹੀਨਿਆਂ ਤੋਂ ਵਰਤੀ ਨਹੀਂ ਗਈ, ਤਾਂ ਇਸ ਐਪ ਲਈ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਹਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"ਤੁਹਾਡੀ ਡਾਟਾ ਸੁਰੱਖਿਆ ਲਈ, ਜੇ ਇਹ ਐਪ ਕਈ ਮਹੀਨਿਆਂ ਤੋਂ ਵਰਤੀ ਨਹੀਂ ਗਈ, ਤਾਂ ਅੱਗੇ ਦਿੱਤੀਆਂ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਹਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"ਤੁਹਾਡੀ ਡਾਟਾ ਸੁਰੱਖਿਆ ਲਈ,ਜੋ ਐਪਾਂ ਤੁਸੀਂ ਕਈ ਮਹੀਨਿਆਂ ਤੋਂ ਨਹੀਂ ਵਰਤੀਆਂ ਉਹਨਾਂ ਐਪਾਂ ਤੋਂ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ।"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"ਜੇ ਤੁਸੀਂ ਦੁਬਾਰਾ ਇਜਾਜ਼ਤਾਂ ਦੇਣਾ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਐਪ ਖੋਲ੍ਹੋ"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"ਫਿਲਹਾਲ ਇਸ ਐਪ ਲਈ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਹਟਾਉਣਾ ਬੰਦ ਕੀਤਾ ਹੋਇਆ ਹੈ।"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ਫਿਲਹਾਲ ਕੋਈ ਸਵੈ ਰੱਦ ਕਰਨ ਯੋਗ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੱਤੀ ਗਈ"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> ਇਜਾਜ਼ਤ ਨੂੰ ਹਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
@@ -133,20 +127,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"ਹਟਾ ਦਿੱਤੀਆਂ ਜਾਣ ਵਾਲੀਆਂ ਇਜਾਜ਼ਤਾਂ: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"ਇਜਾਜ਼ਤਾਂ ਦਾ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਪ੍ਰਬੰਧਨ ਕਰੋ"</string>
     <string name="off" msgid="4561379152328580345">"ਬੰਦ"</string>
-    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
-    <skip />
-    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
-    <skip />
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g> ਇਜਾਜ਼ਤ ਹਟਾਈ ਗਈ"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> ਅਤੇ <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> ਇਜਾਜ਼ਤਾਂ ਹਟਾਈਆਂ ਗਈਆਂ"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> ਅਤੇ <xliff:g id="NUMBER">%2$s</xliff:g> ਹੋਰ ਇਜਾਜ਼ਤਾਂ ਹਟਾਈਆਂ ਗਈਆਂ"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"ਪਿਛਲੀ ਵਾਰ <xliff:g id="NUMBER">%s</xliff:g> ਤੋਂ ਵੱਧ ਮਹੀਨੇ ਪਹਿਲਾਂ ਖੋਲ੍ਹੀਆਂ ਗਈਆਂ"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"ਐਪ ਨੂੰ ਆਖਰੀ ਵਾਰ <xliff:g id="DATE">%s</xliff:g> ਨੂੰ ਖੋਲ੍ਹਿਆ ਗਿਆ"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"ਆਖਰੀ ਵਾਰ <xliff:g id="DATE">%s</xliff:g> ਨੂੰ ਖੋਲ੍ਹਿਆ ਗਿਆ"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"ਜੇ ਤੁਸੀਂ ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦਿੰਦੇ ਹੋ, ਤਾਂ ਇਹ ਐਪ ਇਸ ਡੀਵਾਈਸ ਜਾਂ ਕਨੈਕਟ ਕੀਤੀਆਂ ਸਟੋਰੇਜ ਡੀਵਾਈਸਾਂ ਦੇ ਸਾਂਝੇ ਸਟੋਰੇਜ ਵਿੱਚ ਕਿਸੇ ਵੀ ਫ਼ਾਈਲ ਤੱਕ ਪਹੁੰਚ ਕਰ ਸਕਦੀ, ਉਸ ਵਿੱਚ ਸੋਧ ਕਰ ਸਕਦੀ ਅਤੇ ਉਸ ਨੂੰ ਮਿਟਾ ਸਕਦੀ ਹੈ। ਐਪ ਤੁਹਾਨੂੰ ਪੁੱਛੇ ਬਿਨਾਂ ਫਾਈਲਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰ ਸਕਦੀ ਹੈ।"</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"ਕੀ ਇਸ ਐਪ ਨੂੰ ਇਸ ਡੀਵਾਈਸ ਜਾਂ ਕਨੈਕਟ ਕੀਤੇ ਸਟੋਰੇਜ ਡੀਵਾਈਸਾਂ \'ਤੇ ਫ਼ਾਈਲਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਦੇਣੀ ਹੈ, ਉਹਨਾਂ ਨੂੰ ਸੋਧਣ ਅਤੇ ਮਿਟਾਉਣ ਦੇਣਾ ਹੈ? ਇਹ ਐਪ ਤੁਹਾਨੂੰ ਪੁੱਛੇ ਬਿਨਾਂ ਫਾਈਲਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰ ਸਕਦੀ ਹੈ।"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"ਇਸ ਇਜਾਜ਼ਤ ਵਾਲੀਆਂ ਐਪਾਂ <xliff:g id="DESCRIPTION">%1$s</xliff:g> ਕਰ ਸਕਦੀਆਂ ਹਨ"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ਇਸ ਇਜਾਜ਼ਤ ਵਾਲੀਆਂ ਐਪਾਂ ਤੁਹਾਡੀ ਸਰੀਰਕ ਸਰਗਰਮੀ, ਜਿਵੇਂ ਕਿ ਪੈਦਲ-ਸੈਰ, ਸਾਈਕਲ ਚਲਾਉਣਾ, ਗੱਡੀ ਚਲਾਉਣਾ, ਕਦਮਾਂ ਦੀ ਗਿਣਤੀ ਅਤੇ ਹੋਰ ਚੀਜ਼ਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰ ਸਕਦੀਆਂ ਹਨ"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ਇਸ ਇਜਾਜ਼ਤ ਵਾਲੀਆਂ ਐਪਾਂ ਤੁਹਾਡੇ ਕੈਲੰਡਰ ਤੱਕ ਪਹੁੰਚ ਕਰ ਸਕਦੀਆਂ ਹਨ"</string>
@@ -166,10 +154,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"ਮਨਜ਼ੂਰਸ਼ੁਦਾ"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"ਹਰ ਵੇਲੇ ਕਰਨ ਦਿੱਤੀ ਗਈ"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ਸਿਰਫ਼ ਵਰਤੋਂ \'ਚ ਹੋਣ \'ਤੇ ਕਰਨ ਦਿੱਤੀਆਂ ਜਾਂਦੀਆਂ"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"ਸਿਰਫ਼ ਮੀਡੀਆ ਲਈ ਪਹੁੰਚ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੱਤੀ ਗਈ"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੱਤੀ ਗਈ"</string>
     <string name="ask_header" msgid="4471670860332046665">"ਹਰ ਵਾਰ ਪੁੱਛੋ"</string>
     <string name="denied_header" msgid="2277998574238617699">"ਗੈਰ-ਮਨਜ਼ੂਰਸ਼ੁਦਾ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -189,10 +175,8 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ਸਕਿੰਟ</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"ਇਜਾਜ਼ਤਾਂ ਦੀਆਂ ਯਾਦ-ਸੂਚਨਾਵਾਂ"</string>
-    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
-    <skip />
-    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
-    <skip />
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"ਐਪ ਇਜਾਜ਼ਤਾਂ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਹਟਾਈਆਂ ਗਈਆਂ"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"ਕੁਝ ਐਪਾਂ ਨੂੰ ਕਈ ਮਹੀਨਿਆਂ ਤੋਂ ਵਰਤਿਆ ਨਹੀਂ ਗਿਆ। ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਟੈਪ ਕਰੋ।"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ਨੂੰ ਬੈਕਗ੍ਰਾਉਂਡ ਵਿੱਚ ਤੁਹਾਡੇ ਟਿਕਾਣੇ ਦੀ ਜਾਣਕਾਰੀ ਮਿਲੀ"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ਇਹ ਐਪ ਹਮੇਸ਼ਾਂ ਤੁਹਾਡੀ ਟਿਕਾਣਾ ਜਾਣਕਾਰੀ \'ਤੇ ਪਹੁੰਚ ਕਰ ਸਕਦੀ ਹੈ। ਬਦਲਣ ਲਈ ਟੈਪ ਕਰੋ।"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"ਪਰਦੇਦਾਰੀ ਸੁਰੱਖਿਆ ਲਈ ਐਪ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਹਟਾਇਆ ਗਿਆ"</string>
@@ -208,11 +192,11 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> ਅਤੇ <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ਅਤੇ <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ਹੋਰ"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ਤੁਹਾਡੀ ਡਾਟਾ ਸੁਰੱਖਿਆ ਲਈ, ਉਹਨਾਂ ਐਪਾਂ ਤੋਂ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ ਜੋ ਤੁਸੀਂ ਕੁਝ ਮਹੀਨਿਆਂ ਤੋਂ ਨਹੀਂ ਵਰਤੀਆਂ"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 ਐਪ ਨੂੰ ਕਈ ਮਹੀਨਿਆਂ ਤੋਂ ਵਰਤਿਆ ਨਹੀਂ ਗਿਆ"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ਐਪਾਂ ਨੂੰ ਕਈ ਮਹੀਨਿਆਂ ਤੋਂ ਵਰਤਿਆ ਨਹੀਂ ਗਿਆ"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ਸਿਰਫ਼ ਐਪ ਵਰਤੇ ਜਾਣ ਵੇਲੇ"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"ਮੀਡੀਆ"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ਕੋਈ ਇਜਾਜ਼ਤਾਂ ਨਹੀਂ ਦਿੱਤੀਆਂ ਗਈਆਂ ਹਨ"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"ਕੋਈ ਇਜਾਜ਼ਤਾਂ ਅਸਵੀਕਾਰ ਨਹੀਂ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"ਕਿਸੇ ਵੀ ਐਪ ਨੂੰ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੱਤੀ ਹੈ"</string>
@@ -265,7 +249,7 @@
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"ਕੀ <xliff:g id="APP_NAME">%1$s</xliff:g> ਨੂੰ ਤੁਹਾਡੀ ਪੂਰਵ-ਨਿਰਧਾਰਤ ਕਾਲ ਬਦਲਣ ਵਾਲੀ ਐਪ ਵਜੋਂ ਸੈੱਟ ਕਰਨਾ ਹੈ?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"ਕਿਸੇ ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"ਪੂਰਵ-ਨਿਰਧਾਰਤ ਕਾਲਰ ਆਈ.ਡੀ. ਅਤੇ ਸਪੈਮ ਐਪ"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"ਕਾਲਰ ਆਈ.ਡੀ. ਅਤੇ ਸਪੈਮ ਐਪ"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"ਕਾਲਰ ਆਈਡੀ ਅਤੇ ਸਪੈਮ ਐਪ"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"ਐਪਾਂ ਜਿਨ੍ਹਾਂ ਨਾਲ ਤੁਸੀਂ ਕਾਲਾਂ ਦੀ ਪਛਾਣ ਕਰ ਸਕਦੇ ਹੋ, ਸਪੈਮ ਅਤੇ ਰੋਬੋਕਾਲਾਂ ਬਲਾਕ ਕਰ ਸਕਦੇ ਹੋ, ਅਤੇ ਅਣਚਾਹੇ ਨੰਬਰਾਂ ਨੂੰ ਬਲੈਕਲਿਸਟ ਕਰ ਸਕਦੇ ਹੋ"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"ਕੀ <xliff:g id="APP_NAME">%1$s</xliff:g> ਨੂੰ ਤੁਹਾਡੀ ਪੂਰਵ-ਨਿਰਧਾਰਤ ਕਾਲਰ ਆਈ.ਡੀ. ਅਤੇ ਸਪੈਮ ਐਪ ਵਜੋਂ ਸੈੱਟ ਕਰਨਾ ਹੈ?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"ਕਿਸੇ ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ"</string>

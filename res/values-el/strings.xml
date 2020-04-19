@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Εμφάνιση όλων των αδειών της εφαρμογής <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Εμφάνιση όλων των εφαρμογών με αυτήν την άδεια"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Καταργήστε τις άδειες, εάν η εφαρμογή δεν χρησιμοποιείται."</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Για να προστατεύσετε τα δεδομένα σας, οι άδειες για αυτήν την εφαρμογή θα καταργηθούν εάν η εφαρμογή δεν χρησιμοποιηθεί για μερικούς μήνες."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Για την προστασία των δεδομένων σας, εάν δεν έχει χρησιμοποιηθεί η εφαρμογή κατά τους τελευταίους μήνες, οι παρακάτω άδειες θα καταργηθούν: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Για την προστασία των δεδομένων σας, οι άδειες για αυτήν την εφαρμογή θα καταργηθούν εάν η εφαρμογή δεν χρησιμοποιηθεί για μερικούς μήνες."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Για την προστασία των δεδομένων σας, εάν δεν έχει χρησιμοποιηθεί η εφαρμογή για μερικούς μήνες, οι παρακάτω άδειες θα καταργηθούν: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Για την προστασία των δεδομένων σας, έχουν καταργηθεί οι άδειες εφαρμογών που δεν έχετε χρησιμοποιήσει κατά τους τελευταίους μήνες."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Εάν θέλετε να επιτραπούν ξανά οι άδειες, ανοίξτε την εφαρμογή."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Αυτήν τη στιγμή η αυτόματη κατάργηση είναι απενεργοποιημένη για αυτή την εφαρμογή."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Μέχρι στιγμής δεν έχουν εκχωρηθεί άδειες αυτόματης ανάκλησης."</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> άδειες που θα καταργηθούν."</string>
@@ -190,6 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> και <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> και <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ακόμη"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Για την προστασία των δεδομένων σας, έχουν καταργηθεί οι άδειες εφαρμογών που δεν έχετε χρησιμοποιήσει κατά τους τελευταίους μήνες."</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 εφαρμογή δεν έχει χρησιμοποιηθεί για αρκετούς μήνες."</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> εφαρμογές δεν έχουν χρησιμοποιηθεί για αρκετούς μήνες."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Μόνο κατά τη χρήση της εφαρμογής"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Μέσα"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Όλα τα αρχεία"</string>

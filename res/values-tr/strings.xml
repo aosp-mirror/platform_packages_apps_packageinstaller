@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Tüm <xliff:g id="APP">%1$s</xliff:g> izinlerini göster"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Bu izne sahip tüm uygulamaları göster"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Uygulama kullanılmıyorsa izinleri kaldır"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Bu uygulama birkaç ay boyunca kullanılmazsa uygulamanın izinleri verilerinizi korumak için kaldırılır."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Uygulama birkaç aydır kullanılmadıysa şu izinler verilerinizi korumak için kaldırılacak: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Bu uygulama birkaç ay boyunca kullanılmazsa verilerinizi korumak için uygulamanın izinleri kaldırılır."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Uygulama birkaç ay boyunca kullanılmazsa şu izinler verilerinizi korumak için kaldırılacak: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Birkaç aydır kullanmadığınız uygulamaların izinleri verilerinizi korumak için kaldırıldı."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"İzinleri tekrar onaylamak istiyorsanız uygulamayı açın"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Otomatik kaldırma bu uygulama için şu anda devre dışı bırakılmıştır."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Şu anda verilmiş, otomatik geri alınabilir izin yok"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> izni kaldırılacak."</string>
@@ -190,6 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> ve <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ve <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> tane daha"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Verilerinizi korumak için birkaç aydır kullanmadığınız uygulamaların izinleri kaldırıldı"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 uygulama birkaç aydır kullanılmadı"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> uygulama birkaç aydır kullanılmadı"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Yalnızca uygulama kullanılırken"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Medya"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Tüm Dosyalar"</string>
@@ -210,7 +214,7 @@
     <string name="role_assistant_description" msgid="8677846995018695304">"Asistan uygulamaları, görüntülemekte olduğunuz ekrandaki bilgilere dayalı olarak size yardım edebilir. Bazı uygulamalar, entegre yardım sağlamak için hem başlatıcıyı hem de ses girişi hizmetlerini destekler."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan asistan uygulamanız olarak ayarlansın mı?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"SMS, arama kaydına erişim sağlar"</string>
-    <string name="role_browser_label" msgid="814240075813716311">"Varsayılan tarayıcı uygulaması"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Varsayılan tarayıcı"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"Tarayıcı uygulaması"</string>
     <string name="role_browser_description" msgid="2326990202516329438">"İnternete erişmenizi sağlayan ve dokunduğunuz bağlantıları görüntüleyen uygulamalar"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"<xliff:g id="APP_NAME">%1$s</xliff:g>, varsayılan tarayıcı uygulamanız olarak ayarlansın mı?"</string>

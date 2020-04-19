@@ -42,18 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Қолданбаны пайдаланған кезде"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Тек осы кезде"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Біржола рұқсат ету"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Барлық файлдарды басқаруға рұқсат беру"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Медиафайлдарды пайдалануға рұқсат беру"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Қолданбалар"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Қолданба рұқсаттары"</string>
-    <!-- no translation found for unused_apps (3935514133237470759) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
-    <skip />
+    <string name="unused_apps" msgid="3935514133237470759">"Пайдаланылмайтын қолданбалар"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Қолданбаны өшіру"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Бұл қолданбаны өшірсеңіз, Android жүйесі мен басқа қолданбалар тиісінше жұмыс істемеуі мүмкін. Бұл қолданба құрылғыға алдын ала орнатылатындықтан, оны жою мүмкін еместігін ескеріңіз. Өшіріп қою арқылы сіз бұл қолданбаны ажыратып, оны құрылғыда жасыра аласыз."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Рұқсат басқарушысы"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Қайта сұралмасын"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Рұқсат жоқ"</string>
@@ -66,8 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Бұл қолданба Android жүйесінің ескі нұсқасына арналған. Рұқсаттан бас тартсаңыз, бұдан былай тиісінше жұмыс істемеуі мүмкін."</string>
     <string name="default_permission_description" msgid="692254823411049573">"белгісіз әрекетті орындау"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> қолданба рұқсатқа ие"</string>
-    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
-    <skip />
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> қолданбаға рұқсат берілген"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Жүйені көрсету"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Жүйені жасыру"</string>
     <string name="no_apps" msgid="2377153782338039463">"Қолданбалар жоқ"</string>
@@ -111,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Уақыты бойынша сүзу"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Рұқсат беру"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Барлық файлдарды басқаруға рұқсат беру"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Тек медиафайлдарды пайдалануға рұқсат беру"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Әрдайым рұқсат беру"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Қолданбаны пайдалану кезінде ғана рұқсат беру"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Әрдайым сұрау"</string>
@@ -124,8 +116,14 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Барлық <xliff:g id="APP">%1$s</xliff:g> рұқсаттарын көру"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Осы рұқсатқа ие барлық қолданбаларды көру"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Қолданба пайдаланылмаса, рұқсаттарды өшіру"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Қолданба бірнеше ай бойы қолданылмаса, деректеріңізді қорғау үшін осы қолданбаға арналған рұқсаттардан бас тартылады."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Деректер қорғау мақсатында қолданбаны бірнеше ай бойы пайдаланбасаңыз, рұқсаттар өшіріледі: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <!-- no translation found for auto_revoke_summary (308686883215278993) -->
+    <skip />
+    <!-- no translation found for auto_revoke_summary_with_permissions (5460568151204648005) -->
+    <skip />
+    <!-- no translation found for auto_revoked_apps_page_summary (2780912986594704165) -->
+    <skip />
+    <!-- no translation found for auto_revoke_open_app_message (7960965074929429500) -->
+    <skip />
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Бұл қолданба үшін автоматты түрде өшіру ажыратылған."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Автоматты түрде бас тартуға болатын ешқандай рұқсат берілмеген."</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> рұқсаты өшіріледі."</string>
@@ -133,20 +131,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Өшірілетін рұқсаттар: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Рұқсаттарды автоматты түрде басқару"</string>
     <string name="off" msgid="4561379152328580345">"Өшіру"</string>
-    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
-    <skip />
-    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
-    <skip />
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g> рұқсат өшірілді"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> және <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> рұқсаттары өшірілді"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> және тағы <xliff:g id="NUMBER">%2$s</xliff:g> рұқсат өшірілді"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Соңғы рет <xliff:g id="NUMBER">%s</xliff:g> айдан астам уақыт бұрын ашылған"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Қолданбаның соңғы рет ашылуы: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Соңғы рет ашылуы: <xliff:g id="DATE">%s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Егер барлық файлдарды басқаруға рұқсат берілсе, бұл қолданба құрылғының жалпы жадындағы немесе жалғанған жад құрылғыларындағы кез келген файлды пайдалана, өзгерте және жоя алатын болады. Қолданба файлдарды сіздің рұқсатыңызсыз пайдалануы мүмкін."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Қолданбаға құрылғыдағы немесе жалғанған жад құрылғыларындағы барлық файлдарды пайдалануға, өзгертуге немесе жоюға рұқсат берілсін бе? Бұл қолданба файлдарды сіздің рұқсатыңызсыз пайдалануы мүмкін."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Бұл рұқсатқа ие қолданбалардың мүмкіндігі: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Рұқсатқа ие қолданбалар жаяу жүру, велосипед тебу, көлік жүргізу, қадамдар саны, т.б. сияқты іс-қимылдар дерегін пайдалана алады."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Бұл рұқсатқа ие қолданбалар күнтізбені пайдалана алады."</string>
@@ -166,10 +158,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Рұқсат берілгендер"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Біржола рұқсат етілгендер"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Қолданылып жатқанда ғана рұқсат етілгендер"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Тек медиафайлды пайдалана алатын қолданбалар"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Барлық файлдарды басқара алатын қолданбалар"</string>
     <string name="ask_header" msgid="4471670860332046665">"Әрдайым сұрау"</string>
     <string name="denied_header" msgid="2277998574238617699">"Тыйым салынғандар"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -189,10 +179,8 @@
       <item quantity="one">1 секунд</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Рұқсат туралы еске салғыштар"</string>
-    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
-    <skip />
-    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
-    <skip />
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Қолданба рұқсаттары автоматты түрде өшірілді"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Кейбір қолданбалар бірнеше ай бойы пайдаланылмаған. Қосымша ақпарат алу үшін түртіңіз."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> сіздің орналасқан жеріңізді фондық режимде анықтады."</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Бұл қолданба геодерегіңізді кез келген уақытта пайдалана алады. Өзгерту үшін түртіңіз."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Құпиялылықты сақтау үшін қолданба рұқсаттары өшірілді"</string>
@@ -208,11 +196,13 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> және <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> және тағы <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Деректер қорғау мақсатында бірнеше ай бойы пайдаланылмаған қолданбалардан рұқсаттар өшіріледі"</string>
+    <!-- no translation found for one_unused_app_summary (4609894550969723046) -->
+    <skip />
+    <!-- no translation found for num_unused_apps_summary (2950515592303103371) -->
+    <skip />
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Қолданба пайдаланып жатқанда ғана"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Meдиафайлдар"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Барлық файлдар"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Ешқандай рұқсат берілмеді"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Ешқандай рұқсатқа тыйым салынбады"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Ешқандай қолданбаға рұқсат берілмеді"</string>

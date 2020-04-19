@@ -42,10 +42,8 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ایپ استعمال کرتے وقت"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"صرف اس وقت"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"ہر وقت اجازت دیں"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"سبھی فائلز کے مینیجمنٹ کو اجازت دیں"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"میڈیا فائلز تک رسائی کی اجازت دیں"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ایپس"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ایپ کی اجازتیں"</string>
     <string name="unused_apps" msgid="3935514133237470759">"غیر مستعمل ایپس"</string>
@@ -107,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"وقت کے لحاظ سے فلٹر کریں"</string>
     <string name="item_separator" msgid="8266062815210378175">"، "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"اجازت دیں"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"سبھی فائلز کے مینیجمنٹ کو اجازت دیں"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"صرف میڈیا تک رسائی کی اجازت دیں"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ہر وقت اجازت دیں"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"صرف ایپ استعمال کرتے وقت اجازت دیں"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"ہر بار پوچھیں"</string>
@@ -120,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> کی سبھی اجازتیں دیکھیں"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"اس اجازت والی سبھی ایپس دیکھیں"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"ایپ غیر مستعمل ہونے پر اجازتیں ہٹائیں"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"آپ کے ڈیٹا کی حفاظت کے لیے، اگر اس ایپ کو کچھ مہینوں تک استعمال نہ کیا گیا تو اس ایپ کے لیے اجازتیں ہٹا دی جائیں گی۔"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"آپ کے ڈیٹا کی حفاظت کے لیے، اگر ایپ کو کچھ مہینوں سے استعمال نہیں کیا گیا ہے تو درج ذیل اجازتیں ہٹا دی جائیں گی: <xliff:g id="PERMS">%1$s</xliff:g>۔"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"آپ کے ڈیٹا کی حفاظت کے لیے، اگر ایپ کو کچھ مہینوں تک استعمال نہیں کیا گیا تو اس ایپ کے لیے اجازتیں ہٹا دی جائیں گی۔"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"آپ کے ڈیٹا کی حفاظت کے لیے، اگر ایپ کو کچھ مہینوں تک استعمال نہیں کیا گيا تو درج ذیل اجازتیں ہٹا دی جائیں گی: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"آپ کے ڈیٹا کی حفاظت کے لیے، اجازتوں کو ان ایپس سے ہٹا دیا گیا ہے جنہیں آپ نے کچھ مہینوں سے استعمال نہیں کیا ہے۔"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"اگر آپ دوبارہ اجازتیں دینا چاہتے ہیں، تو ایپ کھولیں"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"اس ایپ کے لیے خودکار طور پر ہٹانے کی سہولت فی الحال غیر فعال ہے۔"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"فی الحال کوئی بھی خودکار قابل منسوخ اجازت نہیں دی گئی ہے"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> کی اجازت ہٹا دی جائے گی۔"</string>
@@ -135,10 +133,8 @@
     <string name="last_opened_category_title" msgid="4204626487716958146">"آخری بار <xliff:g id="NUMBER">%s</xliff:g> ماہ سے زیادہ پہلے کھولی گئی"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"ایپ آخری بار <xliff:g id="DATE">%s</xliff:g> کو کھولی گئی"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"آخری بار <xliff:g id="DATE">%s</xliff:g> کو کھولی گئی"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"اگر آپ سبھی فائلز کے مینیجمنٹ کو اجازت دیتے ہیں تو، یہ ایپ اس آلہ یا منسلک اسٹوریج آلات پر مشترکہ اسٹوریج میں موجود کسی بھی فائل تک رسائی، اس میں ترمیم اور حذف کر سکتی ہے۔ ایپ آپ سے پوچھے بغیر فائلز تک رسائی حاصل کر سکتی ہے۔"</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"اس ایپ کو آلہ یا کسی منسلک اسٹوریج آلات پر فائلز تک رسائی، اس میں ترمیم اور حذف کرنے کی اجازت دیں؟ یہ ایپ آپ سے پوچھے بغیر فائلز تک رسائی حاصل کر سکتی ہے۔"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"اس اجازت والی ایپس یہ کام کر سکتی ہیں: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"اس اجازت والی اپپس آپ کی جسمانی سرگرمی، جیسے کہ چہل قدمی، بائی سائیکلنگ، ڈرائیونگ، قدموں کی تعداد اور مزید تک رسائی حاصل کر سکتی ہیں"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"اس اجازت والی ایپس کو آپ کے کیلنڈر تک رسائی حاصل ہو سکتی ہے"</string>
@@ -158,10 +154,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"اجازت یافتہ"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"ہر وقت اجازت یافتہ"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"صرف استعمال کے دوران اجازت ہے"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"صرف میڈیا تک رسائی کی اجازت دیں"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"سبھی فائلز کا نظم کرنے کے ليے اجازت یافتہ"</string>
     <string name="ask_header" msgid="4471670860332046665">"ہر بار پوچھیں"</string>
     <string name="denied_header" msgid="2277998574238617699">"مسترد کردہ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -198,11 +192,11 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> اور <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>، <xliff:g id="PERM_NAME_1">%2$s</xliff:g> اور <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> مزید"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"آپ کے ڈیٹا کی حفاظت کے لیے، اجازتوں کو ان ایپس سے ہٹا دیا گیا ہے جنہیں آپ نے کچھ مہینوں سے استعمال نہیں کیا ہے"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 ایپ کا استعمال کچھ مہینوں سے نہیں کیا گیا ہے"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ایپس کا استعمال کچھ مہینوں سے نہیں کیا گیا ہے"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"صرف اپپ کے زیر استعمال ہونے کے دوران"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"میڈیا"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"سبھی فائلز"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"کوئی اجازت نہیں دی گئی"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"کوئی بھی اجازت مسترد نہیں ہے"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"کسی ایپ کو منظوری نہیں ہے"</string>
