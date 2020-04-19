@@ -60,7 +60,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Այս հավելվածը նախատեսված է Android-ի ավելի հին տարբերակի համար: Եթե մերժեք թույլտվությունը, այն կարող է չաշխատել ինչպես հարկն է:"</string>
     <string name="default_permission_description" msgid="692254823411049573">"կատարել անհայտ գործողություն"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Թույլատրված է <xliff:g id="COUNT_0">%1$d</xliff:g> հավելվածի՝ <xliff:g id="COUNT_1">%2$d</xliff:g>-ից"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Թույլատրված է <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> հավելվածի"</string>
     <string name="app_permissions_group_summary2" msgid="6879351603140930642">"Թույլատրված հավելված(ներ)՝ <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Ցույց տալ համակարգի հավելվածները"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Թաքցնել համակարգի հավելվածները"</string>
@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Դիտել <xliff:g id="APP">%1$s</xliff:g> հավելվածի բոլոր թույլտվությունները"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Դիտել այս թույլտվությունն ունեցող հավելվածների ցանկը"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Հեռացնել թույլտվությունները, եթե հավելվածը չի օգտագործվում"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Ձեր տվյալները պաշտպանելու համար այս հավելվածին տրամադրած թույլտվությունները կհեռացվեն, եթե հավելվածը չօգտագործվի մի քանի ամսվա ընթացքում։"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Եթե հավելվածը մի քանի ամիս չի օգտագործվել, ձեր տվյալները պաշտպանելու համար հետևյալ թույլտվությունները կհեռացվեն՝ <xliff:g id="PERMS">%1$s</xliff:g>։"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Եթե հավելվածը չի օգտագործվել մի քանի ամիս, դրա թույլտվությունները կհեռացվեն՝ ձեր տվյալները պաշտպանելու համար։"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Եթե հավելվածը չի օգտագործվել մի քանի ամիս, ձեր տվյալները պաշտպանելու համար հետևյալ թույլտվությունները կհեռացվեն՝ <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Հավելվածներից, որոնք մի քանի ամիս չեք օգտագործել, թույլտվությունները հեռացվել են՝ ձեր տվյալները պաշտպանելու համար։"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Թույլտվությունները նորից տրամադրելու համար բացեք հավելվածը"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Ավտոմատ հեռացման գործառույթն անջատված է այս հավելվածի համար։"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Ավտոմատ չեղարկվող թույլտվություններ չեն տրվել"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"«<xliff:g id="PERM">%1$s</xliff:g>» թույլտվությունը կհեռացվի։"</string>
@@ -173,7 +175,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> վայրկյան</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Հիշեցումներ թույլտվությունների մասին"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Հավելվածների թույլտվություններն ավտոմատ հեռացվում են"</string>
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Հավելվածների թույլտվություններն ավտոմատ հեռացվել են"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Որոշ հավելվածներ մի քանի ամիս չեն օգտագործվել։ Հպեք՝ լրացուցիչ տեղեկություններ ստանալու համար։"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> հավելվածը հետագծում է ձեր գտնվելու վայրը ֆոնային ռեժիմում"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Այս հավելվածին միշտ հասանելի են ձեր տեղադրության մասին տվյալները: Փոխելու համար հպեք:"</string>
@@ -190,15 +192,17 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"«<xliff:g id="PERM_NAME_0">%1$s</xliff:g>» և «<xliff:g id="PERM_NAME_1">%2$s</xliff:g>»"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"«<xliff:g id="PERM_NAME_0">%1$s</xliff:g>», «<xliff:g id="PERM_NAME_1">%2$s</xliff:g>» ու ևս <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> թույլտվություն"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Հավելվածներից, որոնք մի քանի ամիս չեք օգտագործել, թույլտվությունները հեռացվել են՝ ձեր տվյալները պաշտպանելու համար։"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 հավելված մի քանի ամիս չի օգտագործվել"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> հավելված մի քանի ամիս չի օգտագործվել"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Միայն երբ հավելվածն օգտագործվում է"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Մեդիաֆայլերը"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Բոլոր ֆայլերը"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Թույլտվությունները տրված չեն"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Բոլոր թույլտվությունները տրված են"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"Ոչ մի հավելվածում չի գործում"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Թույլատրված չէ ոչ մի հավելվածի"</string>
     <string name="no_apps_allowed_full" msgid="5857725855406253991">"Ոչ մի հավելված թույլատրված չէ բոլոր ֆայլերի համար"</string>
     <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Ոչ մի հավելված թույլատրված չէ մեդիա ֆայլերի համար"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"Գործում է բոլոր հավելվածներում"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Մերժված չէ ոչ մի հավելվածի"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Ընտրված է"</string>
     <string name="settings" msgid="2884124136779508907">"Կարգավորումներ"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ծառայությունն ունի ձեր սարքն օգտագործելու լրիվ թույլտվություն"</string>

@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ver todas as permissões do app <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ver todos os apps que têm esta permissão"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Remover permissões se o app não for usado"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Para proteger seus dados, as permissões deste app serão removidas se o app não for usado por alguns meses."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Para proteger seus dados, se o app não tiver sido usado por meses, as seguintes permissões serão removidas: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Para proteger seus dados, as permissões serão removidas se o app não for usado por alguns meses."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Para proteger seus dados, se o app não for usado por alguns meses, as seguintes permissões serão removidas: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Para proteger seus dados, foram removidas as permissões de apps que não foram usados nos últimos meses."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Se você quer conceder permissões novamente, abra o app"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"No momento, a remoção automática está desativada para este app."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Não há nenhuma permissão automaticamente revogável atualmente"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"A permissão <xliff:g id="PERM">%1$s</xliff:g> será removida."</string>
@@ -128,7 +130,7 @@
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Permissão <xliff:g id="PERMISSION_NAME">%s</xliff:g> removida"</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Permissões <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> e <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> removidas"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> e mais <xliff:g id="NUMBER">%2$s</xliff:g> permissões removidas"</string>
-    <string name="last_opened_category_title" msgid="4204626487716958146">"Usado pela última vez há <xliff:g id="NUMBER">%s</xliff:g> meses"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Usado pela última vez há mais de <xliff:g id="NUMBER">%s</xliff:g> meses"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"App aberto pela última vez em <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Aberto pela última vez em <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Se você permitir o gerenciamento de todos os arquivos, o app poderá acessar, modificar e excluir qualquer arquivo no armazenamento comum do dispositivo ou no armazenamento de dispositivos conectados. O app poderá acessar arquivos sem pedir autorização."</string>
@@ -142,7 +144,7 @@
     <string name="permission_description_summary_location" msgid="687820658574645201">"Apps que têm esta permissão podem acessar o local deste dispositivo"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Apps que têm esta permissão podem gravar áudio"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Apps que têm esta permissão podem fazer e gerenciar chamadas telefônicas"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Apps que têm esta permissão podem acessar dados do sensor sobre seus sinais vitais"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Apps com esta permissão têm acesso aos seus sinais vitais coletados pelo sensor"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Apps que têm esta permissão podem enviar e ver mensagens SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Apps com esta permissão podem acessar fotos, mídia e arquivos no seu dispositivo"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Último acesso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -190,6 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> e <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> e mais <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Para proteger seus dados, foram removidas as permissões de apps que não foram usados nos últimos meses"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 app não foi usado nos últimos meses"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps não foram usados nos últimos meses"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Apenas enquanto o app estiver em uso"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Mídia"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Todos os arquivos"</string>
@@ -197,7 +201,7 @@
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nenhuma permissão negada"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Nenhum app permitido"</string>
     <string name="no_apps_allowed_full" msgid="5857725855406253991">"Nenhum app é permitido para todos os arquivos"</string>
-    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Nenhum app é permitido apenas para arquivos de mídia"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Nenhum app com permissão para acesso exclusivo a arquivos de mídia"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Nenhum app negado"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Selecionado"</string>
     <string name="settings" msgid="2884124136779508907">"Configurações"</string>
@@ -212,19 +216,19 @@
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Recebe acesso a SMS e registro de chamadas"</string>
     <string name="role_browser_label" msgid="814240075813716311">"App padrão de navegador"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"App de navegação"</string>
-    <string name="role_browser_description" msgid="2326990202516329438">"Apps que concedem acesso à Internet e exibem links em que você pode tocar"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"Apps que permitem acesso à Internet e links clicáveis"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app padrão de navegador?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Nenhuma permissão necessária"</string>
-    <string name="role_dialer_label" msgid="7920168918746178929">"App padrão de telefone"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"App de telefone padrão"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"App Telefone"</string>
     <string name="role_dialer_description" msgid="2684882481061320467">"Apps que permitem fazer e receber chamadas no seu dispositivo"</string>
-    <string name="role_dialer_request_title" msgid="3203802247886151514">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como seu aplicativo para telefones padrão?"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como seu app de telefone padrão?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Recebe acesso a registros de chamadas e envio de SMS"</string>
     <string name="role_dialer_search_keywords" msgid="6215791911228160821">"discador"</string>
-    <string name="role_sms_label" msgid="6995222097027665850">"App padrão de SMS"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"App de SMS padrão"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"App de SMS"</string>
     <string name="role_sms_description" msgid="3228552135895420442">"Apps que permitem usar o número do telefone para enviar e receber mensagens de texto curtas, fotos, vídeos e muito mais"</string>
-    <string name="role_sms_request_title" msgid="3667393846881324409">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app padrão de SMS?"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app de SMS padrão?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Recebe acesso a contatos, SMS, smartphone"</string>
     <string name="role_sms_search_keywords" msgid="6818482413212931585">"mensagem de texto, enviar mensagens de texto, mensagens"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"App padrão de emergência"</string>
@@ -235,7 +239,7 @@
     <string name="role_emergency_search_keywords" msgid="7310029268876820646">"em emergências"</string>
     <string name="role_home_label" msgid="6245106863177808486">"App de início padrão"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"App de início"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"Apps, geralmente chamados de acesso rápido, que substituem as telas iniciais do dispositivo Android e concedem acesso a conteúdos e recursos do seu dispositivo"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Apps geralmente chamados de acesso rápido, que substituem a tela inicial do dispositivo Android e permitem acesso a conteúdo e recursos do dispositivo"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como seu app de início padrão?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nenhuma permissão necessária"</string>
     <string name="role_home_search_keywords" msgid="8277315231013298175">"tela de início"</string>
@@ -244,8 +248,8 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"Apps que permitem encaminhar chamadas realizadas para outro número de telefone"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app padrão de redirecionamento de chamada?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Nenhuma permissão necessária"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"App padrão de identificação de chamada e spam"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"App de ID de chamada e spam"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"App identificador de chamada e spam padrão"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"App identificador de chamada e spam"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"Apps que permitem identificar chamadas, bloquear spam e ligações automáticas e colocar números indesejados na lista de proibições"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app padrão de identificação de chamada e spam?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nenhuma permissão necessária"</string>

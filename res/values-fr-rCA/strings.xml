@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Afficher toutes les autorisations pour <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Afficher toutes les applications qui possèdent cette autorisation"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Supprimer les autorisations si l\'application est inutilisée"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Afin de protéger vos données, les autorisations pour cette application seront supprimées si l\'application n\'est pas utilisée pendant quelques mois."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Pour protéger vos données, si l\'application n\'est pas utilisée pendant plusieurs mois, les autorisations suivantes seront supprimées : <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Afin de protéger vos données, les autorisations pour cette application seront supprimées si elle n\'est pas utilisée pendant quelques mois."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Afin de protéger vos données, si l\'application n\'est pas utilisée pendant quelques mois, les autorisations suivantes seront supprimées : <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Afin de protéger vos données, les autorisations ont été supprimées pour les applications que vous n\'avez pas utilisées depuis quelques mois."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Pour accorder les autorisations de nouveau, ouvrez l\'application"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"La suppression automatique des autorisations est actuellement désactivée pour cette application."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Aucune autorisation révocable automatiquement n\'est présentement accordée"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"L\'autorisation <xliff:g id="PERM">%1$s</xliff:g> sera supprimée."</string>
@@ -190,6 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> et <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> et <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> autres"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Pour protéger vos données, les autorisations ont été supprimées pour les applications que vous n\'avez pas utilisées depuis plusieurs mois"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 application n\'a pas été utilisée depuis quelques mois"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> applications n\'ont pas été utilisées depuis quelques mois"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Uniquement lorsque l\'application est en cours d\'utilisation"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Éléments multimédias"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Tous les fichiers"</string>
@@ -244,7 +248,7 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"Applications qui vous permettent de transférer des appels sortants vers un autre numéro de téléphone"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme application par défaut pour la redirection des appels?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Aucune autorisation nécessaire"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Appli défaut identifier et filtrer appelants"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Appli d\'identif. et de filtrage par défaut"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Appli identif. et filtr. appels"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"Applications qui vous permettent d\'identifier les appels, de bloquer les appels indésirables et automatisés et de placer les numéros indésirables sur une liste noire"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme application par défaut pour l\'identification et le filtrage des appelants?"</string>

@@ -42,10 +42,8 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Lorsque vous utilisez l\'application"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Uniquement cette fois-ci"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Toujours autoriser"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Autoriser la gestion de tous les fichiers"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Autoriser l\'accès aux fichiers multimédias"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Applications"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Autorisations des applications"</string>
     <string name="unused_apps" msgid="3935514133237470759">"Applications inutilisées"</string>
@@ -107,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Filtrer par période"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Autoriser"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Autoriser la gestion de tous les fichiers"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Autoriser l\'accès aux fichiers multimédias uniquement"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Toujours autoriser"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Autoriser seulement si l\'appli est en cours d\'utilisation"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Toujours demander"</string>
@@ -120,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Afficher toutes les autorisations pour <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Afficher toutes les applications disposant de cette autorisation"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Supprimer les autorisations si l\'application est inutilisée"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Si cette application n\'est pas utilisée pendant quelques mois, ses autorisations seront supprimées afin de protéger vos données."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Pour protéger vos données, si l\'application n\'est pas utilisée pendant plusieurs mois, les autorisations suivantes seront supprimées : <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Si cette application n\'est pas utilisée pendant plusieurs mois, ses autorisations seront supprimées afin de protéger vos données."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Pour protéger vos données, si l\'application n\'est pas utilisée pendant plusieurs mois, les autorisations suivantes seront supprimées : <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Pour protéger vos données, les autorisations ont été supprimées pour les applications que vous n\'avez pas utilisées depuis plusieurs mois"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Si vous souhaitez accorder des autorisations à nouveau, ouvrez l\'application"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"La suppression automatique des autorisations est actuellement désactivée pour cette application."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Aucune autorisation révocable automatiquement n\'est actuellement accordée"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"L\'autorisation <xliff:g id="PERM">%1$s</xliff:g> sera supprimée."</string>
@@ -135,19 +133,17 @@
     <string name="last_opened_category_title" msgid="4204626487716958146">"Ouvertes pour la dernière fois il y a <xliff:g id="NUMBER">%s</xliff:g> mois"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Dernière ouverture de l\'application le <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Dernière ouverture : <xliff:g id="DATE">%s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Si vous l\'autorisez à gérer tous les fichiers, cette application pourra y accéder, les modifier et les supprimer, sur cet appareil et sur les périphériques de stockage connectés. L\'application pourra accéder aux fichiers sans vous le demander."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Autoriser cette application à accéder aux fichiers, à les modifier et à les supprimer, sur cet appareil et sur les périphériques de stockage connectés ? L\'application pourra accéder aux fichiers sans vous le demander."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Les applications disposant de cette autorisation peuvent <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Les applications disposant de cette autorisation peuvent accéder à votre activité physique (marche, vélo, voiture, nombre de pas, etc.)"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Les applications disposant de cette autorisation peuvent accéder aux données relatives à votre activité physique (marche, vélo, voiture, nombre de pas, etc.)"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Les applications disposant de cette autorisation peuvent accéder à votre agenda"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Les applications disposant de cette autorisation peuvent consulter et modifier le journal d\'appels du téléphone"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Les applications disposant de cette autorisation peuvent prendre des photos et enregistrer des vidéos"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Les applications disposant de cette autorisation peuvent accéder à vos contacts"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Les applications disposant de cette autorisation peuvent accéder à la position de cet appareil"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Les applications disposant de cette autorisation peuvent enregistrer du contenu audio"</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Les applications disposant de cette autorisation permettent de passer des appels téléphoniques et de les gérer"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Les applications disposant de cette autorisation peuvent passer des appels téléphoniques et les gérer"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Les applications disposant de cette autorisation peuvent accéder aux données des capteurs corporels"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Les applications disposant de cette autorisation peuvent envoyer et lire des SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Les applications disposant de cette autorisation peuvent accéder aux photos, fichiers multimédias et autres fichiers sur votre appareil"</string>
@@ -158,10 +154,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Autorisées"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Toujours autorisées"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Autorisées seulement pendant l\'utilisation"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Autorisées à gérer les fichiers multimédias"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Autorisées à gérer tous les fichiers"</string>
     <string name="ask_header" msgid="4471670860332046665">"Toujours demander"</string>
     <string name="denied_header" msgid="2277998574238617699">"Non autorisées"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -198,11 +192,11 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> et <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> et <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> autres"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Pour protéger vos données, les autorisations ont été supprimées pour les applications que vous n\'avez pas utilisées depuis plusieurs mois"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 application n\'a pas été utilisée depuis plusieurs mois"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> applications n\'ont pas été utilisées depuis plusieurs mois"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Seulement quand l\'application est en cours d\'utilisation"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Fichiers multimédias"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Tous les fichiers"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Aucune autorisation accordée"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Aucune autorisation refusée"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Aucune application autorisée"</string>
@@ -256,7 +250,7 @@
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Aucune autorisation nécessaire"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Appli numéro de l\'appelant et spam par défaut"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Appli numéro de l\'appelant et spam"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"Applications qui vous permettent d\'identifier les appels entrants, de bloquer le spam et les appels automatiques, et de mettre sur liste noire les numéros indésirables"</string>
+    <string name="role_call_screening_description" msgid="4470066768170089758">"Applications qui vous permettent d\'identifier les appels entrants, de bloquer les appels indésirables et les appels automatiques, et de mettre sur liste noire les numéros indésirables"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme votre application par défaut pour l\'affichage du numéro de l\'appelant et du spam ?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Aucune autorisation nécessaire"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Appli par défaut actuelle"</string>

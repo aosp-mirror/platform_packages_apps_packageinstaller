@@ -55,8 +55,8 @@
     <string name="additional_permissions" msgid="7124470111123472154">"Zusätzliche Berechtigungen"</string>
     <string name="app_permissions_info_button_label" msgid="6566057048862462066">"App-Info öffnen"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
-      <item quantity="other">Noch <xliff:g id="COUNT_1">%1$d</xliff:g></item>
-      <item quantity="one">Noch <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> weitere</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> weitere</item>
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Diese App wurde für eine ältere Android-Version entwickelt. Wenn du keine Berechtigung gewährst, funktioniert sie möglicherweise nicht mehr ordnungsgemäß."</string>
     <string name="default_permission_description" msgid="692254823411049573">"Unbekannte Aktion durchführen"</string>
@@ -106,7 +106,7 @@
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Zulassen"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Verwaltung aller Dateien zulassen"</string>
-    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Zugriff nur auf Medien zulassen"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Zugriff nur auf Mediendateien zulassen"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Immer zulassen"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Zugriff nur während der Nutzung der App zulassen"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Jedes Mal fragen"</string>
@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Alle Berechtigungen von <xliff:g id="APP">%1$s</xliff:g> anzeigen"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Alle Apps mit dieser Berechtigung anzeigen"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Berechtigungen entfernen, wenn die App nicht verwendet wird"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Zum Schutz deiner Daten werden die Berechtigungen für diese App entfernt, wenn sie einige Monate nicht verwendet wurde."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Wenn die App einige Monate nicht genutzt wurde, werden zum Schutz deiner Daten die folgenden Berechtigungen entfernt: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Zum Schutz deiner Daten werden dieser App die Berechtigungen entzogen, wenn du sie einige Monate nicht verwendest."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Zum Schutz deiner Daten werden dieser App die folgenden Berechtigungen entzogen, wenn du sie einige Monate nicht verwendest: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Zum Schutz deiner Daten wurden Apps, die du einige Monate nicht verwendet hast, Berechtigungen entzogen."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Wenn du die Berechtigungen wieder gewähren möchtest, öffne die App"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Die automatische Entfernung ist für diese App derzeit deaktiviert."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Derzeit sind keine Berechtigungen gewährt, die automatisch widerrufen werden können"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Die Berechtigung \"<xliff:g id="PERM">%1$s</xliff:g>\" wird entfernt."</string>
@@ -152,7 +154,7 @@
     <string name="allowed_header" msgid="6279244592227088158">"Zugriff zugelassen"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Zugriff immer zugelassen"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Zugriff nur während Nutzung zugelassen"</string>
-    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Zugriff nur auf Medien zugelassen"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Zugriff nur auf Mediendateien zugelassen"</string>
     <string name="allowed_storage_full" msgid="4167507647800726342">"Verwalten aller Dateien zugelassen"</string>
     <string name="ask_header" msgid="4471670860332046665">"Jedes Mal fragen"</string>
     <string name="denied_header" msgid="2277998574238617699">"Zugriff abgelehnt"</string>
@@ -190,8 +192,10 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> und <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> und <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> weitere"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Zum Schutz deiner Daten wurden Apps, die du einige Monate nicht verwendet hast, Berechtigungen entzogen"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 App ist seit einigen Monaten nicht genutzt worden"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> Apps sind seit einigen Monaten nicht genutzt worden"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Nur während die App verwendet wird"</string>
-    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Medien"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Mediendateien"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Alle Dateien"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Keine Berechtigungen zugelassen"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Alle Berechtigungen zugelassen"</string>
@@ -207,7 +211,7 @@
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Diese Apps können deinen Bildschirm, deine Aktionen und deine Eingaben sehen, Aktionen ausführen und den Bildschirm steuern."</string>
     <string name="role_assistant_label" msgid="4296361982493275449">"Standardapp für digitalen Assistenten"</string>
     <string name="role_assistant_short_label" msgid="2965228260285438681">"App für digitalen Assistenten"</string>
-    <string name="role_assistant_description" msgid="8677846995018695304">"Assistent-Apps helfen dir anhand der aktuell auf deinem Bildschirm angezeigten Informationen. Einige Apps unterstützen für eine einfachere Verwendung Übersichts- und Spracheingabedienste."</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"Assistent-Apps können dir bei bestimmten Dingen helfen. Dazu greifen sie auf die Informationen zu, die aktuell auf deinem Bildschirm angezeigt werden. Damit sie dir eine umfassende Hilfe sind, unterstützen einige Apps sowohl Launcher- als auch Spracheingabedienste."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g> als Standard-Assistent-App festlegen?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Erhält Zugriff auf SMS und Anrufliste"</string>
     <string name="role_browser_label" msgid="814240075813716311">"Standard-Browser-App"</string>

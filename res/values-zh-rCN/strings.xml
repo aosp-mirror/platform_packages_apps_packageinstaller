@@ -42,18 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"仅在使用该应用时允许"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"仅限这一次"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"一律允许"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"允许管理所有文件"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"允许访问媒体文件"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"应用"</string>
     <string name="app_permissions" msgid="2778362347879465223">"应用权限"</string>
-    <!-- no translation found for unused_apps (3935514133237470759) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
-    <skip />
+    <string name="unused_apps" msgid="3935514133237470759">"未使用的应用"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"停用应用"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"如果您停用此应用，Android 及其他应用可能会无法再正常运行。请注意，您无法删除此应用，因为它是设备预装应用。停用后，系统将关闭此应用并在设备上将其隐藏。"</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"权限管理器"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"不再询问"</string>
     <string name="no_permissions" msgid="2193893107241172888">"没有权限"</string>
@@ -66,8 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"此应用专为旧版 Android 系统打造。拒绝权限可能会导致该应用无法正常运行。"</string>
     <string name="default_permission_description" msgid="692254823411049573">"执行未知操作"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"已授权 <xliff:g id="COUNT_0">%1$d</xliff:g> 个应用（共 <xliff:g id="COUNT_1">%2$d</xliff:g> 个）"</string>
-    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
-    <skip />
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"已授权 <xliff:g id="COUNT_0">%1$d</xliff:g> 个应用/共 <xliff:g id="COUNT_1">%2$d</xliff:g> 个"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"显示系统应用"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"隐藏系统应用"</string>
     <string name="no_apps" msgid="2377153782338039463">"没有应用"</string>
@@ -111,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"按时间过滤"</string>
     <string name="item_separator" msgid="8266062815210378175">"、 "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"允许"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"允许管理所有文件"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"仅允许访问媒体文件"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"始终允许"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"仅在使用该应用时允许"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"每次都询问"</string>
@@ -124,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看<xliff:g id="APP">%1$s</xliff:g>的所有权限"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"查看具有此权限的所有应用"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"如果应用未使用，系统会移除相关权限"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"为了保护您的数据，如果您连续几个月未使用此应用，系统会移除它的权限。"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"为了保护您的数据，如果此应用在几个月内未使用过，系统将移除以下权限：<xliff:g id="PERMS">%1$s</xliff:g>。"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"为了保护您的数据，如果您连续几个月未使用此应用，系统会移除它的权限。"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"为了保护您的数据，如果您连续几个月未使用此应用，系统会移除以下权限：<xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"为了保护您的数据，系统已移除您连续几个月未使用的应用的权限。"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"如果您想重新授予权限，请打开应用"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"此应用目前已停用自动移除功能。"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"目前未授予任何可自动撤消的权限"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g>权限将被移除。"</string>
@@ -133,20 +127,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"即将被移除的权限：<xliff:g id="PERMS">%1$s</xliff:g>。"</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"自动管理权限"</string>
     <string name="off" msgid="4561379152328580345">"关闭"</string>
-    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
-    <skip />
-    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
-    <skip />
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"已移除<xliff:g id="PERMISSION_NAME">%s</xliff:g>权限"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"已移除<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>和<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>权限"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"已移除<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>权限及另外 <xliff:g id="NUMBER">%2$s</xliff:g> 项权限"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"上次打开时间是 <xliff:g id="NUMBER">%s</xliff:g> 个月前"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"应用上次打开时间是 <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"上次打开时间是 <xliff:g id="DATE">%s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"如果您允许此应用管理所有文件，此应用将可以访问、修改和删除本设备或连接的存储设备上通用存储空间中的任何文件。此应用可能会在您不知情的情况下访问文件。"</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"要允许此应用访问、修改和删除本设备或任何连接的存储设备上的文件吗？此应用可能会在您不知情的情况下访问文件。"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"具有此权限的应用可以<xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"具有此权限的应用可以获取您的身体活动数据，例如步行、骑车、开车、步数等数据"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"具有此权限的应用可以访问您的日历"</string>
@@ -166,10 +154,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"已允许"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"一律允许"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"仅在使用时允许"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"仅获准访问媒体文件"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"获准管理所有文件"</string>
     <string name="ask_header" msgid="4471670860332046665">"每次都询问"</string>
     <string name="denied_header" msgid="2277998574238617699">"已拒绝"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -189,10 +175,8 @@
       <item quantity="one">1 秒</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"权限提醒"</string>
-    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
-    <skip />
-    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
-    <skip />
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"系统已自动移除应用权限"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"一些应用在几个月内未使用过。点按即可了解详情。"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>在后台获取了您的位置信息"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"此应用随时可以使用您的位置信息。点按即可更改。"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"为保护隐私，系统已移除应用权限"</string>
@@ -208,11 +192,11 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"“<xliff:g id="PERM_NAME_0">%1$s</xliff:g>”权限和“<xliff:g id="PERM_NAME_1">%2$s</xliff:g>”权限"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"“<xliff:g id="PERM_NAME_0">%1$s</xliff:g>”权限、“<xliff:g id="PERM_NAME_1">%2$s</xliff:g>”权限和另外 <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> 项权限"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"为了保护您的数据，系统已移除您在几个月内未使用过的应用的权限"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 个应用已连续几个月未使用过"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 个应用已连续几个月未使用过"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"仅在使用该应用期间允许"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"媒体文件"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"所有文件"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"未允许任何权限"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"未拒绝任何权限"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"未允许任何应用"</string>
