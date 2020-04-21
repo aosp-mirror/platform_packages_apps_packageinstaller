@@ -16,12 +16,9 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.permissioncontroller.tests.appthatdefinespermission">
+    package="com.android.permissioncontroller.tests.appthatrequestpermission">
 
-    <permission android:name="com.android.permissioncontroller.tests.A"
-        android:protectionLevel="dangerous"
-        android:label="@string/perm_a"
-        android:description="@string/perm_a" />
+    <uses-permission android:name="com.android.permissioncontroller.tests.A" />
 
     <application />
 </manifest>
