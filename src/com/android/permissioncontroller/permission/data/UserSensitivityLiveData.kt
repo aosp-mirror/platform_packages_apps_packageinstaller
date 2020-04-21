@@ -20,8 +20,6 @@ import android.app.Application
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
-import android.os.Handler
-import android.os.Looper
 import android.os.Process
 import android.os.Process.INVALID_UID
 import android.os.UserHandle
@@ -50,7 +48,6 @@ class UserSensitivityLiveData private constructor(
 
     private val context: Context
     private val packageLiveDatas = mutableMapOf<String, LightPackageInfoLiveData>()
-    private val mainHandler = Handler(Looper.getMainLooper())
     private val userPackageInfosLiveData = UserPackageInfosLiveData[user]
     private val getAllUids = uid == INVALID_UID
 
@@ -76,8 +73,10 @@ class UserSensitivityLiveData private constructor(
         if (!getAllUids) {
             getAndObservePackageLiveDatas()
 
-            if (packageLiveDatas.isEmpty() || packageLiveDatas.all { it.value.isInitialized &&
-                it.value.value == null }) {
+            if (packageLiveDatas.isEmpty() || packageLiveDatas.all {
+                    it.value.isInitialized &&
+                        it.value.value == null
+                }) {
                 packageLiveDatas.clear()
                 invalidateSingle(uid to user)
                 postValue(null)
@@ -165,18 +164,16 @@ class UserSensitivityLiveData private constructor(
         val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(packageNames, packageLiveDatas)
         for (packageName in toRemove) {
             val liveData = packageLiveDatas.remove(packageName) ?: continue
-            mainHandler.post {
-                removeSource(liveData)
-            }
+            removeSource(liveData)
         }
         for (packageName in toAdd) {
-            val liveData = LightPackageInfoLiveData[packageName, user]
-            mainHandler.post {
-                addSource(liveData) {
-                    updateIfActive()
-                }
+            packageLiveDatas[packageName] = LightPackageInfoLiveData[packageName, user]
+        }
+
+        for (packageName in toAdd) {
+            addSource(packageLiveDatas[packageName] ?: continue) {
+                updateIfActive()
             }
-            packageLiveDatas[packageName] = liveData
         }
         return
     }
