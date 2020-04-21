@@ -22,6 +22,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import com.android.permissioncontroller.PermissionControllerApplication
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  * Listens for package additions, replacements, and removals, and notifies listeners.
@@ -49,12 +52,14 @@ object PackageBroadcastReceiver : BroadcastReceiver() {
      * Add a callback which will be notified when the specified packaged is changed or removed.
      */
     fun addChangeCallback(packageName: String, listener: PackageBroadcastListener) {
-        val wasEmpty = hasNoListeners()
+        GlobalScope.launch(Main.immediate) {
+            val wasEmpty = hasNoListeners()
 
-        changeCallbacks.getOrPut(packageName, { mutableSetOf() }).add(listener)
+            changeCallbacks.getOrPut(packageName, { mutableSetOf() }).add(listener)
 
-        if (wasEmpty) {
-            app.registerReceiver(this, intentFilter)
+            if (wasEmpty) {
+                app.registerReceiver(this@PackageBroadcastReceiver, intentFilter)
+            }
         }
     }
 
@@ -65,12 +70,14 @@ object PackageBroadcastReceiver : BroadcastReceiver() {
      * @return returns the integer ID assigned to the
      */
     fun addAllCallback(listener: PackageBroadcastListener) {
-        val wasEmpty = hasNoListeners()
+        GlobalScope.launch(Main.immediate) {
+            val wasEmpty = hasNoListeners()
 
-        allCallbacks.add(listener)
+            allCallbacks.add(listener)
 
-        if (wasEmpty) {
-            app.registerReceiver(this, intentFilter)
+            if (wasEmpty) {
+                app.registerReceiver(this@PackageBroadcastReceiver, intentFilter)
+            }
         }
     }
 
@@ -80,13 +87,12 @@ object PackageBroadcastReceiver : BroadcastReceiver() {
      * @param listener the listener we wish to remove
      */
     fun removeAllCallback(listener: PackageBroadcastListener) {
-        val wasEmpty = hasNoListeners()
+        GlobalScope.launch(Main.immediate) {
+            val wasEmpty = hasNoListeners()
 
-        if (!allCallbacks.remove(listener)) {
-            return
-        }
-        if (hasNoListeners() && !wasEmpty) {
-            app.unregisterReceiver(this)
+            if (allCallbacks.remove(listener) && hasNoListeners() && !wasEmpty) {
+                app.unregisterReceiver(this@PackageBroadcastReceiver)
+            }
         }
     }
 
@@ -97,17 +103,17 @@ object PackageBroadcastReceiver : BroadcastReceiver() {
      * @param listener the listener we wish to remove
      */
     fun removeChangeCallback(packageName: String?, listener: PackageBroadcastListener) {
-        val wasEmpty = hasNoListeners()
+        GlobalScope.launch(Main.immediate) {
+            val wasEmpty = hasNoListeners()
 
-        changeCallbacks[packageName]?.let { callbackSet ->
-            if (!callbackSet.remove(listener)) {
-                return
-            }
-            if (callbackSet.isEmpty()) {
-                changeCallbacks.remove(packageName)
-            }
-            if (hasNoListeners() && !wasEmpty) {
-                app.unregisterReceiver(this)
+            changeCallbacks[packageName]?.let { callbackSet ->
+                callbackSet.remove(listener)
+                if (callbackSet.isEmpty()) {
+                    changeCallbacks.remove(packageName)
+                }
+                if (hasNoListeners() && !wasEmpty) {
+                    app.unregisterReceiver(this@PackageBroadcastReceiver)
+                }
             }
         }
     }
@@ -133,13 +139,15 @@ object PackageBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val packageName = intent.data?.schemeSpecificPart ?: return
 
-        for (callback in allCallbacks) {
+        for (callback in allCallbacks.toList()) {
             callback.onPackageUpdate(packageName)
         }
 
         if (intent.action != Intent.ACTION_PACKAGE_ADDED) {
-            changeCallbacks[packageName]?.forEach { callback ->
-                callback.onPackageUpdate(packageName)
+            changeCallbacks[packageName]?.toList()?.let { callbacks ->
+                for (callback in callbacks) {
+                    callback.onPackageUpdate(packageName)
+                }
             }
         }
 
