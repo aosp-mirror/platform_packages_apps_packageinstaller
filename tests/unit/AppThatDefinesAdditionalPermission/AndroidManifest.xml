@@ -16,14 +16,22 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="android.permission.cts.appthatrequestpermission">
+    package="com.android.permissioncontroller.tests.appthatdefinespermission">
 
-    <permission android:name="android.permission.appthatrequestpermission.A"
+    <permission android:name="com.android.permissioncontroller.tests.A"
         android:protectionLevel="dangerous"
         android:label="@string/perm_a"
         android:description="@string/perm_a" />
 
-    <uses-permission android:name="android.permission.appthatrequestpermission.A" />
+    <permission android:name="com.android.permissioncontroller.tests.B"
+                android:protectionLevel="normal"
+                android:label="@string/perm_b"
+                android:description="@string/perm_b" />
+
+    <permission android:name="com.android.permissioncontroller.tests.C"
+                android:protectionLevel="normal"
+                android:label="@string/perm_c"
+                android:description="@string/perm_c" />
 
     <application />
 </manifest>
