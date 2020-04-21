@@ -15,8 +15,12 @@
   ~ limitations under the License.
   -->
 
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="perm_a">Permission A</string>
-    <string name="perm_b">Permission B</string>
-    <string name="perm_c">Permission C</string>
-</resources>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.permissioncontroller.tests.appthatrequestpermission">
+
+    <uses-permission android:name="com.android.permissioncontroller.tests.A" />
+    <uses-permission android:name="com.android.permissioncontroller.tests.B" />
+
+    <application />
+</manifest>
+
