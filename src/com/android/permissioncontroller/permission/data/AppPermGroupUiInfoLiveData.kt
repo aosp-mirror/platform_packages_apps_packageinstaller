@@ -31,6 +31,7 @@ import com.android.permissioncontroller.permission.model.livedatatypes.LightPerm
 import com.android.permissioncontroller.permission.model.livedatatypes.PermState
 import com.android.permissioncontroller.permission.utils.LocationUtils
 import com.android.permissioncontroller.permission.utils.Utils
+import com.android.permissioncontroller.permission.utils.Utils.isModernPermissionGroup
 
 /**
  * A LiveData representing UI properties of an App Permission Group:
@@ -172,6 +173,10 @@ class AppPermGroupUiInfoLiveData private constructor(
      * permission group
      */
     private fun isUserSensitive(permissionState: Map<String, PermState>): Boolean {
+        if (!isModernPermissionGroup(permGroupName)) {
+            return true
+        }
+
         for (permissionName in permissionState.keys) {
             val flags = permissionState[permissionName]?.permFlags ?: return true
             val granted = permissionState[permissionName]?.granted ?: return true
