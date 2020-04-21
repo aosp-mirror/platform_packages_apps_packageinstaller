@@ -112,6 +112,21 @@ class ManageStandardPermissionsFragmentTest {
     }
 
     @Test
+    fun groupSummaryGetsUpdatedWhenAppGetsUninstalled() {
+        val original = getUsageCountsFromUi(locationGroupLabel)
+
+        install(LOCATION_USER_APK)
+        eventually {
+            assertThat(getUsageCountsFromUi(locationGroupLabel)).isNotEqualTo(original)
+        }
+
+        uninstallApp(LOCATION_USER_PKG)
+        eventually {
+            assertThat(getUsageCountsFromUi(locationGroupLabel)).isEqualTo(original)
+        }
+    }
+
+    @Test
     fun groupSummaryGetsUpdatedWhenPermissionGetsGranted() {
         val original = getUsageCountsFromUi(locationGroupLabel)
 
@@ -129,6 +144,26 @@ class ManageStandardPermissionsFragmentTest {
     }
 
     @Test
+    fun groupSummaryGetsUpdatedWhenPermissionGetsRevoked() {
+        val original = getUsageCountsFromUi(locationGroupLabel)
+
+        install(LOCATION_USER_APK)
+        grantPermission(LOCATION_USER_PKG, ACCESS_COARSE_LOCATION)
+        eventually {
+            assertThat(getUsageCountsFromUi(locationGroupLabel).total)
+                    .isNotEqualTo(original.total)
+            assertThat(getUsageCountsFromUi(locationGroupLabel).granted)
+                    .isNotEqualTo(original.granted)
+        }
+
+        revokePermission(LOCATION_USER_PKG, ACCESS_COARSE_LOCATION)
+        eventually {
+            assertThat(getUsageCountsFromUi(locationGroupLabel).granted)
+                    .isEqualTo(original.granted)
+        }
+    }
+
+    @Test
     fun additionalPermissionSummaryGetUpdateWhenAppGetsInstalled() {
         val additionalPermissionBefore = getAdditionalPermissionCount()
 
@@ -137,6 +172,40 @@ class ManageStandardPermissionsFragmentTest {
         eventually {
             assertThat(getAdditionalPermissionCount())
                     .isEqualTo(additionalPermissionBefore + 1)
+        }
+    }
+
+    @Test
+    fun additionalPermissionSummaryGetUpdateWhenUserGetsUninstalled() {
+        val additionalPermissionBefore = getAdditionalPermissionCount()
+
+        install(ADDITIONAL_DEFINER_APK)
+        install(ADDITIONAL_USER_APK)
+        eventually {
+            assertThat(getAdditionalPermissionCount())
+                    .isNotEqualTo(additionalPermissionBefore)
+        }
+
+        uninstallApp(ADDITIONAL_USER_PKG)
+        eventually {
+            assertThat(getAdditionalPermissionCount()).isEqualTo(additionalPermissionBefore)
+        }
+    }
+
+    @Test
+    fun additionalPermissionSummaryGetUpdateWhenDefinerGetsUninstalled() {
+        val additionalPermissionBefore = getAdditionalPermissionCount()
+
+        install(ADDITIONAL_DEFINER_APK)
+        install(ADDITIONAL_USER_APK)
+        eventually {
+            assertThat(getAdditionalPermissionCount())
+                    .isNotEqualTo(additionalPermissionBefore)
+        }
+
+        uninstallApp(ADDITIONAL_DEFINER_PKG)
+        eventually {
+            assertThat(getAdditionalPermissionCount()).isEqualTo(additionalPermissionBefore)
         }
     }
 
