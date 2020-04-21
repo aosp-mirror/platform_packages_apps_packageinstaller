@@ -58,7 +58,8 @@ object PackageBroadcastReceiver : BroadcastReceiver() {
             changeCallbacks.getOrPut(packageName, { mutableSetOf() }).add(listener)
 
             if (wasEmpty) {
-                app.registerReceiver(this@PackageBroadcastReceiver, intentFilter)
+                app.applicationContext.registerReceiverForAllUsers(this@PackageBroadcastReceiver,
+                        intentFilter, null, null)
             }
         }
     }
@@ -76,7 +77,8 @@ object PackageBroadcastReceiver : BroadcastReceiver() {
             allCallbacks.add(listener)
 
             if (wasEmpty) {
-                app.registerReceiver(this@PackageBroadcastReceiver, intentFilter)
+                app.applicationContext.registerReceiverForAllUsers(this@PackageBroadcastReceiver,
+                        intentFilter, null, null)
             }
         }
     }
@@ -91,7 +93,7 @@ object PackageBroadcastReceiver : BroadcastReceiver() {
             val wasEmpty = hasNoListeners()
 
             if (allCallbacks.remove(listener) && hasNoListeners() && !wasEmpty) {
-                app.unregisterReceiver(this@PackageBroadcastReceiver)
+                app.applicationContext.unregisterReceiver(this@PackageBroadcastReceiver)
             }
         }
     }
@@ -112,13 +114,13 @@ object PackageBroadcastReceiver : BroadcastReceiver() {
                     changeCallbacks.remove(packageName)
                 }
                 if (hasNoListeners() && !wasEmpty) {
-                    app.unregisterReceiver(this@PackageBroadcastReceiver)
+                    app.applicationContext.unregisterReceiver(this@PackageBroadcastReceiver)
                 }
             }
         }
     }
 
-    fun getNumListeners(): Int {
+    private fun getNumListeners(): Int {
         var numListeners = allCallbacks.size
         for ((_, changeCallbackSet) in changeCallbacks) {
             numListeners += changeCallbackSet.size
@@ -126,7 +128,7 @@ object PackageBroadcastReceiver : BroadcastReceiver() {
         return numListeners
     }
 
-    fun hasNoListeners(): Boolean {
+    private fun hasNoListeners(): Boolean {
         return getNumListeners() == 0
     }
 
