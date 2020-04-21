@@ -601,6 +601,15 @@ public final class Utils {
     }
 
     /**
+     * Is the permissions a platform runtime permission
+     *
+     * @return the names of the runtime platform permissions.
+     */
+    public static boolean isRuntimePlatformPermission(@NonNull String permission) {
+        return PLATFORM_PERMISSIONS.containsKey(permission);
+    }
+
+    /**
      * Should UI show this permission.
      *
      * <p>If the user cannot change the group, it should not be shown.
