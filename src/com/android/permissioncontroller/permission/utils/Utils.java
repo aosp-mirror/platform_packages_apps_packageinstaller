@@ -171,6 +171,7 @@ public final class Utils {
         PLATFORM_PERMISSIONS.put(Manifest.permission.WRITE_CALL_LOG, CALL_LOG);
         PLATFORM_PERMISSIONS.put(Manifest.permission.PROCESS_OUTGOING_CALLS, CALL_LOG);
 
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_PHONE_STATE, PHONE);
         PLATFORM_PERMISSIONS.put(Manifest.permission.READ_PHONE_NUMBERS, PHONE);
         PLATFORM_PERMISSIONS.put(Manifest.permission.CALL_PHONE, PHONE);
         PLATFORM_PERMISSIONS.put(Manifest.permission.ADD_VOICEMAIL, PHONE);
@@ -597,6 +598,15 @@ public final class Utils {
      */
     public static List<String> getRuntimePlatformPermissionNames() {
         return new ArrayList<>(PLATFORM_PERMISSIONS.keySet());
+    }
+
+    /**
+     * Is the permissions a platform runtime permission
+     *
+     * @return the names of the runtime platform permissions.
+     */
+    public static boolean isRuntimePlatformPermission(@NonNull String permission) {
+        return PLATFORM_PERMISSIONS.containsKey(permission);
     }
 
     /**

@@ -18,6 +18,7 @@ package com.android.permissioncontroller.permission.model.livedatatypes
 
 import android.content.pm.PackageManager
 import android.content.pm.PermissionInfo
+import com.android.permissioncontroller.permission.utils.Utils.isRuntimePlatformPermission
 
 /**
  * Represents a single permission, and its state
@@ -69,10 +70,11 @@ data class LightPermission(
     /** Whether this permission is granted by role */
     val isGrantedByRole = flags and PackageManager.FLAG_PERMISSION_GRANTED_BY_ROLE != 0
     /** Whether this permission is user sensitive in its current grant state */
-    val isUserSensitive = (isGrantedIncludingAppOp &&
-        (flags and PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED) != 0) ||
-        (!isGrantedIncludingAppOp &&
-        (flags and PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED) != 0)
+    val isUserSensitive = !isRuntimePlatformPermission(permInfo.name) ||
+            (isGrantedIncludingAppOp &&
+                    (flags and PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED) != 0) ||
+            (!isGrantedIncludingAppOp &&
+                    (flags and PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED) != 0)
 
     override fun toString() = buildString {
         append(name)
