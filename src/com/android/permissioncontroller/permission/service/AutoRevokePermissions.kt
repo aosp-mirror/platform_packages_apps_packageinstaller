@@ -234,7 +234,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
         }
 
         val packageName = pkg.packageName
-        if (isPackageAutoRevokeExempt(pkg, manifestExemptPackages)) {
+        if (isPackageAutoRevokeExempt(context, pkg, manifestExemptPackages)) {
             return@forEachInParallel
         }
 
@@ -317,12 +317,13 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
 suspend fun isPackageAutoRevokeExempt(
     context: Context,
     pkg: LightPackageInfo
-) = isPackageAutoRevokeExempt(pkg, withContext(IPC) {
+) = isPackageAutoRevokeExempt(context, pkg, withContext(IPC) {
     context.getSystemService<PermissionManager>()
             .getAutoRevokeExemptionGrantedPackages()
 })
 
 private suspend fun isPackageAutoRevokeExempt(
+    context: Context,
     pkg: LightPackageInfo,
     manifestExemptPackages: Set<String>
 ): Boolean {
@@ -341,7 +342,8 @@ private suspend fun isPackageAutoRevokeExempt(
             return false
         }
 
-        if (pkg.targetSdkVersion <= android.os.Build.VERSION_CODES.Q) {
+        if (pkg.targetSdkVersion <= android.os.Build.VERSION_CODES.Q &&
+                TeamfoodSettings.get(context)?.enabledForPreRApps != true) {
             // Q- packages exempt by default
             return true
         } else {
