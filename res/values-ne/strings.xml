@@ -42,10 +42,8 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"अनुप्रयोगको प्रयोग गर्दा"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"यो समय मात्र"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"सधैँ अनुमति दिनुहोस्"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"सबै फाइलहरू व्यवस्थापन गर्ने अनुमति दिइयोस्"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"मिडिया फाइल प्रयोग गर्ने अनुमति दिइयोस्"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"अनुप्रयोगहरू"</string>
     <string name="app_permissions" msgid="2778362347879465223">"अनुप्रयोगसम्बन्धी अनुमति"</string>
     <!-- no translation found for unused_apps (3935514133237470759) -->
@@ -111,10 +109,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"समयका आधारमा फिल्टर गर्नुहोस्"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"अनुमति दिनुहोस्"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"सबै फाइलहरू व्यवस्थापन गर्ने अनुमति दिइयोस्"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"केवल मिडिया प्रयोग गर्ने अनुमति दिइयोस्"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"सधैँ अनुमति दिनुहोस्"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"अनुप्रयोग प्रयोग गरिरहेका बेला मात्र अनुमति दिनुहोस्"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"प्रत्येक पटक सोध्नुहोस्"</string>
@@ -124,8 +120,14 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> का सबै अनुमतिहरू हेर्नुहोस्"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"यो अनुमति पाएका सबै अनुप्रयोगहरू हेर्नुहोस्"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"यो अनुप्रयोग प्रयोग हुँदैन भने त्यसलाई दिइएका अनुमतिहरू रद्द गरियोस्"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"तपाईंको डेटाको सुरक्षा गर्न यो अनुप्रयोग केही महिना प्रयोग नगरिएका खण्डमा यो अनुप्रयोगलाई दिइएका अनुमतिहरू हटाइने छन्।"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"तपाईंले यो अनुप्रयोग केही महिनादेखि प्रयोग गर्नुभएको छैन भने तपाईंका डेटाको सुरक्षार्थ निम्न अनुमतिहरू रद्द गरिने छन्: <xliff:g id="PERMS">%1$s</xliff:g>।"</string>
+    <!-- no translation found for auto_revoke_summary (308686883215278993) -->
+    <skip />
+    <!-- no translation found for auto_revoke_summary_with_permissions (5460568151204648005) -->
+    <skip />
+    <!-- no translation found for auto_revoked_apps_page_summary (2780912986594704165) -->
+    <skip />
+    <!-- no translation found for auto_revoke_open_app_message (7960965074929429500) -->
+    <skip />
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"यो अनुप्रयोगलाई दिइएका अनुमतिहरू हाल स्वतः रद्द गर्न मिल्दैन।"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"हाल स्वतः रद्द गर्न सकिने खालको कुनै पनि अनुमति दिइएको छैन"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> सम्बन्धी अनुमति हटाइने छ।"</string>
@@ -143,10 +145,8 @@
     <skip />
     <string name="last_opened_summary" msgid="8038737442154732">"यो अनुप्रयोग पछिल्लो पटक <xliff:g id="DATE">%s</xliff:g> मा खोलिएको थियो"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"पछिल्लो पटक <xliff:g id="DATE">%s</xliff:g> मा खोलिएको थियो"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"तपाईंले सबै फाइलहरू व्यवस्थापन गर्ने अनुमति दिनुभयो भने यो अनुप्रयोगले यस यन्त्र वा यस यन्त्रसँग जोडिएका अन्य भण्डारण यन्त्रको साझा भण्डारणमा भएका सबै फाइलहरू प्रयोग गर्न, परिमार्जन गर्न र मेटाउन सक्छ। यो अनुप्रयोगले तपाईंलाई जानकारी नदिइकन ‌फाइलहरू प्रयोग गर्न सक्छ।"</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"यो अनुप्रयोगलाई यस यन्त्र वा यस यन्त्रसँग जोडिएका अन्य भण्डारण यन्त्रमा रहेका फाइलहरू प्रयोग गर्न, परिमार्जन गर्न र मेटाउन दिने हो? यो अनुप्रयोगले तपाईंलाई जानकारी नदिइकन ‌फाइलहरू प्रयोग गर्न सक्छ।"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"यो अनुमति पाएका अनुप्रयोगहरूले निम्न कार्य गर्न सक्छन् <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"यो अनुमति भएका अनुप्रयोगहरूले तपाईंले हिँड्ने, साइकल र गाडी कुदाउने जस्ता क्रियाकलाप गर्दा सृजित हुने डेटा हेर्न तथा प्रयोग गर्न सक्छन्"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"यो अनुमति पाएका अनुप्रयोगहरूले तपाईंको पात्रो हेर्न सक्छन्"</string>
@@ -166,10 +166,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"अनुमति दिइएको"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"सधैँ अनुमति दिइएको"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"प्रयोग भइरहेका बेला मात्र अनुमति दिइन्छ"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"केवल मिडिया प्रयोग गर्ने अनुमति दिइएको छ"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"सबै फाइलहरू व्यवस्थापन गर्ने अनुमति दिइएको छ"</string>
     <string name="ask_header" msgid="4471670860332046665">"प्रत्येक पटक सोध्नुहोस्"</string>
     <string name="denied_header" msgid="2277998574238617699">"अस्वीकार गरिएको"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -208,11 +206,13 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> र <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> र थप <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"तपाईंका डेटाको सुरक्षार्थ तपाईंले केही महिनादेखि प्रयोग नगरेका अनुप्रयोगलाई दिइएका अनुमतिहरू रद्द गरिएका छन्"</string>
+    <!-- no translation found for one_unused_app_summary (4609894550969723046) -->
+    <skip />
+    <!-- no translation found for num_unused_apps_summary (2950515592303103371) -->
+    <skip />
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"अनुप्रयोग प्रयोगमा भएको बेला मात्र"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"मिडिया"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"सबै फाइलहरू"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"कुनै पनि अनुमति छैन"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"कुनै पनि अनुमति अस्वीकार गरिएको छैन"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"कुनै पनि अनुप्रयोगलाई अनुमति दिइएको छैन"</string>

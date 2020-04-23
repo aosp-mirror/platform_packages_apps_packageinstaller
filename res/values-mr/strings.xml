@@ -42,18 +42,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ॲप वापरताना"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"फक्त यावेळी"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"सर्व वेळी अनुमती द्या"</string>
-    <!-- no translation found for grant_dialog_button_allow_all_files (1581085085495813735) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_media_only (3516456055703710144) -->
-    <skip />
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"सर्व फाइल व्यवस्थापित करण्यासाठी अनुमती द्या"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"मीडिया फाइल ॲक्सेस करण्यासाठी अनुमती द्या"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"अ‍ॅप्स"</string>
     <string name="app_permissions" msgid="2778362347879465223">"अ‍ॅप परवानग्या"</string>
-    <!-- no translation found for unused_apps (3935514133237470759) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_positive (3928516331670255309) -->
-    <skip />
-    <!-- no translation found for app_disable_dlg_text (5218197617670218828) -->
-    <skip />
+    <string name="unused_apps" msgid="3935514133237470759">"न वापरलेली अ‍ॅप्स"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"अ‍ॅप बंद करा"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"तुम्ही हे अ‍ॅप बंद केल्यास, Android आणि इतर अ‍ॅप्स कदाचित अपेक्षेप्रमाणे काम करणार नाहीत. लक्षात ठेवा, हे अ‍ॅप तुमच्या डिव्हाइसवर आधीच इंस्टॉल करून आलेले असल्यामुळे तुम्ही ते हटवू शकत नाही. बंद करून, तुम्ही हे अ‍ॅप बंद करता आणि तुमच्या डिव्हाइसवर ते लपवता."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"परवानगी व्यवस्थापक"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"पुन्हा विचारू नका"</string>
     <string name="no_permissions" msgid="2193893107241172888">"परवानग्या नाहीत"</string>
@@ -66,8 +61,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"हे अ‍ॅप Android च्या जुन्या आवृत्तीसाठी डीझाइन करण्यात आले होते. परवानगी नाकारल्यामुळे ते यापुढे अपेक्षित असल्याप्रमाणे कार्य करणार नाही."</string>
     <string name="default_permission_description" msgid="692254823411049573">"अज्ञात क्रिया करा"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> पैकी <xliff:g id="COUNT_1">%2$d</xliff:g> अ‍ॅप्सना परवानगी दिली"</string>
-    <!-- no translation found for app_permissions_group_summary2 (6879351603140930642) -->
-    <skip />
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> अ‍ॅप्सना अनुमती आहे"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"सिस्टम दर्शवा"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"सिस्टम लपवा"</string>
     <string name="no_apps" msgid="2377153782338039463">"कोणतेही अ‍ॅप्स नाहीत"</string>
@@ -111,10 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"वेळेनुसार फिल्टर करा"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"अनुमती द्या"</string>
-    <!-- no translation found for app_permission_button_allow_all_files (4981526745327887198) -->
-    <skip />
-    <!-- no translation found for app_permission_button_allow_media_only (4093190111622941620) -->
-    <skip />
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"सर्व फाइल व्यवस्थापित करण्यासाठी अनुमती द्या"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"फक्त मीडिया ॲक्सेस करण्यासाठी अनुमती द्या"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"सर्व वेळी अनुमती द्या"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"फक्त अ‍ॅप वापरत असताना अनुमती द्या"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"प्रत्येक वेळी विचारा"</string>
@@ -124,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"सर्व <xliff:g id="APP">%1$s</xliff:g> परवानग्या पहा"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ही परवानगी असलेली सर्व अ‍ॅप्स पहा"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"अ‍ॅप वापरले नसल्यास, परवानग्या काढून टाका"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"काही महिन्यांसाठी ॲप वापरले नसल्यास, तुमचा डेटा संरक्षित करण्यासाठी या अ‍ॅपच्या परवानग्या काढून टाकल्या जातील."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"तुमचा डेटा संरक्षित करण्यासाठी काही महिन्यांपासून अ‍ॅप वापरले नसल्यास, पुढील परवानग्या काढून टाकल्या जातील: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"तुमच्या डेटाचे संरक्षण करण्यासाठी, अ‍ॅप काही महिन्यांत वापरले गेले नसल्यास, या अ‍ॅपच्या परवानग्या काढल्या जातील."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"तुमच्या डेटाचे संरक्षण करण्यासाठी, अ‍ॅप काही महिन्यांत वापरले गेले नसल्यास, पुढील परवानग्या काढल्या जातील: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"तुमच्या डेटाचे संरक्षण करण्यासाठी, तुम्ही काही महिन्यांत न वापरलेल्या ॲप्समधून परवानग्या काढल्या गेल्या आहेत."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"तुम्हाला पुन्हा परवानग्या द्यायच्या असल्यास, अ‍ॅप उघडा"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"या अ‍ॅपसाठी ऑटोमॅटिक काढून टाकणे सध्या बंद केले आहे."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"कोणत्याही आपोआप रद्द करण्यायोग्य परवानग्या सध्या मंजूर केलेल्या नाहीत"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> परवानगी काढून टाकली जाईल."</string>
@@ -133,20 +127,14 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"परवानग्या काढून टाकल्या जातील: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"परवानग्या आपोआप व्यवस्थापित करा"</string>
     <string name="off" msgid="4561379152328580345">"बंद करा"</string>
-    <!-- no translation found for auto_revoked_app_summary_one (8225130145550153436) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_two (7221373533369007890) -->
-    <skip />
-    <!-- no translation found for auto_revoked_app_summary_many (7190907278970377826) -->
-    <skip />
-    <!-- no translation found for last_opened_category_title (4204626487716958146) -->
-    <skip />
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g> परवानग्या काढल्या गेल्या"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> आणि <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> परवानग्या काढल्या गेल्या"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> आणि इतर <xliff:g id="NUMBER">%2$s</xliff:g> परवानग्या काढल्या गेल्या"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"शेवटची <xliff:g id="NUMBER">%s</xliff:g> महिन्यांपूर्वी उघडली गेली"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"<xliff:g id="DATE">%s</xliff:g> रोजी ॲप शेवटचे उघडलेले"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"<xliff:g id="DATE">%s</xliff:g> रोजी शेवटचे उघडलेले"</string>
-    <!-- no translation found for app_permission_footer_special_file_access (2257708354000512325) -->
-    <skip />
-    <!-- no translation found for special_file_access_dialog (7325467268782278105) -->
-    <skip />
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"तुम्ही सर्व फाइल व्यवस्थापित करण्यासाठी अनुमती दिल्यास, हे ॲप या डिव्हाइसवर किंवा कनेक्ट केलेल्या स्टोरेज डिव्हाइसवर सामान्य स्टोरेजमधील कोणत्याही फाइल ॲक्सेस करू, सुधारित करू आणि हटवू शकते. ॲप कदाचित तुम्हाला न विचारता फाइल ॲक्सेस करू शकते."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"या ॲपला डिव्हाइसवरील किंवा कनेक्ट केलेल्या स्टोरेज डिव्हाइसमधील फाइल ॲक्सेस करण्यासाठी, त्या सुधारित करण्याकरिता आणि हटविण्यासाठी अनुमती द्यायची आहे का? हे ॲप कदाचित तुम्हाला न विचारता फाइल ॲक्सेस करू शकते"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"ही परवानगी असलेली अ‍ॅप्स <xliff:g id="DESCRIPTION">%1$s</xliff:g> करू शकतात"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ही परवानगी असलेली अ‍ॅप्स तुमची शारीरिक अ‍ॅक्टिव्हिटी जसे चालणे, सायकल चालवणे, ड्राइव्ह करणे, किती पावले चाललात ती संख्या आणि आणखी बर्‍याच गोष्टी अ‍ॅक्सेस करू शकतात"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ही परवानगी असलेली अ‍ॅप्स तुमचे कॅलेंडर अ‍ॅक्सेस करू शकतात"</string>
@@ -166,10 +154,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"अनुमती असलेले"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"सर्व वेळी अनुमती आहे"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"फक्त वापरत असताना अनुमती आहे"</string>
-    <!-- no translation found for allowed_storage_scoped (2472018207553284700) -->
-    <skip />
-    <!-- no translation found for allowed_storage_full (4167507647800726342) -->
-    <skip />
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"फक्त मीडिया ॲक्सेस करण्यासाठी अनुमती दिली आहे"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"सर्व फाइल व्यवस्थापित करण्यास अनुमती दिली आहे"</string>
     <string name="ask_header" msgid="4471670860332046665">"प्रत्येक वेळी विचारा"</string>
     <string name="denied_header" msgid="2277998574238617699">"नाकारलेली"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -189,10 +175,8 @@
       <item quantity="one">एक सेकंद</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"परवानगी रिमाइंडर"</string>
-    <!-- no translation found for auto_revoke_permission_reminder_notification_title (4605662126884792273) -->
-    <skip />
-    <!-- no translation found for auto_revoke_permission_reminder_notification_content (5782565378830205909) -->
-    <skip />
+    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"अ‍ॅप परवानग्या आपोआप काढल्या गेल्या"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"काही अ‍ॅप्स काही महिन्यांपासून वापरलेली नाहीत. आणखी माहितीसाठी टॅप करा."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ने बॅकग्राउंडमध्ये तुमचे स्थान मिळवले"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"हे अ‍ॅप नेहमी तुमचे स्थान अ‍ॅक्सेस करू शकते. बदलण्यासाठी टॅप करा."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"गोपनीयता संरक्षित करण्यासाठी अ‍ॅप परवानग्या काढून टाकल्या"</string>
@@ -208,11 +192,11 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> आणि <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> आणि आणखी <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"तुमचा डेटा संरक्षित करण्यासाठी तुम्ही काही महिन्यांपासून न वापरलेल्या ॲप्सवरून परवानग्या काढून टाकल्या आहेत"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"एक अ‍ॅप काही महिन्यांत वापरले गेले नाही"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> अ‍ॅप्स काही महिन्यांत वापरली गेली नाहीत"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"फक्त अ‍ॅप वापरत असताना"</string>
-    <!-- no translation found for permission_subtitle_media_only (4163630471124702816) -->
-    <skip />
-    <!-- no translation found for permission_subtitle_all_files (8017896678339448565) -->
-    <skip />
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"मीडिया"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"सर्व फाइल"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"कोणत्याही परवानगीची अनुमती नाही"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"कोणत्याही परवानग्या नाकारल्या नाहीत"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"कोणत्याही अ‍ॅप्सला अनुमती नाही"</string>
