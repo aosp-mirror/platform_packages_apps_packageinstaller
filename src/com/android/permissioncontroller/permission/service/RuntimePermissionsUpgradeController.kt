@@ -16,25 +16,24 @@
 
 package com.android.permissioncontroller.permission.service
 
-import com.android.permissioncontroller.PermissionControllerStatsLog.RUNTIME_PERMISSIONS_UPGRADE_RESULT
-
-import android.Manifest.permission_group
 import android.Manifest.permission
+import android.Manifest.permission_group
 import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.pm.PackageManager.FLAG_PERMISSION_WHITELIST_UPGRADE
 import android.content.pm.PermissionInfo
-import android.os.Process
+import android.os.Process.myUserHandle
 import android.permission.PermissionManager
 import android.util.ArrayMap
 import android.util.Log
-
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.PermissionControllerStatsLog
-import com.android.permissioncontroller.permission.data.get
+import com.android.permissioncontroller.PermissionControllerStatsLog.RUNTIME_PERMISSIONS_UPGRADE_RESULT
 import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
+import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.data.UserPackageInfosLiveData
+import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.utils.IPC
@@ -143,47 +142,112 @@ internal object RuntimePermissionsUpgradeController {
         val needBackgroundAppPermGroups = currentVersion <= 6
         val needAccessMediaAppPermGroups = currentVersion <= 7
 
-        val packageInfos = UserPackageInfosLiveData[Process.myUserHandle()].getInitializedValue()
-        if (!needAccessMediaAppPermGroups) {
-            // We need neither access media permission, nor background app perm groups
-            return onUpgradeLockedDataLoaded(context, currentVersion, packageInfos, emptyList(),
-                emptyList())
-        }
+        val upgradeData = object : SmartUpdateMediatorLiveData<Triple<List<LightPackageInfo>,
+                List<LightAppPermGroup>,
+                List<LightAppPermGroup>>>() {
+            /** Provides all packages in the system */
+            private val pkgInfoProvider = UserPackageInfosLiveData[myUserHandle()]
 
-        val bgApps = mutableListOf<LightAppPermGroup>()
-        val storageApps = mutableListOf<LightAppPermGroup>()
-        for ((packageName, _, requestedPerms, requestedPermFlags) in packageInfos) {
-            var hasAccessMedia = false
-            var hasDeniedExternalStorage = false
+            /** Provides all {@link LightAppPermGroup} this upgrade needs */
+            private var permGroupProviders: MutableList<LightAppPermGroupLiveData>? = null
 
-            for ((requestedPerm, permFlags) in requestedPerms.zip(requestedPermFlags)) {
-                if (needBackgroundAppPermGroups &&
-                    requestedPerm == permission.ACCESS_BACKGROUND_LOCATION) {
-                    LightAppPermGroupLiveData[packageName, permission_group.LOCATION,
-                        Process.myUserHandle()].getInitializedValue()?.let { group ->
-                        bgApps.add(group)
+            /** {@link #permGroupProviders} that already provided a result */
+            private val permGroupProvidersDone = mutableSetOf<LightAppPermGroupLiveData>()
+
+            init {
+                // First step: Load packages
+
+                addSource(pkgInfoProvider) {
+                    permGroupProviders?.forEach { removeSource(it) }
+                    permGroupProviders = null
+
+                    onUpdate()
+                }
+            }
+
+            override fun onUpdate() {
+                val pkgInfos = pkgInfoProvider.value ?: return
+
+                if (permGroupProviders == null) {
+                    // Second step: Trigger load of app-perm-groups
+
+                    permGroupProviders = mutableListOf()
+                    permGroupProvidersDone.clear()
+
+                    // Only load app-perm-groups needed for this upgrade
+                    if (needBackgroundAppPermGroups || needAccessMediaAppPermGroups) {
+                        for ((pkgName, _, requestedPerms, requestedPermFlags) in pkgInfos) {
+                            var hasAccessMedia = false
+                            var hasDeniedExternalStorage = false
+
+                            for ((perm, flags) in requestedPerms.zip(requestedPermFlags)) {
+                                if (needBackgroundAppPermGroups &&
+                                        perm == permission.ACCESS_BACKGROUND_LOCATION) {
+                                    permGroupProviders!!.add(LightAppPermGroupLiveData[pkgName,
+                                            permission_group.LOCATION, myUserHandle()])
+                                }
+
+                                if (needAccessMediaAppPermGroups) {
+                                    if (perm == permission.ACCESS_MEDIA_LOCATION) {
+                                        hasAccessMedia = true
+                                    }
+
+                                    if (perm == permission.READ_EXTERNAL_STORAGE &&
+                                            flags and PackageInfo.REQUESTED_PERMISSION_GRANTED
+                                            == 0) {
+                                        hasDeniedExternalStorage = true
+                                    }
+                                }
+                            }
+
+                            if (hasAccessMedia && !hasDeniedExternalStorage) {
+                                permGroupProviders!!.add(LightAppPermGroupLiveData[pkgName,
+                                        permission_group.STORAGE, myUserHandle()])
+                            }
+                        }
                     }
-                }
 
-                if (requestedPerm == permission.ACCESS_MEDIA_LOCATION) {
-                    hasAccessMedia = true
-                }
+                    // Wait until groups are loaded and then trigger third step
+                    for (provider in permGroupProviders!!) {
+                        addSource(provider) { newGroup ->
+                            if (newGroup != null) {
+                                permGroupProvidersDone.add(provider)
+                            }
+                            onUpdate()
+                        }
+                    }
 
-                if (requestedPerm == permission.READ_EXTERNAL_STORAGE &&
-                    permFlags and PackageInfo.REQUESTED_PERMISSION_GRANTED == 0) {
-                    hasDeniedExternalStorage = true
-                }
-            }
+                    // If no group need to be loaded, directly switch to third step
+                    if (permGroupProviders!!.isEmpty()) {
+                        onUpdate()
+                    }
+                } else if (permGroupProvidersDone.size == permGroupProviders!!.size) {
+                    // Third step: All perm groups are loaded, set value
 
-            if (hasAccessMedia && !hasDeniedExternalStorage) {
-                LightAppPermGroupLiveData[packageName, permission_group.STORAGE,
-                    Process.myUserHandle()].getInitializedValue()?.let { group ->
-                    storageApps.add(group)
+                    val bgGroups = mutableListOf<LightAppPermGroup>()
+                    val storageGroups = mutableListOf<LightAppPermGroup>()
+
+                    for (group in permGroupProviders!!.mapNotNull { it.value }) {
+                        when (group.permGroupName) {
+                            permission_group.LOCATION -> {
+                                bgGroups.add(group)
+                            }
+                            permission_group.STORAGE -> {
+                                storageGroups.add(group)
+                            }
+                        }
+                    }
+
+                    value = Triple(pkgInfos, bgGroups, storageGroups)
                 }
             }
         }
-        return onUpgradeLockedDataLoaded(context, currentVersion,
-            packageInfos, bgApps, storageApps)
+
+        // Trigger loading of data and wait until data is loaded
+        val (pkgInfos, bgGroups, storageGroups) = upgradeData.getInitializedValue()
+
+        return onUpgradeLockedDataLoaded(context, currentVersion, pkgInfos, bgGroups,
+                storageGroups)
     }
 
     private fun onUpgradeLockedDataLoaded(
