@@ -16,6 +16,8 @@
 
 package com.android.permissioncontroller.permission.utils;
 
+import static android.Manifest.permission.BIND_SOUND_TRIGGER_DETECTION_SERVICE;
+import static android.Manifest.permission.CAPTURE_AUDIO_HOTWORD;
 import static android.Manifest.permission_group.ACTIVITY_RECOGNITION;
 import static android.Manifest.permission_group.CALENDAR;
 import static android.Manifest.permission_group.CALL_LOG;
@@ -30,13 +32,16 @@ import static android.Manifest.permission_group.STORAGE;
 import static android.content.Context.MODE_PRIVATE;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED;
+import static android.content.pm.PackageManager.GET_SERVICES;
 import static android.content.pm.PackageManager.MATCH_SYSTEM_ONLY;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static android.os.UserHandle.myUserId;
 
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
 
 import android.Manifest;
 import android.app.Application;
+import android.app.role.RoleManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -47,6 +52,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
 import android.content.pm.ResolveInfo;
+import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.graphics.Bitmap;
@@ -980,7 +986,7 @@ public final class Utils {
             if ((pm.getPermissionFlags(permissionName, packageName, Process.myUserHandle())
                     & PackageManager.FLAG_PERMISSION_ONE_TIME) != 0
                     && pm.checkPermission(permissionName, packageName)
-                    == PackageManager.PERMISSION_GRANTED) {
+                    == PERMISSION_GRANTED) {
                 return true;
             }
         }
@@ -1016,5 +1022,40 @@ public final class Utils {
             return null;
         }
         return pm.getApplicationLabel(resolveInfo.activityInfo.applicationInfo);
+    }
+
+    /**
+     * This tells whether we should blame the app for potential background access. Intended to be
+     * used for creating Ui.
+     * @param context The context as the user of interest
+     * @param packageName The package to check
+     * @return true if the given package could possibly have foreground capabilities while in the
+     * background, otherwise false.
+     */
+    public static boolean couldHaveForegroundCapabilities(@NonNull Context context,
+            @NonNull String packageName) throws NameNotFoundException {
+
+        PackageManager pm = context.getPackageManager();
+
+        // Apps which can be bound by SoundTriggerService
+        if (pm.checkPermission(CAPTURE_AUDIO_HOTWORD, packageName) == PERMISSION_GRANTED) {
+            for (ServiceInfo service : pm.getPackageInfo(packageName, GET_SERVICES).services) {
+                if (BIND_SOUND_TRIGGER_DETECTION_SERVICE.equals(service.permission)) {
+                    return true;
+                }
+            }
+        }
+
+        // VoiceInteractionService
+        if (context.getSystemService(RoleManager.class).getRoleHolders(RoleManager.ROLE_ASSISTANT)
+                .contains(packageName)) {
+            return true;
+        }
+        if (packageName.equals(Settings.Secure.getString(context.getContentResolver(),
+                "voice_interaction_service"))) {
+            return true;
+        }
+
+        return false;
     }
 }
