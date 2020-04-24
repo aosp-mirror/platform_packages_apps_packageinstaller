@@ -33,6 +33,7 @@ import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.SmartAsyncMediatorLiveData
 import com.android.permissioncontroller.permission.data.UsageStatsLiveData
+import com.android.permissioncontroller.permission.utils.navigateSafe
 import kotlinx.coroutines.Job
 import java.util.concurrent.TimeUnit.DAYS
 
@@ -161,7 +162,7 @@ class AutoRevokeViewModel(private val app: Application) : ViewModel() {
     }
 
     fun navigateToAppPermissions(fragment: Fragment, args: Bundle) {
-        fragment.findNavController().navigate(R.id.auto_revoke_to_app_perms, args)
+        fragment.findNavController().navigateSafe(R.id.auto_revoke_to_app_perms, args)
     }
 
     fun openApp(packageName: String, user: UserHandle) {
