@@ -17,7 +17,6 @@
 package com.android.permissioncontroller.permission.ui.model
 
 import android.Manifest
-import android.app.Activity
 import android.app.AppOpsManager
 import android.app.AppOpsManager.MODE_ALLOWED
 import android.app.AppOpsManager.MODE_IGNORED
@@ -28,7 +27,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.UserHandle
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
@@ -390,18 +388,6 @@ class AppPermissionViewModel(
             return false
         }
         return true
-    }
-
-    /**
-     * Finish the current activity due to a data error, and display a short message to the user
-     * saying "app not found".
-     *
-     * @param activity The current activity
-     */
-    fun finishActivity(activity: Activity) {
-        Toast.makeText(activity, R.string.app_not_found_dlg_title, Toast.LENGTH_LONG).show()
-        activity.setResult(Activity.RESULT_CANCELED)
-        activity.finish()
     }
 
     /**
