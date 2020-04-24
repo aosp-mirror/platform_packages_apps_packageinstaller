@@ -42,6 +42,7 @@ import com.android.permissioncontroller.permission.ui.model.PermissionAppsViewMo
 import com.android.permissioncontroller.permission.ui.model.PermissionAppsViewModel.Companion.SHOULD_SHOW_SYSTEM_KEY
 import com.android.permissioncontroller.permission.ui.model.PermissionAppsViewModel.Companion.SHOW_ALWAYS_ALLOWED
 import com.android.permissioncontroller.permission.utils.LocationUtils
+import com.android.permissioncontroller.permission.utils.navigateSafe
 
 /**
  * ViewModel for the PermissionAppsFragment. Has a liveData with all of the UI info for each
@@ -231,7 +232,7 @@ class PermissionAppsViewModel(
             return
         }
 
-        fragment.findNavController().navigate(R.id.perm_apps_to_app, args)
+        fragment.findNavController().navigateSafe(R.id.perm_apps_to_app, args)
     }
 }
 
