@@ -19,6 +19,7 @@ package com.android.permissioncontroller.permission.ui.handheld;
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_CALLER_NAME;
 import static com.android.permissioncontroller.permission.ui.handheld.AppPermissionFragment.GRANT_CATEGORY;
+import static com.android.permissioncontroller.permission.utils.KotlinUtilsKt.navigateSafe;
 
 import android.content.Context;
 import android.content.Intent;
@@ -203,7 +204,7 @@ public class PermissionControlPreference extends Preference {
                 args.putString(EXTRA_CALLER_NAME, mCaller);
                 args.putLong(EXTRA_SESSION_ID, mSessionId);
                 args.putString(GRANT_CATEGORY, mGranted);
-                Navigation.findNavController(holder.itemView).navigate(R.id.perm_groups_to_app,
+                navigateSafe(Navigation.findNavController(holder.itemView), R.id.perm_groups_to_app,
                         args);
             } else {
                 // TODO ntmyren, yianyliu: Remove once Auto has been adapted to new permission model
