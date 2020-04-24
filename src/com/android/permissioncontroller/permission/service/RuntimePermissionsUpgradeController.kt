@@ -35,11 +35,10 @@ import com.android.permissioncontroller.permission.data.UserPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
-import com.android.permissioncontroller.permission.model.livedatatypes.LightPermInfo
 import com.android.permissioncontroller.permission.utils.IPC
 import com.android.permissioncontroller.permission.utils.KotlinUtils.grantBackgroundRuntimePermissions
 import com.android.permissioncontroller.permission.utils.KotlinUtils.grantForegroundRuntimePermissions
-import com.android.permissioncontroller.permission.utils.Utils
+import com.android.permissioncontroller.permission.utils.Utils.getPlatformPermissionNamesOfGroup
 import com.android.permissioncontroller.permission.utils.Utils.getRuntimePlatformPermissionNames
 import com.android.permissioncontroller.permission.utils.application
 import kotlinx.coroutines.GlobalScope
@@ -78,27 +77,20 @@ internal object RuntimePermissionsUpgradeController {
     /**
      * Create whitelistings for select permissions of select apps.
      *
-     * @param permissionInfos permissions whitelist
+     * @param permissionInfos permissions to whitelist
      * @param pkgs packages to whitelist
      *
      * @return the whitelistings to apply
      */
     private fun getWhitelistings(
-        permissionInfos: Map<String, LightPermInfo>,
+        permissions: Set<String>,
         pkgs: List<LightPackageInfo>
     ): List<Whitelisting> {
         val whitelistings = mutableListOf<Whitelisting>()
 
         for (pkg in pkgs) {
-            for (requestedPermission in pkg.requestedPermissions) {
-                val permInfo = permissionInfos[requestedPermission] ?: continue
-
-                if (permInfo.flags and (PermissionInfo.FLAG_HARD_RESTRICTED or
-                        PermissionInfo.FLAG_SOFT_RESTRICTED) == 0) {
-                    continue
-                }
-
-                whitelistings.add(Whitelisting(pkg.packageName, requestedPermission))
+            for (permission in permissions intersect pkg.requestedPermissions) {
+                whitelistings.add(Whitelisting(pkg.packageName, permission))
             }
         }
 
@@ -269,14 +261,19 @@ internal object RuntimePermissionsUpgradeController {
                         }
                     }
 
-                    val platformRuntimePermissionInfo = mutableMapOf<String, LightPermInfo>()
+                    val restrictedPermissions = mutableSetOf<String>()
                     for (permInfoLiveDt in platformRuntimePermissionInfoProviders) {
-                        platformRuntimePermissionInfo[permInfoLiveDt.value!!.name] =
-                                permInfoLiveDt.value!!
+                        val permInfo = permInfoLiveDt.value!!
+
+                        if (permInfo.flags and (PermissionInfo.FLAG_HARD_RESTRICTED or
+                                        PermissionInfo.FLAG_SOFT_RESTRICTED) == 0) {
+                            continue
+                        }
+
+                        restrictedPermissions.add(permInfo.name)
                     }
 
-                    value = UpgradeData(preinstalledPkgInfoProvider.value!!,
-                            platformRuntimePermissionInfo,
+                    value = UpgradeData(preinstalledPkgInfoProvider.value!!, restrictedPermissions,
                             pkgInfoProvider.value!!, bgGroups, storageGroups)
                 }
             }
@@ -289,11 +286,12 @@ internal object RuntimePermissionsUpgradeController {
         // installed. Hence their permission are never whitelisted. This code replaces that by
         // always whitelisting them. For non-OTA updates the installer should do the white-listing
         val preinstalledAppWhitelistings = getWhitelistings(
-                upgradeData.platformRuntimePermissionInfos,
+                upgradeData.restrictedPermissions,
                 upgradeData.preinstalledPkgs)
 
         val (newVersion, upgradeWhitelistings, grants) = onUpgradeLockedDataLoaded(currentVersion,
-                upgradeData.pkgs, upgradeData.bgGroups, upgradeData.storageGroups)
+                upgradeData.pkgs, upgradeData.restrictedPermissions, upgradeData.bgGroups,
+                upgradeData.storageGroups)
 
         // Do not run in parallel. Measurements have shown that this is slower than sequential
         for (whitelisting in (preinstalledAppWhitelistings union upgradeWhitelistings)) {
@@ -310,6 +308,7 @@ internal object RuntimePermissionsUpgradeController {
     private fun onUpgradeLockedDataLoaded(
         currVersion: Int,
         pkgs: List<LightPackageInfo>,
+        restrictedPermissions: Set<String>,
         bgApps: List<LightAppPermGroup>,
         accessMediaApps: List<LightAppPermGroup>
     ): Triple<Int, List<Whitelisting>, List<Grant>> {
@@ -336,17 +335,11 @@ internal object RuntimePermissionsUpgradeController {
         if (currentVersion == 0) {
             Log.i(LOG_TAG, "Grandfathering SMS and CallLog permissions")
 
-            val smsPermissions = Utils.getPlatformPermissionNamesOfGroup(permission_group.SMS)
-            val callLogPermissions = Utils.getPlatformPermissionNamesOfGroup(
-                permission_group.CALL_LOG)
+            val permissions = restrictedPermissions intersect
+                    (getPlatformPermissionNamesOfGroup(permission_group.SMS) +
+                    getPlatformPermissionNamesOfGroup(permission_group.CALL_LOG))
 
-            for ((packageName, _, requestedPermissions) in pkgs) {
-                for (requestedPerm in requestedPermissions) {
-                    if (requestedPerm in smsPermissions || requestedPerm in callLogPermissions) {
-                        whitelistings.add(Whitelisting(packageName, requestedPerm))
-                    }
-                }
-            }
+            whitelistings.addAll(getWhitelistings(permissions, pkgs))
 
             currentVersion = 1
         }
@@ -364,12 +357,8 @@ internal object RuntimePermissionsUpgradeController {
         if (currentVersion == 3) {
             Log.i(LOG_TAG, "Grandfathering location background permissions")
 
-            for ((packageName, _, requestedPermissions) in pkgs) {
-                if (permission.ACCESS_BACKGROUND_LOCATION in requestedPermissions) {
-                    whitelistings.add(Whitelisting(packageName,
-                            permission.ACCESS_BACKGROUND_LOCATION))
-                }
-            }
+            whitelistings.addAll(getWhitelistings(setOf(permission.ACCESS_BACKGROUND_LOCATION),
+                    pkgs))
 
             currentVersion = 4
         }
@@ -382,18 +371,12 @@ internal object RuntimePermissionsUpgradeController {
         if (currentVersion == 5) {
             Log.i(LOG_TAG, "Grandfathering Storage permissions")
 
-            val storagePermissions = Utils.getPlatformPermissionNamesOfGroup(
-                    permission_group.STORAGE)
+            val permissions = restrictedPermissions intersect
+                    getPlatformPermissionNamesOfGroup(permission_group.STORAGE)
 
-            for ((packageName, _, requestedPermissions) in pkgs) {
-                // We don't want to allow modification of storage post install, so put it
-                // on the internal system whitelist to prevent the installer changing it.
-                for (requestedPerm in requestedPermissions) {
-                    if (requestedPerm in storagePermissions) {
-                        whitelistings.add(Whitelisting(packageName, requestedPerm))
-                    }
-                }
-            }
+            // We don't want to allow modification of storage post install, so put it
+            // on the internal system whitelist to prevent the installer changing it.
+            whitelistings.addAll(getWhitelistings(permissions, pkgs))
 
             currentVersion = 6
         }
@@ -434,8 +417,8 @@ internal object RuntimePermissionsUpgradeController {
                     }
                 }
             } else {
-                Log.i(LOG_TAG, "Not expanding read storage to access media location as this is a "
-                        + "new user")
+                Log.i(LOG_TAG, "Not expanding read storage to access media location as this is " +
+                        "a new user")
             }
 
             currentVersion = 8
@@ -452,8 +435,8 @@ internal object RuntimePermissionsUpgradeController {
     private data class UpgradeData(
         /** Preinstalled packages */
         val preinstalledPkgs: List<LightPackageInfo>,
-        /** Runtime permissions defined by the platform (name -> description) */
-        val platformRuntimePermissionInfos: Map<String, LightPermInfo>,
+        /** Restricted permissions */
+        val restrictedPermissions: Set<String>,
         /** Currently installed packages */
         val pkgs: List<LightPackageInfo>,
         /**
