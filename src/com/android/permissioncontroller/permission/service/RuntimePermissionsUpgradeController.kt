@@ -121,8 +121,17 @@ internal object RuntimePermissionsUpgradeController {
         context: Context,
         currentVersion: Int
     ): Int {
-        val needBackgroundAppPermGroups = currentVersion <= 6
-        val needAccessMediaAppPermGroups = currentVersion <= 7
+        var sdkUpgradedFromP = false
+        var isNewUser = false
+
+        if (currentVersion <= -1) {
+            sdkUpgradedFromP = true
+        } else if (currentVersion == 0) {
+            isNewUser = true
+        }
+
+        val needBackgroundAppPermGroups = sdkUpgradedFromP && currentVersion <= 6
+        val needAccessMediaAppPermGroups = !isNewUser && currentVersion <= 7
 
         // All data needed by this method.
         //
@@ -308,7 +317,9 @@ internal object RuntimePermissionsUpgradeController {
         val grants = mutableListOf<Grant>()
 
         var currentVersion = currVersion
-        val sdkUpgradedFromP: Boolean
+        var sdkUpgradedFromP = false
+        var isNewUser = false
+
         if (currentVersion <= -1) {
             Log.i(LOG_TAG, "Upgrading from Android P")
 
@@ -316,8 +327,12 @@ internal object RuntimePermissionsUpgradeController {
 
             currentVersion = 0
         } else {
-            sdkUpgradedFromP = false
+            // If the initial version is 0 the permission state was just created
+            if (currentVersion == 0) {
+                isNewUser = true
+            }
         }
+
         if (currentVersion == 0) {
             Log.i(LOG_TAG, "Grandfathering SMS and CallLog permissions")
 
@@ -347,11 +362,11 @@ internal object RuntimePermissionsUpgradeController {
         }
 
         if (currentVersion == 3) {
-            if (sdkUpgradedFromP) {
-                Log.i(LOG_TAG, "Grandfathering location background permissions")
+            Log.i(LOG_TAG, "Grandfathering location background permissions")
 
-                for (appPermGroup in bgApps) {
-                    whitelistings.add(Whitelisting(appPermGroup.packageName,
+            for ((packageName, _, requestedPermissions) in pkgs) {
+                if (permission.ACCESS_BACKGROUND_LOCATION in requestedPermissions) {
+                    whitelistings.add(Whitelisting(packageName,
                             permission.ACCESS_BACKGROUND_LOCATION))
                 }
             }
@@ -405,16 +420,22 @@ internal object RuntimePermissionsUpgradeController {
         }
 
         if (currentVersion == 7) {
-            Log.i(LOG_TAG, "Expanding read storage to access media location")
+            if (!isNewUser) {
+                Log.i(LOG_TAG, "Expanding read storage to access media location")
 
-            for (appPermGroup in accessMediaApps) {
-                val perm = appPermGroup.permissions[permission.ACCESS_MEDIA_LOCATION] ?: continue
+                for (appPermGroup in accessMediaApps) {
+                    val perm = appPermGroup.permissions[permission.ACCESS_MEDIA_LOCATION]
+                            ?: continue
 
-                if (!perm.isUserSet && !perm.isSystemFixed && !perm.isPolicyFixed &&
-                    !perm.isGrantedIncludingAppOp) {
-                    grants.add(Grant(false, appPermGroup,
-                            listOf(permission.ACCESS_MEDIA_LOCATION)))
+                    if (!perm.isUserSet && !perm.isSystemFixed && !perm.isPolicyFixed &&
+                            !perm.isGrantedIncludingAppOp) {
+                        grants.add(Grant(false, appPermGroup,
+                                listOf(permission.ACCESS_MEDIA_LOCATION)))
+                    }
                 }
+            } else {
+                Log.i(LOG_TAG, "Not expanding read storage to access media location as this is a "
+                        + "new user")
             }
 
             currentVersion = 8
