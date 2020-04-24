@@ -247,7 +247,8 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         if (groupMap == null && mViewModel.getPackagePermGroupsLiveData().isInitialized()) {
             Toast.makeText(
                     getActivity(), R.string.app_not_found_dlg_title, Toast.LENGTH_LONG).show();
-            getActivity().finish();
+            Log.w(LOG_TAG, "invalid package " + mPackageName);
+            getActivity().onBackPressed();
             return;
         }
 
