@@ -16,10 +16,15 @@
 
 package com.android.packageinstaller.permission.utils;
 
+import android.Manifest;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
+import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.EventLog;
+import android.util.Log;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
@@ -37,6 +42,7 @@ public final class SafetyNetLogger {
 
     // Log tag for the result of permissions toggling.
     private static final String PERMISSIONS_TOGGLED = "individual_permissions_toggled";
+    public static final String LOG_TAG = SafetyNetLogger.class.getSimpleName();
 
     private SafetyNetLogger() {
         /* do nothing */
@@ -128,5 +134,28 @@ public final class SafetyNetLogger {
         }
 
         return builder.toString();
+    }
+
+    /**
+     * Log if the given package has defined a permission in the undefined group.
+     *
+     * @param pm A PackageManager to look up the package.
+     * @param packageName The name of the package to check.
+     */
+    public static void logIfHasUndefinedPermissionGroup(PackageManager pm, String packageName) {
+        try { //Avoid crashing for any reason
+            PermissionInfo[] permissions =
+                    pm.getPackageInfo(packageName, PackageManager.GET_PERMISSIONS).permissions;
+            if (permissions == null) {
+                return;
+            }
+            for (PermissionInfo permission : permissions) {
+                if (TextUtils.equals(permission.group, Manifest.permission_group.UNDEFINED)) {
+                    EventLog.writeEvent(SNET_NET_EVENT_LOG_TAG, "153879813");
+                }
+            }
+        } catch (Throwable e) {
+            Log.e(LOG_TAG, "Unable to log undefined permission event for " + packageName + ".", e);
+        }
     }
 }

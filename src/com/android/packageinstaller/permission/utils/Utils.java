@@ -316,7 +316,13 @@ public final class Utils {
     public static @NonNull List<PermissionInfo> getPermissionInfosForGroup(
             @NonNull PackageManager pm, @NonNull String group)
             throws PackageManager.NameNotFoundException {
-        List<PermissionInfo> permissions = pm.queryPermissionsByGroup(group, 0);
+        List<PermissionInfo> permissions = new ArrayList<>();
+        for (PermissionInfo permission : pm.queryPermissionsByGroup(group, 0)) {
+            // PermissionController's mapping takes precedence
+            if (getGroupOfPermission(permission).equals(group)) {
+                permissions.add(permission);
+            }
+        }
         permissions.addAll(getPlatformPermissionsOfGroup(pm, group));
 
         return permissions;

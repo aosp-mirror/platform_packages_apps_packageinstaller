@@ -268,6 +268,8 @@ public class GrantPermissionsActivity extends Activity
         // Cache this as this can only read on onCreate, not later.
         mCallingPackage = getCallingPackage();
 
+        SafetyNetLogger.logIfHasUndefinedPermissionGroup(getPackageManager(), mCallingPackage);
+
         setFinishOnTouchOutside(false);
 
         setTitle(R.string.permission_request_title);
