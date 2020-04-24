@@ -42,6 +42,7 @@ import com.android.permissioncontroller.permission.ui.Category
 import com.android.permissioncontroller.permission.utils.IPC
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils
+import com.android.permissioncontroller.permission.utils.navigateSafe
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -194,11 +195,11 @@ class AppPermissionGroupsViewModel(
     }
 
     fun showExtraPerms(fragment: Fragment, args: Bundle) {
-        fragment.findNavController().navigate(R.id.perm_groups_to_extra, args)
+        fragment.findNavController().navigateSafe(R.id.perm_groups_to_extra, args)
     }
 
     fun showAllPermissions(fragment: Fragment, args: Bundle) {
-        fragment.findNavController().navigate(R.id.perm_groups_to_all_perms, args)
+        fragment.findNavController().navigateSafe(R.id.perm_groups_to_all_perms, args)
     }
 }
 

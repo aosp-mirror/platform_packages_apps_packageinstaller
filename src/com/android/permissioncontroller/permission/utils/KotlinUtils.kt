@@ -37,10 +37,12 @@ import android.content.pm.PermissionGroupInfo
 import android.content.pm.PermissionInfo
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.os.Bundle
 import android.os.UserHandle
 import android.text.TextUtils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
 import com.android.permissioncontroller.R
@@ -847,4 +849,20 @@ suspend inline fun <T> Iterable<T>.forEachInParallel(
     crossinline action: suspend CoroutineScope.(T) -> Unit
 ) {
     mapInParallel(context, scope) { action(it) }
+}
+
+/**
+ * Check that we haven't already started transitioning to a given destination. If we haven't,
+ * start navigating to that destination.
+ *
+ * @param destResId The ID of the desired destination
+ * @param args The optional bundle of args to be passed to the destination
+ */
+fun NavController.navigateSafe(destResId: Int, args: Bundle? = null) {
+    val navAction = currentDestination?.getAction(destResId) ?: graph.getAction(destResId)
+    navAction?.let { action ->
+        if (currentDestination?.id != action.destinationId) {
+            navigate(destResId, args)
+        }
+    }
 }

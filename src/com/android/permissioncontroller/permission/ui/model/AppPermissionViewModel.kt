@@ -58,6 +58,7 @@ import com.android.permissioncontroller.permission.ui.model.AppPermissionViewMod
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.DENY
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.DENY_FOREGROUND
 import com.android.permissioncontroller.permission.utils.Utils
+import com.android.permissioncontroller.permission.utils.navigateSafe
 import com.android.settingslib.RestrictedLockUtils
 import java.util.Random
 import kotlin.collections.component1
@@ -415,7 +416,7 @@ class AppPermissionViewModel(
             actionId = R.id.app_to_perm_apps
         }
 
-        fragment.findNavController().navigate(actionId, args)
+        fragment.findNavController().navigateSafe(actionId, args)
     }
 
     /**
@@ -600,7 +601,7 @@ class AppPermissionViewModel(
      * @param fragment The current fragment we wish to transition from
      */
     fun showAllPermissions(fragment: Fragment, args: Bundle) {
-        fragment.findNavController().navigate(R.id.app_to_all_perms, args)
+        fragment.findNavController().navigateSafe(R.id.app_to_all_perms, args)
     }
 
     private fun getIndividualPermissionDetailResId(group: LightAppPermGroup): Pair<Int, Int> {
