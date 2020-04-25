@@ -1,4 +1,20 @@
-package com.android.permissioncontroller.permission.ui;
+/*
+ * Copyright (C) 2015 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.android.permissioncontroller.permission.ui.wear;
 
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.DENY_AND_DONT_ASK_AGAIN_BUTTON;
 
@@ -24,11 +40,12 @@ import androidx.wear.ble.view.AcceptDenyDialog;
 import androidx.wear.ble.view.WearableDialogHelper;
 
 import com.android.permissioncontroller.R;
+import com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler;
 
 /**
  * Watch-specific view handler for the grant permissions activity.
  */
-final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHandler,
+public final class GrantPermissionsWearViewHandler implements GrantPermissionsViewHandler,
         DialogInterface.OnClickListener {
     private static final String TAG = "GrantPermsWatchViewH";
 
@@ -53,12 +70,12 @@ final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHand
     private String mCurrentPageText;
     private Icon mIcon;
 
-    GrantPermissionsWatchViewHandler(Context context) {
+    public GrantPermissionsWearViewHandler(Context context) {
         mContext = context;
     }
 
     @Override
-    public GrantPermissionsWatchViewHandler setResultListener(ResultListener listener) {
+    public GrantPermissionsWearViewHandler setResultListener(ResultListener listener) {
         mResultListener = listener;
         return this;
     }
