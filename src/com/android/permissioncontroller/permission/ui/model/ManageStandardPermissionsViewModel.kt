@@ -30,6 +30,7 @@ import com.android.permissioncontroller.permission.data.PermGroupsPackagesLiveDa
 import com.android.permissioncontroller.permission.data.PermGroupsPackagesUiInfoLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.data.StandardPermGroupNamesLiveData
+import com.android.permissioncontroller.permission.utils.navigateSafe
 
 /**
  * A ViewModel for the ManageStandardPermissionsFragment. Provides a LiveData which watches over all
@@ -56,7 +57,7 @@ class ManageStandardPermissionsViewModel(
      * @param args The args to pass to the new fragment
      */
     fun showCustomPermissions(fragment: Fragment, args: Bundle) {
-        fragment.findNavController().navigate(R.id.standard_to_custom, args)
+        fragment.findNavController().navigateSafe(R.id.standard_to_custom, args)
     }
 
     /**
@@ -66,11 +67,11 @@ class ManageStandardPermissionsViewModel(
      * @param args The args to pass to the new fragment
      */
     fun showPermissionApps(fragment: Fragment, args: Bundle) {
-        fragment.findNavController().navigate(R.id.manage_to_perm_apps, args)
+        fragment.findNavController().navigateSafe(R.id.manage_to_perm_apps, args)
     }
 
     fun showAutoRevoke(fragment: Fragment, args: Bundle) {
-        fragment.findNavController().navigate(R.id.manage_to_auto_revoke)
+        fragment.findNavController().navigateSafe(R.id.manage_to_auto_revoke)
     }
 }
 

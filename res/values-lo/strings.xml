@@ -116,14 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ເບິ່ງສິດອະນຸຍາດ <xliff:g id="APP">%1$s</xliff:g> ທັງໝົດ"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ເບິ່ງແອັບທັງໝົດທີ່ມີສິດອະນຸຍາດນີ້"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"ລຶບສິດອະນຸຍາດຫາກບໍ່ໄດ້ໃຊ້ແອັບ"</string>
-    <!-- no translation found for auto_revoke_summary (308686883215278993) -->
-    <skip />
-    <!-- no translation found for auto_revoke_summary_with_permissions (5460568151204648005) -->
-    <skip />
-    <!-- no translation found for auto_revoked_apps_page_summary (2780912986594704165) -->
-    <skip />
-    <!-- no translation found for auto_revoke_open_app_message (7960965074929429500) -->
-    <skip />
+    <string name="auto_revoke_summary" msgid="308686883215278993">"ເພື່ອປົກປ້ອງຂໍ້ມູນຂອງທ່ານ, ສິດອະນຸຍາດສຳລັບແອັບນີ້ຈະຖືກລຶບອອກຫາກບໍ່ໄດ້ໃຊ້ແອັບສອງສາມເດືອນ."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"ເພື່ອປົກປ້ອງຂໍ້ມູນຂອງທ່ານ, ຫາກບໍ່ໄດ້ໃຊ້ແອັບສອງສາມເດືອນ, ສິດອະນຸຍາດຕໍ່ໄປນີ້ຈະຖືກລຶບອອກ: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"ເພື່ອປົກປ້ອງຂໍ້ມູນຂອງທ່ານ, ລະບົບໄດ້ລຶບສິດອະນຸຍາດອອກຈາກແອັບຕ່າງໆທີ່ທ່ານບໍ່ໄດ້ໃຊ້ສອງສາມເດືອນແລ້ວ."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"ກະລຸນາເປີດແອັບຂຶ້ນມາຫາກທ່ານຕ້ອງການອະນຸຍາດສິດອະນຸຍາດຄືນໃໝ່"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"ຕອນນີ້ແອັບນີ້ປິດການລຶບອັດຕະໂນມັດຢູ່."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ຕອນນີ້ບໍ່ມີການອະນຸມັດສິດການຖອດຖອນອັດຕະໂນມັດ"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ສິດອະນຸຍາດ <xliff:g id="PERM">%1$s</xliff:g> ຈະຖືກລຶບອອກ."</string>
@@ -196,10 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> ແລະ <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ແລະ ອື່ນໆອີກ <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ແອັບ"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ເພື່ອປົກປ້ອງຂໍ້ມູນຂອງທ່ານ, ລະບົບໄດ້ລຶບສິດອະນຸຍາດອອກຈາກແອັບຕ່າງໆທີ່ທ່ານບໍ່ໄດ້ໃຊ້ສອງສາມເດືອນແລ້ວ"</string>
-    <!-- no translation found for one_unused_app_summary (4609894550969723046) -->
-    <skip />
-    <!-- no translation found for num_unused_apps_summary (2950515592303103371) -->
-    <skip />
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"ບໍ່ໄດ້ໃຊ້ 1 ແອັບມາສອງສາມເດືອນແລ້ວ"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"ບໍ່ໄດ້ໃຊ້ <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ແອັບມາສອງສາມເດືອນແລ້ວ"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ສະເພາະເມື່ອມີການໃຊ້ແອັບ"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"ມີເດຍ"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"ໄຟລ໌ທັງຫມົດ"</string>

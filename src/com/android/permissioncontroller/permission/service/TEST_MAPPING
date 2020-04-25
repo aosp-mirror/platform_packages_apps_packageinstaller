@@ -7,6 +7,9 @@
                     "include-filter": "android.permission.cts.PermissionControllerTest"
                 },
                 {
+                    "include-filter": "android.permission.cts.OneTimePermissionTest"
+                },
+                {
                     "exclude-annotation": "androidx.test.filters.FlakyTest"
                 }
             ]
