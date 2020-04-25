@@ -85,6 +85,7 @@ import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissions;
 import com.android.permissioncontroller.permission.model.Permission;
 import com.android.permissioncontroller.permission.ui.auto.GrantPermissionsAutoViewHandler;
+import com.android.permissioncontroller.permission.ui.wear.GrantPermissionsWearViewHandler;
 import com.android.permissioncontroller.permission.utils.ArrayUtils;
 import com.android.permissioncontroller.permission.utils.PackageRemovalMonitor;
 import com.android.permissioncontroller.permission.utils.SafetyNetLogger;
@@ -344,7 +345,7 @@ public class GrantPermissionsActivity extends Activity
                     .GrantPermissionsViewHandlerImpl(this,
                     mCallingPackage).setResultListener(this);
         } else if (DeviceUtils.isWear(this)) {
-            mViewHandler = new GrantPermissionsWatchViewHandler(this).setResultListener(this);
+            mViewHandler = new GrantPermissionsWearViewHandler(this).setResultListener(this);
         } else if (DeviceUtils.isAuto(this)) {
             mViewHandler = new GrantPermissionsAutoViewHandler(this, mCallingPackage)
                     .setResultListener(this);
