@@ -17,7 +17,6 @@
 package com.android.permissioncontroller.permission.ui.model
 
 import android.Manifest
-import android.app.Activity
 import android.app.AppOpsManager
 import android.app.AppOpsManager.MODE_ALLOWED
 import android.app.AppOpsManager.MODE_IGNORED
@@ -28,7 +27,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.UserHandle
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
@@ -58,6 +56,7 @@ import com.android.permissioncontroller.permission.ui.model.AppPermissionViewMod
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.DENY
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.DENY_FOREGROUND
 import com.android.permissioncontroller.permission.utils.Utils
+import com.android.permissioncontroller.permission.utils.navigateSafe
 import com.android.settingslib.RestrictedLockUtils
 import java.util.Random
 import kotlin.collections.component1
@@ -392,18 +391,6 @@ class AppPermissionViewModel(
     }
 
     /**
-     * Finish the current activity due to a data error, and display a short message to the user
-     * saying "app not found".
-     *
-     * @param activity The current activity
-     */
-    fun finishActivity(activity: Activity) {
-        Toast.makeText(activity, R.string.app_not_found_dlg_title, Toast.LENGTH_LONG).show()
-        activity.setResult(Activity.RESULT_CANCELED)
-        activity.finish()
-    }
-
-    /**
      * Navigate to either the App Permission Groups screen, or the Permission Apps Screen.
      * @param fragment The current fragment
      * @param action The action to be taken
@@ -415,7 +402,7 @@ class AppPermissionViewModel(
             actionId = R.id.app_to_perm_apps
         }
 
-        fragment.findNavController().navigate(actionId, args)
+        fragment.findNavController().navigateSafe(actionId, args)
     }
 
     /**
@@ -600,7 +587,7 @@ class AppPermissionViewModel(
      * @param fragment The current fragment we wish to transition from
      */
     fun showAllPermissions(fragment: Fragment, args: Bundle) {
-        fragment.findNavController().navigate(R.id.app_to_all_perms, args)
+        fragment.findNavController().navigateSafe(R.id.app_to_all_perms, args)
     }
 
     private fun getIndividualPermissionDetailResId(group: LightAppPermGroup): Pair<Int, Int> {
