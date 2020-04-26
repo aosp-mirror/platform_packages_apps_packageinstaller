@@ -22,15 +22,13 @@ import android.app.Application
 import android.content.pm.PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT
 import android.content.pm.PackageManager.FLAG_PERMISSION_GRANTED_BY_ROLE
 import android.os.UserHandle
-import android.provider.DeviceConfig
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
 import com.android.permissioncontroller.permission.model.livedatatypes.AutoRevokeState
+import com.android.permissioncontroller.permission.service.isAutoRevokeEnabled
 import com.android.permissioncontroller.permission.service.isPackageAutoRevokeExempt
 import com.android.permissioncontroller.permission.utils.KotlinUtils
-import com.android.permissioncontroller.permission.utils.Utils
 import kotlinx.coroutines.Job
-import java.util.concurrent.TimeUnit
 
 /**
  * A LiveData which tracks the AutoRevoke state for one user package.
@@ -95,15 +93,7 @@ class AutoRevokeStateLiveData private constructor(
             }
         }
 
-        postValue(AutoRevokeState(isAutoRevokeEnabledGlobal(), revocable, autoRevokeState))
-    }
-
-    private fun isAutoRevokeEnabledGlobal(): Boolean {
-        val unusedThreshold = DeviceConfig.getLong(DeviceConfig.NAMESPACE_PERMISSIONS,
-                Utils.PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS, TimeUnit.DAYS.toMillis(90))
-        val checkFrequency = DeviceConfig.getLong(DeviceConfig.NAMESPACE_PERMISSIONS,
-            Utils.PROPERTY_AUTO_REVOKE_CHECK_FREQUENCY_MILLIS, TimeUnit.DAYS.toMillis(1))
-        return unusedThreshold > 0 && checkFrequency > 0
+        postValue(AutoRevokeState(isAutoRevokeEnabled(app), revocable, autoRevokeState))
     }
 
     private fun addAndRemovePermStateLiveDatas(groupNames: List<String>) {
