@@ -116,14 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"அனைத்து <xliff:g id="APP">%1$s</xliff:g> அனுமதிகளையும் காட்டு"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"இந்த அனுமதியைக் கொண்டுள்ள அனைத்து ஆப்ஸையும் காட்டு"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"இந்த ஆப்ஸ் பயன்படுத்தப்படவில்லை என்றால் அனுமதிகளை அகற்றவும்"</string>
-    <!-- no translation found for auto_revoke_summary (308686883215278993) -->
-    <skip />
-    <!-- no translation found for auto_revoke_summary_with_permissions (5460568151204648005) -->
-    <skip />
-    <!-- no translation found for auto_revoked_apps_page_summary (2780912986594704165) -->
-    <skip />
-    <!-- no translation found for auto_revoke_open_app_message (7960965074929429500) -->
-    <skip />
+    <string name="auto_revoke_summary" msgid="308686883215278993">"இந்த ஆப்ஸைச் சில மாதங்கள் பயன்படுத்தவில்லை என்றால் உங்கள் தரவைப் பாதுகாப்பதற்காக இதற்கான அனுமதிகள் அகற்றப்படும்."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"இந்த ஆப்ஸைச் சில மாதங்கள் பயன்படுத்தவில்லை என்றால் உங்கள் தரவைப் பாதுகாப்பதற்காக பின்வரும் அனுமதிகள் அகற்றப்படும்: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"உங்கள் தரவைப் பாதுகாப்பதற்காக, கடந்த சில மாதங்களில் நீங்கள் பயன்படுத்தாத ஆப்ஸில் இருந்து அனுமதிகள் அகற்றப்பட்டன."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"மீண்டும் அனுமதிகளை அனுமதிக்க விரும்பினால் ஆப்ஸைத் திறக்கவும்"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"\'தானாக அகற்றுதல்\' இந்த ஆப்ஸிற்குத் தற்சமயம் முடக்கப்பட்டுள்ளது."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"தானாக ரத்தாகக்கூடிய அனுமதிகள் எதுவும் வழங்கப்படவில்லை"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> அனுமதி அகற்றப்படும்."</string>
@@ -196,10 +192,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, மேலும் <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"உங்கள் தரவைப் பாதுகாக்கும் பொருட்டு கடந்த சில மாதங்களில் நீங்கள் பயன்படுத்தப்படாத ஆப்ஸில் இருந்து அனுமதிகள் அகற்றப்பட்டன"</string>
-    <!-- no translation found for one_unused_app_summary (4609894550969723046) -->
-    <skip />
-    <!-- no translation found for num_unused_apps_summary (2950515592303103371) -->
-    <skip />
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 ஆப்ஸ் கடந்த சில மாதங்களாகப் பயன்படுத்தப்படவில்லை"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ஆப்ஸ் கடந்த சில மாதங்களாகப் பயன்படுத்தப்படவில்லை"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ஆப்ஸ் உபயோகத்தில் இருக்கும்போது மட்டும்"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"மீடியா ஃபைல்கள்"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"அனைத்து ஃபைல்களும்"</string>
