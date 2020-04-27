@@ -16,6 +16,8 @@
 
 package com.android.permissioncontroller.ui.handheld
 
+import android.Manifest.permission.ACCESS_COARSE_LOCATION
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.content.Intent
 import android.content.Intent.ACTION_MANAGE_PERMISSION_APPS
 import android.content.Intent.EXTRA_PERMISSION_NAME
@@ -39,22 +41,17 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 /**
- * Simple tests for {@link PermissionAppsFragment}
+ * Superclass of all tests for {@link PermissionAppsFragmentTest}.
+ *
+ * <p>Leave abstract to prevent the test runner from trying to run it
  */
-@RunWith(AndroidJUnit4::class)
-class PermissionAppsFragmentTest {
-    private val ADDITIONAL_DEFINER_APK =
-            "/data/local/tmp/permissioncontroller/tests/unit/AppThatDefinesAdditionalPermission.apk"
-    private val ADDITIONAL_USER_APK =
-            "/data/local/tmp/permissioncontroller/tests/unit/" +
-                    "AppThatUsesAdditionalPermission.apk"
-    private val ADDITIONAL_DEFINER_PKG =
-            "com.android.permissioncontroller.tests.appthatdefinespermission"
-    private val ADDITIONAL_USER_PKG =
-            "com.android.permissioncontroller.tests.appthatrequestpermission"
-
-    private val PERM = "com.android.permissioncontroller.tests.A"
-
+abstract class PermissionAppsFragmentTest(
+    val userApk: String,
+    val userPkg: String,
+    val perm: String,
+    val definerApk: String? = null,
+    val definerPkg: String? = null
+) {
     @get:Rule
     val disableAnimations = DisableAnimationsRule()
 
@@ -62,10 +59,12 @@ class PermissionAppsFragmentTest {
     val managePermissionsActivity = object : ActivityTestRule<ManagePermissionsActivity>(
             ManagePermissionsActivity::class.java) {
         override fun getActivityIntent() = Intent(ACTION_MANAGE_PERMISSION_APPS)
-                .putExtra(EXTRA_PERMISSION_NAME, PERM)
+                .putExtra(EXTRA_PERMISSION_NAME, perm)
 
         override fun beforeActivityLaunched() {
-            install(ADDITIONAL_DEFINER_APK)
+            if (definerApk != null) {
+                install(definerApk)
+            }
         }
     }
 
@@ -76,41 +75,75 @@ class PermissionAppsFragmentTest {
 
     @Test
     fun appAppearsWhenInstalled() {
-        assertDoesNotHavePreference(ADDITIONAL_USER_PKG)
+        assertDoesNotHavePreference(userPkg)
 
-        install(ADDITIONAL_USER_APK)
+        install(userApk)
         eventually {
-            scrollToPreference(ADDITIONAL_USER_PKG)
+            scrollToPreference(userPkg)
         }
     }
 
     @Test
     fun appDisappearsWhenUninstalled() {
-        assertDoesNotHavePreference(ADDITIONAL_USER_PKG)
+        assertDoesNotHavePreference(userPkg)
 
-        install(ADDITIONAL_USER_APK)
+        install(userApk)
         eventually {
-            scrollToPreference(ADDITIONAL_USER_PKG)
+            scrollToPreference(userPkg)
         }
 
-        uninstallApp(ADDITIONAL_USER_PKG)
+        uninstallApp(userPkg)
         eventually {
-            assertDoesNotHavePreference(ADDITIONAL_USER_PKG)
-        }
-    }
-
-    @Test
-    fun fragmentIsClosedWhenPermissionIsRemoved() {
-        uninstallApp(ADDITIONAL_DEFINER_APK)
-        eventually {
-            assertThat(findNavController(managePermissionsActivity.activity, R.id.nav_host_fragment)
-                    .currentDestination).isNotEqualTo(R.id.permission_apps)
+            assertDoesNotHavePreference(userPkg)
         }
     }
 
     @After
     fun uninstallTestApp() {
-        uninstallApp(ADDITIONAL_DEFINER_PKG)
-        uninstallApp(ADDITIONAL_USER_PKG)
+        if (definerPkg != null) {
+            uninstallApp(definerPkg)
+        }
+        uninstallApp(userPkg)
+    }
+}
+
+/**
+ * Simple tests for {@link PermissionAppsFragment} when showing location permission
+ */
+@RunWith(AndroidJUnit4::class)
+class LocationPermissionAppsFragmentTest : PermissionAppsFragmentTest(
+    "/data/local/tmp/permissioncontroller/tests/unit/AppThatRequestsLocation.apk",
+    "android.permission.cts.appthatrequestpermission",
+    ACCESS_COARSE_LOCATION
+)
+
+/**
+ * Simple tests for {@link PermissionAppsFragment} when showing location permission
+ */
+@RunWith(AndroidJUnit4::class)
+class StoragePermissionAppsFragmentTest : PermissionAppsFragmentTest(
+    "/data/local/tmp/permissioncontroller/tests/unit/AppThatUsesStoragePermission.apk",
+    "com.android.permissioncontroller.tests.appthatrequestpermission",
+    READ_EXTERNAL_STORAGE
+)
+
+/**
+ * Simple tests for {@link PermissionAppsFragment} when showing custom permission
+ */
+@RunWith(AndroidJUnit4::class)
+class CustomPermissionAppsFragmentTest : PermissionAppsFragmentTest(
+    "/data/local/tmp/permissioncontroller/tests/unit/AppThatUsesAdditionalPermission.apk",
+    "com.android.permissioncontroller.tests.appthatrequestpermission",
+    "com.android.permissioncontroller.tests.A",
+    "/data/local/tmp/permissioncontroller/tests/unit/AppThatDefinesAdditionalPermission.apk",
+    "com.android.permissioncontroller.tests.appthatdefinespermission"
+) {
+    @Test
+    fun fragmentIsClosedWhenPermissionIsRemoved() {
+        uninstallApp(definerApk!!)
+        eventually {
+            assertThat(findNavController(managePermissionsActivity.activity, R.id.nav_host_fragment)
+                    .currentDestination).isNotEqualTo(R.id.permission_apps)
+        }
     }
 }

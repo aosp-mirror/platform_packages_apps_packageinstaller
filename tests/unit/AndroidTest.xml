@@ -37,6 +37,8 @@
     <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
         <option name="push-file" key="CtsAppThatRequestsLocationPermission29.apk"
                 value="/data/local/tmp/permissioncontroller/tests/unit/AppThatRequestsLocation.apk" />
+        <option name="push-file" key="AppThatUsesStoragePermission.apk"
+                value="/data/local/tmp/permissioncontroller/tests/unit/AppThatUsesStoragePermission.apk" />
         <option name="push-file" key="AppThatDefinesAdditionalPermission.apk"
                 value="/data/local/tmp/permissioncontroller/tests/unit/AppThatDefinesAdditionalPermission.apk" />
         <option name="push-file" key="AppThatUsesAdditionalPermission.apk"
