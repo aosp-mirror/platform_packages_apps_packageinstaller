@@ -16,12 +16,13 @@
 
 package com.android.permissioncontroller.permission.service;
 
+import static java.util.Collections.emptyList;
+
 import android.content.pm.permission.RuntimePermissionPresentationInfo;
 import android.permissionpresenterservice.RuntimePermissionPresenterService;
 
 import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,19 +33,6 @@ public final class RuntimePermissionPresenterServiceLegacyImpl extends
     @Override
     public @NonNull List<RuntimePermissionPresentationInfo> onGetAppPermissions(
             @NonNull String packageName) {
-        List<android.permission.RuntimePermissionPresentationInfo> permissions =
-                PermissionControllerServiceImpl.onGetAppPermissions(this, packageName);
-
-        ArrayList<RuntimePermissionPresentationInfo> legacyPermissions = new ArrayList<>(
-                permissions.size());
-
-        int numPermissions = permissions.size();
-        for (int i = 0; i < numPermissions; i++) {
-            android.permission.RuntimePermissionPresentationInfo permission = permissions.get(i);
-            legacyPermissions.add(new RuntimePermissionPresentationInfo(permission.getLabel(),
-                    permission.isGranted(), permission.isStandard()));
-        }
-
-        return legacyPermissions;
+        return emptyList();
     }
 }
