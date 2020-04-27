@@ -31,14 +31,12 @@ import static com.android.permissioncontroller.permission.utils.Utils.shouldShow
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Process;
 import android.os.UserHandle;
-import android.permission.PermissionControllerService;
 import android.permission.PermissionManager;
 import android.permission.RuntimePermissionPresentationInfo;
 import android.permission.RuntimePermissionUsageInfo;
@@ -407,37 +405,6 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
             }
             callback.accept(permissions);
         });
-    }
-
-    /**
-     * Implementation of {@link PermissionControllerService#onGetAppPermissions(String)}}.
-     * Called by the legacy implementation.
-     */
-    static @NonNull List<RuntimePermissionPresentationInfo> onGetAppPermissions(
-            @NonNull Context context, @NonNull String packageName) {
-        final PackageInfo packageInfo;
-        try {
-            packageInfo = context.getPackageManager().getPackageInfo(packageName, GET_PERMISSIONS);
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.e(LOG_TAG, "Error getting package:" + packageName, e);
-            return Collections.emptyList();
-        }
-
-        List<RuntimePermissionPresentationInfo> permissions = new ArrayList<>();
-
-        AppPermissions appPermissions = new AppPermissions(context, packageInfo, false, null);
-        for (AppPermissionGroup group : appPermissions.getPermissionGroups()) {
-            if (shouldShowPermission(context, group)) {
-                final boolean granted = group.areRuntimePermissionsGranted();
-                final boolean standard = Utils.OS_PKG.equals(group.getDeclaringPackage());
-                RuntimePermissionPresentationInfo permission =
-                        new RuntimePermissionPresentationInfo(group.getLabel(),
-                                granted, standard);
-                permissions.add(permission);
-            }
-        }
-
-        return permissions;
     }
 
     @Override
