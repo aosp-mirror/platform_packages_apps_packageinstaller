@@ -20,8 +20,6 @@ import static android.app.admin.DevicePolicyManager.PERMISSION_GRANT_STATE_DEFAU
 import static android.app.admin.DevicePolicyManager.PERMISSION_GRANT_STATE_DENIED;
 import static android.app.admin.DevicePolicyManager.PERMISSION_GRANT_STATE_GRANTED;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
-import static android.permission.PermissionControllerManager.COUNT_ONLY_WHEN_GRANTED;
-import static android.permission.PermissionControllerManager.COUNT_WHEN_SYSTEM;
 import static android.permission.PermissionControllerManager.REASON_INSTALLER_POLICY_VIOLATION;
 import static android.permission.PermissionControllerManager.REASON_MALWARE;
 import static android.util.Xml.newSerializer;
@@ -31,14 +29,12 @@ import static com.android.permissioncontroller.permission.utils.Utils.shouldShow
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Process;
 import android.os.UserHandle;
-import android.permission.PermissionControllerService;
 import android.permission.PermissionManager;
 import android.permission.RuntimePermissionPresentationInfo;
 import android.permission.RuntimePermissionUsageInfo;
@@ -409,37 +405,6 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
         });
     }
 
-    /**
-     * Implementation of {@link PermissionControllerService#onGetAppPermissions(String)}}.
-     * Called by the legacy implementation.
-     */
-    static @NonNull List<RuntimePermissionPresentationInfo> onGetAppPermissions(
-            @NonNull Context context, @NonNull String packageName) {
-        final PackageInfo packageInfo;
-        try {
-            packageInfo = context.getPackageManager().getPackageInfo(packageName, GET_PERMISSIONS);
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.e(LOG_TAG, "Error getting package:" + packageName, e);
-            return Collections.emptyList();
-        }
-
-        List<RuntimePermissionPresentationInfo> permissions = new ArrayList<>();
-
-        AppPermissions appPermissions = new AppPermissions(context, packageInfo, false, null);
-        for (AppPermissionGroup group : appPermissions.getPermissionGroups()) {
-            if (shouldShowPermission(context, group)) {
-                final boolean granted = group.areRuntimePermissionsGranted();
-                final boolean standard = Utils.OS_PKG.equals(group.getDeclaringPackage());
-                RuntimePermissionPresentationInfo permission =
-                        new RuntimePermissionPresentationInfo(group.getLabel(),
-                                granted, standard);
-                permissions.add(permission);
-            }
-        }
-
-        return permissions;
-    }
-
     @Override
     public void onRevokeRuntimePermission(@NonNull String packageName,
             @NonNull String permissionName, @NonNull Runnable callback) {
@@ -474,58 +439,6 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
         // There is no data processing needed, so we just directly pass the result onto the callback
         mServiceModel.onCountPermissionAppsLiveData(permissionNames, flags,
                 callback);
-    }
-
-    private int onCountPermissionApps(@NonNull List<String> permissionNames, int flags) {
-        boolean countSystem = (flags & COUNT_WHEN_SYSTEM) != 0;
-        boolean countOnlyGranted = (flags & COUNT_ONLY_WHEN_GRANTED) != 0;
-
-        List<PackageInfo> pkgs = getPackageManager().getInstalledPackages(GET_PERMISSIONS);
-
-        int numApps = 0;
-
-        int numPkgs = pkgs.size();
-        for (int pkgNum = 0; pkgNum < numPkgs; pkgNum++) {
-            PackageInfo pkg = pkgs.get(pkgNum);
-
-            int numPerms = permissionNames.size();
-            for (int permNum = 0; permNum < numPerms; permNum++) {
-                String perm = permissionNames.get(permNum);
-
-                AppPermissionGroup group = AppPermissionGroup.create(this, pkg,
-                        permissionNames.get(permNum), true);
-                if (group == null || !shouldShowPermission(this, group)) {
-                    continue;
-                }
-
-                AppPermissionGroup subGroup = null;
-                if (group.hasPermission(perm)) {
-                    subGroup = group;
-                } else {
-                    AppPermissionGroup bgGroup = group.getBackgroundPermissions();
-                    if (bgGroup != null && bgGroup.hasPermission(perm)) {
-                        subGroup = bgGroup;
-                    }
-                }
-
-                if (subGroup != null) {
-                    if (!countSystem && !subGroup.isUserSensitive()) {
-                        continue;
-                    }
-
-                    if (!countOnlyGranted || subGroup.areRuntimePermissionsGranted()) {
-                        // The permission might not be granted, but some permissions of the group
-                        // are granted. In this case the permission is granted silently when the app
-                        // asks for it.
-                        // Hence this is as-good-as-granted and we count it.
-                        numApps++;
-                        break;
-                    }
-                }
-            }
-        }
-
-        return numApps;
     }
 
     /**
