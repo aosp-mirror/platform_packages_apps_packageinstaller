@@ -17,6 +17,7 @@
 package com.android.permissioncontroller.permission.ui.handheld;
 
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
+import static com.android.permissioncontroller.permission.ui.handheld.UtilsKt.pressBack;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -93,7 +94,7 @@ public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                getActivity().onBackPressed();
+                pressBack(this);
                 return true;
         }
         return super.onOptionsItemSelected(item);
