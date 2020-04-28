@@ -35,7 +35,6 @@ import com.android.permissioncontroller.permission.data.FullStoragePermissionApp
 import com.android.permissioncontroller.permission.data.SinglePermGroupPackagesUiInfoLiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.ui.Category
-
 import com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog
 import com.android.permissioncontroller.permission.ui.model.PermissionAppsViewModel.Companion.CREATION_LOGGED_KEY
 import com.android.permissioncontroller.permission.ui.model.PermissionAppsViewModel.Companion.HAS_SYSTEM_APPS_KEY
