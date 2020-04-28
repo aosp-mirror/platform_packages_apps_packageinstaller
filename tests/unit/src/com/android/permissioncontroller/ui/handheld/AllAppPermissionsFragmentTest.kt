@@ -122,7 +122,7 @@ class AllAppPermissionsFragmentTest {
         uninstallApp(USER_PKG)
         eventually {
             assertThat(findNavController(managePermissionsActivity.activity, R.id.nav_host_fragment)
-                    .currentDestination).isNotEqualTo(R.id.all_app_permissions)
+                    .currentDestination?.id).isNotEqualTo(R.id.all_app_permissions)
         }
     }
 

@@ -33,6 +33,7 @@ import static com.android.permissioncontroller.permission.ui.GrantPermissionsVie
 import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_CALLER_NAME;
 import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_RESULT_PERMISSION_INTERACTED;
 import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_RESULT_PERMISSION_RESULT;
+import static com.android.permissioncontroller.permission.ui.handheld.UtilsKt.pressBack;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -308,7 +309,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            getActivity().onBackPressed();
+            pressBack(this);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -316,7 +317,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
 
     private void setRadioButtonsState(Map<ButtonType, ButtonState> states) {
         if (states == null && mViewModel.getButtonStateLiveData().isInitialized()) {
-            getActivity().onBackPressed();
+            pressBack(this);
             Log.w(LOG_TAG, "invalid package " + mPackageName + " or perm group "
                     + mPermGroupName);
             Toast.makeText(
