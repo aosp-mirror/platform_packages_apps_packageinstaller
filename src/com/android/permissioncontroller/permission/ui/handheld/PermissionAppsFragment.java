@@ -26,6 +26,7 @@ import static com.android.permissioncontroller.permission.ui.Category.ALLOWED;
 import static com.android.permissioncontroller.permission.ui.Category.ALLOWED_FOREGROUND;
 import static com.android.permissioncontroller.permission.ui.Category.ASK;
 import static com.android.permissioncontroller.permission.ui.Category.DENIED;
+import static com.android.permissioncontroller.permission.ui.handheld.UtilsKt.pressBack;
 
 import android.Manifest;
 import android.app.ActionBar;
@@ -187,7 +188,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
         switch (item.getItemId()) {
             case android.R.id.home:
                 mViewModel.updateShowSystem(false);
-                getActivity().onBackPressed();
+                pressBack(this);
                 return true;
             case MENU_SHOW_SYSTEM:
             case MENU_HIDE_SYSTEM:

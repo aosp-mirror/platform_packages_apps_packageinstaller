@@ -16,6 +16,8 @@
 
 package com.android.permissioncontroller.permission.ui.handheld;
 
+import static com.android.permissioncontroller.permission.ui.handheld.UtilsKt.pressBack;
+
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -117,7 +119,7 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
         if (mPackageName == null || mUser == null) {
             Log.e(LOG_TAG, "Missing required argument EXTRA_PACKAGE_NAME or "
                     + "EXTRA_USER");
-            getActivity().onBackPressed();
+            pressBack(this);
         }
 
         AllAppPermissionsViewModelFactory factory = new AllAppPermissionsViewModelFactory(
@@ -153,7 +155,7 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home: {
-                getActivity().onBackPressed();
+                pressBack(this);
                 return true;
             }
         }
@@ -165,7 +167,7 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
             Toast.makeText(
                     getActivity(), R.string.app_not_found_dlg_title, Toast.LENGTH_LONG).show();
             Log.w(LOG_TAG, "invalid package " + mPackageName);
-            getActivity().onBackPressed();
+            pressBack(this);
             return;
         }
 
