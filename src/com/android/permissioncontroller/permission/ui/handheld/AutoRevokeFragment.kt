@@ -174,8 +174,7 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
                 }
 
                 pref.onPreferenceClickListener = Preference.OnPreferenceClickListener { _ ->
-                    val args = AppPermissionGroupsFragment.createArgs(pkgName, user, sessionId)
-                    viewModel.navigateToAppPermissions(this, args)
+                    viewModel.navigateToAppInfo(pkgName, user, sessionId)
                     true
                 }
 
