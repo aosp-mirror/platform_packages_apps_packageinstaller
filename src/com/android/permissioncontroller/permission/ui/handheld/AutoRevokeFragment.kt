@@ -107,8 +107,8 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-                activity!!.onBackPressed()
-                return true
+            this.pressBack()
+            return true
         }
         return super.onOptionsItemSelected(item)
     }
