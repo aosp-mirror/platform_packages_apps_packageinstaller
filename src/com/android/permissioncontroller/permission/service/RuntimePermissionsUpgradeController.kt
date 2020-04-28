@@ -157,7 +157,7 @@ internal object RuntimePermissionsUpgradeController {
                     if (pkgInfos != null) {
                         removeSource(pkgInfoProvider)
 
-                        onUpdate()
+                        updateIfActive()
                     }
                 }
 
@@ -170,7 +170,7 @@ internal object RuntimePermissionsUpgradeController {
                             platformRuntimePermissionInfoProvidersDone.add(permProvider)
                             removeSource(permProvider)
 
-                            onUpdate()
+                            updateIfActive()
                         }
                     }
                 }
@@ -179,7 +179,7 @@ internal object RuntimePermissionsUpgradeController {
                     if (preinstalledPkgInfos != null) {
                         removeSource(preinstalledPkgInfoProvider)
 
-                        onUpdate()
+                        updateIfActive()
                     }
                 }
             }
@@ -231,14 +231,14 @@ internal object RuntimePermissionsUpgradeController {
                                 permGroupProvidersDone.add(permGroupProvider)
                                 removeSource(permGroupProvider)
 
-                                onUpdate()
+                                updateIfActive()
                             }
                         }
                     }
 
                     // If no group need to be loaded, directly switch to third step
                     if (permGroupProviders!!.isEmpty()) {
-                        onUpdate()
+                        updateIfActive()
                     }
                 } else if (permGroupProviders != null &&
                         permGroupProvidersDone.size == permGroupProviders!!.size &&
@@ -280,7 +280,7 @@ internal object RuntimePermissionsUpgradeController {
         }
 
         // Trigger loading of data and wait until data is loaded
-        val upgradeData = upgradeDataProvider.getInitializedValue()
+        val upgradeData = upgradeDataProvider.getInitializedValue(forceUpdate = true)
 
         // Only whitelist permissions that are in the OTA. Apps that are updated via OTAs are never
         // installed. Hence their permission are never whitelisted. This code replaces that by
