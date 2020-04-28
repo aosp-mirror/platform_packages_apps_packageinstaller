@@ -42,8 +42,6 @@ public class PermissionSearchIndexablesProvider extends BaseSearchIndexablesProv
 
     public static final String ACTION_MANAGE_PERMISSION_APPS =
             "com.android.permissioncontroller.settingssearch.action.MANAGE_PERMISSION_APPS";
-    public static final String ACTION_REVIEW_PERMISSION_USAGE =
-            "com.android.permissioncontroller.settingssearch.action.REVIEW_PERMISSION_USAGE";
 
     @Override
     public Cursor queryRawData(String[] projection) {
@@ -66,12 +64,6 @@ public class PermissionSearchIndexablesProvider extends BaseSearchIndexablesProv
                     .add(COLUMN_KEY, createRawDataKey(groupName, context))
                     .add(COLUMN_INTENT_ACTION, ACTION_MANAGE_PERMISSION_APPS);
         }
-
-        cursor.newRow().add(COLUMN_RANK, 0)
-                .add(COLUMN_TITLE, context.getString(R.string.permission_usage_title))
-                .add(COLUMN_KEYWORDS, context.getString(R.string.permission_search_keyword))
-                .add(COLUMN_KEY, createRawDataKey("permissions usage", context))
-                .add(COLUMN_INTENT_ACTION, ACTION_REVIEW_PERMISSION_USAGE);
 
         return cursor;
     }

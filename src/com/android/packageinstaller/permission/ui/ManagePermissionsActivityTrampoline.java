@@ -45,19 +45,14 @@ public class ManagePermissionsActivityTrampoline extends Activity {
 
         Intent newIntent = new Intent(this, ManagePermissionsActivity.class)
                 .addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-        switch (action) {
-            case PermissionSearchIndexablesProvider.ACTION_REVIEW_PERMISSION_USAGE:
-                newIntent.setAction(Intent.ACTION_REVIEW_PERMISSION_USAGE);
-                break;
-            case PermissionSearchIndexablesProvider.ACTION_MANAGE_PERMISSION_APPS:
-                newIntent
-                        .setAction(Intent.ACTION_MANAGE_PERMISSION_APPS)
-                        .putExtra(Intent.EXTRA_PERMISSION_NAME,
-                                PermissionSearchIndexablesProvider.getOriginalKey(intent));
-                break;
-            default:
-                finish();
-                return;
+        if (action.equals(PermissionSearchIndexablesProvider.ACTION_MANAGE_PERMISSION_APPS)) {
+            newIntent
+                    .setAction(Intent.ACTION_MANAGE_PERMISSION_APPS)
+                    .putExtra(Intent.EXTRA_PERMISSION_NAME,
+                            PermissionSearchIndexablesProvider.getOriginalKey(intent));
+        } else {
+            finish();
+            return;
         }
 
         startActivity(newIntent);
