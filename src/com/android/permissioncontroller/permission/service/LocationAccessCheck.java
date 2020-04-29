@@ -82,7 +82,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -588,7 +587,7 @@ public class LocationAccessCheck {
         clickIntent.putExtra(EXTRA_USER, user);
         clickIntent.setFlags(FLAG_RECEIVER_FOREGROUND);
 
-        CharSequence appName = getNotificationAppName();
+        CharSequence appName = Utils.getSettingsLabelForNotifications(mPackageManager);
 
         Notification.Builder b = (new Notification.Builder(mContext,
                 PERMISSION_REMINDER_CHANNEL_ID))
@@ -625,17 +624,6 @@ public class LocationAccessCheck {
 
         mSharedPrefs.edit().putLong(KEY_LAST_LOCATION_ACCESS_NOTIFICATION_SHOWN,
                 currentTimeMillis()).apply();
-    }
-
-    @Nullable
-    private CharSequence getNotificationAppName() {
-        // We pretend we're the Settings app sending the notification, so figure out its name.
-        Intent openSettingsIntent = new Intent(Settings.ACTION_SETTINGS);
-        ResolveInfo resolveInfo = mPackageManager.resolveActivity(openSettingsIntent, 0);
-        if (resolveInfo == null) {
-            return null;
-        }
-        return mPackageManager.getApplicationLabel(resolveInfo.activityInfo.applicationInfo);
     }
 
     /**
