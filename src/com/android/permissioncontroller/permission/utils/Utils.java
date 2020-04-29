@@ -103,7 +103,7 @@ public final class Utils {
 
     /** The timeout for auto-revoke permissions */
     public static final String PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS =
-            "auto_revoke_unused_threshold_millis";
+            "auto_revoke_unused_threshold_millis2";
 
     /** The frequency of running the job for auto-revoke permissions */
     public static final String PROPERTY_AUTO_REVOKE_CHECK_FREQUENCY_MILLIS =
