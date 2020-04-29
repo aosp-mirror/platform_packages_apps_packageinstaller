@@ -36,6 +36,7 @@ import com.android.permissioncontroller.wakeUpScreen
 import com.google.common.truth.Truth.assertThat
 import org.junit.After
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -138,12 +139,13 @@ class CustomPermissionAppsFragmentTest : PermissionAppsFragmentTest(
     "/data/local/tmp/permissioncontroller/tests/unit/AppThatDefinesAdditionalPermission.apk",
     "com.android.permissioncontroller.tests.appthatdefinespermission"
 ) {
+    @Ignore("b/155112992")
     @Test
     fun fragmentIsClosedWhenPermissionIsRemoved() {
         uninstallApp(definerApk!!)
         eventually {
             assertThat(findNavController(managePermissionsActivity.activity, R.id.nav_host_fragment)
-                    .currentDestination).isNotEqualTo(R.id.permission_apps)
+                    .currentDestination?.id).isNotEqualTo(R.id.permission_apps)
         }
     }
 }
