@@ -70,7 +70,9 @@ object AutoRevokedPackagesLiveData
             }
             packageAutoRevokedPermsList.remove(pkg)
         }
-        postValue(packageAutoRevokedPermsList.toMap())
+        if (toRemove.isNotEmpty()) {
+            postCopyOfMap()
+        }
 
         toAdd.forEach { packagePermGroupsLiveDatas[it] = PackagePermissionsLiveData[it] }
 
@@ -103,6 +105,10 @@ object AutoRevokedPackagesLiveData
             }
         }
 
+        if (toRemove.isNotEmpty()) {
+            postCopyOfMap()
+        }
+
         toAdd.forEach { permStateLiveDatas[it] = PermStateLiveData[it] }
 
         toAdd.forEach { packagePermGroup ->
@@ -133,14 +139,18 @@ object AutoRevokedPackagesLiveData
                 }
 
                 if (permStateLiveDatas.all { it.value.isInitialized }) {
-                    val autoRevokedCopy =
-                            mutableMapOf<Pair<String, UserHandle>, Set<String>>()
-                    for ((userPackage, permGroups) in packageAutoRevokedPermsList) {
-                        autoRevokedCopy[userPackage] = permGroups.toSet()
-                    }
-                    postValue(autoRevokedCopy)
+                    postCopyOfMap()
                 }
             }
         }
+    }
+
+    private fun postCopyOfMap() {
+        val autoRevokedCopy =
+            mutableMapOf<Pair<String, UserHandle>, Set<String>>()
+        for ((userPackage, permGroups) in packageAutoRevokedPermsList) {
+            autoRevokedCopy[userPackage] = permGroups.toSet()
+        }
+        postValue(autoRevokedCopy)
     }
 }
