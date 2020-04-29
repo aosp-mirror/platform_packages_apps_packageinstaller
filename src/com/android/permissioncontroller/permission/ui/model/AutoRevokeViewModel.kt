@@ -21,19 +21,16 @@ import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Bundle
 import android.os.UserHandle
+import android.provider.Settings
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.android.permissioncontroller.permission.data.AutoRevokedPackagesLiveData
 import com.android.permissioncontroller.permission.utils.Utils
-import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.SmartAsyncMediatorLiveData
 import com.android.permissioncontroller.permission.data.UsageStatsLiveData
-import com.android.permissioncontroller.permission.utils.navigateSafe
 import kotlinx.coroutines.Job
 import java.util.concurrent.TimeUnit.DAYS
 
@@ -161,8 +158,13 @@ class AutoRevokeViewModel(private val app: Application) : ViewModel() {
         return AutoRevokedPackagesLiveData.isInitialized
     }
 
-    fun navigateToAppPermissions(fragment: Fragment, args: Bundle) {
-        fragment.findNavController().navigateSafe(R.id.auto_revoke_to_app_perms, args)
+    fun navigateToAppInfo(packageName: String, user: UserHandle, sessionId: Long) {
+        val userContext = Utils.getUserContext(app, user)
+        val packageUri = Uri.parse("package:$packageName")
+        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageUri)
+        intent.putExtra(Intent.ACTION_AUTO_REVOKE_PERMISSIONS, sessionId)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        userContext.startActivityAsUser(intent, user)
     }
 
     fun openApp(packageName: String, user: UserHandle) {
