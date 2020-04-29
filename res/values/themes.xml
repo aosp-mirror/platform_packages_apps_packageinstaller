@@ -38,6 +38,7 @@
         <item name="android:textAppearanceMedium">@style/MediumText</item>
         <item name="android:textAppearanceSmall">@style/SmallText</item>
         <item name="android:titleTextStyle">@style/TitleText</item>
+        <item name="android:filterTouchesWhenObscured">true</item>
     </style>
 
     <style name="DialogWhenLargeNoAnimation" parent="DialogWhenLarge">
@@ -53,5 +54,21 @@
             parent="@android:style/Theme.DeviceDefault.Settings">
     </style>
 
+
+
+
+<!-- Do not allow OEMs to overlay these themes.
+ Must Guarantee that filterTouches is set for these activities -->
+    <style name="FilterTouches">
+        <item name="android:filterTouchesWhenObscured">true</item>
+    </style>
+
+    <style name="Settings.FilterTouches">
+        <item name="android:filterTouchesWhenObscured">true</item>
+    </style>
+
+    <style name="GrantPermissions.FilterTouches">
+        <item name="android:filterTouchesWhenObscured">true</item>
+    </style>
 
 </resources>
