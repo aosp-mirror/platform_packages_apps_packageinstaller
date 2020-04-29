@@ -133,7 +133,7 @@
         <activity android:name=".permission.ui.GrantPermissionsActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
-                android:theme="@style/GrantPermissions"
+                android:theme="@style/GrantPermissions.FilterTouches"
                 android:visibleToInstantApps="true">
             <intent-filter android:priority="1">
                 <action android:name="android.content.pm.action.REQUEST_PERMISSIONS" />
@@ -145,7 +145,7 @@
                   android:configChanges="orientation|keyboardHidden|screenSize"
                   android:excludeFromRecents="true"
                   android:label="@string/app_permissions"
-                  android:theme="@style/Settings"
+                  android:theme="@style/Settings.FilterTouches"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
