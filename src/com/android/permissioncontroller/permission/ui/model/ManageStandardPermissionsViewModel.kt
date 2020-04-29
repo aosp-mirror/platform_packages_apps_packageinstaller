@@ -25,11 +25,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.android.permissioncontroller.R
-import com.android.permissioncontroller.permission.data.AutoRevokedPackagesLiveData
 import com.android.permissioncontroller.permission.data.PermGroupsPackagesLiveData
 import com.android.permissioncontroller.permission.data.PermGroupsPackagesUiInfoLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.data.StandardPermGroupNamesLiveData
+import com.android.permissioncontroller.permission.data.UnusedAutoRevokedPackagesLiveData
 import com.android.permissioncontroller.permission.utils.navigateSafe
 
 /**
@@ -46,7 +46,7 @@ class ManageStandardPermissionsViewModel(
     val uiDataLiveData = PermGroupsPackagesUiInfoLiveData(app,
         StandardPermGroupNamesLiveData)
     val numCustomPermGroups = NumCustomPermGroupsWithPackagesLiveData()
-    val numAutoRevoked = Transformations.map(AutoRevokedPackagesLiveData) {
+    val numAutoRevoked = Transformations.map(UnusedAutoRevokedPackagesLiveData) {
         it?.size ?: 0
     }
 
