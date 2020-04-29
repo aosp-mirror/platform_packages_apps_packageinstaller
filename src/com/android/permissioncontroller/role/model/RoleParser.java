@@ -65,6 +65,8 @@ public class RoleParser {
     private static final String TAG_DATA = "data";
     private static final String TAG_META_DATA = "meta-data";
     private static final String TAG_PERMISSIONS = "permissions";
+    private static final String TAG_APP_OP_PERMISSIONS = "app-op-permissions";
+    private static final String TAG_APP_OP_PERMISSION = "app-op-permission";
     private static final String TAG_APP_OPS = "app-ops";
     private static final String TAG_APP_OP = "app-op";
     private static final String TAG_PREFERRED_ACTIVITIES = "preferred-activities";
@@ -358,6 +360,7 @@ public class RoleParser {
 
         List<RequiredComponent> requiredComponents = null;
         List<String> permissions = null;
+        List<String> appOpPermissions = null;
         List<AppOp> appOps = null;
         List<PreferredActivity> preferredActivities = null;
 
@@ -388,6 +391,14 @@ public class RoleParser {
                     }
                     permissions = parsePermissions(parser, permissionSets);
                     break;
+                case TAG_APP_OP_PERMISSIONS:
+                    if (appOpPermissions != null) {
+                        throwOrLogMessage("Duplicate <app-op-permissions> in role: " + name);
+                        skipCurrentTag(parser);
+                        continue;
+                    }
+                    appOpPermissions = parseAppOpPermissions(parser);
+                    break;
                 case TAG_APP_OPS:
                     if (appOps != null) {
                         throwOrLogMessage("Duplicate <app-ops> in role: " + name);
@@ -416,6 +427,9 @@ public class RoleParser {
         if (permissions == null) {
             permissions = Collections.emptyList();
         }
+        if (appOpPermissions == null) {
+            appOpPermissions = Collections.emptyList();
+        }
         if (appOps == null) {
             appOps = Collections.emptyList();
         }
@@ -425,7 +439,7 @@ public class RoleParser {
         return new Role(name, behavior, defaultHoldersResourceName, descriptionResource, exclusive,
                 labelResource, requestDescriptionResource, requestTitleResource, requestable,
                 searchKeywordsResource, shortLabelResource, showNone, systemOnly, visible,
-                requiredComponents, permissions, appOps, preferredActivities);
+                requiredComponents, permissions, appOpPermissions, appOps, preferredActivities);
     }
 
     @NonNull
@@ -678,6 +692,39 @@ public class RoleParser {
         }
 
         return permissions;
+    }
+
+    @NonNull
+    private List<String> parseAppOpPermissions(@NonNull XmlResourceParser parser)
+            throws IOException, XmlPullParserException {
+        List<String> appOpPermissions = new ArrayList<>();
+
+        int type;
+        int depth;
+        int innerDepth = parser.getDepth() + 1;
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && ((depth = parser.getDepth()) >= innerDepth
+                || type != XmlResourceParser.END_TAG)) {
+            if (depth > innerDepth || type != XmlResourceParser.START_TAG) {
+                continue;
+            }
+
+            if (parser.getName().equals(TAG_APP_OP_PERMISSION)) {
+                String appOpPermission = requireAttributeValue(parser, ATTRIBUTE_NAME,
+                        TAG_APP_OP_PERMISSION);
+                if (appOpPermission == null) {
+                    continue;
+                }
+                validateNoDuplicateElement(appOpPermission, appOpPermissions, "app op permission");
+                appOpPermissions.add(appOpPermission);
+                break;
+            } else {
+                throwOrLogForUnknownTag(parser);
+                skipCurrentTag(parser);
+            }
+        }
+
+        return appOpPermissions;
     }
 
     @NonNull
@@ -966,6 +1013,14 @@ public class RoleParser {
                 validateAppOp(appOp);
             }
 
+            List<String> appOpPermissions = role.getAppOpPermissions();
+            int appOpPermissionsSize = appOpPermissions.size();
+            for (int i = 0; i < appOpPermissionsSize; i++) {
+                String appOpPermission = appOpPermissions.get(i);
+
+                validateAppOpPermission(appOpPermission);
+            }
+
             List<PreferredActivity> preferredActivities = role.getPreferredActivities();
             int preferredActivitiesSize = preferredActivities.size();
             for (int preferredActivitiesIndex = 0;
@@ -989,6 +1044,21 @@ public class RoleParser {
             packageManager.getPermissionInfo(permission, 0);
         } catch (PackageManager.NameNotFoundException e) {
             throw new IllegalArgumentException("Unknown permission: " + permission, e);
+        }
+    }
+
+    private void validateAppOpPermission(@NonNull String appOpPermission) {
+        PackageManager packageManager = mContext.getPackageManager();
+        PermissionInfo permissionInfo;
+        try {
+            permissionInfo = packageManager.getPermissionInfo(appOpPermission, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new IllegalArgumentException("Unknown app op permission: " + appOpPermission, e);
+        }
+        if ((permissionInfo.getProtectionFlags() & PermissionInfo.PROTECTION_FLAG_APPOP)
+                != PermissionInfo.PROTECTION_FLAG_APPOP) {
+            throw new IllegalArgumentException("Permission is not an app op permission: "
+                    + appOpPermission);
         }
     }
 
