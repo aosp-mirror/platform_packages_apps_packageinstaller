@@ -98,8 +98,7 @@ private const val LOG_TAG = "AutoRevokePermissions"
 // TODO eugenesusla: temporarily enabled for extra logs during dogfooding
 private const val DEBUG = false || DEBUG_OVERRIDE_THRESHOLDS
 
-// TODO eugenesusla: temporarily disabled due to issues in droidfood
-private const val AUTO_REVOKE_ENABLED = false
+private const val AUTO_REVOKE_ENABLED = true
 
 private val DEFAULT_UNUSED_THRESHOLD_MS =
         if (AUTO_REVOKE_ENABLED) DAYS.toMillis(90) else Long.MAX_VALUE
