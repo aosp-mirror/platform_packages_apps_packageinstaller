@@ -16,6 +16,7 @@
 package com.android.permissioncontroller.permission.ui.handheld;
 
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
+import static com.android.permissioncontroller.permission.ui.handheld.UtilsKt.pressBack;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -95,7 +96,7 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            getActivity().onBackPressed();
+            pressBack(this);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -150,16 +151,18 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                 autoRevokePreference = new Preference(getPreferenceManager().getContext());
                 autoRevokePreference.setOrder(-1);
                 autoRevokePreference.setKey(AUTO_REVOKE_KEY);
-                autoRevokePreference.setTitle(
-                        R.string.auto_revoke_permission_reminder_notification_title);
                 autoRevokePreference.setSingleLineTitle(false);
                 autoRevokePreference.setIcon(R.drawable.ic_info_outline);
                 if (numAutoRevoked == 1) {
-                    autoRevokePreference.setSummary(R.string.one_unused_app_summary);
+                    autoRevokePreference.setTitle(
+                            R.string.auto_revoke_permission_reminder_notification_title_one);
                 } else {
-                    autoRevokePreference.setSummary(getString(R.string.num_unused_apps_summary,
+                    autoRevokePreference.setTitle(getString(
+                            R.string.auto_revoke_permission_reminder_notification_title_many,
                             numAutoRevoked));
                 }
+                autoRevokePreference.setSummary(
+                        R.string.auto_revoke_preference_summary);
                 autoRevokePreference.setOnPreferenceClickListener(preference -> {
                     mViewModel.showAutoRevoke(this,
                             AutoRevokeFragment.createArgs(

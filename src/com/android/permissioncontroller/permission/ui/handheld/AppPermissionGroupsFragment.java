@@ -22,6 +22,7 @@ import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_
 import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__ALLOWED;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__DENIED;
+import static com.android.permissioncontroller.permission.ui.handheld.UtilsKt.pressBack;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -189,7 +190,7 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home: {
-                getActivity().onBackPressed();
+                pressBack(this);
                 return true;
             }
 
@@ -248,7 +249,9 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
             Toast.makeText(
                     getActivity(), R.string.app_not_found_dlg_title, Toast.LENGTH_LONG).show();
             Log.w(LOG_TAG, "invalid package " + mPackageName);
-            getActivity().onBackPressed();
+
+            pressBack(this);
+
             return;
         }
 

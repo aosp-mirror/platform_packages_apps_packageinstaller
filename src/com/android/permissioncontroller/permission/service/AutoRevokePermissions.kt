@@ -46,6 +46,7 @@ import android.content.Intent
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
 import android.content.pm.PackageManager.PERMISSION_GRANTED
+import android.os.Bundle
 import android.os.Process.myUserHandle
 import android.os.UserHandle
 import android.os.UserManager
@@ -93,9 +94,9 @@ import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.random.Random
 
 private const val LOG_TAG = "AutoRevokePermissions"
-private const val DEBUG_OVERRIDE_THRESHOLDS = false
+    private const val DEBUG_OVERRIDE_THRESHOLDS = false
 // TODO eugenesusla: temporarily enabled for extra logs during dogfooding
-private const val DEBUG = true || DEBUG_OVERRIDE_THRESHOLDS
+private const val DEBUG = false || DEBUG_OVERRIDE_THRESHOLDS
 
 // TODO eugenesusla: temporarily disabled due to issues in droidfood
 private const val AUTO_REVOKE_ENABLED = false
@@ -281,6 +282,9 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                     .getSystemService(ActivityManager::class.java)!!
                     .getPackageImportance(packageName)
                 if (packageImportance > IMPORTANCE_TOP_SLEEPING) {
+                    if (DEBUG) {
+                        Log.i(LOG_TAG, "revoking $packageName - $revocablePermissions")
+                    }
                     anyPermsRevoked.compareAndSet(false, true)
 
                     KotlinUtils.revokeBackgroundRuntimePermissions(
@@ -300,7 +304,8 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                     }
                 } else {
                     Log.i(LOG_TAG,
-                        "Skipping auto-revoke - app running with importance $packageImportance")
+                        "Skipping auto-revoke - $packageName running with importance " +
+                            "$packageImportance")
                 }
             }
         }
@@ -401,7 +406,7 @@ class AutoRevokeService : JobService() {
         return true
     }
 
-    private fun showAutoRevokeNotification() {
+    private suspend fun showAutoRevokeNotification() {
         val notificationManager = getSystemService(NotificationManager::class.java)!!
 
         val permissionReminderChannel = NotificationChannel(
@@ -417,8 +422,14 @@ class AutoRevokeService : JobService() {
         val pendingIntent = PendingIntent.getActivity(this, 0, clickIntent,
             FLAG_ONE_SHOT or FLAG_UPDATE_CURRENT)
 
+        val numRevoked = AutoRevokedPackagesLiveData.getInitializedValue().size
+        val titleString = if (numRevoked == 1) {
+            getString(R.string.auto_revoke_permission_reminder_notification_title_one)
+        } else {
+            getString(R.string.auto_revoke_permission_reminder_notification_title_many, numRevoked)
+        }
         val b = Notification.Builder(this, PERMISSION_REMINDER_CHANNEL_ID)
-            .setContentTitle(getString(R.string.auto_revoke_permission_reminder_notification_title))
+            .setContentTitle(titleString)
             .setContentText(getString(
                 R.string.auto_revoke_permission_reminder_notification_content))
             .setStyle(Notification.BigTextStyle().bigText(getString(
@@ -427,15 +438,15 @@ class AutoRevokeService : JobService() {
             .setColor(getColor(android.R.color.system_notification_accent_color))
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
+        Utils.getSettingsLabelForNotifications(applicationContext.packageManager)?.let {
+            settingsLabel ->
+            val extras = Bundle()
+            extras.putString(Notification.EXTRA_SUBSTITUTE_APP_NAME, settingsLabel.toString())
+            b.addExtras(extras)
+        }
 
         notificationManager.notify(AutoRevokeService::class.java.simpleName,
             AUTO_REVOKE_NOTIFICATION_ID, b.build())
-
-        GlobalScope.launch(Main) {
-            // Initialize the "all auto revoked" liveData, to speed loading if the user clicks on
-            // the notification
-            AutoRevokedPackagesLiveData.getInitializedValue()
-        }
     }
 
     companion object {

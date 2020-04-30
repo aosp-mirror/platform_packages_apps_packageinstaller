@@ -107,8 +107,8 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-                activity!!.onBackPressed()
-                return true
+            this.pressBack()
+            return true
         }
         return super.onOptionsItemSelected(item)
     }
@@ -174,8 +174,7 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
                 }
 
                 pref.onPreferenceClickListener = Preference.OnPreferenceClickListener { _ ->
-                    val args = AppPermissionGroupsFragment.createArgs(pkgName, user, sessionId)
-                    viewModel.navigateToAppPermissions(this, args)
+                    viewModel.navigateToAppInfo(pkgName, user, sessionId)
                     true
                 }
 

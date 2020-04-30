@@ -485,11 +485,17 @@
     <!-- The name of the notification channel containing reminders about permission [CHAR LIMIT=60]-->
     <string name="permission_reminders">Permission reminders</string>
 
-    <!-- The notification title for the auto revoke reminder notification [CHAR LIMIT=60] -->
-    <string name="auto_revoke_permission_reminder_notification_title">App permissions automatically removed</string>
+    <!-- The notification title for the notification that a permission auto revoke has happened for one app [CHAR LIMIT=60] -->
+    <string name="auto_revoke_permission_reminder_notification_title_one">1 unused app</string>
+
+    <!-- The notification title for the notification that a permission auto revoke has happened for more than one app [CHAR LIMIT=60] -->
+    <string name="auto_revoke_permission_reminder_notification_title_many"><xliff:g id="number_of_apps" example="4">%s</xliff:g> unused apps</string>
 
     <!-- The notification content for the auto revoke reminder notification [CHAR LIMIT=none] -->
-    <string name="auto_revoke_permission_reminder_notification_content">Some apps haven\u2019t been used for a few months. Tap for more info.</string>
+    <string name="auto_revoke_permission_reminder_notification_content">Permissions removed to protect your privacy. Tap to review</string>
+
+    <!-- The summary for the auto revoke preference [CHAR LIMIT=none] -->
+    <string name="auto_revoke_preference_summary">Permissions removed to protect your privacy</string>
 
     <!-- The notification title for background location access reminder notification [CHAR LIMIT=60] -->
     <string name="background_location_access_reminder_notification_title"><xliff:g id="app_name" example="Gmail">%s</xliff:g> got your location in the background</string>
