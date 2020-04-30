@@ -45,7 +45,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Permissions to be granted or revoke by a {@link Role}.
+ * Runtime permissions to be granted or revoke by a {@link Role}.
  */
 public class Permissions {
 
@@ -336,7 +336,7 @@ public class Permissions {
                     appOpMode = AppOpsManager.MODE_ALLOWED;
                 }
             }
-            permissionOrAppOpChanged = setAppOpMode(packageName, appOp, appOpMode, context);
+            permissionOrAppOpChanged = setAppOpUidMode(packageName, appOp, appOpMode, context);
         } else {
             // This permission is a background permission, set all its foreground permissions' app
             // op modes to MODE_ALLOWED.
@@ -349,7 +349,7 @@ public class Permissions {
                 if (foregroundAppOp == null) {
                     continue;
                 }
-                permissionOrAppOpChanged |= setAppOpMode(packageName, foregroundAppOp,
+                permissionOrAppOpChanged |= setAppOpUidMode(packageName, foregroundAppOp,
                         AppOpsManager.MODE_ALLOWED, context);
             }
         }
@@ -499,7 +499,7 @@ public class Permissions {
             // This permission is an ordinary or foreground permission, reset its app op mode to
             // default.
             int appOpMode = getDefaultAppOpMode(appOp);
-            boolean appOpModeChanged = setAppOpMode(packageName, appOp, appOpMode, context);
+            boolean appOpModeChanged = setAppOpUidMode(packageName, appOp, appOpMode, context);
             permissionOrAppOpChanged |= appOpModeChanged;
 
             if (appOpModeChanged) {
@@ -528,7 +528,7 @@ public class Permissions {
                 if (foregroundAppOp == null) {
                     continue;
                 }
-                permissionOrAppOpChanged |= setAppOpMode(packageName, foregroundAppOp,
+                permissionOrAppOpChanged |= setAppOpUidMode(packageName, foregroundAppOp,
                         AppOpsManager.MODE_FOREGROUND, context);
             }
         }
@@ -777,8 +777,18 @@ public class Permissions {
         return AppOpsManager.opToDefaultMode(appOp);
     }
 
-    static boolean setAppOpMode(@NonNull String packageName, @NonNull String appOp, int mode,
+    static boolean setAppOpUidMode(@NonNull String packageName, @NonNull String appOp, int mode,
             @NonNull Context context) {
+        return setAppOpMode(packageName, appOp, mode, true, context);
+    }
+
+    static boolean setAppOpPackageMode(@NonNull String packageName, @NonNull String appOp, int mode,
+            @NonNull Context context) {
+        return setAppOpMode(packageName, appOp, mode, false, context);
+    }
+
+    private static boolean setAppOpMode(@NonNull String packageName, @NonNull String appOp,
+            int mode, boolean setUidMode, @NonNull Context context) {
         Integer currentMode = getAppOpMode(packageName, appOp, context);
         if (currentMode != null && currentMode == mode) {
             return false;
@@ -790,7 +800,11 @@ public class Permissions {
             return false;
         }
         AppOpsManager appOpsManager = context.getSystemService(AppOpsManager.class);
-        appOpsManager.setUidMode(appOp, applicationInfo.uid, mode);
+        if (setUidMode) {
+            appOpsManager.setUidMode(appOp, applicationInfo.uid, mode);
+        } else {
+            appOpsManager.setMode(appOp, applicationInfo.uid, packageName, mode);
+        }
         return true;
     }
 }
