@@ -80,7 +80,7 @@ public class AppOp {
         if (!checkTargetSdkVersion(packageName, context)) {
             return false;
         }
-        return Permissions.setAppOpMode(packageName, mName, mMode, context);
+        return Permissions.setAppOpUidMode(packageName, mName, mMode, context);
     }
 
     /**
@@ -96,7 +96,7 @@ public class AppOp {
             return false;
         }
         int defaultMode = Permissions.getDefaultAppOpMode(mName);
-        return Permissions.setAppOpMode(packageName, mName, defaultMode, context);
+        return Permissions.setAppOpUidMode(packageName, mName, defaultMode, context);
     }
 
     private boolean checkTargetSdkVersion(@NonNull String packageName, @NonNull Context context) {
