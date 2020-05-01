@@ -116,8 +116,28 @@
             app:popEnterAnim="@anim/activity_open_enter"/>
 
         <action
-            android:id="@+id/perm_groups_to_extra"
-            app:destination="@id/app_permission_groups"
+            android:id="@+id/perm_groups_to_custom"
+            app:destination="@id/custom_app_permission_groups"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/custom_app_permission_groups"
+        android:name="com.android.permissioncontroller.permission.ui.handheld.AppPermissionGroupsFragment"
+        android:label="CustomAppPermissionGroups">
+
+        <action
+            android:id="@+id/perm_groups_to_app"
+            app:destination="@id/app_permission"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+
+        <action
+            android:id="@+id/perm_groups_to_all_perms"
+            app:destination="@id/all_app_permissions"
             app:enterAnim="@anim/activity_open_enter"
             app:popExitAnim="@anim/activity_close_exit"
             app:popEnterAnim="@anim/activity_open_enter"/>
