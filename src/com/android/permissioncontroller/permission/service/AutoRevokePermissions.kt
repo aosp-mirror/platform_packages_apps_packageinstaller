@@ -201,7 +201,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
 
         // Handle cross-profile apps
         if (context.isPackageCrossProfile(pkg)) {
-            profileUsersStats
+            lastTimeVisible = profileUsersStats
                 .await()
                 .fold(lastTimeVisible) { result, profileStats ->
                     val time: Long = profileStats
