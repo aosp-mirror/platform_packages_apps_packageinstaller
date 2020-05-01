@@ -30,6 +30,7 @@ import static android.Manifest.permission_group.STORAGE;
 import static android.content.Context.MODE_PRIVATE;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED;
+import static android.content.pm.PackageManager.MATCH_SYSTEM_ONLY;
 import static android.os.UserHandle.myUserId;
 
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
@@ -45,6 +46,7 @@ import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.graphics.Bitmap;
@@ -101,7 +103,7 @@ public final class Utils {
 
     /** The timeout for auto-revoke permissions */
     public static final String PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS =
-            "auto_revoke_unused_threshold_millis";
+            "auto_revoke_unused_threshold_millis2";
 
     /** The frequency of running the job for auto-revoke permissions */
     public static final String PROPERTY_AUTO_REVOKE_CHECK_FREQUENCY_MILLIS =
@@ -1023,5 +1025,23 @@ public final class Utils {
             sessionId = new Random().nextLong();
         }
         return sessionId;
+    }
+
+    /**
+     * Gets the label of the Settings application
+     *
+     * @param pm The packageManager used to get the activity resolution
+     *
+     * @return The CharSequence title of the settings app
+     */
+    @Nullable
+    public static CharSequence getSettingsLabelForNotifications(PackageManager pm) {
+        // We pretend we're the Settings app sending the notification, so figure out its name.
+        Intent openSettingsIntent = new Intent(Settings.ACTION_SETTINGS);
+        ResolveInfo resolveInfo = pm.resolveActivity(openSettingsIntent, MATCH_SYSTEM_ONLY);
+        if (resolveInfo == null) {
+            return null;
+        }
+        return pm.getApplicationLabel(resolveInfo.activityInfo.applicationInfo);
     }
 }

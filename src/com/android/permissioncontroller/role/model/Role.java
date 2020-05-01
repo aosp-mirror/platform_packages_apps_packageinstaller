@@ -167,6 +167,12 @@ public class Role {
     private final List<String> mPermissions;
 
     /**
+     * The app op permissions to be granted by this role.
+     */
+    @NonNull
+    private final List<String> mAppOpPermissions;
+
+    /**
      * The app ops to be set to allowed by this role.
      */
     @NonNull
@@ -185,8 +191,8 @@ public class Role {
             boolean requestable, @StringRes int searchKeywordsResource,
             @StringRes int shortLabelResource, boolean showNone, boolean systemOnly,
             boolean visible, @NonNull List<RequiredComponent> requiredComponents,
-            @NonNull List<String> permissions, @NonNull List<AppOp> appOps,
-            @NonNull List<PreferredActivity> preferredActivities) {
+            @NonNull List<String> permissions, @NonNull List<String> appOpPermissions,
+            @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
         mDefaultHoldersResourceName = defaultHoldersResourceName;
@@ -203,6 +209,7 @@ public class Role {
         mVisible = visible;
         mRequiredComponents = requiredComponents;
         mPermissions = permissions;
+        mAppOpPermissions = appOpPermissions;
         mAppOps = appOps;
         mPreferredActivities = preferredActivities;
     }
@@ -274,6 +281,11 @@ public class Role {
     @NonNull
     public List<String> getPermissions() {
         return mPermissions;
+    }
+
+    @NonNull
+    public List<String> getAppOpPermissions() {
+        return mAppOpPermissions;
     }
 
     @NonNull
@@ -668,6 +680,12 @@ public class Role {
         boolean permissionOrAppOpChanged = Permissions.grant(packageName, mPermissions, true,
                 overrideUserSetAndFixedPermissions, true, false, false, context);
 
+        int appOpPermissionsSize = mAppOpPermissions.size();
+        for (int i = 0; i < appOpPermissionsSize; i++) {
+            String appOpPermissions = mAppOpPermissions.get(i);
+            AppOpPermissions.grant(packageName, appOpPermissions, context);
+        }
+
         int appOpsSize = mAppOps.size();
         for (int i = 0; i < appOpsSize; i++) {
             AppOp appOp = mAppOps.get(i);
@@ -710,16 +728,28 @@ public class Role {
         for (int i = 0; i < otherRoleNamesSize; i++) {
             String roleName = otherRoleNames.get(i);
             Role role = roles.get(roleName);
-            permissionsToRevoke.removeAll(role.getPermissions());
+            permissionsToRevoke.removeAll(role.mPermissions);
         }
         boolean permissionOrAppOpChanged = Permissions.revoke(packageName, permissionsToRevoke,
                 true, false, overrideSystemFixedPermissions, context);
+
+        List<String> appOpPermissionsToRevoke = new ArrayList<>(mAppOpPermissions);
+        for (int i = 0; i < otherRoleNamesSize; i++) {
+            String roleName = otherRoleNames.get(i);
+            Role role = roles.get(roleName);
+            appOpPermissionsToRevoke.removeAll(role.mAppOpPermissions);
+        }
+        int appOpPermissionsSize = appOpPermissionsToRevoke.size();
+        for (int i = 0; i < appOpPermissionsSize; i++) {
+            String appOpPermission = appOpPermissionsToRevoke.get(i);
+            AppOpPermissions.revoke(packageName, appOpPermission, context);
+        }
 
         List<AppOp> appOpsToRevoke = new ArrayList<>(mAppOps);
         for (int i = 0; i < otherRoleNamesSize; i++) {
             String roleName = otherRoleNames.get(i);
             Role role = roles.get(roleName);
-            appOpsToRevoke.removeAll(role.getAppOps());
+            appOpsToRevoke.removeAll(role.mAppOps);
         }
         int appOpsSize = appOpsToRevoke.size();
         for (int i = 0; i < appOpsSize; i++) {
@@ -841,6 +871,7 @@ public class Role {
                 + ", mVisible=" + mVisible
                 + ", mRequiredComponents=" + mRequiredComponents
                 + ", mPermissions=" + mPermissions
+                + ", mAppOpPermissions=" + mAppOpPermissions
                 + ", mAppOps=" + mAppOps
                 + ", mPreferredActivities=" + mPreferredActivities
                 + '}';
@@ -872,6 +903,7 @@ public class Role {
                 && Objects.equals(mDefaultHoldersResourceName, that.mDefaultHoldersResourceName)
                 && mRequiredComponents.equals(that.mRequiredComponents)
                 && mPermissions.equals(that.mPermissions)
+                && mAppOpPermissions.equals(that.mAppOpPermissions)
                 && mAppOps.equals(that.mAppOps)
                 && mPreferredActivities.equals(that.mPreferredActivities);
     }
@@ -881,6 +913,7 @@ public class Role {
         return Objects.hash(mName, mBehavior, mDefaultHoldersResourceName, mDescriptionResource,
                 mExclusive, mLabelResource, mRequestDescriptionResource, mRequestTitleResource,
                 mRequestable, mSearchKeywordsResource, mShortLabelResource, mShowNone, mSystemOnly,
-                mVisible, mRequiredComponents, mPermissions, mAppOps, mPreferredActivities);
+                mVisible, mRequiredComponents, mPermissions, mAppOpPermissions, mAppOps,
+                mPreferredActivities);
     }
 }
