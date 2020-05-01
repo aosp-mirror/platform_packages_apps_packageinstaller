@@ -91,6 +91,8 @@ when it declares all these components. They follow a similar syntax as in typica
 - `<permissions>`: Child tags like `<permission-set>` and `<permission>` can be used to specify the
 permissions that should be granted to the app when it has the role. Several `<permission-set>` are
 defined at the beginning of `roles.xml`.
+- `<app-op-permissions>`: The child tag `<app-op-permission>` can be used to specify the app op
+permissions whose app op should be granted to the app when it has the role.
 - `<app-ops>`: The child tag `<app-op>` can be used to specify the app ops that should be granted to
 the app when it has the role.
 - `<preferred-activities>`: The child tag `<preferred-activity>` can be used to specify the
