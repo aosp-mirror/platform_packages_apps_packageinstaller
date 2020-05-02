@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.model;
+package com.android.permissioncontroller.permission.model.legacy;
 
 import android.graphics.drawable.Drawable;
 
@@ -24,7 +24,10 @@ import android.graphics.drawable.Drawable;
  *
  * <p>For individual permissions that are not part of any group a {@link PermissionGroup} is created
  * dynamically with the name and icon of the individual permission.
+ *
+ * @deprecated Use classes from permission.ui.model instead
  */
+@Deprecated
 public final class PermissionGroup implements Comparable<PermissionGroup> {
     private final String mName;
     private final String mDeclaringPackage;
@@ -73,13 +76,6 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
      */
     public int getGranted() {
         return mGranted;
-    }
-
-    /**
-     * @return The PermissionApps object for this permission group.
-     */
-    public PermissionApps getPermissionApps() {
-        return mPermApps;
     }
 
     @Override
