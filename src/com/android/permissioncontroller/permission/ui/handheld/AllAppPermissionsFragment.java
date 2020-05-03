@@ -71,11 +71,6 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
     private UserHandle mUser;
 
     public static AllAppPermissionsFragment newInstance(@NonNull String packageName,
-            @NonNull UserHandle userHandle) {
-        return newInstance(packageName, null, userHandle);
-    }
-
-    public static AllAppPermissionsFragment newInstance(@NonNull String packageName,
             @Nullable String filterGroup, @NonNull UserHandle userHandle) {
         AllAppPermissionsFragment instance = new AllAppPermissionsFragment();
         instance.setArguments(createArgs(packageName, filterGroup, userHandle));

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.permissioncontroller.permission.model;
+package com.android.permissioncontroller.permission.model.legacy;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -37,12 +37,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.permissioncontroller.R;
+import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @deprecated Use classes from permission.ui.model instead
+ */
+@Deprecated
 public class PermissionApps {
     private static final String LOG_TAG = "PermissionApps";
 
@@ -66,10 +71,6 @@ public class PermissionApps {
     private boolean mSkipUi;
     private boolean mRefreshing;
 
-    public PermissionApps(Context context, String groupName, String packageName) {
-        this(context, groupName, packageName, null, null, null);
-    }
-
     public PermissionApps(Context context, String groupName, Callback callback) {
         this(context, groupName, null, callback, null, null);
     }
@@ -88,11 +89,6 @@ public class PermissionApps {
 
     public String getGroupName() {
         return mGroupName;
-    }
-
-    public void loadNowWithoutUi() {
-        mSkipUi = true;
-        createMap(loadPermissionApps());
     }
 
     /**
@@ -425,19 +421,6 @@ public class PermissionApps {
             return mAppPermissionGroup;
         }
 
-        /**
-         * Load this app's label and icon if they were not previously loaded.
-         *
-         * @param appDataCache the cache of already-loaded labels and icons.
-         */
-        public void loadLabelAndIcon(@NonNull AppDataCache appDataCache) {
-            if (mInfo.packageName.equals(mLabel) || mIcon == null) {
-                Pair<String, Drawable> appData = appDataCache.getAppData(getUid(), mInfo);
-                mLabel = appData.first;
-                mIcon = appData.second;
-            }
-        }
-
         @Override
         public int compareTo(PermissionApp another) {
             final int result = mLabel.compareTo(another.mLabel);
@@ -536,34 +519,5 @@ public class PermissionApps {
 
     public interface Callback {
         void onPermissionsLoaded(PermissionApps permissionApps);
-    }
-
-    /**
-     * Class used to asyncronously load apps' labels and icons.
-     */
-    public static class AppDataLoader extends AsyncTask<PermissionApp, Void, Void> {
-
-        private final Context mContext;
-        private final Runnable mCallback;
-
-        public AppDataLoader(Context context, Runnable callback) {
-            mContext = context;
-            mCallback = callback;
-        }
-
-        @Override
-        protected Void doInBackground(PermissionApp... args) {
-            AppDataCache appDataCache = new AppDataCache(mContext.getPackageManager(), mContext);
-            int numArgs = args.length;
-            for (int i = 0; i < numArgs; i++) {
-                args[i].loadLabelAndIcon(appDataCache);
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            mCallback.run();
-        }
     }
 }

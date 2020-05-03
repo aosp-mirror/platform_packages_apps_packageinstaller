@@ -131,7 +131,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.permissioncontroller.permission.ui.AppPermissionActivity"
+        <activity android:name="com.android.permissioncontroller.permission.ui.legacy.AppPermissionActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"
                   android:theme="@style/Settings"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
