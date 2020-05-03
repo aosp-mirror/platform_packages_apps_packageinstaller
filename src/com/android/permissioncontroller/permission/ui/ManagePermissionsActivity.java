@@ -49,6 +49,7 @@ import com.android.permissioncontroller.permission.ui.handheld.AppPermissionFrag
 import com.android.permissioncontroller.permission.ui.handheld.AppPermissionGroupsFragment;
 import com.android.permissioncontroller.permission.ui.handheld.AutoRevokeFragment;
 import com.android.permissioncontroller.permission.ui.handheld.PermissionAppsFragment;
+import com.android.permissioncontroller.permission.ui.legacy.AppPermissionActivity;
 import com.android.permissioncontroller.permission.ui.wear.AppPermissionsFragmentWear;
 import com.android.permissioncontroller.permission.utils.Utils;
 
@@ -135,7 +136,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
                 String groupName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_GROUP_NAME);
                 UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
-                String caller = getIntent().getStringExtra(AppPermissionActivity.EXTRA_CALLER_NAME);
+                String caller = getIntent().getStringExtra(EXTRA_CALLER_NAME);
 
                 Bundle args = AppPermissionFragment.createArgs(packageName, permissionName,
                         groupName, userHandle, caller, sessionId, null);

@@ -37,15 +37,6 @@ public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
     private ManageCustomPermissionsViewModel mViewModel;
 
     /**
-     * @return A new fragment
-     */
-    public static ManageCustomPermissionsFragment newInstance(long sessionId) {
-        ManageCustomPermissionsFragment fragment = new ManageCustomPermissionsFragment();
-        fragment.setArguments(createArgs(sessionId));
-        return fragment;
-    }
-
-    /**
      * Create a bundle with the arguments needed by this fragment
      *
      * @param sessionId The current session ID

@@ -31,9 +31,9 @@ import androidx.preference.Preference.OnPreferenceClickListener;
 import androidx.preference.PreferenceScreen;
 
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.permission.model.PermissionApps.PmCache;
-import com.android.permissioncontroller.permission.model.PermissionGroup;
-import com.android.permissioncontroller.permission.model.PermissionGroups;
+import com.android.permissioncontroller.permission.model.legacy.PermissionApps.PmCache;
+import com.android.permissioncontroller.permission.model.legacy.PermissionGroup;
+import com.android.permissioncontroller.permission.model.legacy.PermissionGroups;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 import java.util.List;
