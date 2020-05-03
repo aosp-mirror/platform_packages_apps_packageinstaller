@@ -95,18 +95,6 @@ public class PermissionControlPreference extends Preference {
     }
 
     /**
-     * Sets this preference's right icon.
-     *
-     * Note that this must be called before preference layout to take effect.
-     *
-     * @param widgetIcon the icon to use.
-     */
-    public void setRightIcon(@NonNull Drawable widgetIcon) {
-        mWidgetIcon = widgetIcon;
-        setWidgetLayoutResource(R.layout.image_view);
-    }
-
-    /**
      * Sets this preference's left icon to be smaller than normal.
      *
      * Note that this must be called before preference layout to take effect.
@@ -138,26 +126,6 @@ public class PermissionControlPreference extends Preference {
             }
         }
         setSummary("");
-    }
-
-    /**
-     * Sets this preference to show the given icons to the left of its title.
-     *
-     * @param titleIcons the icons to show.
-     */
-    public void setTitleIcons(@NonNull List<Integer> titleIcons) {
-        mTitleIcons = titleIcons;
-        setLayoutResource(R.layout.preference_usage);
-    }
-
-    /**
-     * Sets this preference to show the given icons to the left of its summary.
-     *
-     * @param summaryIcons the icons to show.
-     */
-    public void setSummaryIcons(@NonNull List<Integer> summaryIcons) {
-        mSummaryIcons = summaryIcons;
-        setLayoutResource(R.layout.preference_usage);
     }
 
     @Override
