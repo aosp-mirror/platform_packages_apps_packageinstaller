@@ -20,6 +20,7 @@ import android.Manifest.permission
 import android.Manifest.permission_group
 import android.content.Context
 import android.content.pm.PackageInfo
+import android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_UPGRADE_EXEMPT
 import android.content.pm.PackageManager.FLAG_PERMISSION_WHITELIST_UPGRADE
 import android.content.pm.PermissionInfo
 import android.os.Process.myUserHandle
@@ -35,6 +36,7 @@ import com.android.permissioncontroller.permission.data.UserPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
+import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission
 import com.android.permissioncontroller.permission.utils.IPC
 import com.android.permissioncontroller.permission.utils.KotlinUtils.grantBackgroundRuntimePermissions
 import com.android.permissioncontroller.permission.utils.KotlinUtils.grantForegroundRuntimePermissions
@@ -195,7 +197,7 @@ internal object RuntimePermissionsUpgradeController {
                         for ((pkgName, _, requestedPerms, requestedPermFlags) in
                                 pkgInfoProvider.value!!) {
                             var hasAccessMedia = false
-                            var hasDeniedExternalStorage = false
+                            var hasGrantedExternalStorage = false
 
                             for ((perm, flags) in requestedPerms.zip(requestedPermFlags)) {
                                 if (needBackgroundAppPermGroups &&
@@ -211,13 +213,13 @@ internal object RuntimePermissionsUpgradeController {
 
                                     if (perm == permission.READ_EXTERNAL_STORAGE &&
                                             flags and PackageInfo.REQUESTED_PERMISSION_GRANTED
-                                            == 0) {
-                                        hasDeniedExternalStorage = true
+                                            != 0) {
+                                        hasGrantedExternalStorage = true
                                     }
                                 }
                             }
 
-                            if (hasAccessMedia && !hasDeniedExternalStorage) {
+                            if (hasAccessMedia && hasGrantedExternalStorage) {
                                 permGroupProviders!!.add(LightAppPermGroupLiveData[pkgName,
                                         permission_group.STORAGE, myUserHandle()])
                             }
@@ -318,6 +320,7 @@ internal object RuntimePermissionsUpgradeController {
         var currentVersion = currVersion
         var sdkUpgradedFromP = false
         var isNewUser = false
+        val bgAppsWithWhitelisting = bgApps.map { it.packageName to it }.toMap().toMutableMap()
 
         if (currentVersion <= -1) {
             Log.i(LOG_TAG, "Upgrading from Android P")
@@ -357,8 +360,26 @@ internal object RuntimePermissionsUpgradeController {
         if (currentVersion == 3) {
             Log.i(LOG_TAG, "Grandfathering location background permissions")
 
-            whitelistings.addAll(getWhitelistings(setOf(permission.ACCESS_BACKGROUND_LOCATION),
-                    pkgs))
+            val bgLocWhitelistings = getWhitelistings(setOf(permission.ACCESS_BACKGROUND_LOCATION),
+                    pkgs)
+
+            // Adjust bgApps as if the whitelisting was applied
+            for ((pkgName, _) in bgLocWhitelistings) {
+                val bgApp = bgAppsWithWhitelisting[pkgName] ?: continue
+                val perm = bgApp.allPermissions[permission.ACCESS_BACKGROUND_LOCATION] ?: continue
+
+                val allPermissionsWithWhitelisting = bgApp.allPermissions.toMutableMap()
+                allPermissionsWithWhitelisting[permission.ACCESS_BACKGROUND_LOCATION] =
+                        LightPermission(perm.pkgInfo, perm.permInfo, perm.isGrantedIncludingAppOp,
+                        perm.flags or FLAG_PERMISSION_RESTRICTION_UPGRADE_EXEMPT,
+                        perm.foregroundPerms)
+
+                bgAppsWithWhitelisting[pkgName] = LightAppPermGroup(bgApp.packageInfo,
+                        bgApp.permGroupInfo, allPermissionsWithWhitelisting,
+                        bgApp.hasInstallToRuntimeSplit, bgApp.specialLocationGrant)
+            }
+
+            whitelistings.addAll(bgLocWhitelistings)
 
             currentVersion = 4
         }
@@ -384,7 +405,7 @@ internal object RuntimePermissionsUpgradeController {
         if (currentVersion == 6) {
             if (sdkUpgradedFromP) {
                 Log.i(LOG_TAG, "Expanding location permissions")
-                for (appPermGroup in bgApps) {
+                for (appPermGroup in bgAppsWithWhitelisting.values) {
                     if (appPermGroup.foreground.isGranted &&
                         appPermGroup.hasBackgroundGroup &&
                         !appPermGroup.background.isUserSet &&
@@ -455,9 +476,9 @@ internal object RuntimePermissionsUpgradeController {
      */
     private data class Whitelisting(
         /** Name of package to whitelist */
-        private val pkgName: String,
+        val pkgName: String,
         /** Name of permissions to whitelist */
-        private val permission: String
+        val permission: String
     ) {
         /**
          * Whitelist the permission by updating the platform state.
