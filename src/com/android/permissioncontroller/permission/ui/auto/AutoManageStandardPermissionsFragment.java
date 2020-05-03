@@ -20,7 +20,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.Preference;
 
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.permission.model.PermissionGroup;
+import com.android.permissioncontroller.permission.model.legacy.PermissionGroup;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 import java.util.List;

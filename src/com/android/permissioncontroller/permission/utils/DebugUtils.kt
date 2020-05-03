@@ -45,11 +45,6 @@ fun stackTraceWithin(pkgPrefix: String) = Thread
     }
 
 /**
- * [StackTraceElement]s of only the frames within class [T]
- */
-inline fun <reified T> stackTraceWithin() = stackTraceWithin(T::class.java.name)
-
-/**
  * Renders a stack trace slice to a short-ish single-line string.
  *
  * Suitable for debugging when full stack trace can be too spammy.

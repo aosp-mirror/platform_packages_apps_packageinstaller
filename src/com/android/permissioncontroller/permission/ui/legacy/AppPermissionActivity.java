@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.ui;
+package com.android.permissioncontroller.permission.ui.legacy;
 
+import static android.content.Intent.ACTION_MANAGE_APP_PERMISSION;
 import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
-
-import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -32,11 +31,12 @@ import android.view.MenuItem;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
-import com.android.permissioncontroller.Constants;
 import com.android.permissioncontroller.DeviceUtils;
 import com.android.permissioncontroller.R;
+import com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler;
+import com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog;
+import com.android.permissioncontroller.permission.ui.ManagePermissionsActivity;
 import com.android.permissioncontroller.permission.ui.auto.AutoAppPermissionFragment;
-import com.android.permissioncontroller.permission.ui.handheld.AppPermissionFragment;
 import com.android.permissioncontroller.permission.utils.LocationUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 
@@ -142,21 +142,18 @@ public final class AppPermissionActivity extends FragmentActivity {
             return;
         }
 
-        String caller = getIntent().getStringExtra(EXTRA_CALLER_NAME);
-
-        Fragment androidXFragment;
         if (DeviceUtils.isAuto(this)) {
+            Fragment androidXFragment;
+
             androidXFragment = AutoAppPermissionFragment.newInstance(packageName, permissionName,
                     groupName, userHandle);
-        } else {
-            long sessionId = getIntent().getLongExtra(Constants.EXTRA_SESSION_ID,
-                    INVALID_SESSION_ID);
-            androidXFragment = AppPermissionFragment.newInstance(packageName, permissionName,
-                    groupName, userHandle, caller, sessionId);
-        }
 
-        getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
-                androidXFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
+                    androidXFragment).commit();
+        } else {
+            startActivity(new Intent(getIntent()).setAction(ACTION_MANAGE_APP_PERMISSION));
+            finish();
+        }
     }
 
     @Override
