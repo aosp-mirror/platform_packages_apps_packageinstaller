@@ -734,33 +734,6 @@ public final class Utils {
     }
 
     /**
-     * Build a string representing the number of milliseconds passed in.  It rounds to the nearest
-     * unit.  For example, given a duration of 3500 and an English locale, this can return
-     * "3 seconds".
-     * @param context The context.
-     * @param duration The number of milliseconds.
-     * @return a string representing the given number of milliseconds.
-     */
-    public static @NonNull String getTimeDiffStr(@NonNull Context context, long duration) {
-        long seconds = Math.max(1, duration / 1000);
-        if (seconds < 60) {
-            return context.getResources().getQuantityString(R.plurals.seconds, (int) seconds,
-                    seconds);
-        }
-        long minutes = seconds / 60;
-        if (minutes < 60) {
-            return context.getResources().getQuantityString(R.plurals.minutes, (int) minutes,
-                    minutes);
-        }
-        long hours = minutes / 60;
-        if (hours < 24) {
-            return context.getResources().getQuantityString(R.plurals.hours, (int) hours, hours);
-        }
-        long days = hours / 24;
-        return context.getResources().getQuantityString(R.plurals.days, (int) days, days);
-    }
-
-    /**
      * Check whether the given time (in milliseconds) is in the current day.
      *
      * @param time the time in milliseconds
