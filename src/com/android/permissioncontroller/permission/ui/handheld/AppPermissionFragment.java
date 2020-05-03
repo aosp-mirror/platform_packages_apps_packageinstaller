@@ -119,18 +119,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
     private Drawable mPackageIcon;
 
     /**
-     * @return A new fragment
-     */
-    public static @NonNull AppPermissionFragment newInstance(@NonNull String packageName,
-            @Nullable String permName, @Nullable String groupName, @NonNull UserHandle userHandle,
-            @Nullable String caller, long sessionId) {
-        AppPermissionFragment fragment = new AppPermissionFragment();
-        fragment.setArguments(createArgs(packageName, permName, groupName, userHandle, caller,
-                sessionId, null));
-        return fragment;
-    }
-
-    /**
      * Create a bundle with the arguments needed by this fragment
      *
      * @param packageName   The name of the package

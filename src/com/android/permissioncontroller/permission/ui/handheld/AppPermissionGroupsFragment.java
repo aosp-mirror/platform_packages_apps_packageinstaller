@@ -94,17 +94,6 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
     private Collator mCollator;
 
     /**
-     * @return A new fragment
-     */
-    public static AppPermissionGroupsFragment newInstance(@NonNull String packageName,
-            @NonNull UserHandle userHandle, long sessionId) {
-        AppPermissionGroupsFragment fragment = new AppPermissionGroupsFragment();
-        fragment.setArguments(createArgs(packageName, userHandle, sessionId, true));
-        return setPackageNameAndUserHandleAndSessionId(
-                new AppPermissionGroupsFragment(), packageName, userHandle, sessionId);
-    }
-
-    /**
      * Create a bundle with the arguments needed by this fragment
      *
      * @param packageName The name of the package
@@ -137,17 +126,6 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
     public static Bundle createArgs(@NonNull String packageName, @NonNull UserHandle userHandle,
             long sessionId) {
         return createArgs(packageName, userHandle, sessionId, true);
-    }
-
-    private static <T extends Fragment> T setPackageNameAndUserHandleAndSessionId(
-            @NonNull T fragment, @NonNull String packageName, @NonNull UserHandle userHandle,
-            long sessionId) {
-        Bundle arguments = new Bundle();
-        arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
-        arguments.putParcelable(Intent.EXTRA_USER, userHandle);
-        arguments.putLong(EXTRA_SESSION_ID, sessionId);
-        fragment.setArguments(arguments);
-        return fragment;
     }
 
     @Override

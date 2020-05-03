@@ -33,15 +33,6 @@ public final class ConfirmActionDialogFragment extends DialogFragment {
         void onActionConfirmed(String action);
     }
 
-    public static ConfirmActionDialogFragment newInstance(CharSequence message, String action) {
-        Bundle arguments = new Bundle();
-        arguments.putCharSequence(ARG_MESSAGE, message);
-        arguments.putString(ARG_ACTION, action);
-        ConfirmActionDialogFragment fragment = new ConfirmActionDialogFragment();
-        fragment.setArguments(arguments);
-        return fragment;
-    }
-
     @Override
     public Dialog onCreateDialog(Bundle bundle) {
         return new AlertDialog.Builder(getContext())

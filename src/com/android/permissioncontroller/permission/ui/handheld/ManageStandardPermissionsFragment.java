@@ -42,15 +42,6 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
     private ManageStandardPermissionsViewModel mViewModel;
 
     /**
-     * @return A new fragment
-     */
-    public static ManageStandardPermissionsFragment newInstance(long sessionId) {
-        ManageStandardPermissionsFragment fragment = new ManageStandardPermissionsFragment();
-        fragment.setArguments(createArgs(sessionId));
-        return fragment;
-    }
-
-    /**
      * Create a bundle with the arguments needed by this fragment
      *
      * @param sessionId The current session ID
