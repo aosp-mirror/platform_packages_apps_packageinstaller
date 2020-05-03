@@ -195,7 +195,7 @@ class AppPermissionGroupsViewModel(
     }
 
     fun showExtraPerms(fragment: Fragment, args: Bundle) {
-        fragment.findNavController().navigateSafe(R.id.perm_groups_to_extra, args)
+        fragment.findNavController().navigateSafe(R.id.perm_groups_to_custom, args)
     }
 
     fun showAllPermissions(fragment: Fragment, args: Bundle) {
