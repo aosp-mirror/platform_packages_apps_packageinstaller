@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.model;
+package com.android.permissioncontroller.permission.model.legacy;
 
 import static android.text.TextUtils.SAFE_STRING_FLAG_FIRST_LINE;
 import static android.text.TextUtils.SAFE_STRING_FLAG_TRIM;
@@ -49,7 +49,10 @@ import java.util.function.Supplier;
 
 /**
  * All {@link PermissionGroup permission groups} defined by any app.
+ *
+ * @deprecated Use classes from permission.ui.model instead
  */
+@Deprecated
 public final class PermissionGroups implements LoaderCallbacks<List<PermissionGroup>> {
     private final ArrayList<PermissionGroup> mGroups = new ArrayList<>();
     private final Context mContext;
