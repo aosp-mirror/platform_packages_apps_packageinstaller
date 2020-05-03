@@ -82,21 +82,6 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
     private static final String STORAGE_ALLOWED_SCOPED = "allowed_storage_scoped";
     private static final int SHOW_LOAD_DELAY_MS = 200;
 
-    private static final String SHOW_SYSTEM_KEY = PermissionAppsFragment.class.getName()
-            + KEY_SHOW_SYSTEM_PREFS;
-
-    private static final String CREATION_LOGGED = PermissionAppsFragment.class.getName()
-            + CREATION_LOGGED_SYSTEM_PREFS;
-
-
-    /**
-     * @return A new fragment
-     */
-    public static PermissionAppsFragment newInstance(String permissionName, long sessionId) {
-        return setPermissionNameAndSessionId(
-                new PermissionAppsFragment(), permissionName, sessionId);
-    }
-
     /**
      * Create a bundle with the arguments needed by this fragment
      *
@@ -109,16 +94,6 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
         arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, permGroupName);
         arguments.putLong(EXTRA_SESSION_ID, sessionId);
         return arguments;
-    }
-
-
-    private static <T extends Fragment> T setPermissionNameAndSessionId(
-            T fragment, String permissionName, long sessionId) {
-        Bundle arguments = new Bundle();
-        arguments.putString(Intent.EXTRA_PERMISSION_NAME, permissionName);
-        arguments.putLong(EXTRA_SESSION_ID, sessionId);
-        fragment.setArguments(arguments);
-        return fragment;
     }
 
     private MenuItem mShowSystemMenu;

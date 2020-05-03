@@ -64,7 +64,6 @@ class PermissionPreference extends MultiTargetSwitchPreference {
     private final PreferenceFragmentCompat mFragment;
     private final PermissionPreferenceChangeListener mCallBacks;
     private final @LayoutRes int mOriginalWidgetLayoutRes;
-    private final int mIconSize;
 
     /** Callbacks for the permission to the fragment showing a list of permissions */
     interface PermissionPreferenceChangeListener {
@@ -121,14 +120,13 @@ class PermissionPreference extends MultiTargetSwitchPreference {
     }
 
     PermissionPreference(PreferenceFragmentCompat fragment, AppPermissionGroup group,
-            PermissionPreferenceChangeListener callbacks, int iconSize) {
+            PermissionPreferenceChangeListener callbacks) {
         super(fragment.getPreferenceManager().getContext());
 
         mFragment = fragment;
         mGroup = group;
         mCallBacks = callbacks;
         mOriginalWidgetLayoutRes = getWidgetLayoutResource();
-        mIconSize = iconSize;
 
         setPersistent(false);
         updateUi();
@@ -441,18 +439,6 @@ class PermissionPreference extends MultiTargetSwitchPreference {
                         TextUtils.SAFE_STRING_FLAG_TRIM
                                 | TextUtils.SAFE_STRING_FLAG_FIRST_LINE)
                         .toString());
-    }
-
-    @Override
-    public void onBindViewHolder(PreferenceViewHolder holder) {
-        if (mIconSize > 0) {
-            ImageView icon = ((ImageView) holder.findViewById(android.R.id.icon));
-
-            icon.setMaxWidth(mIconSize);
-            icon.setMaxHeight(mIconSize);
-        }
-
-        super.onBindViewHolder(holder);
     }
 
     /**
