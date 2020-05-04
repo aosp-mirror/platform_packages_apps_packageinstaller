@@ -175,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ሰከንዶች</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"የፈቃድ አስታዋሾች"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"የመተግበሪያ ፈቃዶች ብበራስ-ሰር ተወግደዋል"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"አንዳንድ መተግበሪያዎች ለጥቂት ወራት ጥቅም ላይ አልዋሉም። ተጨማሪ መረጃ ለማግኘት መታ ያድርጉ።"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ጥቅም ላይ ያልዋለ መተግበሪያ"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ጥቅም ላይ ያልዋሉ መተግበሪያዎች"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"ፈቃዶች የእርስዎን ግላዊነት ለመጠበቅ ተወግደዋል። ለመገምገም መታ ያድርጉ"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"ፈቃዶች የእርስዎን ግላዊነት ለመጠበቅ ተወግደዋል"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> በበስተጀርባ አካባቢዎን አግኝተዋል"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ይህ መተግበሪያ በማንኛውም ጊዜ አካባቢዎን መድረስ ይችላል። ለመቀየር መታ ያድርጉ።"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"ግላዊነትን ለመጠበቅ የመተግበሪያ ፈቃዶች ተወግደዋል"</string>

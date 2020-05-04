@@ -175,8 +175,10 @@
       <item quantity="one">1 saniyə</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"İcazə xatırladıcıları"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Tətbiq icazələri avtomatik silindi"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Bəzi tətbiqlər bir neçə aydır ki, istifadə edilməyib. Ətraflı məlumat üçün toxunun."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 istifadə olunmayan tətbiq"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> istifadə olunmayan tətbiq"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Məxfiliyinizi qorumaq üçün icazələr silinib. Nəzərdən keçirmək üçün toxunun"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Məxfiliyinizi qorumaq üçün icazələr silinib"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> arxa fonda məkanınıza daxil oldu"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Bu tətbiq daima məkana daxil ola bilər. Dəyişmək üçün klikləyin."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Məxfiliyi qorumaq üçün tətbiq icazələri silindi"</string>

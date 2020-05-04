@@ -112,7 +112,7 @@
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Әрдайым сұрау"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Тыйым салу"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> рұқсаты"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: осы қолданбаны пайдалану рұқсаты"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: осы қолданбаның рұқсаты"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Барлық <xliff:g id="APP">%1$s</xliff:g> рұқсаттарын көру"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Осы рұқсатқа ие барлық қолданбаларды көру"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Қолданба пайдаланылмаса, рұқсаттарды өшіру"</string>
@@ -175,8 +175,10 @@
       <item quantity="one">1 секунд</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Рұқсат туралы еске салғыштар"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Қолданба рұқсаттары автоматты түрде өшірілді"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Кейбір қолданбалар бірнеше ай бойы пайдаланылмаған. Қосымша ақпарат алу үшін түртіңіз."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 пайдаланылмайтын қолданба"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> пайдаланылмайтын қолданба"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Құпиялылықты қорғау үшін рұқсаттар өшірілді. Көру үшін түртіңіз."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Құпиялылықты қорғау үшін рұқсаттар өшірілді."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> сіздің орналасқан жеріңізді фондық режимде анықтады."</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Бұл қолданба геодерегіңізді кез келген уақытта пайдалана алады. Өзгерту үшін түртіңіз."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Құпиялылықты сақтау үшін қолданба рұқсаттары өшірілді"</string>
@@ -194,7 +196,7 @@
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Деректер қорғау мақсатында бірнеше ай бойы пайдаланылмаған қолданбалардан рұқсаттар өшіріледі"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 қолданба бірнеше ай бойы пайдаланылмады."</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> қолданба бірнеше ай бойы пайдаланылмады."</string>
-    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Қолданба пайдаланып жатқанда ғана"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Қолданба пайдаланылып жатқанда ғана"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Meдиафайлдар"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Барлық файлдар"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Ешқандай рұқсат берілмеді"</string>

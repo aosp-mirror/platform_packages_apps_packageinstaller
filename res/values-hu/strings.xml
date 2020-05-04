@@ -175,8 +175,10 @@
       <item quantity="one">1 másodperc</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Engedélyekre vonatkozó emlékeztetők"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Alkalmazásengedélyek automatikusan visszavonva"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Egyes alkalmazásokat már több hónapja nem használt. Koppintson, ha további információra van szüksége."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 nem használt alkalmazás"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> nem használt alkalmazás"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Engedélyek visszavonva az adatainak védelme érdekében. Koppintson az áttekintéshez"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Engedélyek visszavonva az adatainak védelme érdekében"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"A(z) <xliff:g id="APP_NAME">%s</xliff:g> hozzáfér az Ön helyadataihoz a háttérben"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ez az alkalmazás bármikor hozzáférhet az Ön tartózkodási helyéhez. A módosításhoz koppintson."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Alkalmazásengedélyek eltávolítva az adatvédelem érdekében"</string>

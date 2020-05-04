@@ -175,8 +175,10 @@
       <item quantity="one">1 δευτερόλεπτο</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Υπενθυμίσεις άδειας"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Οι άδειες εφαρμογών καταργήθηκαν αυτόματα"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Ορισμένες εφαρμογές δεν έχουν χρησιμοποιηθεί για αρκετούς μήνες. Πατήστε, για να δείτε περισσότερες πληροφορίες."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 εφαρμογή που δεν χρησιμοποιείται"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> εφαρμογές που δεν χρησιμοποιούνται"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Οι άδειες καταργήθηκαν για την προστασία του απορρήτου σας. Πατήστε για έλεγχο"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Οι άδειες καταργήθηκαν για την προστασία του απορρήτου σας"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Η εφαρμογή <xliff:g id="APP_NAME">%s</xliff:g> έλαβε την τοποθεσία σας στο παρασκήνιο"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Αυτή η εφαρμογή μπορεί να έχει πάντα πρόσβαση στην τοποθεσία σας. Πατήστε για να αλλάξετε τη ρύθμιση."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Οι άδειες εφαρμογών καταργήθηκαν για προστασία απορρήτου."</string>
