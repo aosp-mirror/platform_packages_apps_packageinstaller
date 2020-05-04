@@ -175,8 +175,10 @@
       <item quantity="one">1 წამი</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"შეხსენებები ნებართვის შესახებ"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"აპის ნებართვები ავტომატურად ამოიშალა"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"ზოგიერთი აპი გამოუყენებელია რამდენიმე თვის განმავლობაში. შეეხეთ დამატებითი ინფორმაციისთვის."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 გამოუყენებელი აპი"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> გამოუყენებელი აპი"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"ნებართვები ამოიშალა თქვენი კონფიდენციალურობის დასაცავად. შეეხეთ გადასახედად"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"ნებართვები ამოიშალა თქვენი კონფიდენციალურობის დასაცავად"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>-მა მიიღო თქვენი მდებარეობა ფონურ რეჟიმში"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ამ აპს ყოველთვის შეუძლია თქვენს მდებარეობაზე წვდომა. შეეხეთ შესაცვლელად."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"აპის ნებართვა ამოშლილია კონფიდენციალურობის დაცვის მიზნით"</string>

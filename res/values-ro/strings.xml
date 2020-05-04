@@ -180,8 +180,10 @@
       <item quantity="one">O secundă</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Mementouri de permisiune"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Permisiunile pentru aplicație au fost eliminate automat"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Unele aplicații nu au fost folosite de câteva luni. Atingeți pentru mai multe informații."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"O aplicație nefolosită"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplicații nefolosite"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Permisiunile au fost eliminate pentru a vă proteja confidențialitatea. Atingeți pentru a examina."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Permisiunile au fost eliminate pentru a vă proteja confidențialitatea"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> v-a obținut locația în fundal"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Această aplicație poate accesa întotdeauna locația dvs. Atingeți ca să modificați."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Permisiunile pentru aplicație s-au eliminat pentru confidențialitate"</string>

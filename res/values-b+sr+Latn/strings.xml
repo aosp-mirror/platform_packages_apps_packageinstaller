@@ -180,8 +180,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundi</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Podsetnici za dozvole"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Dozvole za aplikacije su automatski uklonjene"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Neke aplikacije nisu korišćene nekoliko meseci. Dodirnite za više informacija."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 aplikacija koja se ne koristi"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Aplikacija koje se ne koriste: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Dozvole su uklonjene radi zaštite privatnosti. Dodirnite da biste pregledali"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Dozvole su uklonjene radi zaštite privatnosti"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ima vašu lokaciju u pozadini"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ova aplikacija može uvek da pristupa lokaciji. Dodirnite da biste to promenili."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Dozvole za aplikacije su uklonjene radi zaštite privatnosti"</string>

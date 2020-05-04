@@ -175,8 +175,10 @@
       <item quantity="one">1 segundo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Recordatorios de permisos"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Permisos de la app que se quitaron automáticamente"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Hace varios meses que no usas algunas apps. Presiona para obtener más información."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 app en desuso"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps en desuso"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Se quitaron los permisos para proteger tu privacidad. Presiona para revisar el cambio"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Se quitaron los permisos para proteger tu privacidad"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> accedió a tu ubicación en segundo plano"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Esta app puede acceder a tu ubicación en todo momento. Presiona para cambiar el permiso."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Permisos de la app eliminados para proteger la privacidad"</string>

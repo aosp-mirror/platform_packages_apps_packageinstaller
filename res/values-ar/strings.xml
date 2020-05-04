@@ -195,8 +195,10 @@
       <item quantity="one">ثانية واحدة</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"تذكيرات الأذونات"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"تمت إزالة أذونات التطبيقات تلقائيًا"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"لم يتم استخدام بعض التطبيقات لعدة شهور. انقر للحصول على مزيد من المعلومات."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"تطبيق واحد غير مستخدم"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> تطبيق غير مستخدم"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"تمت إزالة الأذونات لحماية خصوصيتك. انقر لمراجعة الأذونات."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"تمت إزالة الأذونات لحماية خصوصيتك."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"وضع <xliff:g id="APP_NAME">%s</xliff:g> الموقع الجغرافي لك في الخلفية"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"يمكن لهذا التطبيق دائمًا الوصول إلى بيانات موقعك الجغرافي. انقر لتغيير ذلك."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"تمت إزالة أذونات التطبيقات لحماية الخصوصية"</string>

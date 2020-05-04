@@ -175,8 +175,10 @@
       <item quantity="one">1 วินาที</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"การช่วยเตือนเกี่ยวกับสิทธิ์"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"มีการนำสิทธิ์ของแอปออกโดยอัตโนมัติ"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"บางแอปไม่มีการใช้งานมา 2-3 เดือนแล้ว แตะเพื่อดูข้อมูลเพิ่มเติม"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"แอปที่ไม่ได้ใช้ 1 รายการ"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"แอปที่ไม่ได้ใช้ <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> รายการ"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"มีการนำสิทธิ์ออกเพื่อปกป้องความเป็นส่วนตัวของคุณ แตะเพื่อตรวจสอบ"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"มีการนำสิทธิ์ออกเพื่อปกป้องความเป็นส่วนตัวของคุณ"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> เข้าถึงตำแหน่งของคุณอยู่เบื้องหลัง"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"แอปนี้เข้าถึงตำแหน่งของคุณได้ตลอดเวลา แตะเพื่อเปลี่ยน"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"ระบบนำสิทธิ์ของแอปออกเพื่อปกป้องความเป็นส่วนตัว"</string>

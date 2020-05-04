@@ -185,8 +185,10 @@
       <item quantity="one">1 sekunda</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Przypomnienia o uprawnieniach"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Automatycznie usunięto uprawnienia aplikacji"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Niektóre aplikacje nie były używane od kilku miesięcy. Kliknij, by zobaczyć szczegóły."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 nieużywana aplikacja"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Nieużywane aplikacje (<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>)"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Usunięto uprawnienia, by chronić Twoją prywatność. Kliknij, by sprawdzić."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Usunięto uprawnienia, by chronić Twoją prywatność."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Aplikacja <xliff:g id="APP_NAME">%s</xliff:g> uzyskała dostęp do Twojej lokalizacji w tle"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ta aplikacja może zawsze uzyskać dostęp do Twojej lokalizacji. Kliknij, by to zmienić."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Usunięto uprawnienia aplikacji, by chronić prywatność"</string>

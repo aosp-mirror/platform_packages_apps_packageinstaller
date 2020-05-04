@@ -175,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> secondes</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Rappels d\'autorisation"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Autorisations des applications supprimées automatiquement"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Certaines applications n\'ont pas été utilisées depuis quelques mois. Touchez pour en savoir plus."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 application non utilisée"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> applications non utilisées"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Les autorisations ont été supprimées afin de protéger votre confidentialité. Touchez pour examiner"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Les autorisations ont été supprimées afin de protéger votre confidentialité"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"L\'application <xliff:g id="APP_NAME">%s</xliff:g> a accédé à votre position en arrière-plan"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Cette application peut toujours accéder à votre position. Touchez l\'écran pour modifier cela."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Autorisations supprimées pour protéger votre confidentialité"</string>

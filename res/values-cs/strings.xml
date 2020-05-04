@@ -185,8 +185,10 @@
       <item quantity="one">1 sekunda</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Připomenutí o oprávněních"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Návrhy aplikací byly automaticky odstraněny"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Některé aplikace jste několik měsíců nepoužili. Klepnutím zobrazíte další informace."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"Jednu aplikaci nepoužíváte"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Některé aplikace (<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>) nepoužíváte"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Kvůli ochraně vašeho soukromí byla odebrána oprávnění. Klepnutím to zkontrolujete"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Kvůli ochraně vašeho soukromí byla odebrána oprávnění"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> má přístup k poloze na pozadí"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Tato aplikace má neomezený přístup k poloze. Klepnutím to změníte."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Oprávnění aplikace byla za účelem ochrany soukromí odebrána"</string>
