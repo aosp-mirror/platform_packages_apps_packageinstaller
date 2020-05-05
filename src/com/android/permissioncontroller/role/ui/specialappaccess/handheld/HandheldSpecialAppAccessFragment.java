@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.role.ui.handheld;
+package com.android.permissioncontroller.role.ui.specialappaccess.handheld;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,7 +27,10 @@ import androidx.preference.Preference;
 import androidx.preference.TwoStatePreference;
 
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.role.ui.SpecialAppAccessChildFragment;
+import com.android.permissioncontroller.role.ui.handheld.AppIconSwitchPreference;
+import com.android.permissioncontroller.role.ui.handheld.FooterPreference;
+import com.android.permissioncontroller.role.ui.handheld.SettingsFragment;
+import com.android.permissioncontroller.role.ui.specialappaccess.SpecialAppAccessChildFragment;
 
 /**
  * Handheld fragment for a special app access.
