@@ -18,9 +18,6 @@ package com.android.permissioncontroller.permission.utils;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_INSTALLER_EXEMPT;
-import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_SYSTEM_EXEMPT;
-import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_UPGRADE_EXEMPT;
 
 import android.content.pm.PackageInfo;
 import android.os.Build;
@@ -37,10 +34,6 @@ import com.android.permissioncontroller.permission.model.livedatatypes.LightPack
  * This is the twin of {@link com.android.server.policy.SoftRestrictedPermissionPolicy}
  */
 public abstract class SoftRestrictedPermissionPolicy {
-    private static final int FLAGS_PERMISSION_RESTRICTION_ANY_EXEMPT =
-            FLAG_PERMISSION_RESTRICTION_SYSTEM_EXEMPT
-                    | FLAG_PERMISSION_RESTRICTION_UPGRADE_EXEMPT
-                    | FLAG_PERMISSION_RESTRICTION_INSTALLER_EXEMPT;
 
     /**
      * Check if the permission should be shown in the UI.
@@ -55,7 +48,8 @@ public abstract class SoftRestrictedPermissionPolicy {
             case READ_EXTERNAL_STORAGE:
             case WRITE_EXTERNAL_STORAGE: {
                 boolean isWhiteListed =
-                        (permission.getFlags() & FLAGS_PERMISSION_RESTRICTION_ANY_EXEMPT) != 0;
+                        (permission.getFlags() & Utils.FLAGS_PERMISSION_RESTRICTION_ANY_EXEMPT)
+                                != 0;
                 int targetSDK = pkg.applicationInfo.targetSdkVersion;
 
                 return isWhiteListed || targetSDK >= Build.VERSION_CODES.Q;
@@ -81,7 +75,7 @@ public abstract class SoftRestrictedPermissionPolicy {
             case READ_EXTERNAL_STORAGE:
             case WRITE_EXTERNAL_STORAGE: {
                 boolean isWhiteListed =
-                        (permissionFlags & FLAGS_PERMISSION_RESTRICTION_ANY_EXEMPT) != 0;
+                        (permissionFlags & Utils.FLAGS_PERMISSION_RESTRICTION_ANY_EXEMPT) != 0;
                 return isWhiteListed || pkg.getTargetSdkVersion() >= Build.VERSION_CODES.Q;
             }
             default:
