@@ -28,7 +28,7 @@ import androidx.preference.TwoStatePreference;
 
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.auto.AutoSettingsFrameFragment;
-import com.android.permissioncontroller.role.ui.SpecialAppAccessChildFragment;
+import com.android.permissioncontroller.role.ui.specialappaccess.SpecialAppAccessChildFragment;
 
 /** Automotive fragment for displaying special app access for a role. */
 public class AutoSpecialAppAccessFragment extends AutoSettingsFrameFragment implements
