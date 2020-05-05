@@ -16,19 +16,29 @@
 
 package com.android.permissioncontroller.permission.service
 
+import android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
 import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.Manifest.permission.ACCESS_MEDIA_LOCATION
+import android.Manifest.permission.READ_CALL_LOG
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.Manifest.permission.SEND_SMS
 import android.app.ActivityManager
 import android.app.AppOpsManager
+import android.app.job.JobScheduler
 import android.content.ComponentCallbacks2
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageInfo.REQUESTED_PERMISSION_GRANTED
 import android.content.pm.PackageManager
+import android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_INSTALLER_EXEMPT
+import android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_SYSTEM_EXEMPT
 import android.content.pm.PackageManager.FLAG_PERMISSION_WHITELIST_UPGRADE
 import android.content.pm.PackageManager.MATCH_FACTORY_ONLY
+import android.location.LocationManager
 import android.os.Build.VERSION_CODES.R
+import android.os.UserManager
 import android.permission.PermissionManager
+import android.provider.Settings
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.android.dx.mockito.inline.extended.ExtendedMockito.mockitoSession
@@ -42,6 +52,7 @@ import org.mockito.ArgumentMatchers.any
 import org.mockito.ArgumentMatchers.anyInt
 import org.mockito.ArgumentMatchers.eq
 import org.mockito.Mock
+import org.mockito.Mockito.anyString
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.never
 import org.mockito.Mockito.timeout
@@ -90,6 +101,12 @@ class RuntimePermissionsUpgradeControllerTest {
     lateinit var activityManager: ActivityManager
     @Mock
     lateinit var appOpsManager: AppOpsManager
+    @Mock
+    lateinit var locationManager: LocationManager
+    @Mock
+    lateinit var userManager: UserManager
+    @Mock
+    lateinit var jobScheduler: JobScheduler
 
     /**
      * Set up {@link #packageManager} as if the passed packages are installed.
@@ -120,6 +137,14 @@ class RuntimePermissionsUpgradeControllerTest {
             }
         }
 
+        whenever(packageManager.getPackageInfo(anyString(), anyInt())).thenAnswer {
+            val packageName = it.arguments[0] as String
+
+            packageManager.getInstalledPackagesAsUser(0, 0)
+                    .find { it.packageName == packageName }
+                    ?: throw PackageManager.NameNotFoundException()
+        }
+
         whenever(packageManager.getPermissionFlags(any(), any(), any())).thenAnswer {
             val permissionName = it.arguments[0] as String
             val packageName = it.arguments[1] as String
@@ -138,14 +163,21 @@ class RuntimePermissionsUpgradeControllerTest {
         initMocks(this)
 
         mockitoSession = mockitoSession().mockStatic(PermissionControllerApplication::class.java)
-                .strictness(LENIENT).startMocking()
+                .mockStatic(Settings.Secure::class.java).strictness(LENIENT).startMocking()
 
         whenever(PermissionControllerApplication.get()).thenReturn(application)
 
         whenever(application.getSystemService(PermissionManager::class.java)).thenReturn(
                 permissionManager)
-        whenever(application.getSystemService(ActivityManager::class.java)).thenReturn(activityManager)
+        whenever(application.getSystemService(ActivityManager::class.java)).thenReturn(
+                activityManager)
         whenever(application.getSystemService(AppOpsManager::class.java)).thenReturn(appOpsManager)
+        whenever(application.getSystemService(LocationManager::class.java)).thenReturn(
+                locationManager)
+        whenever(application.getSystemService(UserManager::class.java)).thenReturn(
+                userManager)
+        whenever(application.getSystemService(JobScheduler::class.java)).thenReturn(
+                jobScheduler)
 
         whenever(application.packageManager).thenReturn(packageManager)
 
@@ -155,6 +187,16 @@ class RuntimePermissionsUpgradeControllerTest {
             InstrumentationRegistry.getInstrumentation().getTargetContext().packageManager
                     .getPermissionInfo(permissionName, 0)
         }
+
+        whenever(packageManager.getPermissionGroupInfo(any(), anyInt())).thenAnswer {
+            val groupName = it.arguments[0] as String
+
+            InstrumentationRegistry.getInstrumentation().getTargetContext().packageManager
+                    .getPermissionGroupInfo(groupName, 0)
+        }
+
+        whenever(packageManager.queryPermissionsByGroup(any(), anyInt())).thenReturn(
+                mutableListOf())
     }
 
     /**
@@ -184,6 +226,16 @@ class RuntimePermissionsUpgradeControllerTest {
             verify(packageManager, never()).addWhitelistedRestrictedPermission(eq(packageName),
                     eq(permissionName), anyInt())
         }
+    }
+
+    private fun verifyGranted(packageName: String, permissionName: String) {
+        verify(packageManager, timeout(100)).grantRuntimePermission(eq(packageName),
+                eq(permissionName), any())
+    }
+
+    private fun verifyNotGranted(packageName: String, permissionName: String) {
+        verify(packageManager, never()).grantRuntimePermission(eq(packageName),
+                eq(permissionName), any())
     }
 
     @Test
@@ -228,6 +280,203 @@ class RuntimePermissionsUpgradeControllerTest {
         upgradeIfNeeded()
 
         verifyNotWhitelisted(TEST_PKG_NAME, SEND_SMS)
+    }
+
+    @Test
+    fun smsAndCallLogGetsWhitelistedWhenInitialVersionIs0() {
+        setInitialDatabaseVersion(0)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(SEND_SMS),
+                Permission(READ_CALL_LOG)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyWhitelisted(TEST_PKG_NAME, SEND_SMS)
+        verifyWhitelisted(TEST_PKG_NAME, READ_CALL_LOG)
+    }
+
+    @Test
+    fun smsAndCallLogGDoesNotGetWhitelistedWhenInitialVersionIs1() {
+        setInitialDatabaseVersion(1)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(SEND_SMS),
+                Permission(READ_CALL_LOG)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyNotWhitelisted(TEST_PKG_NAME, SEND_SMS)
+        verifyNotWhitelisted(TEST_PKG_NAME, READ_CALL_LOG)
+    }
+
+    @Test
+    fun backgroundLocationGetsWhitelistedWhenInitialVersionIs3() {
+        setInitialDatabaseVersion(3)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(ACCESS_BACKGROUND_LOCATION)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyWhitelisted(TEST_PKG_NAME, ACCESS_BACKGROUND_LOCATION)
+    }
+
+    @Test
+    fun backgroundLocationGetsWhitelistedWhenInitialVersionIs4() {
+        setInitialDatabaseVersion(4)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(ACCESS_BACKGROUND_LOCATION)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyNotWhitelisted(TEST_PKG_NAME, ACCESS_BACKGROUND_LOCATION)
+    }
+
+    @Test
+    fun storageGetsWhitelistedWhenInitialVersionIs5() {
+        setInitialDatabaseVersion(5)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(READ_EXTERNAL_STORAGE)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyWhitelisted(TEST_PKG_NAME, READ_EXTERNAL_STORAGE)
+    }
+
+    @Test
+    fun storageGetsWhitelistedWhenInitialVersionIs6() {
+        setInitialDatabaseVersion(6)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(READ_EXTERNAL_STORAGE)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyNotWhitelisted(TEST_PKG_NAME, READ_EXTERNAL_STORAGE)
+    }
+
+    @Test
+    fun locationGetsExpandedWhenUpgradingFromP() {
+        setInitialDatabaseVersion(-1)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(ACCESS_FINE_LOCATION, isGranted = true),
+                Permission(ACCESS_BACKGROUND_LOCATION)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyGranted(TEST_PKG_NAME, ACCESS_BACKGROUND_LOCATION)
+    }
+
+    @Test
+    fun locationDoesNotGetExpandedWhenNotUpgradingFromP() {
+        setInitialDatabaseVersion(0)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(ACCESS_FINE_LOCATION, isGranted = true),
+                Permission(ACCESS_BACKGROUND_LOCATION)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyNotGranted(TEST_PKG_NAME, ACCESS_BACKGROUND_LOCATION)
+    }
+
+    @Test
+    fun locationDoesNotGetExpandedWhenUpgradingFromPWhenForegroundPermissionIsDenied() {
+        setInitialDatabaseVersion(-1)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(ACCESS_FINE_LOCATION),
+                Permission(ACCESS_BACKGROUND_LOCATION)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyNotGranted(TEST_PKG_NAME, ACCESS_BACKGROUND_LOCATION)
+    }
+
+    @Test
+    fun storageGetsExpandedWhenVersionIs7() {
+        setInitialDatabaseVersion(7)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(READ_EXTERNAL_STORAGE, isGranted = true,
+                        flags = FLAG_PERMISSION_RESTRICTION_INSTALLER_EXEMPT),
+                Permission(ACCESS_MEDIA_LOCATION)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyNotWhitelisted(TEST_PKG_NAME, SEND_SMS)
+    }
+
+    @Test
+    fun storageDoesNotGetExpandedWhenVersionIs8() {
+        setInitialDatabaseVersion(8)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(READ_EXTERNAL_STORAGE, isGranted = true,
+                        flags = FLAG_PERMISSION_RESTRICTION_INSTALLER_EXEMPT),
+                Permission(ACCESS_MEDIA_LOCATION)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyNotGranted(TEST_PKG_NAME, ACCESS_MEDIA_LOCATION)
+    }
+
+    @Test
+    fun storageDoesNotGetExpandedWhenDenied() {
+        setInitialDatabaseVersion(7)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(READ_EXTERNAL_STORAGE,
+                        flags = FLAG_PERMISSION_RESTRICTION_INSTALLER_EXEMPT),
+                Permission(ACCESS_MEDIA_LOCATION)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyNotGranted(TEST_PKG_NAME, ACCESS_MEDIA_LOCATION)
+    }
+
+    @Test
+    fun storageDoesNotGetExpandedWhenNewUser() {
+        setInitialDatabaseVersion(0)
+        setPackages(
+            Package(TEST_PKG_NAME,
+                Permission(READ_EXTERNAL_STORAGE, isGranted = true,
+                        flags = FLAG_PERMISSION_RESTRICTION_SYSTEM_EXEMPT),
+                Permission(ACCESS_MEDIA_LOCATION)
+            )
+        )
+
+        upgradeIfNeeded()
+
+        verifyNotGranted(TEST_PKG_NAME, ACCESS_MEDIA_LOCATION)
     }
 
     @After
