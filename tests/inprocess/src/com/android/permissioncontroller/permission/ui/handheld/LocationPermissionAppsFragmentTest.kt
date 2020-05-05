@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.ui.handheld
+package com.android.permissioncontroller.permission.ui.handheld
 
-import android.Manifest.permission.READ_EXTERNAL_STORAGE
+import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.runner.RunWith
 
@@ -24,8 +24,8 @@ import org.junit.runner.RunWith
  * Simple tests for {@link PermissionAppsFragment} when showing location permission
  */
 @RunWith(AndroidJUnit4::class)
-class StoragePermissionAppsFragmentTest : PermissionAppsFragmentTest(
-    "/data/local/tmp/permissioncontroller/tests/unit/AppThatUsesStoragePermission.apk",
-    "com.android.permissioncontroller.tests.appthatrequestpermission",
-    READ_EXTERNAL_STORAGE
+class LocationPermissionAppsFragmentTest : PermissionAppsFragmentTest(
+    "/data/local/tmp/permissioncontroller/tests/inprocess/AppThatRequestsLocation.apk",
+    "android.permission.cts.appthatrequestpermission",
+    ACCESS_COARSE_LOCATION
 )

@@ -18,13 +18,13 @@
 
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.permissioncontroller.tests.unit">
+    package="com.android.permissioncontroller.tests.inprocess">
 
-    <application android:label="PermissionController Unit Tests">
+    <application android:label="PermissionController In Process Tests">
         <uses-library android:name="android.test.runner" />
     </application>
 
     <instrumentation android:name="androidx.test.runner.AndroidJUnitRunner"
         android:targetPackage="com.android.permissioncontroller"
-        android:label="Unit tests for PermissionController" />
+        android:label="In Process tests for PermissionController" />
 </manifest>

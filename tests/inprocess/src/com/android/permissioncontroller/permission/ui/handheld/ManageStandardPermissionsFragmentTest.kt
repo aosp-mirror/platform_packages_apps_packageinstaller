@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.ui.handheld
+package com.android.permissioncontroller.permission.ui.handheld
 
 import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import android.content.Intent
@@ -50,11 +50,11 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class ManageStandardPermissionsFragmentTest {
     private val LOCATION_USER_APK =
-            "/data/local/tmp/permissioncontroller/tests/unit/AppThatRequestsLocation.apk"
+            "/data/local/tmp/permissioncontroller/tests/inprocess/AppThatRequestsLocation.apk"
     private val ADDITIONAL_DEFINER_APK =
-            "/data/local/tmp/permissioncontroller/tests/unit/AppThatDefinesAdditionalPermission.apk"
+            "/data/local/tmp/permissioncontroller/tests/inprocess/AppThatDefinesAdditionalPermission.apk"
     private val ADDITIONAL_USER_APK =
-            "/data/local/tmp/permissioncontroller/tests/unit/" +
+            "/data/local/tmp/permissioncontroller/tests/inprocess/" +
                     "AppThatUsesAdditionalPermission.apk"
     private val LOCATION_USER_PKG = "android.permission.cts.appthatrequestpermission"
     private val ADDITIONAL_DEFINER_PKG =

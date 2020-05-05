@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.ui.handheld
+package com.android.permissioncontroller.permission.ui.handheld
 
 import android.content.Intent
 import android.content.Intent.ACTION_MANAGE_PERMISSION_APPS

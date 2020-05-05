@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2019 The Android Open Source Project
+// Copyright (C) 2020 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,43 +14,25 @@
 // limitations under the License.
 //
 
-genrule {
-    name: "statslog-permissioncontroller-java-gen",
-    tools: ["stats-log-api-gen"],
-    cmd: "$(location stats-log-api-gen) --java $(out) --module permissioncontroller --javaPackage com.android.permissioncontroller --javaClass PermissionControllerStatsLog --supportQ",
-    out: ["com/android/permissioncontroller/PermissionControllerStatsLog.java"],
-}
+android_test {
+    name: "PermissionControllerMockingTests",
 
-java_library {
-    name: "permissioncontroller-statsd",
-    sdk_version: "system_current",
-
-    srcs: [
-        ":statslog-permissioncontroller-java-gen",
+    resource_dirs: [
+        "main_res",
     ],
-}
 
-// File to be included by permission controller app an mocking tests
-filegroup {
-    name: "permissioncontroller-sources",
     srcs: [
-        "src/**/*.java",
+        ":permissioncontroller-sources",
+
         "src/**/*.kt",
-        "src/**/*.proto",
     ],
-}
 
-android_app {
-    name: "PermissionController",
-    sdk_version: "system_current",
-    min_sdk_version: "28",
-    updatable: true,
-    privileged: true,
-    certificate: "platform",
+    libs: [
+        "android.car-stubs",
 
-    srcs: [":permissioncontroller-sources"],
-
-    libs: ["android.car-stubs"],
+        "android.test.base",
+        "android.test.runner",
+    ],
 
     static_libs: [
         "iconloader",
@@ -88,15 +70,19 @@ android_app {
         "permissioncontroller-statsd",
         "car-ui-lib",
         "libprotobuf-java-lite",
+
+        "androidx.test.rules",
+        "androidx.test.ext.truth",
+        "androidx.test.ext.junit",
+        "mockito-target-extended-minus-junit4",
     ],
 
-    proto: {
-        type: "lite",
-    },
+    jni_libs: [
+        "libdexmakerjvmtiagent",
+        "libstaticjvmtiagent",
+    ],
 
-    optimize: {
-        proguard_flags_files: ["proguard.flags"],
-    },
+    aaptflags: ["--custom-package com.android.permissioncontroller"],
 
-    plugins: ["java_api_finder"],
+    test_suites: ["device-tests"]
 }
