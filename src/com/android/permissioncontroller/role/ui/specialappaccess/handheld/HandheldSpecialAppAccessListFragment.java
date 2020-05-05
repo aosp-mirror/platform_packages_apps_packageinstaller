@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.role.ui.handheld;
+package com.android.permissioncontroller.role.ui.specialappaccess.handheld;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -24,8 +24,10 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.role.ui.SpecialAppAccessListChildFragment;
 import com.android.permissioncontroller.role.ui.TwoTargetPreference;
+import com.android.permissioncontroller.role.ui.handheld.AppIconSettingsButtonPreference;
+import com.android.permissioncontroller.role.ui.handheld.SettingsFragment;
+import com.android.permissioncontroller.role.ui.specialappaccess.SpecialAppAccessListChildFragment;
 
 /**
  * Handheld fragment for the list of special app accesses.
