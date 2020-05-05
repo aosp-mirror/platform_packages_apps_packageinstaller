@@ -14,12 +14,15 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.role.ui;
+package com.android.permissioncontroller.role.ui.specialappaccess;
 
 import android.util.ArrayMap;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MediatorLiveData;
+
+import com.android.permissioncontroller.role.ui.RoleItem;
+import com.android.permissioncontroller.role.ui.RoleListLiveData;
 
 import java.util.ArrayList;
 import java.util.List;

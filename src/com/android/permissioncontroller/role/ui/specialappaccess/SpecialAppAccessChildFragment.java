@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.role.ui;
+package com.android.permissioncontroller.role.ui.specialappaccess;
 
 import android.app.Activity;
 import android.content.Context;
@@ -38,6 +38,7 @@ import androidx.preference.TwoStatePreference;
 import com.android.permissioncontroller.permission.utils.Utils;
 import com.android.permissioncontroller.role.model.Role;
 import com.android.permissioncontroller.role.model.Roles;
+import com.android.permissioncontroller.role.ui.ManageRoleHolderStateLiveData;
 
 import java.util.List;
 

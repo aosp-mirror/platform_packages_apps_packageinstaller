@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.role.ui;
+package com.android.permissioncontroller.role.ui.specialappaccess;
 
 import android.app.Application;
 import android.content.pm.ApplicationInfo;
@@ -33,6 +33,9 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.android.permissioncontroller.role.model.Role;
+import com.android.permissioncontroller.role.ui.ManageRoleHolderStateLiveData;
+import com.android.permissioncontroller.role.ui.RoleLiveData;
+import com.android.permissioncontroller.role.ui.RoleSortFunction;
 import com.android.permissioncontroller.role.utils.UserUtils;
 
 import java.util.List;

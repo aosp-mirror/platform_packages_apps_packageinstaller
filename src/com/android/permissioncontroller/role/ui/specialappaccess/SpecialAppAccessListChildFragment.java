@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.role.ui;
+package com.android.permissioncontroller.role.ui.specialappaccess;
 
 import android.content.Context;
 import android.content.Intent;
@@ -34,6 +34,8 @@ import androidx.preference.PreferenceScreen;
 
 import com.android.permissioncontroller.role.model.Role;
 import com.android.permissioncontroller.role.model.Roles;
+import com.android.permissioncontroller.role.ui.RoleItem;
+import com.android.permissioncontroller.role.ui.TwoTargetPreference;
 
 import java.util.List;
 
