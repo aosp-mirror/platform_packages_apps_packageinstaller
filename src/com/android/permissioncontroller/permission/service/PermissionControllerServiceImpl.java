@@ -25,7 +25,6 @@ import static android.permission.PermissionControllerManager.REASON_MALWARE;
 import static android.util.Xml.newSerializer;
 
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_ONE_TIME_PERMISSION_REVOKED;
-import static com.android.permissioncontroller.permission.utils.Utils.shouldShowPermission;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -33,6 +32,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Process;
 import android.os.UserHandle;
 import android.permission.PermissionManager;
@@ -83,6 +84,8 @@ import kotlin.Pair;
  */
 public final class PermissionControllerServiceImpl extends PermissionControllerLifecycleService {
     private static final String LOG_TAG = PermissionControllerServiceImpl.class.getSimpleName();
+    private static final int MAX_RETRY_ATTEMPTS = 3;
+    private static final long RETRY_DELAY_MS = 100;
 
 
     private final PermissionControllerServiceModel mServiceModel = new
@@ -536,13 +539,32 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
     @Override
     public void onUpdateUserSensitivePermissionFlags(int uid, Executor executor,
             Runnable callback) {
-        if (uid == Process.INVALID_UID) {
-            UserSensitiveFlagsUtils.updateUserSensitiveForUser(Process.myUserHandle(),
-                    () -> executor.execute(callback));
-        } else {
-            UserSensitiveFlagsUtils.updateUserSensitiveForUid(uid,
-                    () -> executor.execute(callback));
+        onUpdateUserSensistivePermissionFlagsWithRetry(uid, executor, callback, 0);
+    }
+
+    private void onUpdateUserSensistivePermissionFlagsWithRetry(int uid, Executor executor,
+            Runnable callback, int numAttempts) {
+        try {
+            if (uid == Process.INVALID_UID) {
+                UserSensitiveFlagsUtils.updateUserSensitiveForUser(Process.myUserHandle(),
+                        () -> executor.execute(callback));
+            } else {
+                UserSensitiveFlagsUtils.updateUserSensitiveForUid(uid,
+                        () -> executor.execute(callback));
+            }
+        } catch (Exception e) {
+            // We specifically want to catch DeadSystemExceptions, but cannot explicitly request
+            // them, as it results in a compiler error
+            if (numAttempts == MAX_RETRY_ATTEMPTS) {
+                throw e;
+            } else {
+                int attempts = numAttempts + 1;
+                Handler h = new Handler(Looper.getMainLooper());
+                h.postDelayed(() -> onUpdateUserSensistivePermissionFlagsWithRetry(uid,
+                        executor, callback, attempts), RETRY_DELAY_MS);
+            }
         }
+
     }
 
     @Override
