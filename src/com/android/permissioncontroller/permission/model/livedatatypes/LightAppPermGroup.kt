@@ -25,7 +25,8 @@ import android.os.UserHandle
  *
  * @param packageInfo Information about the package
  * @param permGroupInfo Information about the permission group
- * @param permissions The permissions in the permission group that the package requests
+ * @param allPermissions The permissions in the permission group that the package requests
+ * (including restricted ones).
  * @param hasInstallToRuntimeSplit If this group contains a permission that was previously an
  * install permission, but is currently a runtime permission
  * @param specialLocationGrant If this package is the location provider, or the extra location
@@ -35,12 +36,18 @@ import android.os.UserHandle
 data class LightAppPermGroup(
     val packageInfo: LightPackageInfo,
     val permGroupInfo: LightPermGroupInfo,
-    val permissions: Map<String, LightPermission>,
+    val allPermissions: Map<String, LightPermission>,
     val hasInstallToRuntimeSplit: Boolean,
     val specialLocationGrant: Boolean?
 ) {
     constructor(pI: LightPackageInfo, pGI: LightPermGroupInfo, perms: Map<String, LightPermission>):
         this(pI, pGI, perms, false, null)
+
+    /**
+     * All unrestricted permissions. Usually restricted permissions are ignored
+     */
+    val permissions: Map<String, LightPermission> =
+            allPermissions.filter { (_, permission) -> !permission.isRestricted }
 
     /**
      * The package name of this group
