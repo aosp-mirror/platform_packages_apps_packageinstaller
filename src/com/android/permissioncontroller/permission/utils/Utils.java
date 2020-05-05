@@ -28,6 +28,9 @@ import static android.Manifest.permission_group.SENSORS;
 import static android.Manifest.permission_group.SMS;
 import static android.Manifest.permission_group.STORAGE;
 import static android.content.Context.MODE_PRIVATE;
+import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_INSTALLER_EXEMPT;
+import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_SYSTEM_EXEMPT;
+import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_UPGRADE_EXEMPT;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED;
 import static android.content.pm.PackageManager.MATCH_SYSTEM_ONLY;
@@ -118,6 +121,12 @@ public final class Utils {
             PackageManager.FLAG_PERMISSION_WHITELIST_SYSTEM
                     | PackageManager.FLAG_PERMISSION_WHITELIST_UPGRADE
                     | PackageManager.FLAG_PERMISSION_WHITELIST_INSTALLER;
+
+    /** All permission restriction excemptions. */
+    public static final int FLAGS_PERMISSION_RESTRICTION_ANY_EXEMPT =
+            FLAG_PERMISSION_RESTRICTION_SYSTEM_EXEMPT
+                    | FLAG_PERMISSION_RESTRICTION_UPGRADE_EXEMPT
+                    | FLAG_PERMISSION_RESTRICTION_INSTALLER_EXEMPT;
 
     /**
      * The default length of the timeout for one-time permissions

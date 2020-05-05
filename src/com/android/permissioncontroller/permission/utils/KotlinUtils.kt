@@ -489,7 +489,8 @@ object KotlinUtils {
         }
 
         val newState = PermState(newFlags, isGranted)
-        return LightPermission(perm.permInfo, newState, perm.foregroundPerms) to shouldKill
+        return LightPermission(perm.pkgInfo, perm.permInfo, newState,
+                perm.foregroundPerms) to shouldKill
     }
 
     /**
@@ -643,7 +644,8 @@ object KotlinUtils {
         }
 
         val newState = PermState(newFlags, isGranted)
-        return LightPermission(perm.permInfo, newState, perm.foregroundPerms) to shouldKill
+        return LightPermission(perm.pkgInfo, perm.permInfo, newState,
+                perm.foregroundPerms) to shouldKill
     }
 
     private fun Int.setFlag(flagToSet: Int): Int {

@@ -44,7 +44,6 @@ import com.android.permissioncontroller.permission.model.livedatatypes.LightPack
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermGroupInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission
-import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.google.common.truth.Truth.assertThat
 import com.google.common.truth.Truth.assertWithMessage
 import org.junit.Assume.assumeNotNull
@@ -124,8 +123,40 @@ class GrantRevokeTests {
     }
 
     /**
+     * Create a LightPackageInfo object with a particular set of properties
+     *
+     * @param perms The (name -> permissionInfo) of the permissions requested by the app
+     * @param isPreMApp Whether this app targets pre-M
+     * @param isInstantApp {@code true} iff this is an instant app
+     */
+    private fun createMockPackage(
+        perms: Map<String, Boolean>,
+        isPreMApp: Boolean = false,
+        isInstantApp: Boolean = false
+    ): LightPackageInfo {
+        val permNames = mutableListOf<String>()
+        val permFlags = mutableListOf<Int>()
+        for ((permName, isGranted) in perms) {
+            permNames.add(permName)
+            permFlags.add(if (isGranted) {
+                PERMISSION_GRANTED
+            } else {
+                PERMISSION_DENIED
+            })
+        }
+
+        return LightPackageInfo(TEST_PACKAGE_NAME, listOf(), permNames, permFlags, TEST_UID,
+                if (isPreMApp) {
+                    Build.VERSION_CODES.LOLLIPOP
+                } else {
+                    Build.VERSION_CODES.R
+                }, isInstantApp, isInstantApp, 0, 0L)
+    }
+
+    /**
      * Create a LightPermission object with a particular set of properties
      *
+     * @param pkg Package requesting the permission
      * @param permName The name of the permission
      * @param granted Whether the permission is granted (should be false if the permission is compat
      * revoked)
@@ -137,8 +168,8 @@ class GrantRevokeTests {
      * PermissionInfo.getProtectionFlags)
      */
     private fun createMockPerm(
+        pkgInfo: LightPackageInfo,
         permName: String,
-        granted: Boolean,
         backgroundPerm: String? = null,
         foregroundPerms: List<String>? = null,
         flags: Int = NO_FLAGS,
@@ -146,42 +177,23 @@ class GrantRevokeTests {
     ): LightPermission {
         val permInfo = LightPermInfo(permName, TEST_PACKAGE_NAME, PERM_GROUP_NAME, backgroundPerm,
             PermissionInfo.PROTECTION_DANGEROUS, permInfoProtectionFlags, 0)
-        return LightPermission(permInfo, granted, flags, foregroundPerms)
+        return LightPermission(pkgInfo, permInfo,
+                pkgInfo.requestedPermissionsFlags[pkgInfo.requestedPermissions.indexOf(permName)]
+                        == PERMISSION_GRANTED, flags, foregroundPerms)
     }
 
     /**
      * Create a LightAppPermGroup with a particular set of properties.
      *
+     * @param pkg Package requesting the permission
      * @param perms The map of perm name to LightPermission (should be created with @createMockPerm)
-     * @param isPreMApp If this is a pre M app, and thus permissions need to be compat revoked
-     * @param isInstantApp If this is an instant app. Affects the granting of some permissions
      */
     private fun createMockGroup(
-        perms: Map<String, LightPermission> = mapOf(),
-        isPreMApp: Boolean = false,
-        isInstantApp: Boolean = false
+        pkgInfo: LightPackageInfo,
+        perms: Map<String, LightPermission> = emptyMap()
     ): LightAppPermGroup {
-        val targetSdk = if (isPreMApp) {
-            Build.VERSION_CODES.LOLLIPOP
-        } else {
-            Build.VERSION_CODES.R
-        }
-        val permNames = mutableListOf<String>()
-        val permFlags = mutableListOf<Int>()
-        for ((permName, perm) in perms) {
-            permNames.add(permName)
-            permFlags.add(if (perm.isGrantedIncludingAppOp ||
-                    perm.flags and FLAG_PERMISSION_REVOKED_COMPAT != 0) {
-                PERMISSION_GRANTED
-            } else {
-                PERMISSION_DENIED
-            })
-        }
-
-        val pI = LightPackageInfo(TEST_PACKAGE_NAME, listOf(), permNames, permFlags,
-            TEST_UID, targetSdk, isInstantApp, true, 0, 0L)
         val pGi = LightPermGroupInfo(PERM_GROUP_NAME, TEST_PACKAGE_NAME, 0, 0, 0, false)
-        return LightAppPermGroup(pI, pGi, perms, false, false)
+        return LightAppPermGroup(pkgInfo, pGi, perms, false, false)
     }
 
     /**
@@ -328,9 +340,10 @@ class GrantRevokeTests {
      */
     @Test
     fun grantOnePermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to false))
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, false)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
@@ -352,10 +365,11 @@ class GrantRevokeTests {
      */
     @Test
     fun grantTwoPermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to false, FG_PERM_2_NAME to false))
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, false)
-        perms[FG_PERM_2_NAME] = createMockPerm(FG_PERM_2_NAME, false, BG_PERM_NAME)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME)
+        perms[FG_PERM_2_NAME] = createMockPerm(pkg, FG_PERM_2_NAME, BG_PERM_NAME)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
@@ -381,9 +395,10 @@ class GrantRevokeTests {
      */
     @Test
     fun grantNoAppOpPerm() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME_NO_APP_OP to false))
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME_NO_APP_OP] = createMockPerm(FG_PERM_NAME_NO_APP_OP, false)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME_NO_APP_OP] = createMockPerm(pkg, FG_PERM_NAME_NO_APP_OP)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
@@ -405,11 +420,11 @@ class GrantRevokeTests {
      */
     @Test
     fun grantBgPermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true, BG_PERM_NAME to false))
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true, BG_PERM_NAME)
-        perms[BG_PERM_NAME] = createMockPerm(BG_PERM_NAME, false, null,
-            listOf(FG_PERM_NAME))
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, BG_PERM_NAME)
+        perms[BG_PERM_NAME] = createMockPerm(pkg, BG_PERM_NAME, null, listOf(FG_PERM_NAME))
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantBackgroundRuntimePermissions(app, group)
@@ -433,11 +448,11 @@ class GrantRevokeTests {
      */
     @Test
     fun grantBgAndFgPermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to false, BG_PERM_NAME to false))
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, false, BG_PERM_NAME)
-        perms[BG_PERM_NAME] = createMockPerm(BG_PERM_NAME, false, null,
-            listOf(FG_PERM_NAME))
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, BG_PERM_NAME)
+        perms[BG_PERM_NAME] = createMockPerm(pkg, BG_PERM_NAME, null, listOf(FG_PERM_NAME))
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
@@ -472,11 +487,12 @@ class GrantRevokeTests {
      */
     @Test
     fun grantSystemFixedTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to false, FG_PERM_2_NAME to false))
         val permFlags = FLAG_PERMISSION_SYSTEM_FIXED
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, false)
-        perms[FG_PERM_2_NAME] = createMockPerm(FG_PERM_2_NAME, false, flags = permFlags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME)
+        perms[FG_PERM_2_NAME] = createMockPerm(pkg, FG_PERM_2_NAME, flags = permFlags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
@@ -501,12 +517,12 @@ class GrantRevokeTests {
      */
     @Test
     fun grantBgSystemFixedTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to false, BG_PERM_NAME to false))
         val permFlags = FLAG_PERMISSION_SYSTEM_FIXED
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, false, BG_PERM_NAME)
-        perms[BG_PERM_NAME] = createMockPerm(BG_PERM_NAME, false, null,
-            FG_PERM_NAMES, permFlags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, BG_PERM_NAME)
+        perms[BG_PERM_NAME] = createMockPerm(pkg, BG_PERM_NAME, null, FG_PERM_NAMES, permFlags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
@@ -540,10 +556,11 @@ class GrantRevokeTests {
      */
     @Test
     fun grantOneTimeTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true))
         val oldFlags = FLAG_PERMISSION_ONE_TIME
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true, flags = oldFlags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, flags = oldFlags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
@@ -564,10 +581,11 @@ class GrantRevokeTests {
      */
     @Test
     fun grantPreMAppTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to false), isPreMApp = true)
         val oldFlags = FLAG_PERMISSION_REVOKED_COMPAT
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, false, flags = oldFlags)
-        val group = createMockGroup(perms, isPreMApp = true)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, flags = oldFlags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
@@ -587,10 +605,11 @@ class GrantRevokeTests {
      */
     @Test
     fun grantAlreadyGrantedPreMTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true))
         val perms = mutableMapOf<String, LightPermission>()
         val flags = FLAG_PERMISSION_USER_SET
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true, flags = flags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, flags = flags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
 
@@ -608,9 +627,10 @@ class GrantRevokeTests {
      */
     @Test
     fun cantGrantInstantAppStandardPermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to false), isInstantApp = true)
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, false)
-        val group = createMockGroup(perms, isInstantApp = true)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
@@ -628,10 +648,11 @@ class GrantRevokeTests {
      */
     @Test
     fun cantGrantPreRuntimeAppWithRuntimeOnlyPermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to false), isPreMApp = true)
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, false,
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME,
             permInfoProtectionFlags = PROTECTION_FLAG_RUNTIME_ONLY)
-        val group = createMockGroup(perms, isPreMApp = true)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
@@ -649,10 +670,11 @@ class GrantRevokeTests {
      */
     @Test
     fun grantInstantAppInstantPermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to false), isInstantApp = true)
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, false,
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME,
             permInfoProtectionFlags = PROTECTION_FLAG_INSTANT)
-        val group = createMockGroup(perms, isInstantApp = true)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
@@ -672,10 +694,11 @@ class GrantRevokeTests {
      */
     @Test
     fun grantClearsUserFixedAndReviewRequired() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true))
         val oldFlags = FLAG_PERMISSION_USER_FIXED or FLAG_PERMISSION_REVIEW_REQUIRED
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true, flags = oldFlags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, flags = oldFlags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
         val newGroup = KotlinUtils.grantForegroundRuntimePermissions(app, group)
 
@@ -694,9 +717,10 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeOnePermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true))
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
@@ -716,10 +740,11 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeTwoPermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true, FG_PERM_2_NAME to true))
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true)
-        perms[FG_PERM_2_NAME] = createMockPerm(FG_PERM_2_NAME, true)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg,FG_PERM_NAME)
+        perms[FG_PERM_2_NAME] = createMockPerm(pkg, FG_PERM_2_NAME)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
@@ -744,9 +769,10 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeNoAppOpPerm() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME_NO_APP_OP to true))
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME_NO_APP_OP] = createMockPerm(FG_PERM_NAME_NO_APP_OP, true)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME_NO_APP_OP] = createMockPerm(pkg, FG_PERM_NAME_NO_APP_OP)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
 
@@ -767,11 +793,11 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeBgPermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true, BG_PERM_NAME to true))
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true, BG_PERM_NAME)
-        perms[BG_PERM_NAME] = createMockPerm(BG_PERM_NAME, true, null,
-            listOf(FG_PERM_NAME))
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, BG_PERM_NAME)
+        perms[BG_PERM_NAME] = createMockPerm(pkg, BG_PERM_NAME, null, listOf(FG_PERM_NAME))
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, group)
@@ -795,11 +821,11 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeBgAndFgPermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true, BG_PERM_NAME to true))
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true, BG_PERM_NAME)
-        perms[BG_PERM_NAME] = createMockPerm(BG_PERM_NAME, true, null,
-            listOf(FG_PERM_NAME))
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, BG_PERM_NAME)
+        perms[BG_PERM_NAME] = createMockPerm(pkg, BG_PERM_NAME, null, listOf(FG_PERM_NAME))
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeBackgroundRuntimePermissions(app, group, true)
@@ -832,11 +858,12 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeSystemFixedTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true, FG_PERM_2_NAME to true))
         val permFlags = FLAG_PERMISSION_SYSTEM_FIXED
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true, BG_PERM_NAME)
-        perms[FG_PERM_2_NAME] = createMockPerm(FG_PERM_2_NAME, true, flags = permFlags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, BG_PERM_NAME)
+        perms[FG_PERM_2_NAME] = createMockPerm(pkg, FG_PERM_2_NAME, flags = permFlags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
@@ -860,12 +887,12 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeBgSystemFixedTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true, BG_PERM_NAME to true))
         val permFlags = FLAG_PERMISSION_SYSTEM_FIXED
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true, BG_PERM_NAME)
-        perms[BG_PERM_NAME] = createMockPerm(BG_PERM_NAME, true, null,
-            FG_PERM_NAMES, permFlags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, BG_PERM_NAME)
+        perms[BG_PERM_NAME] = createMockPerm(pkg, BG_PERM_NAME, null, FG_PERM_NAMES, permFlags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
@@ -898,10 +925,11 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeOneTimeTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true))
         val oldFlags = FLAG_PERMISSION_ONE_TIME
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true, flags = oldFlags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, flags = oldFlags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
@@ -922,9 +950,10 @@ class GrantRevokeTests {
      */
     @Test
     fun revokePreMAppTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true), isPreMApp = true)
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true)
-        val group = createMockGroup(perms, isPreMApp = true)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
@@ -945,10 +974,11 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeAlreadyRevokedPreMTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to false))
         val perms = mutableMapOf<String, LightPermission>()
         val flags = FLAG_PERMISSION_USER_SET
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, false, flags = flags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, flags = flags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
@@ -967,9 +997,10 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeInstantAppTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true), isInstantApp = true)
         val perms = mutableMapOf<String, LightPermission>()
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true)
-        val group = createMockGroup(perms, isInstantApp = true)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, true)
@@ -991,10 +1022,11 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeUserFixedPermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true))
         val perms = mutableMapOf<String, LightPermission>()
         val oldFlags = FLAG_PERMISSION_USER_FIXED
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true, null, null, oldFlags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, null, null, oldFlags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
@@ -1015,10 +1047,11 @@ class GrantRevokeTests {
      */
     @Test
     fun revokeAndSetUserFixedPermTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to true))
         val perms = mutableMapOf<String, LightPermission>()
         val oldFlags = FLAG_PERMISSION_USER_SET
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, true, null, null, oldFlags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, null, null, oldFlags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group, true)
@@ -1039,10 +1072,11 @@ class GrantRevokeTests {
      */
     @Test
     fun changeUserFixedTest() {
+        val pkg = createMockPackage(mapOf(FG_PERM_NAME to false))
         val perms = mutableMapOf<String, LightPermission>()
         val oldFlags = FLAG_PERMISSION_USER_FIXED
-        perms[FG_PERM_NAME] = createMockPerm(FG_PERM_NAME, false, null, null, oldFlags)
-        val group = createMockGroup(perms)
+        perms[FG_PERM_NAME] = createMockPerm(pkg, FG_PERM_NAME, null, null, oldFlags)
+        val group = createMockGroup(pkg, perms)
         resetMockAppState()
 
         val newGroup = KotlinUtils.revokeForegroundRuntimePermissions(app, group)
