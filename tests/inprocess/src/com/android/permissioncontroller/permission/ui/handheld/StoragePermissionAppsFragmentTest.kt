@@ -14,17 +14,18 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.role.service
+package com.android.permissioncontroller.permission.ui.handheld
 
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.google.common.truth.Truth.assertThat
-import org.junit.Test
 import org.junit.runner.RunWith
 
+/**
+ * Simple tests for {@link PermissionAppsFragment} when showing location permission
+ */
 @RunWith(AndroidJUnit4::class)
-class RoleControllerServiceImplTest {
-    @Test
-    fun testTestRuns() {
-        assertThat(true).isTrue()
-    }
-}
+class StoragePermissionAppsFragmentTest : PermissionAppsFragmentTest(
+    "/data/local/tmp/permissioncontroller/tests/inprocess/AppThatUsesStoragePermission.apk",
+    "com.android.permissioncontroller.tests.appthatrequestpermission",
+    READ_EXTERNAL_STORAGE
+)

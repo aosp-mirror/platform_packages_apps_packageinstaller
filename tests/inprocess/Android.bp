@@ -16,7 +16,7 @@
 
 android_test {
 
-    name: "PermissionControllerUnitTests",
+    name: "PermissionControllerInProcessTests",
 
     srcs: ["src/**/*.kt"],
 
@@ -31,7 +31,6 @@ android_test {
         "androidx.test.rules",
         "androidx.test.ext.truth",
         "androidx.test.ext.junit",
-        "mockito-target-minus-junit4",
         "compatibility-device-util-axt",
         "permission-test-util-lib",
     ],

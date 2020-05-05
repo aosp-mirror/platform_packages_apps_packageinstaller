@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.ui.handheld
+package com.android.permissioncontroller.permission.ui.handheld
 
 import android.content.Intent
 import android.content.Intent.ACTION_MANAGE_APP_PERMISSIONS
@@ -31,7 +31,6 @@ import com.android.permissioncontroller.DisableAnimationsRule
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.assertDoesNotHavePreference
 import com.android.permissioncontroller.permission.ui.ManagePermissionsActivity
-import com.android.permissioncontroller.permission.ui.handheld.AllAppPermissionsFragment
 import com.android.permissioncontroller.scrollToPreference
 import com.android.permissioncontroller.wakeUpScreen
 import com.google.common.truth.Truth.assertThat
@@ -47,12 +46,12 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class AllAppPermissionsFragmentTest {
     private val ONE_PERMISSION_DEFINER_APK =
-            "/data/local/tmp/permissioncontroller/tests/unit/AppThatDefinesAdditionalPermission.apk"
+            "/data/local/tmp/permissioncontroller/tests/inprocess/AppThatDefinesAdditionalPermission.apk"
     private val PERMISSION_USER_APK =
-            "/data/local/tmp/permissioncontroller/tests/unit/" +
+            "/data/local/tmp/permissioncontroller/tests/inprocess/" +
                     "AppThatUsesAdditionalPermission.apk"
     private val TWO_PERMISSION_USER_APK =
-            "/data/local/tmp/permissioncontroller/tests/unit/" +
+            "/data/local/tmp/permissioncontroller/tests/inprocess/" +
                     "AppThatUsesTwoAdditionalPermissions.apk"
     private val DEFINER_PKG = "com.android.permissioncontroller.tests.appthatdefinespermission"
     private val USER_PKG = "com.android.permissioncontroller.tests.appthatrequestpermission"

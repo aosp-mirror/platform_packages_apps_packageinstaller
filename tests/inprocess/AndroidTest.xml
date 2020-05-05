@@ -19,32 +19,32 @@
 <configuration description="Runs unit tests for PermissionController.">
     <option name="test-suite-tag" value="apct" />
     <option name="test-suite-tag" value="apct-instrumentation" />
-    <option name="test-tag" value="PermissionControllerUnitTests" />
+    <option name="test-tag" value="PermissionControllerInProcessTests" />
 
     <!-- Install test -->
     <target_preparer class="com.android.tradefed.targetprep.TestAppInstallSetup">
-        <option name="test-file-name" value="PermissionControllerUnitTests.apk" />
+        <option name="test-file-name" value="PermissionControllerInProcessTests.apk" />
         <option name="cleanup-apks" value="true" />
     </target_preparer>
 
     <!-- Create place to store apks -->
     <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
-        <option name="run-command" value="mkdir -p /data/local/tmp/permissioncontroller/tests/unit" />
+        <option name="run-command" value="mkdir -p /data/local/tmp/permissioncontroller/tests/inprocess" />
         <option name="teardown-command" value="rm -rf /data/local/tmp/permissioncontroller/"/>
     </target_preparer>
 
     <!-- Load additional APKs onto device -->
     <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
         <option name="push-file" key="CtsAppThatRequestsLocationPermission29.apk"
-                value="/data/local/tmp/permissioncontroller/tests/unit/AppThatRequestsLocation.apk" />
+                value="/data/local/tmp/permissioncontroller/tests/inprocess/AppThatRequestsLocation.apk" />
         <option name="push-file" key="AppThatUsesStoragePermission.apk"
-                value="/data/local/tmp/permissioncontroller/tests/unit/AppThatUsesStoragePermission.apk" />
+                value="/data/local/tmp/permissioncontroller/tests/inprocess/AppThatUsesStoragePermission.apk" />
         <option name="push-file" key="AppThatDefinesAdditionalPermission.apk"
-                value="/data/local/tmp/permissioncontroller/tests/unit/AppThatDefinesAdditionalPermission.apk" />
+                value="/data/local/tmp/permissioncontroller/tests/inprocess/AppThatDefinesAdditionalPermission.apk" />
         <option name="push-file" key="AppThatUsesAdditionalPermission.apk"
-                value="/data/local/tmp/permissioncontroller/tests/unit/AppThatUsesAdditionalPermission.apk" />
+                value="/data/local/tmp/permissioncontroller/tests/inprocess/AppThatUsesAdditionalPermission.apk" />
         <option name="push-file" key="AppThatUsesTwoAdditionalPermissions.apk"
-                value="/data/local/tmp/permissioncontroller/tests/unit/AppThatUsesTwoAdditionalPermissions.apk" />
+                value="/data/local/tmp/permissioncontroller/tests/inprocess/AppThatUsesTwoAdditionalPermissions.apk" />
     </target_preparer>
 
     <!-- Uninstall test-apps -->
@@ -53,7 +53,7 @@
     </target_preparer>
 
     <test class="com.android.tradefed.testtype.AndroidJUnitTest" >
-        <option name="package" value="com.android.permissioncontroller.tests.unit" />
+        <option name="package" value="com.android.permissioncontroller.tests.inprocess" />
         <option name="runner" value="androidx.test.runner.AndroidJUnitRunner" />
     </test>
 </configuration>
