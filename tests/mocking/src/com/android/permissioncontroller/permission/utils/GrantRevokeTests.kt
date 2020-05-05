@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permissions.utils
+package com.android.permissioncontroller.permission.utils
 
 import android.Manifest
 import android.app.ActivityManager
@@ -24,8 +24,6 @@ import android.app.AppOpsManager.MODE_FOREGROUND
 import android.app.AppOpsManager.MODE_IGNORED
 import android.app.AppOpsManager.permissionToOp
 import android.app.Application
-import android.content.Context.ACTIVITY_SERVICE
-import android.content.Context.APP_OPS_SERVICE
 import android.content.pm.PackageManager
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_ONE_TIME
@@ -113,18 +111,15 @@ class GrantRevokeTests {
      * @return The mocked Application object
      */
     private fun resetMockAppState() {
-
         `when`(app.packageManager).thenReturn(mock(PackageManager::class.java))
 
         val aom: AppOpsManager = mock(AppOpsManager::class.java)
         // Return an invalid app op state, so setOpMode will always attempt to change the op state
         `when`(aom.unsafeCheckOpRaw(anyString(), anyInt(), nullable(String::class.java)))
             .thenReturn(-1)
-        `when`(app.getSystemServiceName(AppOpsManager::class.java)).thenReturn(APP_OPS_SERVICE)
-        `when`(app.getSystemService(eq(APP_OPS_SERVICE))).thenReturn(aom)
+        `when`(app.getSystemService(AppOpsManager::class.java)).thenReturn(aom)
 
-        `when`(app.getSystemServiceName(ActivityManager::class.java)).thenReturn(ACTIVITY_SERVICE)
-        `when`(app.getSystemService(eq(ACTIVITY_SERVICE))).thenReturn(
+        `when`(app.getSystemService(ActivityManager::class.java)).thenReturn(
             mock(ActivityManager::class.java))
     }
 

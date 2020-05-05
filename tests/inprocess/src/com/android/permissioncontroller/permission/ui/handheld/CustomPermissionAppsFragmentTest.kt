@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.ui.handheld
+package com.android.permissioncontroller.permission.ui.handheld
 
 import android.permission.cts.PermissionUtils.uninstallApp
 import androidx.navigation.Navigation.findNavController
@@ -31,10 +31,10 @@ import org.junit.runner.RunWith
  */
 @RunWith(AndroidJUnit4::class)
 class CustomPermissionAppsFragmentTest : PermissionAppsFragmentTest(
-    "/data/local/tmp/permissioncontroller/tests/unit/AppThatUsesAdditionalPermission.apk",
+    "/data/local/tmp/permissioncontroller/tests/inprocess/AppThatUsesAdditionalPermission.apk",
     "com.android.permissioncontroller.tests.appthatrequestpermission",
     "com.android.permissioncontroller.tests.A",
-    "/data/local/tmp/permissioncontroller/tests/unit/AppThatDefinesAdditionalPermission.apk",
+    "/data/local/tmp/permissioncontroller/tests/inprocess/AppThatDefinesAdditionalPermission.apk",
     "com.android.permissioncontroller.tests.appthatdefinespermission"
 ) {
     @Ignore("b/155112992")
