@@ -24,8 +24,8 @@ import androidx.annotation.Nullable;
 
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.auto.AutoSettingsFrameFragment;
-import com.android.permissioncontroller.role.ui.SpecialAppAccessListChildFragment;
 import com.android.permissioncontroller.role.ui.TwoTargetPreference;
+import com.android.permissioncontroller.role.ui.specialappaccess.SpecialAppAccessListChildFragment;
 
 /** Automotive fragment for the list of role related special app accesses. */
 public class AutoSpecialAppAccessListFragment extends AutoSettingsFrameFragment implements
