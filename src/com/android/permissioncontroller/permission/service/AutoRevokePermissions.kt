@@ -35,8 +35,6 @@ import android.app.job.JobInfo
 import android.app.job.JobParameters
 import android.app.job.JobScheduler
 import android.app.job.JobService
-import android.app.usage.UsageStats
-import android.app.usage.UsageStatsManager
 import android.app.usage.UsageStatsManager.INTERVAL_DAILY
 import android.app.usage.UsageStatsManager.INTERVAL_MONTHLY
 import android.content.BroadcastReceiver
@@ -66,9 +64,10 @@ import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.data.AppOpLiveData
 import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
-import com.android.permissioncontroller.permission.data.UserPackageInfosLiveData
 import com.android.permissioncontroller.R
+import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokedPackagesLiveData
+import com.android.permissioncontroller.permission.data.UsageStatsLiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.ui.ManagePermissionsActivity
@@ -80,12 +79,9 @@ import com.android.permissioncontroller.permission.utils.Utils.PROPERTY_AUTO_REV
 import com.android.permissioncontroller.permission.utils.application
 import com.android.permissioncontroller.permission.utils.forEachInParallel
 import com.android.permissioncontroller.permission.utils.updatePermissionFlags
-import kotlinx.coroutines.CoroutineStart
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit.DAYS
@@ -94,7 +90,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.random.Random
 
 private const val LOG_TAG = "AutoRevokePermissions"
-    private const val DEBUG_OVERRIDE_THRESHOLDS = false
+private const val DEBUG_OVERRIDE_THRESHOLDS = false
 // TODO eugenesusla: temporarily enabled for extra logs during dogfooding
 private const val DEBUG = false || DEBUG_OVERRIDE_THRESHOLDS
 
@@ -136,9 +132,23 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
         if (DEBUG) {
             Log.i(LOG_TAG, "scheduleAutoRevokePermissions " +
-                "with frequency ${getCheckFrequencyMs(context)}ms" +
+                "with frequency ${getCheckFrequencyMs(context)}ms " +
                 "and threshold ${getUnusedThresholdMs(context)}ms")
         }
+
+        val userManager = context.getSystemService(UserManager::class.java)!!
+        // If this user is a profile, then its auto revoke will be handled by the primary user
+        if (userManager.isProfile) {
+            if (DEBUG) {
+                Log.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile. Not running " +
+                    "Auto Revoke.")
+            }
+            return
+        } else if (DEBUG) {
+            Log.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile owner. Running " +
+                "Auto Revoke.")
+        }
+
         val jobInfo = JobInfo.Builder(
             Constants.AUTO_REVOKE_JOB_ID,
             ComponentName(context, AutoRevokeService::class.java))
@@ -161,65 +171,51 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
 
     val now = System.currentTimeMillis()
 
-    val unusedApps: MutableList<LightPackageInfo> = UserPackageInfosLiveData[myUserHandle()]
-        .getInitializedValue(staleOk = true)
-        .toMutableList()
+    val unusedApps = AllPackageInfosLiveData.getInitializedValue(staleOk = true).toMutableMap()
 
-    // TODO eugenesusla: adapt UsageStats into a LiveData
-    val stats = withContext(IPC) {
-        context.getSystemService<UsageStatsManager>()
-            .queryUsageStats(
-                if (DEBUG_OVERRIDE_THRESHOLDS) INTERVAL_DAILY else INTERVAL_MONTHLY,
-                now - getUnusedThresholdMs(context),
-                now)
-    }
-    val profileUsersStats: Deferred<List<List<UsageStats>>> =
-        GlobalScope.async(IPC, start = CoroutineStart.LAZY) {
-            context
-                .getSystemService<UserManager>()
-                .enabledProfiles
-                .map { user ->
-                    context.forUser(user)
-                        .getSystemService<UsageStatsManager>()
-                        .queryUsageStats(
-                            if (DEBUG_OVERRIDE_THRESHOLDS) INTERVAL_DAILY else INTERVAL_MONTHLY,
-                            now - getUnusedThresholdMs(context),
-                            now)
-                }
-        }
-
-    for (stat in stats) {
-        var lastTimeVisible: Long = stat.lastTimeVisible
-        val pkg = stat.packageName
-
-        // Limit by install time
-        unusedApps.find {
-            it.packageName == pkg
-        }?.let {
-            lastTimeVisible = Math.max(lastTimeVisible, it.firstInstallTime)
-        }
-
-        // Handle cross-profile apps
-        if (context.isPackageCrossProfile(pkg)) {
-            lastTimeVisible = profileUsersStats
-                .await()
-                .fold(lastTimeVisible) { result, profileStats ->
-                    val time: Long = profileStats
-                        .find { it.packageName == pkg }
-                        ?.lastTimeVisible
-                        ?: result
-                    Math.max(result, time)
-                }
-        }
-
-        // Threshold check
-        if (now - lastTimeVisible <= getUnusedThresholdMs(context)) {
-            unusedApps.removeAll { it.packageName == pkg }
+    val userStats = UsageStatsLiveData[getUnusedThresholdMs(context),
+        if (DEBUG_OVERRIDE_THRESHOLDS) INTERVAL_DAILY else INTERVAL_MONTHLY].getInitializedValue()
+    for (user in unusedApps.keys) {
+        if (user !in userStats.keys) {
+            unusedApps.remove(user)
         }
     }
 
-    if (DEBUG) {
-        Log.i(LOG_TAG, "Unused apps: ${unusedApps.map { it.packageName }}")
+    for ((user, stats) in userStats) {
+        val unusedUserApps = unusedApps[user]?.toMutableList() ?: continue
+        for (stat in stats) {
+            var lastTimeVisible: Long = stat.lastTimeVisible
+            val pkgName = stat.packageName
+
+            // Limit by install time
+            unusedUserApps.find {
+                it.packageName == pkgName
+            }?.let {
+                lastTimeVisible = Math.max(lastTimeVisible, it.firstInstallTime)
+            }
+
+            // Handle cross-profile apps
+            if (context.isPackageCrossProfile(pkgName)) {
+                for ((otherUser, otherStats) in userStats) {
+                    if (otherUser == user) {
+                        continue
+                    }
+                    lastTimeVisible = Math.max(lastTimeVisible, otherStats.find {
+                        it.packageName == pkgName }?.lastTimeVisible ?: 0)
+                }
+            }
+
+            // Threshold check
+            if (now - lastTimeVisible <= getUnusedThresholdMs(context)) {
+                unusedUserApps.removeAll { it.packageName == pkgName }
+            }
+        }
+
+        unusedApps[user] = unusedUserApps
+        if (DEBUG) {
+            Log.i(LOG_TAG, "Unused apps for user ${user.identifier}: " +
+                "${unusedUserApps.map { it.packageName }}")
+        }
     }
 
     val manifestExemptPackages: Set<String> = withContext(IPC) {
@@ -228,90 +224,92 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
     }
 
     val revokedApps = mutableListOf<Pair<String, UserHandle>>()
-    unusedApps.forEachInParallel(Main) { pkg: LightPackageInfo ->
-        if (pkg.grantedPermissions.isEmpty()) {
-            return@forEachInParallel
-        }
-
-        val packageName = pkg.packageName
-        if (isPackageAutoRevokeExempt(context, pkg, manifestExemptPackages)) {
-            return@forEachInParallel
-        }
-
-        val anyPermsRevoked = AtomicBoolean(false)
-        val pkgPermGroups: Map<String, List<String>> =
-            PackagePermissionsLiveData[packageName, myUserHandle()]
-                .getInitializedValue(staleOk = true)
-
-        pkgPermGroups.entries.forEachInParallel(Main) { (groupName, _) ->
-            if (groupName == PackagePermissionsLiveData.NON_RUNTIME_NORMAL_PERMS) {
+    for ((user, userApps) in unusedApps) {
+        userApps.forEachInParallel(Main) { pkg: LightPackageInfo ->
+            if (pkg.grantedPermissions.isEmpty()) {
                 return@forEachInParallel
             }
 
-            val group: LightAppPermGroup =
-                LightAppPermGroupLiveData[packageName, groupName, myUserHandle()]
+            val packageName = pkg.packageName
+            if (isPackageAutoRevokeExempt(context, pkg, manifestExemptPackages)) {
+                return@forEachInParallel
+            }
+
+            val anyPermsRevoked = AtomicBoolean(false)
+            val pkgPermGroups: Map<String, List<String>> =
+                PackagePermissionsLiveData[packageName, user]
                     .getInitializedValue(staleOk = true)
-                    ?: return@forEachInParallel
 
-            val fixed = group.isBackgroundFixed || group.isForegroundFixed
-            if (!fixed &&
-                group.permissions.any { (_, perm) -> perm.isGrantedIncludingAppOp } &&
-                !group.isGrantedByDefault &&
-                !group.isGrantedByRole &&
-                group.isUserSensitive) {
-
-                val revocablePermissions = group.permissions.keys.toList()
-
-                if (revocablePermissions.isEmpty()) {
+            pkgPermGroups.entries.forEachInParallel(Main) { (groupName, _) ->
+                if (groupName == PackagePermissionsLiveData.NON_RUNTIME_NORMAL_PERMS) {
                     return@forEachInParallel
                 }
 
-                if (DEBUG) {
-                    Log.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions")
-                }
+                val group: LightAppPermGroup =
+                    LightAppPermGroupLiveData[packageName, groupName, user]
+                        .getInitializedValue(staleOk = true)
+                        ?: return@forEachInParallel
 
-                val uid = group.packageInfo.uid
-                for (permName in revocablePermissions) {
-                    PermissionControllerStatsLog.write(
-                        PERMISSION_GRANT_REQUEST_RESULT_REPORTED,
-                        Random.nextLong(), uid, packageName, permName, false, SERVER_LOG_ID)
-                }
+                val fixed = group.isBackgroundFixed || group.isForegroundFixed
+                if (!fixed &&
+                    group.permissions.any { (_, perm) -> perm.isGrantedIncludingAppOp } &&
+                    !group.isGrantedByDefault &&
+                    !group.isGrantedByRole &&
+                    group.isUserSensitive) {
 
-                val packageImportance = context
-                    .getSystemService(ActivityManager::class.java)!!
-                    .getPackageImportance(packageName)
-                if (packageImportance > IMPORTANCE_TOP_SLEEPING) {
+                    val revocablePermissions = group.permissions.keys.toList()
+
+                    if (revocablePermissions.isEmpty()) {
+                        return@forEachInParallel
+                    }
+
                     if (DEBUG) {
-                        Log.i(LOG_TAG, "revoking $packageName - $revocablePermissions")
+                        Log.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions")
                     }
-                    anyPermsRevoked.compareAndSet(false, true)
 
-                    KotlinUtils.revokeBackgroundRuntimePermissions(
-                        context.application, group,
-                        userFixed = false, oneTime = false,
-                        filterPermissions = revocablePermissions)
-                    KotlinUtils.revokeForegroundRuntimePermissions(
-                        context.application, group,
-                        userFixed = false, oneTime = false,
-                        filterPermissions = revocablePermissions)
-
-                    for (permission in revocablePermissions) {
-                        context.packageManager.updatePermissionFlags(
-                            permission, packageName, myUserHandle(),
-                            FLAG_PERMISSION_AUTO_REVOKED to true,
-                            FLAG_PERMISSION_USER_SET to false)
+                    val uid = group.packageInfo.uid
+                    for (permName in revocablePermissions) {
+                        PermissionControllerStatsLog.write(
+                            PERMISSION_GRANT_REQUEST_RESULT_REPORTED,
+                            Random.nextLong(), uid, packageName, permName, false, SERVER_LOG_ID)
                     }
-                } else {
-                    Log.i(LOG_TAG,
-                        "Skipping auto-revoke - $packageName running with importance " +
-                            "$packageImportance")
+
+                    val packageImportance = context
+                        .getSystemService(ActivityManager::class.java)!!
+                        .getPackageImportance(packageName)
+                    if (packageImportance > IMPORTANCE_TOP_SLEEPING) {
+                        if (DEBUG) {
+                            Log.i(LOG_TAG, "revoking $packageName - $revocablePermissions")
+                        }
+                        anyPermsRevoked.compareAndSet(false, true)
+
+                        KotlinUtils.revokeBackgroundRuntimePermissions(
+                            context.application, group,
+                            userFixed = false, oneTime = false,
+                            filterPermissions = revocablePermissions)
+                        KotlinUtils.revokeForegroundRuntimePermissions(
+                            context.application, group,
+                            userFixed = false, oneTime = false,
+                            filterPermissions = revocablePermissions)
+
+                        for (permission in revocablePermissions) {
+                            context.packageManager.updatePermissionFlags(
+                                permission, packageName, user,
+                                FLAG_PERMISSION_AUTO_REVOKED to true,
+                                FLAG_PERMISSION_USER_SET to false)
+                        }
+                    } else {
+                        Log.i(LOG_TAG,
+                            "Skipping auto-revoke - $packageName running with importance " +
+                                "$packageImportance")
+                    }
                 }
             }
-        }
 
-        if (anyPermsRevoked.get()) {
-            synchronized(revokedApps) {
-                revokedApps.add(pkg.packageName to UserHandle.getUserHandleForUid(pkg.uid))
+            if (anyPermsRevoked.get()) {
+                synchronized(revokedApps) {
+                    revokedApps.add(pkg.packageName to user)
+                }
             }
         }
     }

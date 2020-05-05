@@ -175,8 +175,10 @@
       <item quantity="one">1 soniya</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Ruxsat eslatmalari"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Ilova uchun ruxsatlar avtomatik olib tashlandi"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Ayrim ilovalar bir necha oydan beri ishlatilmadi. Tafsilotlar uchun bosing."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ta ishlatilmagan ilova"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ta ishlatilmagan ilova"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Xavfsizligingiz uchun ruxsatlar olib tashlandi. Tekshirish uchun bosing."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Xavfsizligingiz uchun ruxsatlar olib tashlandi"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ilova joylashuv axborotingizni orqa fonda oldi"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Bu ilova joylashuv axborotingizdan foydalana oladi. Oʻzgartirish uchun bosing."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Xavfsizlik himoyasi uchun ilova ruxsatlari olib tashlandi"</string>
@@ -249,7 +251,7 @@
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g> asosiy chaqiruvlarni uzatish ilovasi sifatida sozlansinmi?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Hech qanday ruxsat zarur emas"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Asosiy raqamni aniqlash va spam ilovasi"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Raqamni aniqlash va spam ilovasi"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Raqamni aniqlash va spamdan himoya"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"Chaqiruvlarni aniqlash, spam va avtomat chaqiruvlarni bloklash, keraksiz raqamlarni qora roʻyxatga olish imkonini beruvchi ilovalar"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> asosiy raqamni aniqlash xizmati va spam sifatida sozlansinmi?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Hech qanday ruxsat zarur emas"</string>
