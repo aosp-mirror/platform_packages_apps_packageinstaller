@@ -26,7 +26,7 @@ import com.android.permissioncontroller.role.model.Role;
 import com.android.permissioncontroller.role.model.Roles;
 import com.android.permissioncontroller.role.ui.SpecialAppAccessListActivity;
 
-public class PermissionControllerApplication extends Application {
+public final class PermissionControllerApplication extends Application {
 
     private static PermissionControllerApplication sInstance;
 
