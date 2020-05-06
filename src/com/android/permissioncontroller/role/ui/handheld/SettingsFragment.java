@@ -41,7 +41,8 @@ import com.android.settingslib.HelpUtils;
 /**
  * Base class for settings fragments.
  */
-abstract class SettingsFragment extends PreferenceFragmentCompat {
+// Made public for com.android.permissioncontroller.role.ui.specialappaccess.handheld
+public abstract class SettingsFragment extends PreferenceFragmentCompat {
 
     private FrameLayout mContentLayout;
     private LinearLayout mPreferenceLayout;

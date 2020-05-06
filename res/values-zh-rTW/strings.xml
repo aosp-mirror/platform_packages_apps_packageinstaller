@@ -106,7 +106,7 @@
     <string name="item_separator" msgid="8266062815210378175">"、 "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"允許"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"允許管理所有檔案"</string>
-    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"只允許管理媒體檔案"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"只允許存取媒體檔案"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"一律允許"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"僅在使用該應用程式時允許"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"每次都詢問"</string>
@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看「<xliff:g id="APP">%1$s</xliff:g>」的所有權限"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"查看具備此權限的所有應用程式"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"如果應用程式未使用，系統會移除相關權限"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"為保護你的資料，如果你數個月未使用這個應用程式，系統會移除應用程式的權限。"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"為了保護你的資料，如果應用程式已有數個月未使用，系統將移除以下權限：<xliff:g id="PERMS">%1$s</xliff:g>。"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"為了保護你的資料，系統會針對數個月未使用的應用程式移除相關權限。"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"為了保護你的資料，如果應用程式已有數個月未使用，系統將移除以下權限：<xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"為了保護你的資料，系統已針對數個月未使用的應用程式移除相關權限。"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"如要重新授予權限，請開啟應用程式"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"這個應用程式的自動移除功能目前已停用。"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"目前沒有授予任何自動撤銷權限"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"系統將移除<xliff:g id="PERM">%1$s</xliff:g>權限。"</string>
@@ -173,8 +175,10 @@
       <item quantity="one">1 秒</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"權限提醒"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"應用程式權限已自動移除"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"某些應用程式已有數個月未使用。輕觸即可瞭解詳情。"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 個未使用的應用程式"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 個未使用的應用程式"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"為保護你的隱私，系統已移除相關權限。輕觸即可查看"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"為保護你的隱私，系統已移除相關權限"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"「<xliff:g id="APP_NAME">%s</xliff:g>」在背景存取了你的位置資訊"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"這個應用程式隨時都能存取你的位置資訊。輕觸即可變更設定。"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"為保護隱私，系統已移除應用程式權限"</string>
@@ -190,6 +194,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"「<xliff:g id="PERM_NAME_0">%1$s</xliff:g>」和「<xliff:g id="PERM_NAME_1">%2$s</xliff:g>」"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"「<xliff:g id="PERM_NAME_0">%1$s</xliff:g>」、「<xliff:g id="PERM_NAME_1">%2$s</xliff:g>」和另外 <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> 個"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"為了保護你的資料，系統已針對數個月未使用的應用程式移除相關權限"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 個應用程式已有數個月未使用"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 個應用程式已有數個月未使用"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"僅在應用程式使用期間"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"媒體"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"所有檔案"</string>
@@ -306,5 +312,5 @@
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"要允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」存取與你生命徵象相關的感應器資料嗎？"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"由管理員控管的權限"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"應用程式可存取你的位置資訊"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"IT 管理員允許「<xliff:g id="APP_NAME">%s</xliff:g>」存取你的位置資訊"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"目前 IT 管理員允許「<xliff:g id="APP_NAME">%s</xliff:g>」存取你的位置資訊"</string>
 </resources>

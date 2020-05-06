@@ -20,14 +20,13 @@ import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.os.UserHandle
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
 import com.android.permissioncontroller.permission.utils.KotlinUtils
-import kotlinx.coroutines.Job
 
 /**
  * Tracks which packages have been auto-revoked, and which groups have been auto revoked for those
  * packages.
  */
 object AutoRevokedPackagesLiveData
-    : SmartAsyncMediatorLiveData<Map<Pair<String, UserHandle>, Set<String>>>() {
+    : SmartUpdateMediatorLiveData<Map<Pair<String, UserHandle>, Set<String>>>() {
 
     init {
         addSource(AllPackageInfosLiveData) {
@@ -42,7 +41,7 @@ object AutoRevokedPackagesLiveData
     private val packageAutoRevokedPermsList =
         mutableMapOf<Pair<String, UserHandle>, MutableSet<String>>()
 
-    override suspend fun loadDataAndPostValue(job: Job) {
+    override fun onUpdate() {
         if (!AllPackageInfosLiveData.isInitialized) {
             return
         }
@@ -109,9 +108,11 @@ object AutoRevokedPackagesLiveData
             postCopyOfMap()
         }
 
-        toAdd.forEach { permStateLiveDatas[it] = PermStateLiveData[it] }
+        for (packagePermGroup in toAdd) {
+            permStateLiveDatas[packagePermGroup] = PermStateLiveData[packagePermGroup]
+        }
 
-        toAdd.forEach { packagePermGroup ->
+        for (packagePermGroup in toAdd) {
             val permStateLiveData = permStateLiveDatas[packagePermGroup]!!
             val packageUser = packagePermGroup.first to packagePermGroup.third
 

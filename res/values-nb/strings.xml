@@ -47,8 +47,8 @@
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Apper"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Apptillatelser"</string>
     <string name="unused_apps" msgid="3935514133237470759">"Ubrukte apper"</string>
-    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Slå av appen"</string>
-    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Hvis du deaktiverer denne appen, slutter muligens Android og andre apper å fungere som de skal. Husk at du ikke kan slette denne appen, fordi den var forhåndsinstallert på enheten din. Ved å deaktivere appen slår du av appen og skjuler den på enheten din."</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Deaktiver appen"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Hvis du deaktiverer denne appen, slutter muligens Android og andre apper å fungere som de skal. Husk at du ikke kan slette denne appen, fordi den var forhåndsinstallert på enheten din. Ved å deaktivere appen slår du den av og skjuler den på enheten din."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Behandle tillatelser"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Ikke spør igjen"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Ingen tillatelser"</string>
@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Se alle tillatelsene <xliff:g id="APP">%1$s</xliff:g> har"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Se alle apper med denne tillatelsen"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Fjern tillatelser hvis appen ikke brukes"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"For å beskytte dataene dine fjernes tillatelser for denne appen hvis appen ikke brukes på noen måneder."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"For å beskytte dataene din blir disse tillatelsene fjernet hvis appen ikke er brukt på noen måneder: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"For å beskytte dataene dine fjernes tillatelser for denne appen hvis appen ikke brukes på noen måneder."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"For å beskytte dataene din fjernes disse tillatelsene hvis appen ikke brukes på noen måneder: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"For å beskytte dataene dine har tillatelser blitt fjernet fra apper du ikke har brukt på noen måneder."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Åpne appen hvis du vil gi tillatelser igjen"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatisk fjerning er for øyeblikket slått av for denne appen."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Ingen tillatelser som kan gjenkalles automatisk, er gitt for øyeblikket"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Tillatelsen <xliff:g id="PERM">%1$s</xliff:g> blir fjernet."</string>
@@ -173,8 +175,10 @@
       <item quantity="one">1 sekund</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Påminnelser om tillatelser"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Apptillatelser er fjernet automatisk"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Noen apper har ikke blitt brukt på noen måneder. Trykk for mer informasjon."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"Én ubrukt app"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ubrukte apper"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Tillatelser er fjernet for å ivareta personvernet ditt. Trykk for å gjennomgå."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Tillatelser er fjernet for å ivareta personvernet ditt"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> fikk posisjonen din i bakgrunnen"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Denne appen har alltid tilgang til posisjonen din. Trykk for å endre."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Apptillatelser er fjernet for å ivareta personvern"</string>
@@ -190,6 +194,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> og <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> og <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> til"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"For å beskytte dataene dine har tillatelser blitt fjernet fra apper du ikke har brukt på noen måneder"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 app har ikke blitt brukt på noen måneder"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apper har ikke blitt brukt på noen måneder"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Bare mens appen er i bruk"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Medier"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Alle filer"</string>

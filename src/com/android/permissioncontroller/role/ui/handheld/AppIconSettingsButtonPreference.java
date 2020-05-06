@@ -28,7 +28,8 @@ import androidx.preference.PreferenceViewHolder;
 /**
  * {@link SettingsButtonPreference} with {@link AppIconPreference.Mixin}.
  */
-class AppIconSettingsButtonPreference extends SettingsButtonPreference {
+// Made public for com.android.permissioncontroller.role.ui.specialappaccess.handheld
+public class AppIconSettingsButtonPreference extends SettingsButtonPreference {
 
     private AppIconPreference.Mixin mMixin;
 
@@ -52,7 +53,8 @@ class AppIconSettingsButtonPreference extends SettingsButtonPreference {
         init();
     }
 
-    AppIconSettingsButtonPreference(@NonNull Context context) {
+    // Made public for com.android.permissioncontroller.role.ui.specialappaccess.handheld
+    public AppIconSettingsButtonPreference(@NonNull Context context) {
         super(context);
 
         init();

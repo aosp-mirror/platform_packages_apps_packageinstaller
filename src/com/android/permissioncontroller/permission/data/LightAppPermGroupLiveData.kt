@@ -103,23 +103,11 @@ class LightAppPermGroupLiveData private constructor(
         }
 
         val permissionMap = mutableMapOf<String, LightPermission>()
-        val whitelistedRestricted = app.packageManager.getWhitelistedRestrictedPermissions(
-                packageName, Utils.FLAGS_PERMISSION_WHITELIST_ALL)
-        val unrestrictedPermStates = permStates.filter { (permName, permState) ->
-            val permInfo = permGroup.permissionInfos[permName] ?: return@filter false
-            val isHardRestricted = permInfo.flags and PermissionInfo.FLAG_HARD_RESTRICTED != 0
-            val isWhitelisted = whitelistedRestricted.contains(permName)
-            val isSoftRestricted = permInfo.flags and PermissionInfo.FLAG_SOFT_RESTRICTED != 0 &&
-                !SoftRestrictedPermissionPolicy.shouldShow(packageInfo, permName,
-                    permState.permFlags)
-            return@filter (!isHardRestricted || isWhitelisted) && (!isSoftRestricted)
-        }
-
-        for ((permName, permState) in unrestrictedPermStates) {
+        for ((permName, permState) in permStates) {
             val permInfo = permGroup.permissionInfos[permName] ?: continue
-            val foregroundPerms = allForegroundPerms[permName]?.filter {
-                unrestrictedPermStates.containsKey(it) }
-            permissionMap[permName] = LightPermission(permInfo, permState, foregroundPerms)
+            val foregroundPerms = allForegroundPerms[permName]
+            permissionMap[permName] = LightPermission(packageInfo, permInfo, permState,
+                    foregroundPerms)
         }
 
         // Determine if this app permission group is a special location package or provider

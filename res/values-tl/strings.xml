@@ -111,13 +111,15 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Payagan lang habang ginagamit ang app"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Magtanong palagi"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Tanggihan"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> na pahintulot"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Pahintulot sa <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"access sa <xliff:g id="PERM">%1$s</xliff:g> para sa app na ito"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Tingnan ang lahat ng pahintulot ng <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Tingnan ang lahat ng app na may ganitong pahintulot"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Alisin ang mga pahintulot kung hindi ginagamit ang app"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Para maprotektahan ang iyong data, aalisin ang mga pahintulot para sa app na ito kung hindi nagamit ang app pagkatapos ng ilang buwan."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Para protektahan ang iyong data, kung ilang buwan nang hindi ginagamit ang app, aalisin ang mga sumusunod na pahintulot: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Para maprotektahan ang iyong data, aalisin ang mga pahintulot para sa app na ito kapag ilang buwan nang hindi ginagamit ang app."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Para maprotektahan ang iyong data, kapag ilang buwan nang hindi ginagamit ang app, aalisin ang mga sumusunod na pahintulot: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Para protektahan ang iyong data, inalis na ang mga pahintulot sa mga app na ilang buwan mo nang hindi ginagamit."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Kung gusto mong payagan ulit ang mga pahintulot, buksan ang app"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Kasalukuyang naka-disable para sa app na ito ang awtomatikong pag-aalis."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Walang mga pahintulot na awtomatikong mababawi ang ibinigay sa kasalukukyan"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> pahintulot ang maaalis."</string>
@@ -173,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> na segundo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Mga paalala sa pahintulot"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Awtomatikong inalis ang mga pahintulot sa app"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"May ilang app na ilang buwan nang hindi ginagamit. Mag-tap para sa higit pang impormasyon"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 hindi ginagamit na app"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> (na) hindi ginagamit na app"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Inalis ang mga pahintulot para protektahan ang iyong privacy. I-tap para suriin"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Inalis ang mga pahintulot para protektahan ang iyong privacy"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Kinuha ng <xliff:g id="APP_NAME">%s</xliff:g> ang iyong lokasyon sa background"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Maa-access ng app na ito ang iyong lokasyon anumang oras. I-tap para baguhin."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Inalis ang pahintulot sa app para protektahan ang privacy"</string>
@@ -190,6 +194,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> at <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, at <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> pa"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Para protektahan ang iyong data, inalis na ang mga pahintulot sa mga app na ilang buwan mo nang hindi ginagamit"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"May 1 app na ilang buwan nang hindi ginagamit."</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"May <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> (na) app na ilang buwan nang hindi ginagamit."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Habang ginagamit lang ang app"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Media"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Lahat ng File"</string>
@@ -197,7 +203,7 @@
     <string name="no_permissions_denied" msgid="2449583707612365442">"Walang tinanggihang pahintulot"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Walang pinayagang app"</string>
     <string name="no_apps_allowed_full" msgid="5857725855406253991">"Walang pinapayagang app para sa lahat ng file"</string>
-    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Para lang sa media walang pinapayagang app"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Walang pinapayagang app na para sa media lang"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Walang tinanggihang app"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Napili"</string>
     <string name="settings" msgid="2884124136779508907">"Mga Setting"</string>
@@ -206,7 +212,7 @@
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"Magagawa ng <xliff:g id="SERVICE_NAME">%s</xliff:g> na tingnan ang iyong screen, mga pagkilos, at mga input, magsagawa ng mga pagkilos, at kontrolin ang display."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Magagawa ng mga app na ito na tingnan ang iyong screen, mga pagkilos, at mga input, magsagawa ng mga pagkilos, at kontrolin ang display."</string>
     <string name="role_assistant_label" msgid="4296361982493275449">"Default digital assistant app"</string>
-    <string name="role_assistant_short_label" msgid="2965228260285438681">"App ng digital na assistant"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Digital assistant app"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Makakatulong sa iyo ang mga assist app batay sa impormasyon sa screen na tinitingnan mo. Sinusuportahan ng ilang app ang mga serbisyo ng launcher at input ng boses para magbigay sa iyo ng pinagsama-samang tulong."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Itakda ang <xliff:g id="APP_NAME">%1$s</xliff:g> bilang iyong default na assist app?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Makakakuha ng access sa SMS, log ng tawag"</string>
@@ -234,7 +240,7 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Walang kailangang pahintulot"</string>
     <string name="role_emergency_search_keywords" msgid="7310029268876820646">"ice"</string>
     <string name="role_home_label" msgid="6245106863177808486">"Default na home app"</string>
-    <string name="role_home_short_label" msgid="4565882523300643525">"App sa home"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"Home app"</string>
     <string name="role_home_description" msgid="6736956389161158052">"Mga app, na kadalasang tinatawag na mga launcher, na pumapalit sa mga Home screen sa Android device mo at nagbibigay sa iyo ng access sa mga content at feature ng device mo"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Itakda ang <xliff:g id="APP_NAME">%1$s</xliff:g> bilang iyong default na home app?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Walang kailangang pahintulot"</string>
@@ -244,8 +250,8 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"Mga app na nagbibigay-daan sa iyong magpasa ng mga papalabas na tawag sa isa pang numero ng telepono"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Itakda ang <xliff:g id="APP_NAME">%1$s</xliff:g> bilang iyong default na app sa pag-redirect?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Walang kailangang pahintulot"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Default na app para sa caller ID at spam"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"App para sa caller ID at spam"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Default na caller ID at spam app"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Caller ID at spam app"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"Mga app na nagbibigay-daan sa iyong kumilala ng mga tawag, mag-block ng spam at mga robocall, at mag-blacklist ng mga numerong ayaw mong makaugnayan"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Itakda ang <xliff:g id="APP_NAME">%1$s</xliff:g> bilang iyong default na caller ID at spam app?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Walang kailangang pahintulot"</string>

@@ -116,8 +116,10 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ver todos los permisos de <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ver todas las apps que tienen este permiso"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Quita los permisos si la app está en desuso"</string>
-    <string name="auto_revoke_summary" msgid="1842110019199306298">"Para proteger tus datos, se quitarán los permisos de esta app si no la usas durante unos meses."</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="160422052726006109">"Para proteger tus datos, si no usas la app durante varios meses, se quitarán los siguientes permisos: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Para proteger tus datos, se quitarán los permisos de esta app si no la usas durante varios meses."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Para proteger tus datos, si no usas la app durante varios meses, se quitarán los siguientes permisos: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Para proteger tus datos, se quitaron los permisos de las apps que están en desuso hace varios meses."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Si quieres volver a habilitar los permisos, abre la app"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Actualmente la eliminación automática está inhabilitada para esta app."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"No se otorgaron permisos que se puedan revocar automáticamente"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Se quitará el permiso <xliff:g id="PERM">%1$s</xliff:g>."</string>
@@ -149,13 +151,13 @@
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Acceso denegado actualmente/último acceso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"No accedió nunca"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Denegado / No accedió nunca"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"Permitidos"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Con permiso"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Permitido todo el tiempo"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Permitido solo durante el uso"</string>
     <string name="allowed_storage_scoped" msgid="2472018207553284700">"Solo se permitió acceso a cont. multimedia"</string>
     <string name="allowed_storage_full" msgid="4167507647800726342">"Se permitió adminis. de todos los archivos"</string>
     <string name="ask_header" msgid="4471670860332046665">"Preguntar siempre"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Rechazados"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Sin permiso"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> días</item>
       <item quantity="one">1 día</item>
@@ -173,8 +175,10 @@
       <item quantity="one">1 segundo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Recordatorios de permisos"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Permisos de la app que se quitaron automáticamente"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Hace varios meses que no usas algunas apps. Presiona para obtener más información."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 app en desuso"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps en desuso"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Se quitaron los permisos para proteger tu privacidad. Presiona para revisar el cambio"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Se quitaron los permisos para proteger tu privacidad"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> accedió a tu ubicación en segundo plano"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Esta app puede acceder a tu ubicación en todo momento. Presiona para cambiar el permiso."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Permisos de la app eliminados para proteger la privacidad"</string>
@@ -190,6 +194,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> y <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> y <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> más"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Para proteger tus datos, se quitaron los permisos de las apps que están en desuso hace varios meses"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"Hace varios meses que no se usa 1 app"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"Hace varios meses que no se usan <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Solo cuando la app está en uso"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Contenido multimedia"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Todos los archivos"</string>

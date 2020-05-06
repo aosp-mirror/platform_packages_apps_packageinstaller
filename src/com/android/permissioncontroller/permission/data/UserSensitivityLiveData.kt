@@ -62,8 +62,10 @@ class UserSensitivityLiveData private constructor(
             addSource(userPackageInfosLiveData) {
                 updateIfActive()
             }
-        }
-        addSource(LauncherPackagesLiveData) {
+            addSource(LauncherPackagesLiveData) {
+                updateIfActive()
+            }
+        } else {
             updateIfActive()
         }
     }
@@ -94,9 +96,6 @@ class UserSensitivityLiveData private constructor(
             return
         }
 
-        // The launcher packages set will only be null when it is uninitialized.
-        val pkgsWithLauncherIcon = LauncherPackagesLiveData.value ?: return
-
         // map of <uid, userSensitiveState>
         val sensitiveStatePerUid = mutableMapOf<Int, UidSensitivityState>()
 
@@ -110,7 +109,12 @@ class UserSensitivityLiveData private constructor(
             }
             userSensitiveState.packages.add(pkg)
 
-            val pkgHasLauncherIcon = pkgsWithLauncherIcon.contains(pkg.packageName)
+            val pkgHasLauncherIcon = if (getAllUids) {
+                // The launcher packages set will only be null when it is uninitialized.
+                LauncherPackagesLiveData.value?.contains(pkg.packageName) ?: return
+            } else {
+                pm.getLaunchIntentForPackage(pkg.packageName) != null
+            }
             val pkgIsSystemApp = pkg.appFlags and ApplicationInfo.FLAG_SYSTEM != 0
             // Iterate through all runtime perms, setting their keys
             for (perm in pkg.requestedPermissions.intersect(runtimePerms)) {
