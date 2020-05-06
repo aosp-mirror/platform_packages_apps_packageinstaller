@@ -53,6 +53,7 @@ import android.permission.PermissionManager
 import android.provider.DeviceConfig
 import android.provider.Settings
 import android.util.Log
+import android.view.inputmethod.InputMethod
 import androidx.annotation.MainThread
 import com.android.permissioncontroller.Constants
 import com.android.permissioncontroller.Constants.ACTION_MANAGE_AUTO_REVOKE
@@ -219,10 +220,23 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
             .getAutoRevokeExemptionGrantedPackages()
     }
 
+    val keyboardPackages = context.packageManager
+            .queryIntentServices(Intent(InputMethod.SERVICE_INTERFACE), 0)
+            .mapNotNull { resolveInfo ->
+                resolveInfo?.serviceInfo?.packageName
+            }
+
     val revokedApps = mutableListOf<Pair<String, UserHandle>>()
     for ((user, userApps) in unusedApps) {
         userApps.forEachInParallel(Main) { pkg: LightPackageInfo ->
             if (pkg.grantedPermissions.isEmpty()) {
+                return@forEachInParallel
+            }
+
+            if (pkg.packageName in keyboardPackages) {
+                if (DEBUG) {
+                    Log.i(LOG_TAG, "Skipping IME: ${pkg.packageName}")
+                }
                 return@forEachInParallel
             }
 
