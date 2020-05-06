@@ -104,6 +104,8 @@
     <!-- for use in overlays -->
     <style name="PermissionGrantButtonAllow"
            parent="@style/PermissionGrantButton"></style>
+    <style name="PermissionGrantButtonAllowAlways"
+           parent="@style/PermissionGrantButton"></style>
     <style name="PermissionGrantButtonAllowForeground"
            parent="@style/PermissionGrantButton"></style>
     <style name="PermissionGrantButtonAllowOneTime"

@@ -89,6 +89,7 @@ import com.android.permissioncontroller.permission.ui.wear.GrantPermissionsWearV
 import com.android.permissioncontroller.permission.utils.ArrayUtils;
 import com.android.permissioncontroller.permission.utils.PackageRemovalMonitor;
 import com.android.permissioncontroller.permission.utils.SafetyNetLogger;
+import com.android.permissioncontroller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -106,7 +107,7 @@ public class GrantPermissionsActivity extends Activity
 
     public static final int NEXT_BUTTON = 11;
     public static final int ALLOW_BUTTON = 0;
-    //    public static int LABEL_ALLOW_ALWAYS_BUTTON = 1; RESERVED
+    public static final int ALLOW_ALWAYS_BUTTON = 1;
     public static final int ALLOW_FOREGROUND_BUTTON = 2;
     public static final int DENY_BUTTON = 3;
     public static final int DENY_AND_DONT_ASK_AGAIN_BUTTON = 4;
@@ -124,6 +125,7 @@ public class GrantPermissionsActivity extends Activity
 
     private String[] mRequestedPermissions;
     private boolean[] mButtonVisibilities;
+    private boolean mCouldHaveFgCapabilities;
 
     private ArrayMap<Pair<String, Boolean>, GroupState> mRequestGrantPermissionGroups =
             new ArrayMap<>();
@@ -300,6 +302,11 @@ public class GrantPermissionsActivity extends Activity
 
         // Cache this as this can only read on onCreate, not later.
         mCallingPackage = getCallingPackage();
+        try {
+            mCouldHaveFgCapabilities = Utils.couldHaveForegroundCapabilities(this, mCallingPackage);
+        } catch (NameNotFoundException e) {
+            Log.e(LOG_TAG, "Calling package " + mCallingPackage + " not found", e);
+        }
 
         setFinishOnTouchOutside(false);
 
@@ -695,7 +702,6 @@ public class GrantPermissionsActivity extends Activity
                         isForegroundPermissionUserSet = foregroundGroupState.mGroup.isUserSet();
                     }
                 }
-                boolean isOneTime = groupState.mGroup.isOneTime();
 
                 mButtonVisibilities = new boolean[NEXT_BUTTON];
                 mButtonVisibilities[ALLOW_BUTTON] = true;
@@ -711,11 +717,19 @@ public class GrantPermissionsActivity extends Activity
                     if (groupState.mGroup.hasPermissionWithBackgroundMode()
                             || groupState.mGroup.isBackgroundGroup()) {
                         if (needForegroundPermission && needBackgroundPermission) {
+                            if (mCouldHaveFgCapabilities) {
+                                sendToSettings(groupState);
+                                return true;
+                            }
                             // Shouldn't be reached as background must be requested as a singleton
                             return false;
                         } else if (needForegroundPermission) {
                             // Case: sdk >= R, BG/FG permission requesting FG only
                             messageId = groupState.mGroup.getRequest();
+                            if (mCouldHaveFgCapabilities) {
+                                sendToSettings(groupState);
+                                return true;
+                            }
                             mButtonVisibilities[ALLOW_BUTTON] = false;
                             mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
                             mButtonVisibilities[DENY_BUTTON] =
@@ -724,21 +738,7 @@ public class GrantPermissionsActivity extends Activity
                                     isForegroundPermissionUserSet;
                         } else if (needBackgroundPermission) {
                             // Case: sdk >= R, BG/FG permission requesting BG only
-                            if (mActivityResultCallback == null) {
-                                startAppPermissionFragment(groupState);
-                                mActivityResultCallback = data -> {
-                                    if (data == null || data.getStringExtra(
-                                            EXTRA_RESULT_PERMISSION_INTERACTED) == null) {
-                                        // User didn't interact, count against rate limit
-                                        if (groupState.mGroup.isUserSet()) {
-                                            groupState.mGroup.setUserFixed(true);
-                                        } else {
-                                            groupState.mGroup.setUserSet(true);
-                                        }
-                                    }
-                                    mPermissionGroupsToSkip.add(groupState.mGroup.getName());
-                                };
-                            }
+                            sendToSettings(groupState);
                             return true;
                         } else {
                             // Not reached as the permissions should be auto-granted
@@ -748,73 +748,95 @@ public class GrantPermissionsActivity extends Activity
                         // Case: sdk >= R, Requesting normal permission
                         messageId = groupState.mGroup.getRequest();
                         mButtonVisibilities[DENY_BUTTON] =
-                                !isForegroundPermissionUserSet || isOneTime;
+                                !isForegroundPermissionUserSet;
                         mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                                isForegroundPermissionUserSet && !isOneTime;
+                                isForegroundPermissionUserSet;
                         if (groupState.mGroup.getName().equals(Manifest.permission_group.CAMERA)
                                 || groupState.mGroup.getName().equals(
                                 Manifest.permission_group.MICROPHONE)) {
                             mButtonVisibilities[ALLOW_BUTTON] = false;
-                            mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
+                            if (mCouldHaveFgCapabilities) {
+                                mButtonVisibilities[ALLOW_ALWAYS_BUTTON] = true;
+                                mButtonVisibilities[ALLOW_ONE_TIME_BUTTON] = false;
+                            } else {
+                                mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
+                            }
                         }
                     }
                 } else {
                     if (groupState.mGroup.hasPermissionWithBackgroundMode()
                             || groupState.mGroup.isBackgroundGroup()) {
-                        if (needForegroundPermission && needBackgroundPermission) {
-                            // Case: sdk < R, BG/FG permission requesting both
+                        if (mCouldHaveFgCapabilities) {
+                            // Only allow granting of background location
                             messageId = groupState.mGroup.getBackgroundRequest();
                             detailMessageId = groupState.mGroup.getBackgroundRequestDetail();
                             mButtonVisibilities[ALLOW_BUTTON] = false;
-                            mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
-                            mButtonVisibilities[DENY_BUTTON] =
-                                    !isForegroundPermissionUserSet || isOneTime;
-                            mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                                    isForegroundPermissionUserSet && !isOneTime;
-                        } else if (needForegroundPermission) {
-                            // Case: sdk < R, BG/FG permission requesting FG only
-                            messageId = groupState.mGroup.getRequest();
-                            mButtonVisibilities[ALLOW_BUTTON] = false;
-                            mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
-                            mButtonVisibilities[DENY_BUTTON] =
-                                    !isForegroundPermissionUserSet || isOneTime;
-                            mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                                    isForegroundPermissionUserSet && !isOneTime;
-                        } else if (needBackgroundPermission) {
-                            // Case: sdk < R, BG/FG permission requesting BG only
-                            messageId = groupState.mGroup.getUpgradeRequest();
-                            detailMessageId = groupState.mGroup.getUpgradeRequestDetail();
-                            mButtonVisibilities[ALLOW_BUTTON] = false;
-                            mButtonVisibilities[DENY_BUTTON] = false;
                             mButtonVisibilities[ALLOW_ONE_TIME_BUTTON] = false;
-                            if (mAppPermissions.getPermissionGroup(
-                                    groupState.mGroup.getName()).isOneTime()) {
-                                mButtonVisibilities[NO_UPGRADE_OT_BUTTON] =
-                                        !isBackgroundPermissionUserSet;
-                                mButtonVisibilities[NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON] =
-                                        isBackgroundPermissionUserSet;
-                            } else {
-                                mButtonVisibilities[NO_UPGRADE_BUTTON] =
-                                        !isBackgroundPermissionUserSet;
-                                mButtonVisibilities[NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON] =
-                                        isBackgroundPermissionUserSet;
-                            }
+                            mButtonVisibilities[DENY_BUTTON] =
+                                    !isForegroundPermissionUserSet;
+                            mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
+                                    isForegroundPermissionUserSet;
                         } else {
-                            // Not reached as the permissions should be auto-granted
-                            return false;
+                            if (needForegroundPermission && needBackgroundPermission) {
+                                // Case: sdk < R, BG/FG permission requesting both
+                                messageId = groupState.mGroup.getBackgroundRequest();
+                                detailMessageId = groupState.mGroup.getBackgroundRequestDetail();
+                                mButtonVisibilities[ALLOW_BUTTON] = false;
+                                mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
+                                mButtonVisibilities[DENY_BUTTON] =
+                                        !isForegroundPermissionUserSet;
+                                mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
+                                        isForegroundPermissionUserSet;
+                            } else if (needForegroundPermission) {
+                                // Case: sdk < R, BG/FG permission requesting FG only
+                                messageId = groupState.mGroup.getRequest();
+                                mButtonVisibilities[ALLOW_BUTTON] = false;
+                                mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
+                                mButtonVisibilities[DENY_BUTTON] =
+                                        !isForegroundPermissionUserSet;
+                                mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
+                                        isForegroundPermissionUserSet;
+                            } else if (needBackgroundPermission) {
+                                // Case: sdk < R, BG/FG permission requesting BG only
+                                messageId = groupState.mGroup.getUpgradeRequest();
+                                detailMessageId = groupState.mGroup.getUpgradeRequestDetail();
+                                mButtonVisibilities[ALLOW_BUTTON] = false;
+                                mButtonVisibilities[DENY_BUTTON] = false;
+                                mButtonVisibilities[ALLOW_ONE_TIME_BUTTON] = false;
+                                if (mAppPermissions.getPermissionGroup(
+                                        groupState.mGroup.getName()).isOneTime()) {
+                                    mButtonVisibilities[NO_UPGRADE_OT_BUTTON] =
+                                            !isBackgroundPermissionUserSet;
+                                    mButtonVisibilities[NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON] =
+                                            isBackgroundPermissionUserSet;
+                                } else {
+                                    mButtonVisibilities[NO_UPGRADE_BUTTON] =
+                                            !isBackgroundPermissionUserSet;
+                                    mButtonVisibilities[NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON] =
+                                            isBackgroundPermissionUserSet;
+                                }
+                            } else {
+                                // Not reached as the permissions should be auto-granted
+                                return false;
+                            }
                         }
                     } else {
                         // Case: sdk < R, Requesting normal permission
                         messageId = groupState.mGroup.getRequest();
                         mButtonVisibilities[DENY_BUTTON] =
-                                !isForegroundPermissionUserSet || isOneTime;
+                                !isForegroundPermissionUserSet;
                         mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON] =
-                                isForegroundPermissionUserSet && !isOneTime;
+                                isForegroundPermissionUserSet;
                         if (groupState.mGroup.getName().equals(Manifest.permission_group.CAMERA)
                                 || groupState.mGroup.getName().equals(
                                         Manifest.permission_group.MICROPHONE)) {
                             mButtonVisibilities[ALLOW_BUTTON] = false;
-                            mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
+                            if (mCouldHaveFgCapabilities) {
+                                mButtonVisibilities[ALLOW_ALWAYS_BUTTON] = true;
+                                mButtonVisibilities[ALLOW_ONE_TIME_BUTTON] = false;
+                            } else {
+                                mButtonVisibilities[ALLOW_FOREGROUND_BUTTON] = true;
+                            }
                         }
                     }
                 }
@@ -860,6 +882,24 @@ public class GrantPermissionsActivity extends Activity
         }
 
         return false;
+    }
+
+    private void sendToSettings(GroupState groupState) {
+        if (mActivityResultCallback == null) {
+            startAppPermissionFragment(groupState);
+            mActivityResultCallback = data -> {
+                if (data == null || data.getStringExtra(
+                        EXTRA_RESULT_PERMISSION_INTERACTED) == null) {
+                    // User didn't interact, count against rate limit
+                    if (groupState.mGroup.isUserSet()) {
+                        groupState.mGroup.setUserFixed(true);
+                    } else {
+                        groupState.mGroup.setUserSet(true);
+                    }
+                }
+                mPermissionGroupsToSkip.add(groupState.mGroup.getName());
+            };
+        }
     }
 
     private ClickableSpan getLinkToAppPermissions(GroupState groupState) {
@@ -1214,7 +1254,11 @@ public class GrantPermissionsActivity extends Activity
         int presentedButtons = getButtonState();
         switch (grantResult) {
             case GRANTED_ALWAYS:
-                clickedButton = 1 << ALLOW_BUTTON;
+                if (mButtonVisibilities[ALLOW_BUTTON]) {
+                    clickedButton = 1 << ALLOW_BUTTON;
+                } else {
+                    clickedButton = 1 << ALLOW_ALWAYS_BUTTON;
+                }
                 break;
             case GRANTED_FOREGROUND_ONLY:
                 clickedButton = 1 << ALLOW_FOREGROUND_BUTTON;

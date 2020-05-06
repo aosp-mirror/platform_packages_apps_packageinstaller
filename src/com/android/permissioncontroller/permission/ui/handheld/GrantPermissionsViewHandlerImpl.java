@@ -16,6 +16,7 @@
 
 package com.android.permissioncontroller.permission.ui.handheld;
 
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_ALWAYS_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_FOREGROUND_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_ONE_TIME_BUTTON;
@@ -69,6 +70,8 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private static final SparseArray<Integer> BUTTON_RES_ID_TO_NUM = new SparseArray<>();
     static {
         BUTTON_RES_ID_TO_NUM.put(R.id.permission_allow_button, ALLOW_BUTTON);
+        BUTTON_RES_ID_TO_NUM.put(R.id.permission_allow_always_button,
+                ALLOW_ALWAYS_BUTTON);
         BUTTON_RES_ID_TO_NUM.put(R.id.permission_allow_foreground_only_button,
                 ALLOW_FOREGROUND_BUTTON);
         BUTTON_RES_ID_TO_NUM.put(R.id.permission_deny_button, DENY_BUTTON);
@@ -267,6 +270,14 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
                     mResultListener.onPermissionGrantResult(mGroupName,
                             GRANTED_FOREGROUND_ONLY);
+                }
+                break;
+            case ALLOW_ALWAYS_BUTTON:
+                if (mResultListener != null) {
+                    view.performAccessibilityAction(
+                            AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
+                    mResultListener.onPermissionGrantResult(mGroupName,
+                            GRANTED_ALWAYS);
                 }
                 break;
             case ALLOW_ONE_TIME_BUTTON:
