@@ -38,7 +38,7 @@ class PackagePermissionsLiveData private constructor(
     private val app: Application,
     packageName: String,
     user: UserHandle
-) : SmartUpdateMediatorLiveData<Map<String, List<String>>>() {
+) : SmartUpdateMediatorLiveData<Map<String, List<String>>?>() {
 
     private val packageInfoLiveData = LightPackageInfoLiveData[packageName, user]
 
