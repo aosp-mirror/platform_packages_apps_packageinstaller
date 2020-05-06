@@ -35,7 +35,8 @@ import com.android.permissioncontroller.role.utils.UiUtils;
 /**
  * {@link Preference} acting as the footer of a page.
  */
-class FooterPreference extends Preference {
+// Made public for com.android.permissioncontroller.role.ui.specialappaccess.handheld
+public class FooterPreference extends Preference {
 
     private static final int ICON_LAYOUT_PADDING_VERTICAL_DP = 16;
 
@@ -59,7 +60,8 @@ class FooterPreference extends Preference {
         init();
     }
 
-    FooterPreference(@NonNull Context context) {
+    // Made public for com.android.permissioncontroller.role.ui.specialappaccess.handheld
+    public FooterPreference(@NonNull Context context) {
         super(context);
 
         init();

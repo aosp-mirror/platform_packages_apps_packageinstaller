@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,85 +16,31 @@
 
 package com.android.permissioncontroller.role.ui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-
-import com.android.permissioncontroller.DeviceUtils;
-import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.role.model.Role;
-import com.android.permissioncontroller.role.model.Roles;
-import com.android.permissioncontroller.role.ui.auto.AutoSpecialAppAccessFragment;
-import com.android.permissioncontroller.role.ui.handheld.HandheldSpecialAppAccessFragment;
 
 /**
- * Activity for a special app access.
+ * Dummy activity in place of
+ * {@link com.android.permissioncontroller.role.ui.specialappaccess.SpecialAppAccessActivity}
  */
-public class SpecialAppAccessActivity extends FragmentActivity {
-
-    private static final String LOG_TAG = SpecialAppAccessActivity.class.getSimpleName();
+public class SpecialAppAccessActivity extends Activity {
 
     /**
      * Create an intent for starting this activity.
-     *
-     * @param roleName the name of the role for the special app access
-     * @param context  the context to create the intent
-     * @return an intent to start this activity
      */
     @NonNull
     public static Intent createIntent(@NonNull String roleName, @NonNull Context context) {
-        return new Intent(context, SpecialAppAccessActivity.class)
-                .putExtra(Intent.EXTRA_ROLE_NAME, roleName);
+        return new Intent(context, SpecialAppAccessActivity.class);
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        if (DeviceUtils.isAuto(this)) {
-            // Automotive relies on a different theme. Apply before calling super so that
-            // fragments are restored properly on configuration changes.
-            setTheme(R.style.CarSettings);
-        }
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().addSystemFlags(
-                WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
-
-        String roleName = getIntent().getStringExtra(Intent.EXTRA_ROLE_NAME);
-
-        Role role = Roles.get(this).get(roleName);
-        if (role == null) {
-            Log.e(LOG_TAG, "Unknown role: " + roleName);
-            finish();
-            return;
-        }
-        if (!role.isAvailable(this)) {
-            Log.e(LOG_TAG, "Role is unavailable: " + roleName);
-            finish();
-            return;
-        }
-        if (!role.isVisible(this)) {
-            Log.e(LOG_TAG, "Role is invisible: " + roleName);
-            finish();
-            return;
-        }
-
-        if (savedInstanceState == null) {
-            Fragment fragment;
-            if (DeviceUtils.isAuto(this)) {
-                fragment = AutoSpecialAppAccessFragment.newInstance(roleName);
-            } else {
-                fragment = HandheldSpecialAppAccessFragment.newInstance(roleName);
-            }
-            getSupportFragmentManager().beginTransaction()
-                    .add(android.R.id.content, fragment)
-                    .commit();
-        }
+        finish();
     }
 }
