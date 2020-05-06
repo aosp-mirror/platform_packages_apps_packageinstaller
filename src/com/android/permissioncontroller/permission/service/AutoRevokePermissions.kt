@@ -35,6 +35,7 @@ import android.app.job.JobInfo
 import android.app.job.JobParameters
 import android.app.job.JobScheduler
 import android.app.job.JobService
+import android.app.usage.UsageStats
 import android.app.usage.UsageStatsManager.INTERVAL_DAILY
 import android.app.usage.UsageStatsManager.INTERVAL_MONTHLY
 import android.content.BroadcastReceiver
@@ -60,14 +61,14 @@ import com.android.permissioncontroller.Constants.PERMISSION_REMINDER_CHANNEL_ID
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
-import com.android.permissioncontroller.permission.data.get
-import com.android.permissioncontroller.permission.data.AppOpLiveData
-import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
-import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
+import com.android.permissioncontroller.permission.data.AppOpLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokedPackagesLiveData
+import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
+import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
 import com.android.permissioncontroller.permission.data.UsageStatsLiveData
+import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.ui.ManagePermissionsActivity
@@ -92,7 +93,7 @@ import kotlin.random.Random
 private const val LOG_TAG = "AutoRevokePermissions"
 private const val DEBUG_OVERRIDE_THRESHOLDS = false
 // TODO eugenesusla: temporarily enabled for extra logs during dogfooding
-private const val DEBUG = false || DEBUG_OVERRIDE_THRESHOLDS
+private const val DEBUG = true || DEBUG_OVERRIDE_THRESHOLDS
 
 private const val AUTO_REVOKE_ENABLED = true
 
@@ -182,17 +183,15 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
     }
 
     for ((user, stats) in userStats) {
-        val unusedUserApps = unusedApps[user]?.toMutableList() ?: continue
-        for (stat in stats) {
-            var lastTimeVisible: Long = stat.lastTimeVisible
-            val pkgName = stat.packageName
+        var unusedUserApps = unusedApps[user] ?: continue
+
+        unusedUserApps = unusedUserApps.filter { packageInfo ->
+            val pkgName = packageInfo.packageName
+
+            var lastTimeVisible: Long = stats.lastTimeVisible(pkgName)
 
             // Limit by install time
-            unusedUserApps.find {
-                it.packageName == pkgName
-            }?.let {
-                lastTimeVisible = Math.max(lastTimeVisible, it.firstInstallTime)
-            }
+            lastTimeVisible = Math.max(lastTimeVisible, packageInfo.firstInstallTime)
 
             // Handle cross-profile apps
             if (context.isPackageCrossProfile(pkgName)) {
@@ -200,15 +199,12 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                     if (otherUser == user) {
                         continue
                     }
-                    lastTimeVisible = Math.max(lastTimeVisible, otherStats.find {
-                        it.packageName == pkgName }?.lastTimeVisible ?: 0)
+                    lastTimeVisible = Math.max(lastTimeVisible, otherStats.lastTimeVisible(pkgName))
                 }
             }
 
-            // Threshold check
-            if (now - lastTimeVisible <= getUnusedThresholdMs(context)) {
-                unusedUserApps.removeAll { it.packageName == pkgName }
-            }
+            // Threshold check - whether app is unused
+            now - lastTimeVisible > getUnusedThresholdMs(context)
         }
 
         unusedApps[user] = unusedUserApps
@@ -236,11 +232,11 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
             }
 
             val anyPermsRevoked = AtomicBoolean(false)
-            val pkgPermGroups: Map<String, List<String>> =
+            val pkgPermGroups: Map<String, List<String>>? =
                 PackagePermissionsLiveData[packageName, user]
                     .getInitializedValue(staleOk = true)
 
-            pkgPermGroups.entries.forEachInParallel(Main) { (groupName, _) ->
+            pkgPermGroups?.entries?.forEachInParallel(Main) { (groupName, _) ->
                 if (groupName == PackagePermissionsLiveData.NON_RUNTIME_NORMAL_PERMS) {
                     return@forEachInParallel
                 }
@@ -315,6 +311,9 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
     }
     return revokedApps
 }
+
+private fun List<UsageStats>.lastTimeVisible(pkgName: String) =
+        find { it.packageName == pkgName }?.lastTimeVisible ?: 0L
 
 suspend fun isPackageAutoRevokeExempt(
     context: Context,
