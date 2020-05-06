@@ -31,6 +31,7 @@ import java.util.concurrent.Executors
  * Gets an [Application] instance from a regular [Context]
  */
 val Context.application: Application get() = when (this) {
+    is Application -> this
     is Activity -> application
     is Service -> application
     is ContextWrapper -> baseContext.application

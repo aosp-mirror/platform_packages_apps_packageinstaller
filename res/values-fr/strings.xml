@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2792757108872430971">"Contrôleur autorisations"</string>
+    <string name="app_name" msgid="2792757108872430971">"Contrôleur d\'autorisations"</string>
     <string name="ok" msgid="4417794827535157922">"OK"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"autorisations"</string>
     <string name="cancel" msgid="7279939269964834974">"Annuler"</string>
@@ -115,7 +115,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g> : accès pour cette application"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Afficher toutes les autorisations pour <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Afficher toutes les applications disposant de cette autorisation"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"Supprimer les autorisations si l\'application est inutilisée"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Supprimer les autorisations si l\'application n\'est pas utilisée"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Si cette application n\'est pas utilisée pendant plusieurs mois, ses autorisations seront supprimées afin de protéger vos données."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Pour protéger vos données, si l\'application n\'est pas utilisée pendant plusieurs mois, les autorisations suivantes seront supprimées : <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Pour protéger vos données, les autorisations ont été supprimées pour les applications que vous n\'avez pas utilisées depuis plusieurs mois"</string>

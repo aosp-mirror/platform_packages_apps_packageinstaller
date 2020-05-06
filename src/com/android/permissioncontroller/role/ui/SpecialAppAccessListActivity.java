@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,45 +16,18 @@
 
 package com.android.permissioncontroller.role.ui;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.WindowManager;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-
-import com.android.permissioncontroller.DeviceUtils;
-import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.role.ui.auto.AutoSpecialAppAccessListFragment;
-import com.android.permissioncontroller.role.ui.handheld.HandheldSpecialAppAccessListFragment;
 
 /**
- * Activity for the list of special app accesses.
+ * Dummy activity in place of
+ * {@link com.android.permissioncontroller.role.ui.specialappaccess.SpecialAppAccessListActivity}
  */
-public class SpecialAppAccessListActivity extends FragmentActivity {
-
+public class SpecialAppAccessListActivity extends Activity {
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        if (DeviceUtils.isAuto(this)) {
-            // Automotive relies on a different theme. Apply before calling super so that
-            // fragments are restored properly on configuration changes.
-            setTheme(R.style.CarSettings);
-        }
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().addSystemFlags(
-                WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
-
-        if (savedInstanceState == null) {
-            Fragment fragment;
-            if (DeviceUtils.isAuto(this)) {
-                fragment = AutoSpecialAppAccessListFragment.newInstance();
-            } else {
-                fragment = HandheldSpecialAppAccessListFragment.newInstance();
-            }
-            getSupportFragmentManager().beginTransaction()
-                    .add(android.R.id.content, fragment)
-                    .commit();
-        }
+        finish();
     }
 }

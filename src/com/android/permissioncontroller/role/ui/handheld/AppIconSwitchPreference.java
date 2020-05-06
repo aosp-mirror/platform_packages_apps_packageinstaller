@@ -29,7 +29,8 @@ import androidx.preference.SwitchPreference;
 /**
  * {@link SwitchPreference} with {@link AppIconPreference.Mixin}.
  */
-class AppIconSwitchPreference extends SwitchPreference {
+// Made public for com.android.permissioncontroller.role.ui.specialappaccess.handheld
+public class AppIconSwitchPreference extends SwitchPreference {
 
     private AppIconPreference.Mixin mMixin;
 
@@ -53,7 +54,8 @@ class AppIconSwitchPreference extends SwitchPreference {
         init();
     }
 
-    AppIconSwitchPreference(@NonNull Context context) {
+    // Made public for com.android.permissioncontroller.role.ui.specialappaccess.handheld
+    public AppIconSwitchPreference(@NonNull Context context) {
         super(context);
 
         init();
