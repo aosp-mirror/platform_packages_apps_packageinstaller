@@ -42,6 +42,7 @@ import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
 import android.content.pm.PackageManager.PERMISSION_GRANTED
@@ -55,6 +56,7 @@ import android.provider.Settings
 import android.util.Log
 import android.view.inputmethod.InputMethod
 import androidx.annotation.MainThread
+import androidx.preference.PreferenceManager
 import com.android.permissioncontroller.Constants
 import com.android.permissioncontroller.Constants.ACTION_MANAGE_AUTO_REVOKE
 import com.android.permissioncontroller.Constants.AUTO_REVOKE_NOTIFICATION_ID
@@ -123,6 +125,8 @@ private fun getCheckFrequencyMs(context: Context) = when {
 private val SERVER_LOG_ID =
     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
 
+private val PREF_KEY_FIRST_BOOT_TIME = "first_boot_time"
+
 fun isAutoRevokeEnabled(context: Context): Boolean {
     return getCheckFrequencyMs(context) > 0 &&
             getUnusedThresholdMs(context) > 0 &&
@@ -135,6 +139,9 @@ fun isAutoRevokeEnabled(context: Context): Boolean {
 class AutoRevokeOnBootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent?) {
+        // Init firstBootTime
+        val firstBootTime = context.firstBootTime
+
         if (DEBUG) {
             DumpableLog.i(LOG_TAG, "scheduleAutoRevokePermissions " +
                 "with frequency ${getCheckFrequencyMs(context)}ms " +
@@ -177,6 +184,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
     }
 
     val now = System.currentTimeMillis()
+    val firstBootTime = context.firstBootTime
 
     val unusedApps = AllPackageInfosLiveData.getInitializedValue(staleOk = true).toMutableMap()
 
@@ -198,6 +206,9 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
 
             // Limit by install time
             lastTimeVisible = Math.max(lastTimeVisible, packageInfo.firstInstallTime)
+
+            // Limit by first boot time
+            lastTimeVisible = Math.max(lastTimeVisible, firstBootTime)
 
             // Handle cross-profile apps
             if (context.isPackageCrossProfile(pkgName)) {
@@ -392,6 +403,21 @@ private fun Context.forParentUser(): Context {
 }
 
 private inline fun <reified T> Context.getSystemService() = getSystemService(T::class.java)!!
+
+val Context.sharedPreferences: SharedPreferences get() {
+    return PreferenceManager.getDefaultSharedPreferences(this)
+}
+
+private val Context.firstBootTime: Long get() {
+    var time = sharedPreferences.getLong(PREF_KEY_FIRST_BOOT_TIME, -1L)
+    if (time > 0) {
+        return time
+    }
+    // This is the first boot
+    time = System.currentTimeMillis()
+    sharedPreferences.edit().putLong(PREF_KEY_FIRST_BOOT_TIME, time).apply()
+    return time
+}
 
 /**
  * A job to check for apps unused in the last [getUnusedThresholdMs]ms every
