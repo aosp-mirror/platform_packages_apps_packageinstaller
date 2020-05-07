@@ -18,7 +18,9 @@ package com.android.permissioncontroller.permission.data
 
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.os.UserHandle
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
+import com.android.permissioncontroller.permission.service.getUnusedThresholdMs
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 
 /**
@@ -153,5 +155,50 @@ object AutoRevokedPackagesLiveData
             autoRevokedCopy[userPackage] = permGroups.toSet()
         }
         postValue(autoRevokedCopy)
+    }
+}
+
+/**
+ * Gets all Auto Revoked packages that have not been opened in a few months. This will let us remove
+ * used apps from the Auto Revoke screen.
+ */
+object UnusedAutoRevokedPackagesLiveData
+    : SmartUpdateMediatorLiveData<Map<Pair<String, UserHandle>, Set<String>>>() {
+    private val unusedThreshold = getUnusedThresholdMs(PermissionControllerApplication.get())
+    private val usageStatsLiveData = UsageStatsLiveData[unusedThreshold]
+
+    init {
+        addSource(usageStatsLiveData) {
+            updateIfActive()
+        }
+        addSource(AutoRevokedPackagesLiveData) {
+            updateIfActive()
+        }
+    }
+
+    override fun onUpdate() {
+        if (!usageStatsLiveData.isInitialized || !AutoRevokedPackagesLiveData.isInitialized) {
+            return
+        }
+
+        val autoRevokedPackages = AutoRevokedPackagesLiveData.value!!
+
+        val unusedPackages = mutableMapOf<Pair<String, UserHandle>, Set<String>>()
+        for ((userPackage, perms) in autoRevokedPackages) {
+            unusedPackages[userPackage] = perms.toSet()
+        }
+
+        val now = System.currentTimeMillis()
+        for ((user, stats) in usageStatsLiveData.value!!) {
+            for (stat in stats) {
+                val userPackage = stat.packageName to user
+                if (userPackage in autoRevokedPackages &&
+                    (now - stat.lastTimeVisible) < unusedThreshold) {
+                    unusedPackages.remove(userPackage)
+                }
+            }
+        }
+
+        value = unusedPackages
     }
 }
