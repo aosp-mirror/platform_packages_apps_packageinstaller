@@ -437,6 +437,8 @@ class AutoRevokeService : JobService() {
             if (DEBUG) {
                 Log.i(LOG_TAG, "Skipping auto revoke first run when scheduled by system")
             }
+            jobFinished(params, false)
+            return true
         }
 
         jobStartTime = System.currentTimeMillis()
