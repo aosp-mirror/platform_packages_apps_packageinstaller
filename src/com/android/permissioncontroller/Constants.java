@@ -150,6 +150,11 @@ public class Constants {
     public static final String REQUEST_ROLE_USER_DENIED_FILE = "request_role_user_denied";
 
     /**
+     * Logs to dump
+     */
+    public static final String LOGS_TO_DUMP_FILE = "LogToDump.log";
+
+    /**
      * Key in the user denied status for requesting roles shared preferences that stores a string
      * set for the names of the roles that an application has been denied for once.
      */
