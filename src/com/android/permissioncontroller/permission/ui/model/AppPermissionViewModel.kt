@@ -45,24 +45,22 @@ import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveD
 import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermission
-import com.android.permissioncontroller.permission.utils.KotlinUtils
-import com.android.permissioncontroller.permission.utils.LocationUtils
-import com.android.permissioncontroller.permission.utils.SafetyNetLogger
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.ALLOW
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.ALLOW_ALWAYS
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.ALLOW_FOREGROUND
-import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.ASK_ONCE
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.ASK
+import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.ASK_ONCE
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.DENY
 import com.android.permissioncontroller.permission.ui.model.AppPermissionViewModel.ButtonType.DENY_FOREGROUND
+import com.android.permissioncontroller.permission.utils.KotlinUtils
+import com.android.permissioncontroller.permission.utils.LocationUtils
+import com.android.permissioncontroller.permission.utils.SafetyNetLogger
 import com.android.permissioncontroller.permission.utils.Utils
 import com.android.permissioncontroller.permission.utils.navigateSafe
 import com.android.settingslib.RestrictedLockUtils
 import java.util.Random
 import kotlin.collections.component1
 import kotlin.collections.component2
-import kotlin.collections.filter
-import kotlin.collections.iterator
 
 /**
  * ViewModel for the AppPermissionFragment. Determines button state and detail text strings, logs
@@ -73,13 +71,16 @@ import kotlin.collections.iterator
  * @param permGroupName The name of the permission group this ViewModel represents
  * @param user The user of the package
  * @param sessionId A session ID used in logs to identify this particular session
+ * @param couldPackageHaveFgCapabilities Whether the package could access a foreground perm while in
+ * the background
  */
 class AppPermissionViewModel(
     private val app: Application,
     private val packageName: String,
     private val permGroupName: String,
     private val user: UserHandle,
-    private val sessionId: Long
+    private val sessionId: Long,
+    private val couldPackageHaveFgCapabilities: Boolean
 ) : ViewModel() {
 
     companion object {
@@ -210,9 +211,8 @@ class AppPermissionViewModel(
             val askOneTimeState = ButtonState()
             val askState = ButtonState()
             val deniedState = ButtonState()
-            val deniedForegroundState = ButtonState()
+            val deniedForegroundState = ButtonState() // when bg is fixed as granted and fg is flex
 
-            askOneTimeState.isShown = group.foreground.isGranted && group.isOneTime
             askState.isShown = Utils.supportsOneTimeGrant(permGroupName) &&
                     !(group.foreground.isGranted && group.isOneTime)
             deniedState.isShown = true
@@ -250,6 +250,24 @@ class AppPermissionViewModel(
                     val detailId = getIndividualPermissionDetailResId(group)
                     detailResIdLiveData.value = detailId.first to detailId.second
                 }
+                if (couldPackageHaveFgCapabilities) {
+                    // Correct the UI in case the app can access bg location with only fg perm
+                    allowedAlwaysState.isShown = true
+                    allowedAlwaysState.isChecked =
+                            allowedAlwaysState.isChecked || allowedForegroundState.isChecked
+                    // Should be enabled && is denied enabled for the user to be able to switch to.
+                    allowedAlwaysState.isEnabled =
+                            ((allowedAlwaysState.isEnabled && allowedAlwaysState.isShown) ||
+                                    allowedForegroundState.isEnabled) &&
+                                    ((deniedState.isEnabled && deniedState.isShown) ||
+                                            (deniedForegroundState.isEnabled &&
+                                                    deniedForegroundState.isShown))
+                    allowedForegroundState.isChecked = false
+                    allowedForegroundState.isEnabled = false
+                    deniedState.isChecked = deniedState.isChecked || askState.isChecked
+                    deniedForegroundState.isChecked = deniedState.isChecked
+                    askState.isEnabled = false
+                }
             } else {
                 // Allow / Deny case
                 allowedState.isShown = true
@@ -275,6 +293,15 @@ class AppPermissionViewModel(
                     allowedState.isShown = false
                     allowedForegroundState.isChecked = allowedState.isChecked
                     allowedForegroundState.isEnabled = allowedState.isEnabled
+                    if (couldPackageHaveFgCapabilities) {
+                        allowedAlwaysState.isShown = true
+                        allowedAlwaysState.isChecked = allowedForegroundState.isChecked
+                        allowedAlwaysState.isEnabled = allowedForegroundState.isEnabled
+                        allowedForegroundState.isChecked = false
+                        allowedForegroundState.isEnabled = false
+                        deniedState.isChecked = deniedState.isChecked || askState.isChecked
+                        askState.isEnabled = false
+                    }
                 }
             }
             if (group.packageInfo.targetSdkVersion < Build.VERSION_CODES.M) {
@@ -445,10 +472,14 @@ class AppPermissionViewModel(
             LocationUtils.showLocationDialog(context, packageLabel)
         }
 
-        val shouldGrantForeground = changeRequest andValue ChangeRequest.GRANT_FOREGROUND != 0
-        val shouldGrantBackground = changeRequest andValue ChangeRequest.GRANT_BACKGROUND != 0
-        val shouldRevokeForeground = changeRequest andValue ChangeRequest.REVOKE_FOREGROUND != 0
-        val shouldRevokeBackground = changeRequest andValue ChangeRequest.REVOKE_BACKGROUND != 0
+        val shouldGrantForeground = !group.isForegroundFixed &&
+                changeRequest andValue ChangeRequest.GRANT_FOREGROUND != 0
+        val shouldGrantBackground = !group.isBackgroundFixed &&
+                changeRequest andValue ChangeRequest.GRANT_BACKGROUND != 0
+        val shouldRevokeForeground = !group.isForegroundFixed &&
+                changeRequest andValue ChangeRequest.REVOKE_FOREGROUND != 0
+        val shouldRevokeBackground = !group.isBackgroundFixed &&
+                changeRequest andValue ChangeRequest.REVOKE_BACKGROUND != 0
         var showDefaultDenyDialog = false
         var showGrantedByDefaultWarning = false
 
@@ -711,10 +742,12 @@ class AppPermissionViewModelFactory(
     private val packageName: String,
     private val permGroupName: String,
     private val user: UserHandle,
-    private val sessionId: Long
+    private val sessionId: Long,
+    private val couldPackageHaveFgCapabilities: Boolean
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
-        return AppPermissionViewModel(app, packageName, permGroupName, user, sessionId) as T
+        return AppPermissionViewModel(app, packageName, permGroupName, user, sessionId,
+                couldPackageHaveFgCapabilities) as T
     }
 }
