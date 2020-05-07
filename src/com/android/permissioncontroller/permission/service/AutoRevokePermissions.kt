@@ -19,6 +19,7 @@
 package com.android.permissioncontroller.permission.service
 
 import android.Manifest
+import android.accessibilityservice.AccessibilityService
 import android.app.ActivityManager
 import android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_TOP_SLEEPING
 import android.app.AppOpsManager
@@ -31,6 +32,7 @@ import android.app.NotificationManager.IMPORTANCE_LOW
 import android.app.PendingIntent
 import android.app.PendingIntent.FLAG_ONE_SHOT
 import android.app.PendingIntent.FLAG_UPDATE_CURRENT
+import android.app.admin.DevicePolicyManager
 import android.app.job.JobInfo
 import android.app.job.JobParameters
 import android.app.job.JobScheduler
@@ -45,14 +47,26 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
+import android.content.pm.PackageManager.GET_META_DATA
+import android.content.pm.PackageManager.GET_SERVICES
 import android.content.pm.PackageManager.PERMISSION_GRANTED
+import android.net.NetworkScoreManager
 import android.os.Bundle
 import android.os.Process.myUserHandle
 import android.os.UserHandle
 import android.os.UserManager
 import android.permission.PermissionManager
+import android.printservice.PrintService
 import android.provider.DeviceConfig
 import android.provider.Settings
+import android.service.attention.AttentionService
+import android.service.autofill.AutofillService
+import android.service.autofill.augmented.AugmentedAutofillService
+import android.service.dreams.DreamService
+import android.service.notification.NotificationListenerService
+import android.service.textclassifier.TextClassifierService
+import android.service.voice.VoiceInteractionService
+import android.service.wallpaper.WallpaperService
 import android.util.Log
 import android.view.inputmethod.InputMethod
 import androidx.annotation.MainThread
@@ -236,11 +250,62 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
             .getAutoRevokeExemptionGrantedPackages()
     }
 
-    val keyboardPackages = context.packageManager
-            .queryIntentServices(Intent(InputMethod.SERVICE_INTERFACE), 0)
-            .mapNotNull { resolveInfo ->
-                resolveInfo?.serviceInfo?.packageName
-            }
+    // Exempt important system-bound services
+    val keyboardPackages = packagesWithService(context,
+            InputMethod.SERVICE_INTERFACE,
+            Manifest.permission.BIND_INPUT_METHOD)
+    val notificationListenerPackages = packagesWithService(context,
+            NotificationListenerService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_NOTIFICATION_LISTENER_SERVICE)
+    val accessibilityPackages = packagesWithService(context,
+            AccessibilityService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_ACCESSIBILITY_SERVICE)
+    val liveWallpaperPackages = packagesWithService(context,
+            WallpaperService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_WALLPAPER)
+    val voiceInteractionServicePackages = packagesWithService(context,
+            VoiceInteractionService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_VOICE_INTERACTION)
+    val attentionServicePackages = packagesWithService(context,
+            AttentionService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_ATTENTION_SERVICE)
+    val textClassifierPackages = packagesWithService(context,
+            TextClassifierService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_TEXTCLASSIFIER_SERVICE)
+    val printServicePackages = packagesWithService(context,
+            PrintService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_PRINT_SERVICE)
+    val dreamServicePackages = packagesWithService(context,
+            DreamService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_DREAM_SERVICE)
+    val networkScorerPackages = packagesWithService(context,
+            NetworkScoreManager.ACTION_RECOMMEND_NETWORKS,
+            Manifest.permission.BIND_NETWORK_RECOMMENDATION_SERVICE)
+    val autofillPackages = packagesWithService(context,
+            AutofillService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_AUTOFILL_SERVICE)
+    val augmentedAutofillPackages = packagesWithService(context,
+            AugmentedAutofillService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_AUGMENTED_AUTOFILL_SERVICE)
+    val deviceAdminPackages = packagesWithService(context,
+            DevicePolicyManager.ACTION_DEVICE_ADMIN_SERVICE,
+            Manifest.permission.BIND_DEVICE_ADMIN)
+
+    val exemptServicePackages = mutableSetOf<String>().apply {
+        addAll(keyboardPackages)
+        addAll(notificationListenerPackages)
+        addAll(accessibilityPackages)
+        addAll(liveWallpaperPackages)
+        addAll(voiceInteractionServicePackages)
+        addAll(attentionServicePackages)
+        addAll(textClassifierPackages)
+        addAll(printServicePackages)
+        addAll(dreamServicePackages)
+        addAll(networkScorerPackages)
+        addAll(autofillPackages)
+        addAll(augmentedAutofillPackages)
+        addAll(deviceAdminPackages)
+    }
 
     val revokedApps = mutableListOf<Pair<String, UserHandle>>()
     for ((user, userApps) in unusedApps) {
@@ -249,10 +314,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                 return@forEachInParallel
             }
 
-            if (pkg.packageName in keyboardPackages) {
-                if (DEBUG) {
-                    DumpableLog.i(LOG_TAG, "Skipping IME: ${pkg.packageName}")
-                }
+            if (pkg.packageName in exemptServicePackages) {
                 return@forEachInParallel
             }
 
@@ -340,6 +402,28 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
         }
     }
     return revokedApps
+}
+
+private fun packagesWithService(
+    context: Context,
+    serviceInterface: String,
+    permission: String
+): List<String> {
+    val packageNames = context.packageManager
+            .queryIntentServices(
+                    Intent(serviceInterface),
+                    GET_SERVICES or GET_META_DATA)
+            .mapNotNull { resolveInfo ->
+                if (resolveInfo?.serviceInfo?.permission != permission) {
+                    return@mapNotNull null
+                }
+                resolveInfo?.serviceInfo?.packageName
+            }
+    if (DEBUG) {
+        DumpableLog.i(LOG_TAG,
+                "Detected ${serviceInterface.substringAfterLast(".")}s: $packageNames")
+    }
+    return packageNames
 }
 
 private fun List<UsageStats>.lastTimeVisible(pkgName: String) =
