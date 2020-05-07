@@ -98,6 +98,8 @@ private const val DEBUG = true || DEBUG_OVERRIDE_THRESHOLDS
 
 private const val AUTO_REVOKE_ENABLED = true
 
+private var SKIP_NEXT_RUN = false
+
 private val DEFAULT_UNUSED_THRESHOLD_MS =
         if (AUTO_REVOKE_ENABLED) DAYS.toMillis(90) else Long.MAX_VALUE
 private fun getUnusedThresholdMs(context: Context) = when {
@@ -150,6 +152,8 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
             Log.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile owner. Running " +
                 "Auto Revoke.")
         }
+
+        SKIP_NEXT_RUN = true
 
         val jobInfo = JobInfo.Builder(
             Constants.AUTO_REVOKE_JOB_ID,
@@ -399,6 +403,13 @@ class AutoRevokeService : JobService() {
     override fun onStartJob(params: JobParameters?): Boolean {
         if (DEBUG) {
             Log.i(LOG_TAG, "onStartJob")
+        }
+
+        if (SKIP_NEXT_RUN) {
+            SKIP_NEXT_RUN = false
+            if (DEBUG) {
+                Log.i(LOG_TAG, "Skipping auto revoke first run when scheduled by system")
+            }
         }
 
         jobStartTime = System.currentTimeMillis()
