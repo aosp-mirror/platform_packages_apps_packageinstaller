@@ -69,6 +69,11 @@
                     style="@style/PermissionGrantButtonAllow" />
 
                 <Button
+                    android:id="@+id/permission_allow_always_button"
+                    android:text="@string/grant_dialog_button_allow_always"
+                    style="@style/PermissionGrantButtonAllowAlways" />
+
+                <Button
                     android:id="@+id/permission_allow_foreground_only_button"
                     android:text="@string/grant_dialog_button_allow_foreground"
                     style="@style/PermissionGrantButtonAllowForeground" />
