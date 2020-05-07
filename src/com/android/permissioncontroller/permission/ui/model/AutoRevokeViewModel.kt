@@ -26,10 +26,10 @@ import android.provider.Settings
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.android.permissioncontroller.permission.data.AutoRevokedPackagesLiveData
 import com.android.permissioncontroller.permission.utils.Utils
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.SmartAsyncMediatorLiveData
+import com.android.permissioncontroller.permission.data.UnusedAutoRevokedPackagesLiveData
 import com.android.permissioncontroller.permission.data.UsageStatsLiveData
 import kotlinx.coroutines.Job
 import java.util.concurrent.TimeUnit.DAYS
@@ -69,7 +69,7 @@ class AutoRevokeViewModel(private val app: Application) : ViewModel() {
         private val usageStatsLiveData = UsageStatsLiveData[SIX_MONTHS_MILLIS]
 
         init {
-            addSource(AutoRevokedPackagesLiveData) {
+            addSource(UnusedAutoRevokedPackagesLiveData) {
                 onUpdate()
             }
 
@@ -83,12 +83,12 @@ class AutoRevokeViewModel(private val app: Application) : ViewModel() {
         }
 
         override suspend fun loadDataAndPostValue(job: Job) {
-            if (!AutoRevokedPackagesLiveData.isInitialized || !usageStatsLiveData.isInitialized ||
-                !AllPackageInfosLiveData.isInitialized) {
+            if (!UnusedAutoRevokedPackagesLiveData.isInitialized ||
+                !usageStatsLiveData.isInitialized || !AllPackageInfosLiveData.isInitialized) {
                 return
             }
 
-            val unusedApps = AutoRevokedPackagesLiveData.value!!
+            val unusedApps = UnusedAutoRevokedPackagesLiveData.value!!
             val overSixMonthApps = unusedApps.keys.toMutableSet()
             val categorizedApps = mutableMapOf<Months, MutableList<RevokedPackageInfo>>()
             categorizedApps[Months.THREE] = mutableListOf()
@@ -117,7 +117,7 @@ class AutoRevokeViewModel(private val app: Application) : ViewModel() {
                     }
 
                     val canOpen = Utils.getUserContext(app, user).packageManager
-                            .getLaunchIntentForPackage(stat.packageName) != null
+                        .getLaunchIntentForPackage(stat.packageName) != null
                     categorizedApps[Months.THREE]!!.add(
                         RevokedPackageInfo(stat.packageName, user,
                             disableActionApps.contains(statPackage), canOpen,
@@ -143,7 +143,7 @@ class AutoRevokeViewModel(private val app: Application) : ViewModel() {
                     Months.SIX
                 }
                 val canOpen = Utils.getUserContext(app, user).packageManager
-                        .getLaunchIntentForPackage(packageName) != null
+                    .getLaunchIntentForPackage(packageName) != null
                 val userPackage = packageName to user
                 categorizedApps[months]!!.add(
                     RevokedPackageInfo(packageName, user, disableActionApps.contains(userPackage),
@@ -155,7 +155,7 @@ class AutoRevokeViewModel(private val app: Application) : ViewModel() {
     }
 
     fun areAutoRevokedPackagesLoaded(): Boolean {
-        return AutoRevokedPackagesLiveData.isInitialized
+        return UnusedAutoRevokedPackagesLiveData.isInitialized
     }
 
     fun navigateToAppInfo(packageName: String, user: UserHandle, sessionId: Long) {
