@@ -59,6 +59,7 @@ import com.android.permissioncontroller.Constants
 import com.android.permissioncontroller.Constants.ACTION_MANAGE_AUTO_REVOKE
 import com.android.permissioncontroller.Constants.AUTO_REVOKE_NOTIFICATION_ID
 import com.android.permissioncontroller.Constants.PERMISSION_REMINDER_CHANNEL_ID
+import com.android.permissioncontroller.DumpableLog
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
@@ -135,7 +136,7 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent?) {
         if (DEBUG) {
-            Log.i(LOG_TAG, "scheduleAutoRevokePermissions " +
+            DumpableLog.i(LOG_TAG, "scheduleAutoRevokePermissions " +
                 "with frequency ${getCheckFrequencyMs(context)}ms " +
                 "and threshold ${getUnusedThresholdMs(context)}ms")
         }
@@ -144,13 +145,13 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
         // If this user is a profile, then its auto revoke will be handled by the primary user
         if (userManager.isProfile) {
             if (DEBUG) {
-                Log.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile. Not running " +
-                    "Auto Revoke.")
+                DumpableLog.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile. Not " +
+                    "running Auto Revoke.")
             }
             return
         } else if (DEBUG) {
-            Log.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile owner. Running " +
-                "Auto Revoke.")
+            DumpableLog.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile owner. " +
+                "Running Auto Revoke.")
         }
 
         SKIP_NEXT_RUN = true
@@ -162,7 +163,7 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
             .build()
         val status = context.getSystemService(JobScheduler::class.java)!!.schedule(jobInfo)
         if (status != JobScheduler.RESULT_SUCCESS) {
-            Log.e(LOG_TAG,
+            DumpableLog.e(LOG_TAG,
                 "Could not schedule ${AutoRevokeService::class.java.simpleName}: $status")
         }
     }
@@ -214,7 +215,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
 
         unusedApps[user] = unusedUserApps
         if (DEBUG) {
-            Log.i(LOG_TAG, "Unused apps for user ${user.identifier}: " +
+            DumpableLog.i(LOG_TAG, "Unused apps for user ${user.identifier}: " +
                 "${unusedUserApps.map { it.packageName }}")
         }
     }
@@ -239,7 +240,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
 
             if (pkg.packageName in keyboardPackages) {
                 if (DEBUG) {
-                    Log.i(LOG_TAG, "Skipping IME: ${pkg.packageName}")
+                    DumpableLog.i(LOG_TAG, "Skipping IME: ${pkg.packageName}")
                 }
                 return@forEachInParallel
             }
@@ -278,7 +279,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                     }
 
                     if (DEBUG) {
-                        Log.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions")
+                        DumpableLog.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions")
                     }
 
                     val uid = group.packageInfo.uid
@@ -293,7 +294,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                         .getPackageImportance(packageName)
                     if (packageImportance > IMPORTANCE_TOP_SLEEPING) {
                         if (DEBUG) {
-                            Log.i(LOG_TAG, "revoking $packageName - $revocablePermissions")
+                            DumpableLog.i(LOG_TAG, "revoking $packageName - $revocablePermissions")
                         }
                         anyPermsRevoked.compareAndSet(false, true)
 
@@ -313,7 +314,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                                 FLAG_PERMISSION_USER_SET to false)
                         }
                     } else {
-                        Log.i(LOG_TAG,
+                        DumpableLog.i(LOG_TAG,
                             "Skipping auto-revoke - $packageName running with importance " +
                                 "$packageImportance")
                     }
@@ -402,7 +403,7 @@ class AutoRevokeService : JobService() {
 
     override fun onStartJob(params: JobParameters?): Boolean {
         if (DEBUG) {
-            Log.i(LOG_TAG, "onStartJob")
+            DumpableLog.i(LOG_TAG, "onStartJob")
         }
 
         if (SKIP_NEXT_RUN) {
@@ -420,7 +421,7 @@ class AutoRevokeService : JobService() {
                     showAutoRevokeNotification()
                 }
             } catch (e: Exception) {
-                Log.e(LOG_TAG, "Failed to auto-revoke permissions", e)
+                DumpableLog.e(LOG_TAG, "Failed to auto-revoke permissions", e)
             }
             jobFinished(params, false)
         }
@@ -475,7 +476,7 @@ class AutoRevokeService : JobService() {
     }
 
     override fun onStopJob(params: JobParameters?): Boolean {
-        Log.w(LOG_TAG, "onStopJob after ${System.currentTimeMillis() - jobStartTime}ms")
+        DumpableLog.w(LOG_TAG, "onStopJob after ${System.currentTimeMillis() - jobStartTime}ms")
         job?.cancel()
         return true
     }
@@ -496,7 +497,7 @@ private data class TeamfoodSettings(
                 "auto_revoke_parameters" /* Settings.Global.AUTO_REVOKE_PARAMETERS */)?.let { str ->
 
                 if (DEBUG) {
-                    Log.i(LOG_TAG, "Parsing teamfood setting value: $str")
+                    DumpableLog.i(LOG_TAG, "Parsing teamfood setting value: $str")
                 }
                 str.split(",")
                     .mapNotNull {
