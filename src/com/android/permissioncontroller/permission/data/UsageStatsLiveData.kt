@@ -23,6 +23,7 @@ import android.app.usage.UsageStatsManager.INTERVAL_MONTHLY
 import android.os.UserHandle
 import android.os.UserManager
 import com.android.permissioncontroller.PermissionControllerApplication
+import com.android.permissioncontroller.permission.utils.Utils
 import kotlinx.coroutines.Job
 
 /**
@@ -57,8 +58,9 @@ class UsageStatsLiveData private constructor(
             if (user !in enabledUsers) {
                 continue
             }
-            userMap[user] = app.getSystemService(UsageStatsManager::class.java)!!.queryUsageStats(
-            interval, now - searchTimeMs, now)
+            val statsManager = Utils.getUserContext(app, user).getSystemService(
+                UsageStatsManager::class.java)!!
+            userMap[user] = statsManager.queryUsageStats(interval, now - searchTimeMs, now)
         }
 
         postValue(userMap)
