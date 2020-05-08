@@ -212,7 +212,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragmentCompat {
         pref.setChecked(group.areRuntimePermissionsGranted(new String[]{ perm.name }));
         pref.setOnPreferenceChangeListener((p, newVal) -> {
             if((Boolean) newVal) {
-                group.grantRuntimePermissions(false, new String[]{ perm.name });
+                group.grantRuntimePermissions(true, false, new String[]{ perm.name });
 
                 if (Utils.areGroupPermissionsIndividuallyControlled(getContext(), group.getName())
                         && group.doesSupportRuntimePermissions()) {
@@ -363,7 +363,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragmentCompat {
 
     private void setPermission(AppPermissionGroup group, SwitchPreference pref, boolean grant) {
         if (grant) {
-            group.grantRuntimePermissions(false);
+            group.grantRuntimePermissions(true, false);
         } else {
             group.revokeRuntimePermissions(false);
         }

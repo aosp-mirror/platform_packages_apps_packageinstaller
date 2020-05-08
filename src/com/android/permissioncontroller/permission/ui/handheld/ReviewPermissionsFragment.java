@@ -179,7 +179,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
             }
         }
         if (permissionsToGrant != null) {
-            group.grantRuntimePermissions(false, permissionsToGrant);
+            group.grantRuntimePermissions(true, false, permissionsToGrant);
         }
     }
 
