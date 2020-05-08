@@ -511,7 +511,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
             switch (grantState) {
                 case PERMISSION_GRANT_STATE_GRANTED:
                     perm.setPolicyFixed(true);
-                    group.grantRuntimePermissions(false, new String[]{permName});
+                    group.grantRuntimePermissions(false, false, new String[]{permName});
                     autoGrantPermissionsNotifier.onPermissionAutoGranted(permName);
                     break;
                 case PERMISSION_GRANT_STATE_DENIED:
