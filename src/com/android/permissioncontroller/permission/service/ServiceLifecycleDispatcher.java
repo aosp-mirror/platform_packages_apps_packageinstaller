@@ -37,7 +37,7 @@ public class ServiceLifecycleDispatcher {
      * @param provider {@link LifecycleOwner} for a service, usually it is a service itself
      */
     public ServiceLifecycleDispatcher(@NonNull LifecycleOwner provider) {
-        mRegistry = new LifecycleRegistry(provider);
+        mRegistry = new CheckLifecycleRegistry(provider);
         mHandler = new Handler();
     }
 
