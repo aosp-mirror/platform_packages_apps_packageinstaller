@@ -28,7 +28,6 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.text.BidiFormatter;
 import android.text.TextUtils;
-import android.widget.ImageView;
 import android.widget.Switch;
 
 import androidx.annotation.IntDef;
@@ -36,7 +35,6 @@ import androidx.annotation.LayoutRes;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceViewHolder;
 
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
@@ -468,11 +466,11 @@ class PermissionPreference extends MultiTargetSwitchPreference {
             mCallBacks.onPreferenceChanged(getKey());
 
             if ((changeTarget & CHANGE_FOREGROUND) != 0) {
-                mGroup.grantRuntimePermissions(false);
+                mGroup.grantRuntimePermissions(true, false);
             }
             if ((changeTarget & CHANGE_BACKGROUND) != 0) {
                 if (mGroup.getBackgroundPermissions() != null) {
-                    mGroup.getBackgroundPermissions().grantRuntimePermissions(false);
+                    mGroup.getBackgroundPermissions().grantRuntimePermissions(true, false);
                 }
             }
         } else {
