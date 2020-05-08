@@ -251,7 +251,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
             @Override
             public boolean onPreferenceChange(Preference preference, Object value) {
                 if (value == Boolean.TRUE) {
-                    permGroup.grantRuntimePermissions(false, filterPermissions);
+                    permGroup.grantRuntimePermissions(true, false, filterPermissions);
                 } else {
                     permGroup.revokeRuntimePermissions(false, filterPermissions);
                 }

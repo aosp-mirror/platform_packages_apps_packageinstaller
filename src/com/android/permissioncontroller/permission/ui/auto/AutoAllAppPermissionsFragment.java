@@ -316,7 +316,7 @@ public class AutoAllAppPermissionsFragment extends AutoSettingsFrameFragment {
             setSwitchOnClickListener(v -> {
                 Switch switchView = (Switch) v;
                 if (switchView.isChecked()) {
-                    appPermissionGroup.grantRuntimePermissions(false,
+                    appPermissionGroup.grantRuntimePermissions(false, false,
                             new String[]{permission});
                     // We are granting a permission from a group but since this is an
                     // individual permission control other permissions in the group may
@@ -345,7 +345,8 @@ public class AutoAllAppPermissionsFragment extends AutoSettingsFrameFragment {
                                     revokedPermissionsToFix);
                         } else if (appPermissionGroup.getPermissions().size() == grantedCount) {
                             // If all permissions are granted then they should not be fixed.
-                            appPermissionGroup.grantRuntimePermissions(/* fixedByTheUser= */ false);
+                            appPermissionGroup.grantRuntimePermissions(true,
+                                    /* fixedByTheUser= */ false);
                         }
                     }
                 } else {
