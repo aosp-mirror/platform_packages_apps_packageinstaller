@@ -218,7 +218,7 @@ public class GrantPermissionsActivity extends Activity
         switch (getPermissionPolicy()) {
             case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
                 final String[] filterPermissions = new String[]{permName};
-                group.grantRuntimePermissions(false, filterPermissions);
+                group.grantRuntimePermissions(false, false, filterPermissions);
                 group.setPolicyFixed(filterPermissions);
                 state.mState = GroupState.STATE_ALLOWED;
                 skipGroup = true;
@@ -240,7 +240,7 @@ public class GrantPermissionsActivity extends Activity
 
             default: {
                 if (group.areRuntimePermissionsGranted()) {
-                    group.grantRuntimePermissions(false, new String[]{permName});
+                    group.grantRuntimePermissions(false, false, new String[]{permName});
                     state.mState = GroupState.STATE_ALLOWED;
                     skipGroup = true;
 
@@ -1110,7 +1110,7 @@ public class GrantPermissionsActivity extends Activity
                     groupState.mGroup.setOneTime(false);
                 }
 
-                groupState.mGroup.grantRuntimePermissions(doNotAskAgain,
+                groupState.mGroup.grantRuntimePermissions(true, doNotAskAgain,
                         groupState.affectedPermissions);
                 groupState.mState = GroupState.STATE_ALLOWED;
 

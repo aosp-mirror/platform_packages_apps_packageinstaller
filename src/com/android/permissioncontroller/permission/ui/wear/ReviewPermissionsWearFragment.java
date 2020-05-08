@@ -250,7 +250,7 @@ public class ReviewPermissionsWearFragment extends PreferenceFragmentCompat
                 String groupName = preference.getKey();
                 AppPermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
                 if (twoStatePreference.isChecked()) {
-                    group.grantRuntimePermissions(false);
+                    group.grantRuntimePermissions(true, false);
                 } else {
                     group.revokeRuntimePermissions(false);
                 }

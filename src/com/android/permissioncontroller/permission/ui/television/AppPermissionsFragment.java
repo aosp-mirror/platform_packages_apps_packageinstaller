@@ -285,7 +285,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             return false;
         }
         if (newValue == Boolean.TRUE) {
-            group.grantRuntimePermissions(false);
+            group.grantRuntimePermissions(true, false);
         } else {
             final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
             if (grantedByDefault || (!group.doesSupportRuntimePermissions()
