@@ -17,7 +17,6 @@
 package com.android.permissioncontroller.permission.service
 
 import android.content.pm.PackageManager
-import android.os.Handler
 import android.os.Process
 import android.permission.PermissionControllerManager.COUNT_ONLY_WHEN_GRANTED
 import android.permission.PermissionControllerManager.COUNT_WHEN_SYSTEM
@@ -34,6 +33,9 @@ import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGr
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.utils.Utils
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.function.IntConsumer
 
 /**
@@ -58,36 +60,37 @@ class PermissionControllerServiceModel(private val service: PermissionController
         liveData: LiveData<T>,
         onChangedFun: (t: T?) -> Unit
     ) {
-        val main = Handler(service.mainLooper)
+        GlobalScope.launch(Main.immediate) {
 
-        if (service.lifecycle.currentState != Lifecycle.State.STARTED) {
-            service.setLifecycleToStarted()
-        }
+            if (service.lifecycle.currentState != Lifecycle.State.STARTED) {
+                service.setLifecycleToStarted()
+            }
 
-        if (!liveData.hasActiveObservers()) {
-            observedLiveDatas.add(liveData)
-            main.post { liveData.observe(service, Observer { }) }
-        }
+            if (!liveData.hasActiveObservers()) {
+                observedLiveDatas.add(liveData)
+                liveData.observe(service, Observer { })
+            }
 
-        var updated = false
-        val observer = object : Observer<T> {
-            override fun onChanged(data: T) {
-                if (updated) {
-                    return
-                }
-                if ((liveData is SmartUpdateMediatorLiveData<T> && !liveData.isStale) ||
+            var updated = false
+            val observer = object : Observer<T> {
+                override fun onChanged(data: T) {
+                    if (updated) {
+                        return
+                    }
+                    if ((liveData is SmartUpdateMediatorLiveData<T> && !liveData.isStale) ||
                         liveData !is SmartUpdateMediatorLiveData<T>) {
-                    onChangedFun(data)
-                    liveData.removeObserver(this)
-                    updated = true
+                        onChangedFun(data)
+                        liveData.removeObserver(this)
+                        updated = true
+                    }
                 }
             }
-        }
 
-        if (liveData is SmartUpdateMediatorLiveData<T>) {
-            main.post { liveData.observeStale(service, observer) }
-        } else {
-            main.post { liveData.observe(service, observer) }
+            if (liveData is SmartUpdateMediatorLiveData<T>) {
+                liveData.observeStale(service, observer)
+            } else {
+                liveData.observe(service, observer)
+            }
         }
     }
 
@@ -95,11 +98,13 @@ class PermissionControllerServiceModel(private val service: PermissionController
      * Stop observing all currently observed liveDatas
      */
     fun removeObservers() {
-        for (liveData in observedLiveDatas) {
-            liveData.removeObservers(service)
-        }
+        GlobalScope.launch(Main.immediate) {
+            for (liveData in observedLiveDatas) {
+                liveData.removeObservers(service)
+            }
 
-        observedLiveDatas.clear()
+            observedLiveDatas.clear()
+        }
     }
 
     /**
@@ -118,7 +123,7 @@ class PermissionControllerServiceModel(private val service: PermissionController
         val packageInfosLiveData = UserPackageInfosLiveData[Process.myUserHandle()]
         observeAndCheckForLifecycleState(packageInfosLiveData) { packageInfos ->
             onPackagesLoadedForCountPermissionApps(permissionNames, flags, callback,
-                    packageInfos)
+                packageInfos)
         }
     }
 
@@ -169,7 +174,7 @@ class PermissionControllerServiceModel(private val service: PermissionController
             for (permName in permToGroup.keys) {
                 if (requestedPermissions.contains(permName)) {
                     packageUiLiveDatas.add(AppPermGroupUiInfoLiveData[packageName,
-                                    permToGroup[permName]!!, Process.myUserHandle()])
+                        permToGroup[permName]!!, Process.myUserHandle()])
                 }
             }
             if (packageUiLiveDatas.isNotEmpty()) {
@@ -196,7 +201,7 @@ class PermissionControllerServiceModel(private val service: PermissionController
 
                     if (uiInfo != null && uiInfo.shouldShow && (!uiInfo.isSystem || countSystem)) {
                         val granted = uiInfo.permGrantState != PermGrantState.PERMS_DENIED &&
-                                uiInfo.permGrantState != PermGrantState.PERMS_ASK
+                            uiInfo.permGrantState != PermGrantState.PERMS_ASK
                         if (granted || !countOnlyGranted && !packageAdded) {
                             // The permission might not be granted, but some permissions of the
                             // group are granted. In this case the permission is granted silently
