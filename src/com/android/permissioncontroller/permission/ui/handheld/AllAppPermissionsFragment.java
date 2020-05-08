@@ -287,7 +287,7 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
             setSwitchOnClickListener(v -> {
                 Switch switchView = (Switch) v;
                 if (switchView.isChecked()) {
-                    appPermissionGroup.grantRuntimePermissions(false,
+                    appPermissionGroup.grantRuntimePermissions(true, false,
                             new String[]{permission});
                     // We are granting a permission from a group but since this is an
                     // individual permission control other permissions in the group may
@@ -316,7 +316,7 @@ public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
                                     revokedPermissionsToFix);
                         } else if (appPermissionGroup.getPermissions().size() == grantedCount) {
                             // If all permissions are granted then they should not be fixed.
-                            appPermissionGroup.grantRuntimePermissions(false);
+                            appPermissionGroup.grantRuntimePermissions(true, false);
                         }
                     }
                 } else {
