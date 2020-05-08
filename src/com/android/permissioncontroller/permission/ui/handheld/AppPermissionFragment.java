@@ -119,7 +119,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
     private @NonNull String mPackageLabel;
     private @NonNull String mPermGroupLabel;
     private Drawable mPackageIcon;
-    private boolean mCouldPackageHaveFgCapabilities;
+    private Utils.ForegroundCapableType mForegroundCapableType;
 
     /**
      * Create a bundle with the arguments needed by this fragment
@@ -177,8 +177,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
         mPackageIcon = KotlinUtils.INSTANCE.getBadgedPackageIcon(getActivity().getApplication(),
                 mPackageName, mUser);
         try {
-            mCouldPackageHaveFgCapabilities =
-                    Utils.couldHaveForegroundCapabilities(getContext(), mPackageName);
+            mForegroundCapableType = Utils.getForegroundCapableType(getContext(), mPackageName);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(LOG_TAG, "Package " + mPackageName + " not found", e);
         }
@@ -187,7 +186,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
 
         AppPermissionViewModelFactory factory = new AppPermissionViewModelFactory(
                 getActivity().getApplication(), mPackageName, mPermGroupName, mUser, mSessionId,
-                mCouldPackageHaveFgCapabilities);
+                mForegroundCapableType);
         mViewModel = new ViewModelProvider(this, factory).get(AppPermissionViewModel.class);
         Handler delayHandler = new Handler(Looper.getMainLooper());
         mViewModel.getButtonStateLiveData().observe(this, buttonState -> {
