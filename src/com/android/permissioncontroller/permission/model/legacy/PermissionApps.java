@@ -390,7 +390,7 @@ public class PermissionApps {
         }
 
         public void grantRuntimePermissions() {
-            mAppPermissionGroup.grantRuntimePermissions(false);
+            mAppPermissionGroup.grantRuntimePermissions(true, false);
         }
 
         public void revokeRuntimePermissions() {
