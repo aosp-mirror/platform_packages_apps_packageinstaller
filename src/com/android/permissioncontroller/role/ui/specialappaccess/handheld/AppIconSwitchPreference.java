@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.role.ui.handheld;
+package com.android.permissioncontroller.role.ui.specialappaccess.handheld;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -26,11 +26,12 @@ import androidx.annotation.StyleRes;
 import androidx.preference.PreferenceViewHolder;
 import androidx.preference.SwitchPreference;
 
+import com.android.permissioncontroller.role.ui.handheld.AppIconPreference;
+
 /**
  * {@link SwitchPreference} with {@link AppIconPreference.Mixin}.
  */
-// Made public for com.android.permissioncontroller.role.ui.specialappaccess.handheld
-public class AppIconSwitchPreference extends SwitchPreference {
+class AppIconSwitchPreference extends SwitchPreference {
 
     private AppIconPreference.Mixin mMixin;
 
@@ -54,8 +55,7 @@ public class AppIconSwitchPreference extends SwitchPreference {
         init();
     }
 
-    // Made public for com.android.permissioncontroller.role.ui.specialappaccess.handheld
-    public AppIconSwitchPreference(@NonNull Context context) {
+    AppIconSwitchPreference(@NonNull Context context) {
         super(context);
 
         init();
