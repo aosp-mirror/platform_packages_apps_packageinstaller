@@ -87,9 +87,6 @@ class LightPackageInfoLiveData private constructor(
         } catch (e: PackageManager.NameNotFoundException) {
             Log.w(LOG_TAG, "Package \"$packageName\" not found")
             invalidateSingle(packageName to user)
-            if (watchingUserPackagesLiveData) {
-                removeSource(userPackagesLiveData)
-            }
             null
         })
     }
@@ -109,7 +106,7 @@ class LightPackageInfoLiveData private constructor(
             registeredUid = uid
             PermissionListenerMultiplexer.addCallback(it, this)
         }
-        if (userPackagesLiveData.hasActiveObservers()) {
+        if (userPackagesLiveData.hasActiveObservers() && !watchingUserPackagesLiveData) {
             watchingUserPackagesLiveData = true
             addSource(userPackagesLiveData) {
                 updateFromUserPackageInfosLiveData()
@@ -128,8 +125,13 @@ class LightPackageInfoLiveData private constructor(
         if (packageInfo != null) {
             postValue(packageInfo)
         } else {
-            // If the UserPackageInfosLiveData does not contain this package, check for removal
+            // If the UserPackageInfosLiveData does not contain this package, check for removal, and
+            // stop watching.
             updateAsync()
+            if (watchingUserPackagesLiveData) {
+                removeSource(UserPackageInfosLiveData[user])
+                watchingUserPackagesLiveData = false
+            }
         }
     }
 
@@ -143,6 +145,7 @@ class LightPackageInfoLiveData private constructor(
         }
         if (watchingUserPackagesLiveData) {
             removeSource(UserPackageInfosLiveData[user])
+            watchingUserPackagesLiveData = false
         }
     }
 
