@@ -47,6 +47,7 @@ import android.util.Xml;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.permissioncontroller.DumpableLog;
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissions;
@@ -61,8 +62,10 @@ import com.android.permissioncontroller.permission.utils.Utils;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlSerializer;
 
+import java.io.FileDescriptor;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -95,6 +98,12 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
     public boolean onUnbind(@Nullable Intent intent) {
         mServiceModel.removeObservers();
         return super.onUnbind(intent);
+    }
+
+    @Override
+    public void dump(FileDescriptor fd, PrintWriter writer, String[] args) {
+        DumpableLog.INSTANCE.dump(writer);
+        writer.flush();
     }
 
     /**
