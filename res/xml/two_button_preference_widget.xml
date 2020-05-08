@@ -27,6 +27,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_gravity="center_vertical"
+        android:visibility="gone"
         android:background="?android:attr/textColorSecondary"/>
 
     <ImageButton
@@ -35,6 +36,7 @@
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:src="@drawable/ic_settings_open"
+        android:visibility="gone"
         style="@style/SettingsActionButton"
     />
 
@@ -44,7 +46,7 @@
         android:layout_height="40dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_gravity="center_vertical"
+        android:layout_gravity="end|center_vertical"
         android:background="?android:attr/textColorSecondary"/>
 
     <ImageButton
@@ -52,7 +54,7 @@
         style="@style/SettingsActionButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_gravity="center"
+        android:layout_gravity="end|center_vertical"
         android:src="@drawable/ic_settings_delete"
     />
 

@@ -19,6 +19,7 @@
 package com.android.permissioncontroller.permission.service
 
 import android.Manifest
+import android.accessibilityservice.AccessibilityService
 import android.app.ActivityManager
 import android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_TOP_SLEEPING
 import android.app.AppOpsManager
@@ -31,6 +32,7 @@ import android.app.NotificationManager.IMPORTANCE_LOW
 import android.app.PendingIntent
 import android.app.PendingIntent.FLAG_ONE_SHOT
 import android.app.PendingIntent.FLAG_UPDATE_CURRENT
+import android.app.admin.DevicePolicyManager
 import android.app.job.JobInfo
 import android.app.job.JobParameters
 import android.app.job.JobScheduler
@@ -42,32 +44,47 @@ import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
+import android.content.pm.PackageManager.GET_META_DATA
+import android.content.pm.PackageManager.GET_SERVICES
 import android.content.pm.PackageManager.PERMISSION_GRANTED
+import android.net.NetworkScoreManager
 import android.os.Bundle
 import android.os.Process.myUserHandle
 import android.os.UserHandle
 import android.os.UserManager
 import android.permission.PermissionManager
+import android.printservice.PrintService
 import android.provider.DeviceConfig
 import android.provider.Settings
+import android.service.attention.AttentionService
+import android.service.autofill.AutofillService
+import android.service.autofill.augmented.AugmentedAutofillService
+import android.service.dreams.DreamService
+import android.service.notification.NotificationListenerService
+import android.service.textclassifier.TextClassifierService
+import android.service.voice.VoiceInteractionService
+import android.service.wallpaper.WallpaperService
 import android.util.Log
 import android.view.inputmethod.InputMethod
 import androidx.annotation.MainThread
+import androidx.preference.PreferenceManager
 import com.android.permissioncontroller.Constants
 import com.android.permissioncontroller.Constants.ACTION_MANAGE_AUTO_REVOKE
 import com.android.permissioncontroller.Constants.AUTO_REVOKE_NOTIFICATION_ID
 import com.android.permissioncontroller.Constants.PERMISSION_REMINDER_CHANNEL_ID
+import com.android.permissioncontroller.DumpableLog
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.AppOpLiveData
-import com.android.permissioncontroller.permission.data.AutoRevokedPackagesLiveData
 import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
+import com.android.permissioncontroller.permission.data.UnusedAutoRevokedPackagesLiveData
 import com.android.permissioncontroller.permission.data.UsageStatsLiveData
 import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
@@ -102,7 +119,7 @@ private var SKIP_NEXT_RUN = false
 
 private val DEFAULT_UNUSED_THRESHOLD_MS =
         if (AUTO_REVOKE_ENABLED) DAYS.toMillis(90) else Long.MAX_VALUE
-private fun getUnusedThresholdMs(context: Context) = when {
+fun getUnusedThresholdMs(context: Context) = when {
     DEBUG_OVERRIDE_THRESHOLDS -> SECONDS.toMillis(1)
     TeamfoodSettings.get(context) != null -> TeamfoodSettings.get(context)!!.unusedThresholdMs
     else -> DeviceConfig.getLong(DeviceConfig.NAMESPACE_PERMISSIONS,
@@ -122,6 +139,8 @@ private fun getCheckFrequencyMs(context: Context) = when {
 private val SERVER_LOG_ID =
     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
 
+private val PREF_KEY_FIRST_BOOT_TIME = "first_boot_time"
+
 fun isAutoRevokeEnabled(context: Context): Boolean {
     return getCheckFrequencyMs(context) > 0 &&
             getUnusedThresholdMs(context) > 0 &&
@@ -134,8 +153,11 @@ fun isAutoRevokeEnabled(context: Context): Boolean {
 class AutoRevokeOnBootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent?) {
+        // Init firstBootTime
+        val firstBootTime = context.firstBootTime
+
         if (DEBUG) {
-            Log.i(LOG_TAG, "scheduleAutoRevokePermissions " +
+            DumpableLog.i(LOG_TAG, "scheduleAutoRevokePermissions " +
                 "with frequency ${getCheckFrequencyMs(context)}ms " +
                 "and threshold ${getUnusedThresholdMs(context)}ms")
         }
@@ -144,13 +166,13 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
         // If this user is a profile, then its auto revoke will be handled by the primary user
         if (userManager.isProfile) {
             if (DEBUG) {
-                Log.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile. Not running " +
-                    "Auto Revoke.")
+                DumpableLog.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile. Not " +
+                    "running Auto Revoke.")
             }
             return
         } else if (DEBUG) {
-            Log.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile owner. Running " +
-                "Auto Revoke.")
+            DumpableLog.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile owner. " +
+                "Running Auto Revoke.")
         }
 
         SKIP_NEXT_RUN = true
@@ -162,7 +184,7 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
             .build()
         val status = context.getSystemService(JobScheduler::class.java)!!.schedule(jobInfo)
         if (status != JobScheduler.RESULT_SUCCESS) {
-            Log.e(LOG_TAG,
+            DumpableLog.e(LOG_TAG,
                 "Could not schedule ${AutoRevokeService::class.java.simpleName}: $status")
         }
     }
@@ -176,6 +198,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
     }
 
     val now = System.currentTimeMillis()
+    val firstBootTime = context.firstBootTime
 
     val unusedApps = AllPackageInfosLiveData.getInitializedValue(staleOk = true).toMutableMap()
 
@@ -198,6 +221,9 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
             // Limit by install time
             lastTimeVisible = Math.max(lastTimeVisible, packageInfo.firstInstallTime)
 
+            // Limit by first boot time
+            lastTimeVisible = Math.max(lastTimeVisible, firstBootTime)
+
             // Handle cross-profile apps
             if (context.isPackageCrossProfile(pkgName)) {
                 for ((otherUser, otherStats) in userStats) {
@@ -214,7 +240,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
 
         unusedApps[user] = unusedUserApps
         if (DEBUG) {
-            Log.i(LOG_TAG, "Unused apps for user ${user.identifier}: " +
+            DumpableLog.i(LOG_TAG, "Unused apps for user ${user.identifier}: " +
                 "${unusedUserApps.map { it.packageName }}")
         }
     }
@@ -224,11 +250,62 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
             .getAutoRevokeExemptionGrantedPackages()
     }
 
-    val keyboardPackages = context.packageManager
-            .queryIntentServices(Intent(InputMethod.SERVICE_INTERFACE), 0)
-            .mapNotNull { resolveInfo ->
-                resolveInfo?.serviceInfo?.packageName
-            }
+    // Exempt important system-bound services
+    val keyboardPackages = packagesWithService(context,
+            InputMethod.SERVICE_INTERFACE,
+            Manifest.permission.BIND_INPUT_METHOD)
+    val notificationListenerPackages = packagesWithService(context,
+            NotificationListenerService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_NOTIFICATION_LISTENER_SERVICE)
+    val accessibilityPackages = packagesWithService(context,
+            AccessibilityService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_ACCESSIBILITY_SERVICE)
+    val liveWallpaperPackages = packagesWithService(context,
+            WallpaperService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_WALLPAPER)
+    val voiceInteractionServicePackages = packagesWithService(context,
+            VoiceInteractionService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_VOICE_INTERACTION)
+    val attentionServicePackages = packagesWithService(context,
+            AttentionService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_ATTENTION_SERVICE)
+    val textClassifierPackages = packagesWithService(context,
+            TextClassifierService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_TEXTCLASSIFIER_SERVICE)
+    val printServicePackages = packagesWithService(context,
+            PrintService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_PRINT_SERVICE)
+    val dreamServicePackages = packagesWithService(context,
+            DreamService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_DREAM_SERVICE)
+    val networkScorerPackages = packagesWithService(context,
+            NetworkScoreManager.ACTION_RECOMMEND_NETWORKS,
+            Manifest.permission.BIND_NETWORK_RECOMMENDATION_SERVICE)
+    val autofillPackages = packagesWithService(context,
+            AutofillService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_AUTOFILL_SERVICE)
+    val augmentedAutofillPackages = packagesWithService(context,
+            AugmentedAutofillService.SERVICE_INTERFACE,
+            Manifest.permission.BIND_AUGMENTED_AUTOFILL_SERVICE)
+    val deviceAdminPackages = packagesWithService(context,
+            DevicePolicyManager.ACTION_DEVICE_ADMIN_SERVICE,
+            Manifest.permission.BIND_DEVICE_ADMIN)
+
+    val exemptServicePackages = mutableSetOf<String>().apply {
+        addAll(keyboardPackages)
+        addAll(notificationListenerPackages)
+        addAll(accessibilityPackages)
+        addAll(liveWallpaperPackages)
+        addAll(voiceInteractionServicePackages)
+        addAll(attentionServicePackages)
+        addAll(textClassifierPackages)
+        addAll(printServicePackages)
+        addAll(dreamServicePackages)
+        addAll(networkScorerPackages)
+        addAll(autofillPackages)
+        addAll(augmentedAutofillPackages)
+        addAll(deviceAdminPackages)
+    }
 
     val revokedApps = mutableListOf<Pair<String, UserHandle>>()
     for ((user, userApps) in unusedApps) {
@@ -237,10 +314,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                 return@forEachInParallel
             }
 
-            if (pkg.packageName in keyboardPackages) {
-                if (DEBUG) {
-                    Log.i(LOG_TAG, "Skipping IME: ${pkg.packageName}")
-                }
+            if (pkg.packageName in exemptServicePackages) {
                 return@forEachInParallel
             }
 
@@ -278,7 +352,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                     }
 
                     if (DEBUG) {
-                        Log.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions")
+                        DumpableLog.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions")
                     }
 
                     val uid = group.packageInfo.uid
@@ -293,7 +367,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                         .getPackageImportance(packageName)
                     if (packageImportance > IMPORTANCE_TOP_SLEEPING) {
                         if (DEBUG) {
-                            Log.i(LOG_TAG, "revoking $packageName - $revocablePermissions")
+                            DumpableLog.i(LOG_TAG, "revoking $packageName - $revocablePermissions")
                         }
                         anyPermsRevoked.compareAndSet(false, true)
 
@@ -313,7 +387,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                                 FLAG_PERMISSION_USER_SET to false)
                         }
                     } else {
-                        Log.i(LOG_TAG,
+                        DumpableLog.i(LOG_TAG,
                             "Skipping auto-revoke - $packageName running with importance " +
                                 "$packageImportance")
                     }
@@ -328,6 +402,28 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
         }
     }
     return revokedApps
+}
+
+private fun packagesWithService(
+    context: Context,
+    serviceInterface: String,
+    permission: String
+): List<String> {
+    val packageNames = context.packageManager
+            .queryIntentServices(
+                    Intent(serviceInterface),
+                    GET_SERVICES or GET_META_DATA)
+            .mapNotNull { resolveInfo ->
+                if (resolveInfo?.serviceInfo?.permission != permission) {
+                    return@mapNotNull null
+                }
+                resolveInfo?.serviceInfo?.packageName
+            }
+    if (DEBUG) {
+        DumpableLog.i(LOG_TAG,
+                "Detected ${serviceInterface.substringAfterLast(".")}s: $packageNames")
+    }
+    return packageNames
 }
 
 private fun List<UsageStats>.lastTimeVisible(pkgName: String) =
@@ -392,6 +488,21 @@ private fun Context.forParentUser(): Context {
 
 private inline fun <reified T> Context.getSystemService() = getSystemService(T::class.java)!!
 
+val Context.sharedPreferences: SharedPreferences get() {
+    return PreferenceManager.getDefaultSharedPreferences(this)
+}
+
+private val Context.firstBootTime: Long get() {
+    var time = sharedPreferences.getLong(PREF_KEY_FIRST_BOOT_TIME, -1L)
+    if (time > 0) {
+        return time
+    }
+    // This is the first boot
+    time = System.currentTimeMillis()
+    sharedPreferences.edit().putLong(PREF_KEY_FIRST_BOOT_TIME, time).apply()
+    return time
+}
+
 /**
  * A job to check for apps unused in the last [getUnusedThresholdMs]ms every
  * [getCheckFrequencyMs]ms and [revokePermissionsOnUnusedApps] for them
@@ -402,7 +513,7 @@ class AutoRevokeService : JobService() {
 
     override fun onStartJob(params: JobParameters?): Boolean {
         if (DEBUG) {
-            Log.i(LOG_TAG, "onStartJob")
+            DumpableLog.i(LOG_TAG, "onStartJob")
         }
 
         if (SKIP_NEXT_RUN) {
@@ -410,6 +521,8 @@ class AutoRevokeService : JobService() {
             if (DEBUG) {
                 Log.i(LOG_TAG, "Skipping auto revoke first run when scheduled by system")
             }
+            jobFinished(params, false)
+            return true
         }
 
         jobStartTime = System.currentTimeMillis()
@@ -420,7 +533,7 @@ class AutoRevokeService : JobService() {
                     showAutoRevokeNotification()
                 }
             } catch (e: Exception) {
-                Log.e(LOG_TAG, "Failed to auto-revoke permissions", e)
+                DumpableLog.e(LOG_TAG, "Failed to auto-revoke permissions", e)
             }
             jobFinished(params, false)
         }
@@ -443,7 +556,7 @@ class AutoRevokeService : JobService() {
         val pendingIntent = PendingIntent.getActivity(this, 0, clickIntent,
             FLAG_ONE_SHOT or FLAG_UPDATE_CURRENT)
 
-        val numRevoked = AutoRevokedPackagesLiveData.getInitializedValue().size
+        val numRevoked = UnusedAutoRevokedPackagesLiveData.getInitializedValue().size
         val titleString = if (numRevoked == 1) {
             getString(R.string.auto_revoke_permission_reminder_notification_title_one)
         } else {
@@ -475,7 +588,7 @@ class AutoRevokeService : JobService() {
     }
 
     override fun onStopJob(params: JobParameters?): Boolean {
-        Log.w(LOG_TAG, "onStopJob after ${System.currentTimeMillis() - jobStartTime}ms")
+        DumpableLog.w(LOG_TAG, "onStopJob after ${System.currentTimeMillis() - jobStartTime}ms")
         job?.cancel()
         return true
     }
@@ -496,7 +609,7 @@ private data class TeamfoodSettings(
                 "auto_revoke_parameters" /* Settings.Global.AUTO_REVOKE_PARAMETERS */)?.let { str ->
 
                 if (DEBUG) {
-                    Log.i(LOG_TAG, "Parsing teamfood setting value: $str")
+                    DumpableLog.i(LOG_TAG, "Parsing teamfood setting value: $str")
                 }
                 str.split(",")
                     .mapNotNull {
