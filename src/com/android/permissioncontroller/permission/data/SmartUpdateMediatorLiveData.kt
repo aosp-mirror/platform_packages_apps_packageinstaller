@@ -137,12 +137,12 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
     fun observeStale(owner: LifecycleOwner, observer: Observer<in T>) {
         val oldStaleObserver = hasStaleObserver()
         staleObservers.add(owner to observer)
-        notifySourcesOnStaleUpdates(oldStaleObserver, true)
         if (owner == ForeverActiveLifecycle) {
             observeForever(observer)
         } else {
             observe(owner, observer)
         }
+        updateSourceStaleObservers(oldStaleObserver, true)
     }
 
     override fun <S : Any?> addSource(source: LiveData<S>, onChanged: Observer<in S>) {
@@ -181,7 +181,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
     }
 
     @MainThread
-    private fun <S : Any?> updateStaleChildNotify(
+    private fun <S : Any?> updateShouldSendStaleUpdates(
         liveData: SmartUpdateMediatorLiveData<S>,
         sendStaleUpdates: Boolean
     ) {
@@ -196,30 +196,35 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
     override fun removeObserver(observer: Observer<in T>) {
         val oldStaleObserver = hasStaleObserver()
         staleObservers.removeIf { it.second == observer }
-        notifySourcesOnStaleUpdates(oldStaleObserver, hasStaleObserver())
         super.removeObserver(observer)
+        updateSourceStaleObservers(oldStaleObserver, hasStaleObserver())
     }
 
     @MainThread
     override fun removeObservers(owner: LifecycleOwner) {
         val oldStaleObserver = hasStaleObserver()
         staleObservers.removeIf { it.first == owner }
-        notifySourcesOnStaleUpdates(oldStaleObserver, hasStaleObserver())
         super.removeObservers(owner)
+        updateSourceStaleObservers(oldStaleObserver, hasStaleObserver())
     }
 
     @MainThread
-    private fun notifySourcesOnStaleUpdates(oldHasStale: Boolean, newHasStale: Boolean) {
-        if (oldHasStale == newHasStale) {
+    override fun observeForever(observer: Observer<in T>) {
+        super.observeForever(observer)
+    }
+
+    @MainThread
+    private fun updateSourceStaleObservers(hadStaleObserver: Boolean, hasStaleObserver: Boolean) {
+        if (hadStaleObserver == hasStaleObserver) {
             return
         }
         for (liveData in sources) {
-            liveData.updateStaleChildNotify(this, hasStaleObserver())
+            liveData.updateShouldSendStaleUpdates(this, hasStaleObserver)
         }
 
         // if all sources are not stale, and we just requested stale updates, and we are stale,
         // update our value
-        if (sources.all { !it.isStale } && newHasStale && isStale) {
+        if (sources.all { !it.isStale } && hasStaleObserver && isStale) {
             updateIfActive()
         }
     }
