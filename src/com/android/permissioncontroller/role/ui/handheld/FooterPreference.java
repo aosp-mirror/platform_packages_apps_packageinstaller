@@ -83,7 +83,7 @@ public class FooterPreference extends Preference {
                 iconFrame.getLayoutParams();
         iconFrameLayoutParams.gravity = Gravity.TOP;
         iconFrame.setLayoutParams(iconFrameLayoutParams);
-        int iconFramePaddingVertical = UiUtils.dpToPxOffset(ICON_LAYOUT_PADDING_VERTICAL_DP,
+        int iconFramePaddingVertical = UiUtils.dpToPxSize(ICON_LAYOUT_PADDING_VERTICAL_DP,
                 iconFrame.getContext());
         iconFrame.setPaddingRelative(iconFrame.getPaddingStart(), iconFramePaddingVertical,
                 iconFrame.getPaddingEnd(), iconFramePaddingVertical);
