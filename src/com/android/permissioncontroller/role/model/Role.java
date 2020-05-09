@@ -876,44 +876,4 @@ public class Role {
                 + ", mPreferredActivities=" + mPreferredActivities
                 + '}';
     }
-
-
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) {
-            return true;
-        }
-        if (object == null || getClass() != object.getClass()) {
-            return false;
-        }
-        Role that = (Role) object;
-        return mDescriptionResource == that.mDescriptionResource
-                && mExclusive == that.mExclusive
-                && mLabelResource == that.mLabelResource
-                && mRequestDescriptionResource == that.mRequestDescriptionResource
-                && mRequestTitleResource == that.mRequestTitleResource
-                && mRequestable == that.mRequestable
-                && mSearchKeywordsResource == that.mSearchKeywordsResource
-                && mShortLabelResource == that.mShortLabelResource
-                && mShowNone == that.mShowNone
-                && mSystemOnly == that.mSystemOnly
-                && mVisible == that.mVisible
-                && mName.equals(that.mName)
-                && Objects.equals(mBehavior, that.mBehavior)
-                && Objects.equals(mDefaultHoldersResourceName, that.mDefaultHoldersResourceName)
-                && mRequiredComponents.equals(that.mRequiredComponents)
-                && mPermissions.equals(that.mPermissions)
-                && mAppOpPermissions.equals(that.mAppOpPermissions)
-                && mAppOps.equals(that.mAppOps)
-                && mPreferredActivities.equals(that.mPreferredActivities);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(mName, mBehavior, mDefaultHoldersResourceName, mDescriptionResource,
-                mExclusive, mLabelResource, mRequestDescriptionResource, mRequestTitleResource,
-                mRequestable, mSearchKeywordsResource, mShortLabelResource, mShowNone, mSystemOnly,
-                mVisible, mRequiredComponents, mPermissions, mAppOpPermissions, mAppOps,
-                mPreferredActivities);
-    }
 }
