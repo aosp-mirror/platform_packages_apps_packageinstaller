@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.os.Bundle;
 import android.os.UserHandle;
 
 import androidx.annotation.NonNull;
@@ -37,8 +36,8 @@ import java.util.List;
 public class RequiredContentProvider extends RequiredComponent {
 
     public RequiredContentProvider(@NonNull IntentFilterData intentFilterData,
-            @Nullable String permission, @NonNull List<RequiredMetaData> metaData) {
-        super(intentFilterData, permission, metaData);
+            @Nullable String permission) {
+        super(intentFilterData, permission);
     }
 
     @NonNull
@@ -63,11 +62,5 @@ public class RequiredContentProvider extends RequiredComponent {
         // TODO: Which permission? Or both?
         //return resolveInfo.providerInfo.readPermission;
         throw new UnsupportedOperationException();
-    }
-
-    @Nullable
-    @Override
-    protected Bundle getComponentMetaData(@NonNull ResolveInfo resolveInfo) {
-        return resolveInfo.providerInfo.metaData;
     }
 }
