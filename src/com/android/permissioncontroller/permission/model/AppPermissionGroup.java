@@ -743,8 +743,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return false;
     }
 
-    public boolean grantRuntimePermissions(boolean fixedByTheUser) {
-        return grantRuntimePermissions(fixedByTheUser, null);
+    public boolean grantRuntimePermissions(boolean setByTheUser, boolean fixedByTheUser) {
+        return grantRuntimePermissions(setByTheUser, fixedByTheUser, null);
     }
 
     /**
@@ -843,6 +843,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * <p>This does <u>only</u> grant permissions in {@link #mPermissions}, i.e. usually not
      * the background permissions.
      *
+     * @param setByTheUser If the user has made the decision. This does not unset the flag
      * @param fixedByTheUser If the user requested that she/he does not want to be asked again
      * @param filterPermissions If {@code null} all permissions of the group will be granted.
      *                          Otherwise only permissions in {@code filterPermissions} will be
@@ -850,7 +851,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      *
      * @return {@code true} iff all permissions of this group could be granted.
      */
-    public boolean grantRuntimePermissions(boolean fixedByTheUser, String[] filterPermissions) {
+    public boolean grantRuntimePermissions(boolean setByTheUser, boolean fixedByTheUser,
+            String[] filterPermissions) {
         boolean killApp = false;
         boolean wasAllGranted = true;
 
@@ -889,10 +891,19 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
                 // Update the permission flags.
                 if (!fixedByTheUser) {
-                    // Now the apps can ask for the permission as the user
-                    // no longer has it fixed in a denied state.
-                    if (permission.isUserFixed() || permission.isUserSet()) {
+                    if (permission.isUserFixed()) {
                         permission.setUserFixed(false);
+                    }
+                    if (setByTheUser) {
+                        if (!permission.isUserSet()) {
+                            permission.setUserSet(true);
+                        }
+                    }
+                } else {
+                    if (!permission.isUserFixed()) {
+                        permission.setUserFixed(true);
+                    }
+                    if (permission.isUserSet()) {
                         permission.setUserSet(false);
                     }
                 }

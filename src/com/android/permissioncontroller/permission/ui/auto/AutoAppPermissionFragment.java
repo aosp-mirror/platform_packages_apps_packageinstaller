@@ -610,7 +610,7 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
                     SafetyNetLogger.logPermissionToggled(mGroup);
                 }
 
-                mGroup.grantRuntimePermissions(false);
+                mGroup.grantRuntimePermissions(true, false);
             }
             if ((changeTarget & CHANGE_BACKGROUND) != 0) {
                 if (mGroup.getBackgroundPermissions() != null) {
@@ -618,7 +618,7 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
                         SafetyNetLogger.logPermissionToggled(mGroup.getBackgroundPermissions());
                     }
 
-                    mGroup.getBackgroundPermissions().grantRuntimePermissions(false);
+                    mGroup.getBackgroundPermissions().grantRuntimePermissions(true, false);
                 }
             }
         } else {
