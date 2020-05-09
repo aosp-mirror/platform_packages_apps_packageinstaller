@@ -117,6 +117,9 @@ private const val AUTO_REVOKE_ENABLED = true
 
 private var SKIP_NEXT_RUN = false
 
+private val EXEMPT_PERMISSIONS = listOf(
+        android.Manifest.permission.ACTIVITY_RECOGNITION)
+
 private val DEFAULT_UNUSED_THRESHOLD_MS =
         if (AUTO_REVOKE_ENABLED) DAYS.toMillis(90) else Long.MAX_VALUE
 fun getUnusedThresholdMs(context: Context) = when {
@@ -339,8 +342,11 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                         ?: return@forEachInParallel
 
                 val fixed = group.isBackgroundFixed || group.isForegroundFixed
+                val granted = group.permissions.any { (_, perm) ->
+                    perm.isGrantedIncludingAppOp && perm.name !in EXEMPT_PERMISSIONS
+                }
                 if (!fixed &&
-                    group.permissions.any { (_, perm) -> perm.isGrantedIncludingAppOp } &&
+                    granted &&
                     !group.isGrantedByDefault &&
                     !group.isGrantedByRole &&
                     group.isUserSensitive) {
