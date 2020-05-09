@@ -63,7 +63,6 @@ public class RoleParser {
     private static final String TAG_ACTION = "action";
     private static final String TAG_CATEGORY = "category";
     private static final String TAG_DATA = "data";
-    private static final String TAG_META_DATA = "meta-data";
     private static final String TAG_PERMISSIONS = "permissions";
     private static final String TAG_APP_OP_PERMISSIONS = "app-op-permissions";
     private static final String TAG_APP_OP_PERMISSION = "app-op-permission";
@@ -486,8 +485,6 @@ public class RoleParser {
             @NonNull String name) throws IOException, XmlPullParserException {
         String permission = getAttributeValue(parser, ATTRIBUTE_PERMISSION);
         IntentFilterData intentFilterData = null;
-        List<RequiredMetaData> metaData = new ArrayList<>();
-        List<String> validationMetaDataNames = mValidationEnabled ? new ArrayList<>() : null;
 
         int type;
         int depth;
@@ -508,33 +505,6 @@ public class RoleParser {
                     }
                     intentFilterData = parseIntentFilterData(parser);
                     break;
-                case TAG_META_DATA:
-                    String metaDataName = requireAttributeValue(parser, ATTRIBUTE_NAME,
-                            TAG_META_DATA);
-                    if (metaDataName == null) {
-                        continue;
-                    }
-                    if (mValidationEnabled) {
-                        validateNoDuplicateElement(metaDataName, validationMetaDataNames,
-                                "meta data");
-                    }
-                    // HACK: Only support boolean for now.
-                    // TODO: Support android:resource and other types of android:value, maybe by
-                    // switching to TypedArray and styleables.
-                    Boolean metaDataValue = requireAttributeBooleanValue(parser, ATTRIBUTE_VALUE,
-                            false, TAG_META_DATA);
-                    if (metaDataValue == null) {
-                        continue;
-                    }
-                    boolean metaDataOptional = getAttributeBooleanValue(parser, ATTRIBUTE_OPTIONAL,
-                            false);
-                    RequiredMetaData requiredMetaData = new RequiredMetaData(metaDataName,
-                            metaDataValue, metaDataOptional);
-                    metaData.add(requiredMetaData);
-                    if (mValidationEnabled) {
-                        validationMetaDataNames.add(metaDataName);
-                    }
-                    break;
                 default:
                     throwOrLogForUnknownTag(parser);
                     skipCurrentTag(parser);
@@ -547,13 +517,13 @@ public class RoleParser {
         }
         switch (name) {
             case TAG_ACTIVITY:
-                return new RequiredActivity(intentFilterData, permission, metaData);
+                return new RequiredActivity(intentFilterData, permission);
             case TAG_PROVIDER:
-                return new RequiredContentProvider(intentFilterData, permission, metaData);
+                return new RequiredContentProvider(intentFilterData, permission);
             case TAG_RECEIVER:
-                return new RequiredBroadcastReceiver(intentFilterData, permission, metaData);
+                return new RequiredBroadcastReceiver(intentFilterData, permission);
             case TAG_SERVICE:
-                return new RequiredService(intentFilterData, permission, metaData);
+                return new RequiredService(intentFilterData, permission);
             default:
                 throwOrLogMessage("Unknown tag <" + name + ">");
                 return null;
