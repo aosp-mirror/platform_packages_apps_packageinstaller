@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.os.Bundle;
 import android.os.UserHandle;
 
 import androidx.annotation.NonNull;
@@ -37,8 +36,8 @@ import java.util.List;
 public class RequiredBroadcastReceiver extends RequiredComponent {
 
     public RequiredBroadcastReceiver(@NonNull IntentFilterData intentFilterData,
-            @Nullable String permission, @NonNull List<RequiredMetaData> metaData) {
-        super(intentFilterData, permission, metaData);
+            @Nullable String permission) {
+        super(intentFilterData, permission);
     }
 
     @NonNull
@@ -61,11 +60,5 @@ public class RequiredBroadcastReceiver extends RequiredComponent {
     @Override
     protected String getComponentPermission(@NonNull ResolveInfo resolveInfo) {
         return resolveInfo.activityInfo.permission;
-    }
-
-    @Nullable
-    @Override
-    protected Bundle getComponentMetaData(@NonNull ResolveInfo resolveInfo) {
-        return resolveInfo.activityInfo.metaData;
     }
 }

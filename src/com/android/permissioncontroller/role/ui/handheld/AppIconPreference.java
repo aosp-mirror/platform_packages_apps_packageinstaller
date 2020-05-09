@@ -34,7 +34,8 @@ import com.android.permissioncontroller.R;
 /**
  * {@link Preference} with its icon view set to a fixed size for app icons.
  */
-class AppIconPreference extends Preference {
+// Made public for com.android.permissioncontroller.role.ui.specialappaccess.handheld
+public class AppIconPreference extends Preference {
 
     private Mixin mMixin;
 
@@ -83,7 +84,7 @@ class AppIconPreference extends Preference {
         @Px
         private int mIconSize;
 
-        Mixin(@NonNull Context context) {
+        public Mixin(@NonNull Context context) {
             mIconSize = context.getResources().getDimensionPixelSize(
                     R.dimen.secondary_app_icon_size);
         }
