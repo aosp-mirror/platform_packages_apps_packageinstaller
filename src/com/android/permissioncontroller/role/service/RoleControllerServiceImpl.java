@@ -402,14 +402,9 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     @Override
     public boolean onIsApplicationQualifiedForRole(@NonNull String roleName,
             @NonNull String packageName) {
-        Role role = Roles.get(this).get(roleName);
-        if (role == null) {
-            return false;
-        }
-        if (!role.isAvailable(this)) {
-            return false;
-        }
-        return role.isPackageQualified(packageName, this);
+        // This API has been deprecated and Settings has been using onIsApplicationVisibleForRole()
+        // instead.
+        return false;
     }
 
     @Override

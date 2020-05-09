@@ -27,7 +27,6 @@ import androidx.preference.Preference;
 import androidx.preference.TwoStatePreference;
 
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.role.ui.handheld.AppIconSwitchPreference;
 import com.android.permissioncontroller.role.ui.handheld.FooterPreference;
 import com.android.permissioncontroller.role.ui.handheld.SettingsFragment;
 import com.android.permissioncontroller.role.ui.specialappaccess.SpecialAppAccessChildFragment;

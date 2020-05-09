@@ -21,11 +21,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.os.Bundle;
 import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArraySet;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,8 +36,6 @@ import java.util.Objects;
  * Specifies a required component for an application to qualify for a {@link Role}.
  */
 public abstract class RequiredComponent {
-
-    private static final String LOG_TAG = RequiredComponent.class.getSimpleName();
 
     /**
      * The {@code Intent} or {@code IntentFilter} data to match the components.
@@ -56,20 +52,10 @@ public abstract class RequiredComponent {
     @Nullable
     private final String mPermission;
 
-    /**
-     * The meta data required on a component for match to succeed.
-     *
-     * @see android.content.pm.PackageItemInfo#metaData
-     */
-    @NonNull
-    private final List<RequiredMetaData> mMetaData;
-
     public RequiredComponent(@NonNull IntentFilterData intentFilterData,
-            @Nullable String permission,
-            @NonNull List<RequiredMetaData> metaData) {
+            @Nullable String permission) {
         mIntentFilterData = intentFilterData;
         mPermission = permission;
-        mMetaData = metaData;
     }
 
     @NonNull
@@ -80,11 +66,6 @@ public abstract class RequiredComponent {
     @Nullable
     public String getPermission() {
         return mPermission;
-    }
-
-    @NonNull
-    public List<RequiredMetaData> getMetaData() {
-        return mMetaData;
     }
 
     /**
@@ -127,13 +108,9 @@ public abstract class RequiredComponent {
         if (packageName != null) {
             intent.setPackage(packageName);
         }
-        int flags = PackageManager.MATCH_DIRECT_BOOT_AWARE
-                | PackageManager.MATCH_DIRECT_BOOT_UNAWARE;
-        boolean hasMetaData = !mMetaData.isEmpty();
-        if (hasMetaData) {
-            flags |= PackageManager.GET_META_DATA;
-        }
-        List<ResolveInfo> resolveInfos = queryIntentComponentsAsUser(intent, flags, user, context);
+        List<ResolveInfo> resolveInfos = queryIntentComponentsAsUser(intent,
+                PackageManager.MATCH_DIRECT_BOOT_AWARE | PackageManager.MATCH_DIRECT_BOOT_UNAWARE,
+                user, context);
 
         ArraySet<String> componentPackageNames = new ArraySet<>();
         List<ComponentName> componentNames = new ArrayList<>();
@@ -144,27 +121,6 @@ public abstract class RequiredComponent {
             if (mPermission != null) {
                 String componentPermission = getComponentPermission(resolveInfo);
                 if (!Objects.equals(componentPermission, mPermission)) {
-                    continue;
-                }
-            }
-
-            if (hasMetaData) {
-                Bundle componentMetaData = getComponentMetaData(resolveInfo);
-                if (componentMetaData == null) {
-                    Log.w(LOG_TAG, "Component meta data is null");
-                    continue;
-                }
-                boolean isMetaDataQualified = true;
-                int metaDataSize = mMetaData.size();
-                for (int metaDataIndex = 0; metaDataIndex < metaDataSize; metaDataIndex++) {
-                    RequiredMetaData metaData = mMetaData.get(metaDataIndex);
-
-                    if (!metaData.isQualified(componentMetaData)) {
-                        isMetaDataQualified = false;
-                        break;
-                    }
-                }
-                if (!isMetaDataQualified) {
                     continue;
                 }
             }
@@ -216,22 +172,11 @@ public abstract class RequiredComponent {
     @Nullable
     protected abstract String getComponentPermission(@NonNull ResolveInfo resolveInfo);
 
-    /**
-     * Get the meta data associated with a component.
-     *
-     * @param resolveInfo the {@code ResolveInfo} of the component
-     *
-     * @return the meta data associated with a component
-     */
-    @Nullable
-    protected abstract Bundle getComponentMetaData(@NonNull ResolveInfo resolveInfo);
-
     @Override
     public String toString() {
         return "RequiredComponent{"
                 + "mIntentFilterData=" + mIntentFilterData
                 + ", mPermission='" + mPermission + '\''
-                + ", mMetaData=" + mMetaData
                 + '}';
     }
 
@@ -245,12 +190,11 @@ public abstract class RequiredComponent {
         }
         RequiredComponent that = (RequiredComponent) object;
         return Objects.equals(mIntentFilterData, that.mIntentFilterData)
-                && Objects.equals(mPermission, that.mPermission)
-                && Objects.equals(mMetaData, that.mMetaData);
+                && Objects.equals(mPermission, that.mPermission);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mIntentFilterData, mPermission, mMetaData);
+        return Objects.hash(mIntentFilterData, mPermission);
     }
 }
