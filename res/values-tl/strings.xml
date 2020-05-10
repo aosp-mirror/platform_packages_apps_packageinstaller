@@ -175,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> na segundo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Mga paalala sa pahintulot"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Awtomatikong inalis ang mga pahintulot sa app"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"May ilang app na ilang buwan nang hindi ginagamit. Mag-tap para sa higit pang impormasyon"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 hindi ginagamit na app"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> (na) hindi ginagamit na app"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Inalis ang mga pahintulot para protektahan ang iyong privacy. I-tap para suriin"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Inalis ang mga pahintulot para protektahan ang iyong privacy"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Kinuha ng <xliff:g id="APP_NAME">%s</xliff:g> ang iyong lokasyon sa background"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Maa-access ng app na ito ang iyong lokasyon anumang oras. I-tap para baguhin."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Inalis ang pahintulot sa app para protektahan ang privacy"</string>

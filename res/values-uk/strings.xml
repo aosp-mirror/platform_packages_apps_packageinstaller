@@ -117,7 +117,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: доступ для цього додатка"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Переглянути всі дозволи додатка <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Переглянути всі додатки з цим дозволом"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"Відкликати дозволити, якщо додаток не використовується"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Відкликати дозволи, якщо додаток не використовується"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Щоб захистити ваші дані, дозволи для цього додатка буде автоматично скасовано, якщо ви не будете користуватися ним кілька місяців."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Якщо додаток не використовується впродовж кількох місяців, для захисту ваших даних буде скасовано такі дозволи: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Щоб захистити ваші дані, було скасовано дозволи додатків, які не використовувалися впродовж кількох місяців."</string>
@@ -185,8 +185,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунди</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Нагадування про дозволи"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Дозволи додатків автоматично вилучено"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Деякі додатки не використовувалися кілька місяців. Натисніть, щоб дізнатися більше."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 невикористовуваний додаток"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Невикористовуваних додатків: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Дозволи відкликано, щоб захистити вашу конфіденційність. Натисніть, щоб переглянути"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Дозволи відкликано, щоб захистити вашу конфіденційність"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Додаток <xliff:g id="APP_NAME">%s</xliff:g> визначив ваше місцезнаходження у фоновому режимі"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Цей додаток завжди має доступ до геоданих пристрою. Торкніться, щоб змінити це."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Дозволи додатка відкликано для захисту конфіденційності"</string>

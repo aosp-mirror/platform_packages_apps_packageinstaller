@@ -180,8 +180,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundes</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Atgādinājumi par atļauju"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Automātiski noņemtas lietotņu atļaujas"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Dažas lietotnes nav izmantotas vairākus mēnešus. Pieskarieties, lai uzzinātu vairāk."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 neizmantota lietotne"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> neizmantotas lietotnes"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Lai aizsargātu jūsu konfidencialitāti, atļaujas ir atsauktas. Pieskarieties, lai skatītu izmaiņas."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Lai aizsargātu jūsu konfidencialitāti, atļaujas ir noņemtas."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Lietotne <xliff:g id="APP_NAME">%s</xliff:g> ieguva jūsu atrašanās vietas informāciju fonā"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Šī lietotne jebkurā laikā var piekļūt jūsu atrašanās vietai. Pieskarieties, lai mainītu šo iestatījumu."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Lietotņu atļaujas noņemtas, lai aizsargātu konfidencialitāti"</string>

@@ -129,7 +129,7 @@
     <string name="off" msgid="4561379152328580345">"បិទ"</string>
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"បានដក​ការអនុញ្ញាត <xliff:g id="PERMISSION_NAME">%s</xliff:g>"</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"បានដក​ការអនុញ្ញាត <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> និង <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>"</string>
-    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"បានដក​ការអនុញ្ញាត <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> និង​ការអនុញ្ញាត <xliff:g id="NUMBER">%2$s</xliff:g> ទៀត"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"បានដក​ការអនុញ្ញាត​<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> និង​ការអនុញ្ញាត <xliff:g id="NUMBER">%2$s</xliff:g> ទៀត"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"បានបើក​លើកចុងក្រោយ​លើសពី <xliff:g id="NUMBER">%s</xliff:g> ខែមុន"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"បានបើក​កម្មវិធី​លើកចុងក្រោយ​នៅថ្ងៃទី <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"បានបើក​លើកចុងក្រោយ​នៅថ្ងៃទី <xliff:g id="DATE">%s</xliff:g>"</string>
@@ -175,8 +175,10 @@
       <item quantity="one">1 វិនាទី</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"ការរំលឹក​អំពី​ការអនុញ្ញាត"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"បានដក​ការអនុញ្ញាតកម្មវិធី​ដោយស្វ័យប្រវត្តិ"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"កម្មវិធី​មួយចំនួន​មិនត្រូវបាន​ប្រើប្រាស់​រយៈពេល​ពីរបីខែ​ហើយ។ ចុចដើម្បី​ទទួលបាន​ព័ត៌មាន​បន្ថែម។"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"កម្មវិធី​ដែលមិនប្រើ​ចំនួន 1"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"កម្មវិធី​ដែលមិនប្រើ​ចំនួន <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"បានដក​ការអនុញ្ញាត ដើម្បីការពារ​ឯកជនភាព​របស់អ្នក។ សូមចុច ដើម្បី​ពិនិត្យមើល"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"បានដក​ការអនុញ្ញាត ដើម្បីការពារ​ឯកជនភាព​របស់អ្នក"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> បានទទួល​ទីតាំង​របស់អ្នក​នៅផ្ទៃខាងក្រោយ"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"កម្មវិធី​នេះ​អាច​ចូលប្រើប្រាស់​ទីតាំង​របស់អ្នក​បានជា​និច្ច។ សូម​ចុច​ដើម្បី​ប្ដូរ។"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"បានដក​ការអនុញ្ញាត​កម្មវិធីចេញ ដើម្បី​ការពារ​ឯកជនភាព"</string>
@@ -280,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ចង់​បង្ហោះ​ព័ត៌មាននៃ​ការជួសជុល។"</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"ចែករំលែក​ទិន្នន័យ​នៃការ​ជួសជុល"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"ប្រព័ន្ធ​បានរកឃើញ​បញ្ហា​មួយ។"</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> កំពុង​ស្នើសុំ​បង្ហោះ​របាយការណ៍​អំពី​បញ្ហាពី​ឧបករណ៍​នេះ ដែល​បាន​ធ្វើឡើង​នៅថ្ងៃទី <xliff:g id="DATE">%2$s</xliff:g> ម៉ោង <xliff:g id="TIME">%3$s</xliff:g>។ របាយការណ៍​អំពី​បញ្ហា​រួមមាន​ព័ត៌មាន​អំពី​ឧបករណ៍​របស់អ្នក​ ឬព័ត៌មាន​ដែលបាន​កត់ត្រា​ដោយ​កម្មវិធី​ដូចជា ឈ្មោះ​អ្នកប្រើប្រាស់ ទិន្នន័យទីតាំង ព័ត៌មាន​សម្គាល់​ឧបករណ៍ និង​ព័ត៌មាន​បណ្ដាញ​ជាដើម។ ចែករំលែក​របាយការណ៍​អំពី​បញ្ហា​ជាមួយ​កម្មវិធី និង​មនុស្សដែល​អ្នកទុកចិត្ត​ប៉ុណ្ណោះ ពាក់ព័ន្ធនឹង​ព័ត៌មាន​នេះ។ អនុញ្ញាត​ឱ្យ <xliff:g id="APP_NAME_1">%4$s</xliff:g> បង្ហោះ​របាយការណ៍​អំពី​បញ្ហា?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> កំពុង​ស្នើសុំ​បង្ហោះ​របាយការណ៍​អំពី​បញ្ហាពី​ឧបករណ៍​នេះ ដែល​បាន​ធ្វើឡើង​នៅថ្ងៃទី <xliff:g id="DATE">%2$s</xliff:g> នៅម៉ោង <xliff:g id="TIME">%3$s</xliff:g>។ របាយការណ៍​អំពី​បញ្ហា​រួមមាន​ព័ត៌មានផ្ទាល់ខ្លួន​អំពី​ឧបករណ៍​របស់អ្នក​ ឬ​ដែលបាន​កត់ត្រា​ដោយ​កម្មវិធី​ដូចជា ឈ្មោះ​អ្នកប្រើប្រាស់ ទិន្នន័យទីតាំង ព័ត៌មាន​សម្គាល់​ឧបករណ៍ និង​ព័ត៌មាន​បណ្ដាញ​ជាដើម។ ចែករំលែក​របាយការណ៍​អំពី​បញ្ហា​ជាមួយ​កម្មវិធី និង​មនុស្សដែល​អ្នកទុកចិត្ត​ប៉ុណ្ណោះ ពាក់ព័ន្ធនឹង​ព័ត៌មាន​នេះ។ អនុញ្ញាត​ឱ្យ <xliff:g id="APP_NAME_1">%4$s</xliff:g> បង្ហោះ​របាយការណ៍​អំពី​បញ្ហាទេ?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"មាន​បញ្ហា​ក្នុងការ​ដំណើរការ​របាយការណ៍អំពីបញ្ហា​សម្រាប់ <xliff:g id="APP_NAME">%1$s</xliff:g> ។ ដូច្នេះ ការចែករំលែក​ទិន្នន័យ​ជួសជុល​លម្អិត​ត្រូវបានបដិសេធ។ សូមអភ័យទោស​ចំពោះ​ការរំខាន។"</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"អនុញ្ញាត"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"បដិសេធ"</string>

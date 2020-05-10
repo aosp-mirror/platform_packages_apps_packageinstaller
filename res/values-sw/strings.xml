@@ -175,8 +175,10 @@
       <item quantity="one">Sekunde 1</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Vikumbusho vya ruhusa"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Ruhusa za programu zimeondolewa kiotomatiki"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Baadhi ya programu hazijatumiwa kwa miezi michache. Gusa ili upate maelezo zaidi."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"Programu moja isiyotumika"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Programu <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> zisizotumika"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Ruhusa zimeondolewa ili kulinda faragha yako. Gusa ili ukague"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Ruhusa zimeondolewa ili kulinda faragha yako"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ilipata mahali ulipo chinichini"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Programu hii inaweza kufikia maelezo ya mahali ulipo kila wakati. Gusa ili ubadilishe."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Ruhusa za programu zimeondolewa ili kulinda faragha"</string>
@@ -280,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> inataka kupakia maelezo ya utatuzi."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Shiriki Data ya Utatuzi"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Mfumo umetambua hitilafu."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> inaomba kupakua ripoti ya hitilafu kutoka kifaa hiki, iliyochakatwa tarehe <xliff:g id="DATE">%2$s</xliff:g> saa <xliff:g id="TIME">%3$s</xliff:g>. Ripoti za hitilafu hujumuisha taarifa binafsi kuhusu kifaa chako au iliyohifadhiwa na programu, kwa mfano, majina ya watumiaji, data ya mahali, vitambulishi vya vifaa na maelezo ya mtandao. Shiriki tu ripoti za hitilafu na watu au programu unazoamini kupokea maelezo haya. Ungependa kuruhusu <xliff:g id="APP_NAME_1">%4$s</xliff:g> ipakie ripoti ya hitilafu?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> inaomba kupakia ripoti ya hitilafu kutoka kifaa hiki, iliyochakatwa tarehe <xliff:g id="DATE">%2$s</xliff:g> saa <xliff:g id="TIME">%3$s</xliff:g>. Ripoti za hitilafu hujumuisha taarifa binafsi kuhusu kifaa chako au iliyohifadhiwa na programu, kwa mfano, majina ya watumiaji, data ya mahali, vitambulishi vya vifaa na maelezo ya mtandao. Shiriki tu ripoti za hitilafu na watu au programu unazoamini kupokea maelezo haya. Ungependa kuruhusu <xliff:g id="APP_NAME_1">%4$s</xliff:g> ipakie ripoti ya hitilafu?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Hitilafu imetokea wakati wa kuchakata ripoti ya hitilafu ya <xliff:g id="APP_NAME">%1$s</xliff:g>. Kwa hivyo, kushiriki data ya maelezo ya kina ya utatuzi kumekataliwa. Samahani kwa usumbufu."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Ruhusu"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Kataa"</string>

@@ -175,8 +175,10 @@
       <item quantity="one">1 секунда</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Напомняния за разрешения"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Автоматично премахнати разрешения за приложения"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Някои приложения не са използвани от няколко месеца. Докоснете за още информация."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 неизползвано приложение"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> неизползвани приложения"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Разрешенията са премахнати с цел защита на поверителността ви. Докоснете за преглед."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Разрешенията са премахнати с цел защита на поверителността ви"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> получи достъп до местоположението ви на заден план"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Приложението винаги има достъп до местоположението ви. Докоснете, за да промените това."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Премахнати са разр. за прил. с цел защита на поверителността"</string>

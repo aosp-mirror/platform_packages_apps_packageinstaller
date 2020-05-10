@@ -46,7 +46,7 @@
     <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Media fayllarına giriş icazəsi verin"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Tətbiq"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Tətbiq icazələri"</string>
-    <string name="unused_apps" msgid="3935514133237470759">"İstifadə olunmayan tətbiqlər"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"İşlədilməyən tətbiqlər"</string>
     <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Tətbiqi deaktiv edin"</string>
     <string name="app_disable_dlg_text" msgid="5218197617670218828">"Əgər bu tətbiqi deaktiv etsəniz, Android və digər tətbiqlər düzgün işləməyə bilər. Yadda saxlayın ki, cihazda əvvəlcədən quraşdırıldığına görə bu tətbiqi silə bilməzsiniz. Deaktiv etməklə, bu tətbiqi söndürür və cihazda gizlədirsiniz."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"İcazə meneceri"</string>
@@ -175,8 +175,10 @@
       <item quantity="one">1 saniyə</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"İcazə xatırladıcıları"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Tətbiq icazələri avtomatik silindi"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Bəzi tətbiqlər bir neçə aydır ki, istifadə edilməyib. Ətraflı məlumat üçün toxunun."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 istifadə olunmayan tətbiq"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> istifadə olunmayan tətbiq"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Məxfiliyinizi qorumaq üçün icazələr silinib. Nəzərdən keçirmək üçün toxunun"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Məxfiliyinizi qorumaq üçün icazələr silinib"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> arxa fonda məkanınıza daxil oldu"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Bu tətbiq daima məkana daxil ola bilər. Dəyişmək üçün klikləyin."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Məxfiliyi qorumaq üçün tətbiq icazələri silindi"</string>
@@ -186,7 +188,7 @@
     <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 tətbiq istifadə edilmir"</string>
     <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> tətbiq istifadə edilmir"</string>
     <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Məxfiliyinizi qorumaq üçün icazələr silinəcək. Nəzərdən keçirmək üçün toxunun."</string>
-    <string name="unused_apps_title" msgid="4528745145780586943">"İstifadə olunmayan tətbiqlər"</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"İşlədilməyən tətbiqlər"</string>
     <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Bu tətbiqdən icazələr silinib:"</string>
     <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Bu tətbiqdən icazələr silinəcək:"</string>
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> və <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>

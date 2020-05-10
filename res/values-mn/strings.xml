@@ -175,8 +175,10 @@
       <item quantity="one">1 секунд</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Зөвшөөрлийн сануулагч"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Аппын зөвшөөрлийг автоматаар хассан"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Зарим аппыг хэдэн сарын турш ашиглаагүй байна. Дэлгэрэнгүйг үзэхийн тулд товшино уу."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"Ашиглаагүй 1 апп"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Ашиглаагүй <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> апп"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Таны нууцлалыг хамгаалахын тулд зөвшөөрлийг хассан. Хянахын тулд товшино уу"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Таны нууцлалыг хамгаалахын тулд зөвшөөрлийг хассан"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> таны арын байршлыг авсан"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Энэ апп таны байршилд тогтмол хандах боломжтой байна. Өөрчлөхийн тулд товшино уу."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Апп-н зөвшөөрлийг таны нууцлалыг хамгаалахын тулд хассан"</string>

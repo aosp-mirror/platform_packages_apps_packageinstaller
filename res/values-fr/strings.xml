@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2792757108872430971">"Contrôleur autorisations"</string>
+    <string name="app_name" msgid="2792757108872430971">"Contrôleur d\'autorisations"</string>
     <string name="ok" msgid="4417794827535157922">"OK"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"autorisations"</string>
     <string name="cancel" msgid="7279939269964834974">"Annuler"</string>
@@ -115,11 +115,11 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g> : accès pour cette application"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Afficher toutes les autorisations pour <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Afficher toutes les applications disposant de cette autorisation"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"Supprimer les autorisations si l\'application est inutilisée"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Supprimer les autorisations si l\'application n\'est pas utilisée"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Si cette application n\'est pas utilisée pendant plusieurs mois, ses autorisations seront supprimées afin de protéger vos données."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Pour protéger vos données, si l\'application n\'est pas utilisée pendant plusieurs mois, les autorisations suivantes seront supprimées : <xliff:g id="PERMS">%1$s</xliff:g>"</string>
-    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Pour protéger vos données, les autorisations ont été supprimées pour les applications que vous n\'avez pas utilisées depuis plusieurs mois"</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Si vous souhaitez accorder des autorisations à nouveau, ouvrez l\'application"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Afin de protéger vos données, les autorisations ont été supprimées pour les applications que vous n\'avez pas utilisées depuis plusieurs mois"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Si vous souhaitez restaurer des autorisations, ouvrez l\'application"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"La suppression automatique des autorisations est actuellement désactivée pour cette application."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Aucune autorisation révocable automatiquement n\'est actuellement accordée"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"L\'autorisation <xliff:g id="PERM">%1$s</xliff:g> sera supprimée."</string>
@@ -175,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> secondes</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Rappels relatifs aux autorisations"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Autorisations des applications révoquées automatiquement"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Certaines applications n\'ont pas été utilisées depuis plusieurs mois. Appuyez ici pour en savoir plus."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 application inutilisée"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> applications inutilisées"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Les autorisations ont été supprimées pour protéger votre vie privée. Appuyez pour examiner."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Les autorisations ont été supprimées pour protéger votre vie privée"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> a accès à votre position en arrière-plan"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Cette application peut accéder en permanence à votre position. Appuyez dessus pour modifier cette autorisation."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Autorisations supprimées pour protéger votre vie privée"</string>
@@ -191,7 +193,7 @@
     <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Les autorisations seront supprimées pour"</string>
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> et <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> et <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> autres"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Pour protéger vos données, les autorisations ont été supprimées pour les applications que vous n\'avez pas utilisées depuis plusieurs mois"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Afin de protéger vos données, les autorisations ont été supprimées pour les applications que vous n\'avez pas utilisées depuis plusieurs mois"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 application n\'a pas été utilisée depuis plusieurs mois"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> applications n\'ont pas été utilisées depuis plusieurs mois"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Seulement quand l\'application est en cours d\'utilisation"</string>

@@ -185,8 +185,10 @@
       <item quantity="one">שנייה אחת</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"תזכורות להרשאות"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"הרשאות הניתנות לאפליקציה הוסרו אוטומטית"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"יש אפליקציות שלא נעשה בהן שימוש כבר כמה חודשים. יש להקיש כדי להציג מידע נוסף."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"אפליקציה אחת שמזמן לא השתמשת בה"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> אפליקציות שמזמן לא השתמשת בהן"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"הוסרו הרשאות כדי להגן על הפרטיות שלך. יש להקיש כדי לבדוק"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"הוסרו הרשאות כדי להגן על הפרטיות שלך"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"האפליקציה <xliff:g id="APP_NAME">%s</xliff:g> קיבלה גישה ברקע למיקום שלך"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"האפליקציה הזו יכולה תמיד לגשת למיקום שלך. יש להקיש כדי לשנות הגדרה זו."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"הוסרו הרשאות הניתנות לאפליקציה כדי להגן על הפרטיות"</string>
