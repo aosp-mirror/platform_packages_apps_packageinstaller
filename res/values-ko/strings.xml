@@ -175,8 +175,10 @@
       <item quantity="one">1초</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"권한 알림"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"앱 권한이 자동으로 삭제됨"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"일부 앱을 몇 개월 동안 사용하지 않았습니다. 자세한 내용은 탭하여 확인하세요."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"사용하지 않는 앱 1개"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"사용하지 않는 앱 <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>개"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"개인정보 보호를 위해 권한이 삭제되었습니다. 검토하려면 탭하세요."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"개인정보 보호를 위해 권한이 삭제됨"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>에서 백그라운드에서 내 위치에 액세스함"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"이 앱에서 내 위치에 항상 액세스할 수 있습니다. 변경하려면 탭하세요."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"개인정보 보호를 위해 앱 권한이 삭제됨"</string>

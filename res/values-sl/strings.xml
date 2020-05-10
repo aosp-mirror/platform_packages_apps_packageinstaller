@@ -42,7 +42,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Med uporabo aplikacije"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Samo tokrat"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Vedno dovoli"</string>
-    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Dovoljenje za upravljanje vseh datotek"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Dovoli upravljanje vseh datotek"</string>
     <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Dovoljenje za dostop do predstavnostnih datotek"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplikacije"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Dovoljenja za aplikacije"</string>
@@ -107,13 +107,13 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Filtriraj po času"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Dovoli"</string>
-    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Dovoljenje za upravljanje vseh datotek"</string>
-    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Dovoljenje samo za dostop do predstavnosti"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Dovoli upravljanje vseh datotek"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Dovoli samo dostop do predstavnosti"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Vedno dovoli"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Dovoli samo med uporabo aplikacije"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Vedno vprašaj"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Zavrni"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Dovoljenje <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Dovoljenje »<xliff:g id="PERM">%1$s</xliff:g>«"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Dovoljenje »<xliff:g id="PERM">%1$s</xliff:g>« za to aplikacijo"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ogled vseh dovoljenj za aplikacijo <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ogled vseh aplikacij s tem dovoljenjem"</string>
@@ -185,8 +185,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundami</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Opomniki za dovoljenja"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Dovoljenja za aplikacijo so bila samodejno odstranjena"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Nekatere aplikacije niso bile uporabljene več mesecev. Dotaknite se za več informacij."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 neuporabljena aplikacija"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Št. neuporabljenih aplikacij: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Dovoljenja so bila odstranjena za zaščito vaše zasebnosti. Dotaknite se za pregled"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Dovoljenja odstranjena za zaščito vaše zasebnosti"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Aplikacija <xliff:g id="APP_NAME">%s</xliff:g> je podatek o lokaciji pridobila v ozadju"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ta aplikacija lahko vedno dostopa do vaše lokacije. Dotaknite se, če želite spremeniti dovoljenje."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Dovoljenja za aplikacije odstranjena za zaščito zasebnosti"</string>
@@ -208,7 +210,7 @@
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Predstavnost"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Vse datoteke"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Aplikacija nima nobenih dovoljenj"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"Nobeno dovoljenje ni odvzeto"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Nobeno dovoljenje ni zavrnjeno"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Nobena aplikacija nima dovoljenja"</string>
     <string name="no_apps_allowed_full" msgid="5857725855406253991">"Nobena aplikacija za »Dovoljeno za vse datoteke«"</string>
     <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Nobena aplikacija nima dovoljenja samo za predstavnost"</string>

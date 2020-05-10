@@ -42,8 +42,8 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Dok koristim aplikaciju"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Samo ovaj put"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Dozvoli uvek"</string>
-    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Omogući upravljanje svim datotekama"</string>
-    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Omogući pristup datotekama medija"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Dozvoli upravljanje svim datotekama"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Dozvoli pristup datotekama medija"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplikacije"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Dozvole za aplikacije"</string>
     <string name="unused_apps" msgid="3935514133237470759">"Aplikacije koje se ne koriste"</string>
@@ -106,8 +106,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Filtriraj prema vremenu"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Dozvoli"</string>
-    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Omogući upravljanje svim datotekama"</string>
-    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Omogući samo pristup medijima"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Dozvoli upravljanje svim datotekama"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Dozvoli samo pristup medijima"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Dozvoli uvek"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Dozv. samo dok se apl. koristi"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Pitaj svaki put"</string>
@@ -116,7 +116,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"Pristup ove aplikacije funkciji „<xliff:g id="PERM">%1$s</xliff:g>“"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Prikaži sve dozvole za <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Prikaži sve aplikacije sa ovom dozvolom"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"Uklonite dozvole ako se aplikacija ne koristi"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Ukloni dozvole ako se aplikacija ne koristi"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Radi zaštite podataka, dozvole za ovu aplikaciju se uklanjaju ako se aplikacija ne koristi par meseci."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Radi zaštite podataka, sledeće dozvole se uklanjaju ako se aplikacija ne koristi par meseci: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Radi zaštite podataka, dozvole su uklonjene iz aplikacija koje niste koristili par meseci."</string>
@@ -130,8 +130,8 @@
     <string name="off" msgid="4561379152328580345">"Isključeno"</string>
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Dozvola <xliff:g id="PERMISSION_NAME">%s</xliff:g> je uklonjena"</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> i još <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> dozvole su uklonjene"</string>
-    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> i još <xliff:g id="NUMBER">%2$s</xliff:g> dozvola je uklonjeno"</string>
-    <string name="last_opened_category_title" msgid="4204626487716958146">"Poslednji put otvoreno pre više od <xliff:g id="NUMBER">%s</xliff:g> meseca/i"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Uklonjeno: <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> i još <xliff:g id="NUMBER">%2$s</xliff:g> dozvole"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Poslednji put otvoreno pre više od <xliff:g id="NUMBER">%s</xliff:g> mes."</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Aplikacija je poslednji put otvorena: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Poslednji put otvoreno: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Ako omogućite upravljanje svim datotekama, ova aplikacija može da pristupa svim datotekama u zajedničkom memorijskom prostoru na ovom uređaju ili povezanim uređajima za skladištenje i da menja i briše te datoteke. Aplikacija može da pristupa datotekama bez pitanja."</string>
@@ -180,8 +180,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundi</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Podsetnici za dozvole"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Dozvole za aplikacije su automatski uklonjene"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Neke aplikacije nisu korišćene nekoliko meseci. Dodirnite za više informacija."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 aplikacija koja se ne koristi"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Aplikacija koje se ne koriste: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Dozvole su uklonjene radi zaštite privatnosti. Dodirnite da biste pregledali"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Dozvole su uklonjene radi zaštite privatnosti"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ima vašu lokaciju u pozadini"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ova aplikacija može uvek da pristupa lokaciji. Dodirnite da biste to promenili."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Dozvole za aplikacije su uklonjene radi zaštite privatnosti"</string>
@@ -277,7 +279,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"Poseban pristup aplikaciji"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Nema posebnog pristupa apl."</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Nema aplikacija"</string>
-    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Ne podržava profil za Work"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Ne podržava poslovni profil"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Napomena: Ako restartujete uređaj i podesili ste zaključavanje ekrana, ova aplikacija ne može da se pokrene dok ne otključate uređaj."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"Pomoćnik će moći da čita informacije o aplikacijama koje se koriste u sistemu, uključujući informacije vidljive na ekranu ili kojima može da se pristupa u okviru aplikacija."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Deljenje podataka o otklanjanju grešaka"</string>

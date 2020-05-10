@@ -185,8 +185,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> сек.</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Напоминания о разрешениях"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Разрешения для приложений отозваны автоматически"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Некоторые приложения не использовались в течение нескольких месяцев. Нажмите, чтобы узнать больше."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 неиспользуемое приложение"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Неиспользуемые приложения (<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>)"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Разрешения отозваны для защиты конфиденциальности ваших данных. Нажмите, чтобы посмотреть подробности."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Разрешения отозваны для защиты конфиденциальности ваших данных."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Приложению \"<xliff:g id="APP_NAME">%s</xliff:g>\" в фоновом режиме доступны геоданные"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"У этого приложения есть постоянный доступ к сведениям о вашем местоположении. Нажмите, чтобы изменить настройки."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Разрешения для приложения отозваны в целях защиты данных"</string>
@@ -204,7 +206,7 @@
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"В целях защиты ваших данных мы отозвали разрешения для приложений, которыми вы не пользовались несколько месяцев."</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"Вы уже несколько месяцев не используете 1 приложение."</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"Вы уже несколько месяцев не используете некоторые приложения (<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>)."</string>
-    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Разрешить только в активном режиме"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Разрешить только при использовании приложения"</string>
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Медиафайлы"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Все файлы"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Разрешения не предоставлены"</string>

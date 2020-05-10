@@ -111,10 +111,10 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Salli vain, kun sovellus on käytössä"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Kysy aina"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Estä"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Käyttöoikeus: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Sovellus pyytää käyttöoikeutta: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Näytä kaikki käyttöoikeudet: <xliff:g id="APP">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Näytä kaikki sovellukset, joilla on tämä käyttöoikeus"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>lupa"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Sallitko, että <xliff:g id="PERM">%1$s</xliff:g> on sovelluksen nähtävissä?"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Näytä kaikki luvat, jotka <xliff:g id="APP">%1$s</xliff:g> on saanut"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Näytä kaikki sovellukset, joilla on tämä lupa"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Poista luvat, jos sovellusta ei käytetä"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Datasi suojaamiseksi tämän sovelluksen käyttöluvat poistetaan, jos sovellusta ei käytetä muutamaan kuukauteen."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Jos sovellusta ei käytetä muutamaan kuukauteen, seuraavat luvat poistetaan datasi suojaamiseksi: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
@@ -135,17 +135,17 @@
     <string name="last_opened_summary_short" msgid="403134890404955437">"Avattu viimeksi <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Jos sallit kaikkien tiedostojen ylläpidon, tämä sovellus voi nähdä, muokata ja poistaa kaikkia tiedostoja tämän laitteen yleisessä tallennustilassa ja yhdistetyillä tallennuslaitteilla. Sovelluksella on pääsy tiedostoihin ilman erillistä lupaasi."</string>
     <string name="special_file_access_dialog" msgid="7325467268782278105">"Saako sovellus nähdä, muokata ja poistaa tiedostoja laitteella tai yhdistetyillä tallennuslaitteilla? Sovelluksella on pääsy tiedostoihin ilman erillistä lupaasi."</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Sovellukset, joilla on tämä käyttöoikeus, voivat <xliff:g id="DESCRIPTION">%1$s</xliff:g>."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Sovellukset, joilla on tämä lupa, voivat <xliff:g id="DESCRIPTION">%1$s</xliff:g>."</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Sovelluksilla, joilla on tämä käyttöoikeus, on pääsy liikuntatietoihisi, kuten kävelyyn, pyöräilyyn, ajamiseen ja askelmääriin."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Sovelluksilla, joilla on tämä käyttöoikeus, on pääsy kalenteriisi."</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Sovelluksilla, joilla on tämä käyttöoikeus, on puhelulokin luku- ja kirjoitusoikeus."</string>
-    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Sovellukset, joilla on tämä käyttöoikeus, voivat ottaa kuvia ja kuvata videota."</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Sovellukset, joilla on tämä lupa, voivat ottaa kuvia ja kuvata videota."</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Sovelluksilla, joilla on tämä käyttöoikeus, on pääsy yhteystietoihisi."</string>
-    <string name="permission_description_summary_location" msgid="687820658574645201">"Sovellukset, joilla on tämä käyttöoikeus, voivat käyttää laitteen sijaintia."</string>
-    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Sovellukset, joilla on tämä käyttöoikeus, voivat tallentaa ääntä."</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Sovellukset, joilla on tämä käyttöoikeus, voivat soittaa ja muokata puheluita."</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Sovellukset, joilla on tämä käyttöoikeus, saavat käyttää anturitietoja elintoiminnoistasi."</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Sovellukset, joilla on tämä käyttöoikeus, voivat lähettää ja nähdä tekstiviestejä."</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"Sovelluksilla, joilla on tämä lupa, on pääsy tämän laitteen sijaintiin."</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Sovellukset, joilla on tämä lupa, voivat tallentaa ääntä."</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Sovellukset, joilla on tämä lupa, voivat soittaa ja muokata puheluita."</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Sovellukset, joilla on tämä lupa, saavat käyttää anturitietoja elintoiminnoistasi."</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Sovellukset, joilla on tämä lupa, voivat lähettää ja nähdä tekstiviestejä."</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Sovelluksilla, joilla on tämä käyttöoikeus, on pääsy laitteesi kuviin, mediaan ja tiedostoihin."</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Viimeinen käyttökerta: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Tällä hetkellä estetty / Viimeinen käyttökerta: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -175,8 +175,10 @@
       <item quantity="one">1 sekunti</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Käyttölupamuistutukset"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Sovelluksen käyttöoikeudet poistettiin automaattisesti"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Joitain sovelluksia ei ole käytetty muutamaan kuukauteen. Saat lisätietoja napauttamalla."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 käyttämätön sovellus"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> käyttämätöntä sovellusta"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Luvat poistettu tietoturvasyistä. Tarkista napauttamalla."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Luvat poistettu tietoturvasyistä"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> sai sijaintitietosi taustalla"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Tämä sovellus voi aina käyttää sijaintiasi. Muuta napauttamalla."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Sovellusten luvat poistettu tietoturvasyistä"</string>

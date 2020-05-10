@@ -175,8 +175,10 @@
       <item quantity="one">1 δευτερόλεπτο</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Υπενθυμίσεις άδειας"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Οι άδειες εφαρμογών καταργήθηκαν αυτόματα"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Ορισμένες εφαρμογές δεν έχουν χρησιμοποιηθεί για αρκετούς μήνες. Πατήστε, για να δείτε περισσότερες πληροφορίες."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 εφαρμογή που δεν χρησιμοποιείται"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> εφαρμογές που δεν χρησιμοποιούνται"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Οι άδειες καταργήθηκαν για την προστασία του απορρήτου σας. Πατήστε για έλεγχο"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Οι άδειες καταργήθηκαν για την προστασία του απορρήτου σας"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Η εφαρμογή <xliff:g id="APP_NAME">%s</xliff:g> έλαβε την τοποθεσία σας στο παρασκήνιο"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Αυτή η εφαρμογή μπορεί να έχει πάντα πρόσβαση στην τοποθεσία σας. Πατήστε για να αλλάξετε τη ρύθμιση."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Οι άδειες εφαρμογών καταργήθηκαν για προστασία απορρήτου."</string>
@@ -198,7 +200,7 @@
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Μέσα"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Όλα τα αρχεία"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Δεν επιτρέπονται άδειες"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"Δεν απαγορεύονται άδειες"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Δεν απορρίφθηκαν άδειες"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Δεν επιτρέπονται εφαρμογές"</string>
     <string name="no_apps_allowed_full" msgid="5857725855406253991">"Δεν επιτρέπονται εφαρμογές για όλα τα αρχεία"</string>
     <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Δεν επιτρέπονται εφαρμογές μόνο για μέσα"</string>
@@ -280,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Η εφαρμογή <xliff:g id="APP_NAME">%1$s</xliff:g> θέλει να ανεβάσει πληροφορίες εντοπισμού σφαλμάτων."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Κοινοποίηση δεδομένων εντοπισμού σφαλμάτων"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Το σύστημα εντόπισε ένα πρόβλημα."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"Η εφαρμογή <xliff:g id="APP_NAME_0">%1$s</xliff:g> ζητάει να ανεβάσει μια αναφορά σφαλμάτων από αυτήν τη συσκευή η οποία λήφθηκε στις <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>. Οι αναφορές σφαλμάτων περιλαμβάνουν προσωπικά στοιχεία σχετικά με τη συσκευή σας ή στοιχεία που έχουν καταγράψει οι εφαρμογές σας, για παράδειγμα, ονόματα χρηστών, δεδομένα τοποθεσίας, αναγνωριστικά συσκευών και πληροφορίες δικτύου. Να κοινοποιείτε αναφορές σφαλμάτων μόνο σε άτομα και εφαρμογές που θεωρείτε ότι μπορείτε να εμπιστευτείτε αυτές τις πληροφορίες. Επιτρέπετε στην εφαρμογή <xliff:g id="APP_NAME_1">%4$s</xliff:g> να ανεβάσει μια αναφορά σφαλμάτων;"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"Η εφαρμογή <xliff:g id="APP_NAME_0">%1$s</xliff:g> ζητάει να ανεβάσει μια αναφορά σφαλμάτων από αυτήν τη συσκευή η οποία λήφθηκε στις <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>. Οι αναφορές σφαλμάτων περιλαμβάνουν προσωπικά στοιχεία σχετικά με τη συσκευή σας ή στοιχεία που έχουν καταγράψει οι εφαρμογές σας, για παράδειγμα, ονόματα χρηστών, δεδομένα τοποθεσίας, αναγνωριστικά συσκευών και πληροφορίες δικτύου. Να κοινοποιείτε αναφορές σφαλμάτων μόνο σε άτομα και εφαρμογές που θεωρείτε ότι μπορείτε να εμπιστευτείτε με αυτές τις πληροφορίες. Επιτρέπετε στην εφαρμογή <xliff:g id="APP_NAME_1">%4$s</xliff:g> να ανεβάσει μια αναφορά σφαλμάτων;"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Παρουσιάστηκε ένα σφάλμα κατά την επεξεργασία της αναφοράς σφάλματος για την εφαρμογή <xliff:g id="APP_NAME">%1$s</xliff:g>. Γι\' αυτόν τον λόγο, η κοινοποίηση λεπτομερών δεδομένων εντοπισμού και διόρθωσης σφαλμάτων απορρίφθηκε. Λυπούμαστε για τη διακοπή."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Να επιτρέπεται"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Να μην επιτρέπεται"</string>

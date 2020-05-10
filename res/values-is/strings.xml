@@ -152,7 +152,7 @@
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Aldrei notuð"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Hafnað / aldrei fengið aðgang"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Leyft"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"Leyfa alltaf"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Alltaf leyft"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Aðeins leyft við notkun"</string>
     <string name="allowed_storage_scoped" msgid="2472018207553284700">"Leyfði aðeins aðgang að margmiðlunarefni"</string>
     <string name="allowed_storage_full" msgid="4167507647800726342">"Leyfði stjórnun á öllum skrám"</string>
@@ -175,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekúndur</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Áminningar um heimild"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Forritaheimildir fjarlægðar sjálfkrafa"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Sum forrit hafa ekki verið notuð í nokkra mánuði. Ýttu til að fá frekari upplýsingar."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ónotað forrit"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ónotað/ónotuð forrit"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Heimildir fjarlægðar til að tryggja persónuvernd þína. Ýttu til að skoða"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Heimildir fjarlægðar til að tryggja persónuvernd þína"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> er með staðsetningu þína í bakgrunni"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Þetta forrit hefur alltaf aðgang að staðsetningu þinni. Ýttu til að breyta."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Heimildir forrits fjarlægðar vegna persónuverndar"</string>
@@ -280,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> vill hlaða inn upplýsingum um villuleit."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Deila villuleitargögnum"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Kerfið greindi vandamál."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> biður um að hlaða inn villutilkynningu úr þessu tæki frá <xliff:g id="DATE">%2$s</xliff:g> kl. <xliff:g id="TIME">%3$s</xliff:g>. Villutilkynningar innihalda persónuupplýsingar um tækið eða innskráningar forrita, til dæmis notendanöfn, staðsetningargögn, auðkenni tækis og upplýsingar um netkerfi. Deildu aðeins villutilkynningum með fólki og forritum sem þú treystir fyrir þessum upplýsingum. Leyfa <xliff:g id="APP_NAME_1">%4$s</xliff:g> að hlaða inn villutilkynningu?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> biður um að hlaða inn villutilkynningu úr þessu tæki frá <xliff:g id="DATE">%2$s</xliff:g> kl. <xliff:g id="TIME">%3$s</xliff:g>. Villutilkynningar innihalda persónuupplýsingar um tækið eða upplýsingar sem forrit skrá, til dæmis notendanöfn, staðsetningargögn, auðkenni tækis og upplýsingar um netkerfi. Deildu aðeins villutilkynningum með fólki og forritum sem þú treystir fyrir þessum upplýsingum. Leyfa <xliff:g id="APP_NAME_1">%4$s</xliff:g> að hlaða inn villutilkynningu?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Villa kom upp við vinnslu villuskýrslu fyrir <xliff:g id="APP_NAME">%1$s</xliff:g> og því er ekki hægt að deila ítarlegum villuleitargögnum. Afsakaðu truflunina."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Leyfa"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Hafna"</string>

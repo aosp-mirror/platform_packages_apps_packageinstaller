@@ -175,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> સેકંડ</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"મંજૂરીના રિમાઇન્ડર"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"ઍપ પરવાનગીઓ ઑટોમૅટિક રીતે કાઢી નાખવામાં આવી છે"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"અમુક ઍપનો થોડા મહિનાથી ઉપયોગ થયો નથી. વધુ માહિતી માટે ટૅપ કરો."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ન વપરાયેલી ઍપ"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ન વપરાયેલી ઍપ"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"તમારી પ્રાઇવસીનું રક્ષણ કરવા માટે પરવાનગીઓ દૂર કરવામાં આવી. રિવ્યૂ કરવા માટે ટૅપ કરો"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"તમારી પ્રાઇવસીનું રક્ષણ કરવા માટે પરવાનગીઓ દૂર કરવામાં આવી"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>એ બૅકગ્રાઉન્ડમાં તમારું સ્થાન ઍક્સેસ કર્યુ છે"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"આ ઍપ હંમેશાં તમારા સ્થાનને ઍક્સેસ કરી શકે છે. ફેરફાર કરવા માટે ટૅપ કરો."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"પ્રાઇવસીની સુરક્ષા કરવા માટે ઍપ્લિકેશન પરવાનગીઓ કાઢી નાખી"</string>

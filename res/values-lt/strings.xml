@@ -185,8 +185,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundžių</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Leidimų priminimai"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Programų leidimai automatiškai pašalinti"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Kai kurios programos nebuvo naudojamos keletą mėnesių. Palietę gausite daugiau informacijos."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 nenaudojama programa"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Nenaudojamų programų: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Leidimai pašalinti siekiant užtikrinti jūsų privatumą. Palieskite ir peržiūrėkite"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Leidimai pašalinti siekiant užtikrinti jūsų privatumą"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Programa „<xliff:g id="APP_NAME">%s</xliff:g>“ gavo vietovės duomenis fone"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ši programa visada gali pasiekti jūsų vietovę. Palieskite, kad pakeistumėte."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Programos leidimai pašalinti siekiant užtikrinti privatumą"</string>

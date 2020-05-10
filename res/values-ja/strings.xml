@@ -157,7 +157,7 @@
     <string name="allowed_storage_scoped" msgid="2472018207553284700">"メディアへのアクセスのみが許可されたアプリ"</string>
     <string name="allowed_storage_full" msgid="4167507647800726342">"すべてのファイルの管理が許可されたアプリ"</string>
     <string name="ask_header" msgid="4471670860332046665">"毎回確認"</string>
-    <string name="denied_header" msgid="2277998574238617699">"拒否"</string>
+    <string name="denied_header" msgid="2277998574238617699">"許可しない"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g>日</item>
       <item quantity="one">1日</item>
@@ -175,8 +175,10 @@
       <item quantity="one">1秒</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"権限のリマインダー"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"アプリの権限が自動的に削除されました"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"数か月使用していないアプリがあります。タップして詳細をご確認ください。"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"使用していないアプリ: 1 個"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"使用していないアプリ: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 個"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"プライバシー保護のため権限を削除しました。タップしてご確認ください"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"プライバシー保護のため権限を削除しました"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> がバックグラウンドで位置情報を取得しました"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"このアプリは常に位置情報にアクセスできます。設定を変更するにはタップしてください。"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"プライバシー保護のためアプリの権限を削除しました"</string>
@@ -198,7 +200,7 @@
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"メディア"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"すべてのファイル"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"許可されている権限はありません"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"許可されていない権限はありません"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"許可していない権限はありません"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"許可されているアプリはありません"</string>
     <string name="no_apps_allowed_full" msgid="5857725855406253991">"すべてのファイルで許可されたアプリはありません"</string>
     <string name="no_apps_allowed_scoped" msgid="409459956930431114">"メディアの場合のみ許可されたアプリはありません"</string>

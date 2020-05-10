@@ -112,7 +112,7 @@
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Jedes Mal fragen"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Ablehnen"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Berechtigung \"<xliff:g id="PERM">%1$s</xliff:g>\""</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Darf diese App auf \"<xliff:g id="PERM">%1$s</xliff:g>\" zugreifen?"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Dieser App Zugriff auf <xliff:g id="PERM">%1$s</xliff:g> erlauben?"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Alle Berechtigungen der App \"<xliff:g id="APP">%1$s</xliff:g>\" anzeigen"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Alle Apps mit dieser Berechtigung anzeigen"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Berechtigungen entfernen, wenn die App nicht verwendet wird"</string>
@@ -127,8 +127,8 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Berechtigungen, die entfernt werden: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Berechtigungen automatisch verwalten"</string>
     <string name="off" msgid="4561379152328580345">"Aus"</string>
-    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Berechtigung <xliff:g id="PERMISSION_NAME">%s</xliff:g> entfernt"</string>
-    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Berechtigungen <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> und <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> entfernt"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Berechtigung für <xliff:g id="PERMISSION_NAME">%s</xliff:g> entfernt"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Berechtigungen für <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> und <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> entfernt"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> und <xliff:g id="NUMBER">%2$s</xliff:g> weitere Berechtigungen wurden entfernt"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Zuletzt geöffnet vor mehr als <xliff:g id="NUMBER">%s</xliff:g> Monaten"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"App wurde zuletzt geöffnet am <xliff:g id="DATE">%s</xliff:g>"</string>
@@ -175,8 +175,10 @@
       <item quantity="one">1 Sekunde</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Berechtigungserinnerungen"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"App-Berechtigungen automatisch entfernt"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Einige Apps sind seit einigen Monaten nicht genutzt worden. Tippen, um weitere Informationen zu erhalten."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 nicht verwendete App"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> nicht verwendete Apps"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Berechtigungen zum Schutz deiner Privatsphäre entfernt. Zum Prüfen tippen."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Berechtigungen zum Schutz deiner Privatsphäre entfernt"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> greift im Hintergrund auf deinen Standort zu"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Diese App kann immer auf deinen Standort zugreifen. Zum Ändern hier tippen."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"App-Berechtigungen zum Schutz der Privatsphäre entfernt"</string>
