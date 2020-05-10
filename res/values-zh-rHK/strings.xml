@@ -175,8 +175,10 @@
       <item quantity="one">1 秒</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"權限提醒"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"應用程式權限已自動移除"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"部分應用程式在過去幾個月未曾使用。輕按即可瞭解詳情。"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 個未使用的應用程式"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 個未使用的應用程式"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"為保護您的私隱，系統已移除權限。輕按即可查看"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"為保護您的私隱，系統已移除權限"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>在背景存取了您的位置資訊"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"此應用程式可隨時存取您的位置資訊。輕按即可變更權限。"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"為保護私隱權，系統已移除應用程式權限"</string>

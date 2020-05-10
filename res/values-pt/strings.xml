@@ -119,7 +119,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Para proteger seus dados, as permissões serão removidas se o app não for usado por alguns meses."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Para proteger seus dados, se o app não for usado por alguns meses, as seguintes permissões serão removidas: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Para proteger seus dados, foram removidas as permissões de apps que não foram usados nos últimos meses."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Se você quer conceder permissões novamente, abra o app"</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Se você quiser conceder permissões novamente, abra o app"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"No momento, a remoção automática está desativada para este app."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Não há nenhuma permissão automaticamente revogável atualmente"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"A permissão <xliff:g id="PERM">%1$s</xliff:g> será removida."</string>
@@ -175,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> segundos</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Lembretes de permissões"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Permissões do app removidas automaticamente"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Alguns apps não foram usados nos últimos meses. Toque para ver mais informações."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 app não usado"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps não usados"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"As permissões foram removidas para proteger sua privacidade. Toque para analisar"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"As permissões foram removidas para proteger sua privacidade"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"O app <xliff:g id="APP_NAME">%s</xliff:g> tem acesso à sua localização em segundo plano"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Este app pode acessar sua localização a qualquer momento. Toque para alterar."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Permissões de apps removidas para proteger a privacidade"</string>
@@ -280,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Solicitação do <xliff:g id="APP_NAME">%1$s</xliff:g> para upload de informações de depuração."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Compartilhar dados de depuração"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"O sistema detectou um problema."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"Há uma solicitação do <xliff:g id="APP_NAME_0">%1$s</xliff:g> para upload de um relatório de bug criado neste dispositivo no dia <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>. Os relatórios de bug incluem informações pessoais do seu dispositivo ou registradas por apps, como nomes de usuário, dados de local, identificadores do dispositivo e informações de rede. Compartilhe relatórios de bugs apenas com pessoas e apps em que você confie para ter acesso a essas informações. Permitir que o <xliff:g id="APP_NAME_1">%4$s</xliff:g> faça upload do relatório de bug?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"Há uma solicitação do <xliff:g id="APP_NAME_0">%1$s</xliff:g> para upload de um relatório de bug criado neste dispositivo no dia <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>. Os relatórios de bug incluem informações pessoais do seu dispositivo ou registradas por apps, como nomes de usuário, dados de local, identificadores do dispositivo e informações de rede. Compartilhe relatórios de bug apenas com pessoas e apps em que você confia para ter acesso a essas informações. Permitir que o <xliff:g id="APP_NAME_1">%4$s</xliff:g> faça upload do relatório de bug?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Ocorreu um erro ao processar o relatório de bug do app <xliff:g id="APP_NAME">%1$s</xliff:g>. Por isso, o compartilhamento dos dados detalhados de depuração foi negado. Lamentamos a interrupção."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Permitir"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Negar"</string>

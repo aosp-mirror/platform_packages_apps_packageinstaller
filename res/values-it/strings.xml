@@ -42,7 +42,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Mentre usi l\'app"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Solo questa volta"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Consenti sempre"</string>
-    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Permetti la gestione di tutti i file"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Consenti la gestione di tutti i file"</string>
     <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Permetti l\'accesso ai file multimediali"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"App"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Autorizzazioni app"</string>
@@ -105,8 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Filtra per ora"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Consenti"</string>
-    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Permetti la gestione di tutti i file"</string>
-    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Permetti l\'accesso solo ai file multimediali"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Consenti la gestione di tutti i file"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Consenti l\'accesso solo ai file multimediali"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Consenti sempre"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Consenti solo mentre usi l\'app"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Chiedi ogni volta"</string>
@@ -151,13 +151,13 @@
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Al momento rifiutata/Ultimo accesso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Accesso mai eseguito"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Rifiutata/Accesso mai effettuato"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"Autorizzate"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Consentite"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Sempre autorizzate"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Autorizzate solo durante l\'uso"</string>
     <string name="allowed_storage_scoped" msgid="2472018207553284700">"Accesso autorizzato solo per file multimediali"</string>
     <string name="allowed_storage_full" msgid="4167507647800726342">"Autorizzate per gestire tutti i file"</string>
     <string name="ask_header" msgid="4471670860332046665">"Chiedi ogni volta"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Non autorizzate"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Rifiutate"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> giorni</item>
       <item quantity="one">1 giorno</item>
@@ -175,8 +175,10 @@
       <item quantity="one">1 secondo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Promemoria autorizzazione"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Autorizzazioni app rimosse automaticamente"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Alcune app non sono utilizzate da alcuni mesi. Tocca per ulteriori informazioni."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 app inutilizzata"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> app inutilizzate"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Autorizzazioni rimosse per proteggere la tua privacy. Tocca per controllare"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Autorizzazioni rimosse per proteggere la tua privacy"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ha recuperato la tua posizione in background"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Questa app può accedere sempre alla tua posizione. Tocca per modificare."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Autorizzazioni app rimosse per proteggere la privacy"</string>
@@ -280,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"L\'app <xliff:g id="APP_NAME">%1$s</xliff:g> vorrebbe caricare informazioni di debug."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Condividi dati di debug"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Il sistema ha rilevato un problema."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"L\'app <xliff:g id="APP_NAME_0">%1$s</xliff:g> chiede di caricare una segnalazione di bug da questo dispositivo, ricevuta il giorno <xliff:g id="DATE">%2$s</xliff:g> alle ore <xliff:g id="TIME">%3$s</xliff:g>. Le segnalazioni di bug includono informazioni personali relative al tuo dispositivo oppure registrate dalle app, ad esempio nomi utente, dati sulla posizione, identificatori dei dispositivi e informazioni sulle reti. Condividi le segnalazioni di bug solo con persone e app che ritieni affidabili. Consentire all\'app <xliff:g id="APP_NAME_1">%4$s</xliff:g> di caricare una segnalazione di bug?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"L\'app <xliff:g id="APP_NAME_0">%1$s</xliff:g> chiede di caricare una segnalazione di bug da questo dispositivo fatta il giorno <xliff:g id="DATE">%2$s</xliff:g> alle ore <xliff:g id="TIME">%3$s</xliff:g>. Le segnalazioni di bug includono informazioni personali relative al tuo dispositivo oppure registrate dalle app, ad esempio nomi utente, dati sulla posizione, identificatori dei dispositivi e informazioni sulle reti. Condividi le segnalazioni di bug solo con persone e app che ritieni affidabili. Consentire all\'app <xliff:g id="APP_NAME_1">%4$s</xliff:g> di caricare una segnalazione di bug?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Si è verificato un errore durante l\'elaborazione della segnalazione di bug per l\'app <xliff:g id="APP_NAME">%1$s</xliff:g>. Di conseguenza, la condivisione dei dati di debug dettagliati è stata negata. Siamo spiacenti per l\'interruzione."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Consenti"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Rifiuta"</string>

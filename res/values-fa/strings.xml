@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2792757108872430971">"کنترل‌کننده مجوز"</string>
+    <string name="app_name" msgid="2792757108872430971">"کنترل‌کننده اجازه"</string>
     <string name="ok" msgid="4417794827535157922">"تأیید"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"مجوزها"</string>
     <string name="cancel" msgid="7279939269964834974">"لغو"</string>
@@ -45,7 +45,7 @@
     <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"اجازه دادن برای مدیریت همه فایل‌ها"</string>
     <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"اجازه دادن برای دسترسی به فایل‌های رسانه"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"برنامه‌ها"</string>
-    <string name="app_permissions" msgid="2778362347879465223">"مجوزهای برنامه"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"اجازه‌های برنامه"</string>
     <string name="unused_apps" msgid="3935514133237470759">"برنامه‌های استفاده‌نشده"</string>
     <string name="app_disable_dlg_positive" msgid="3928516331670255309">"غیرفعال کردن برنامه"</string>
     <string name="app_disable_dlg_text" msgid="5218197617670218828">"‏اگر این برنامه را غیرفعال کنید، ممکن است Android و سایر برنامه‌های دیگر عملکرد موردانتظار را نداشته باشند. به‌خاطر داشته باشید که نمی‌توانید این برنامه را حذف کنید، چون از برنامه‌های ازپیش نصب‌شده روی دستگاه است. این برنامه، با غیرفعال کردن، خاموش می‌شود و در دستگاه پنهان می‌شود."</string>
@@ -115,7 +115,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"دسترسی <xliff:g id="PERM">%1$s</xliff:g> برای این برنامه"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"مشاهده همه مجوزهای <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"دیدن همه برنامه‌هایی که این مجوز را دارند"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"اگر برنامه استفاده نشده است، اجازه‌ها برداشته شود"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"اگر از برنامه استفاده نمی‌شود، اجازه‌ها برداشته شوند"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"برای محافظت از داده‌هایتان، اگر طی چند ماه گذشته از این برنامه استفاده نشده باشد، اجازه‌های آن برداشته خواهد شد."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"برای محافظت از داده‌هایتان، اگر طی چند ماه گذشته از این برنامه استفاده نشده باشد، اجازه‌های زیر برداشته خواهد شد: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"برای محافظت از داده‌هایتان، اجازه‌ها از برنامه‌هایی که طی چند ماه گذشته استفاده نشده‌اند برداشته شده است."</string>
@@ -175,8 +175,10 @@
       <item quantity="other">‏<xliff:g id="NUMBER">%s</xliff:g> ثانیه</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"یادآوری‌های مجوز"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"اجازه‌های برنامه به‌طور خودکار برداشته شده است"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"برخی از برنامه‌ها طی چند ماه گذشته استفاده نشده‌اند. برای اطلاعات بیشتر ضربه بزنید."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"۱ برنامه استفاده‌نشده"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> برنامه استفاده‌نشده"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"برای محافظت از حریم‌خصوصی شما، اجازه‌ها برداشته شد. برای مرور، ضربه بزنید"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"برای محافظت از حریم‌خصوصی شما، اجازه‌ها برداشته شد"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> به موقعیت مکانی شما در پس‌زمینه دسترسی دارد"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"این برنامه همیشه می‌تواند به مکانتان دسترسی داشته باشد. برای تغییر دادن، ضربه بزنید."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"برای محافظت از حریم‌خصوصی، اجازه‌های برنامه برداشته شدند"</string>
@@ -198,7 +200,7 @@
     <string name="permission_subtitle_media_only" msgid="4163630471124702816">"رسانه"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"همه فایل‌ها"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"هیچ مجوزی اعطا نشده است"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"هیچ مجوزی رد نشد"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"هیچ اجازه‌ای رد نشده"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"هیچ برنامه‌ای مجاز نیست"</string>
     <string name="no_apps_allowed_full" msgid="5857725855406253991">"هیچ برنامه‌ای برای همه فایل‌ها مجاز نیست"</string>
     <string name="no_apps_allowed_scoped" msgid="409459956930431114">"هیچ برنامه‌ای فقط برای رسانه‌ها مجاز نیست"</string>

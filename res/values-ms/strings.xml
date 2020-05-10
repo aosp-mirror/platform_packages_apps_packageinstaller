@@ -175,8 +175,10 @@
       <item quantity="one">1 saat</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Peringatan kebenaran"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Kebenaran apl dialih keluar secara automatik"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Sesetengah apl tidak digunakan selama beberapa bulan. Ketik untuk mendapatkan maklumat lanjut."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 apl tidak digunakan"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apl yang tidak digunakan"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Kebenaran dialih keluar untuk melindungi privasi anda. Ketik untuk menyemak"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Kebenaran dialih keluar untuk melindungi privasi anda"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> mendapat lokasi anda di latar belakang"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Apl ini boleh mengakses lokasi anda pada setiap masa. Ketik untuk menukar."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Kebenaran apl dialih keluar untuk melindungi privasi"</string>
@@ -264,7 +266,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Membuka pautan"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Lalai untuk kerja"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Tiada"</string>
-    <string name="default_app_system_default" msgid="3870203641514466948">"(Lalai sistem)"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Ciri lalai sistem)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Tiada apl"</string>
     <string name="car_default_app_selected" msgid="2813270284225505741">"Dipilih"</string>
     <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Dipilih - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>

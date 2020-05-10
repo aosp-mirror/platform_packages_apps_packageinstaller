@@ -106,7 +106,7 @@
     <string name="item_separator" msgid="8266062815210378175">"、 "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"允許"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"允許管理所有檔案"</string>
-    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"只允許管理媒體檔案"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"只允許存取媒體檔案"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"一律允許"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"僅在使用該應用程式時允許"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"每次都詢問"</string>
@@ -175,8 +175,10 @@
       <item quantity="one">1 秒</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"權限提醒"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"應用程式權限已自動移除"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"某些應用程式已有數個月未使用。輕觸即可瞭解詳情。"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 個未使用的應用程式"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 個未使用的應用程式"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"為保護你的隱私，系統已移除相關權限。輕觸即可查看"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"為保護你的隱私，系統已移除相關權限"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"「<xliff:g id="APP_NAME">%s</xliff:g>」在背景存取了你的位置資訊"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"這個應用程式隨時都能存取你的位置資訊。輕觸即可變更設定。"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"為保護隱私，系統已移除應用程式權限"</string>

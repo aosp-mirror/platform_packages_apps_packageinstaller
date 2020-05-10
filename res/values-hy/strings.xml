@@ -112,7 +112,7 @@
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Ամեն անգամ հարցնել"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Մերժել"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"«<xliff:g id="PERM">%1$s</xliff:g>» թույլտվություն"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>ն օգտագործելու թույլտվություն այս հավելվածի համար"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g> օգտագործելու թույլտվություն այս հավելվածի համար"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Դիտել <xliff:g id="APP">%1$s</xliff:g> հավելվածի բոլոր թույլտվությունները"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Դիտել այս թույլտվությունն ունեցող հավելվածների ցանկը"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Հեռացնել թույլտվությունները, եթե հավելվածը չի օգտագործվում"</string>
@@ -175,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> վայրկյան</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Հիշեցումներ թույլտվությունների մասին"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Հավելվածների թույլտվություններն ավտոմատ հեռացվել են"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Որոշ հավելվածներ մի քանի ամիս չեն օգտագործվել։ Հպեք՝ լրացուցիչ տեղեկություններ ստանալու համար։"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 չօգտագործվող հավելված"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> չօգտագործվող հավելված"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Թույլտվությունները հեռացվել են ձեր գաղտնիությունը պաշտպանելու նպատակով։ Հպեք՝ մանրամասները տեսնելու համար։"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Թույլտվությունները հեռացվել են ձեր գաղտնիությունը պաշտպանելու նպատակով։"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> հավելվածը հետագծում է ձեր գտնվելու վայրը ֆոնային ռեժիմում"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Այս հավելվածին միշտ հասանելի են ձեր տեղադրության մասին տվյալները: Փոխելու համար հպեք:"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Հավելվածի թույլտվությունները հեռացվել են"</string>

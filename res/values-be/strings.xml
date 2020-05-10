@@ -185,8 +185,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунды</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Напаміны пра дазволы"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Дазволы праграмы выдалены аўтаматычна"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Некаторыя праграмы не выкарыстоўваліся некалькі месяцаў. Націсніце, каб атрымаць дадатковую інфармацыю."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 праграма не ў карыстанні"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Колькасць праграм не ў карыстанні: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Дазволы выдалены ў мэтах абароны прыватнасці. Націсніце, каб праглядзець"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Дазволы выдалены ў мэтах абароны прыватнасці"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> атрымала доступ да даных месцазнаходжання ў фонавым рэжыме"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Гэта праграма заўсёды можа атрымаць доступ да даных пра ваша месцазнаходжанне. Націсніце, каб змяніць."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"У мэтах абароны прыватнасці дазволы праграмы выдалены"</string>

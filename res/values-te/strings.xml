@@ -175,8 +175,10 @@
       <item quantity="one">1 సెకను</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"అనుమతి రిమైండర్‌లు"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"యాప్ అనుమతులు ఆటోమేటిక్‌గా తీసివేయబడ్డాయి"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"కొన్ని యాప్‌లు గత కొన్ని నెలలుగా వినియోగంలో లేవు. మరింత సమాచారం కోసం ట్యాప్ చేయండి."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ఉపయోగించని యాప్‌"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ఉపయోగించని యాప్‌లు"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"మీ గోప్యతను రక్షించడానికి అనుమతులు తీసివేయబడ్డాయి. రివ్యూ చేయడానికి నొక్కండి"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"మీ గోప్యతను రక్షించడానికి అనుమతులు తీసివేయబడ్డాయి"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"మీ స్థానాన్ని <xliff:g id="APP_NAME">%s</xliff:g> నేపథ్యంలో ఉపయోగిస్తోంది"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ఈ యాప్ మీ స్థానాన్ని ఎల్లప్పుడూ యాక్సెస్ చేయగలదు. మార్చడానికి నొక్కండి."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"గోప్యతను కాపాడడానికి యాప్ అనుమతులు తీసివేయబడ్డాయి"</string>
@@ -280,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>డీబగ్గింగ్ సమాచారాన్ని అప్‌లో డ్ చేయదలుచుకుంటున్నారు."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"డీబగ్గింగ్ డేటాను షేర్ చేయండి"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"సిస్టమ్ ఒక సమస్యను గుర్తించింది."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> <xliff:g id="DATE">%2$s</xliff:g>న <xliff:g id="TIME">%3$s</xliff:g>కు ఈ పరికరంలో తీసిన డీబగ్ నివేదికను అప్‌లోడ్ చేయమని అభ్యర్థిస్తుంది. బగ్ నివేదికలు మీ పరికరం లేదా లాగిన్ చేసిన యాప్‌ల వ్యక్తిగత సమాచారం, ఉదాహరణకు వినియోగదారు పేర్లు, స్థాన డేటా, పరికర గుర్తింపులు,మరియి నెట్‌వర్క్ సమాచారాన్ని కలిగి ఉంటాయి. మీకు ఈ సమాచారం విషయంలో నమ్మకమైన వ్యక్తులకు మరియు యాప్‌లకు మాత్రమే బగ్ నివేదిక వివరాలను షేర్ చేయండి. బగ్ నివేదికను అప్‌లోడ్ చేయడానికి <xliff:g id="APP_NAME_1">%4$s</xliff:g>ను అనుమతించాలా?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> <xliff:g id="DATE">%2$s</xliff:g>న <xliff:g id="TIME">%3$s</xliff:g>కు ఈ పరికరంలో జ‌నరేట్ అయిన‌ డీబగ్ నివేదికను అప్‌లోడ్ చేయండి అని అభ్యర్థిస్తోంది. బగ్ నివేదికలు మీ పరికరం లేదా లాగిన్ చేసిన యాప్‌ల వ్యక్తిగత సమాచారం, ఉదాహరణకు యూజ‌ర్‌ పేర్లు, లొకేష‌న్‌ డేటా, పరికర గుర్తింపుల‌తో పాటు నెట్‌వర్క్ సమాచారాన్ని కలిగి ఉంటాయి. ఈ సమాచారం విషయంలో మీకు నమ్మకం ఉన్న‌ వ్యక్తులకు, యాప్‌లకు మాత్రమే బగ్ నివేదిక వివరాలను షేర్ చేయండి. బగ్ నివేదికను అప్‌లోడ్ చేయడానికి <xliff:g id="APP_NAME_1">%4$s</xliff:g>ను అనుమతించాలా?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> కోసం బగ్ నివేదిక ప్రాసెస్ చేయడంలో ఎర్రర్ ఉంది. కాబట్టి వివరణాత్మక డీబగ్గింగ్ డేటాను షేర్ చేయడాన్ని నిరాకరించారు. అంతరాయానికి చింతిస్తున్నాము."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"అనుమతించు"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"తిరస్కరించు"</string>
@@ -310,5 +312,5 @@
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"మీ అత్యంత కీలకమైన గుర్తుల గురించి సెన్సార్ డేటాని యాక్సెస్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ని అనుమతించాలా?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"నియంత్రణలో ఉన్న అనుమతులు"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"లొకేషన్‌ను యాక్సెస్ చేయవచ్చు"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"మీ IT అడ్మిన్ మీ లొకేషన్‌ను యాక్సెస్ చేయడానికి <xliff:g id="APP_NAME">%s</xliff:g>‌ను అనుమతిస్తున్నారు"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"మీ IT అడ్మిన్ మీ లొకేషన్‌ను యాక్సెస్ చేయడానికి <xliff:g id="APP_NAME">%s</xliff:g>‌ని అనుమతిస్తున్నారు"</string>
 </resources>

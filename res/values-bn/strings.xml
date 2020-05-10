@@ -175,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> সেকেন্ড</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"অনুমতির রিমাইন্ডার"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"অ্যাপকে দেওয়া অনুমতি নিজে থেকে সরিয়ে দেওয়া হয়েছে"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"কিছু অ্যাপ কয়েক মাস ধরে ব্যবহার করা হয়নি। আরও তথ্যের জন্য ট্যাপ করুন।"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"ব্যবহার হয়নি এমন ১টি অ্যাপ"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"ব্যবহার হয়নি এমন <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>টি অ্যাপ"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"আপনার গোপনীয়তা রক্ষা করতে অনুমতি প্রত্যাহার করা হয়েছে। পর্যালোচনা করতে ট্যাপ করুন"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"আপনার গোপনীয়তা রক্ষা করতে অনুমতি প্রত্যাহার করা হয়েছে"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ব্যাকগ্রাউন্ডে আপনার লোকেশনের ডেটা অ্যাক্সেস করেছে"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"এই অ্যাপটি যেকোনও সময় আপনার লোকেশনের ডেটা অ্যাক্সেস করতে পারে। পরিবর্তন করতে ট্যাপ করুন।"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"গোপনীয়তা রক্ষা করতে অ্যাপকে দেওয়া অনুমতি প্রত্যাহার করা হয়েছে"</string>
@@ -280,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ডিবাগিংয়ের তথ্য আপলোড করতে চায়।"</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"ডিবাগিং ডেটা শেয়ার করুন"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"সিস্টেম একটি সমস্যা শনাক্ত করেছে।"</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"এই ডিভাইস থেকে <xliff:g id="DATE">%2$s</xliff:g> তারিখে <xliff:g id="TIME">%3$s</xliff:g>-এ নেওয়া একটি সমস্যার রিপোর্ট <xliff:g id="APP_NAME_0">%1$s</xliff:g> আপলোড করতে চাইছে। ইউজার নেম, লোকেশন ডেটা, ডিভাইসের শনাক্তকারী ও নেটওয়ার্কের তথ্যের মতো আপনার ডিভাইস ও লগ-ইন করা অ্যাপের ব্যাপারে ব্যক্তিগত তথ্য সমস্যার রিপোর্টে অন্তর্ভুক্ত থাকে। যেসব লোকজন বা অ্যাপকে আপনি এই তথ্য জানানোর ব্যাপারে বিশ্বাস করতে পারেন শুধুমাত্র তাদের সাথেই সমস্যার রিপোর্ট শেয়ার করুন। একটি সমস্যার রিপোর্ট আপলোড করতে <xliff:g id="APP_NAME_1">%4$s</xliff:g>কে অনুমতি দিতে চান?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"এই ডিভাইস থেকে <xliff:g id="DATE">%2$s</xliff:g> তারিখে <xliff:g id="TIME">%3$s</xliff:g>-এ নেওয়া একটি সমস্যার রিপোর্ট <xliff:g id="APP_NAME_0">%1$s</xliff:g> আপলোড করতে চাইছে। ইউজার নেম, লোকেশন ডেটা, ডিভাইসের শনাক্তকারী ও নেটওয়ার্কের তথ্যের মতো আপনার ডিভাইস ও লগ-ইন করা অ্যাপের ব্যাপারে ব্যক্তিগত তথ্য সমস্যার রিপোর্টে অন্তর্ভুক্ত থাকে। যেসব লোকজন বা অ্যাপকে আপনি এই তথ্য জানানোর ব্যাপারে বিশ্বাস করতে পারেন শুধুমাত্র তাদের সাথেই সমস্যার রিপোর্ট শেয়ার করুন। একটি সমস্যার রিপোর্ট আপলোড করতে <xliff:g id="APP_NAME_1">%4$s</xliff:g>-কে অনুমতি দিতে চান?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g>-এর ত্রুটির প্রতিবেদন প্রসেস করার সময় সমস্যা হয়েছে। তাই ডিবাগিং সংক্রান্ত বিস্তারিত ডেটা শেয়ার করার প্রক্রিয়াটি বাতিল করা হয়েছে। বিঘ্ন ঘটায় দুঃখিত।"</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"অনুমতি দিন"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"অনুমতি দেবেন না"</string>

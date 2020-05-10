@@ -175,8 +175,10 @@
       <item quantity="one">1 giây</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Lời nhắc về quyền"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Đã tự động thu hồi quyền ứng dụng"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Bạn chưa dùng một số ứng dụng trong vài tháng. Hãy nhấn để biết thêm thông tin."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ứng dụng không dùng đến"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ứng dụng không dùng đến"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Đã thu hồi các quyền để bảo vệ quyền riêng tư của bạn. Nhấn để xem lại"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Đã thu hồi các quyền để bảo vệ quyền riêng tư của bạn"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> đã truy cập thông tin vị trí của bạn trong nền"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ứng dụng này luôn có thể truy cập vào thông tin vị trí của bạn. Hãy nhấn để thay đổi."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Đã thu hồi các quyền ứng dụng nhằm bảo vệ quyền riêng tư"</string>
@@ -280,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> muốn tải thông tin gỡ lỗi lên."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Chia sẻ dữ liệu gỡ lỗi"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Hệ thống đã phát hiện thấy một vấn đề."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> đang yêu cầu tải lên từ thiết bị này một báo cáo lỗi được thực hiện vào <xliff:g id="DATE">%2$s</xliff:g> lúc <xliff:g id="TIME">%3$s</xliff:g>. Báo cáo lỗi bao gồm thông tin cá nhân về thiết bị của bạn hoặc do ứng dụng ghi nhật ký, ví dụ như tên người dùng, dữ liệu vị trí, giá trị nhận dạng thiết bị và thông tin mạng. Chỉ chia sẻ báo cáo lỗi với người và ứng dụng bạn tin cậy đối với thông tin này. Bạn muốn cho phép <xliff:g id="APP_NAME_1">%4$s</xliff:g> tải báo cáo lỗi lên?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> đang yêu cầu tải lên một báo cáo lỗi trên thiết bị này được thực hiện vào <xliff:g id="DATE">%2$s</xliff:g> lúc <xliff:g id="TIME">%3$s</xliff:g>. Báo cáo lỗi bao gồm thông tin cá nhân về thiết bị của bạn hoặc do ứng dụng ghi nhật ký, ví dụ như tên người dùng, dữ liệu vị trí, mã nhận dạng thiết bị và thông tin mạng. Chỉ chia sẻ báo cáo lỗi với người và ứng dụng bạn tin cậy để truy cập thông tin này. Bạn muốn cho phép <xliff:g id="APP_NAME_1">%4$s</xliff:g> tải báo cáo lỗi lên?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Đã xảy ra lỗi khi xử lý báo cáo lỗi cho <xliff:g id="APP_NAME">%1$s</xliff:g>. Vì vậy, yêu cầu chia sẻ dữ liệu gỡ lỗi chi tiết đã bị từ chối. Rất tiếc vì sự gián đoạn này."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Cho phép"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Từ chối"</string>

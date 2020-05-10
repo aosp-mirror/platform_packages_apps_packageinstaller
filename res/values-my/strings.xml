@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2792757108872430971">"ခွင့်ပြုချက် ထိန်းကိရိယာ"</string>
+    <string name="app_name" msgid="2792757108872430971">"ခွင့်ပြုချက်ထိန်း ကိရိယာ"</string>
     <string name="ok" msgid="4417794827535157922">"OK"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"ခွင့်ပြုချက်များ"</string>
     <string name="cancel" msgid="7279939269964834974">"မလုပ်တော့"</string>
@@ -175,8 +175,10 @@
       <item quantity="one">၁ စက္ကန့်</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"ခွင့်ပြုချက် သတိပေးမှုများ"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"အက်ပ်ခွင့်ပြုချက်များ အလိုအလျောက် ဖယ်ရှားလိုက်သည်"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"အက်ပ်အချို့ကို အသုံးမပြုသည်မှာ လအနည်းငယ် ရှိပါပြီ။ နောက်ထပ် အချက်အလက်များအတွက် တို့ပါ။"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"အသုံးမပြုသောအက်ပ် 1 ခု"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"အသုံးမပြုသောအက်ပ် <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ခု"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"သင့်ပုဂ္ဂိုလ်ရေးလုံခြုံမှုကို ကာကွယ်ရန် ခွင့်ပြုချက်များ ဖယ်ရှားလိုက်သည်။ ပြန်ကြည့်ရန် တို့ပါ"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"သင့်ပုဂ္ဂိုလ်ရေးလုံခြုံမှုကို ကာကွယ်ရန် ခွင့်ပြုချက်များ ဖယ်ရှားလိုက်သည်"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> သည် နောက်ခံတွင် သင့်တည်နေရာကို ရရှိထားသည်"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ဤအက်ပ်က သင်၏တည်နေရာကို အမြဲဝင်ကြည့်နိုင်ပါသည်။ ပြောင်းရန် တို့ပါ။"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"ပုဂ္ဂိုလ်ရေးလုံခြုံစေရန် အက်ပ်ခွင့်ပြုချက်များ ဖယ်လိုက်သည်"</string>

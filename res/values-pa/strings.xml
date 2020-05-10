@@ -175,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ਸਕਿੰਟ</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"ਇਜਾਜ਼ਤਾਂ ਦੀਆਂ ਯਾਦ-ਸੂਚਨਾਵਾਂ"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"ਐਪ ਇਜਾਜ਼ਤਾਂ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਹਟਾਈਆਂ ਗਈਆਂ"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"ਕੁਝ ਐਪਾਂ ਨੂੰ ਕਈ ਮਹੀਨਿਆਂ ਤੋਂ ਵਰਤਿਆ ਨਹੀਂ ਗਿਆ। ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਟੈਪ ਕਰੋ।"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ਅਣਵਰਤੀ ਐਪ"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ਅਣਵਰਤੀਆਂ ਐਪਾਂ"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"ਤੁਹਾਡੀ ਪਰਦੇਦਾਰੀ ਸੁਰੱਖਿਆ ਲਈ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਹਟਾਇਆ ਗਿਆ। ਸਮੀਖਿਆ ਲਈ ਟੈਪ ਕਰੋ"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"ਤੁਹਾਡੀ ਪਰਦੇਦਾਰੀ ਸੁਰੱਖਿਆ ਲਈ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਹਟਾਇਆ ਗਿਆ"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ਨੂੰ ਬੈਕਗ੍ਰਾਉਂਡ ਵਿੱਚ ਤੁਹਾਡੇ ਟਿਕਾਣੇ ਦੀ ਜਾਣਕਾਰੀ ਮਿਲੀ"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ਇਹ ਐਪ ਹਮੇਸ਼ਾਂ ਤੁਹਾਡੀ ਟਿਕਾਣਾ ਜਾਣਕਾਰੀ \'ਤੇ ਪਹੁੰਚ ਕਰ ਸਕਦੀ ਹੈ। ਬਦਲਣ ਲਈ ਟੈਪ ਕਰੋ।"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"ਪਰਦੇਦਾਰੀ ਸੁਰੱਖਿਆ ਲਈ ਐਪ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਹਟਾਇਆ ਗਿਆ"</string>
@@ -280,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ਡੀਬੱਗਿੰਗ ਜਾਣਕਾਰੀ ਨੂੰ ਅੱਪਲੋਡ ਕਰਨਾ ਚਾਹੁੰਦੀ ਹੈ।"</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"ਡੀਬੱਗਿੰਗ ਡਾਟਾ ਸਾਂਝਾ ਕਰੋ"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"ਸਿਸਟਮ ਵਿੱਚ ਕਿਸੇ ਸਮੱਸਿਆ ਦਾ ਪਤਾ ਲੱਗਿਆ।"</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ਇਸ ਡੀਵਾਈਸ ਤੋਂ <xliff:g id="DATE">%2$s</xliff:g> ਨੂੰ <xliff:g id="TIME">%3$s</xliff:g> ਵਜੇ ਬਣਾਈ ਗਈ ਬੱਗ ਰਿਪੋਰਟ ਨੂੰ ਅੱਪਲੋਡ ਕਰਨ ਲਈ ਬੇਨਤੀ ਕਰ ਰਹੀ ਹੈ। ਬੱਗ ਰਿਪੋਰਟਾਂ ਵਿੱਚ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਜਾਂ ਐਪਾਂ ਰਾਹੀਂ ਲੌਗ ਕਰਨ ਬਾਰੇ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਸ਼ਾਮਲ ਹੈ, ਉਦਾਹਰਨ ਲਈ, ਵਰਤੋਂਕਾਰ ਨਾਮ, ਟਿਕਾਣਾ ਡਾਟਾ, ਡੀਵਾਈਸ ਪਛਾਣਕਰਤਾ ਅਤੇ ਨੈੱਟਵਰਕ ਜਾਣਕਾਰੀ। ਇਸ ਜਾਣਕਾਰੀ ਨਾਲ ਸਿਰਫ਼ ਆਪਣੇ ਭਰੋਸੇਯੋਗ ਲੋਕਾਂ ਅਤੇ ਐਪਾਂ ਨਾਲ ਬੱਗ ਰਿਪੋਰਟਾਂ ਸਾਂਝੀਆਂ ਕਰੋ। ਕੀ <xliff:g id="APP_NAME_1">%4$s</xliff:g> ਨੂੰ ਬੱਗ ਰਿਪੋਰਟ ਅੱਪਲੋਡ ਕਰਨ ਦੇਣੀ ਹੈ?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ਇਸ ਡੀਵਾਈਸ ਤੋਂ <xliff:g id="DATE">%2$s</xliff:g> ਨੂੰ <xliff:g id="TIME">%3$s</xliff:g> ਵਜੇ ਬਣਾਈ ਗਈ ਬੱਗ ਰਿਪੋਰਟ ਨੂੰ ਅੱਪਲੋਡ ਕਰਨ ਲਈ ਬੇਨਤੀ ਕਰ ਰਹੀ ਹੈ। ਬੱਗ ਰਿਪੋਰਟਾਂ ਵਿੱਚ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਬਾਰੇ ਜਾਂ ਐਪਾਂ ਵੱਲੋਂ ਲੌਗ ਕੀਤੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਸ਼ਾਮਲ ਹੁੰਦੀ ਹੈ, ਉਦਾਹਰਨ ਲਈ, ਵਰਤੋਂਕਾਰ ਨਾਮ, ਟਿਕਾਣਾ ਡਾਟਾ, ਡੀਵਾਈਸ ਪਛਾਣਕਰਤਾ ਅਤੇ ਨੈੱਟਵਰਕ ਜਾਣਕਾਰੀ। ਬੱਗ ਰਿਪੋਰਟਾਂ ਸਿਰਫ਼ ਉਹਨਾਂ ਲੋਕਾਂ ਅਤੇ ਐਪਾਂ ਨਾਲ ਸਾਂਝੀਆਂ ਕਰੋ ਜਿਨ੍ਹਾਂ \'ਤੇ ਤੁਸੀਂ ਇਸ ਜਾਣਕਾਰੀ ਨੂੰ ਲੈ ਕੇ ਭਰੋਸਾ ਕਰਦੇ ਹੋ। ਕੀ <xliff:g id="APP_NAME_1">%4$s</xliff:g> ਨੂੰ ਬੱਗ ਰਿਪੋਰਟ ਅੱਪਲੋਡ ਕਰਨ ਦੇਣੀ ਹੈ?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> ਦੀ ਬੱਗ ਰਿਪੋਰਟ \'ਤੇ ਪ੍ਰਕਿਰਿਆ ਕਰਨ ਵੇਲੇ ਗੜਬੜ ਹੋ ਗਈ। ਇਸ ਕਰਕੇ ਵੇਰਵੇ-ਸਹਿਤ ਡੀਬੱਗ ਡਾਟੇ ਨੂੰ ਸਾਂਝਾ ਕਰਨ ਤੋਂ ਮਨ੍ਹਾ ਕੀਤਾ ਗਿਆ। ਰੁਕਾਵਟ ਲਈ ਮਾਫ਼ੀ।"</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"ਕਰਨ ਦਿਓ"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"ਨਾ ਕਰਨ ਦਿਓ"</string>

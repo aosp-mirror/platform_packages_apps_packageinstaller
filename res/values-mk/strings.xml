@@ -175,8 +175,10 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунди</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Потсетници за дозволата"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"Дозволите за апликацијата автоматски се отстранети"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Некои апликации не се користени неколку месеци. Допрете за повеќе информации."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 некористена апликација"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> некористени апликации"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Дозволите се отстранети за да се заштити вашата приватност. Допрете за да прегледате"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Дозволите се отстранети за да се заштити вашата приватност"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ја има вашата локација во заднина"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Апликацијава секогаш може да пристапува до вашата локација. Допрете за да го промените тоа."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Дозволите за аплик. се отстранети за заштита на приватноста"</string>

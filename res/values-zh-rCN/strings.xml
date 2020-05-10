@@ -113,9 +113,9 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"拒绝"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>权限"</string>
     <string name="app_permission_header" msgid="228974007660007656">"是否允许这个应用访问<xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看<xliff:g id="APP">%1$s</xliff:g>的所有权限"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看“<xliff:g id="APP">%1$s</xliff:g>”的所有权限"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"查看具有此权限的所有应用"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"如果应用未使用，系统会移除相关权限"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"如果未使用此应用，则移除相关权限"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"为了保护您的数据，如果您连续几个月未使用此应用，系统会移除它的权限。"</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"为了保护您的数据，如果您连续几个月未使用此应用，系统会移除以下权限：<xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"为了保护您的数据，对于您连续几个月未使用过的应用，系统已将其权限移除。"</string>
@@ -130,7 +130,7 @@
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"已移除<xliff:g id="PERMISSION_NAME">%s</xliff:g>权限"</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"已移除<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>和<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>权限"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"已移除<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>权限及另外 <xliff:g id="NUMBER">%2$s</xliff:g> 项权限"</string>
-    <string name="last_opened_category_title" msgid="4204626487716958146">"上次打开时间是 <xliff:g id="NUMBER">%s</xliff:g> 个月前"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"上次打开时间是超过 <xliff:g id="NUMBER">%s</xliff:g> 个月前"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"应用上次打开时间是 <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"上次打开时间是 <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"如果您允许此应用管理所有文件，此应用将可以访问、修改和删除本设备或连接的存储设备上通用存储空间中的任何文件。此应用可能会在您不知情的情况下访问文件。"</string>
@@ -141,7 +141,7 @@
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"具有此权限的应用可以读取和写入手机通话记录"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"具有此权限的应用可以拍摄照片和录制视频"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"具有此权限的应用可以访问您的通讯录"</string>
-    <string name="permission_description_summary_location" msgid="687820658574645201">"具有此权限的应用可以访问此设备的位置信息"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"具有此权限的应用可以使用此设备的位置信息"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"具有此权限的应用可以录制音频"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"具有此权限的应用可以拨打电话及管理通话"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"具有此权限的应用可以访问与您的生命体征相关的传感器数据"</string>
@@ -175,8 +175,10 @@
       <item quantity="one">1 秒</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"权限提醒"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"系统已自动移除应用权限"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"一些应用在几个月内未使用过。点按即可了解详情。"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 个未使用的应用"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 个未使用的应用"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"为保护您的隐私，系统已移除这些权限。点按即可查看"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"为保护您的隐私，系统已移除这些权限"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>在后台获取了您的位置信息"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"此应用随时可以使用您的位置信息。点按即可更改。"</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"为保护隐私，系统已移除应用权限"</string>
@@ -280,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>请求上传调试信息。"</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"分享调试数据"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"系统已检测到一个问题。"</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g>正在请求上传此设备在 <xliff:g id="DATE">%2$s</xliff:g><xliff:g id="TIME">%3$s</xliff:g> 获取的错误报告。错误报告包含与您设备有关或由应用记录的个人信息，例如：用户名、位置数据、设备标识符和网络信息。请务必只与您认为可以向其透露这些信息的人和应用分享错误报告。是否允许<xliff:g id="APP_NAME_1">%4$s</xliff:g>上传错误报告？"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"“<xliff:g id="APP_NAME_0">%1$s</xliff:g>”请求上传此设备在<xliff:g id="DATE">%2$s</xliff:g><xliff:g id="TIME">%3$s</xliff:g>获取的错误报告。错误报告包含与您的设备有关或由应用记录的个人信息，例如：用户名、位置数据、设备标识符和网络信息。请务必只与您认为可以向其透露这些信息的人和应用分享错误报告。是否允许“<xliff:g id="APP_NAME_1">%4$s</xliff:g>”上传错误报告？"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"处理<xliff:g id="APP_NAME">%1$s</xliff:g>的错误报告时出错，因此系统已拒绝分享详细的调试数据。不便之处，敬请见谅。"</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"允许"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"拒绝"</string>
@@ -309,6 +311,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"允许“&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;”拨打电话和管理通话吗？"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;访问与您的生命体征相关的传感器数据吗？"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"受控权限"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"可以访问位置信息"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"您的 IT 管理员允许<xliff:g id="APP_NAME">%s</xliff:g>访问您的位置信息"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"应用可使用位置信息"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"您的 IT 管理员允许“<xliff:g id="APP_NAME">%s</xliff:g>”使用您的位置信息"</string>
 </resources>

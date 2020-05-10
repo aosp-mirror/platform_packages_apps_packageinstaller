@@ -175,8 +175,10 @@
       <item quantity="one">1 seconde</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Herinneringen voor rechten"</string>
-    <string name="auto_revoke_permission_reminder_notification_title" msgid="4605662126884792273">"App-rechten worden automatisch verwijderd"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5782565378830205909">"Bepaalde apps zijn al een paar maanden niet meer gebruikt. Tik voor meer informatie."</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 niet-gebruikte app"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> niet-gebruikte apps"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"De rechten zijn verwijderd om je privacy te beschermen. Tik om dit te bekijken."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"De rechten zijn verwijderd om je privacy te beschermen"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> had toegang tot je locatie op de achtergrond"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Deze app heeft altijd toegang tot je locatie. Tik om dit te wijzigen."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"App-rechten verwijderd om privacy te beschermen"</string>
