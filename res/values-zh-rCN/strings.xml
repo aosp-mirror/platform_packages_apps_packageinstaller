@@ -113,7 +113,7 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"拒绝"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>权限"</string>
     <string name="app_permission_header" msgid="228974007660007656">"是否允许这个应用访问<xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看<xliff:g id="APP">%1$s</xliff:g>的所有权限"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看“<xliff:g id="APP">%1$s</xliff:g>”的所有权限"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"查看具有此权限的所有应用"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"如果未使用此应用，则移除相关权限"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"为了保护您的数据，如果您连续几个月未使用此应用，系统会移除它的权限。"</string>
@@ -141,7 +141,7 @@
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"具有此权限的应用可以读取和写入手机通话记录"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"具有此权限的应用可以拍摄照片和录制视频"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"具有此权限的应用可以访问您的通讯录"</string>
-    <string name="permission_description_summary_location" msgid="687820658574645201">"具有此权限的应用可以访问此设备的位置信息"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"具有此权限的应用可以使用此设备的位置信息"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"具有此权限的应用可以录制音频"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"具有此权限的应用可以拨打电话及管理通话"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"具有此权限的应用可以访问与您的生命体征相关的传感器数据"</string>
@@ -311,6 +311,6 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"允许“&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;”拨打电话和管理通话吗？"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;访问与您的生命体征相关的传感器数据吗？"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"受控权限"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"可以访问位置信息"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"您的 IT 管理员允许<xliff:g id="APP_NAME">%s</xliff:g>访问您的位置信息"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"应用可使用位置信息"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"您的 IT 管理员允许“<xliff:g id="APP_NAME">%s</xliff:g>”使用您的位置信息"</string>
 </resources>
