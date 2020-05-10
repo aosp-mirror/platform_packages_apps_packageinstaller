@@ -581,7 +581,7 @@ public class BackupHelper {
 
             if (!perm.isUserSet()) {
                 if (mIsGranted) {
-                    group.grantRuntimePermissions(mIsUserFixed,
+                    group.grantRuntimePermissions(false, mIsUserFixed,
                             new String[]{mPermissionName});
                 } else {
                     group.revokeRuntimePermissions(mIsUserFixed,
