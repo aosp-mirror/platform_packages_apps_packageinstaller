@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2792757108872430971">"Ruxsatlar kontrolleri"</string>
+    <string name="app_name" msgid="2792757108872430971">"Ruxsatlar nazoratchisi"</string>
     <string name="ok" msgid="4417794827535157922">"OK"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"ruxsatlar"</string>
     <string name="cancel" msgid="7279939269964834974">"Bekor qilish"</string>
@@ -42,8 +42,8 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Bu ilova ishlayotganda"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Faqat shu safar"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Har doim ruxsat"</string>
-    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Barcha fayllarni boshqarishga ruxsat berish"</string>
-    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Faqat media fayllarga ruxsat berish"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Barcha fayllarni boshqarishga ruxsat"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Faqat media fayllarga ruxsat"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Ilovalar"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Ilovalar uchun ruxsatlar"</string>
     <string name="unused_apps" msgid="3935514133237470759">"Ishlatilmagan ilovalar"</string>
@@ -105,8 +105,8 @@
     <string name="filter_by_time" msgid="1763143592970195407">"Vaqt asosida filtrlash"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Ruxsat berish"</string>
-    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Barcha fayllarni boshqarishga ruxsat berish"</string>
-    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Faqat media fayllarga ruxsat berish"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Barcha fayllarni boshqarishga ruxsat"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Faqat media fayllarga ruxsat"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Har doim ruxsat"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Faqat ilova faolligida ruxsat"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Har safar soʻralsin"</string>
@@ -115,10 +115,10 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: bu ilova uchun ruxsat"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> uchun berilgan barcha ruxsatlar"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Bu ruxsatga ega barcha ilovalar"</string>
-    <string name="auto_revoke_label" msgid="8755748230070160969">"Ilova ishlatilmagan boʻlsa, ruxsatlarni olib tashlang"</string>
-    <string name="auto_revoke_summary" msgid="308686883215278993">"Maʼlumotlaringizni himoyalash uchun bir necha oylardan beri ishlatilmagan ilovalar uchun ruxsatlar olib tashlanadi"</string>
-    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Bir necha oylardan beri ilova ishlatilmagan boʻlsa, maʼlumotlaringizni himoyalash uchun quyidagi ruxsatlar olib tashlanadi: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
-    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Maʼlumotlaringizni himoyalash uchun bir necha oylardan beri ishlatilmagan ilovalar uchun ruxsatlar olib tashlandi."</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Ishlatilmayotgan ilovalardan ruxsatlarni olib tashlash"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Xavfsizlik yuzasidan, bir necha oydan beri ishlatilmagan ilovalardan ruxsatlar olib tashlanadi"</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Agar bu ilova bir necha oy ishlatilmasa, quyidagi ruxsatlar olib tashlanadi: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Xavfsizlik yuzasidan, bir necha oydan beri ishlatilmagan ilovalardan ruxsatlar olib tashlanadi"</string>
     <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Yana ruxsat berishni xohlasangiz, ilovani oching"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Bu ilova uchun avtomatik olib tashlash hozirda faolsizlantirilgan."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Hozirda avtomatik qaytarilib olinadigan hech qanday ruxsat taqdim etilmagan"</string>
@@ -178,13 +178,13 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ta ishlatilmagan ilova"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ta ishlatilmagan ilova"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Xavfsizligingiz uchun ruxsatlar olib tashlandi. Tekshirish uchun bosing."</string>
-    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Xavfsizligingiz uchun ruxsatlar olib tashlandi"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Xavfsizlik yuzasidan, ruxsatlar olib tashlandi"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ilova joylashuv axborotingizni orqa fonda oldi"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Bu ilova joylashuv axborotingizdan foydalana oladi. Oʻzgartirish uchun bosing."</string>
     <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Xavfsizlik himoyasi uchun ilova ruxsatlari olib tashlandi"</string>
-    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"Bir necha oylardan beri <xliff:g id="APP_NAME">%s</xliff:g> ishlatilmadi. Tekshirish uchun bosing."</string>
-    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"Bir necha oylardan beri <xliff:g id="APP_NAME">%s</xliff:g> va yana 1 ta ilova ishlatilmadi. Tekshirish uchun bosing."</string>
-    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"Bir necha oylardan beri <xliff:g id="APP_NAME">%1$s</xliff:g> va yana <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> ta ilova ishlatilmadi. Tekshirish uchun bosing."</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> bir necha oydan beri ishlatilmadi. Tekshirish uchun bosing."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> va yana 1 ta ilova bir necha oydan beri ishlatilmadi. Tekshirish uchun bosing."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> va yana <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> ta ilova bir necha oydan beri ishlatilmadi. Tekshirish uchun bosing."</string>
     <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 ta ilova ishlatilmadi"</string>
     <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ta ilova ishlatilmadi"</string>
     <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Xavfsizligingiz uchun ilova ruxsatlari olib tashlandi. Tekshirish uchun bosing."</string>
@@ -193,14 +193,14 @@
     <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Ruxsatlar olib tashlanadigan ilovalar:"</string>
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> va <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> va yana <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ta"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Maʼlumotlaringizni himoyalash uchun bir necha oylardan beri ishlatilmagan ilovalar uchun ruxsatlar olib tashlandi"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Xavfsizlik yuzasidan, bir necha oydan beri ishlatilmagan ilovalardan ruxsatlar olib tashlanadi"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 ta ilova bir necha oydan beri ishlatilmadi"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ta ilova bir necha oydan beri ishlatilmadi"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Faqat ilova faolligida ruxsat"</string>
-    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Media fayllar"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Media"</string>
     <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Barcha fayllar"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Hech qanday ruxsat berilmagan"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"Hech qanday taqiq yoʻq"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Barcha ruxsatlar taqdim etilgan"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Hech qanday ilovaga ruxsat berilmagan"</string>
     <string name="no_apps_allowed_full" msgid="5857725855406253991">"Hech qaysi ilovaga barcha fayllarga ruxsat berilmagan"</string>
     <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Hech qaysi ilovaga faqat media fayllarga ruxsat berilmagan"</string>
