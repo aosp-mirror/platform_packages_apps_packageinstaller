@@ -23,11 +23,16 @@ import android.app.AppOpsManager.OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED
 import android.Manifest
 import android.os.Bundle
 import android.os.UserHandle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.android.permissioncontroller.PermissionControllerApplication
+import com.android.permissioncontroller.PermissionControllerStatsLog
+import com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION
+import com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION__ACTION__SWITCH_DISABLED
+import com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION__ACTION__SWITCH_ENABLED
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AppPermGroupUiInfoLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokeStateLiveData
@@ -55,8 +60,13 @@ import kotlinx.coroutines.launch
  */
 class AppPermissionGroupsViewModel(
     private val packageName: String,
-    private val user: UserHandle
+    private val user: UserHandle,
+    private val sessionId: Long
 ) : ViewModel() {
+
+    companion object {
+        val LOG_TAG: String = AppPermissionGroupsViewModel::class.java.simpleName
+    }
 
     enum class PermSubtitle(val value: Int) {
         NONE(0),
@@ -184,13 +194,27 @@ class AppPermissionGroupsViewModel(
         GlobalScope.launch(IPC) {
             val aom = PermissionControllerApplication.get()
                 .getSystemService(AppOpsManager::class.java)!!
-            val packageInfo = LightPackageInfoLiveData[packageName, user].getInitializedValue()
-            val mode = if (enabled) {
-                MODE_ALLOWED
-            } else {
-                MODE_IGNORED
+            val uid = LightPackageInfoLiveData[packageName, user].getInitializedValue()?.uid
+
+            if (uid != null) {
+                Log.i(LOG_TAG, "sessionId $sessionId setting auto revoke enabled to $enabled for" +
+                    "$packageName $user")
+                val tag = if (enabled) {
+                    APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION__ACTION__SWITCH_ENABLED
+                } else {
+                    APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION__ACTION__SWITCH_DISABLED
+                }
+                PermissionControllerStatsLog.write(
+                    APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION, sessionId, uid, packageName,
+                    tag)
+
+                val mode = if (enabled) {
+                    MODE_ALLOWED
+                } else {
+                    MODE_IGNORED
+                }
+                aom.setUidMode(OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED, uid, mode)
             }
-            aom.setUidMode(OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED, packageInfo.uid, mode)
         }
     }
 
@@ -211,11 +235,12 @@ class AppPermissionGroupsViewModel(
  */
 class AppPermissionGroupsViewModelFactory(
     private val packageName: String,
-    private val user: UserHandle
+    private val user: UserHandle,
+    private val sessionId: Long
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
-        return AppPermissionGroupsViewModel(packageName, user) as T
+        return AppPermissionGroupsViewModel(packageName, user, sessionId) as T
     }
 }
