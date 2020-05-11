@@ -71,7 +71,7 @@ class ManageStandardPermissionsViewModel(
     }
 
     fun showAutoRevoke(fragment: Fragment, args: Bundle) {
-        fragment.findNavController().navigateSafe(R.id.manage_to_auto_revoke)
+        fragment.findNavController().navigateSafe(R.id.manage_to_auto_revoke, args)
     }
 }
 
