@@ -45,7 +45,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -143,7 +142,8 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         mIsSystemPermsScreen = getArguments().getBoolean(IS_SYSTEM_PERMS_SCREEN, true);
 
         AppPermissionGroupsViewModelFactory factory =
-                new AppPermissionGroupsViewModelFactory(mPackageName, mUser);
+                new AppPermissionGroupsViewModelFactory(mPackageName, mUser,
+                        getArguments().getLong(EXTRA_SESSION_ID, 0));
 
         mViewModel = new ViewModelProvider(this, factory).get(AppPermissionGroupsViewModel.class);
         mViewModel.getPackagePermGroupsLiveData().observe(this, this::updatePreferences);
