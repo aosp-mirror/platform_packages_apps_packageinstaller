@@ -67,6 +67,8 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.DeviceConfig;
 import android.provider.Settings;
+import android.service.carrier.CarrierService;
+import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -1063,6 +1065,18 @@ public final class Utils {
         if (packageName.equals(Settings.Secure.getString(context.getContentResolver(),
                 "voice_interaction_service"))) {
             return true;
+        }
+
+        // Carrier privileged apps implementing the carrier service
+        final TelephonyManager telephonyManager =
+                context.getSystemService(TelephonyManager.class);
+        int numPhones = telephonyManager.getActiveModemCount();
+        for (int phoneId = 0; phoneId < numPhones; phoneId++) {
+            List<String> packages = telephonyManager.getCarrierPackageNamesForIntentAndPhone(
+                    new Intent(CarrierService.CARRIER_SERVICE_INTERFACE), phoneId);
+            if (packages != null && packages.contains(packageName)) {
+                return true;
+            }
         }
 
         return false;
