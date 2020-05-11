@@ -1,18 +1,18 @@
 /*
-* Copyright (C) 2015 The Android Open Source Project
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright (C) 2015 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.android.permissioncontroller.permission.ui;
 
@@ -21,6 +21,10 @@ import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTE
 import static com.android.permissioncontroller.Constants.ACTION_MANAGE_AUTO_REVOKE;
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION__ACTION__OPENED_FOR_AUTO_REVOKE;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION__ACTION__OPENED_FROM_INTENT;
+import static com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKE_NOTIFICATION_CLICKED;
 
 import android.app.ActionBar;
 import android.content.Intent;
@@ -40,6 +44,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.android.permissioncontroller.Constants;
 import com.android.permissioncontroller.DeviceUtils;
+import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.ui.auto.AutoAllAppPermissionsFragment;
 import com.android.permissioncontroller.permission.ui.auto.AutoAppPermissionsFragment;
@@ -103,6 +108,11 @@ public final class ManagePermissionsActivity extends FragmentActivity {
             sessionId = new Random().nextLong();
         }
 
+        int autoRevokeAction =
+                APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION__ACTION__OPENED_FOR_AUTO_REVOKE;
+        int openFromIntentAction =
+                APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION__ACTION__OPENED_FROM_INTENT;
+
         String permissionName;
         switch (action) {
             case Intent.ACTION_MANAGE_PERMISSIONS:
@@ -152,13 +162,39 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                     return;
                 }
 
-                final boolean allPermissions = getIntent().getBooleanExtra(
-                        EXTRA_ALL_PERMISSIONS, false);
-
                 UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
                 if (userHandle == null) {
                     userHandle = UserHandle.of(UserHandle.myUserId());
                 }
+
+                try {
+                    int uid = getPackageManager().getApplicationInfoAsUser(packageName, 0,
+                            userHandle).uid;
+                    long settingsSessionId = getIntent().getLongExtra(
+                            Intent.ACTION_AUTO_REVOKE_PERMISSIONS, INVALID_SESSION_ID);
+                    if (settingsSessionId != INVALID_SESSION_ID) {
+                        sessionId = settingsSessionId;
+                        Log.i(LOG_TAG, "sessionId: " + sessionId
+                                + " Reaching AppPermissionGroupsFragment for auto revoke. "
+                                + "packageName: " + packageName + " uid " + uid);
+                        PermissionControllerStatsLog.write(
+                                APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION, sessionId, uid,
+                                packageName, autoRevokeAction);
+                    } else {
+                        Log.i(LOG_TAG, "sessionId: " + sessionId
+                                + " Reaching AppPermissionGroupsFragment from intent. packageName "
+                                + packageName + " uid " + uid);
+                        PermissionControllerStatsLog.write(
+                                APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION, sessionId, uid,
+                                packageName, openFromIntentAction);
+                    }
+                } catch (PackageManager.NameNotFoundException e) {
+                    // Do no logging
+                }
+
+                final boolean allPermissions = getIntent().getBooleanExtra(
+                        EXTRA_ALL_PERMISSIONS, false);
+
 
                 if (DeviceUtils.isAuto(this)) {
                     if (allPermissions) {
@@ -217,6 +253,10 @@ public final class ManagePermissionsActivity extends FragmentActivity {
             } break;
 
             case ACTION_MANAGE_AUTO_REVOKE: {
+                Log.i(LOG_TAG, "sessionId " + sessionId + " starting auto revoke fragment"
+                        + " from notification");
+                PermissionControllerStatsLog.write(AUTO_REVOKE_NOTIFICATION_CLICKED, sessionId);
+
                 if (DeviceUtils.isWear(this) || DeviceUtils.isAuto(this)
                         || DeviceUtils.isTelevision(this)) {
                     androidXFragment = com.android.permissioncontroller.permission.ui.handheld
