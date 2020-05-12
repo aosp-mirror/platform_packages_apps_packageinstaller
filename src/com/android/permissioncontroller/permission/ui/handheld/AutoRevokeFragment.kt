@@ -152,7 +152,7 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
             }
             category.isVisible = packages.isNotEmpty()
 
-            for ((pkgName, user, shouldDisable, canOpen, permSet) in packages) {
+            for ((pkgName, user, shouldDisable, permSet) in packages) {
                 val revokedPerms = permSet.toList()
                 val key = createKey(pkgName, user)
 
@@ -162,11 +162,6 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
                         activity!!.application, pkgName, user, preferenceManager.context!!)
                     pref.key = key
                     pref.title = KotlinUtils.getPackageLabel(activity!!.application, pkgName, user)
-                }
-
-                pref.canOpen = canOpen
-                pref.openClickListener = View.OnClickListener {
-                    viewModel.openApp(pkgName, user)
                 }
 
                 if (shouldDisable) {
