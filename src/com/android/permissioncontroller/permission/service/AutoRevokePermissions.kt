@@ -86,11 +86,17 @@ import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.AppOpLiveData
 import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
+import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.data.UnusedAutoRevokedPackagesLiveData
 import com.android.permissioncontroller.permission.data.UsageStatsLiveData
 import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
+import com.android.permissioncontroller.permission.service.AutoRevokePermissionsProto.AutoRevokePermissionsDumpProto
+import com.android.permissioncontroller.permission.service.AutoRevokePermissionsProto.PackageProto
+import com.android.permissioncontroller.permission.service.AutoRevokePermissionsProto.PerUserProto
+import com.android.permissioncontroller.permission.service.AutoRevokePermissionsProto.PermissionGroupProto
+import com.android.permissioncontroller.permission.service.AutoRevokePermissionsProto.TeamFoodSettingsProto
 import com.android.permissioncontroller.permission.ui.ManagePermissionsActivity
 import com.android.permissioncontroller.permission.utils.IPC
 import com.android.permissioncontroller.permission.utils.KotlinUtils
@@ -103,6 +109,7 @@ import com.android.permissioncontroller.permission.utils.updatePermissionFlags
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit.DAYS
@@ -150,6 +157,25 @@ fun isAutoRevokeEnabled(context: Context): Boolean {
     return getCheckFrequencyMs(context) > 0 &&
             getUnusedThresholdMs(context) > 0 &&
             getUnusedThresholdMs(context) != Long.MAX_VALUE
+}
+
+/**
+ * @return dump of auto revoke service as a proto
+ */
+suspend fun dumpAutoRevokePermissions(context: Context): AutoRevokePermissionsDumpProto {
+    val teamFoodSettings = GlobalScope.async(IPC) {
+        TeamfoodSettings.get(context)?.dump()
+                ?: TeamFoodSettingsProto.newBuilder().build()
+    }
+
+    val dumpData = GlobalScope.async(IPC) {
+        AutoRevokeDumpLiveData(context).getInitializedValue(staleOk = true)
+    }
+
+    return AutoRevokePermissionsDumpProto.newBuilder()
+            .setTeamfoodSettings(teamFoodSettings.await())
+            .addAllUsers(dumpData.await().dumpUsers())
+            .build()
 }
 
 /**
@@ -651,5 +677,236 @@ private data class TeamfoodSettings(
                 }
             }
         }
+    }
+
+    /**
+     * @return team food settings for dumping as as a proto
+     */
+    suspend fun dump(): TeamFoodSettingsProto {
+        return TeamFoodSettingsProto.newBuilder()
+                .setEnabledForPreRApps(enabledForPreRApps)
+                .setUnusedThresholdMillis(unusedThresholdMs)
+                .setCheckFrequencyMillis(checkFrequencyMs)
+                .build()
+    }
+}
+
+/** Data interesting to auto-revoke */
+private class AutoRevokeDumpLiveData(context: Context) :
+        SmartUpdateMediatorLiveData<AutoRevokeDumpLiveData.AutoRevokeDumpData>() {
+    /** All data */
+    data class AutoRevokeDumpData(
+        val users: List<AutoRevokeDumpUserData>
+    ) {
+        fun dumpUsers(): List<PerUserProto> {
+            return users.map { it.dump() }
+        }
+    }
+
+    /** Per user data */
+    data class AutoRevokeDumpUserData(
+        val user: UserHandle,
+        val pkgs: List<AutoRevokeDumpPackageData>
+    ) {
+        fun dump(): PerUserProto {
+            val dump = PerUserProto.newBuilder()
+                    .setUserId(user.identifier)
+
+            pkgs.forEach { dump.addPackages(it.dump()) }
+
+            return dump.build()
+        }
+    }
+
+    /** Per package data */
+    data class AutoRevokeDumpPackageData(
+        val uid: Int,
+        val packageName: String,
+        val firstInstallTime: Long,
+        val lastTimeVisible: Long?,
+        val groups: List<AutoRevokeDumpGroupData>
+    ) {
+        fun dump(): PackageProto {
+            val dump = PackageProto.newBuilder()
+                    .setUid(uid)
+                    .setPackageName(packageName)
+                    .setFirstInstallTime(firstInstallTime)
+
+            lastTimeVisible?.let { dump.lastTimeVisible = lastTimeVisible }
+
+            groups.forEach { dump.addGroups(it.dump()) }
+
+            return dump.build()
+        }
+    }
+
+    /** Per permission group data */
+    data class AutoRevokeDumpGroupData(
+        val groupName: String,
+        val isFixed: Boolean,
+        val isAnyGrantedIncludingAppOp: Boolean,
+        val isGrantedByDefault: Boolean,
+        val isGrantedByRole: Boolean,
+        val isUserSensitive: Boolean,
+        val isAutoRevoked: Boolean
+    ) {
+        fun dump(): PermissionGroupProto {
+            return PermissionGroupProto.newBuilder()
+                    .setGroupName(groupName)
+                    .setIsFixed(isFixed)
+                    .setIsAnyGrantedIncludingAppop(isAnyGrantedIncludingAppOp)
+                    .setIsGrantedByDefault(isGrantedByDefault)
+                    .setIsGrantedByRole(isGrantedByRole)
+                    .setIsUserSensitive(isUserSensitive)
+                    .setIsAutoRevoked(isAutoRevoked)
+                    .build()
+        }
+    }
+
+    /** Usage stats: user -> list<usages> */
+    private val usages = UsageStatsLiveData[
+        getUnusedThresholdMs(context),
+        if (DEBUG_OVERRIDE_THRESHOLDS) INTERVAL_DAILY else INTERVAL_MONTHLY
+    ]
+
+    /** All package infos: user -> pkg **/
+    private val packages = AllPackageInfosLiveData
+
+    /** Group names of revoked permission groups: (user, pkg-name) -> set<group-name> **/
+    private val revokedPermGroupNames = UnusedAutoRevokedPackagesLiveData
+
+    /**
+     * Group names for packages
+     * map<user, pkg-name> -> list<perm-group-name>. {@code null} before step 1
+     */
+    private var pkgPermGroupNames:
+            MutableMap<Pair<UserHandle, String>, PackagePermissionsLiveData>? = null
+
+    /**
+     * Group state for packages
+     * map<(user, pkg-name) -> map<perm-group-name -> group>>, value {@code null} before step 2
+     */
+    private val pkgPermGroups =
+            mutableMapOf<Pair<UserHandle, String>,
+                    MutableMap<String, LightAppPermGroupLiveData>?>()
+
+    /** If this live-data currently inside onUpdate */
+    private var isUpdating = false
+
+    init {
+        addSource(revokedPermGroupNames) {
+            updateIfActive()
+        }
+
+        addSource(usages) {
+            updateIfActive()
+        }
+
+        addSource(packages) {
+            pkgPermGroupNames?.values?.forEach { removeSource(it) }
+            pkgPermGroupNames = null
+            pkgPermGroups.values.forEach { it?.values?.forEach { removeSource(it) } }
+
+            updateIfActive()
+        }
+    }
+
+    override fun onUpdate() {
+        // If a source is already ready, the call onUpdate when added. Suppress this
+        if (isUpdating) {
+            return
+        }
+        isUpdating = true
+
+        // Step 1, packages is loaded, nothing else
+        if (packages.isInitialized && pkgPermGroupNames == null) {
+            pkgPermGroupNames = mutableMapOf()
+
+            for ((user, userPkgs) in packages.value!!) {
+                for (pkg in userPkgs) {
+                    val newPermGroupNames = PackagePermissionsLiveData[pkg.packageName, user]
+                    pkgPermGroupNames!![user to pkg.packageName] = newPermGroupNames
+
+                    addSource(newPermGroupNames) {
+                        pkgPermGroups[user to pkg.packageName]?.forEach { removeSource(it.value) }
+                        pkgPermGroups.remove(user to pkg.packageName)
+
+                        updateIfActive()
+                    }
+                }
+            }
+        }
+
+        // Step 2, packages and pkgPermGroupNames are loaded, but pkgPermGroups are not loaded yet
+        if (packages.isInitialized && pkgPermGroupNames != null) {
+            for ((user, userPkgs) in packages.value!!) {
+                for (pkg in userPkgs) {
+                    if (pkgPermGroupNames!![user to pkg.packageName]?.isInitialized == true &&
+                            pkgPermGroups[user to pkg.packageName] == null) {
+                        pkgPermGroups[user to pkg.packageName] = mutableMapOf()
+
+                        for (groupName in
+                                pkgPermGroupNames!![user to pkg.packageName]!!.value!!.keys) {
+                            if (groupName == PackagePermissionsLiveData.NON_RUNTIME_NORMAL_PERMS) {
+                                continue
+                            }
+
+                            val newPkgPermGroup = LightAppPermGroupLiveData[pkg.packageName,
+                                    groupName, user]
+
+                            pkgPermGroups[user to pkg.packageName]!![groupName] = newPkgPermGroup
+
+                            addSource(newPkgPermGroup) { updateIfActive() }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Step 3, everything is loaded, generate data
+        if (packages.isInitialized && usages.isInitialized && revokedPermGroupNames.isInitialized &&
+                pkgPermGroupNames?.values?.all { it.isInitialized } == true &&
+                pkgPermGroupNames?.size == pkgPermGroups.size &&
+                pkgPermGroups.values.all { it?.values?.all { it.isInitialized } == true }) {
+            val users = mutableListOf<AutoRevokeDumpUserData>()
+
+            for ((user, userPkgs) in packages.value!!) {
+                val pkgs = mutableListOf<AutoRevokeDumpPackageData>()
+
+                for (pkg in userPkgs) {
+                    val groups = mutableListOf<AutoRevokeDumpGroupData>()
+
+                    for (groupName in pkgPermGroupNames!![user to pkg.packageName]!!.value!!.keys) {
+                        if (groupName == PackagePermissionsLiveData.NON_RUNTIME_NORMAL_PERMS) {
+                            continue
+                        }
+
+                        pkgPermGroups[user to pkg.packageName]!![groupName]!!.value!!.apply {
+                            groups.add(AutoRevokeDumpGroupData(groupName,
+                                    isBackgroundFixed || isForegroundFixed,
+                                    permissions.any { (_, p) -> p.isGrantedIncludingAppOp },
+                                    isGrantedByDefault,
+                                    isGrantedByRole,
+                                    isUserSensitive,
+                                    revokedPermGroupNames.value!![pkg.packageName to user]
+                                            ?.contains(groupName) ?: false
+                            ))
+                        }
+                    }
+
+                    pkgs.add(AutoRevokeDumpPackageData(pkg.uid, pkg.packageName,
+                            pkg.firstInstallTime,
+                            usages.value!![user]
+                                    ?.find { it.packageName == pkg.packageName }?.lastTimeVisible,
+                            groups))
+                }
+
+                users.add(AutoRevokeDumpUserData(user, pkgs))
+            }
+
+            value = AutoRevokeDumpData(users)
+        }
+
+        isUpdating = false
     }
 }
