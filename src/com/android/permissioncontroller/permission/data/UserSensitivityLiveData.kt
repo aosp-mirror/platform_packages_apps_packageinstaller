@@ -113,7 +113,7 @@ class UserSensitivityLiveData private constructor(
                 // The launcher packages set will only be null when it is uninitialized.
                 LauncherPackagesLiveData.value?.contains(pkg.packageName) ?: return
             } else {
-                pm.getLaunchIntentForPackage(pkg.packageName) != null
+                KotlinUtils.packageHasLaunchIntent(context, pkg.packageName)
             }
             val pkgIsSystemApp = pkg.appFlags and ApplicationInfo.FLAG_SYSTEM != 0
             // Iterate through all runtime perms, setting their keys
