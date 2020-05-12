@@ -16,6 +16,7 @@
 package com.android.permissioncontroller.permission.ui.handheld;
 
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
+import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
 import static com.android.permissioncontroller.permission.ui.handheld.UtilsKt.pressBack;
 
 import android.os.Bundle;
@@ -155,9 +156,8 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                 autoRevokePreference.setSummary(
                         R.string.auto_revoke_preference_summary);
                 autoRevokePreference.setOnPreferenceClickListener(preference -> {
-                    mViewModel.showAutoRevoke(this,
-                            AutoRevokeFragment.createArgs(
-                                    getArguments().getLong(EXTRA_SESSION_ID)));
+                    mViewModel.showAutoRevoke(this, AutoRevokeFragment.createArgs(
+                            getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID)));
                     return true;
                 });
 
