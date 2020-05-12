@@ -74,6 +74,8 @@ import androidx.preference.PreferenceManager
 import com.android.permissioncontroller.Constants
 import com.android.permissioncontroller.Constants.ACTION_MANAGE_AUTO_REVOKE
 import com.android.permissioncontroller.Constants.AUTO_REVOKE_NOTIFICATION_ID
+import com.android.permissioncontroller.Constants.EXTRA_SESSION_ID
+import com.android.permissioncontroller.Constants.INVALID_SESSION_ID
 import com.android.permissioncontroller.Constants.PERMISSION_REMINDER_CHANNEL_ID
 import com.android.permissioncontroller.DumpableLog
 import com.android.permissioncontroller.PermissionControllerStatsLog
@@ -106,7 +108,7 @@ import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit.DAYS
 import java.util.concurrent.TimeUnit.SECONDS
 import java.util.concurrent.atomic.AtomicBoolean
-import kotlin.random.Random
+import java.util.Random
 
 private const val LOG_TAG = "AutoRevokePermissions"
 private const val DEBUG_OVERRIDE_THRESHOLDS = false
@@ -194,7 +196,10 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
 }
 
 @MainThread
-private suspend fun revokePermissionsOnUnusedApps(context: Context):
+private suspend fun revokePermissionsOnUnusedApps(
+    context: Context,
+    sessionId: Long = INVALID_SESSION_ID
+):
     List<Pair<String, UserHandle>> {
     if (!isAutoRevokeEnabled(context)) {
         return emptyList()
@@ -365,7 +370,7 @@ private suspend fun revokePermissionsOnUnusedApps(context: Context):
                     for (permName in revocablePermissions) {
                         PermissionControllerStatsLog.write(
                             PERMISSION_GRANT_REQUEST_RESULT_REPORTED,
-                            Random.nextLong(), uid, packageName, permName, false, SERVER_LOG_ID)
+                            sessionId, uid, packageName, permName, false, SERVER_LOG_ID)
                     }
 
                     val packageImportance = context
@@ -534,9 +539,14 @@ class AutoRevokeService : JobService() {
         jobStartTime = System.currentTimeMillis()
         job = GlobalScope.launch(Main) {
             try {
-                val revokedApps = revokePermissionsOnUnusedApps(this@AutoRevokeService)
+                var sessionId = INVALID_SESSION_ID
+                while (sessionId == INVALID_SESSION_ID) {
+                    sessionId = Random().nextLong()
+                }
+
+                val revokedApps = revokePermissionsOnUnusedApps(this@AutoRevokeService, sessionId)
                 if (revokedApps.isNotEmpty()) {
-                    showAutoRevokeNotification()
+                    showAutoRevokeNotification(sessionId)
                 }
             } catch (e: Exception) {
                 DumpableLog.e(LOG_TAG, "Failed to auto-revoke permissions", e)
@@ -546,7 +556,7 @@ class AutoRevokeService : JobService() {
         return true
     }
 
-    private suspend fun showAutoRevokeNotification() {
+    private suspend fun showAutoRevokeNotification(sessionId: Long) {
         val notificationManager = getSystemService(NotificationManager::class.java)!!
 
         val permissionReminderChannel = NotificationChannel(
@@ -556,7 +566,7 @@ class AutoRevokeService : JobService() {
 
         val clickIntent = Intent(this, ManagePermissionsActivity::class.java).apply {
             action = ACTION_MANAGE_AUTO_REVOKE
-            putExtra(SHOW_AUTO_REVOKE, true)
+            putExtra(EXTRA_SESSION_ID, sessionId)
             flags = Intent.FLAG_ACTIVITY_NEW_TASK
         }
         val pendingIntent = PendingIntent.getActivity(this, 0, clickIntent,

@@ -26,22 +26,34 @@ import android.provider.Settings
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import android.util.Log
+import com.android.permissioncontroller.PermissionControllerStatsLog
+import com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKED_APP_INTERACTION
+import com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKED_APP_INTERACTION__ACTION__OPEN
+import com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKED_APP_INTERACTION__ACTION__REMOVE
+import com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKE_FRAGMENT_APP_VIEWED
+import com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKE_FRAGMENT_APP_VIEWED__AGE__NEWER_BUCKET
+import com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKE_FRAGMENT_APP_VIEWED__AGE__OLDER_BUCKET
 import com.android.permissioncontroller.permission.utils.Utils
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.SmartAsyncMediatorLiveData
 import com.android.permissioncontroller.permission.data.UnusedAutoRevokedPackagesLiveData
 import com.android.permissioncontroller.permission.data.UsageStatsLiveData
+import com.android.permissioncontroller.permission.utils.IPC
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit.DAYS
 
 /**
  * ViewModel for the AutoRevokeFragment. Has a livedata which provides all auto revoked apps,
  * organized by how long they have been unused.
  */
-class AutoRevokeViewModel(private val app: Application) : ViewModel() {
+class AutoRevokeViewModel(private val app: Application, private val sessionId: Long) : ViewModel() {
 
     companion object {
         private val SIX_MONTHS_MILLIS = DAYS.toMillis(180)
+        private val LOG_TAG = AppPermissionViewModel::class.java.simpleName
     }
 
     enum class Months(val value: String) {
@@ -168,6 +180,8 @@ class AutoRevokeViewModel(private val app: Application) : ViewModel() {
     }
 
     fun openApp(packageName: String, user: UserHandle) {
+        Log.i(LOG_TAG, "sessionId: $sessionId, opening $packageName, $user")
+        logAppInteraction(packageName, user, AUTO_REVOKED_APP_INTERACTION__ACTION__OPEN)
         val userContext = Utils.getUserContext(app, user)
         val intent = userContext.packageManager.getLaunchIntentForPackage(packageName)
         if (intent != null) {
@@ -176,6 +190,8 @@ class AutoRevokeViewModel(private val app: Application) : ViewModel() {
     }
 
     fun requestUninstallApp(fragment: Fragment, packageName: String, user: UserHandle) {
+        Log.i(LOG_TAG, "sessionId: $sessionId, Requesting uninstall of $packageName, $user")
+        logAppInteraction(packageName, user, AUTO_REVOKED_APP_INTERACTION__ACTION__REMOVE)
         val packageUri = Uri.parse("package:$packageName")
         val uninstallIntent = Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageUri)
         uninstallIntent.putExtra(Intent.EXTRA_USER, user)
@@ -183,16 +199,51 @@ class AutoRevokeViewModel(private val app: Application) : ViewModel() {
     }
 
     fun disableApp(packageName: String, user: UserHandle) {
+        Log.i(LOG_TAG, "sessionId: $sessionId, Disabling $packageName, $user")
+        logAppInteraction(packageName, user, AUTO_REVOKED_APP_INTERACTION__ACTION__REMOVE)
         val userContext = Utils.getUserContext(app, user)
         userContext.packageManager.setApplicationEnabledSetting(packageName,
             PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER, 0)
     }
+
+    private fun logAppInteraction(packageName: String, user: UserHandle, action: Int) {
+        GlobalScope.launch(IPC) {
+            // If we are logging an app interaction, then the AllPackageInfosLiveData is not stale.
+            val uid = AllPackageInfosLiveData.value?.get(user)?.find {
+                info -> info.packageName == packageName }?.uid
+
+            if (uid != null) {
+                PermissionControllerStatsLog.write(AUTO_REVOKED_APP_INTERACTION, sessionId,
+                    uid, packageName, action)
+            }
+        }
+    }
+
+    fun logAppView(packageName: String, user: UserHandle, groupName: String, isNew: Boolean) {
+        GlobalScope.launch(IPC) {
+            val uid = AllPackageInfosLiveData.value!![user]!!.find {
+                info -> info.packageName == packageName }?.uid
+
+            if (uid != null) {
+                val bucket = if (isNew) {
+                    AUTO_REVOKE_FRAGMENT_APP_VIEWED__AGE__NEWER_BUCKET
+                } else {
+                    AUTO_REVOKE_FRAGMENT_APP_VIEWED__AGE__OLDER_BUCKET
+                }
+                PermissionControllerStatsLog.write(AUTO_REVOKE_FRAGMENT_APP_VIEWED, sessionId,
+                    uid, packageName, groupName, bucket)
+            }
+        }
+    }
 }
 
-class AutoRevokeViewModelFactory(private val app: Application) : ViewModelProvider.Factory {
+class AutoRevokeViewModelFactory(
+    private val app: Application,
+    private val sessionId: Long
+) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
-        return AutoRevokeViewModel(app) as T
+        return AutoRevokeViewModel(app, sessionId) as T
     }
 }
