@@ -292,7 +292,12 @@ private suspend fun revokePermissionsOnUnusedApps(
             .getInitializedValue(staleOk = true).keys
 
     val revokedApps = mutableListOf<Pair<String, UserHandle>>()
+    val userManager = context.getSystemService(UserManager::class.java)
     for ((user, userApps) in unusedApps) {
+        if (userManager == null || !userManager.isUserUnlocked(user)) {
+            DumpableLog.w(LOG_TAG, "Skipping $user - locked direct boot state")
+            continue
+        }
         userApps.forEachInParallel(Main) { pkg: LightPackageInfo ->
             if (pkg.grantedPermissions.isEmpty()) {
                 return@forEachInParallel
