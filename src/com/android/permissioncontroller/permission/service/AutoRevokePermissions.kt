@@ -47,8 +47,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
-import android.content.pm.PackageManager.GET_META_DATA
-import android.content.pm.PackageManager.GET_SERVICES
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.net.NetworkScoreManager
 import android.os.Bundle
@@ -84,11 +82,14 @@ import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.AppOpLiveData
+import com.android.permissioncontroller.permission.data.DataRepositoryForPackage
 import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
+import com.android.permissioncontroller.permission.data.ServiceLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.data.UnusedAutoRevokedPackagesLiveData
 import com.android.permissioncontroller.permission.data.UsageStatsLiveData
+import com.android.permissioncontroller.permission.data.UsersLiveData
 import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.LightAppPermGroup
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
@@ -285,61 +286,9 @@ private suspend fun revokePermissionsOnUnusedApps(
     }
 
     // Exempt important system-bound services
-    val keyboardPackages = packagesWithService(context,
-            InputMethod.SERVICE_INTERFACE,
-            Manifest.permission.BIND_INPUT_METHOD)
-    val notificationListenerPackages = packagesWithService(context,
-            NotificationListenerService.SERVICE_INTERFACE,
-            Manifest.permission.BIND_NOTIFICATION_LISTENER_SERVICE)
-    val accessibilityPackages = packagesWithService(context,
-            AccessibilityService.SERVICE_INTERFACE,
-            Manifest.permission.BIND_ACCESSIBILITY_SERVICE)
-    val liveWallpaperPackages = packagesWithService(context,
-            WallpaperService.SERVICE_INTERFACE,
-            Manifest.permission.BIND_WALLPAPER)
-    val voiceInteractionServicePackages = packagesWithService(context,
-            VoiceInteractionService.SERVICE_INTERFACE,
-            Manifest.permission.BIND_VOICE_INTERACTION)
-    val attentionServicePackages = packagesWithService(context,
-            AttentionService.SERVICE_INTERFACE,
-            Manifest.permission.BIND_ATTENTION_SERVICE)
-    val textClassifierPackages = packagesWithService(context,
-            TextClassifierService.SERVICE_INTERFACE,
-            Manifest.permission.BIND_TEXTCLASSIFIER_SERVICE)
-    val printServicePackages = packagesWithService(context,
-            PrintService.SERVICE_INTERFACE,
-            Manifest.permission.BIND_PRINT_SERVICE)
-    val dreamServicePackages = packagesWithService(context,
-            DreamService.SERVICE_INTERFACE,
-            Manifest.permission.BIND_DREAM_SERVICE)
-    val networkScorerPackages = packagesWithService(context,
-            NetworkScoreManager.ACTION_RECOMMEND_NETWORKS,
-            Manifest.permission.BIND_NETWORK_RECOMMENDATION_SERVICE)
-    val autofillPackages = packagesWithService(context,
-            AutofillService.SERVICE_INTERFACE,
-            Manifest.permission.BIND_AUTOFILL_SERVICE)
-    val augmentedAutofillPackages = packagesWithService(context,
-            AugmentedAutofillService.SERVICE_INTERFACE,
-            Manifest.permission.BIND_AUGMENTED_AUTOFILL_SERVICE)
-    val deviceAdminPackages = packagesWithService(context,
-            DevicePolicyManager.ACTION_DEVICE_ADMIN_SERVICE,
-            Manifest.permission.BIND_DEVICE_ADMIN)
-
-    val exemptServicePackages = mutableSetOf<String>().apply {
-        addAll(keyboardPackages)
-        addAll(notificationListenerPackages)
-        addAll(accessibilityPackages)
-        addAll(liveWallpaperPackages)
-        addAll(voiceInteractionServicePackages)
-        addAll(attentionServicePackages)
-        addAll(textClassifierPackages)
-        addAll(printServicePackages)
-        addAll(dreamServicePackages)
-        addAll(networkScorerPackages)
-        addAll(autofillPackages)
-        addAll(augmentedAutofillPackages)
-        addAll(deviceAdminPackages)
-    }
+    // TODO: Support more than the current user
+    val exemptServicePackages = ExemptServicesLiveData[myUserHandle()]
+            .getInitializedValue(staleOk = true).keys
 
     val revokedApps = mutableListOf<Pair<String, UserHandle>>()
     for ((user, userApps) in unusedApps) {
@@ -439,28 +388,6 @@ private suspend fun revokePermissionsOnUnusedApps(
         }
     }
     return revokedApps
-}
-
-private fun packagesWithService(
-    context: Context,
-    serviceInterface: String,
-    permission: String
-): List<String> {
-    val packageNames = context.packageManager
-            .queryIntentServices(
-                    Intent(serviceInterface),
-                    GET_SERVICES or GET_META_DATA)
-            .mapNotNull { resolveInfo ->
-                if (resolveInfo?.serviceInfo?.permission != permission) {
-                    return@mapNotNull null
-                }
-                resolveInfo?.serviceInfo?.packageName
-            }
-    if (DEBUG) {
-        DumpableLog.i(LOG_TAG,
-                "Detected ${serviceInterface.substringAfterLast(".")}s: $packageNames")
-    }
-    return packageNames
 }
 
 private fun List<UsageStats>.lastTimeVisible(pkgName: String) =
@@ -636,6 +563,97 @@ class AutoRevokeService : JobService() {
     }
 }
 
+/**
+ * Packages using exempt services for the current user (package-name -> list<service-interfaces>
+ * implemented by the package)
+ */
+private class ExemptServicesLiveData(val user: UserHandle)
+    : SmartUpdateMediatorLiveData<Map<String, List<String>>>() {
+    private val serviceLiveDatas = listOf(
+            ServiceLiveData[InputMethod.SERVICE_INTERFACE,
+                    Manifest.permission.BIND_INPUT_METHOD,
+                    user],
+            ServiceLiveData[
+                    NotificationListenerService.SERVICE_INTERFACE,
+                    Manifest.permission.BIND_NOTIFICATION_LISTENER_SERVICE,
+                    user],
+            ServiceLiveData[
+                    AccessibilityService.SERVICE_INTERFACE,
+                    Manifest.permission.BIND_ACCESSIBILITY_SERVICE,
+                    user],
+            ServiceLiveData[
+                    WallpaperService.SERVICE_INTERFACE,
+                    Manifest.permission.BIND_WALLPAPER,
+                    user],
+            ServiceLiveData[
+                    VoiceInteractionService.SERVICE_INTERFACE,
+                    Manifest.permission.BIND_VOICE_INTERACTION,
+                    user],
+            ServiceLiveData[
+                    AttentionService.SERVICE_INTERFACE,
+                    Manifest.permission.BIND_ATTENTION_SERVICE,
+                    user],
+            ServiceLiveData[
+                    TextClassifierService.SERVICE_INTERFACE,
+                    Manifest.permission.BIND_TEXTCLASSIFIER_SERVICE,
+                    user],
+            ServiceLiveData[
+                    PrintService.SERVICE_INTERFACE,
+                    Manifest.permission.BIND_PRINT_SERVICE,
+                    user],
+            ServiceLiveData[
+                    DreamService.SERVICE_INTERFACE,
+                    Manifest.permission.BIND_DREAM_SERVICE,
+                    user],
+            ServiceLiveData[
+                    NetworkScoreManager.ACTION_RECOMMEND_NETWORKS,
+                    Manifest.permission.BIND_NETWORK_RECOMMENDATION_SERVICE,
+                    user],
+            ServiceLiveData[
+                    AutofillService.SERVICE_INTERFACE,
+                    Manifest.permission.BIND_AUTOFILL_SERVICE,
+                    user],
+            ServiceLiveData[
+                    AugmentedAutofillService.SERVICE_INTERFACE,
+                    Manifest.permission.BIND_AUGMENTED_AUTOFILL_SERVICE,
+                    user],
+            ServiceLiveData[
+                    DevicePolicyManager.ACTION_DEVICE_ADMIN_SERVICE,
+                    Manifest.permission.BIND_DEVICE_ADMIN,
+                    user]
+    )
+
+    init {
+        serviceLiveDatas.forEach { addSource(it) { updateIfActive() } }
+    }
+
+    override fun onUpdate() {
+        if (serviceLiveDatas.all { it.isInitialized }) {
+            val pksToServices = mutableMapOf<String, MutableList<String>>()
+
+            serviceLiveDatas.forEach { serviceLD ->
+                serviceLD.value!!.forEach { packageName ->
+                    pksToServices.getOrPut(packageName, { mutableListOf() })
+                            .add(serviceLD.serviceInterface)
+                }
+            }
+
+            value = pksToServices
+        }
+    }
+
+    /**
+     * Repository for ExemptServiceLiveData
+     *
+     * <p> Key value is user
+     */
+    companion object : DataRepositoryForPackage<UserHandle, ExemptServicesLiveData>() {
+        override fun newValue(key: UserHandle): ExemptServicesLiveData {
+            return ExemptServicesLiveData(key)
+        }
+    }
+}
+
 private data class TeamfoodSettings(
     val enabledForPreRApps: Boolean,
     val unusedThresholdMs: Long,
@@ -724,6 +742,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
         val packageName: String,
         val firstInstallTime: Long,
         val lastTimeVisible: Long?,
+        val implementedServices: List<String>,
         val groups: List<AutoRevokeDumpGroupData>
     ) {
         fun dump(): PackageProto {
@@ -733,6 +752,8 @@ private class AutoRevokeDumpLiveData(context: Context) :
                     .setFirstInstallTime(firstInstallTime)
 
             lastTimeVisible?.let { dump.lastTimeVisible = lastTimeVisible }
+
+            implementedServices.forEach { dump.addImplementedServices(it) }
 
             groups.forEach { dump.addGroups(it.dump()) }
 
@@ -762,6 +783,12 @@ private class AutoRevokeDumpLiveData(context: Context) :
                     .build()
         }
     }
+
+    /** All users */
+    private val users = UsersLiveData
+
+    /** Exempt services for each user: user -> services */
+    private var services: MutableMap<UserHandle, ExemptServicesLiveData>? = null
 
     /** Usage stats: user -> list<usages> */
     private val usages = UsageStatsLiveData[
@@ -798,6 +825,13 @@ private class AutoRevokeDumpLiveData(context: Context) :
             updateIfActive()
         }
 
+        addSource(users) {
+            services?.values?.forEach { removeSource(it) }
+            services = null
+
+            updateIfActive()
+        }
+
         addSource(usages) {
             updateIfActive()
         }
@@ -818,7 +852,21 @@ private class AutoRevokeDumpLiveData(context: Context) :
         }
         isUpdating = true
 
-        // Step 1, packages is loaded, nothing else
+        // services step 1, users is loaded, nothing else
+        if (users.isInitialized && services == null) {
+            services = mutableMapOf()
+
+            for (user in users.value!!) {
+                val newServices = ExemptServicesLiveData[user]
+                services!![user] = newServices
+
+                addSource(newServices) {
+                    updateIfActive()
+                }
+            }
+        }
+
+        // pkgPermGroupNames step 1, packages is loaded, nothing else
         if (packages.isInitialized && pkgPermGroupNames == null) {
             pkgPermGroupNames = mutableMapOf()
 
@@ -837,7 +885,8 @@ private class AutoRevokeDumpLiveData(context: Context) :
             }
         }
 
-        // Step 2, packages and pkgPermGroupNames are loaded, but pkgPermGroups are not loaded yet
+        // pkgPermGroupNames step 2, packages and pkgPermGroupNames are loaded, but pkgPermGroups
+        // are not loaded yet
         if (packages.isInitialized && pkgPermGroupNames != null) {
             for ((user, userPkgs) in packages.value!!) {
                 for (pkg in userPkgs) {
@@ -863,11 +912,12 @@ private class AutoRevokeDumpLiveData(context: Context) :
             }
         }
 
-        // Step 3, everything is loaded, generate data
+        // Final step, everything is loaded, generate data
         if (packages.isInitialized && usages.isInitialized && revokedPermGroupNames.isInitialized &&
                 pkgPermGroupNames?.values?.all { it.isInitialized } == true &&
                 pkgPermGroupNames?.size == pkgPermGroups.size &&
-                pkgPermGroups.values.all { it?.values?.all { it.isInitialized } == true }) {
+                pkgPermGroups.values.all { it?.values?.all { it.isInitialized } == true } &&
+                services?.values?.all { it.isInitialized } == true) {
             val users = mutableListOf<AutoRevokeDumpUserData>()
 
             for ((user, userPkgs) in packages.value!!) {
@@ -898,6 +948,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
                             pkg.firstInstallTime,
                             usages.value!![user]
                                     ?.find { it.packageName == pkg.packageName }?.lastTimeVisible,
+                            services!![user]?.value!![pkg.packageName] ?: emptyList(),
                             groups))
                 }
 
