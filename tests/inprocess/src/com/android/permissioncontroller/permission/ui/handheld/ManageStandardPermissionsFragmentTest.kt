@@ -37,9 +37,11 @@ import com.android.permissioncontroller.permission.utils.KotlinUtils.getPermGrou
 import com.android.permissioncontroller.permission.utils.Utils.getGroupOfPlatformPermission
 import com.android.permissioncontroller.scrollToPreference
 import com.android.permissioncontroller.wakeUpScreen
+import com.android.permissioncontroller.workAroundAppCompatCheckVectorDrawableSetup
 import com.google.common.truth.Truth.assertThat
 import org.junit.After
 import org.junit.Before
+import org.junit.BeforeClass
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -214,5 +216,13 @@ class ManageStandardPermissionsFragmentTest {
         uninstallApp(LOCATION_USER_PKG)
         uninstallApp(ADDITIONAL_DEFINER_PKG)
         uninstallApp(ADDITIONAL_USER_PKG)
+    }
+
+    companion object {
+        @BeforeClass
+        @JvmStatic
+        fun workAroundVectorDrawable() {
+            workAroundAppCompatCheckVectorDrawableSetup()
+        }
     }
 }
