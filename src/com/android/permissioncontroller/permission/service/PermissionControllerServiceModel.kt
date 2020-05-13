@@ -24,6 +24,8 @@ import androidx.core.util.Consumer
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.android.permissioncontroller.DumpableLog
+import com.android.permissioncontroller.PermissionControllerProto.PermissionControllerDumpProto
 import com.android.permissioncontroller.permission.data.AppPermGroupUiInfoLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
@@ -32,9 +34,12 @@ import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
+import com.android.permissioncontroller.permission.utils.IPC
 import com.android.permissioncontroller.permission.utils.Utils
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.util.function.IntConsumer
 
@@ -266,5 +271,20 @@ class PermissionControllerServiceModel(private val service: PermissionController
                 }
             }
         }
+    }
+
+    /**
+     * Dump state of the permission controller service
+     *
+     * @return the dump state as a proto
+     */
+    suspend fun onDump(): PermissionControllerDumpProto {
+        val autoRevokeDump = GlobalScope.async(IPC) { dumpAutoRevokePermissions(service) }
+        val dumpedLogs = GlobalScope.async(IO) { DumpableLog.get() }
+
+        return PermissionControllerDumpProto.newBuilder()
+                .setAutoRevoke(autoRevokeDump.await())
+                .addAllLogs(dumpedLogs.await())
+                .build()
     }
 }
