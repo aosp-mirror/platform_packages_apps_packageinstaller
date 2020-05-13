@@ -19,7 +19,6 @@ package com.android.permissioncontroller
 import android.util.Log
 import com.android.permissioncontroller.Constants.LOGS_TO_DUMP_FILE
 import java.io.File
-import java.io.PrintWriter
 
 /**
  * Like {@link Log} but stores the logs in a file which can later be dumped via {@link #dump}
@@ -90,13 +89,11 @@ object DumpableLog {
     }
 
     /**
-     * Write the previously logged entries to the print writer.
-     *
-     * @param pw the writer to dump to
+     * @return the previously logged entries
      */
-    fun dump(pw: PrintWriter) {
+    suspend fun get(): List<String> {
         synchronized(lock) {
-            file.forEachLine { pw.println(it) }
+            return file.readLines()
         }
     }
 }

@@ -47,7 +47,7 @@ import android.util.Xml;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.android.permissioncontroller.DumpableLog;
+import com.android.permissioncontroller.PermissionControllerProto.PermissionControllerDumpProto;
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissions;
@@ -55,6 +55,7 @@ import com.android.permissioncontroller.permission.model.Permission;
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo;
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState;
 import com.android.permissioncontroller.permission.ui.AutoGrantPermissionsNotifier;
+import com.android.permissioncontroller.permission.utils.ArrayUtils;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.UserSensitiveFlagsUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
@@ -63,6 +64,8 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlSerializer;
 
 import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -78,6 +81,8 @@ import java.util.function.Consumer;
 import java.util.function.IntConsumer;
 
 import kotlin.Pair;
+import kotlinx.coroutines.BuildersKt;
+import kotlinx.coroutines.GlobalScope;
 
 /**
  * Calls from the system into the permission controller.
@@ -102,8 +107,26 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
 
     @Override
     public void dump(FileDescriptor fd, PrintWriter writer, String[] args) {
-        DumpableLog.INSTANCE.dump(writer);
-        writer.flush();
+        PermissionControllerDumpProto dump;
+        try {
+            dump = BuildersKt.runBlocking(
+                    GlobalScope.INSTANCE.getCoroutineContext(),
+                    (coroutineScope, continuation) -> mServiceModel.onDump(continuation));
+        } catch (InterruptedException e) {
+            Log.e(LOG_TAG, "Cannot produce dump", e);
+            return;
+        }
+
+        if (ArrayUtils.contains(args, "--proto")) {
+            try (OutputStream out = new FileOutputStream(fd)) {
+                dump.writeTo(out);
+            } catch (IOException e) {
+                Log.e(LOG_TAG, "Cannot write dump", e);
+            }
+        } else {
+            writer.println(dump.toString());
+            writer.flush();
+        }
     }
 
     /**

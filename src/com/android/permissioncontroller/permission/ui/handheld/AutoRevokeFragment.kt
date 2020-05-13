@@ -24,6 +24,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.UserHandle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.DialogFragment
@@ -32,6 +33,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import com.android.permissioncontroller.Constants.EXTRA_SESSION_ID
+import com.android.permissioncontroller.Constants.INVALID_SESSION_ID
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.ui.model.AutoRevokeViewModel
 import com.android.permissioncontroller.permission.ui.model.AutoRevokeViewModel.Months
@@ -49,9 +51,12 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
     private lateinit var viewModel: AutoRevokeViewModel
     private lateinit var collator: Collator
     private var sessionId: Long = 0L
+    private var isFirstLoad = false
 
     companion object {
         private const val SHOW_LOAD_DELAY_MS = 200L
+        private const val NOTIFICATION_CLICKED = "notification_clicked"
+        private val LOG_TAG = AutoRevokeFragment::class.java.simpleName
 
         @JvmStatic
         fun newInstance(): AutoRevokeFragment {
@@ -75,11 +80,12 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        isFirstLoad = true
 
         collator = Collator.getInstance(
             context!!.getResources().getConfiguration().getLocales().get(0))
-        sessionId = getArguments()?.getLong(EXTRA_SESSION_ID) ?: sessionId
-        val factory = AutoRevokeViewModelFactory(activity!!.application)
+        sessionId = arguments!!.getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID)
+        val factory = AutoRevokeViewModelFactory(activity!!.application, sessionId)
         viewModel = ViewModelProvider(this, factory).get(AutoRevokeViewModel::class.java)
         viewModel.autoRevokedPackageCategoriesLiveData.observe(this, Observer {
             it?.let { pkgs ->
@@ -146,7 +152,7 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
             }
             category.isVisible = packages.isNotEmpty()
 
-            for ((pkgName, user, shouldDisable, canOpen, permSet) in packages) {
+            for ((pkgName, user, shouldDisable, permSet) in packages) {
                 val revokedPerms = permSet.toList()
                 val key = createKey(pkgName, user)
 
@@ -156,11 +162,6 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
                         activity!!.application, pkgName, user, preferenceManager.context!!)
                     pref.key = key
                     pref.title = KotlinUtils.getPackageLabel(activity!!.application, pkgName, user)
-                }
-
-                pref.canOpen = canOpen
-                pref.openClickListener = View.OnClickListener {
-                    viewModel.openApp(pkgName, user)
                 }
 
                 if (shouldDisable) {
@@ -196,6 +197,25 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
                 }
                 category.addPreference(pref)
                 KotlinUtils.sortPreferenceGroup(category, this::comparePreference, false)
+            }
+        }
+
+        if (isFirstLoad) {
+            if (categorizedPackages[Months.SIX]!!.isNotEmpty() ||
+                    categorizedPackages[Months.THREE]!!.isNotEmpty()) {
+                isFirstLoad = false
+            }
+            Log.i(LOG_TAG, "sessionId: $sessionId Showed Auto Revoke Page")
+            for (month in Months.values()) {
+                Log.i(LOG_TAG, "sessionId: $sessionId $month unused: " +
+                    "${categorizedPackages[month]}")
+                for (revokedPackageInfo in categorizedPackages[month]!!) {
+                    for (groupName in revokedPackageInfo.revokedGroups) {
+                        val isNewlyRevoked = month == Months.THREE
+                        viewModel.logAppView(revokedPackageInfo.packageName,
+                            revokedPackageInfo.user, groupName, isNewlyRevoked)
+                    }
+                }
             }
         }
     }

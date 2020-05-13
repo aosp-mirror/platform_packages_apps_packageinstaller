@@ -19,27 +19,6 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="horizontal" >
-
-    <View
-        android:id="@+id/divider_one"
-        android:layout_width="1dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_gravity="center_vertical"
-        android:visibility="gone"
-        android:background="?android:attr/textColorSecondary"/>
-
-    <ImageButton
-        android:id="@+id/open_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_settings_open"
-        android:visibility="gone"
-        style="@style/SettingsActionButton"
-    />
-
     <View
         android:id="@+id/divider_two"
         android:layout_width="1dp"
@@ -55,6 +34,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="end|center_vertical"
+        android:contentDescription="@string/uninstall_or_disable"
         android:src="@drawable/ic_settings_delete"
     />
 
