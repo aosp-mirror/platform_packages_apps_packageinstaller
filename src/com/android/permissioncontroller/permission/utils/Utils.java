@@ -46,6 +46,7 @@ import android.Manifest;
 import android.app.Application;
 import android.app.role.RoleManager;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -265,6 +266,14 @@ public final class Utils {
     }
 
     private static ArrayMap<UserHandle, Context> sUserContexts = new ArrayMap<>();
+
+    public enum ForegroundCapableType {
+        SOUND_TRIGGER,
+        ASSISTANT,
+        VOICE_INTERACTION,
+        CARRIER_SERVICE,
+        NONE
+    }
 
     /**
      * Creates and caches a PackageContext for the requested user, or returns the previously cached
@@ -1036,14 +1045,14 @@ public final class Utils {
     }
 
     /**
-     * This tells whether we should blame the app for potential background access. Intended to be
-     * used for creating Ui.
-     * @param context The context as the user of interest
-     * @param packageName The package to check
-     * @return true if the given package could possibly have foreground capabilities while in the
-     * background, otherwise false.
+     * If an app could have foreground capabilities it is because it meets some criteria. This
+     * function returns which criteria it meets.
+     * @param context The context as the user of interest.
+     * @param packageName The package to check.
+     * @return the type of foreground capable app.
+     * @throws NameNotFoundException
      */
-    public static boolean couldHaveForegroundCapabilities(@NonNull Context context,
+    public static @NonNull ForegroundCapableType getForegroundCapableType(@NonNull Context context,
             @NonNull String packageName) throws NameNotFoundException {
 
         PackageManager pm = context.getPackageManager();
@@ -1052,7 +1061,7 @@ public final class Utils {
         if (pm.checkPermission(CAPTURE_AUDIO_HOTWORD, packageName) == PERMISSION_GRANTED) {
             for (ServiceInfo service : pm.getPackageInfo(packageName, GET_SERVICES).services) {
                 if (BIND_SOUND_TRIGGER_DETECTION_SERVICE.equals(service.permission)) {
-                    return true;
+                    return ForegroundCapableType.SOUND_TRIGGER;
                 }
             }
         }
@@ -1060,11 +1069,15 @@ public final class Utils {
         // VoiceInteractionService
         if (context.getSystemService(RoleManager.class).getRoleHolders(RoleManager.ROLE_ASSISTANT)
                 .contains(packageName)) {
-            return true;
+            return ForegroundCapableType.ASSISTANT;
         }
-        if (packageName.equals(Settings.Secure.getString(context.getContentResolver(),
-                "voice_interaction_service"))) {
-            return true;
+        String voiceInteraction = Settings.Secure.getString(context.getContentResolver(),
+                "voice_interaction_service");
+        if (!TextUtils.isEmpty(voiceInteraction)) {
+            ComponentName component = ComponentName.unflattenFromString(voiceInteraction);
+            if (component != null && packageName.equals(component.getPackageName())) {
+                return ForegroundCapableType.VOICE_INTERACTION;
+            }
         }
 
         // Carrier privileged apps implementing the carrier service
@@ -1075,10 +1088,24 @@ public final class Utils {
             List<String> packages = telephonyManager.getCarrierPackageNamesForIntentAndPhone(
                     new Intent(CarrierService.CARRIER_SERVICE_INTERFACE), phoneId);
             if (packages != null && packages.contains(packageName)) {
-                return true;
+                return ForegroundCapableType.CARRIER_SERVICE;
             }
         }
 
-        return false;
+        return ForegroundCapableType.NONE;
+    }
+
+    /**
+     * This tells whether we should blame the app for potential background access. Intended to be
+     * used for creating Ui.
+     * @param context The context as the user of interest
+     * @param packageName The package to check
+     * @return true if the given package could possibly have foreground capabilities while in the
+     * background, otherwise false.
+     * @throws NameNotFoundException
+     */
+    public static boolean couldHaveForegroundCapabilities(@NonNull Context context,
+            @NonNull String packageName) throws NameNotFoundException {
+        return getForegroundCapableType(context, packageName) != ForegroundCapableType.NONE;
     }
 }
