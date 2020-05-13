@@ -29,7 +29,6 @@ import androidx.lifecycle.ViewModelProvider
 import android.util.Log
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKED_APP_INTERACTION
-import com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKED_APP_INTERACTION__ACTION__OPEN
 import com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKED_APP_INTERACTION__ACTION__REMOVE
 import com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKE_FRAGMENT_APP_VIEWED
 import com.android.permissioncontroller.PermissionControllerStatsLog.AUTO_REVOKE_FRAGMENT_APP_VIEWED__AGE__NEWER_BUCKET
@@ -72,7 +71,6 @@ class AutoRevokeViewModel(private val app: Application, private val sessionId: L
         val packageName: String,
         val user: UserHandle,
         val shouldDisable: Boolean,
-        val canOpen: Boolean,
         val revokedGroups: Set<String>
     )
 
@@ -128,12 +126,9 @@ class AutoRevokeViewModel(private val app: Application, private val sessionId: L
                         continue
                     }
 
-                    val canOpen = Utils.getUserContext(app, user).packageManager
-                        .getLaunchIntentForPackage(stat.packageName) != null
                     categorizedApps[Months.THREE]!!.add(
                         RevokedPackageInfo(stat.packageName, user,
-                            disableActionApps.contains(statPackage), canOpen,
-                            unusedApps[statPackage]!!))
+                            disableActionApps.contains(statPackage), unusedApps[statPackage]!!))
                     overSixMonthApps.remove(statPackage)
                 }
             }
@@ -159,7 +154,7 @@ class AutoRevokeViewModel(private val app: Application, private val sessionId: L
                 val userPackage = packageName to user
                 categorizedApps[months]!!.add(
                     RevokedPackageInfo(packageName, user, disableActionApps.contains(userPackage),
-                        canOpen, unusedApps[userPackage]!!))
+                        unusedApps[userPackage]!!))
             }
 
             postValue(categorizedApps)
@@ -177,16 +172,6 @@ class AutoRevokeViewModel(private val app: Application, private val sessionId: L
         intent.putExtra(Intent.ACTION_AUTO_REVOKE_PERMISSIONS, sessionId)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         userContext.startActivityAsUser(intent, user)
-    }
-
-    fun openApp(packageName: String, user: UserHandle) {
-        Log.i(LOG_TAG, "sessionId: $sessionId, opening $packageName, $user")
-        logAppInteraction(packageName, user, AUTO_REVOKED_APP_INTERACTION__ACTION__OPEN)
-        val userContext = Utils.getUserContext(app, user)
-        val intent = userContext.packageManager.getLaunchIntentForPackage(packageName)
-        if (intent != null) {
-            userContext.startActivityAsUser(intent, user)
-        }
     }
 
     fun requestUninstallApp(fragment: Fragment, packageName: String, user: UserHandle) {
