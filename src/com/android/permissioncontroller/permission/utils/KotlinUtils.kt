@@ -26,6 +26,10 @@ import android.app.AppOpsManager.MODE_IGNORED
 import android.app.AppOpsManager.permissionToOp
 import android.app.Application
 import android.content.Context
+import android.content.Intent
+import android.content.Intent.ACTION_MAIN
+import android.content.Intent.CATEGORY_INFO
+import android.content.Intent.CATEGORY_LAUNCHER
 import android.content.pm.PackageManager
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_ONE_TIME
@@ -33,6 +37,8 @@ import android.content.pm.PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED
 import android.content.pm.PackageManager.FLAG_PERMISSION_REVOKED_COMPAT
 import android.content.pm.PackageManager.FLAG_PERMISSION_USER_FIXED
 import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
+import android.content.pm.PackageManager.MATCH_DIRECT_BOOT_AWARE
+import android.content.pm.PackageManager.MATCH_DIRECT_BOOT_UNAWARE
 import android.content.pm.PermissionGroupInfo
 import android.content.pm.PermissionInfo
 import android.graphics.drawable.Drawable
@@ -70,12 +76,12 @@ import kotlin.coroutines.suspendCoroutine
 object KotlinUtils {
 
     private const val PERMISSION_CONTROLLER_CHANGED_FLAG_MASK = FLAG_PERMISSION_USER_SET or
-            FLAG_PERMISSION_USER_FIXED or
-            FLAG_PERMISSION_ONE_TIME or
-            FLAG_PERMISSION_REVOKED_COMPAT or
-            FLAG_PERMISSION_ONE_TIME or
-            FLAG_PERMISSION_REVIEW_REQUIRED or
-            FLAG_PERMISSION_AUTO_REVOKED
+        FLAG_PERMISSION_USER_FIXED or
+        FLAG_PERMISSION_ONE_TIME or
+        FLAG_PERMISSION_REVOKED_COMPAT or
+        FLAG_PERMISSION_ONE_TIME or
+        FLAG_PERMISSION_REVIEW_REQUIRED or
+        FLAG_PERMISSION_AUTO_REVOKED
 
     private const val KILL_REASON_APP_OP_CHANGE = "Permission related app op changed"
 
@@ -485,12 +491,12 @@ object KotlinUtils {
 
         if (perm.flags != newFlags) {
             app.packageManager.updatePermissionFlags(perm.name, group.packageInfo.packageName,
-                    PERMISSION_CONTROLLER_CHANGED_FLAG_MASK, newFlags, user)
+                PERMISSION_CONTROLLER_CHANGED_FLAG_MASK, newFlags, user)
         }
 
         val newState = PermState(newFlags, isGranted)
         return LightPermission(perm.pkgInfo, perm.permInfo, newState,
-                perm.foregroundPerms) to shouldKill
+            perm.foregroundPerms) to shouldKill
     }
 
     /**
@@ -640,12 +646,12 @@ object KotlinUtils {
 
         if (perm.flags != newFlags) {
             app.packageManager.updatePermissionFlags(perm.name, group.packageInfo.packageName,
-                    PERMISSION_CONTROLLER_CHANGED_FLAG_MASK, newFlags, user)
+                PERMISSION_CONTROLLER_CHANGED_FLAG_MASK, newFlags, user)
         }
 
         val newState = PermState(newFlags, isGranted)
         return LightPermission(perm.pkgInfo, perm.permInfo, newState,
-                perm.foregroundPerms) to shouldKill
+            perm.foregroundPerms) to shouldKill
     }
 
     private fun Int.setFlag(flagToSet: Int): Int {
@@ -795,6 +801,32 @@ object KotlinUtils {
         }
         manager.setUidMode(op, uid, mode)
         return true
+    }
+
+    /**
+     * Determine if a given package has a launch intent. Will function correctly even if called
+     * before user is unlocked.
+     *
+     * @param context: The context from which to retrieve the package
+     * @param packageName: The package name to check
+     *
+     * @return whether or not the given package has a launch intent
+     */
+    fun packageHasLaunchIntent(context: Context, packageName: String): Boolean {
+        val intentToResolve = Intent(ACTION_MAIN)
+        intentToResolve.addCategory(CATEGORY_INFO)
+        intentToResolve.setPackage(packageName)
+        var resolveInfos = context.packageManager.queryIntentActivities(intentToResolve,
+            MATCH_DIRECT_BOOT_AWARE or MATCH_DIRECT_BOOT_UNAWARE)
+
+        if (resolveInfos == null || resolveInfos.size <= 0) {
+            intentToResolve.removeCategory(CATEGORY_INFO)
+            intentToResolve.addCategory(CATEGORY_LAUNCHER)
+            intentToResolve.setPackage(packageName)
+            resolveInfos = context.packageManager.queryIntentActivities(intentToResolve,
+                MATCH_DIRECT_BOOT_AWARE or MATCH_DIRECT_BOOT_UNAWARE)
+        }
+        return resolveInfos != null && resolveInfos.size > 0
     }
 }
 

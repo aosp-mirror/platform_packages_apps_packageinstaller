@@ -28,9 +28,11 @@
         <Preference
             android:key="info_msg_one"
             android:summary="@string/auto_revoked_apps_page_summary"
+            android:selectable="false"
             android:icon="@drawable/ic_info_outline"/>
         <Preference
             android:key="info_msg_two"
+            android:selectable="false"
             android:summary="@string/auto_revoke_open_app_message"/>
     </PreferenceCategory>
 
