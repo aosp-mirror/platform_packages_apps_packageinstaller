@@ -20,6 +20,7 @@ import android.app.Application
 import android.content.pm.PackageManager
 import android.os.UserHandle
 import android.util.Log
+import androidx.lifecycle.Observer
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import com.android.permissioncontroller.permission.utils.Utils
@@ -108,9 +109,7 @@ class LightPackageInfoLiveData private constructor(
         }
         if (userPackagesLiveData.hasActiveObservers() && !watchingUserPackagesLiveData) {
             watchingUserPackagesLiveData = true
-            addSource(userPackagesLiveData) {
-                updateFromUserPackageInfosLiveData()
-            }
+            addSource(userPackagesLiveData, userPackageInfosObserver)
             if (userPackagesLiveData.isInitialized) {
                 // Set our value, but listen for new updates.
                 updateFromUserPackageInfosLiveData()
@@ -118,6 +117,10 @@ class LightPackageInfoLiveData private constructor(
         } else {
             updateAsync()
         }
+    }
+
+    val userPackageInfosObserver = Observer<List<LightPackageInfo>> {
+        updateFromUserPackageInfosLiveData()
     }
 
     private fun updateFromUserPackageInfosLiveData() {
