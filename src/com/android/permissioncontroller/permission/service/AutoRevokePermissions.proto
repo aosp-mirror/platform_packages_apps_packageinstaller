@@ -23,6 +23,7 @@ message PackageProto {
   optional int64 last_time_visible = 4;
   optional int64 first_install_time = 5;
   repeated PermissionGroupProto groups = 6;
+  repeated string implemented_services = 7;
 }
 
 message PermissionGroupProto {
