@@ -516,7 +516,8 @@ class AppPermissionViewModel(
         val oldGroup = group
 
         if (shouldRevokeBackground && group.hasBackgroundGroup &&
-                (wasBackgroundGranted || group.background.isUserFixed)) {
+                (wasBackgroundGranted || group.background.isUserFixed ||
+                        group.isOneTime != setOneTime)) {
             newGroup = KotlinUtils
                     .revokeBackgroundRuntimePermissions(app, newGroup)
 
