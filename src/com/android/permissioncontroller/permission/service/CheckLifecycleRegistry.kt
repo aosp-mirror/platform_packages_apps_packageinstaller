@@ -23,18 +23,23 @@ import androidx.lifecycle.LifecycleRegistry
 import java.lang.IllegalStateException
 
 class CheckLifecycleRegistry(provider: LifecycleOwner) : LifecycleRegistry(provider) {
+    private val observerLock = Any()
 
     override fun addObserver(observer: LifecycleObserver) {
         if (Looper.myLooper() != Looper.getMainLooper()) {
             throw IllegalStateException("Lifecycle running on non main thread")
         }
-        super.addObserver(observer)
+        synchronized(observerLock) {
+            super.addObserver(observer)
+        }
     }
 
     override fun removeObserver(observer: LifecycleObserver) {
         if (Looper.myLooper() != Looper.getMainLooper()) {
             throw IllegalStateException("Lifecycle running on non main thread")
         }
-        super.removeObserver(observer)
+        synchronized(observerLock) {
+            super.removeObserver(observer)
+        }
     }
 }
