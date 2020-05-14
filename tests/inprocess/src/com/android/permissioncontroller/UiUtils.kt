@@ -17,6 +17,7 @@
 package com.android.permissioncontroller
 
 import android.support.test.uiautomator.UiDevice
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.test.platform.app.InstrumentationRegistry
 
 /**
@@ -27,4 +28,18 @@ fun wakeUpScreen() {
 
     uiDevice.executeShellCommand("input keyevent KEYCODE_WAKEUP")
     uiDevice.executeShellCommand("wm dismiss-keyguard")
+}
+
+/**
+ * If the first vector drawable is loaded inside PermissionController,
+ * ResourceManagerInternal.checkVectorDrawableSetup() will try to load R.drawable.abc_vector_test
+ * with PermissionController's resources, however the R class will be ours because our copy of
+ * AndroidX is taking precedence, resulting in a Resources.NotFoundException. We can try to be the
+ * first one loading a vector drawable to work around this.
+ */
+fun workAroundAppCompatCheckVectorDrawableSetup() {
+    val context = InstrumentationRegistry.getInstrumentation().context
+    AppCompatResources.getDrawable(
+        context, com.android.permissioncontroller.tests.inprocess.R.drawable.abc_vector_test
+    )
 }
