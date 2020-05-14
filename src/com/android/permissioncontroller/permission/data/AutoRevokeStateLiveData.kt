@@ -59,11 +59,17 @@ class AutoRevokeStateLiveData private constructor(
     }
 
     override suspend fun loadDataAndPostValue(job: Job) {
-        val uid = packageLiveData.value?.uid
-        if (uid == null && packageLiveData.isInitialized) {
+        if (!packageLiveData.isInitialized) {
+            return
+        }
+        if (packageLiveData.value == null) {
             postValue(null)
             return
-        } else if (uid == null) {
+        }
+
+        val uid = packageLiveData.value?.uid
+        if (uid == null) {
+            postValue(null)
             return
         }
 
@@ -81,7 +87,7 @@ class AutoRevokeStateLiveData private constructor(
             return
         }
 
-        val revocable = !isPackageAutoRevokeExempt(app, packageLiveData.getInitializedValue())
+        val revocable = !isPackageAutoRevokeExempt(app, packageLiveData.value!!)
         val autoRevokeState = mutableListOf<String>()
         permStateLiveDatas.forEach { (groupName, liveData) ->
             val default = liveData.value?.any { (_, permState) ->
