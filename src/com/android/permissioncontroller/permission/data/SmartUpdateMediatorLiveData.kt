@@ -32,6 +32,7 @@ import com.android.permissioncontroller.permission.utils.shortStackTrace
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 /**
  * A MediatorLiveData which tracks how long it has been inactive, compares new values before setting
@@ -146,23 +147,27 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
     }
 
     override fun <S : Any?> addSource(source: LiveData<S>, onChanged: Observer<in S>) {
-        GlobalScope.launch(Main.immediate) {
-            if (source is SmartUpdateMediatorLiveData) {
-                source.addChild(this@SmartUpdateMediatorLiveData, onChanged,
-                    staleObservers.isNotEmpty() || children.any { it.third })
-                sources.add(source)
+        runBlocking {
+            GlobalScope.launch(Main.immediate) {
+                if (source is SmartUpdateMediatorLiveData) {
+                    source.addChild(this@SmartUpdateMediatorLiveData, onChanged,
+                        staleObservers.isNotEmpty() || children.any { it.third })
+                    sources.add(source)
+                }
+                super.addSource(source, onChanged)
             }
-            super.addSource(source, onChanged)
         }
     }
 
     override fun <S : Any?> removeSource(toRemote: LiveData<S>) {
-        GlobalScope.launch(Main.immediate) {
-            if (toRemote is SmartUpdateMediatorLiveData) {
-                toRemote.removeChild(this@SmartUpdateMediatorLiveData)
-                sources.remove(toRemote)
+        runBlocking {
+            GlobalScope.launch(Main.immediate) {
+                if (toRemote is SmartUpdateMediatorLiveData) {
+                    toRemote.removeChild(this@SmartUpdateMediatorLiveData)
+                    sources.remove(toRemote)
+                }
+                super.removeSource(toRemote)
             }
-            super.removeSource(toRemote)
         }
     }
 
