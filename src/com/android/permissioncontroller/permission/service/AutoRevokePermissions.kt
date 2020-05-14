@@ -82,6 +82,7 @@ import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.AppOpLiveData
+import com.android.permissioncontroller.permission.data.AutoRevokeManifestExemptPackagesLiveData
 import com.android.permissioncontroller.permission.data.DataRepositoryForPackage
 import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
@@ -280,10 +281,9 @@ private suspend fun revokePermissionsOnUnusedApps(
         }
     }
 
-    val manifestExemptPackages: Set<String> = withContext(IPC) {
-        context.getSystemService<PermissionManager>()
-            .getAutoRevokeExemptionGrantedPackages()
-    }
+    // TODO: Support more than the current user
+    val manifestExemptPackages = AutoRevokeManifestExemptPackagesLiveData[myUserHandle()]
+            .getInitializedValue(staleOk = true)
 
     // Exempt important system-bound services
     // TODO: Support more than the current user
@@ -742,6 +742,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
         val packageName: String,
         val firstInstallTime: Long,
         val lastTimeVisible: Long?,
+        val isAutoRevokeManifestExempt: Boolean,
         val implementedServices: List<String>,
         val groups: List<AutoRevokeDumpGroupData>
     ) {
@@ -750,6 +751,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
                     .setUid(uid)
                     .setPackageName(packageName)
                     .setFirstInstallTime(firstInstallTime)
+                    .setIsAutoRevokeManifestExempt(isAutoRevokeManifestExempt)
 
             lastTimeVisible?.let { dump.lastTimeVisible = lastTimeVisible }
 
@@ -790,6 +792,10 @@ private class AutoRevokeDumpLiveData(context: Context) :
     /** Exempt services for each user: user -> services */
     private var services: MutableMap<UserHandle, ExemptServicesLiveData>? = null
 
+    /** Exempt packages for each user: user -> list<package-name> */
+    private var autoRevokeManifestExemptPackages: MutableMap<UserHandle,
+            AutoRevokeManifestExemptPackagesLiveData>? = null
+
     /** Usage stats: user -> list<usages> */
     private val usages = UsageStatsLiveData[
         getUnusedThresholdMs(context),
@@ -828,6 +834,8 @@ private class AutoRevokeDumpLiveData(context: Context) :
         addSource(users) {
             services?.values?.forEach { removeSource(it) }
             services = null
+            autoRevokeManifestExemptPackages?.values?.forEach { removeSource(it) }
+            autoRevokeManifestExemptPackages = null
 
             updateIfActive()
         }
@@ -852,15 +860,23 @@ private class AutoRevokeDumpLiveData(context: Context) :
         }
         isUpdating = true
 
-        // services step 1, users is loaded, nothing else
+        // services/autoRevokeManifestExemptPackages step 1, users is loaded, nothing else
         if (users.isInitialized && services == null) {
             services = mutableMapOf()
+            autoRevokeManifestExemptPackages = mutableMapOf()
 
             for (user in users.value!!) {
                 val newServices = ExemptServicesLiveData[user]
                 services!![user] = newServices
 
                 addSource(newServices) {
+                    updateIfActive()
+                }
+
+                val newExemptPackages = AutoRevokeManifestExemptPackagesLiveData[user]
+                autoRevokeManifestExemptPackages!![user] = newExemptPackages
+
+                addSource(newExemptPackages) {
                     updateIfActive()
                 }
             }
@@ -917,7 +933,8 @@ private class AutoRevokeDumpLiveData(context: Context) :
                 pkgPermGroupNames?.values?.all { it.isInitialized } == true &&
                 pkgPermGroupNames?.size == pkgPermGroups.size &&
                 pkgPermGroups.values.all { it?.values?.all { it.isInitialized } == true } &&
-                services?.values?.all { it.isInitialized } == true) {
+                services?.values?.all { it.isInitialized } == true &&
+                autoRevokeManifestExemptPackages?.values?.all { it.isInitialized } == true) {
             val users = mutableListOf<AutoRevokeDumpUserData>()
 
             for ((user, userPkgs) in packages.value!!) {
@@ -948,6 +965,8 @@ private class AutoRevokeDumpLiveData(context: Context) :
                             pkg.firstInstallTime,
                             usages.value!![user]
                                     ?.find { it.packageName == pkg.packageName }?.lastTimeVisible,
+                            autoRevokeManifestExemptPackages!![user]!!.value!!
+                                    .contains(pkg.packageName),
                             services!![user]?.value!![pkg.packageName] ?: emptyList(),
                             groups))
                 }
