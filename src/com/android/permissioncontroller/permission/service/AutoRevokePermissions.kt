@@ -610,7 +610,7 @@ class AutoRevokeService : JobService() {
                 R.string.auto_revoke_permission_reminder_notification_content))
             .setStyle(Notification.BigTextStyle().bigText(getString(
                 R.string.auto_revoke_permission_reminder_notification_content)))
-            .setSmallIcon(R.drawable.ic_notifications)
+            .setSmallIcon(R.drawable.ic_settings_24dp)
             .setColor(getColor(android.R.color.system_notification_accent_color))
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
