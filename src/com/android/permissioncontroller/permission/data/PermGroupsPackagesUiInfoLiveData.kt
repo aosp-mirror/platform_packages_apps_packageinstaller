@@ -78,7 +78,7 @@ class PermGroupsPackagesUiInfoLiveData(
     private fun addPermGroupPackagesUiInfoLiveDatas(
         groupNames: Collection<String>
     ) {
-        val groupsAdded = mutableListOf<String>()
+        val groupsAdded = mutableSetOf<String>()
         for (groupName in groupNames) {
             if (!permGroupPackagesLiveDatas.containsKey(groupName)) {
                 groupsAdded.add(groupName)
