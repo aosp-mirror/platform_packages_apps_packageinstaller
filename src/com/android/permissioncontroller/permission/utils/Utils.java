@@ -1059,9 +1059,12 @@ public final class Utils {
 
         // Apps which can be bound by SoundTriggerService
         if (pm.checkPermission(CAPTURE_AUDIO_HOTWORD, packageName) == PERMISSION_GRANTED) {
-            for (ServiceInfo service : pm.getPackageInfo(packageName, GET_SERVICES).services) {
-                if (BIND_SOUND_TRIGGER_DETECTION_SERVICE.equals(service.permission)) {
-                    return ForegroundCapableType.SOUND_TRIGGER;
+            ServiceInfo[] services = pm.getPackageInfo(packageName, GET_SERVICES).services;
+            if (services != null) {
+                for (ServiceInfo service : services) {
+                    if (BIND_SOUND_TRIGGER_DETECTION_SERVICE.equals(service.permission)) {
+                        return ForegroundCapableType.SOUND_TRIGGER;
+                    }
                 }
             }
         }
