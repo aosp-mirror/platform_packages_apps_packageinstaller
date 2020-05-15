@@ -112,7 +112,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
             dump = BuildersKt.runBlocking(
                     GlobalScope.INSTANCE.getCoroutineContext(),
                     (coroutineScope, continuation) -> mServiceModel.onDump(continuation));
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             Log.e(LOG_TAG, "Cannot produce dump", e);
             return;
         }
