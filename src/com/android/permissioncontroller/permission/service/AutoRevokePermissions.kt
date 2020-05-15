@@ -83,6 +83,7 @@ import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.AppOpLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokeManifestExemptPackagesLiveData
+import com.android.permissioncontroller.permission.data.AutoRevokeStateLiveData
 import com.android.permissioncontroller.permission.data.DataRepositoryForPackage
 import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
@@ -743,6 +744,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
         val firstInstallTime: Long,
         val lastTimeVisible: Long?,
         val isAutoRevokeManifestExempt: Boolean,
+        val isAutoRevokeEnabled: Boolean,
         val implementedServices: List<String>,
         val groups: List<AutoRevokeDumpGroupData>
     ) {
@@ -752,6 +754,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
                     .setPackageName(packageName)
                     .setFirstInstallTime(firstInstallTime)
                     .setIsAutoRevokeManifestExempt(isAutoRevokeManifestExempt)
+                    .setIsAutoRevokeEnabled(isAutoRevokeEnabled)
 
             lastTimeVisible?.let { dump.lastTimeVisible = lastTimeVisible }
 
@@ -816,6 +819,13 @@ private class AutoRevokeDumpLiveData(context: Context) :
             MutableMap<Pair<UserHandle, String>, PackagePermissionsLiveData>? = null
 
     /**
+     * Group names for packages
+     * map<user, pkg-name> -> auto-revoke state. {@code null} before step 1
+     */
+    private var pkgAutoRevokeState:
+            MutableMap<Pair<UserHandle, String>, AutoRevokeStateLiveData>? = null
+
+    /**
      * Group state for packages
      * map<(user, pkg-name) -> map<perm-group-name -> group>>, value {@code null} before step 2
      */
@@ -847,6 +857,8 @@ private class AutoRevokeDumpLiveData(context: Context) :
         addSource(packages) {
             pkgPermGroupNames?.values?.forEach { removeSource(it) }
             pkgPermGroupNames = null
+            pkgAutoRevokeState?.values?.forEach { removeSource(it) }
+            pkgAutoRevokeState = null
             pkgPermGroups.values.forEach { it?.values?.forEach { removeSource(it) } }
 
             updateIfActive()
@@ -885,6 +897,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
         // pkgPermGroupNames step 1, packages is loaded, nothing else
         if (packages.isInitialized && pkgPermGroupNames == null) {
             pkgPermGroupNames = mutableMapOf()
+            pkgAutoRevokeState = mutableMapOf()
 
             for ((user, userPkgs) in packages.value!!) {
                 for (pkg in userPkgs) {
@@ -895,6 +908,13 @@ private class AutoRevokeDumpLiveData(context: Context) :
                         pkgPermGroups[user to pkg.packageName]?.forEach { removeSource(it.value) }
                         pkgPermGroups.remove(user to pkg.packageName)
 
+                        updateIfActive()
+                    }
+
+                    val newPkgAutoRevokeState = AutoRevokeStateLiveData[pkg.packageName, user]
+                    pkgAutoRevokeState!![user to pkg.packageName] = newPkgAutoRevokeState
+
+                    addSource(newPkgAutoRevokeState) {
                         updateIfActive()
                     }
                 }
@@ -934,7 +954,8 @@ private class AutoRevokeDumpLiveData(context: Context) :
                 pkgPermGroupNames?.size == pkgPermGroups.size &&
                 pkgPermGroups.values.all { it?.values?.all { it.isInitialized } == true } &&
                 services?.values?.all { it.isInitialized } == true &&
-                autoRevokeManifestExemptPackages?.values?.all { it.isInitialized } == true) {
+                autoRevokeManifestExemptPackages?.values?.all { it.isInitialized } == true &&
+                pkgAutoRevokeState?.values?.all { it.isInitialized } == true) {
             val users = mutableListOf<AutoRevokeDumpUserData>()
 
             for ((user, userPkgs) in packages.value!!) {
@@ -967,6 +988,8 @@ private class AutoRevokeDumpLiveData(context: Context) :
                                     ?.find { it.packageName == pkg.packageName }?.lastTimeVisible,
                             autoRevokeManifestExemptPackages!![user]!!.value!!
                                     .contains(pkg.packageName),
+                            pkgAutoRevokeState!![user to pkg.packageName]!!.value
+                                    ?.isEnabledForApp == true,
                             services!![user]?.value!![pkg.packageName] ?: emptyList(),
                             groups))
                 }
