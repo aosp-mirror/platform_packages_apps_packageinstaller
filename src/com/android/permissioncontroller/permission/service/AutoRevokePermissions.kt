@@ -115,10 +115,11 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.Date
+import java.util.Random
 import java.util.concurrent.TimeUnit.DAYS
 import java.util.concurrent.TimeUnit.SECONDS
 import java.util.concurrent.atomic.AtomicBoolean
-import java.util.Random
 
 private const val LOG_TAG = "AutoRevokePermissions"
 private const val DEBUG_OVERRIDE_THRESHOLDS = false
@@ -241,8 +242,19 @@ private suspend fun revokePermissionsOnUnusedApps(
 
     val userStats = UsageStatsLiveData[getUnusedThresholdMs(context),
         if (DEBUG_OVERRIDE_THRESHOLDS) INTERVAL_DAILY else INTERVAL_MONTHLY].getInitializedValue()
+    if (DEBUG) {
+        for ((user, stats) in userStats) {
+            DumpableLog.i(LOG_TAG, "Usage stats for user ${user.identifier}: " +
+                    stats.map { stat ->
+                        stat.packageName to Date(stat.lastTimeVisible)
+                    }.toMap())
+        }
+    }
     for (user in unusedApps.keys) {
         if (user !in userStats.keys) {
+            if (DEBUG) {
+                DumpableLog.i(LOG_TAG, "Ignoring user ${user.identifier}")
+            }
             unusedApps.remove(user)
         }
     }
@@ -344,7 +356,9 @@ private suspend fun revokePermissionsOnUnusedApps(
                     }
 
                     if (DEBUG) {
-                        DumpableLog.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions")
+                        DumpableLog.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions" +
+                                " - lastVisible on " +
+                                userStats[user]?.lastTimeVisible(packageName)?.let(::Date))
                     }
 
                     val uid = group.packageInfo.uid
@@ -360,17 +374,26 @@ private suspend fun revokePermissionsOnUnusedApps(
                     if (packageImportance > IMPORTANCE_TOP_SLEEPING) {
                         if (DEBUG) {
                             DumpableLog.i(LOG_TAG, "revoking $packageName - $revocablePermissions")
+                            DumpableLog.i(LOG_TAG, "State pre revocation: ${group.allPermissions}")
                         }
                         anyPermsRevoked.compareAndSet(false, true)
 
-                        KotlinUtils.revokeBackgroundRuntimePermissions(
+                        val bgRevokedState = KotlinUtils.revokeBackgroundRuntimePermissions(
+                                context.application, group,
+                                userFixed = false, oneTime = false,
+                                filterPermissions = revocablePermissions)
+                        if (DEBUG) {
+                            DumpableLog.i(LOG_TAG,
+                                "Bg state post revocation: ${bgRevokedState.allPermissions}")
+                        }
+                        val fgRevokedState = KotlinUtils.revokeForegroundRuntimePermissions(
                             context.application, group,
                             userFixed = false, oneTime = false,
                             filterPermissions = revocablePermissions)
-                        KotlinUtils.revokeForegroundRuntimePermissions(
-                            context.application, group,
-                            userFixed = false, oneTime = false,
-                            filterPermissions = revocablePermissions)
+                        if (DEBUG) {
+                            DumpableLog.i(LOG_TAG,
+                                "Fg state post revocation: ${fgRevokedState.allPermissions}")
+                        }
 
                         for (permission in revocablePermissions) {
                             context.packageManager.updatePermissionFlags(
@@ -390,6 +413,12 @@ private suspend fun revokePermissionsOnUnusedApps(
                 synchronized(revokedApps) {
                     revokedApps.add(pkg.packageName to user)
                 }
+            }
+        }
+        if (DEBUG) {
+            synchronized(revokedApps) {
+                DumpableLog.i(LOG_TAG,
+                        "Done auto-revoke for user ${user.identifier} - revoked $revokedApps")
             }
         }
     }
