@@ -24,6 +24,14 @@
                     "exclude-annotation": "androidx.test.filters.FlakyTest"
                 }
             ]
+        },
+        {
+            "name": "PermissionControllerOutOfProcessTests",
+            "options": [
+                {
+                    "include-filter": "com.android.permissioncontroller.tests.outofprocess.DumpTest"
+                }
+            ]
         }
     ],
     "presubmit-devicepolicy": [
