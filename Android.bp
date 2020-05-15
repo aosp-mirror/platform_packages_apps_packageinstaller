@@ -36,6 +36,13 @@ filegroup {
     srcs: [
         "src/**/*.java",
         "src/**/*.kt",
+        ":permissioncontroller-protos",
+    ],
+}
+
+filegroup {
+    name: "permissioncontroller-protos",
+    srcs: [
         "src/**/*.proto",
     ],
 }
