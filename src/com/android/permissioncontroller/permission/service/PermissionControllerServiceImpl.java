@@ -587,6 +587,10 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
         } catch (Exception e) {
             // We specifically want to catch DeadSystemExceptions, but cannot explicitly request
             // them, as it results in a compiler error
+            String idString = uid == Process.INVALID_UID
+                    ? "user " + Process.myUserHandle().getIdentifier() : "uid " + uid;
+            Log.w(LOG_TAG, "Failed to complete user sensitive update for " + idString
+                    + ", attempt number " + (numAttempts + 1) + " of " + MAX_RETRY_ATTEMPTS, e);
             if (numAttempts == MAX_RETRY_ATTEMPTS) {
                 throw e;
             } else {
