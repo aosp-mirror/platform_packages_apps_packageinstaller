@@ -70,9 +70,13 @@ class LightPackageInfoLiveData private constructor(
         newValue?.let { packageInfo ->
             if (packageInfo.uid != uid) {
                 uid = packageInfo.uid
-                PermissionListenerMultiplexer.addOrReplaceCallback(registeredUid,
-                    packageInfo.uid, this)
-                registeredUid = uid
+
+                // registeredUid == null means the live data is not active
+                if (registeredUid != null) {
+                    PermissionListenerMultiplexer.addOrReplaceCallback(registeredUid,
+                            packageInfo.uid, this)
+                    registeredUid = uid
+                }
             }
         }
         super.setValue(newValue)

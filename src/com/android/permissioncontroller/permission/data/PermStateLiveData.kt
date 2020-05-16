@@ -113,7 +113,8 @@ class PermStateLiveData private constructor(
             return
         }
         uid = packageInfo.uid
-        if (uid != registeredUid) {
+        // registeredUid == null means the live data is not active
+        if (uid != registeredUid && registeredUid != null) {
             PermissionListenerMultiplexer.addOrReplaceCallback(
                 registeredUid, packageInfo.uid, this)
             registeredUid = uid

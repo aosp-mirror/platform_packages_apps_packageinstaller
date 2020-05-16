@@ -83,6 +83,7 @@ import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.AppOpLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokeManifestExemptPackagesLiveData
+import com.android.permissioncontroller.permission.data.AutoRevokeStateLiveData
 import com.android.permissioncontroller.permission.data.DataRepositoryForPackage
 import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
@@ -114,10 +115,11 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.Date
+import java.util.Random
 import java.util.concurrent.TimeUnit.DAYS
 import java.util.concurrent.TimeUnit.SECONDS
 import java.util.concurrent.atomic.AtomicBoolean
-import java.util.Random
 
 private const val LOG_TAG = "AutoRevokePermissions"
 private const val DEBUG_OVERRIDE_THRESHOLDS = false
@@ -159,6 +161,10 @@ fun isAutoRevokeEnabled(context: Context): Boolean {
     return getCheckFrequencyMs(context) > 0 &&
             getUnusedThresholdMs(context) > 0 &&
             getUnusedThresholdMs(context) != Long.MAX_VALUE
+}
+
+fun isInAutoRevokeDogfood(context: Context): Boolean {
+    return TeamfoodSettings.get(context)?.enabledForPreRApps ?: false
 }
 
 /**
@@ -240,8 +246,19 @@ private suspend fun revokePermissionsOnUnusedApps(
 
     val userStats = UsageStatsLiveData[getUnusedThresholdMs(context),
         if (DEBUG_OVERRIDE_THRESHOLDS) INTERVAL_DAILY else INTERVAL_MONTHLY].getInitializedValue()
+    if (DEBUG) {
+        for ((user, stats) in userStats) {
+            DumpableLog.i(LOG_TAG, "Usage stats for user ${user.identifier}: " +
+                    stats.map { stat ->
+                        stat.packageName to Date(stat.lastTimeVisible)
+                    }.toMap())
+        }
+    }
     for (user in unusedApps.keys) {
         if (user !in userStats.keys) {
+            if (DEBUG) {
+                DumpableLog.i(LOG_TAG, "Ignoring user ${user.identifier}")
+            }
             unusedApps.remove(user)
         }
     }
@@ -258,7 +275,10 @@ private suspend fun revokePermissionsOnUnusedApps(
             lastTimeVisible = Math.max(lastTimeVisible, packageInfo.firstInstallTime)
 
             // Limit by first boot time
-            lastTimeVisible = Math.max(lastTimeVisible, firstBootTime)
+            // TODO eugenesusla: temporarily disabled for dogfooders for troubleshooting
+            if (!isInAutoRevokeDogfood(context)) {
+                lastTimeVisible = Math.max(lastTimeVisible, firstBootTime)
+            }
 
             // Handle cross-profile apps
             if (context.isPackageCrossProfile(pkgName)) {
@@ -291,7 +311,12 @@ private suspend fun revokePermissionsOnUnusedApps(
             .getInitializedValue(staleOk = true).keys
 
     val revokedApps = mutableListOf<Pair<String, UserHandle>>()
+    val userManager = context.getSystemService(UserManager::class.java)
     for ((user, userApps) in unusedApps) {
+        if (userManager == null || !userManager.isUserUnlocked(user)) {
+            DumpableLog.w(LOG_TAG, "Skipping $user - locked direct boot state")
+            continue
+        }
         userApps.forEachInParallel(Main) { pkg: LightPackageInfo ->
             if (pkg.grantedPermissions.isEmpty()) {
                 return@forEachInParallel
@@ -338,7 +363,9 @@ private suspend fun revokePermissionsOnUnusedApps(
                     }
 
                     if (DEBUG) {
-                        DumpableLog.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions")
+                        DumpableLog.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions" +
+                                " - lastVisible on " +
+                                userStats[user]?.lastTimeVisible(packageName)?.let(::Date))
                     }
 
                     val uid = group.packageInfo.uid
@@ -354,17 +381,26 @@ private suspend fun revokePermissionsOnUnusedApps(
                     if (packageImportance > IMPORTANCE_TOP_SLEEPING) {
                         if (DEBUG) {
                             DumpableLog.i(LOG_TAG, "revoking $packageName - $revocablePermissions")
+                            DumpableLog.i(LOG_TAG, "State pre revocation: ${group.allPermissions}")
                         }
                         anyPermsRevoked.compareAndSet(false, true)
 
-                        KotlinUtils.revokeBackgroundRuntimePermissions(
+                        val bgRevokedState = KotlinUtils.revokeBackgroundRuntimePermissions(
+                                context.application, group,
+                                userFixed = false, oneTime = false,
+                                filterPermissions = revocablePermissions)
+                        if (DEBUG) {
+                            DumpableLog.i(LOG_TAG,
+                                "Bg state post revocation: ${bgRevokedState.allPermissions}")
+                        }
+                        val fgRevokedState = KotlinUtils.revokeForegroundRuntimePermissions(
                             context.application, group,
                             userFixed = false, oneTime = false,
                             filterPermissions = revocablePermissions)
-                        KotlinUtils.revokeForegroundRuntimePermissions(
-                            context.application, group,
-                            userFixed = false, oneTime = false,
-                            filterPermissions = revocablePermissions)
+                        if (DEBUG) {
+                            DumpableLog.i(LOG_TAG,
+                                "Fg state post revocation: ${fgRevokedState.allPermissions}")
+                        }
 
                         for (permission in revocablePermissions) {
                             context.packageManager.updatePermissionFlags(
@@ -384,6 +420,12 @@ private suspend fun revokePermissionsOnUnusedApps(
                 synchronized(revokedApps) {
                     revokedApps.add(pkg.packageName to user)
                 }
+            }
+        }
+        if (DEBUG) {
+            synchronized(revokedApps) {
+                DumpableLog.i(LOG_TAG,
+                        "Done auto-revoke for user ${user.identifier} - revoked $revokedApps")
             }
         }
     }
@@ -537,7 +579,7 @@ class AutoRevokeService : JobService() {
                 R.string.auto_revoke_permission_reminder_notification_content))
             .setStyle(Notification.BigTextStyle().bigText(getString(
                 R.string.auto_revoke_permission_reminder_notification_content)))
-            .setSmallIcon(R.drawable.ic_notifications)
+            .setSmallIcon(R.drawable.ic_settings_24dp)
             .setColor(getColor(android.R.color.system_notification_accent_color))
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
@@ -743,6 +785,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
         val firstInstallTime: Long,
         val lastTimeVisible: Long?,
         val isAutoRevokeManifestExempt: Boolean,
+        val isAutoRevokeEnabled: Boolean,
         val implementedServices: List<String>,
         val groups: List<AutoRevokeDumpGroupData>
     ) {
@@ -752,6 +795,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
                     .setPackageName(packageName)
                     .setFirstInstallTime(firstInstallTime)
                     .setIsAutoRevokeManifestExempt(isAutoRevokeManifestExempt)
+                    .setIsAutoRevokeEnabled(isAutoRevokeEnabled)
 
             lastTimeVisible?.let { dump.lastTimeVisible = lastTimeVisible }
 
@@ -816,6 +860,13 @@ private class AutoRevokeDumpLiveData(context: Context) :
             MutableMap<Pair<UserHandle, String>, PackagePermissionsLiveData>? = null
 
     /**
+     * Group names for packages
+     * map<user, pkg-name> -> auto-revoke state. {@code null} before step 1
+     */
+    private var pkgAutoRevokeState:
+            MutableMap<Pair<UserHandle, String>, AutoRevokeStateLiveData>? = null
+
+    /**
      * Group state for packages
      * map<(user, pkg-name) -> map<perm-group-name -> group>>, value {@code null} before step 2
      */
@@ -847,6 +898,8 @@ private class AutoRevokeDumpLiveData(context: Context) :
         addSource(packages) {
             pkgPermGroupNames?.values?.forEach { removeSource(it) }
             pkgPermGroupNames = null
+            pkgAutoRevokeState?.values?.forEach { removeSource(it) }
+            pkgAutoRevokeState = null
             pkgPermGroups.values.forEach { it?.values?.forEach { removeSource(it) } }
 
             updateIfActive()
@@ -885,6 +938,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
         // pkgPermGroupNames step 1, packages is loaded, nothing else
         if (packages.isInitialized && pkgPermGroupNames == null) {
             pkgPermGroupNames = mutableMapOf()
+            pkgAutoRevokeState = mutableMapOf()
 
             for ((user, userPkgs) in packages.value!!) {
                 for (pkg in userPkgs) {
@@ -895,6 +949,13 @@ private class AutoRevokeDumpLiveData(context: Context) :
                         pkgPermGroups[user to pkg.packageName]?.forEach { removeSource(it.value) }
                         pkgPermGroups.remove(user to pkg.packageName)
 
+                        updateIfActive()
+                    }
+
+                    val newPkgAutoRevokeState = AutoRevokeStateLiveData[pkg.packageName, user]
+                    pkgAutoRevokeState!![user to pkg.packageName] = newPkgAutoRevokeState
+
+                    addSource(newPkgAutoRevokeState) {
                         updateIfActive()
                     }
                 }
@@ -934,7 +995,8 @@ private class AutoRevokeDumpLiveData(context: Context) :
                 pkgPermGroupNames?.size == pkgPermGroups.size &&
                 pkgPermGroups.values.all { it?.values?.all { it.isInitialized } == true } &&
                 services?.values?.all { it.isInitialized } == true &&
-                autoRevokeManifestExemptPackages?.values?.all { it.isInitialized } == true) {
+                autoRevokeManifestExemptPackages?.values?.all { it.isInitialized } == true &&
+                pkgAutoRevokeState?.values?.all { it.isInitialized } == true) {
             val users = mutableListOf<AutoRevokeDumpUserData>()
 
             for ((user, userPkgs) in packages.value!!) {
@@ -967,6 +1029,8 @@ private class AutoRevokeDumpLiveData(context: Context) :
                                     ?.find { it.packageName == pkg.packageName }?.lastTimeVisible,
                             autoRevokeManifestExemptPackages!![user]!!.value!!
                                     .contains(pkg.packageName),
+                            pkgAutoRevokeState!![user to pkg.packageName]!!.value
+                                    ?.isEnabledForApp == true,
                             services!![user]?.value!![pkg.packageName] ?: emptyList(),
                             groups))
                 }

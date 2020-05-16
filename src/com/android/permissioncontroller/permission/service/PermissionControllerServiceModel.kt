@@ -41,6 +41,7 @@ import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeout
 import java.util.function.IntConsumer
 
 /**
@@ -279,12 +280,15 @@ class PermissionControllerServiceModel(private val service: PermissionController
      * @return the dump state as a proto
      */
     suspend fun onDump(): PermissionControllerDumpProto {
-        val autoRevokeDump = GlobalScope.async(IPC) { dumpAutoRevokePermissions(service) }
-        val dumpedLogs = GlobalScope.async(IO) { DumpableLog.get() }
+        // Timeout is less than the timeout used by dumping (10 s)
+        return withTimeout(9000) {
+            val autoRevokeDump = GlobalScope.async(IPC) { dumpAutoRevokePermissions(service) }
+            val dumpedLogs = GlobalScope.async(IO) { DumpableLog.get() }
 
-        return PermissionControllerDumpProto.newBuilder()
-                .setAutoRevoke(autoRevokeDump.await())
-                .addAllLogs(dumpedLogs.await())
-                .build()
+            PermissionControllerDumpProto.newBuilder()
+                    .setAutoRevoke(autoRevokeDump.await())
+                    .addAllLogs(dumpedLogs.await())
+                    .build()
+        }
     }
 }
