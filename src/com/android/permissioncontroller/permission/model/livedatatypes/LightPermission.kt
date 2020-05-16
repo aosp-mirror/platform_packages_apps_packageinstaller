@@ -42,10 +42,10 @@ data class LightPermission(
 ) {
 
     constructor(
-            pkgInfo: LightPackageInfo,
-            permInfo: LightPermInfo,
-            permState: PermState,
-            foregroundPerms: List<String>?
+        pkgInfo: LightPackageInfo,
+        permInfo: LightPermInfo,
+        permState: PermState,
+        foregroundPerms: List<String>?
     ) :
         this(pkgInfo, permInfo, permState.granted, permState.permFlags, foregroundPerms)
 
@@ -99,7 +99,7 @@ data class LightPermission(
 
     override fun toString() = buildString {
         append(name)
-        if (isGrantedIncludingAppOp) append(", Granted")
+        if (isGrantedIncludingAppOp) append(", Granted") else append(", NotGranted")
         if (isPolicyFixed) append(", PolicyFixed")
         if (isSystemFixed) append(", SystemFixed")
         if (isUserFixed) append(", UserFixed")
