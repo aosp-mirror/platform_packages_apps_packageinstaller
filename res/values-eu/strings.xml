@@ -112,7 +112,7 @@
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Galdetu beti"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Ukatu"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> atzitzeko baimena"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Aplikazioak <xliff:g id="PERM">%1$s</xliff:g> atzitzeko duen baimena"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Aplikazio honek <xliff:g id="PERM">%1$s</xliff:g> atzitzeko duen baimena"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ikusi <xliff:g id="APP">%1$s</xliff:g> aplikazioaren baimen guztiak"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ikusi baimen hau duten aplikazio guztiak"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Kendu baimenak aplikazioa ez bada erabiltzen"</string>
@@ -250,7 +250,7 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"Egiten dituzun deiak beste telefono-zenbaki batera desbideratzeko aukera ematen dizuten aplikazioak"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu deiak birbideratzeko aplikazio lehenetsi gisa?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Ez du behar baimenik"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Deitzailearen IDrako eta spamerako aplikazio lehenetsia"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Deitzailearen ID eta spam-aplikazio lehenetsia"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Deitzailearen IDrako eta spamerako aplikazioa"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"Deiak identifikatzeko, spama eta dei automatizatuak blokeatzeko, eta nahi ez dituzun zenbakiak zerrenda beltzean jartzeko aukera ematen dizuten aplikazioak"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu deitzailearen IDrako eta spamerako aplikazio lehenetsi gisa?"</string>
@@ -282,7 +282,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioak arazketa-informazioa kargatu nahi du."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Partekatu arazketa-datuak"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Arazo bat hauteman du sistemak."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> datan (<xliff:g id="TIME">%3$s</xliff:g>) sortutako akatsen txostena kargatzeko baimena eskatzen ari da <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Akatsen txostenek zure gailuari buruzkoa den edo aplikazioek erregistratu duten informazio pertsonala dute; adibidez, erabiltzaile-izenak, kokapenari buruzko datuak, gailuaren identifikatzaileak eta sareari buruzko informazioa. Informazio hori izateko fidagarriak iruditzen zaizkizun pertsona eta aplikazioekin soilik partekatu beharko zenituzke akatsen txostenak. <xliff:g id="APP_NAME_1">%4$s</xliff:g> aplikazioari akatsen txostena kargatzeko baimena eman nahi diozu?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> (<xliff:g id="TIME">%3$s</xliff:g>) datan sortutako akatsen txostena kargatzeko baimena eskatzen ari da <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Akatsen txostenek zure gailuari buruzkoa den edo aplikazioek erregistratu duten informazio pertsonala dute; adibidez, erabiltzaile-izenak, kokapenari buruzko datuak, gailuaren identifikatzaileak eta sareari buruzko informazioa. Informazio hori izateko fidagarriak iruditzen zaizkizun pertsona eta aplikazioekin soilik partekatu beharko zenituzke akatsen txostenak. <xliff:g id="APP_NAME_1">%4$s</xliff:g> aplikazioari akatsen txostena kargatzeko baimena eman nahi diozu?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Errore bat gertatu da <xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioaren akatsen txostena prozesatzean; beraz, ezin izan dira partekatu arazketa-datu xehatuak. Barkatu eragozpenak."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Baimendu"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Ukatu"</string>
@@ -295,9 +295,9 @@
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Mikrofonoa erabiltzen denean ahozko laguntza aktibatzeko, erakutsi dagokion ikonoa egoera-barran"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Gailuko argazkiak eta multimedia-edukia atzitzeko baimena eman nahi diozu &lt;b&amp;gt<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Kontaktuak atzitzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
-    <string name="permgrouprequest_location" msgid="4367626296074714965">"Gailuaren kokapena atzitzea baimendu nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequest_location" msgid="4367626296074714965">"Gailuaren kokapena atzitzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Hura erabiltzen ari zarenean soilik atzituko du aplikazioak kokapena"</string>
-    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"Gailuaren kokapena atzitzea baimendu nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"Gailuaren kokapena atzitzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
     <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"Baliteke aplikazioak beti atzitu nahi izatea zure kokapena, baita aplikazioa erabiltzen ari ez zarenean ere. "<annotation id="link">"Eman baimen hori Ezarpenak atalean"</annotation>"."</string>
     <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"Kokapenerako sarbidea aldatu nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
     <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"Aplikazioak beti atzitu nahi du zure kokapena, baita aplikazioa erabiltzen ari ez zarenean ere. "<annotation id="link">"Eman baimen hori Ezarpenak atalean"</annotation>"."</string>

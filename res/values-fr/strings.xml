@@ -143,7 +143,7 @@
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Les applications disposant de cette autorisation peuvent accéder à vos contacts"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Les applications disposant de cette autorisation peuvent accéder à la position de cet appareil"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Les applications disposant de cette autorisation peuvent enregistrer du contenu audio"</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Les applications disposant de cette autorisation peuvent passer des appels téléphoniques et les gérer"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Les applications disposant de cette autorisation peuvent passer et gérer des appels téléphoniques"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Les applications disposant de cette autorisation peuvent accéder aux données des capteurs corporels"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Les applications disposant de cette autorisation peuvent envoyer et lire des SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Les applications disposant de cette autorisation peuvent accéder aux photos, fichiers multimédias et autres fichiers sur votre appareil"</string>
@@ -151,13 +151,13 @@
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Accès actuellement refusé/Dernier accès : <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Aucun accès enregistré"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Accès refusé/aucune tentative d\'accès"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"Autorisées"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Accès autorisé"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Toujours autorisées"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Autorisées seulement pendant l\'utilisation"</string>
     <string name="allowed_storage_scoped" msgid="2472018207553284700">"Autorisées à gérer les fichiers multimédias"</string>
     <string name="allowed_storage_full" msgid="4167507647800726342">"Autorisées à gérer tous les fichiers"</string>
     <string name="ask_header" msgid="4471670860332046665">"Toujours demander"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Non autorisées"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Accès refusé"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> jour</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> jours</item>
