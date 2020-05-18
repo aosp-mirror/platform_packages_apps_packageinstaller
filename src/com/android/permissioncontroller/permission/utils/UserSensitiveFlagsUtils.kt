@@ -26,8 +26,6 @@ import com.android.permissioncontroller.permission.data.UserSensitivityLiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.UidSensitivityState
 import com.android.permissioncontroller.permission.utils.Utils.FLAGS_ALWAYS_USER_SENSITIVE
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 import java.lang.IllegalStateException
 
@@ -55,24 +53,26 @@ fun updateUserSensitiveForUser(user: UserHandle, callback: Runnable) {
     }
 }
 
-private suspend fun updateUserSensitiveForUidsInternal(
+private fun updateUserSensitiveForUidsInternal(
     uidsUserSensitivity: Map<Int, UidSensitivityState>,
     user: UserHandle,
     callback: Runnable
 ) {
     val pm = Utils.getUserContext(PermissionControllerApplication.get(), user).packageManager
 
-    // Apply the update for apps in parallel
-    val jobs = mutableListOf<Job>()
-    for ((uid, uidState) in uidsUserSensitivity) {
-        jobs.add(GlobalScope.launch(IPC) {
+    GlobalScope.launch(IPC) {
+        for ((uid, uidState) in uidsUserSensitivity) {
             for (pkg in uidState.packages) {
                 for (perm in pkg.requestedPermissions) {
                     val flags = uidState.permStates[perm] ?: continue
 
                     try {
-                        pm.updatePermissionFlags(perm, pkg.packageName, FLAGS_ALWAYS_USER_SENSITIVE,
-                            flags, user)
+                        val oldFlags = pm.getPermissionFlags(perm, pkg.packageName, user) and
+                            FLAGS_ALWAYS_USER_SENSITIVE
+                        if (flags != oldFlags) {
+                            pm.updatePermissionFlags(perm, pkg.packageName,
+                                FLAGS_ALWAYS_USER_SENSITIVE, flags, user)
+                        }
                     } catch (e: IllegalArgumentException) {
                         if (e.message?.startsWith("Unknown permission: ") == false) {
                             Log.e(LOG_TAG, "Unexpected exception while updating flags for " +
@@ -83,9 +83,8 @@ private suspend fun updateUserSensitiveForUidsInternal(
                     }
                 }
             }
-        })
+        }
     }
-    jobs.joinAll()
     callback.run()
 }
 
