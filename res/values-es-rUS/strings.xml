@@ -181,17 +181,17 @@
     <string name="permission_description_summary_location" msgid="687820658574645201">"Las apps que tienen este permiso pueden acceder a la ubicación del dispositivo"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Las apps que tienen este permiso pueden grabar audio"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Las apps que tienen este permiso pueden realizar y administrar llamadas telefónicas"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Las apps que tienen este permiso pueden acceder a los datos del sensor de tus signos vitales"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Las apps que tienen este permiso pueden acceder a los datos de tus signos vitales capturados por un sensor"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Las apps que tienen este permiso pueden enviar y ver mensajes SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Las apps que tienen este permiso pueden acceder a fotos, contenido multimedia y archivos en tu dispositivo"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Último acceso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Acceso denegado actualmente/último acceso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"No accedió nunca"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Denegado / No accedió nunca"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"Permitidos"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"Permitido todo el tiempo"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Permitido solo durante el uso"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Rechazados"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Con permiso"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Con permiso permanente"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Con permiso solo durante el uso"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Sin permiso"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Ver uso detallado"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> días</item>
@@ -295,7 +295,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> quiere subir información de depuración."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Compartir datos de depuración"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"El sistema detectó un problema."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> solicita subir un informe de errores de este dispositivo generado el <xliff:g id="DATE">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g>. Los informes de errores pueden incluir información personal sobre tu dispositivo o registrada por apps, como nombres de usuario, datos de ubicación, identificadores del dispositivo y datos de red. Solo debes compartir los informes de errores con personas y apps de confianza. ¿Permitir que <xliff:g id="APP_NAME_1">%4$s</xliff:g> suba un informe de errores?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> solicita subir un informe de errores de este dispositivo generado el <xliff:g id="DATE">%2$s</xliff:g> a las <xliff:g id="TIME">%3$s</xliff:g>. Los informes de errores pueden incluir información personal sobre tu dispositivo o registrada por apps, como nombres de usuario, datos de ubicación, identificadores del dispositivo y datos de red. Solo debes compartir los informes de errores con personas y apps de confianza. ¿Permitir que <xliff:g id="APP_NAME_1">%4$s</xliff:g> suba un informe de errores?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Se produjo un error al procesar el informe de errores para <xliff:g id="APP_NAME">%1$s</xliff:g>. Por lo tanto, no es posible compartir los datos detallados de depuración. Lamentamos la interrupción."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Permitir"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Denegar"</string>

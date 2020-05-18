@@ -177,19 +177,19 @@
     <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z pamięci"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Dane o ostatnich użyciu nie są obecnie dostępne dla tych uprawnień"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Zobacz wszystkie uprawnienia aplikacji <xliff:g id="APP">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Wyświetl wszystkie aplikacje z tymi uprawnieniami"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacje z tymi uprawnieniami mają <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacje z tymi uprawnieniami mają dostęp do danych o Twojej aktywności fizycznej takiej jak spacery, jazda na rowerze, jazda samochodem, liczba kroków i inne"</string>
-    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikacje z tymi uprawnieniami mają dostęp do kalendarza"</string>
-    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Aplikacje z tymi uprawnieniami mogą odczytywać i zapisywać rejestr połączeń telefonicznych"</string>
-    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Aplikacje z tymi uprawnieniami mogą robić zdjęcia i nagrywać filmy"</string>
-    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Aplikacje z tymi uprawnieniami mają dostęp do kontaktów"</string>
-    <string name="permission_description_summary_location" msgid="687820658574645201">"Aplikacje z tymi uprawnieniami mają dostęp do lokalizacji tego urządzenia"</string>
-    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Aplikacje z tymi uprawnieniami mogą nagrywać dźwięk"</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Aplikacje z tymi uprawnieniami mogą nawiązywać połączenia telefoniczne i nimi zarządzać"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Aplikacje z tymi uprawnieniami mają dostęp do danych z czujnika podstawowych funkcji życiowych"</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Aplikacje z tymi uprawnieniami mogą wysyłać i wyświetlać SMS-y"</string>
-    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Aplikacje z tymi uprawnieniami mają dostęp do zdjęć, multimediów i plików na urządzeniu"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Wyświetl wszystkie aplikacje z tym uprawnieniem"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacje z tym uprawnieniem mają <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacje z tym uprawnieniem mają dostęp do danych o Twojej aktywności fizycznej takiej jak spacery, jazda na rowerze, jazda samochodem, liczba kroków i inne"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikacje z tym uprawnieniem mają dostęp do kalendarza"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Aplikacje z tym uprawnieniem mogą odczytywać i zapisywać rejestr połączeń telefonicznych"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Aplikacje z tym uprawnieniem mogą robić zdjęcia i nagrywać filmy"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Aplikacje z tym uprawnieniem mają dostęp do kontaktów"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"Aplikacje z tym uprawnieniem mają dostęp do lokalizacji tego urządzenia"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Aplikacje z tym uprawnieniem mogą nagrywać dźwięk"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Aplikacje z tym uprawnieniem mogą nawiązywać połączenia telefoniczne i nimi zarządzać"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Aplikacje z tym uprawnieniem mają dostęp do danych z czujnika podstawowych funkcji życiowych"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Aplikacje z tym uprawnieniem mogą wysyłać i wyświetlać SMS-y"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Aplikacje z tym uprawnieniem mają dostęp do zdjęć, multimediów i plików na urządzeniu"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Ostatnie użycie: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Aktualnie odmowa / ostatni dostęp: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Nigdy nie użyto"</string>
@@ -262,7 +262,7 @@
     <string name="role_emergency_description" msgid="3567231505957373289">"Aplikacje do rejestrowania informacji medycznych i udostępniania ich ratownikom medycznym, do otrzymywania alertów o groźnych zjawiskach pogodowych i katastrofach, do powiadamiania innych osób, gdy potrzebujesz pomocy."</string>
     <string name="role_emergency_request_title" msgid="6595296517085761522">"Czy aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> ma być domyślną aplikacją alarmową?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Nie potrzebuje uprawnień"</string>
-    <string name="role_home_label" msgid="6245106863177808486">"Domyślna ap. ekranu głównego"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Domyślny ekran główny"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Aplikacja ekranu głównego"</string>
     <string name="role_home_description" msgid="6736956389161158052">"Aplikacje często nazywane programami uruchamiającymi, które zastępują ekrany główne na urządzeniu z Androidem i zapewniają dostęp do zawartości oraz funkcji urządzenia"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Czy aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> ma być domyślną aplikacją ekranu głównego?"</string>
@@ -272,9 +272,9 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"Aplikacje umożliwiające przekazywanie połączeń pod inny numer telefonu"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Czy aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> ma być domyślną aplikacją do przekierowywania połączeń?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Nie potrzebuje uprawnień"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Domyślna aplik. ident. rozmówców i spam"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Aplikacja do identyfikacji rozmówcy i spamu"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"Aplikacje umożliwiające identyfikowanie połączeń, blokowanie spamu i automatycznych wiadomości telefonicznych oraz umieszczanie numerów na czarnej liście."</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Domyślna aplikacja do identyfikacji rozmówcy i spamu"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Aplikacja do identyfikacji rozmówcy i spamu"</string>
+    <string name="role_call_screening_description" msgid="4470066768170089758">"Aplikacje umożliwiające identyfikowanie połączeń, blokowanie spamu i automatycznych wiadomości telefonicznych oraz umieszczanie numerów na czarnej liście"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Czy aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> ma być domyślną aplikacją do identyfikacji rozmówcy i spamu?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nie potrzebuje uprawnień"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Bieżąca aplikacja domyślna"</string>
@@ -293,7 +293,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Otwieranie linków"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Domyślne do pracy"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Brak"</string>
-    <string name="default_app_system_default" msgid="3870203641514466948">"(Domyślna aplikacja systemu)"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Domyślna aplikacja systemowa)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Brak aplikacji"</string>
     <string name="car_default_app_selected" msgid="2813270284225505741">"Wybrana"</string>
     <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Wybrana – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>

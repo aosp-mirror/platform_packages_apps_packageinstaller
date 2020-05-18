@@ -146,7 +146,7 @@
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>の権限"</string>
     <string name="app_permission_header" msgid="228974007660007656">"このアプリの<xliff:g id="PERM">%1$s</xliff:g>へのアクセス権限"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%3$s</xliff:g>前に<xliff:g id="PERM">%2$s</xliff:g>にアクセスしました"</string>
-    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前に運動データにアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前に身体活動データにアクセスしました"</string>
     <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前にカレンダーにアクセスしました"</string>
     <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前に通話履歴にアクセスしました"</string>
     <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前にカメラにアクセスしました"</string>
@@ -158,7 +158,7 @@
     <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前に SMS にアクセスしました"</string>
     <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前にストレージにアクセスしました"</string>
     <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g>は<xliff:g id="PERM">%2$s</xliff:g>にアクセスしていません"</string>
-    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g>は運動データにアクセスしていません"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g>は身体活動データにアクセスしていません"</string>
     <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g>はカレンダーにアクセスしていません"</string>
     <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g>が通話履歴にアクセスしました"</string>
     <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g>はカメラにアクセスしていません"</string>
@@ -173,12 +173,12 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g>の権限をすべて表示"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"この権限があるアプリをすべて表示"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"この権限があるアプリは、<xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"この権限があるアプリは、ウォーキング、自転車、運転、歩数などの運動データにアクセスできます"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"この権限があるアプリは、ウォーキング、自転車、運転、歩数などの身体活動データにアクセスできます"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"この権限があるアプリはカレンダーにアクセスできます"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"この権限があるアプリは通話履歴の読み取りと書き込みを行えます"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"この権限があるアプリは写真や動画を撮影できます"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"この権限があるアプリは連絡先にアクセスできます"</string>
-    <string name="permission_description_summary_location" msgid="687820658574645201">"この権限があるアプリはこのデバイスの位置情報にアクセスできます"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"この権限があるアプリは位置情報にアクセスできます"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"この権限があるアプリは録音を行えます"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"この権限があるアプリは電話の発信と管理を行えます"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"この権限があるアプリはバイタルサインに関するセンサーデータにアクセスできます"</string>
@@ -191,7 +191,7 @@
     <string name="allowed_header" msgid="6279244592227088158">"許可"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"常に許可"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"使用中のみ許可"</string>
-    <string name="denied_header" msgid="2277998574238617699">"拒否"</string>
+    <string name="denied_header" msgid="2277998574238617699">"許可しない"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"詳細な使用状況を表示"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g>日</item>
@@ -214,9 +214,9 @@
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"このアプリは常に位置情報にアクセスできます。設定を変更するにはタップしてください。"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"アプリが使用中の場合のみ"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"許可されている権限はありません"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"許可されていない権限はありません"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"許可していない権限はありません"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"許可されているアプリはありません"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"許可されていないアプリはありません"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"拒否されているアプリはありません"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"選択済み"</string>
     <string name="settings" msgid="2884124136779508907">"設定"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> にデバイスへのフルアクセスを許可"</string>
@@ -250,7 +250,7 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"必要な権限がありません"</string>
     <string name="role_home_label" msgid="6245106863177808486">"デフォルトのホームアプリ"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"ホームアプリ"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"ランチャーとも呼ばれ、Android デバイスのホーム画面のように、デバイスのコンテンツや機能にアクセスできるアプリです"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Android デバイスのホーム画面を提供し、デバイスのコンテンツや機能にアクセスできるようにするアプリです。ランチャーとも呼ばれます。"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> をデフォルトのホームアプリとして設定しますか？"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"必要な権限がありません"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"デフォルトの通話転送アプリ"</string>

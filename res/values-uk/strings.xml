@@ -196,8 +196,8 @@
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Відхилено/не отримував доступу"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Дозволено"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Завжди дозволено"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Дозволено додаткам, які використовуються"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Відхилено"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Дозволено лише під час використання"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Відмовлено"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Переглянути дані про використання"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> день</item>
@@ -244,7 +244,7 @@
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Отримує доступ до SMS і журналу викликів"</string>
     <string name="role_browser_label" msgid="814240075813716311">"Веб-переглядач за умовчанням"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"Веб-переглядач"</string>
-    <string name="role_browser_description" msgid="2326990202516329438">"Додатки, які надають вам доступ до Інтернету й показують вміст за натиснутим посиланням"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"Додатки, за допомогою яких можна переглядати сайти й переходити за посиланнями"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як веб-переглядач за умовчанням?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Дозволи не потрібні"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"Дзвінки за умовчанням"</string>
@@ -272,10 +272,10 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"Додатки, у яких можна переадресовувати вихідні дзвінки на інший номер телефону"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як додаток для переспрямування викликів за умовчанням?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Дозволи не потрібні"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Автоматичний визначник номера й засіб від спаму за умовчанням"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Автоматичний визначник номера й засіб від спаму"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"АВН і захист від спаму за умовчанням"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"АВН і захист від спаму"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"Додатки, за допомогою яких можна визначати дзвінки, блокувати спам, здійснювати автоматичні виклики та вносити небажані номери в чорний список"</string>
-    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як автоматичний визначник номера й засіб від спаму за умовчанням?"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Зробити <xliff:g id="APP_NAME">%1$s</xliff:g> додатком для автоматичного визначення номерів і захисту від спаму за умовчанням?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Дозволи не потрібні"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Поточний за умовчанням"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Не запитувати знову"</string>

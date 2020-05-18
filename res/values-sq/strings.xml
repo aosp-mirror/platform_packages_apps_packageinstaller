@@ -53,7 +53,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Ky aplikacion është projektuar për një version më të vjetër të Android. Refuzimi i lejeve mund të shkaktojë që ai të mos funksionojë më siç duhet."</string>
     <string name="default_permission_description" msgid="692254823411049573">"kryej një veprim të panjohur"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> nga <xliff:g id="COUNT_1">%2$d</xliff:g> aplikacione u lejuan"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Lejohen <xliff:g id="COUNT_0">%1$d</xliff:g> nga <xliff:g id="COUNT_1">%2$d</xliff:g> aplikacione"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Shfaq sistemin"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Fshih sistemin"</string>
     <string name="no_apps" msgid="2377153782338039463">"Asnjë aplikacion"</string>
@@ -170,17 +170,17 @@
     <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> nuk ka pasur qasje te mesazhet e tua SMS"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> nuk ka pasur qasje te hapësira jote ruajtëse"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Të dhënat e qasjes së fundit nuk ofrohen aktualisht për këtë leje"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Shiko të gjitha autorizimet e <xliff:g id="APP">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Shiko të gjitha autorizimet e aplikacionit \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Shiko të gjitha aplikacionet me këtë autorizim"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacionet me këtë autorizim mund <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacionet me këtë leje mund të kenë qasje tek aktiviteti yt fizik, si ecja në këmbë, me biçikletë, me makinë, numërimi i hapave etj."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacioneve me këtë autorizim u lejohet <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacionet me këtë leje mund të kenë qasje tek aktiviteti yt fizik, si: ecja në këmbë, me biçikletë, me makinë, numërimi i hapave etj."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikacionet me këtë autorizim mund të kenë qasje te kalendari yt"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Aplikacionet me këtë autorizim mund të lexojnë dhe të shkruajnë në evidencën e telefonatave të telefonit"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Aplikacionet me këtë autorizim mund të nxjerrin fotografi dhe të regjistrojnë video"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Aplikacionet me këtë autorizim mund të kenë qasje te kontaktet e tua"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Aplikacionet me këtë autorizim mund të kenë qasje te vendndodhja e kësaj pajisjeje"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Aplikacionet me këtë autorizim mund të regjistrojnë audion"</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Aplikacionet me këtë autorizim mund të bëjnë dhe të menaxhojnë telefonatat"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Aplikacionet me këtë autorizim mund të bëjnë telefonata dhe t\'i menaxhojnë ato"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Aplikacionet me këtë autorizim mund të kenë qasje te të dhënat e sensorëve për shenjat e tua jetësore"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Aplikacionet me këtë autorizim mund të dërgojnë dhe të shikojnë mesazhet SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Aplikacionet me këtë leje mund të kenë qasje te fotografitë, media dhe skedarët në pajisjen tënde"</string>

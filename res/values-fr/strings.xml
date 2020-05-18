@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2792757108872430971">"Contrôleur autorisations"</string>
+    <string name="app_name" msgid="2792757108872430971">"Contrôleur d\'autorisations"</string>
     <string name="ok" msgid="4417794827535157922">"OK"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"autorisations"</string>
     <string name="cancel" msgid="7279939269964834974">"Annuler"</string>
@@ -173,14 +173,14 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Afficher toutes les autorisations pour <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Afficher toutes les applications disposant de cette autorisation"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Les applications disposant de cette autorisation peuvent <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Les applications disposant de cette autorisation peuvent accéder à votre activité physique (marche, vélo, voiture, nombre de pas, etc.)"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Les applications disposant de cette autorisation peuvent accéder aux données relatives à votre activité physique (marche, vélo, voiture, nombre de pas, etc.)"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Les applications disposant de cette autorisation peuvent accéder à votre agenda"</string>
-    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Les applications disposant de cette autorisation peuvent lire le journal d\'appels du téléphone et écrire dans celui-ci"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Les applications disposant de cette autorisation peuvent consulter et modifier le journal d\'appels du téléphone"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Les applications disposant de cette autorisation peuvent prendre des photos et enregistrer des vidéos"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Les applications disposant de cette autorisation peuvent accéder à vos contacts"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Les applications disposant de cette autorisation peuvent accéder à la position de cet appareil"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Les applications disposant de cette autorisation peuvent enregistrer du contenu audio"</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Les applications disposant de cette autorisation permettent de passer des appels téléphoniques et de les gérer"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Les applications disposant de cette autorisation peuvent passer et gérer des appels téléphoniques"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Les applications disposant de cette autorisation peuvent accéder aux données des capteurs corporels"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Les applications disposant de cette autorisation peuvent envoyer et lire des SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Les applications disposant de cette autorisation peuvent accéder aux photos, fichiers multimédias et autres fichiers sur votre appareil"</string>
@@ -188,10 +188,10 @@
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Accès actuellement refusé/Dernier accès : <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Aucun accès enregistré"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Accès refusé/aucune tentative d\'accès"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"Autorisées"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Accès autorisé"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Toujours autorisées"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Autorisées seulement pendant l\'utilisation"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Non autorisées"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Accès refusé"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Afficher l\'utilisation détaillée"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> jour</item>
@@ -216,7 +216,7 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Aucune autorisation accordée"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Aucune autorisation refusée"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Aucune application autorisée"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"Aucune application refusée"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Aucune application non autorisée"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Sélectionnée"</string>
     <string name="settings" msgid="2884124136779508907">"Paramètres"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> bénéficie d\'un accès complet à votre appareil"</string>
@@ -260,7 +260,7 @@
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Aucune autorisation nécessaire"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Appli numéro de l\'appelant et spam par défaut"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Appli numéro de l\'appelant et spam"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"Applications qui vous permettent d\'identifier les appels entrants, de bloquer le spam et les appels automatiques, et de mettre sur liste noire les numéros indésirables"</string>
+    <string name="role_call_screening_description" msgid="4470066768170089758">"Applications qui vous permettent d\'identifier les appels entrants, de bloquer les appels indésirables et les appels automatiques, et de mettre sur liste noire les numéros indésirables"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme votre application par défaut pour l\'affichage du numéro de l\'appelant et du spam ?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Aucune autorisation nécessaire"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Appli par défaut actuelle"</string>

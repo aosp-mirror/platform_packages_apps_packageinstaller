@@ -57,7 +57,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"выполнять неизвестное действие"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Приложений с разрешением: <xliff:g id="COUNT_0">%1$d</xliff:g> из <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Показать системные процессы"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"Скрыть сист. процессы"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Скрыть системные процессы"</string>
     <string name="no_apps" msgid="2377153782338039463">"Нет приложений"</string>
     <string name="location_settings" msgid="547378321761364906">"Настройки геолокации"</string>
     <string name="location_warning" msgid="4687406043150343369">"Приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" обеспечивает геолокацию на этом устройстве. Вы всегда можете изменить настройки доступа к данным о местоположении."</string>
@@ -178,8 +178,8 @@
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Нет данных о доступе для этого разрешения."</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Все разрешения приложения \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Все приложения с этим разрешением"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Приложения с этим разрешением могут выполнять следующие действия: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Приложения с этим разрешением могут получить доступ к данным о вашей физической активности, например прогулках, поездках на велосипеде, количестве пройденных шагов и пр."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Приложения с этим разрешением могут <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Приложения с этим разрешением могут получать доступ к данным о вашей физической активности, например прогулках, поездках на велосипеде, количестве пройденных шагов и пр."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Приложения с этим разрешением могут получать доступ к календарю."</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Приложения с этим разрешением могут читать список вызовов и создавать записи в нем."</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Приложения с этим разрешением могут снимать фото и видео."</string>
@@ -226,7 +226,7 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Напоминания о разрешениях"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Приложению \"<xliff:g id="APP_NAME">%s</xliff:g>\" в фоновом режиме доступны геоданные"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"У этого приложения есть постоянный доступ к сведениям о вашем местоположении. Нажмите, чтобы изменить настройки."</string>
-    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Разрешить только в активном режиме"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Разрешить только при использовании приложения"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Разрешения не предоставлены"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Предоставлены все разрешения"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Не разрешено ни одному приложению"</string>
@@ -274,7 +274,7 @@
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Разрешения не требуются"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"АОН и защита от спама по умолчанию"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"АОН и защита от спама"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"Приложения, которые позволяют идентифицировать вызовы, блокировать спам, автоматические звонки и номера из черного списка."</string>
+    <string name="role_call_screening_description" msgid="4470066768170089758">"Приложения, которые позволяют идентифицировать вызовы, блокировать спам и автоматические звонки, а также добавлять номера в черный список."</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Сделать \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" приложением для автоматического определения номеров и защиты от спама по умолчанию?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Разрешения не требуются"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Используется по умолчанию"</string>

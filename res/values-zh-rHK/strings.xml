@@ -23,7 +23,7 @@
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"找不到應用程式"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"拒絕"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"拒絕，不要再詢問"</string>
-    <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"保持「僅在使用此應用程式時允許」"</string>
+    <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"保持「只可在使用時存取」"</string>
     <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"保持現狀，不要再詢問"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"更多資料"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"仍要拒絕"</string>
@@ -177,11 +177,11 @@
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"擁有此權限的應用程式可以存取您的日曆"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"擁有此權限的應用程式可以讀取及寫入手機通話記錄"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"擁有此權限的應用程式可以拍照及錄製影片"</string>
-    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"擁有此權限的應用程式可以存取您的聯絡人"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"擁有此權限的應用程式可以存取您的通訊錄"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"擁有此權限的應用程式可以存取此裝置的位置資訊"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"擁有此權限的應用程式可以錄音"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"擁有此權限的應用程式可以撥打電話和管理通話"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"擁有此權限的應用程式可以存取與您身體機能相關的感應器資料"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"擁有此權限的應用程式，可以從感應器取得與身體機能相關的資料"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"擁有此權限的應用程式可以傳送及查看短訊"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"擁有此權限的應用程式可以存取裝置上的相片、媒體和檔案"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"上次存取時間：<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -250,7 +250,7 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"無需任何權限"</string>
     <string name="role_home_label" msgid="6245106863177808486">"預設主畫面應用程式"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"主畫面應用程式"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"這類應用程式通常稱為啟動器，用於取代 Android 裝置的主畫面，讓您存取裝置的內容和功能"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"這類應用程式通常稱為啟動器，可以取代 Android 裝置的主畫面，讓您存取裝置的內容和功能"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設主畫面應用程式嗎？"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"無需任何權限"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"預設通話重新導向應用程式"</string>
@@ -258,9 +258,9 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"此類應用程式允許您將撥出電話轉駁至其他手機號碼"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設通話重新導向應用程式嗎？"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"無需任何權限"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"預設來電顯示與垃圾郵件應用程式"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"預設來電顯示與騷擾電話應用程式"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"來電顯示與垃圾郵件應用程式"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"此類應用程式允許您辨識來電、封鎖垃圾電話和預錄電話，並將騷擾電話號碼加入黑名單"</string>
+    <string name="role_call_screening_description" msgid="4470066768170089758">"此類應用程式讓您識別來電、封鎖垃圾電話和錄音電話，並將騷擾電話號碼加入黑名單"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設來電顯示與垃圾郵件應用程式嗎？"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"無需任何權限"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"目前預設"</string>

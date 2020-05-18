@@ -182,7 +182,7 @@
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"具備此權限的應用程式可錄音"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"具備此權限的應用程式可撥打電話及管理通話"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"具備此權限的應用程式可存取與你生命徵象相關的感應器資料"</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"具備此權限的應用程式可傳送及閱讀簡訊"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"具備此權限的應用程式可傳送及查看簡訊"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"具備此權限的應用程式可存取你裝置上的相片、媒體和檔案"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"上次存取時間：<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"目前拒絕授權/上次存取時間：<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -230,7 +230,7 @@
     <string name="role_assistant_request_description" msgid="1086168907357494789">"取得簡訊和通話記錄的存取權"</string>
     <string name="role_browser_label" msgid="814240075813716311">"預設的瀏覽器應用程式"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"瀏覽器應用程式"</string>
-    <string name="role_browser_description" msgid="2326990202516329438">"這類應用程式可讓你連上網際網路及顯示你輕觸的連結"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"這類應用程式可讓你上網及顯示你點選的連結"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設的瀏覽器應用程式嗎？"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"無需任何權限"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"預設的電話應用程式"</string>
@@ -248,10 +248,10 @@
     <string name="role_emergency_description" msgid="3567231505957373289">"這類應用程式可讓你記錄醫療資訊並提供給緊急應變人員、取得惡劣天氣和災害的相關快訊，以及在你需要幫助時通知其他人"</string>
     <string name="role_emergency_request_title" msgid="6595296517085761522">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設的緊急應用程式嗎？"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"無需任何權限"</string>
-    <string name="role_home_label" msgid="6245106863177808486">"預設的主螢幕應用程式"</string>
-    <string name="role_home_short_label" msgid="4565882523300643525">"主螢幕應用程式"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"這類應用程式通常稱為啟動器，能夠取代 Android 裝置的主螢幕，並可讓你存取裝置的內容與功能"</string>
-    <string name="role_home_request_title" msgid="2964609319767315444">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設的主螢幕應用程式嗎？"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"預設的主畫面應用程式"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"主畫面應用程式"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"這類應用程式通常稱為啟動器，能夠取代 Android 裝置的主畫面，並可讓你存取裝置的內容與功能"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設的主畫面應用程式嗎？"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"無需任何權限"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"預設的電話轉接應用程式"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"來電轉接應用程式"</string>
@@ -295,7 +295,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」要求上傳除錯資訊。"</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"分享除錯資料"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"系統偵測到問題。"</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"「<xliff:g id="APP_NAME_0">%1$s</xliff:g>」要求上傳這個裝置在 <xliff:g id="DATE">%2$s</xliff:g><xliff:g id="TIME">%3$s</xliff:g> 取得的錯誤報告。錯誤報告包含裝置的相關個人資訊或由應用程式記錄的個人資訊，例如：使用者名稱、位置資料、裝置 ID 和網路資訊。請務必只與你信任的使用者和應用程式分享這項資訊。要允許「<xliff:g id="APP_NAME_1">%4$s</xliff:g>」上傳錯誤報告嗎？"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"「<xliff:g id="APP_NAME_0">%1$s</xliff:g>」要求上傳這個裝置在 <xliff:g id="DATE">%2$s</xliff:g><xliff:g id="TIME">%3$s</xliff:g> 取得的錯誤報告。錯誤報告包含與裝置相關或由應用程式記錄的個人資訊，例如：使用者名稱、位置資料、裝置 ID 和網路資訊。請務必只與你信任的使用者和應用程式分享錯誤報告。要允許「<xliff:g id="APP_NAME_1">%4$s</xliff:g>」上傳錯誤報告嗎？"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"處理「<xliff:g id="APP_NAME">%1$s</xliff:g>」的錯誤報告時發生錯誤，因此系統已拒絕分享詳細的除錯資料。不便之處，敬請見諒。"</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"允許"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"拒絕"</string>

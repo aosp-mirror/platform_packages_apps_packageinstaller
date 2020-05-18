@@ -48,8 +48,8 @@
     <string name="additional_permissions" msgid="7124470111123472154">"Zusätzliche Berechtigungen"</string>
     <string name="app_permissions_info_button_label" msgid="6566057048862462066">"App-Info öffnen"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
-      <item quantity="other">Noch <xliff:g id="COUNT_1">%1$d</xliff:g></item>
-      <item quantity="one">Noch <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> weitere</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> weitere</item>
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Diese App wurde für eine ältere Android-Version entwickelt. Wenn du keine Berechtigung gewährst, funktioniert sie möglicherweise nicht mehr ordnungsgemäß."</string>
     <string name="default_permission_description" msgid="692254823411049573">"Unbekannte Aktion durchführen"</string>
@@ -144,7 +144,7 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Zugriff nur während der Nutzung der App zulassen"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Ablehnen"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Berechtigung \"<xliff:g id="PERM">%1$s</xliff:g>\""</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Darf diese App auf \"<xliff:g id="PERM">%1$s</xliff:g>\" zugreifen?"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Dieser App Zugriff auf <xliff:g id="PERM">%1$s</xliff:g> erlauben?"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> hat vor <xliff:g id="TIME">%3$s</xliff:g> die Berechtigung \"<xliff:g id="PERM">%2$s</xliff:g>\" genutzt"</string>
     <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> hat vor <xliff:g id="TIME">%2$s</xliff:g> auf deine körperliche Aktivität zugegriffen"</string>
     <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> hat vor <xliff:g id="TIME">%2$s</xliff:g> auf deinen Kalender zugegriffen"</string>
@@ -170,11 +170,11 @@
     <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> hat nicht auf deine SMS zugegriffen"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> hat nicht auf deinen Speicher zugegriffen"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Für diese Berechtigung sind zurzeit keine Angaben zum letzten Zugriff verfügbar"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Alle Berechtigungen von <xliff:g id="APP">%1$s</xliff:g> anzeigen"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Alle Berechtigungen der App \"<xliff:g id="APP">%1$s</xliff:g>\" anzeigen"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Alle Apps mit dieser Berechtigung anzeigen"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apps mit dieser Berechtigung dürfen <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apps mit dieser Berechtigung können auf Daten zu deiner körperlichen Aktivität, wie Gehen, Radfahren und Autofahren, und auf deine Schrittzahlwerte zugreifen"</string>
-    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Apps mit dieser Berechtigung dürfen auf meinen Kalender zugreifen"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Apps mit dieser Berechtigung dürfen auf deinen Kalender zugreifen"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Apps mit dieser Berechtigung haben Schreib- und Lesezugriff auf die Anrufliste"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Apps mit dieser Berechtigung können Fotos und Videos aufnehmen"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Apps mit dieser Berechtigung dürfen auf deine Kontakte zugreifen"</string>
@@ -182,7 +182,7 @@
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Apps mit dieser Berechtigung dürfen Audio aufnehmen"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Apps mit dieser Berechtigung dürfen Telefonanrufe starten und verwalten"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Apps mit dieser Berechtigung dürfen auf Sensordaten zu deinen Vitalfunktionen zugreifen"</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Apps mit dieser Berechtigung können SMS senden und empfangen"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Apps mit dieser Berechtigung können SMS senden und lesen"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Apps mit dieser Berechtigung können auf Fotos, Medien und Dateien auf deinem Gerät zugreifen"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Letzter Zugriff: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Zurzeit nicht zugelassen/Letzter Zugriff: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -215,7 +215,7 @@
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Nur während die App verwendet wird"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Keine Berechtigungen zugelassen"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Alle Berechtigungen zugelassen"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"Keine Apps zugelassen"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Zugriff für keine Apps zugelassen"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Zugriff für keine Apps abgelehnt"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Ausgewählt"</string>
     <string name="settings" msgid="2884124136779508907">"Einstellungen"</string>
@@ -225,7 +225,7 @@
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Diese Apps können deinen Bildschirm, deine Aktionen und deine Eingaben sehen, Aktionen ausführen und den Bildschirm steuern."</string>
     <string name="role_assistant_label" msgid="1755271161954896046">"Standard-Assistent-App"</string>
     <string name="role_assistant_short_label" msgid="3048707738783655050">"Assistent-App"</string>
-    <string name="role_assistant_description" msgid="8677846995018695304">"Assistent-Apps helfen dir anhand der aktuell auf deinem Bildschirm angezeigten Informationen. Einige Apps unterstützen für eine einfachere Verwendung Übersichts- und Spracheingabedienste."</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"Assistent-Apps können dir bei bestimmten Dingen helfen. Dazu greifen sie auf die Informationen zu, die aktuell auf deinem Bildschirm angezeigt werden. Damit sie dir eine umfassende Hilfe sind, unterstützen einige Apps sowohl Launcher- als auch Spracheingabedienste."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g> als Standard-Assistent-App festlegen?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Erhält Zugriff auf SMS und Anrufliste"</string>
     <string name="role_browser_label" msgid="814240075813716311">"Standard-Browser-App"</string>

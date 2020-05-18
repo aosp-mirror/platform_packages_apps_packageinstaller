@@ -23,8 +23,8 @@
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ആപ്പ് കണ്ടെത്തിയില്ല"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"നിരസിക്കുക"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"നിരസിക്കുക, വീണ്ടും ആവശ്യപ്പെടരുത്"</string>
-    <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"ഉപയോഗിച്ചുകൊണ്ടിരിക്കുമ്പോഴുള്ള ആക്‌സസ് നിലനിർത്തുക"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"നിലനിർത്തുക, വീണ്ടും ആവശ്യപ്പെടരുത്"</string>
+    <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"ഉപയോഗിക്കുമ്പോഴുള്ള ആക്‌സസ് നിലനിർത്തുക"</string>
+    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"നിലനിർത്തൂ, ഇനിയും ചോദിക്കരുത്"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"കൂടുതൽ വിവരങ്ങൾ"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"എന്തായാലും നിരസിക്കുക"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-ൽ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> എണ്ണം"</string>
@@ -54,8 +54,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"ഈ ആപ്പ് Android-ന്റെ പഴയ പതിപ്പിനായാണ് രൂപകൽപ്പന ചെയ്‌തിരിക്കുന്നത്. അനുമതി നിരസിക്കുന്നത് തുടർന്ന് ഉദ്ദേശിച്ചവിധം പ്രവർത്തിക്കാതിരിക്കാനിടയാക്കുന്നു."</string>
     <string name="default_permission_description" msgid="692254823411049573">"ഒരു അജ്ഞാത പ്രവർത്തനം നടത്തുക"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g> ആപ്പുകൾ അനുവദനീയം"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"സിസ്‌റ്റം ദൃശ്യമാക്കുക"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"സിസ്‌റ്റം അദൃശ്യമാക്കുക"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"സിസ്‌റ്റം കാണിക്കുക"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"സിസ്‌റ്റം മറയ്ക്കുക"</string>
     <string name="no_apps" msgid="2377153782338039463">"ആപ്പുകൾ ഒന്നുമില്ല"</string>
     <string name="location_settings" msgid="547378321761364906">"ലൊക്കേഷൻ ക്രമീകരണം"</string>
     <string name="location_warning" msgid="4687406043150343369">"ഈ ഉപകരണത്തിനായുള്ള ലൊക്കേഷൻ സേവനങ്ങളുടെ ദാതാവ് <xliff:g id="APP_NAME">%1$s</xliff:g> ആണ്. ലൊക്കേഷൻ ക്രമീകരണത്തിൽ നിന്ന് ലൊക്കേഷൻ ആക്‌സസ് പരിഷ്‌കരിക്കാവുന്നതാണ്."</string>
@@ -172,14 +172,14 @@
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"ഈ അനുമതിക്കായുള്ള അവസാന ആക്‌സസ് ഡാറ്റ നിലവിൽ ലഭ്യമല്ല"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"എല്ലാ <xliff:g id="APP">%1$s</xliff:g> അനുമതികളും കാണുക"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ഈ അനുമതിയുള്ള എല്ലാ ആപ്പുകളും കാണുക"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് <xliff:g id="DESCRIPTION">%1$s</xliff:g> ചെയ്യാം"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"നടത്തം, സൈക്ലിംഗ്, ഡ്രൈവിംഗ്, സ്‌റ്റെപ് കൗണ്ട് എന്നിവപോലുള്ള നിങ്ങളുടെ ശാരീരിക പ്രവർത്തനം ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ആക്‌സസ് ചെയ്യാനാകും"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"നടത്തം, സൈക്ലിംഗ്, ഡ്രൈവിംഗ്, സ്‌റ്റെപ് കൗണ്ട് എന്നിവപോലുള്ള നിങ്ങളുടെ കായിക പ്രവർത്തനം ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ആക്‌സസ് ചെയ്യാനാകും"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് നിങ്ങളുടെ കലണ്ടർ ആക്‌സസ് ചെയ്യാനാവും"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ഫോൺ കോൾ ചരിത്രം വായിക്കാനും എഴുതാനുമാവും"</string>
-    <string name="permission_description_summary_camera" msgid="6699611334403400091">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് വീഡിയോ റിക്കോർഡ് ചെയ്യുകയും ചിത്രങ്ങളെടുക്കുകയും ചെയ്യാം"</string>
-    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് നിങ്ങളുടെ കോൺടാക്റ്റുകളെ ആക്‌സസ് ചെയ്യാം"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് വീഡിയോ റെക്കോർഡ് ചെയ്യുകയും ചിത്രങ്ങളെടുക്കുകയും ചെയ്യാം"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് നിങ്ങളുടെ കോൺടാക്റ്റുകൾ ആക്‌സസ് ചെയ്യാം"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ഈ ഉപകരണത്തിന്റെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാം"</string>
-    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ഓഡിയോ റിക്കോർഡ് ചെയ്യാം"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ഓഡിയോ റെക്കോർഡ് ചെയ്യാം"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് കോളുകൾ ചെയ്യാനും അവ മാനേജ് ചെയ്യാനുമാവും"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് നിങ്ങളുടെ ജീവാധാര ലക്ഷണങ്ങളെ കുറിച്ചുള്ള സെൻസർ വിവരങ്ങൾ ആക്‌സസ് ചെയ്യാനാവും"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് SMS സന്ദേശങ്ങൾ കാണാനും അയയ്ക്കാനുമാവും"</string>
@@ -189,7 +189,7 @@
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ഒരിക്കലും ആക്‌‌സസ് ചെയ്‌തിട്ടില്ല"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"നിരസിച്ചത് / ഒരിക്കലും ആക്‌‌സസ് ചെയ്യാത്തത്"</string>
     <string name="allowed_header" msgid="6279244592227088158">"അനുവദിച്ചവ"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"ഏതുസമയത്തും അനുവദിച്ചത്"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"എല്ലാസമയത്തും അനുവദിച്ചത്"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ഉപയോഗിക്കുമ്പോൾ മാത്രം അനുവദനീയം"</string>
     <string name="denied_header" msgid="2277998574238617699">"നിരസിച്ചവ"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"വിശദമായ ഉപയോഗം കാണുക"</string>
@@ -276,7 +276,7 @@
     <string name="default_apps" msgid="8554530939151957828">"ഡിഫോൾട്ട് ആപ്പുകൾ"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"ഡിഫോൾട്ട് ആപ്പുകൾ ഇല്ല"</string>
     <string name="default_apps_more" msgid="3908067305593075127">"കൂടുതൽ ഡിഫോൾട്ടുകൾ"</string>
-    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"ലിങ്കുകൾ തുറക്കുന്നു"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"ലിങ്കുകൾ തുറക്കൽ"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"ജോലി ആവശ്യങ്ങൾക്ക് ഡിഫോൾട്ട്"</string>
     <string name="default_app_none" msgid="7671097769303174666">"ഒന്നുമില്ല"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(സിസ്‌റ്റം ഡിഫോൾട്ട്)"</string>
@@ -295,7 +295,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"ഡീബഗ്ഗ് ചെയ്യൽ വിവരങ്ങൾ അപ്‌ലോഡ് ചെയ്യാൻ <xliff:g id="APP_NAME">%1$s</xliff:g> താൽപ്പര്യപ്പെടുന്നു."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"ഡീബഗ്ഗ് ചെയ്യൽ ഡാറ്റ പങ്കിടുക"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"സിസ്‌റ്റം ഒരു പ്രശ്‌നം കണ്ടെത്തി."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"ഈ ഉപകരണത്തിൽ നിന്ന് <xliff:g id="DATE">%2$s</xliff:g>-ന് <xliff:g id="TIME">%3$s</xliff:g>-മണിയ്ക്ക് എടുത്ത ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ <xliff:g id="APP_NAME_0">%1$s</xliff:g> അഭ്യർത്ഥിക്കുന്നു. നിങ്ങളുടെ ഉപകരണത്തെക്കുറിച്ചുള്ള വ്യക്തിഗത വിവരമോ ആപ്പുകൾ ലോഗ് ചെയ്യുമ്പോൾ നൽകുന്ന വിവരമോ, ഉദാഹരണത്തിന് നെറ്റ്‌വർക്ക് വിവരങ്ങൾ, ഉപകരണ ഐഡന്റിഫയറുകൾ, ലൊക്കേഷൻ ഡാറ്റ, ഉപയോക്തൃനാമങ്ങൾ എന്നിവ ബഗ് റിപ്പോർട്ടുകളിൽ ഉൾപ്പെടുന്നു. ഈ വിവരം ഉപയോഗിച്ച് നിങ്ങൾ വിശ്വസിക്കുന്ന ആപ്പുകൾക്കും ആളുകൾക്കും മാത്രം ബഗ് റിപ്പോർട്ടുകൾ പങ്കിടുക. <xliff:g id="APP_NAME_1">%4$s</xliff:g> എന്നതിനെ ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ അനുവദിക്കണോ?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"ഈ ഉപകരണത്തിൽ നിന്ന് <xliff:g id="DATE">%2$s</xliff:g>-ന് <xliff:g id="TIME">%3$s</xliff:g>-ന് എടുത്ത ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ <xliff:g id="APP_NAME_0">%1$s</xliff:g> അഭ്യർത്ഥിക്കുന്നു. നിങ്ങളുടെ ഉപകരണത്തെക്കുറിച്ചുള്ള വ്യക്തിപരമായ വിവരമോ ആപ്പുകൾ ലോഗ് ചെയ്യുമ്പോൾ നൽകുന്ന വിവരമോ, ഉദാഹരണത്തിന് നെറ്റ്‌വർക്ക് വിവരങ്ങൾ, ഉപകരണ ഐഡന്റിഫയറുകൾ, ലൊക്കേഷൻ ഡാറ്റ, ഉപയോക്തൃനാമങ്ങൾ എന്നിവ ബഗ് റിപ്പോർട്ടുകളിൽ ഉൾപ്പെടുന്നു. ഈ വിവരം ഉപയോഗിച്ച് നിങ്ങൾ വിശ്വസിക്കുന്ന ആപ്പുകൾക്കും ആളുകൾക്കും മാത്രം ബഗ് റിപ്പോർട്ടുകൾ പങ്കിടുക. <xliff:g id="APP_NAME_1">%4$s</xliff:g> എന്നതിനെ ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ അനുവദിക്കണോ?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്ന ആപ്പിൻ്റെ ബഗ് റിപ്പോർട്ട് പ്രോസസ് ചെയ്യുന്നതിൽ ഒരു പിശകുണ്ടായി. അതിനാൽ വിശദമായ ഡീബഗ്ഗ് ചെയ്യൽ ഡാറ്റ പങ്കിടുന്നത് തടഞ്ഞു. തടസ്സം നേരിട്ടതിൽ ഖേദിക്കുന്നു."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"അനുവദിക്കുക"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"നിരസിക്കുക"</string>

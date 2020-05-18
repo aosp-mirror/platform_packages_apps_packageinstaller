@@ -172,7 +172,7 @@
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Sem stendur eru gögn um síðasta aðgang ekki tiltæk fyrir þessa heimild."</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Sjá allar heimildir fyrir <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Sjá öll forrit með þessa heimild"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Forrit með þessa heimild geta <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Forrit með þessa heimild <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Forrit með þessa heimild hafa aðgang að upplýsingum um hreyfingu þína, svo sem göngu, hjólreiðar, akstur, skrefafjölda og fleira"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Forrit með þessar heimildir hafa aðgang að dagatalinu þínu"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Forrit með þessa heimild geta lesið og skrifað símtalaskrá síma"</string>
@@ -189,7 +189,7 @@
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Aldrei notuð"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Hafnað / aldrei fengið aðgang"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Leyft"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"Leyfa alltaf"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Alltaf leyft"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Aðeins leyft við notkun"</string>
     <string name="denied_header" msgid="2277998574238617699">"Hafnað"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Sjá ítarlegar upplýsingar um notkun"</string>
@@ -295,7 +295,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> vill hlaða inn upplýsingum um villuleit."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Deila villuleitargögnum"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Kerfið greindi vandamál."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> biður um að hlaða inn villutilkynningu úr þessu tæki frá <xliff:g id="DATE">%2$s</xliff:g> kl. <xliff:g id="TIME">%3$s</xliff:g>. Villutilkynningar innihalda persónuupplýsingar um tækið eða innskráningar forrita, til dæmis notendanöfn, staðsetningargögn, auðkenni tækis og upplýsingar um netkerfi. Deildu aðeins villutilkynningum með fólki og forritum sem þú treystir fyrir þessum upplýsingum. Leyfa <xliff:g id="APP_NAME_1">%4$s</xliff:g> að hlaða inn villutilkynningu?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> biður um að hlaða inn villutilkynningu úr þessu tæki frá <xliff:g id="DATE">%2$s</xliff:g> kl. <xliff:g id="TIME">%3$s</xliff:g>. Villutilkynningar innihalda persónuupplýsingar um tækið eða upplýsingar sem forrit skrá, til dæmis notendanöfn, staðsetningargögn, auðkenni tækis og upplýsingar um netkerfi. Deildu aðeins villutilkynningum með fólki og forritum sem þú treystir fyrir þessum upplýsingum. Leyfa <xliff:g id="APP_NAME_1">%4$s</xliff:g> að hlaða inn villutilkynningu?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Villa kom upp við vinnslu villuskýrslu fyrir <xliff:g id="APP_NAME">%1$s</xliff:g> og því er ekki hægt að deila ítarlegum villuleitargögnum. Afsakaðu truflunina."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Leyfa"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Hafna"</string>

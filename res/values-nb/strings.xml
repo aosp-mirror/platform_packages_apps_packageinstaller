@@ -143,8 +143,8 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Tillat hele tiden"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Bare tillat når appen brukes"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Avvis"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>tillatelse"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>tilgang for denne appen"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> – tillatelse"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Tilgang til <xliff:g id="PERM">%1$s</xliff:g> for denne appen"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> brukte <xliff:g id="PERM">%2$s</xliff:g> for <xliff:g id="TIME">%3$s</xliff:g> siden"</string>
     <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> brukte den fysiske aktiviteten din for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
     <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> brukte kalenderen din for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
@@ -172,7 +172,7 @@
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Data om forrige bruk er foreløpig ikke tilgjengelig for denne tillatelsen"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Se alle tillatelsene <xliff:g id="APP">%1$s</xliff:g> har"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Se alle apper med denne tillatelsen"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apper med denne tillatelsen kan <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apper med denne tillatelsen kan: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apper med denne tillatelsen har tilgang til den fysiske aktiviteten din, for eksempel gåturer, sykkelturer, kjøring, skritt med mer"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Apper med denne tillatelsen har tilgang til kalenderen din"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Apper med denne tillatelsen kan lese og skrive samtaleloggen"</string>
@@ -259,7 +259,7 @@
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Vil du angi <xliff:g id="APP_NAME">%1$s</xliff:g> som standardapp for omdirigering av anrop?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Ingen tillatelser er nødvendige"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Standardapp for anrops-ID og useriøse anrop"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Anrop-ID- + useriøse anropsapp"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"App for anrops-ID og useriøse anrop"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"Apper som lar deg identifisere innkommende anrop, blokkere useriøse anrop og automatoppringing og svarteliste uønskede numre"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Vil du angi <xliff:g id="APP_NAME">%1$s</xliff:g> som standardapp for anrops-ID og håndtering av useriøse anrop?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Ingen tillatelser er nødvendige"</string>

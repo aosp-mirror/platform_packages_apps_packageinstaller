@@ -73,7 +73,7 @@
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
     <string name="permission_access_always" msgid="5419580764084361573">"Autoriser tout le temps"</string>
-    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Autor. seul. durant util. appli"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Autoriser si appli utilisée"</string>
     <string name="permission_access_never" msgid="425385910378172045">"Refuser"</string>
     <string name="loading" msgid="323483393167148377">"Chargement en cours…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Toutes les autorisations"</string>
@@ -144,7 +144,7 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Autoriser uniquement lorsque l\'appli est en cours d\'utilisation"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Refuser"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Autorisation : <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Accès demandé pour cette application : <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Accès pour cette application : <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre <xliff:g id="PERM">%2$s</xliff:g> il y a <xliff:g id="TIME">%3$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre activité physique il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre agenda il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
@@ -258,9 +258,9 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"Applications qui vous permettent de transférer des appels sortants vers un autre numéro de téléphone"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme application par défaut pour la redirection des appels?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Aucune autorisation nécessaire"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Appli défaut identifier et filtrer appelants"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Appli d\'identif. et de filtrage par défaut"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Appli identif. et filtr. appels"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"Applications qui vous permettent d\'identifier les appels, de bloquer les appels indésirables et automatisés et de placer les numéros indésirables sur une liste noire"</string>
+    <string name="role_call_screening_description" msgid="4470066768170089758">"Applications qui vous permettent d\'identifier les appels, de bloquer les appels indésirables et automatisés, et de placer les numéros indésirables sur une liste noire"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme application par défaut pour l\'identification et le filtrage des appelants?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Aucune autorisation nécessaire"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Application par défaut actuelle"</string>

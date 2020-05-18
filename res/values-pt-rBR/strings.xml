@@ -181,7 +181,7 @@
     <string name="permission_description_summary_location" msgid="687820658574645201">"Apps que têm esta permissão podem acessar o local deste dispositivo"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Apps que têm esta permissão podem gravar áudio"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Apps que têm esta permissão podem fazer e gerenciar chamadas telefônicas"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Apps que têm esta permissão podem acessar dados do sensor sobre seus sinais vitais"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Apps com esta permissão têm acesso aos seus sinais vitais coletados pelo sensor"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Apps que têm esta permissão podem enviar e ver mensagens SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Apps com esta permissão podem acessar fotos, mídia e arquivos no seu dispositivo"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Último acesso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -230,18 +230,18 @@
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Recebe acesso a SMS e registro de chamadas"</string>
     <string name="role_browser_label" msgid="814240075813716311">"App padrão de navegador"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"App de navegação"</string>
-    <string name="role_browser_description" msgid="2326990202516329438">"Apps que concedem acesso à Internet e exibem links em que você pode tocar"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"Apps que permitem acesso à Internet e links clicáveis"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app padrão de navegador?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Nenhuma permissão necessária"</string>
-    <string name="role_dialer_label" msgid="7920168918746178929">"App padrão de telefone"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"App de telefone padrão"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"App Telefone"</string>
     <string name="role_dialer_description" msgid="2684882481061320467">"Apps que permitem fazer e receber chamadas no seu dispositivo"</string>
-    <string name="role_dialer_request_title" msgid="3203802247886151514">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como seu aplicativo para telefones padrão?"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como seu app de telefone padrão?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Recebe acesso a registros de chamadas e envio de SMS"</string>
-    <string name="role_sms_label" msgid="6995222097027665850">"App padrão de SMS"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"App de SMS padrão"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"App de SMS"</string>
     <string name="role_sms_description" msgid="3228552135895420442">"Apps que permitem usar o número do telefone para enviar e receber mensagens de texto curtas, fotos, vídeos e muito mais"</string>
-    <string name="role_sms_request_title" msgid="3667393846881324409">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app padrão de SMS?"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app de SMS padrão?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Recebe acesso a contatos, SMS, smartphone"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"App padrão de emergência"</string>
     <string name="role_emergency_short_label" msgid="2546309839225058762">"App de emergência"</string>
@@ -250,7 +250,7 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Nenhuma permissão necessária"</string>
     <string name="role_home_label" msgid="6245106863177808486">"App de início padrão"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"App de início"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"Apps, geralmente chamados de acesso rápido, que substituem as telas iniciais do dispositivo Android e concedem acesso a conteúdos e recursos do seu dispositivo"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Apps geralmente chamados de acesso rápido, que substituem a tela inicial do dispositivo Android e permitem acesso a conteúdo e recursos do dispositivo"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como seu app de início padrão?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nenhuma permissão necessária"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"App padrão de redirecionamento de chamada"</string>
@@ -258,8 +258,8 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"Apps que permitem encaminhar chamadas realizadas para outro número de telefone"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app padrão de redirecionamento de chamada?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Nenhuma permissão necessária"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"App padrão de identificação de chamada e spam"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"App de ID de chamada e spam"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"App identificador de chamada e spam padrão"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"App identificador de chamada e spam"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"Apps que permitem identificar chamadas, bloquear spam e ligações automáticas e colocar números indesejados na lista de proibições"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app padrão de identificação de chamada e spam?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nenhuma permissão necessária"</string>
@@ -295,7 +295,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Solicitação do <xliff:g id="APP_NAME">%1$s</xliff:g> para upload de informações de depuração."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Compartilhar dados de depuração"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"O sistema detectou um problema."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"Há uma solicitação do <xliff:g id="APP_NAME_0">%1$s</xliff:g> para upload de um relatório de bug criado neste dispositivo no dia <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>. Os relatórios de bug incluem informações pessoais do seu dispositivo ou registradas por apps, como nomes de usuário, dados de local, identificadores do dispositivo e informações de rede. Compartilhe relatórios de bugs apenas com pessoas e apps em que você confie para ter acesso a essas informações. Permitir que o <xliff:g id="APP_NAME_1">%4$s</xliff:g> faça upload do relatório de bug?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"Há uma solicitação do <xliff:g id="APP_NAME_0">%1$s</xliff:g> para upload de um relatório de bug criado neste dispositivo no dia <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>. Os relatórios de bug incluem informações pessoais do seu dispositivo ou registradas por apps, como nomes de usuário, dados de local, identificadores do dispositivo e informações de rede. Compartilhe relatórios de bug apenas com pessoas e apps em que você confia para ter acesso a essas informações. Permitir que o <xliff:g id="APP_NAME_1">%4$s</xliff:g> faça upload do relatório de bug?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Ocorreu um erro ao processar o relatório de bug do app <xliff:g id="APP_NAME">%1$s</xliff:g>. Por isso, o compartilhamento dos dados detalhados de depuração foi negado. Lamentamos a interrupção."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Permitir"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Negar"</string>

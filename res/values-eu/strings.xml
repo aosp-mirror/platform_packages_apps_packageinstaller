@@ -54,7 +54,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Android-en bertsio zaharrago baterako diseinatuta dago aplikazio hau. Baimena ukatzen baduzu, agian aurrerantzean ez du behar bezala funtzionatuko."</string>
     <string name="default_permission_description" msgid="692254823411049573">"Gauzatu ekintza ezezagunak"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> aplikaziok dute baimena"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"Erakutsi sistema"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Erakutsi sistemaren aplikazioak"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Ezkutatu sistema"</string>
     <string name="no_apps" msgid="2377153782338039463">"Ez dago aplikaziorik"</string>
     <string name="location_settings" msgid="547378321761364906">"Kokapen-ezarpenak"</string>
@@ -144,7 +144,7 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Aplikazioa erabiltzean soilik"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Ukatu"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> atzitzeko baimena"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Aplikazioak <xliff:g id="PERM">%1$s</xliff:g> atzitzeko duen baimena"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Aplikazio honek <xliff:g id="PERM">%1$s</xliff:g> atzitzeko duen baimena"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> aplikazioak <xliff:g id="PERM">%2$s</xliff:g> atzitu du duela <xliff:g id="TIME">%3$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> aplikazioak ariketa fisikoaren informazioa atzitu du duela <xliff:g id="TIME">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> aplikazioak egutegia atzitu du duela <xliff:g id="TIME">%2$s</xliff:g>"</string>
@@ -234,7 +234,7 @@
     <string name="role_browser_request_title" msgid="751745081301397114">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu arakatzailearen aplikazio lehenetsi gisa?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Ez du behar baimenik"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"Telefonoaren aplik. lehenetsia"</string>
-    <string name="role_dialer_short_label" msgid="2980581587550675305">"Telefono-aplikazioa"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"Telefonoa aplikazioa"</string>
     <string name="role_dialer_description" msgid="2684882481061320467">"Gailuaren bidez telefono-deiak egitea eta jasotzea ahalbidetzen duten aplikazioak"</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu telefono-aplikazio lehenetsi gisa?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"SMSak bidal eta deien erregistroa atzitu ahalko ditu"</string>
@@ -258,7 +258,7 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"Egiten dituzun deiak beste telefono-zenbaki batera desbideratzeko aukera ematen dizuten aplikazioak"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu deiak birbideratzeko aplikazio lehenetsi gisa?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Ez du behar baimenik"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Deitzailearen IDrako eta spamerako aplikazio lehenetsia"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Deitzailearen ID eta spam-aplikazio lehenetsia"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Deitzailearen IDrako eta spamerako aplikazioa"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"Deiak identifikatzeko, spama eta dei automatizatuak blokeatzeko, eta nahi ez dituzun zenbakiak zerrenda beltzean jartzeko aukera ematen dizuten aplikazioak"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu deitzailearen IDrako eta spamerako aplikazio lehenetsi gisa?"</string>
@@ -279,7 +279,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Irekiko diren estekak"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Lanerako aplikazio lehenetsiak"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Bat ere ez"</string>
-    <string name="default_app_system_default" msgid="3870203641514466948">"(Sistemaren aplikazio lehenetsia)"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(sistemaren aplikazio lehenetsia)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Ez dago aplikaziorik"</string>
     <string name="car_default_app_selected" msgid="2813270284225505741">"Hautatuta"</string>
     <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Hautatuta - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
@@ -295,7 +295,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioak arazketa-informazioa kargatu nahi du."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Partekatu arazketa-datuak"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Arazo bat hauteman du sistemak."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> datan (<xliff:g id="TIME">%3$s</xliff:g>) sortutako akatsen txostena kargatzeko baimena eskatzen ari da <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Akatsen txostenek zure gailuari buruzkoa den edo aplikazioek erregistratu duten informazio pertsonala dute; adibidez, erabiltzaile-izenak, kokapenari buruzko datuak, gailuaren identifikatzaileak eta sareari buruzko informazioa. Informazio hori izateko fidagarriak iruditzen zaizkizun pertsona eta aplikazioekin soilik partekatu beharko zenituzke akatsen txostenak. <xliff:g id="APP_NAME_1">%4$s</xliff:g> aplikazioari akatsen txostena kargatzeko baimena eman nahi diozu?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> (<xliff:g id="TIME">%3$s</xliff:g>) datan sortutako akatsen txostena kargatzeko baimena eskatzen ari da <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Akatsen txostenek zure gailuari buruzkoa den edo aplikazioek erregistratu duten informazio pertsonala dute; adibidez, erabiltzaile-izenak, kokapenari buruzko datuak, gailuaren identifikatzaileak eta sareari buruzko informazioa. Informazio hori izateko fidagarriak iruditzen zaizkizun pertsona eta aplikazioekin soilik partekatu beharko zenituzke akatsen txostenak. <xliff:g id="APP_NAME_1">%4$s</xliff:g> aplikazioari akatsen txostena kargatzeko baimena eman nahi diozu?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Errore bat gertatu da <xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioaren akatsen txostena prozesatzean; beraz, ezin izan dira partekatu arazketa-datu xehatuak. Barkatu eragozpenak."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Baimendu"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Ukatu"</string>

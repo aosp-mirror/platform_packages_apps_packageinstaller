@@ -53,7 +53,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Այս հավելվածը նախատեսված է Android-ի ավելի հին տարբերակի համար: Եթե մերժեք թույլտվությունը, այն կարող է չաշխատել ինչպես հարկն է:"</string>
     <string name="default_permission_description" msgid="692254823411049573">"կատարել անհայտ գործողություն"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Թույլատրված է <xliff:g id="COUNT_0">%1$d</xliff:g> հավելվածի՝ <xliff:g id="COUNT_1">%2$d</xliff:g>-ից"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Թույլատրված է <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> հավելվածի"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Ցույց տալ համակարգի հավելվածները"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Թաքցնել համակարգի հավելվածները"</string>
     <string name="no_apps" msgid="2377153782338039463">"Հավելվածներ չկան"</string>
@@ -144,7 +144,7 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Թույլատրել միայն հավելվածի օգտագործման ժամանակ"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Մերժել"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"«<xliff:g id="PERM">%1$s</xliff:g>» թույլտվություն"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>ն օգտագործելու թույլտվություն այս հավելվածի համար"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g> օգտագործելու թույլտվություն այս հավելվածի համար"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> հավելվածն օգտագործել է «<xliff:g id="PERM">%2$s</xliff:g>» թույլտվությունը <xliff:g id="TIME">%3$s</xliff:g> առաջ"</string>
     <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> հավելվածն օգտագործել է ձեր ֆիզիկական ակտիվությունը <xliff:g id="TIME">%2$s</xliff:g> առաջ"</string>
     <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> հավելվածն օգտագործել է ձեր օրացույցը <xliff:g id="TIME">%2$s</xliff:g> առաջ"</string>
@@ -170,7 +170,7 @@
     <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> հավելվածը չի օգտագործել ձեր SMS-ները"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> հավելվածը չի օգտագործել սարքի հիշողությունը"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Այս թույլտվության համար հասանելիության մասին տվյալներ չկան"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Դիտել <xliff:g id="APP">%1$s</xliff:g> հավելվածի բոլոր թույլտվությունները"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Տեսնել <xliff:g id="APP">%1$s</xliff:g> հավելվածի բոլոր թույլտվությունները"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Դիտել այս թույլտվությունն ունեցող հավելվածների ցանկը"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Այս թույլտվությունն ունեցող հավելվածները կարող են <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Այս թույլտվությունն ունեցող հավելվածներին հասանելի են ձեր ֆիզիկական ակտիվության տվյալները (օրինակ՝ զբոսանքների, հեծանվային ուղևորությունների, անցած քայլերի և այլն)"</string>
@@ -182,14 +182,14 @@
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Այս թույլտվությունն ունեցող հավելվածները կարող են ձայնագրել"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Այս թույլտվությունն ունեցող հավելվածները կարող են կատարել զանգեր և կառավարել դրանք"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Այս թույլտվությունն ունեցող հավելվածներին հասանելի կլինեն տվիչների տվյալները ձեր կենսագործունեության մասին"</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Այս թույլտվությունն ունեցող հավելվածները կարող են ուղարկել և դիտել SMS-ներ"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Այս թույլտվությունն ունեցող հավելվածները կարող են ուղարկել և կարդալ SMS-ներ"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Այս թույլտվությունն ունեցող հավելվածներին հասանելի են սարքում պահված լուսանկարները, մուլտիմեդիան և ֆայլերը"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Վերջին օգտագործումը՝ <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Մերժված է/Վերջին օգտագործումը՝ <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Երբեք չի օգտագործվել"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Մերժվել է/Երբեք չի օգտագործվել"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Թույլատրված"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"Միշտ թույլատրվում է"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Միշտ թույլատրված է"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Միայն հավելվածի օգտագործման ժամանակ"</string>
     <string name="denied_header" msgid="2277998574238617699">"Մերժված"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Դիտեք օգտագործման մանրամասները"</string>
@@ -215,8 +215,8 @@
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Միայն երբ հավելվածն օգտագործվում է"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Թույլտվությունները տրված չեն"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Բոլոր թույլտվությունները տրված են"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"Ոչ մի հավելվածում չի գործում"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"Գործում է բոլոր հավելվածներում"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Թույլատրված չէ ոչ մի հավելվածի"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Մերժված չէ ոչ մի հավելվածի"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Ընտրված է"</string>
     <string name="settings" msgid="2884124136779508907">"Կարգավորումներ"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ծառայությունն ունի ձեր սարքն օգտագործելու լրիվ թույլտվություն"</string>

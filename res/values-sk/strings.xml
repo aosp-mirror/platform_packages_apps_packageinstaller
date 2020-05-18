@@ -55,7 +55,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Táto aplikácia bola navrhnutá pre staršiu verziu Androidu. Odmietnutie povolenia môže spôsobiť, že nebude optimálne fungovať."</string>
     <string name="default_permission_description" msgid="692254823411049573">"umožňuje vykonať neznámu akciu"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Povolené <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikácií"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Povolené pri <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikácií"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Zobraziť systémové"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Skryť systémové"</string>
     <string name="no_apps" msgid="2377153782338039463">"Žiadne aplikácie"</string>
@@ -150,7 +150,7 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Povoliť iba pri používaní aplikácie"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Zamietnuť"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>: povolenie"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: prístup pre túto aplikáciu"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: prístup tejto aplikácie"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Aplikácia <xliff:g id="APP">%1$s</xliff:g> použila povolenie <xliff:g id="PERM">%2$s</xliff:g> pred <xliff:g id="TIME">%3$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Aplikácia <xliff:g id="APP">%1$s</xliff:g> použila fyzickú aktivitu pred <xliff:g id="TIME">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Aplikácia <xliff:g id="APP">%1$s</xliff:g> použila kalendár pred <xliff:g id="TIME">%2$s</xliff:g>"</string>
@@ -179,13 +179,13 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Zobraziť všetky povolenia aplikácie <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Zobraziť všetky aplikácie s týmto povolením"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikácie s týmto povolením môžu <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikácie s týmto povolením majú prístup k fyzickej aktivite, napríklad chôdzi, bicyklovaniu, šoférovaniu, počtu krokov a pod."</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikácie s týmto povolením majú prístup k vašej fyzickej aktivite, napríklad chôdzi, bicyklovaniu, šoférovaniu, počtu krokov a ďalším"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikácie s týmto povolením majú prístup k vášmu kalendáru"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Aplikácie s týmto povolením môžu čítať a zapisovať do zoznamu hovorov"</string>
-    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Aplikácie s týmto povolením môžu snímať fotky a video"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Aplikácie s týmto povolením môžu fotiť a nahrávať video"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Aplikácie s týmto povolením majú prístup k vašim kontaktom"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Aplikácie s týmto povolením majú prístup k polohe tohto zariadenia"</string>
-    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Aplikácie s týmto povolením môžu zaznamenávať zvuk"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Aplikácie s týmto povolením môžu nahrávať zvuk"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Aplikácie s týmto povolením môžu uskutočňovať a spravovať telefonické hovory"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Aplikácie s týmto povolením majú prístup k dátam senzorov o vašich životných funkciách"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Aplikácie s týmto povolením môžu odosielať a zobrazovať správy SMS"</string>
@@ -244,7 +244,7 @@
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Získa prístup k správam SMS, denníku hovorov"</string>
     <string name="role_browser_label" msgid="814240075813716311">"Predvolený prehliadač"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"Prehliadač"</string>
-    <string name="role_browser_description" msgid="2326990202516329438">"Aplikácie, ktoré vám poskytujú prístup k internetu a zobrazujú odkazy, na ktoré môžete klepnúť"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"Aplikácie, ktoré umožňujú prehliadať internet a otvárať webové odkazy"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Chcete <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviť ako predvolený prehliadač?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Nie sú potrebné žiadne povolenia"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"Predvolená telefónna aplikácia"</string>

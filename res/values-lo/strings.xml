@@ -48,12 +48,12 @@
     <string name="additional_permissions" msgid="7124470111123472154">"ການອະນຸຍາດເພີ່ມເຕີມ"</string>
     <string name="app_permissions_info_button_label" msgid="6566057048862462066">"ເປີດຂໍ້ມູນແອັບ"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ເພີ່ມເຕີມ</item>
-      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ເພີ່ມເຕີມ</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ລາຍການເພີ່ມເຕີມ</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ລາຍການເພີ່ມເຕີມ</item>
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"ແອັບນີ້ຖືກອອກແບບມາສຳລັບ Android ເວີຊັນເກົ່າ. ການປະຕິເສດການອະນຸຍາດອາດຈະເຮັດໃຫ້ມັນບໍ່ເຮັດວຽກຕາມຕ້ອງການໄດ້ອີກ."</string>
     <string name="default_permission_description" msgid="692254823411049573">"ເຮັດການດຳເນີນການທີ່ບໍ່ຮູ້ຈັກ"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"ອະນຸຍາດແອັບ <xliff:g id="COUNT_0">%1$d</xliff:g> ຈາກທັງໝົດ <xliff:g id="COUNT_1">%2$d</xliff:g> ແອັບແລ້ວ"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"ອະນຸຍາດ <xliff:g id="COUNT_0">%1$d</xliff:g> ແອັບຈາກທັງໝົດ <xliff:g id="COUNT_1">%2$d</xliff:g> ແອັບແລ້ວ"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"ສະແດງລະບົບ"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"ເຊື່ອງລະບົບ"</string>
     <string name="no_apps" msgid="2377153782338039463">"ບໍ່ມີແອັບ"</string>
@@ -144,7 +144,7 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"ອະນຸຍາດໃນເວລາທີ່ກຳລັງໃຊ້ແອັບເທົ່ານັ້ນ"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"ປະຕິເສດ"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"ສິດອະນຸຍາດ <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g> ສິດເຂົ້າເຖິງສຳລັບແອັບນີ້"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"ສິດເຂົ້າເຖິງ <xliff:g id="PERM">%1$s</xliff:g> ສຳລັບແອັບນີ້"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງ <xliff:g id="PERM">%2$s</xliff:g> ຂອງທ່ານເມື່ອ <xliff:g id="TIME">%3$s</xliff:g> ກ່ອນ"</string>
     <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງສະຖານທີ່ທາງກາຍະພາບຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
     <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> ເຂົ້າເຖິງປະຕິທິນຂອງທ່ານ <xliff:g id="TIME">%2$s</xliff:g> ກ່ອນ"</string>
@@ -276,7 +276,7 @@
     <string name="default_apps" msgid="8554530939151957828">"ແອັບເລີ່ມຕົ້ນ"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"ບໍ່ມີແອັບເລີ່ມຕົ້ນ"</string>
     <string name="default_apps_more" msgid="3908067305593075127">"ຄ່າເລີ່ມຕົ້ນເພີ່ມເຕີມ"</string>
-    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"ກຳລັງເປີດລິ້ງ"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"ການເປີດລິ້ງ"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"ຄ່າເລີ່ມຕົ້ນສຳລັບບ່ອນເຮັດວຽກ"</string>
     <string name="default_app_none" msgid="7671097769303174666">"ບໍ່ມີ"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(ຄ່າເລີ່ມຕົ້ນຂອງລະບົບ)"</string>
