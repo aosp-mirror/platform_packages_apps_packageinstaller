@@ -51,6 +51,9 @@ object FullStoragePermissionAppsLiveData :
         addSource(standardPermGroupsPackagesLiveData) {
             updateAsync()
         }
+        addSource(AllPackageInfosLiveData) {
+            updateAsync()
+        }
     }
 
     override suspend fun loadDataAndPostValue(job: Job) {
