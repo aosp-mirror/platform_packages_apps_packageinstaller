@@ -242,6 +242,9 @@ private suspend fun revokePermissionsOnUnusedApps(
     val now = System.currentTimeMillis()
     val firstBootTime = context.firstBootTime
 
+    // TODO ntmyren: remove once b/154796729 is fixed
+    Log.i(LOG_TAG, "getting UserPackageInfoLiveData for all users " +
+        "in AutoRevokePermissions")
     val unusedApps = AllPackageInfosLiveData.getInitializedValue(staleOk = true).toMutableMap()
 
     val userStats = UsageStatsLiveData[getUnusedThresholdMs(context),
