@@ -155,11 +155,24 @@ internal object RuntimePermissionsUpgradeController {
             init {
                 // First step: Load packages + perm infos
 
+                // TODO ntmyren: remove once b/154796729 is fixed
+                Log.i("RuntimePermissions", "observing UserPackageInfoLiveData for " +
+                    "${myUserHandle().identifier} in RuntimePermissionsUpgradeController")
                 addSource(pkgInfoProvider) { pkgInfos ->
                     if (pkgInfos != null) {
                         removeSource(pkgInfoProvider)
 
-                        updateIfActive()
+                        // TODO ntmyren: remove once b/154796729 is fixed
+                        Log.i("RuntimePermissions", "observing " +
+                            "PreinstalledUserPackageInfoLiveData for ${myUserHandle().identifier}" +
+                            " in RuntimePermissionsUpgradeController")
+                        addSource(preinstalledPkgInfoProvider) { preinstalledPkgInfos ->
+                            if (preinstalledPkgInfos != null) {
+                                removeSource(preinstalledPkgInfoProvider)
+
+                                updateIfActive()
+                            }
+                        }
                     }
                 }
 
@@ -174,14 +187,6 @@ internal object RuntimePermissionsUpgradeController {
 
                             updateIfActive()
                         }
-                    }
-                }
-
-                addSource(preinstalledPkgInfoProvider) { preinstalledPkgInfos ->
-                    if (preinstalledPkgInfos != null) {
-                        removeSource(preinstalledPkgInfoProvider)
-
-                        updateIfActive()
                     }
                 }
             }
