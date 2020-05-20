@@ -254,7 +254,7 @@ private suspend fun revokePermissionsOnUnusedApps(
                     }.toMap())
         }
     }
-    for (user in unusedApps.keys) {
+    for (user in unusedApps.keys.toList()) {
         if (user !in userStats.keys) {
             if (DEBUG) {
                 DumpableLog.i(LOG_TAG, "Ignoring user ${user.identifier}")
