@@ -15,13 +15,17 @@
  */
 package com.android.permissioncontroller.permission.utils;
 
+import static android.location.LocationManager.EXTRA_LOCATION_ENABLED;
+
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.location.LocationManager;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -29,7 +33,10 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.android.permissioncontroller.PermissionControllerApplication;
 import com.android.permissioncontroller.R;
+
+import java.util.ArrayList;
 
 public class LocationUtils {
 
@@ -93,5 +100,67 @@ public class LocationUtils {
             return false;
         }
 
+    }
+
+    /**
+     * A Listener which responds to enabling or disabling of location on the device
+     */
+    public interface LocationListener {
+
+        /**
+         * A callback run any time we receive a broadcast stating the location enable state has
+         * changed.
+         * @param enabled Whether or not location is enabled
+         */
+        void onLocationStateChange(boolean enabled);
+    }
+
+    private static final ArrayList<LocationListener> sLocationListeners = new ArrayList<>();
+
+    private static BroadcastReceiver sLocationBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            boolean isEnabled = intent.getBooleanExtra(EXTRA_LOCATION_ENABLED, true);
+            synchronized (sLocationListeners) {
+                for (LocationListener l: sLocationListeners) {
+                    l.onLocationStateChange(isEnabled);
+                }
+            }
+        }
+    };
+
+    /**
+     * Add a LocationListener, which will be notified if the location provider is enabled or
+     * disabled
+     * @param listener the listener to add
+     */
+    public static void addLocationListener(LocationListener listener) {
+        synchronized (sLocationListeners) {
+            boolean wasEmpty = sLocationListeners.isEmpty();
+            sLocationListeners.add(listener);
+            if (wasEmpty) {
+                IntentFilter intentFilter = new IntentFilter(LocationManager.MODE_CHANGED_ACTION);
+                PermissionControllerApplication.get().getApplicationContext()
+                        .registerReceiverForAllUsers(sLocationBroadcastReceiver, intentFilter,
+                                null, null);
+            }
+        }
+    }
+
+    /**
+     * Remove a LocationListener
+     * @param listener The listener to remove
+     *
+     * @return True if it was successfully removed, false otherwise
+     */
+    public static boolean removeLocationListener(LocationListener listener) {
+        synchronized (sLocationListeners) {
+            boolean success = sLocationListeners.remove(listener);
+            if (success && sLocationListeners.isEmpty()) {
+                PermissionControllerApplication.get().getApplicationContext()
+                        .unregisterReceiver(sLocationBroadcastReceiver);
+            }
+            return success;
+        }
     }
 }
