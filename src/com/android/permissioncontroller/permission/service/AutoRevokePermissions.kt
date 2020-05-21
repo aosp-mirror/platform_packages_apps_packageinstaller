@@ -435,8 +435,15 @@ private suspend fun revokePermissionsOnUnusedApps(
     return revokedApps
 }
 
-private fun List<UsageStats>.lastTimeVisible(pkgName: String) =
-        find { it.packageName == pkgName }?.lastTimeVisible ?: 0L
+private fun List<UsageStats>.lastTimeVisible(pkgName: String): Long {
+    var result = 0L
+    for (stat in this) {
+        if (stat.packageName == pkgName) {
+            result = Math.max(result, stat.lastTimeVisible)
+        }
+    }
+    return result
+}
 
 suspend fun isPackageAutoRevokeExempt(
     context: Context,
@@ -1028,8 +1035,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
 
                     pkgs.add(AutoRevokeDumpPackageData(pkg.uid, pkg.packageName,
                             pkg.firstInstallTime,
-                            usages.value!![user]
-                                    ?.find { it.packageName == pkg.packageName }?.lastTimeVisible,
+                            usages.value!![user]?.lastTimeVisible(pkg.packageName),
                             autoRevokeManifestExemptPackages!![user]!!.value!!
                                     .contains(pkg.packageName),
                             pkgAutoRevokeState!![user to pkg.packageName]!!.value
