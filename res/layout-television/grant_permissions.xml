@@ -74,6 +74,13 @@
             style="@style/GrantPermissions.ActionItem" />
 
         <Button
+            android:id="@+id/permission_allow_one_time_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/grant_dialog_button_allow_one_time"
+            style="@style/GrantPermissions.ActionItem" />
+
+        <Button
             android:id="@+id/permission_deny_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
