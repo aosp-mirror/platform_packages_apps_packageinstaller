@@ -65,7 +65,9 @@ class UsageStatsLiveData private constructor(
             }
             val statsManager = Utils.getUserContext(app, user).getSystemService(
                 UsageStatsManager::class.java)!!
-            userMap[user] = statsManager.queryUsageStats(interval, now - searchTimeMs, now)
+            statsManager.queryUsageStats(interval, now - searchTimeMs, now)?.let { stats ->
+                userMap[user] = stats
+            }
         }
 
         postValue(userMap)
