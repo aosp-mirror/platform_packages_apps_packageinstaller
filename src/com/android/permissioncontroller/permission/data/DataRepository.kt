@@ -30,10 +30,6 @@ import java.util.concurrent.TimeUnit
  */
 abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : ComponentCallbacks2 {
 
-    init {
-        PermissionControllerApplication.get().registerComponentCallbacks(this)
-    }
-
     /**
      * Deadlines for removal based on memory pressure. Live Data objects which have been inactive
      * for longer than the deadline will be removed.
@@ -42,9 +38,9 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
     private val TIME_THRESHOLD_TIGHT_NANOS: Long = TimeUnit.NANOSECONDS.convert(1, TimeUnit.MINUTES)
     private val TIME_THRESHOLD_ALL_NANOS: Long = 0
 
+    protected val lock = Any()
     @GuardedBy("lock")
     protected val data = mutableMapOf<K, V>()
-    protected val lock = Any()
 
     /**
      * Whether or not this data repository has been registered as a component callback yet
@@ -55,6 +51,10 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
      */
     private var isLowMemoryDevice = PermissionControllerApplication.get().getSystemService(
         ActivityManager::class.java)?.isLowRamDevice ?: false
+
+    init {
+        PermissionControllerApplication.get().registerComponentCallbacks(this)
+    }
 
     /**
      * Get a value from this repository, creating it if needed
