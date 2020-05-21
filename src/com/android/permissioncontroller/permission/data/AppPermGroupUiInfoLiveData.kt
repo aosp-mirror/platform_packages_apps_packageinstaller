@@ -293,6 +293,7 @@ class AppPermGroupUiInfoLiveData private constructor(
 
         if (isSpecialLocation) {
             LocationUtils.addLocationListener(this)
+            updateIfActive()
         }
     }
 
