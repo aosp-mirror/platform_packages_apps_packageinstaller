@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"অনুমতি"</string>
     <string name="cancel" msgid="7279939269964834974">"বাতিল করুন"</string>
     <string name="back" msgid="8739808065891653074">"ফিরুন"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"আনইনস্টল বা বন্ধ করুন"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"অ্যাপটি পাওয়া যায়নি"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"না বলুন"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"বাতিল করুন ও আর দেখাবেন না"</string>
@@ -186,7 +187,7 @@
     <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> ও অন্য ১টি অ্যাপ গত কয়েক মাসে ব্যবহার করা হয়নি। পর্যালোচনা করতে ট্যাপ করুন।"</string>
     <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> ও <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g>টি অ্যাপ গত কয়েক মাসে ব্যবহার করা হয়নি। পর্যালোচনা করতে ট্যাপ করুন।"</string>
     <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"১টি অ্যাপ ব্যবহার করা হয়নি"</string>
-    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>টি অ্যাপ ব্যবহার করা হয়নি"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>টি অব্যবহৃত অ্যাপ"</string>
     <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"আপনার গোপনীয়তা রক্ষা করতে অনুমতি প্রত্যাহার করা হবে। পর্যালোচনা করতে ট্যাপ করুন।"</string>
     <string name="unused_apps_title" msgid="4528745145780586943">"অব্যবহৃত অ্যাপ"</string>
     <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"এটি থেকে অনুমতি প্রত্যাহার করে নেওয়া হয়েছে"</string>
@@ -313,4 +314,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"নিয়ন্ত্রিত অনুমতি"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"লোকেশন অ্যাক্সেস করা হতে পারে"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"আপনার আইটি অ্যাডমিন <xliff:g id="APP_NAME">%s</xliff:g> অ্যাপটিকে আপনার লোকেশন অ্যাক্সেস করার অনুমতি দিয়েছে"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"সাউন্ড শনাক্ত করার সময় যেহেতু এই অ্যাপের প্রয়োজন হয় তাই কিছু বিকল্প পাওয়া যাবে না"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"এই অ্যাপটি আপনার ডিফল্ট ডিজিটাল অ্যাসিস্ট্যান্ট হওয়ার জন্য কিছু বিকল্প পাওয়া যাবে না"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"এই অ্যাপটি ভয়েস ইনপুটে ব্যবহার হওয়ার জন্য কিছু বিকল্প পাওয়া যাবে না"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"আপনার পরিষেবা প্রদানকারী এই অ্যাপটি ম্যানেজ করার জন্য কিছু বিকল্প পাওয়া যাবে না"</string>
 </resources>

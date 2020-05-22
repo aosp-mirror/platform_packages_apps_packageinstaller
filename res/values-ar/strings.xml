@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"أذونات"</string>
     <string name="cancel" msgid="7279939269964834974">"إلغاء"</string>
     <string name="back" msgid="8739808065891653074">"رجوع"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"إلغاء التثبيت أو الإيقاف"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"لم يتمّ العثور على التطبيق."</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"رفض"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"رفض وعدم طرح السؤال مرةً أخرى"</string>
@@ -134,7 +135,7 @@
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"تمت إزالة <xliff:g id="PERMISSION_NAME">%s</xliff:g>."</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"تمت إزالة إذنَي <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> و<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>."</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"تمت إزالة <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> وعدد <xliff:g id="NUMBER">%2$s</xliff:g> من الأذونات الأخرى."</string>
-    <string name="last_opened_category_title" msgid="4204626487716958146">"تم فتح هذه التطبيقات آخر مرة قبل <xliff:g id="NUMBER">%s</xliff:g> شهر"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"تم فتح هذه التطبيقات آخر مرة قبل أكثر من <xliff:g id="NUMBER">%s</xliff:g> من الأشهر"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"آخر مرة تم فتح التطبيق فيها: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"آخر مرة تم فتحه: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"في حال السماح لهذا التطبيق بإدارة كل الملفات، سيتمكن من الوصول إلى أي ملفات وتعديلها وحذفها من مساحة التخزين العادية على هذا الجهاز أو أجهزة التخزين المتصلة. يمكن أن يصل التطبيق إلى الملفات بدون طلب موافقتك."</string>
@@ -196,7 +197,7 @@
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"تذكيرات الأذونات"</string>
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"تطبيق واحد غير مستخدم"</string>
-    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> تطبيق غير مستخدم"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"عدد التطبيقات غير المُستخدمة: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"تمت إزالة الأذونات لحماية خصوصيتك. انقر لمراجعة الأذونات."</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"تمت إزالة الأذونات لحماية خصوصيتك."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"وضع <xliff:g id="APP_NAME">%s</xliff:g> الموقع الجغرافي لك في الخلفية"</string>
@@ -333,4 +334,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"الأذونات خاضعة لتحكّم المشرف"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"يمكن الوصول إلى الموقع الجغرافي"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"يسمح مشرف تكنولوجيا المعلومات لتطبيق <xliff:g id="APP_NAME">%s</xliff:g> بالوصول إلى موقعك الجغرافي."</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"بعض الخيارات غير متاحة لأن هذا التطبيق يحتاج إلى التعرّف على الصوت."</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"بعض الخيارات غير متاحة لأن هذا التطبيق هو مساعدك الرقمي التلقائي."</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"بعض الخيارات غير متاحة لأن هذا التطبيق يُستخدَم للإدخال الصوتي."</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"بعض الخيارات غير متاحة لأن مشغّل شبكة الجوال يدير هذا التطبيق."</string>
 </resources>

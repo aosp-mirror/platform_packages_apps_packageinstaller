@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"permissões"</string>
     <string name="cancel" msgid="7279939269964834974">"Cancelar"</string>
     <string name="back" msgid="8739808065891653074">"Voltar"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Desinstalar ou desativar"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"App não encontrado"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Negar"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Negar e não perguntar de novo"</string>
@@ -118,8 +119,8 @@
     <string name="auto_revoke_label" msgid="8755748230070160969">"Remover permissões se o app não for usado"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Para proteger seus dados, as permissões serão removidas se o app não for usado por alguns meses."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Para proteger seus dados, se o app não for usado por alguns meses, as seguintes permissões serão removidas: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
-    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Para proteger seus dados, foram removidas as permissões de apps que não foram usados nos últimos meses."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Se você quiser conceder permissões novamente, abra o app"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Para proteger seus dados, as permissões de apps que não foram usados nos últimos meses foram removidas."</string>
+    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Se quiser restabelecer a permissão, abra o app."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"No momento, a remoção automática está desativada para este app."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Não há nenhuma permissão automaticamente revogável atualmente"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"A permissão <xliff:g id="PERM">%1$s</xliff:g> será removida."</string>
@@ -177,7 +178,7 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Lembretes de permissões"</string>
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 app não usado"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps não usados"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"As permissões foram removidas para proteger sua privacidade. Toque para analisar"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"As permissões foram removidas para preservar sua privacidade. Toque para revisar."</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"As permissões foram removidas para proteger sua privacidade"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"O app <xliff:g id="APP_NAME">%s</xliff:g> tem acesso à sua localização em segundo plano"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Este app pode acessar sua localização a qualquer momento. Toque para alterar."</string>
@@ -193,7 +194,7 @@
     <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Permissões serão removidas de"</string>
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> e <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> e mais <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Para proteger seus dados, foram removidas as permissões de apps que não foram usados nos últimos meses"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Para proteger seus dados, as permissões de apps que não foram usados nos últimos meses foram removidas."</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 app não foi usado nos últimos meses"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps não foram usados nos últimos meses"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Apenas enquanto o app estiver em uso"</string>
@@ -313,4 +314,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Permissões controladas"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"A localização pode ser acessada"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"O administrador de TI permitiu o acesso do app <xliff:g id="APP_NAME">%s</xliff:g> à sua localização"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Algumas opções não estão disponíveis porque o app precisa detectar sons"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Algumas opções não estão disponíveis porque o app é seu assistente digital padrão"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Algumas opções não estão disponíveis porque o app é usado para entrada de texto por voz"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Algumas opções não estão disponíveis porque o app é gerenciado pela sua operadora"</string>
 </resources>

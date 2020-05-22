@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"权限"</string>
     <string name="cancel" msgid="7279939269964834974">"取消"</string>
     <string name="back" msgid="8739808065891653074">"返回"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"卸载或停用"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"未找到应用"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"拒绝"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"拒绝，不要再询问"</string>
@@ -313,4 +314,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"受控权限"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"应用可使用位置信息"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"您的 IT 管理员允许“<xliff:g id="APP_NAME">%s</xliff:g>”使用您的位置信息"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"某些选项不可用，因为此应用需要检测声音"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"某些选项不可用，因为此应用是您的默认数字助理"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"某些选项不可用，因为此应用用于语音输入"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"某些选项不可用，因为此应用由您的运营商管理"</string>
 </resources>
