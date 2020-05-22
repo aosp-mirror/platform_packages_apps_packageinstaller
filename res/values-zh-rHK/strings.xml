@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"權限"</string>
     <string name="cancel" msgid="7279939269964834974">"取消"</string>
     <string name="back" msgid="8739808065891653074">"返回"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"取消安裝或停用"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"找不到應用程式"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"拒絕"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"拒絕，不要再詢問"</string>
@@ -130,7 +131,7 @@
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"已移除「<xliff:g id="PERMISSION_NAME">%s</xliff:g>」權限"</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"已移除「<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>」及「<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>」權限"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"已移除「<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>」及另外 <xliff:g id="NUMBER">%2$s</xliff:g> 個權限"</string>
-    <string name="last_opened_category_title" msgid="4204626487716958146">"上次於超過 <xliff:g id="NUMBER">%s</xliff:g> 個月前開啟"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"距離上次開啟已超過 <xliff:g id="NUMBER">%s</xliff:g> 個月"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"應用程式上次於 <xliff:g id="DATE">%s</xliff:g>開啟"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"上次開啟日期：<xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"如允許管理所有檔案，此應用程式便可存取、修改和刪除此裝置或已連接儲存裝置上一般儲存的任何檔案。應用程式可能會在未通知您的情況下存取檔案。"</string>
@@ -313,4 +314,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"由管理員控制的權限"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"應用程式可存取位置"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"您的 IT 管理員允許「<xliff:g id="APP_NAME">%s</xliff:g>」存取您的位置"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"由於此應用程式需要偵測聲音，因此部分選項無法使用"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"由於此應用程式為預設數碼助理，因此部分選項無法使用"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"由於此應用程式用於語音輸入，因此部分選項無法使用"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"由於此應用程式由您的流動網絡供應商管理，因此部分選項無法使用"</string>
 </resources>

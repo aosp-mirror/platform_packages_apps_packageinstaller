@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"käyttöoikeudet"</string>
     <string name="cancel" msgid="7279939269964834974">"Peruuta"</string>
     <string name="back" msgid="8739808065891653074">"Takaisin"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Poista tai poista käytöstä"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Sovellusta ei löydy"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Estä"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Hylkää äläkä kysy uudelleen"</string>
@@ -127,7 +128,7 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Nämä käyttöluvat poistetaan: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Lupien automaattinen ylläpito"</string>
     <string name="off" msgid="4561379152328580345">"Pois päältä"</string>
-    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Käyttöoikeus poistettu: <xliff:g id="PERMISSION_NAME">%s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Lupa poistettu: <xliff:g id="PERMISSION_NAME">%s</xliff:g>"</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Luvat poistettu: <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> ja <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> ja <xliff:g id="NUMBER">%2$s</xliff:g> muuta käyttöoikeutta poistettiin"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Avattu viimeksi <xliff:g id="NUMBER">%s</xliff:g> kuukautta sitten"</string>
@@ -313,4 +314,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Automaattisesti myönnetyt käyttöoikeudet"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Pääsy sijaintiin myönnetty"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"<xliff:g id="APP_NAME">%s</xliff:g> on saanut pääsyn sijaintiisi järjestelmänvalvojalta"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Kaikki vaihtoehdot eivät ole käytettävissä, koska tämän sovelluksen täytyy havaita ääntä"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Kaikki vaihtoehdot eivät ole käytettävissä, koska tämä sovellus on oletusdigiavustajasi"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Kaikki vaihtoehdot eivät ole käytettävissä, koska tätä sovellusta käytetään äänisyötteeseen"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Kaikki vaihtoehdot eivät ole käytettävissä, koska operaattorisi ylläpitää tätä sovellusta"</string>
 </resources>
