@@ -24,7 +24,7 @@ import java.io.File
  * Like {@link Log} but stores the logs in a file which can later be dumped via {@link #dump}
  */
 object DumpableLog {
-    private const val MAX_FILE_SIZE = 32 * 1024
+    private const val MAX_FILE_SIZE = 64 * 1024
 
     private val lock = Any()
     private val file = File(PermissionControllerApplication.get().filesDir, LOGS_TO_DUMP_FILE)
