@@ -163,10 +163,6 @@ fun isAutoRevokeEnabled(context: Context): Boolean {
             getUnusedThresholdMs(context) != Long.MAX_VALUE
 }
 
-fun isInAutoRevokeDogfood(context: Context): Boolean {
-    return TeamfoodSettings.get(context)?.enabledForPreRApps ?: false
-}
-
 /**
  * @return dump of auto revoke service as a proto
  */
@@ -275,10 +271,7 @@ private suspend fun revokePermissionsOnUnusedApps(
             lastTimeVisible = Math.max(lastTimeVisible, packageInfo.firstInstallTime)
 
             // Limit by first boot time
-            // TODO eugenesusla: temporarily disabled for dogfooders for troubleshooting
-            if (!isInAutoRevokeDogfood(context)) {
-                lastTimeVisible = Math.max(lastTimeVisible, firstBootTime)
-            }
+            lastTimeVisible = Math.max(lastTimeVisible, firstBootTime)
 
             // Handle cross-profile apps
             if (context.isPackageCrossProfile(pkgName)) {
