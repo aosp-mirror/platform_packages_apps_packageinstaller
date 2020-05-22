@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"разрешения"</string>
     <string name="cancel" msgid="7279939269964834974">"Отмена"</string>
     <string name="back" msgid="8739808065891653074">"Назад"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Удалить или отключить"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Приложение не найдено"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Запретить"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Запретить и больше не спрашивать"</string>
@@ -187,7 +188,7 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Напоминания о разрешениях"</string>
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 неиспользуемое приложение"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Неиспользуемые приложения (<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>)"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Разрешения отозваны для защиты конфиденциальности ваших данных. Нажмите, чтобы посмотреть подробности."</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Разрешения отозваны для защиты конфиденциальности ваших данных. Нажмите, чтобы узнать больше."</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Разрешения отозваны для защиты конфиденциальности ваших данных."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Приложению \"<xliff:g id="APP_NAME">%s</xliff:g>\" в фоновом режиме доступны геоданные"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"У этого приложения есть постоянный доступ к сведениям о вашем местоположении. Нажмите, чтобы изменить настройки."</string>
@@ -323,4 +324,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Контролируемые разрешения"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Приложению доступны ваши геоданные"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Администратор разрешил приложению \"<xliff:g id="APP_NAME">%s</xliff:g>\" доступ к вашему местоположению."</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Некоторые параметры недоступны, так как этому приложению требуется распознавать звуки"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Некоторые параметры недоступны, так как это приложение выбрано в качестве цифрового помощника по умолчанию"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Некоторые параметры недоступны, так как это приложение используется для голосового ввода"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Некоторые параметры недоступны, так как это приложение управляется вашим оператором связи"</string>
 </resources>

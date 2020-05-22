@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"дозволи"</string>
     <string name="cancel" msgid="7279939269964834974">"Скасувати"</string>
     <string name="back" msgid="8739808065891653074">"Назад"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Видалити або вимкнути"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Додаток не знайдено"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Заборонити"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Відмовити й не запитувати"</string>
@@ -129,10 +130,10 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Дозволи, які буде відкликано: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Керувати дозволами автоматично"</string>
     <string name="off" msgid="4561379152328580345">"Вимкнути"</string>
-    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Дозвіл \"<xliff:g id="PERMISSION_NAME">%s</xliff:g>\" вилучено"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Дозвіл додатка \"<xliff:g id="PERMISSION_NAME">%s</xliff:g>\" вилучено"</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Дозволи \"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>\" та \"<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>\" вилучено"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Дозвіл \"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>\" і ще <xliff:g id="NUMBER">%2$s</xliff:g> вилучено"</string>
-    <string name="last_opened_category_title" msgid="4204626487716958146">"Востаннє відкрито понад <xliff:g id="NUMBER">%s</xliff:g> міс. тому"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Відкривались понад <xliff:g id="NUMBER">%s</xliff:g> міс. тому"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Додаток востаннє відкрито <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Востаннє відкрито <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Додаток із дозволом керувати всіма файлами може переглядати, змінювати й видаляти файли в спільному сховищі на цьому пристрої або підключених носіях пам\'яті. Такий додаток може отримувати доступ до файлів без вашого відома."</string>
@@ -323,4 +324,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Керовані дозволи"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Відкрито доступ до місцезнаходження"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Ваш ІТ-адміністратор дозволяє додатку <xliff:g id="APP_NAME">%s</xliff:g> отримувати доступ до вашого місцезнаходження"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Деякі опції недоступні, оскільки цей додаток має виявляти звуки"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Деякі опції недоступні, оскільки цей додаток встановлено як цифровий помічник за умовчанням"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Деякі опції недоступні, оскільки цей додаток використовується для голосового вводу"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Деякі опції недоступні, оскільки цим додатком керує ваш оператор"</string>
 </resources>
