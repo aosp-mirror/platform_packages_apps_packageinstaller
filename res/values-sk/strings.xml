@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"povolenia"</string>
     <string name="cancel" msgid="7279939269964834974">"Zrušiť"</string>
     <string name="back" msgid="8739808065891653074">"Späť"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Odinštalovať alebo deaktivovať"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplikácia sa nenašla"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Zamietnuť"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Zamietnuť a už sa nepýtať"</string>
@@ -187,7 +188,7 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Pripomenutia povolení"</string>
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 nepoužívaná aplikácia"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Nepoužívané aplikácie: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Povolenia boli odstránené na zaistenie ochrany vášho súkromia. Skontrolujte to klepnutím."</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Povolenia odstránené kvôli ochrane vášho súkromia. Pre kontrolu klepnite."</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Povolenia boli odstránené na zaistenie ochrany vášho súkromia"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Aplikácia <xliff:g id="APP_NAME">%s</xliff:g> získala vašu polohu na pozadí"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Táto aplikácia má neobmedzený prístup k polohe. Klepnutím to zmeníte."</string>
@@ -323,4 +324,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Ovládané povolenia"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Polohu je možné používať"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Váš správca IT povoľuje aplikácii <xliff:g id="APP_NAME">%s</xliff:g> používať vašu polohu"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Niektoré možnosti nie sú k dispozícii, pretože táto aplikácia potrebuje rozpoznávať zvuk"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Niektoré možnosti nie sú k dispozícii, pretože táto aplikácia je váš predvolený digitálny asistent"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Niektoré možnosti nie sú k dispozícii, pretože táto aplikácia sa využíva na hlasový vstup"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Niektoré možnosti nie sú k dispozícii, pretože táto aplikácia je spravovaná vaším operátorom"</string>
 </resources>

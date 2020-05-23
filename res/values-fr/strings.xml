@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"autorisations"</string>
     <string name="cancel" msgid="7279939269964834974">"Annuler"</string>
     <string name="back" msgid="8739808065891653074">"Retour"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Désinstaller ou désactiver"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Application non trouvée"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Refuser"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Refuser et ne plus demander"</string>
@@ -130,7 +131,7 @@
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"L\'autorisation \"<xliff:g id="PERMISSION_NAME">%s</xliff:g>\" a été révoquée"</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Les autorisations \"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>\" et \"<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>\" ont été révoquées"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"\"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>\" et <xliff:g id="NUMBER">%2$s</xliff:g> autres autorisations révoquées"</string>
-    <string name="last_opened_category_title" msgid="4204626487716958146">"Ouvertes pour la dernière fois il y a <xliff:g id="NUMBER">%s</xliff:g> mois"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Ouvertes pour la dernière fois il y a plus de <xliff:g id="NUMBER">%s</xliff:g> mois"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Dernière ouverture de l\'application le <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Dernière ouverture : <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Si vous l\'autorisez à gérer tous les fichiers, cette application pourra y accéder, les modifier et les supprimer, sur cet appareil et sur les périphériques de stockage connectés. L\'application pourra accéder aux fichiers sans vous le demander."</string>
@@ -177,7 +178,7 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Rappels relatifs aux autorisations"</string>
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 application inutilisée"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> applications inutilisées"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Les autorisations ont été supprimées pour protéger votre vie privée. Appuyez pour examiner."</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Les autorisations ont été supprimées pour protéger votre vie privée. Appuyez pour en savoir plus."</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Les autorisations ont été supprimées pour protéger votre vie privée"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> a accès à votre position en arrière-plan"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Cette application peut accéder en permanence à votre position. Appuyez dessus pour modifier cette autorisation."</string>
@@ -313,4 +314,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Autorisations contrôlées"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Votre position est accessible"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Votre administrateur informatique autorise <xliff:g id="APP_NAME">%s</xliff:g> à accéder à votre position"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Certaines options ne sont pas disponibles, car cette application a besoin de pouvoir détecter les sons"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Certaines options ne sont pas disponibles, car cette application est votre assistant numérique par défaut"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Certaines options ne sont pas disponibles, car cette application est utilisée pour la saisie vocale"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Certaines options ne sont pas disponibles, car cette application est gérée par votre opérateur"</string>
 </resources>
