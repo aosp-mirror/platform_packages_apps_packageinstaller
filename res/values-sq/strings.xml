@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"lejet"</string>
     <string name="cancel" msgid="7279939269964834974">"Anulo"</string>
     <string name="back" msgid="8739808065891653074">"Pas"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Çinstalo ose çaktivizo"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplikacioni nuk u gjet"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Refuzo"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Refuzo dhe mos pyet përsëri"</string>
@@ -122,12 +123,12 @@
     <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Nëse dëshiron t\'i lejosh përsëri lejet, hap aplikacionin"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Heqja automatike aktualisht është çaktivizuar për këtë aplikacion."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Aktualisht nuk janë dhënë leje të revokueshme automatikisht"</string>
-    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Leja <xliff:g id="PERM">%1$s</xliff:g> do të hiqet."</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Leja për \"<xliff:g id="PERM">%1$s</xliff:g>\" do të hiqet."</string>
     <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Lejet <xliff:g id="PERM_0">%1$s</xliff:g> dhe <xliff:g id="PERM_1">%2$s</xliff:g> do të hiqen."</string>
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Lejet që do të hiqen: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Menaxho automatikisht lejet"</string>
     <string name="off" msgid="4561379152328580345">"Joaktiv"</string>
-    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Leja <xliff:g id="PERMISSION_NAME">%s</xliff:g> është hequr"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Leja për \"<xliff:g id="PERMISSION_NAME">%s</xliff:g>\" është hequr"</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> dhe <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> leje janë hequr"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> dhe <xliff:g id="NUMBER">%2$s</xliff:g> leje të tjera janë hequr"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Hapur për herë të fundit më shumë se <xliff:g id="NUMBER">%s</xliff:g> muaj më parë"</string>
@@ -313,4 +314,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Lejet e kontrolluara"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Lejohet qasja te vendndodhja"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Administratori yt i TI-së e lejon aplikacionin \"<xliff:g id="APP_NAME">%s</xliff:g>\" të ketë qasje te vendndodhja jote"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Disa opsione nuk ofrohen sepse ky aplikacion ka nevojë të zbulojë tingullin"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Disa opsione nuk ofrohen sepse ky aplikacion është asistenti yt i parazgjedhur dixhital"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Disa opsione nuk ofrohen sepse ky aplikacion përdoret për hyrjen zanore"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Disa opsione nuk ofrohen sepse ky aplikacion menaxhohet nga operatori yt celular"</string>
 </resources>

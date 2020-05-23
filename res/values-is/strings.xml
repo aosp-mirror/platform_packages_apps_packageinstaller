@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"heimildir"</string>
     <string name="cancel" msgid="7279939269964834974">"Hætta við"</string>
     <string name="back" msgid="8739808065891653074">"Til baka"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Fjarlægja eða slökkva"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Forritið finnst ekki"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Hafna"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Hafna og ekki spyrja aftur"</string>
@@ -113,7 +114,7 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Hafna"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> - heimild"</string>
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: Aðgangur fyrir þetta forrit"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Sjá allar heimildir fyrir <xliff:g id="APP">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Sjá allar heimildir fyrir „<xliff:g id="APP">%1$s</xliff:g>“"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Sjá öll forrit með þessa heimild"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Fjarlægja heimildir ef forrit er ekki notað"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Til að vernda gögnin þín verða heimildir þessa forrits fjarlægðar ef það er ekki notað í nokkra mánuði."</string>
@@ -176,7 +177,7 @@
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Áminningar um heimild"</string>
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ónotað forrit"</string>
-    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ónotað/ónotuð forrit"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ónotuð forrit"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Heimildir fjarlægðar til að tryggja persónuvernd þína. Ýttu til að skoða"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Heimildir fjarlægðar til að tryggja persónuvernd þína"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> er með staðsetningu þína í bakgrunni"</string>
@@ -304,7 +305,7 @@
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"Viltu veita &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aðgang að dagatalinu þínu?"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"Viltu leyfa &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að senda og skoða SMS-skilaboð?"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"Viltu veita &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aðgang að myndum, efni og skrám í tækinu?"</string>
-    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"Viltu leyfa &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að taka upp hljóð?"</string>
+    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"Viltu leyfa forritinu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að taka upp hljóð?"</string>
     <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"Viltu leyfa &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að fá aðgang að hreyfingu þinni?"</string>
     <string name="permgrouprequest_camera" msgid="5379726026447957660">"Viltu leyfa &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að taka myndir og myndskeið?"</string>
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Viltu veita &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aðgang að símtalaskrám símans?"</string>
@@ -312,5 +313,9 @@
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Viltu veita &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aðgang að skynjaragögnum yfir lífsmörk þín?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Stýrðar heimildir"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Hægt er að nálgast upplýsingar um staðsetningu"</string>
-    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Kerfisstjórinn þinn leyfir <xliff:g id="APP_NAME">%s</xliff:g> að fá upplýsingar um staðsetningu þína"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Kerfisstjórinn þinn leyfir forritinu „<xliff:g id="APP_NAME">%s</xliff:g>“ að fá upplýsingar um staðsetningu þína"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Einhverjir valkostir eru ekki í boði vegna þess að þetta forrit þarf að heyra hljóð"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Einhverjir valkostir eru ekki í boði vegna þess að þetta forrit er sjálfgefinn stafrænn hjálpari þinn"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Einhverjir valkostir eru ekki í boði vegna þess að þetta forrit er notað fyrir raddinntak"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Einhverjir valkostir eru ekki í boði vegna þess að símafyrirtækið þitt stjórnar þessu forriti"</string>
 </resources>
