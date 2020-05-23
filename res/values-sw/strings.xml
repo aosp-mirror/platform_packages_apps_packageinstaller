@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"ruhusa"</string>
     <string name="cancel" msgid="7279939269964834974">"Ghairi"</string>
     <string name="back" msgid="8739808065891653074">"Rudi nyuma"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Ondoa au uzime"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Programu haikupatikana"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Kataa"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Kataa na usiulize tena"</string>
@@ -127,7 +128,7 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Ruhusa zitakazoondolewa: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Dhibiti ruhusa kiotomatiki"</string>
     <string name="off" msgid="4561379152328580345">"Imezimwa"</string>
-    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Ruhusa <xliff:g id="PERMISSION_NAME">%s</xliff:g> imeondolewa"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Ruhusa ya <xliff:g id="PERMISSION_NAME">%s</xliff:g> imeondolewa"</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Ruhusa ya <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> na <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> zimeondolewa"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Ruhusa ya <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> na ruhusa zingine <xliff:g id="NUMBER">%2$s</xliff:g> zimeondolewa"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Ilifunguliwa mara ya mwisho miezi <xliff:g id="NUMBER">%s</xliff:g> iliyopita"</string>
@@ -313,4 +314,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Ruhusa zinazodhibitiwa"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Maelezo ya mahali yanaweza kufikiwa"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Msimamizi wako wa TEHAMA anaruhusu <xliff:g id="APP_NAME">%s</xliff:g> kufikia maelezo ya mahali ulipo"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Baadhi ya chaguo hazipatikani kwa sababu programu hii inahitaji kutambua sauti"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Baadhi ya chaguo hazipatikani kwa sababu programu hii ni mratibu dijitali chaguomsingi"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Baadhi ya chaguo hazipatikani kwa sababu programu hii inatumika kuweka data kwa kutamka"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Baadhi ya chaguo hazipatikani kwa sababu programu hii inadhibitiwa na mtoa huduma wako"</string>
 </resources>
