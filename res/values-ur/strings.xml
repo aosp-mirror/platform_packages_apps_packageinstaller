@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"اجازتیں"</string>
     <string name="cancel" msgid="7279939269964834974">"منسوخ کریں"</string>
     <string name="back" msgid="8739808065891653074">"واپس جائیں"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"اَن انسٹال یا غیر فعال کریں"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ایپ نہیں ملی"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"مسترد کریں"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"مستردکریں اور دوبارہ نہ پوچھیں"</string>
@@ -177,7 +178,7 @@
     <string name="permission_reminders" msgid="8040710767178843151">"اجازت کی یاددہانیاں"</string>
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 غیر مستعمل ایپ"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> غیر مستعمل ایپس"</string>
-    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"آپ کی رازداری کی حفاظت کے لیے اجازتوں کو ہٹایا گیا۔ جائزہ کے لیے تھپتھپائیں"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"آپ کی رازداری کی حفاظت کے لیے اجازتوں کو ہٹا دیا گیا۔ جائزہ کے لیے تھپتھپائیں"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"آپ کی رازداری کی حفاظت کے لیے اجازتوں کو ہٹایا گیا"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> نے پس منظر میں آپ کا مقام حاصل کر لیا ہے"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"یہ ایپ ہمیشہ آپ کے مقام تک رسائی حاصل کر سکتی ہے۔ تبدیل کرنے کے لیے تھپتھپائیں۔"</string>
@@ -313,4 +314,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"کنٹرول کی گئی اجازتیں"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"مقام تک رسائی حاصل کی جا سکتی ہے"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"‏آپ کا IT منتظم <xliff:g id="APP_NAME">%s</xliff:g> کو آپ کے مقام تک رسائی کی اجازت دے رہا ہے"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"کچھ اختیارات دستیاب نہیں ہیں کیونکہ اس ایپ کو آواز کا پتہ لگانے کی ضرورت ہے"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"کچھ اختیارات دستیاب نہیں ہیں کیونکہ یہ ایپ آپ کی ڈیفالٹ ڈیجیٹل اسسٹنٹ ہے"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"کچھ اختیارات دستیاب نہیں ہیں کیونکہ اس ایپ کا استعمال صوتی ان پٹ کے لیے کیا جاتا ہے"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"کچھ اختیارات دستیاب نہیں ہیں کیونکہ یہ ایپ آپ کے کیریئر کے زیر انتظام ہے"</string>
 </resources>

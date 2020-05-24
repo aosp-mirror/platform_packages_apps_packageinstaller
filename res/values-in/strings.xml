@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"izin"</string>
     <string name="cancel" msgid="7279939269964834974">"Batal"</string>
     <string name="back" msgid="8739808065891653074">"Kembali"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Uninstal atau nonaktifkan"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Apl tidak ditemukan"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Tolak"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Tolak &amp; jangan tanya lagi"</string>
@@ -46,7 +47,7 @@
     <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Izinkan akses ke file media"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplikasi"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Izin aplikasi"</string>
-    <string name="unused_apps" msgid="3935514133237470759">"Aplikasi yang tidak digunakan"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Aplikasi tidak digunakan"</string>
     <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Nonaktifkan aplikasi"</string>
     <string name="app_disable_dlg_text" msgid="5218197617670218828">"Jika Anda menonaktifkan aplikasi ini, Android dan aplikasi lain mungkin tidak berfungsi lagi sesuai harapan. Perlu diingat, Anda tidak dapat menghapus aplikasi yang disertakan oleh pabrikan di perangkat Anda. Namun, Anda dapat menonaktifkannya, yang berarti mematikan dan menyembunyikan aplikasi tersebut di perangkat Anda."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Pengelola izin"</string>
@@ -176,7 +177,7 @@
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Pengingat izin"</string>
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 aplikasi yang tidak digunakan"</string>
-    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplikasi yang tidak digunakan"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplikasi tidak digunakan"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Izin dihapus untuk melindungi privasi Anda. Ketuk untuk meninjau"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Izin dihapus untuk melindungi privasi Anda"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> mendapatkan lokasi Anda di latar belakang"</string>
@@ -188,7 +189,7 @@
     <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 aplikasi tidak digunakan"</string>
     <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplikasi tidak digunakan"</string>
     <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Izin akan dihapus untuk melindungi privasi Anda. Ketuk untuk meninjau."</string>
-    <string name="unused_apps_title" msgid="4528745145780586943">"Aplikasi yang tidak digunakan"</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"Aplikasi tidak digunakan"</string>
     <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Izin dihapus dari"</string>
     <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Izin akan dihapus dari"</string>
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> dan <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
@@ -313,4 +314,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Izin terkontrol"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Lokasi dapat diakses"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Admin IT mengizinkan <xliff:g id="APP_NAME">%s</xliff:g> untuk mengakses lokasi Anda"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Beberapa opsi tidak tersedia karena aplikasi ini harus mendeteksi suara"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Beberapa opsi tidak tersedia karena aplikasi ini adalah asisten digital default Anda"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Beberapa opsi tidak tersedia karena aplikasi ini digunakan untuk masukan suara"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Beberapa opsi tidak tersedia karena aplikasi ini dikelola oleh operator Anda"</string>
 </resources>
