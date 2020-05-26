@@ -90,11 +90,7 @@ public abstract class AutoSettingsFrameFragment extends PreferenceFragment {
 
     private void updateLoading() {
         if (mToolbar != null) {
-            if (mIsLoading) {
-                mToolbar.showProgressBar();
-            } else {
-                mToolbar.hideProgressBar();
-            }
+            mToolbar.getProgressBar().setVisible(mIsLoading);
         }
     }
 
