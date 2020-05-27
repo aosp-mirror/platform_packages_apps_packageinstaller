@@ -237,8 +237,9 @@ class AppPermissionViewModel(
                     !group.background.isGranted && !group.isOneTime
                 askState.isChecked = !group.foreground.isGranted && group.isOneTime
                 askOneTimeState.isChecked = group.foreground.isGranted && group.isOneTime
+                askOneTimeState.isShown = askOneTimeState.isChecked
                 deniedState.isChecked = !group.foreground.isGranted && !group.isOneTime
-                var detailId: Int = 0
+                var detailId = 0
                 if (applyFixToForegroundBackground(group, group.foreground.isSystemFixed,
                         group.background.isSystemFixed, allowedAlwaysState,
                         allowedForegroundState, askState, deniedState,
@@ -288,6 +289,7 @@ class AppPermissionViewModel(
                 allowedState.isChecked = group.foreground.isGranted
                 askState.isChecked = !group.foreground.isGranted && group.isOneTime
                 askOneTimeState.isChecked = group.foreground.isGranted && group.isOneTime
+                askOneTimeState.isShown = askOneTimeState.isChecked
                 deniedState.isChecked = !group.foreground.isGranted && !group.isOneTime
 
                 var detailId = 0
