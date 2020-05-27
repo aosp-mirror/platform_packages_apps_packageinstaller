@@ -1427,7 +1427,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                             | PackageManager.FLAG_PERMISSION_POLICY_FIXED
                             | (permission.isReviewRequired()
                             ? 0 : PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED)
-                            | PackageManager.FLAG_PERMISSION_ONE_TIME,
+                            | PackageManager.FLAG_PERMISSION_ONE_TIME
+                            | PackageManager.FLAG_PERMISSION_AUTO_REVOKED, // clear auto revoke
                     flags, mUserHandle);
 
             if (permission.affectsAppOp()) {
