@@ -582,18 +582,12 @@ class AutoRevokeService : JobService() {
         val pendingIntent = PendingIntent.getActivity(this, 0, clickIntent,
             FLAG_ONE_SHOT or FLAG_UPDATE_CURRENT)
 
-        val numRevoked = UnusedAutoRevokedPackagesLiveData.getInitializedValue().size
-        val titleString = if (numRevoked == 1) {
-            getString(R.string.auto_revoke_permission_reminder_notification_title_one)
-        } else {
-            getString(R.string.auto_revoke_permission_reminder_notification_title_many, numRevoked)
-        }
         val b = Notification.Builder(this, PERMISSION_REMINDER_CHANNEL_ID)
-            .setContentTitle(titleString)
+            .setContentTitle(getString(R.string.auto_revoke_permission_notification_title))
             .setContentText(getString(
-                R.string.auto_revoke_permission_reminder_notification_content))
+                R.string.auto_revoke_permission_notification_content))
             .setStyle(Notification.BigTextStyle().bigText(getString(
-                R.string.auto_revoke_permission_reminder_notification_content)))
+                R.string.auto_revoke_permission_notification_content)))
             .setSmallIcon(R.drawable.ic_settings_24dp)
             .setColor(getColor(android.R.color.system_notification_accent_color))
             .setAutoCancel(true)
@@ -607,6 +601,8 @@ class AutoRevokeService : JobService() {
 
         notificationManager.notify(AutoRevokeService::class.java.simpleName,
             AUTO_REVOKE_NOTIFICATION_ID, b.build())
+        // Preload the auto revoked packages
+        UnusedAutoRevokedPackagesLiveData.getInitializedValue()
     }
 
     companion object {
