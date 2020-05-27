@@ -19,11 +19,8 @@ package com.android.permissioncontroller.permission.data
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.os.UserHandle
 import com.android.permissioncontroller.PermissionControllerApplication
-import com.android.permissioncontroller.permission.data.AutoRevokedPackagesLiveData.addSource
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
-import com.android.permissioncontroller.permission.data.UnusedAutoRevokedPackagesLiveData.addSource
 import com.android.permissioncontroller.permission.service.getUnusedThresholdMs
-import com.android.permissioncontroller.permission.service.isInAutoRevokeDogfood
 import com.android.permissioncontroller.permission.utils.KotlinUtils
 
 /**
@@ -195,11 +192,8 @@ object UnusedAutoRevokedPackagesLiveData
         for ((user, stats) in usageStatsLiveData.value!!) {
             for (stat in stats) {
                 val userPackage = stat.packageName to user
-                // TODO eugenesusla: temporarily showing packages regardless of
-                //  usage recency for troubleshooting
-                val isOldEnoughToShow = (now - stat.lastTimeVisible) >= unusedThreshold ||
-                        isInAutoRevokeDogfood(PermissionControllerApplication.get())
-                if (userPackage in autoRevokedPackages && !isOldEnoughToShow) {
+                if (userPackage in autoRevokedPackages &&
+                    (now - stat.lastTimeVisible) < unusedThreshold) {
                     unusedPackages.remove(userPackage)
                 }
             }
