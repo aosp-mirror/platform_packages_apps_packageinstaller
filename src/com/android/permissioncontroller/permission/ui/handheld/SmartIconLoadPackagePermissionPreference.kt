@@ -46,6 +46,8 @@ open class SmartIconLoadPackagePermissionPreference constructor(
     context: Context
 ) : Preference(context) {
 
+    private var titleContentDescription: CharSequence? = null
+
     /**
      * Loads the package's badged icon upon being bound to a viewholder. This allows us to load
      * icons synchronously, because we only load the icons that are visible on the screen.
@@ -73,5 +75,12 @@ open class SmartIconLoadPackagePermissionPreference constructor(
         if (imageFrame != null) {
             imageFrame.visibility = View.VISIBLE
         }
+        holder.findViewById(android.R.id.title)?.let {
+            it.contentDescription = titleContentDescription
+        }
+    }
+
+    fun setTitleContentDescription(contentDescription: CharSequence) {
+        titleContentDescription = contentDescription
     }
 }
