@@ -1013,16 +1013,20 @@ private class AutoRevokeDumpLiveData(context: Context) :
                             continue
                         }
 
-                        pkgPermGroups[user to pkg.packageName]!![groupName]!!.value!!.apply {
-                            groups.add(AutoRevokeDumpGroupData(groupName,
-                                    isBackgroundFixed || isForegroundFixed,
-                                    permissions.any { (_, p) -> p.isGrantedIncludingAppOp },
-                                    isGrantedByDefault,
-                                    isGrantedByRole,
-                                    isUserSensitive,
-                                    revokedPermGroupNames.value!![pkg.packageName to user]
-                                            ?.contains(groupName) ?: false
-                            ))
+                        pkgPermGroups[user to pkg.packageName]?.let {
+                            it[groupName]?.value?.apply {
+                                groups.add(AutoRevokeDumpGroupData(groupName,
+                                        isBackgroundFixed || isForegroundFixed,
+                                        permissions.any { (_, p) -> p.isGrantedIncludingAppOp },
+                                        isGrantedByDefault,
+                                        isGrantedByRole,
+                                        isUserSensitive,
+                                        revokedPermGroupNames.value?.let {
+                                            it[pkg.packageName to user]
+                                                    ?.contains(groupName)
+                                        } ?: false
+                                ))
+                            }
                         }
                     }
 
