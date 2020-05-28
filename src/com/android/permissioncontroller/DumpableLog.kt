@@ -36,7 +36,7 @@ object DumpableLog {
     /**
      * Equivalent to {@link Log.v}
      */
-    fun v(tag: String, message: String, exception: Exception? = null) {
+    fun v(tag: String, message: String, exception: Throwable? = null) {
         Log.v(tag, message, exception)
         addLogToDump("v", tag, message, exception)
     }
@@ -44,7 +44,7 @@ object DumpableLog {
     /**
      * Equivalent to {@link Log.d}
      */
-    fun d(tag: String, message: String, exception: Exception? = null) {
+    fun d(tag: String, message: String, exception: Throwable? = null) {
         Log.d(tag, message, exception)
         addLogToDump("d", tag, message, exception)
     }
@@ -52,7 +52,7 @@ object DumpableLog {
     /**
      * Equivalent to {@link Log.i}
      */
-    fun i(tag: String, message: String, exception: Exception? = null) {
+    fun i(tag: String, message: String, exception: Throwable? = null) {
         Log.i(tag, message, exception)
         addLogToDump("i", tag, message, exception)
     }
@@ -60,7 +60,7 @@ object DumpableLog {
     /**
      * Equivalent to {@link Log.w}
      */
-    fun w(tag: String, message: String, exception: Exception? = null) {
+    fun w(tag: String, message: String, exception: Throwable? = null) {
         Log.w(tag, message, exception)
         addLogToDump("w", tag, message, exception)
     }
@@ -68,12 +68,12 @@ object DumpableLog {
     /**
      * Equivalent to {@link Log.e}
      */
-    fun e(tag: String, message: String, exception: Exception? = null) {
+    fun e(tag: String, message: String, exception: Throwable? = null) {
         Log.e(tag, message, exception)
         addLogToDump("e", tag, message, exception)
     }
 
-    private fun addLogToDump(level: String, tag: String, message: String, exception: Exception?) {
+    private fun addLogToDump(level: String, tag: String, message: String, exception: Throwable?) {
         synchronized(lock) {
             // TODO: Needs to be replaced by proper log rotation
             if (file.length() > MAX_FILE_SIZE) {
