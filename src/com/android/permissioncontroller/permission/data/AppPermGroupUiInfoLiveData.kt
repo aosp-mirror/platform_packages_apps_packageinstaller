@@ -122,8 +122,7 @@ class AppPermGroupUiInfoLiveData private constructor(
 
         val isSystemApp = !isUserSensitive(permissionState)
 
-        val isGranted = getGrantedIncludingBackground(permissionState, allPermInfos,
-                packageInfo.packageName)
+        val isGranted = getGrantedIncludingBackground(permissionState, allPermInfos)
 
         return AppPermGroupUiInfo(shouldShow, isGranted, isSystemApp)
     }
@@ -214,8 +213,7 @@ class AppPermGroupUiInfoLiveData private constructor(
      */
     private fun getGrantedIncludingBackground(
         permissionState: Map<String, PermState>,
-        allPermInfos: Map<String, LightPermInfo>,
-        packageName: String
+        allPermInfos: Map<String, LightPermInfo>
     ): PermGrantState {
         val specialLocationState = getIsSpecialLocationState()
 
@@ -242,7 +240,8 @@ class AppPermGroupUiInfoLiveData private constructor(
             if (isOneTime) {
                 return PermGrantState.PERMS_ASK
             } else {
-                if (Utils.couldHaveForegroundCapabilities(app.applicationContext, packageName)) {
+                if (Utils.couldHaveForegroundCapabilities(
+                                Utils.getUserContext(app, user), packageName)) {
                     return PermGrantState.PERMS_ALLOWED_ALWAYS
                 } else {
                     return PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY
