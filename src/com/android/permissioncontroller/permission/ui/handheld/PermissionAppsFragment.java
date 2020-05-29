@@ -45,7 +45,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -58,6 +57,7 @@ import com.android.permissioncontroller.permission.ui.model.PermissionAppsViewMo
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 import com.android.settingslib.HelpUtils;
+import com.android.settingslib.utils.applications.AppUtils;
 
 import java.text.Collator;
 import java.util.List;
@@ -307,6 +307,8 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                                     grantCategory.getCategoryName()));
                     return true;
                 });
+                pref.setTitleContentDescription(AppUtils.getAppContentDescription(context,
+                        packageName, user.getIdentifier()));
 
                 category.addPreference(pref);
                 if (!mViewModel.getCreationLogged()) {

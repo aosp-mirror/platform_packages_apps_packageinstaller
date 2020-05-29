@@ -345,7 +345,7 @@
     <string name="auto_revoked_apps_page_summary">To protect your data, permissions have been removed from apps that you haven\u2019t used in a few months.</string>
 
     <!-- Message which tells users to open an app to grant permissions [CHAR LIMIT=none]-->
-    <string name="auto_revoke_open_app_message">If you want to allow permissions again, open the app</string>
+    <string name="auto_revoke_open_app_message">If you want to allow permissions again, open the app.</string>
 
     <!-- Summary for stating that auto revoke is disabled for the current app [CHAR LIMIT=none] -->
     <string name="auto_revoke_disabled">Automatic removal is currently disabled for this app.</string>
@@ -488,14 +488,47 @@
     <!-- The name of the notification channel containing reminders about permission [CHAR LIMIT=60]-->
     <string name="permission_reminders">Permission reminders</string>
 
-    <!-- The notification title for the notification that a permission auto revoke has happened for one app [CHAR LIMIT=60] -->
+    <!-- The notification title for the notification that a permission auto revoke has happened for one app (outdated) [CHAR LIMIT=60] -->
     <string name="auto_revoke_permission_reminder_notification_title_one">1 unused app</string>
 
-    <!-- The notification title for the notification that a permission auto revoke has happened for more than one app [CHAR LIMIT=60] -->
+    <!-- The notification title for the notification that a permission auto revoke has happened for more than one app (outdated) [CHAR LIMIT=60] -->
     <string name="auto_revoke_permission_reminder_notification_title_many"><xliff:g id="number_of_apps" example="4">%s</xliff:g> unused apps</string>
 
-    <!-- The notification content for the auto revoke reminder notification [CHAR LIMIT=none] -->
+    <!-- The notification content for the auto revoke reminder notification (outdated) [CHAR LIMIT=none] -->
     <string name="auto_revoke_permission_reminder_notification_content">Permissions removed to protect your privacy. Tap to review</string>
+
+    <!-- The notification title for the notification that a permission auto revoked has happened [CHAR LIMIT=60] -->
+    <string name="auto_revoke_permission_notification_title">Permissions removed for unused apps</string>
+
+    <!-- The notification content for the auto revoke reminder notification [CHAR LIMIT=none] -->
+    <string name="auto_revoke_permission_notification_content">Some apps haven\u2019t been used in a few months. Tap to review.</string>
+
+    <!-- The subtitle for the auto revoke reminder notification, including the number of apps [CHAR LIMIT=none] -->
+    <plurals name="auto_revoke_permission_notification_content_count">
+        <item quantity="one"><xliff:g id="count" example="1">%1$d</xliff:g> app hasn\u2019t been used in a few months. Tap to review</item>
+        <item quantity="other"><xliff:g id="count" example="2">%1$d</xliff:g> apps haven\u2019t been used in a few months. Tap to review</item>
+    </plurals>
+
+    <!-- The subtitle for the auto revoke settings card [CHAR LIMIT=none] -->
+    <string name="auto_revoke_setting_subtitle">Some apps haven\u2019t been used in a few months</string>
+
+    <!-- The subtitle for the auto revoke settings card, including the number of apps [CHAR LIMIT=none] -->
+    <plurals name="auto_revoke_setting_subtitle_count">
+        <item quantity="one"><xliff:g id="count" example="1">%1$d</xliff:g> app hasn\u2019t been used in a few months</item>
+        <item quantity="other"><xliff:g id="count" example="2">%1$d</xliff:g> apps haven\u2019t been used in a few months</item>
+    </plurals>
+
+    <!-- The title of the category showing apps with removed permissions [CHAR LIMIT=60] -->
+    <string name="permissions_removed_category_title">Removed permissions</string>
+
+    <!-- The title of a page showing apps with removed permissions [CHAR LIMIT=60]-->
+    <string name="permission_removed_page_title">Permissions removed</string>
+
+    <!-- The title of the category showing all unused apps [CHAR LIMIT=60]-->
+    <string name="all_unused_apps_category_title">All unused apps</string>
+
+    <!-- String stating how many months ago an app was used [CHAR LIMIT=none] -->
+    <string name="months_ago"><xliff:g id="count" example="2">%1$d</xliff:g> months ago</string>
 
     <!-- The summary for the auto revoke preference [CHAR LIMIT=none] -->
     <string name="auto_revoke_preference_summary">Permissions removed to protect your privacy</string>
@@ -544,6 +577,9 @@
 
     <!-- Summary explaining that permissions for unused apps have be removed [CHAR LIMIT=none] -->
     <string name="unused_app_permissions_removed_summary">To protect your data, permissions have been removed from apps that you haven\u2019t used in a few months</string>
+
+    <!-- Summary explaining that permissions for unused apps have be removed. Has "some apps", instead of "apps" [CHAR LIMIT=none] -->
+    <string name="unused_app_permissions_removed_summary_some">To protect your data, permissions have been removed from some apps that you haven\u2019t used in a few months</string>
 
     <!-- Summary listing that one app is unused [CHAR LIMIT=none] -->
     <string name="one_unused_app_summary">1 app hasen\u2019t been used for a few months</string>
