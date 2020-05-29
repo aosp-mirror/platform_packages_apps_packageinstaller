@@ -37,17 +37,6 @@ class UserPackageInfosLiveData private constructor(
 ) : SmartAsyncMediatorLiveData<@kotlin.jvm.JvmSuppressWildcards List<LightPackageInfo>>(),
     PackageBroadcastReceiver.PackageBroadcastListener {
 
-    override fun setValue(newValue: List<LightPackageInfo>?) {
-        newValue?.let {
-            for (packageInfo in newValue) {
-                // This is an optimization, since setting the individual package liveDatas is
-                // very low cost, and will save time and computation later down the line.
-                LightPackageInfoLiveData.setPackageInfoLiveData(packageInfo)
-            }
-        }
-        super.setValue(newValue)
-    }
-
     override fun onPackageUpdate(packageName: String) {
         updateAsync()
     }
