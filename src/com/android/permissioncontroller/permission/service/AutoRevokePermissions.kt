@@ -222,6 +222,8 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
             DumpableLog.e(LOG_TAG,
                 "Could not schedule ${AutoRevokeService::class.java.simpleName}: $status")
         }
+
+        reGrantAutoRevokedPermissionsIfNeeded(context)
     }
 }
 
@@ -510,6 +512,16 @@ private val Context.firstBootTime: Long get() {
     time = System.currentTimeMillis()
     sharedPreferences.edit().putLong(PREF_KEY_FIRST_BOOT_TIME, time).apply()
     return time
+}
+
+private fun reGrantAutoRevokedPermissionsIfNeeded(context: Context) {
+    val sharedPreferences = context.sharedPreferences
+    val key = "auto_revoke_regrant_done"
+    if (!sharedPreferences.getBoolean(key, false)) {
+        context.startService(
+                Intent().setComponent(ComponentName(context, AutoRevokeReGrantService::class.java)))
+        sharedPreferences.edit().putBoolean(key, true).apply()
+    }
 }
 
 /**

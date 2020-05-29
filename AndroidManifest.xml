@@ -95,6 +95,9 @@
         <service android:name="com.android.permissioncontroller.permission.service.AutoRevokeService"
                  android:permission="android.permission.BIND_JOB_SERVICE" />
 
+        <service android:name="com.android.permissioncontroller.permission.service.AutoRevokeReGrantService" />
+
+
         <activity android:name="com.android.permissioncontroller.permission.ui.GrantPermissionsActivity"
                 android:configChanges="keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
