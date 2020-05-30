@@ -27,7 +27,6 @@ import com.android.permissioncontroller.permission.data.PackagePermissionsLiveDa
 import com.android.permissioncontroller.permission.model.livedatatypes.AutoRevokeState
 import com.android.permissioncontroller.permission.service.isAutoRevokeEnabled
 import com.android.permissioncontroller.permission.service.isPackageAutoRevokeExempt
-import com.android.permissioncontroller.permission.utils.KotlinUtils
 import kotlinx.coroutines.Job
 
 /**
@@ -81,7 +80,8 @@ class AutoRevokeStateLiveData private constructor(
             return
         }
 
-        addAndRemovePermStateLiveDatas(groups)
+        val getLiveData = { groupName: String -> PermStateLiveData[packageName, groupName, user] }
+        setSourcesToDifference(groups, permStateLiveDatas, getLiveData)
 
         if (!permStateLiveDatas.all { it.value.isInitialized }) {
             return
@@ -100,28 +100,6 @@ class AutoRevokeStateLiveData private constructor(
         }
 
         postValue(AutoRevokeState(isAutoRevokeEnabled(app), revocable, autoRevokeState))
-    }
-
-    private fun addAndRemovePermStateLiveDatas(groupNames: List<String>) {
-        val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(groupNames,
-            permStateLiveDatas)
-
-        for (groupToAdd in toAdd) {
-            val permStateLiveData =
-                PermStateLiveData[packageName, groupToAdd, user]
-            permStateLiveDatas[groupToAdd] = permStateLiveData
-        }
-
-        for (groupToAdd in toAdd) {
-            addSource(permStateLiveDatas[groupToAdd]!!) {
-                updateIfActive()
-            }
-        }
-
-        for (groupToRemove in toRemove) {
-            removeSource(permStateLiveDatas[groupToRemove]!!)
-            permStateLiveDatas.remove(groupToRemove)
-        }
     }
 
     override fun onOpChanged(op: String?, packageName: String?) {
