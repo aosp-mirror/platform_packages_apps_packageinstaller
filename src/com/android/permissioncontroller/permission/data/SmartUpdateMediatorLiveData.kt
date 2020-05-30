@@ -26,13 +26,13 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.Observer
+import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.ensureMainThread
 import com.android.permissioncontroller.permission.utils.getInitializedValue
 import com.android.permissioncontroller.permission.utils.shortStackTrace
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 /**
  * A MediatorLiveData which tracks how long it has been inactive, compares new values before setting
@@ -147,26 +147,75 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
     }
 
     override fun <S : Any?> addSource(source: LiveData<S>, onChanged: Observer<in S>) {
-        runBlocking {
-            GlobalScope.launch(Main.immediate) {
-                if (source is SmartUpdateMediatorLiveData) {
-                    source.addChild(this@SmartUpdateMediatorLiveData, onChanged,
-                        staleObservers.isNotEmpty() || children.any { it.third })
-                    sources.add(source)
+        GlobalScope.launch(Main.immediate) {
+            if (source is SmartUpdateMediatorLiveData) {
+                if (source in sources) {
+                    return@launch
                 }
-                super.addSource(source, onChanged)
+                source.addChild(this@SmartUpdateMediatorLiveData, onChanged,
+                    staleObservers.isNotEmpty() || children.any { it.third })
+                sources.add(source)
             }
+            super.addSource(source, onChanged)
         }
     }
 
     override fun <S : Any?> removeSource(toRemote: LiveData<S>) {
-        runBlocking {
-            GlobalScope.launch(Main.immediate) {
-                if (toRemote is SmartUpdateMediatorLiveData) {
-                    toRemote.removeChild(this@SmartUpdateMediatorLiveData)
-                    sources.remove(toRemote)
+        GlobalScope.launch(Main.immediate) {
+            if (toRemote is SmartUpdateMediatorLiveData) {
+                toRemote.removeChild(this@SmartUpdateMediatorLiveData)
+                sources.remove(toRemote)
+            }
+            super.removeSource(toRemote)
+        }
+    }
+
+    /**
+     * Gets the difference between a list and a map of livedatas, and then will add as a source all
+     * livedatas which are in the list, but not the map, and will remove all livedatas which are in
+     * the map, but not the list
+     *
+     * @param desired The list of liveDatas we want in our map, represented by a key
+     * @param have The map of livedatas we currently have as sources
+     * @param getLiveDataFun A function to turn a key into a liveData
+     * @param onUpdateFun An optional function which will update differently based on different
+     * LiveDatas. If blank, will simply call update.
+     */
+    fun <K, V : LiveData<*>> setSourcesToDifference(
+        desired: Collection<K>,
+        have: MutableMap<K, V>,
+        getLiveDataFun: (K) -> V,
+        onUpdateFun: ((K) -> Unit)? = null
+    ) {
+        // Ensure the map is correct when method returns
+        val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(desired, have)
+        for (key in toAdd) {
+            have[key] = getLiveDataFun(key)
+        }
+
+        val removed = toRemove.map { have.remove(it) }.toMutableList()
+
+        GlobalScope.launch(Main.immediate) {
+            // If any state got out of sorts before this coroutine ran, correct it
+            for (key in toRemove) {
+                removed.add(have.remove(key) ?: continue)
+            }
+
+            for (liveData in removed) {
+                removeSource(liveData ?: continue)
+            }
+
+            for (key in toAdd) {
+                val liveData = getLiveDataFun(key)
+                // Should be a no op, but there is a slight possibility it isn't
+                have[key] = liveData
+                addSource(liveData) {
+                    if (onUpdateFun != null) {
+                        onUpdateFun(key)
+                    } else {
+                        updateIfActive()
+                    }
                 }
-                super.removeSource(toRemote)
             }
         }
     }
