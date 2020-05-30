@@ -73,9 +73,9 @@ class UserSensitivityLiveData private constructor(
     override suspend fun loadDataAndPostValue(job: Job) {
         val pm = context.packageManager
         if (!getAllUids) {
-            getAndObservePackageLiveDatas()
+            val uidHasPackages = getAndObservePackageLiveDatas()
 
-            if (packageLiveDatas.isEmpty() || packageLiveDatas.all {
+            if (!uidHasPackages || packageLiveDatas.all {
                     it.value.isInitialized &&
                         it.value.value == null
                 }) {
@@ -163,23 +163,11 @@ class UserSensitivityLiveData private constructor(
         postValue(sensitiveStatePerUid)
     }
 
-    private fun getAndObservePackageLiveDatas() {
+    private fun getAndObservePackageLiveDatas(): Boolean {
         val packageNames = app.packageManager.getPackagesForUid(uid)?.toList() ?: emptyList()
-        val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(packageNames, packageLiveDatas)
-        for (packageName in toRemove) {
-            val liveData = packageLiveDatas.remove(packageName) ?: continue
-            removeSource(liveData)
-        }
-        for (packageName in toAdd) {
-            packageLiveDatas[packageName] = LightPackageInfoLiveData[packageName, user]
-        }
-
-        for (packageName in toAdd) {
-            addSource(packageLiveDatas[packageName] ?: continue) {
-                updateIfActive()
-            }
-        }
-        return
+        val getLiveData = { packageName: String -> LightPackageInfoLiveData[packageName, user] }
+        setSourcesToDifference(packageNames, packageLiveDatas, getLiveData)
+        return packageNames.isNotEmpty()
     }
 
     /**

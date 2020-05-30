@@ -21,7 +21,6 @@ import android.os.UserHandle
 import androidx.lifecycle.LiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.PermGroupPackagesUiInfo
-import com.android.permissioncontroller.permission.utils.KotlinUtils
 
 /**
  * A LiveData which tracks all app permission groups for a set of permission groups, either platform
@@ -49,68 +48,13 @@ class PermGroupsPackagesUiInfoLiveData(
         addSource(groupNamesLiveData) {
             groupNames = it ?: emptyList()
             updateIfActive()
+            getPermGroupPackageLiveDatas()
         }
     }
 
-    override fun onUpdate() {
-        val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(groupNames,
-            permGroupPackagesLiveDatas)
-
-        for (groupToRemove in toRemove) {
-            permGroupPackagesLiveDatas[groupToRemove]?.let {
-                removeSource(it)
-            }
-            permGroupPackagesLiveDatas.remove(groupToRemove)
-            allPackageData.remove(groupToRemove)
-        }
-
-        addPermGroupPackagesUiInfoLiveDatas(toAdd)
-
-        value = allPackageData.toMap()
-    }
-
-    /**
-     * From a list of permission group names, generates permGroupPackagesUiInfoLiveDatas, and
-     * adds them as sources. Will not re-add already watched LiveDatas.
-     *
-     * @param groupNames The list of group names whose LiveDatas we want to add
-     */
-    private fun addPermGroupPackagesUiInfoLiveDatas(
-        groupNames: Collection<String>
-    ) {
-        val groupsAdded = mutableSetOf<String>()
-        for (groupName in groupNames) {
-            if (!permGroupPackagesLiveDatas.containsKey(groupName)) {
-                groupsAdded.add(groupName)
-
-                val singlePermGroupPackagesUiInfoLiveData = SinglePermGroupPackagesUiInfoLiveData
-                    .get(groupName)
-                permGroupPackagesLiveDatas[groupName] = singlePermGroupPackagesUiInfoLiveData
-            }
-        }
-
-        for (groupName in groupsAdded) {
-            allPackageData[groupName] = null
-            addSource(permGroupPackagesLiveDatas[groupName]!!) { uiInfo ->
-                if (uiInfo == null) {
-                    allPackageData[groupName] = null
-                } else {
-                    allPackageData[groupName] = PermGroupPackagesUiInfo(groupName,
-                        getNonSystemTotal(uiInfo), getNonSystemGranted(uiInfo))
-                }
-
-                checkShouldUpdate()
-            }
-        }
-
-        /**
-         * If, for whatever reason, we did not update the map when adding sources above (if we
-         * somehow got final data before all groups had icons and labels, or a similar situation),
-         * then update with the current data.
-         */
-        if (value == null) {
-            value = allPackageData.toMap()
-        }
+    private fun getPermGroupPackageLiveDatas() {
+        val getLiveData = { groupName: String -> SinglePermGroupPackagesUiInfoLiveData[groupName] }
+        setSourcesToDifference(groupNames, permGroupPackagesLiveDatas, getLiveData)
     }
 
     private fun getNonSystemTotal(uiInfo: Map<Pair<String, UserHandle>, AppPermGroupUiInfo>): Int {
@@ -137,15 +81,24 @@ class PermGroupsPackagesUiInfoLiveData(
         return granted
     }
 
-    private fun checkShouldUpdate() {
+    override fun onUpdate() {
         /**
          * Only update when either-
          * We have a list of groups, and none have loaded their data, or
          * All packages have loaded their data
          */
-        if (groupNames.all { allPackageData.containsKey(it) && allPackageData[it] == null } ||
-            groupNames.all { allPackageData[it] != null }) {
-            value = allPackageData.toMap()
+        val haveAllLiveDatas = groupNames.all { permGroupPackagesLiveDatas.contains(it) }
+        val allInitialized = permGroupPackagesLiveDatas.all { it.value.isInitialized }
+        for (groupName in groupNames) {
+            allPackageData[groupName] = if (haveAllLiveDatas && allInitialized) {
+                permGroupPackagesLiveDatas[groupName]?.value?.let { uiInfo ->
+                    PermGroupPackagesUiInfo(groupName,
+                        getNonSystemTotal(uiInfo), getNonSystemGranted(uiInfo))
+                }
+            } else {
+                null
+            }
         }
+        value = allPackageData.toMap()
     }
 }
