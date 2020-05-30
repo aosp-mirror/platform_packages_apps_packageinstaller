@@ -45,7 +45,6 @@ import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.ui.Category
 import com.android.permissioncontroller.permission.utils.IPC
-import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils
 import com.android.permissioncontroller.permission.utils.navigateSafe
 import kotlinx.coroutines.GlobalScope
@@ -121,7 +120,10 @@ class AppPermissionGroupsViewModel(
                 pkg.packageName == packageName && pkg.user == user && pkg.isGranted
             } ?: false
 
-            addAndRemoveAppPermGroupLiveDatas(groups)
+            val getLiveData = { groupName: String ->
+                AppPermGroupUiInfoLiveData[packageName, groupName, user]
+            }
+            setSourcesToDifference(groups, appPermGroupUiInfoLiveDatas, getLiveData)
 
             if (!appPermGroupUiInfoLiveDatas.all { it.value.isInitialized }) {
                 return
@@ -163,28 +165,6 @@ class AppPermissionGroupsViewModel(
             }
 
             value = groupGrantStates
-        }
-
-        private fun addAndRemoveAppPermGroupLiveDatas(groupNames: List<String>) {
-            val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(groupNames,
-                appPermGroupUiInfoLiveDatas)
-
-            for (groupToAdd in toAdd) {
-                val appPermGroupUiInfoLiveData =
-                    AppPermGroupUiInfoLiveData[packageName, groupToAdd, user]
-                appPermGroupUiInfoLiveDatas[groupToAdd] = appPermGroupUiInfoLiveData
-            }
-
-            for (groupToAdd in toAdd) {
-                addSource(appPermGroupUiInfoLiveDatas[groupToAdd]!!) {
-                    updateIfActive()
-                }
-            }
-
-            for (groupToRemove in toRemove) {
-                removeSource(appPermGroupUiInfoLiveDatas[groupToRemove]!!)
-                appPermGroupUiInfoLiveDatas.remove(groupToRemove)
-            }
         }
     }
 
