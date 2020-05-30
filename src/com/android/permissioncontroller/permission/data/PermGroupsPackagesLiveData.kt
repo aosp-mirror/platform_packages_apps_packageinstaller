@@ -23,7 +23,6 @@ import android.os.UserHandle
 import androidx.lifecycle.LiveData
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.PermGroup
-import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils.OS_PKG
 
 /**
@@ -45,42 +44,19 @@ class PermGroupsPackagesLiveData private constructor(
     init {
         addSource(groupNamesLiveData) {
             groupNames = it ?: emptyList()
-            addPermissionGroups()
+
+            val getLiveData = { groupName: String -> PermGroupLiveData[groupName] }
+            setSourcesToDifference(groupNames, permGroupLiveDatas, getLiveData) {
+                if (packagesLiveData.isInitialized &&
+                    permGroupLiveDatas.all { it.value.isInitialized }) {
+                    updateIfActive()
+                }
+            }
         }
 
         addSource(packagesLiveData) {
             if (permGroupLiveDatas.all { it.value.isInitialized }) {
                 updateIfActive()
-            }
-        }
-    }
-
-    /**
-     * Called after updating groupNames to add and remove PermGroupLiveDatas to match the new
-     * value of groupNames.
-     */
-    private fun addPermissionGroups() {
-        val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(groupNames, permGroupLiveDatas)
-        for (groupToRemove in toRemove) {
-            permGroupLiveDatas[groupToRemove]?.let { permGroupLiveData ->
-                permGroupLiveDatas.remove(groupToRemove)
-                removeSource(permGroupLiveData)
-            }
-        }
-
-        // We add all groups to our map first, so that the check if all are initialized can see
-        // all of the LiveDatas.
-        for (groupToAdd in toAdd) {
-            permGroupLiveDatas[groupToAdd] =
-                PermGroupLiveData[groupToAdd]
-        }
-
-        for (groupToAdd in toAdd) {
-            addSource(permGroupLiveDatas[groupToAdd]!!) {
-                if (packagesLiveData.isInitialized &&
-                    permGroupLiveDatas.all { it.value.isInitialized }) {
-                    updateIfActive()
-                }
             }
         }
     }
