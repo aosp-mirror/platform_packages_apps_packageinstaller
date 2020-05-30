@@ -56,7 +56,8 @@
             android:supportsRtl="true"
             android:defaultToDeviceProtectedStorage="true"
             android:forceQueryable="true"
-            android:directBootAware="true">
+            android:directBootAware="true"
+            android:theme="@style/FilterTouches">
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
@@ -95,10 +96,13 @@
         <service android:name="com.android.permissioncontroller.permission.service.AutoRevokeService"
                  android:permission="android.permission.BIND_JOB_SERVICE" />
 
+        <service android:name="com.android.permissioncontroller.permission.service.AutoRevokeReGrantService" />
+
+
         <activity android:name="com.android.permissioncontroller.permission.ui.GrantPermissionsActivity"
                 android:configChanges="keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
-                android:theme="@style/GrantPermissions"
+                android:theme="@style/GrantPermissions.FilterTouches"
                 android:visibleToInstantApps="true"
                 android:inheritShowWhenLocked="true">
             <intent-filter android:priority="1">
@@ -110,7 +114,7 @@
         <activity android:name="com.android.permissioncontroller.permission.ui.ManagePermissionsActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"
                   android:label="@string/app_permissions"
-                  android:theme="@style/Settings"
+                  android:theme="@style/Settings.FilterTouches"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
@@ -133,13 +137,13 @@
 
         <activity android:name="com.android.permissioncontroller.permission.ui.legacy.AppPermissionActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"
-                  android:theme="@style/Settings"
+                  android:theme="@style/Settings.FilterTouches"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
         </activity>
 
         <activity android:name="com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity"
                   android:excludeFromRecents="true"
-                  android:theme="@style/ReviewPermissions"
+                  android:theme="@style/ReviewPermissions.FilterTouches"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.REVIEW_PERMISSIONS" />
@@ -153,11 +157,11 @@
 
         <activity android:name="com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog"
                   android:excludeFromRecents="true"
-                  android:theme="@style/PermissionDialog" />
+                  android:theme="@style/PermissionDialog.FilterTouches" />
 
         <activity android:name="com.android.permissioncontroller.permission.ui.ReviewAccessibilityServicesActivity"
                   android:excludeFromRecents="true"
-                  android:theme="@style/PermissionDialog"
+                  android:theme="@style/PermissionDialog.FilterTouches"
                   android:permission="android.permission.REVIEW_ACCESSIBILITY_SERVICES" >
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.REVIEW_ACCESSIBILITY_SERVICES" />
@@ -167,7 +171,7 @@
 
         <activity android:name="com.android.permissioncontroller.role.ui.RequestRoleActivity"
                   android:excludeFromRecents="true"
-                  android:theme="@style/RequestRole">
+                  android:theme="@style/RequestRole.FilterTouches">
             <intent-filter android:priority="1">
                 <action android:name="android.app.role.action.REQUEST_ROLE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -184,7 +188,7 @@
 
         <activity android:name="com.android.permissioncontroller.role.ui.DefaultAppListActivity"
                   android:label="@string/default_apps"
-                  android:theme="@style/Settings">
+                  android:theme="@style/Settings.FilterTouches">
             <intent-filter android:priority="2">
                 <action android:name="android.settings.MANAGE_DEFAULT_APPS_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -193,7 +197,7 @@
 
         <activity android:name="com.android.permissioncontroller.role.ui.DefaultAppActivity"
                   android:permission="android.permission.MANAGE_ROLE_HOLDERS"
-                  android:theme="@style/Settings">
+                  android:theme="@style/Settings.FilterTouches">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_DEFAULT_APP" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -213,7 +217,7 @@
         <activity android:name="com.android.permissioncontroller.role.ui.SpecialAppAccessListActivity"
                   android:label="@string/special_app_access"
                   android:permission="android.permission.MANAGE_ROLE_HOLDERS"
-                  android:theme="@style/Settings">
+                  android:theme="@style/Settings.FilterTouches">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_SPECIAL_APP_ACCESSES" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -222,7 +226,7 @@
 
         <!-- TODO: Override other Settings intents when we've done migrating them. -->
         <activity android:name="com.android.permissioncontroller.role.ui.SpecialAppAccessActivity"
-                  android:theme="@style/Settings" />
+                  android:theme="@style/Settings.FilterTouches" />
 
         <activity android:name="com.android.permissioncontroller.role.ui.RoleSearchTrampolineActivity"
                   android:excludeFromRecents="true"
