@@ -27,7 +27,6 @@ import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermGroupInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPermInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.PermGroup
-import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils
 
 /**
@@ -61,18 +60,6 @@ class PermGroupLiveData private constructor(
      */
     override fun onPackageUpdate(packageName: String) {
         updateIfActive()
-    }
-
-    /**
-     * Adds a PackageInfoLiveData as a source, if we don't already have it.
-     *
-     * @param packageName the name of the package the PackageInfoLiveData watches
-     * @param liveData the PackageInfoLiveData to be inserted
-     */
-    private fun addPackageLiveData(packageName: String, liveData: LightPackageInfoLiveData) {
-        if (!packageLiveDatas.contains(packageName)) {
-            packageLiveDatas[packageName] = liveData
-        }
     }
 
     /**
@@ -116,32 +103,14 @@ class PermGroupLiveData private constructor(
         value = permGroup
 
         val packageNames = permissionInfos.values.map { permInfo -> permInfo.packageName }
+            .toMutableSet()
+        packageNames.add(groupInfo.packageName)
 
         // TODO ntmyren: What if the package isn't installed for the system user?
-        addPackageLiveData(groupInfo.packageName,
-            LightPackageInfoLiveData[groupInfo.packageName, UserHandle.SYSTEM])
-
-        val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(packageNames, packageLiveDatas)
-        val toAddWithGroupPkg = toAdd.toMutableSet()
-        if (!packageLiveDatas.contains(groupInfo.packageName)) {
-                toAddWithGroupPkg.add(groupInfo.packageName)
-            }
-
-        for (packageName in toRemove) {
-            packageLiveDatas[packageName]?.let { liveData ->
-                packageLiveDatas.remove(packageName)
-                removeSource(liveData)
-            }
+        val getLiveData = { packageName: String ->
+            LightPackageInfoLiveData[packageName, UserHandle.SYSTEM]
         }
-        for (packageName in toAddWithGroupPkg) {
-            packageLiveDatas[packageName] = LightPackageInfoLiveData[packageName, UserHandle.SYSTEM]
-        }
-
-        for (packageName in toAddWithGroupPkg) {
-            addSource(packageLiveDatas[packageName]!!) {
-                onUpdate()
-            }
-        }
+        setSourcesToDifference(packageNames, packageLiveDatas, getLiveData)
     }
 
     override fun onInactive() {

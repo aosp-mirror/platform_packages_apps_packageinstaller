@@ -20,7 +20,6 @@ import android.app.Application
 import android.os.UserHandle
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo
-import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils
 
 /**
@@ -79,44 +78,30 @@ class SinglePermGroupPackagesUiInfoLiveData private constructor(
     }
 
     private fun addAndRemoveAppPermGroupLiveDatas(pkgs: List<Pair<String, UserHandle>>) {
-        val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(pkgs,
-            appPermGroupLiveDatas)
-
-        for (packageUserPair in toRemove) {
-            appPermGroupLiveDatas[packageUserPair]?.let { removeSource(it) }
+        val getLiveData = { key: Pair<String, UserHandle> ->
+            AppPermGroupUiInfoLiveData[key.first, permGroupName, key.second]
         }
 
-        for ((packageName, userHandle) in toAdd) {
-            val key = packageName to userHandle
-            val appPermGroupLiveData =
-                AppPermGroupUiInfoLiveData[packageName, permGroupName, userHandle]
+        setSourcesToDifference(pkgs, appPermGroupLiveDatas, getLiveData) { key ->
+            val appPermGroupUiInfoLiveData = appPermGroupLiveDatas[key]
+            val appPermGroupUiInfo = appPermGroupUiInfoLiveData?.value
+            shownPackages.remove(key)
 
-            appPermGroupLiveDatas[key] = appPermGroupLiveData
-        }
-
-        for (key in toAdd) {
-            val appPermGroupLiveData = appPermGroupLiveDatas[key]!!
-            addSource(appPermGroupLiveData) { appPermGroupUiInfo ->
-                shownPackages.remove(key)
-
-                if (appPermGroupUiInfo == null) {
-                    val appPermGroupUiInfoLiveData = appPermGroupLiveDatas[key]
-                    if (appPermGroupUiInfoLiveData != null &&
-                        appPermGroupUiInfoLiveData.isInitialized) {
-                        removeSource(appPermGroupUiInfoLiveData)
-                        appPermGroupLiveDatas.remove(key)
-                    }
-                } else {
-                    shownPackages[key] = appPermGroupUiInfo
+            if (appPermGroupUiInfo == null) {
+                if (appPermGroupUiInfoLiveData != null &&
+                    appPermGroupUiInfoLiveData.isInitialized) {
+                    removeSource(appPermGroupUiInfoLiveData)
+                    appPermGroupLiveDatas.remove(key)
                 }
+            } else {
+                shownPackages[key] = appPermGroupUiInfo
+            }
 
-                if (appPermGroupLiveDatas.all { entry -> entry.value.isInitialized }) {
-                    permGroupLiveData.value?.groupInfo?.let {
-                        value = shownPackages.toMap()
-                    }
+            if (appPermGroupLiveDatas.all { entry -> entry.value.isInitialized }) {
+                permGroupLiveData.value?.groupInfo?.let {
+                    value = shownPackages.toMap()
                 }
             }
-            appPermGroupLiveDatas[key] = appPermGroupLiveData
         }
     }
 
