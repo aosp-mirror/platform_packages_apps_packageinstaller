@@ -60,7 +60,6 @@ private fun updateUserSensitiveForUidsInternal(
 ) {
     val pm = Utils.getUserContext(PermissionControllerApplication.get(), user).packageManager
 
-    GlobalScope.launch(IPC) {
         for ((uid, uidState) in uidsUserSensitivity) {
             for (pkg in uidState.packages) {
                 for (perm in pkg.requestedPermissions) {
@@ -84,7 +83,6 @@ private fun updateUserSensitiveForUidsInternal(
                 }
             }
         }
-    }
     callback.run()
 }
 
