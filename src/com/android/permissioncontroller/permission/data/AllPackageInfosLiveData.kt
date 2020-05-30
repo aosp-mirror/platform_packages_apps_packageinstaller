@@ -19,7 +19,6 @@ package com.android.permissioncontroller.permission.data
 import android.os.UserHandle
 import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData.addSource
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
-import com.android.permissioncontroller.permission.utils.KotlinUtils
 
 /**
  * A LiveData which tracks the PackageInfos of all of the packages in the system, for all users.
@@ -38,26 +37,9 @@ object AllPackageInfosLiveData :
 
     override fun onUpdate() {
         UsersLiveData.value?.let { users ->
-            val (usersToAdd, usersToRemove) =
-                KotlinUtils.getMapAndListDifferences(users, userPackageInfosLiveDatas)
-            for (user in usersToRemove) {
-                userPackageInfosLiveDatas[user]?.let { userPackageInfosLiveData ->
-                    removeSource(userPackageInfosLiveData)
-                    userPackageInfosLiveDatas.remove(user)
-                }
-            }
-            for (user in usersToAdd) {
-                val userPackageInfosLiveData =
-                    UserPackageInfosLiveData[user]
-                userPackageInfosLiveDatas[user] = userPackageInfosLiveData
-            }
-
-            for (user in usersToAdd) {
-                addSource(userPackageInfosLiveDatas[user]!!) {
-                    it?.let { packageInfos ->
-                        onUserPackageUpdates(user, packageInfos)
-                    }
-                }
+            val getLiveData = { user: UserHandle -> UserPackageInfosLiveData[user] }
+            setSourcesToDifference(users, userPackageInfosLiveDatas, getLiveData) { user ->
+                onUserPackageUpdates(user, userPackageInfosLiveDatas[user]?.value)
             }
         }
     }
