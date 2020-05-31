@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"データ保護のため、このアプリが数か月使用されていない場合はアプリの権限が取り消されます。"</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"データ保護のため、アプリが数か月使用されていない場合は以下の権限が取り消されます。<xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"データ保護のため、数か月使用していないアプリの権限を削除しました。"</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"もう一度権限を許可するには、アプリを開いてください"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"もう一度権限を許可するには、アプリを開いてください。"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"このアプリでは現在、自動削除は無効になっています。"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"現在、自動取り消し可能な権限は付与されていません"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g>の権限が削除されます。"</string>
@@ -179,6 +179,22 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"使用していないアプリ: 1 個"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"使用していないアプリ: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 個"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"プライバシー保護のため権限を削除しました。タップしてご確認ください"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"使用していないアプリの権限を削除しました"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"数か月使用していないアプリがあります。タップしてご確認ください。"</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other">数か月使用していないアプリが <xliff:g id="COUNT_1">%1$d</xliff:g> 個あります。タップしてご確認ください</item>
+      <item quantity="one">数か月使用していないアプリが <xliff:g id="COUNT_0">%1$d</xliff:g> 個あります。タップしてご確認ください</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"数か月使用していないアプリがあります"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other">数か月使用していないアプリが <xliff:g id="COUNT_1">%1$d</xliff:g> 個あります</item>
+      <item quantity="one">数か月使用していないアプリが <xliff:g id="COUNT_0">%1$d</xliff:g> 個あります</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"削除された権限"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"権限を削除しました"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"使用していないすべてのアプリ"</string>
+    <!-- no translation found for months_ago (6541240625299588045) -->
+    <skip />
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"プライバシー保護のため権限を削除しました"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> がバックグラウンドで位置情報を取得しました"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"このアプリは常に位置情報にアクセスできます。設定を変更するにはタップしてください。"</string>
@@ -195,6 +211,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>、<xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>、<xliff:g id="PERM_NAME_1">%2$s</xliff:g>、他 <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> 件"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"データ保護のため、数か月使用していないアプリから権限を削除しました"</string>
+    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
+    <skip />
     <string name="one_unused_app_summary" msgid="4609894550969723046">"数か月使用していアプリ: 1 件"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"数か月使用していないアプリ: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 件"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"アプリが使用中の場合のみ"</string>

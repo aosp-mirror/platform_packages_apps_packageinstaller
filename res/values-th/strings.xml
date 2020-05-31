@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"หากคุณไม่ได้ใช้งานแอปนาน 2-3 เดือน ระบบจะนำสิทธิ์ของแอปนี้ออกเพื่อปกป้องข้อมูลของคุณ"</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"หากไม่มีการใช้งานแอปนาน 2-3 เดือน ระบบจะปกป้องข้อมูลของคุณด้วยการนำสิทธิ์ต่อไปนี้ออก ได้แก่ <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"ระบบนำสิทธิ์ออกจากแอปที่คุณไม่ได้ใช้งานนาน 2-3 เดือนเพื่อปกป้องข้อมูลของคุณ"</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"โปรดเปิดแอปหากต้องการให้สิทธิ์อีกครั้ง"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"โปรดเปิดแอปหากต้องการให้สิทธิ์อีกครั้ง"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"การนำออกโดยอัตโนมัติสำหรับแอปนี้ปิดใช้อยู่ในขณะนี้"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ปัจจุบันไม่มีการให้สิทธิ์ที่เพิกถอนได้โดยอัตโนมัติ"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ระบบจะนำสิทธิ์เข้าถึง<xliff:g id="PERM">%1$s</xliff:g>ออก"</string>
@@ -179,6 +179,22 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"แอปที่ไม่ได้ใช้ 1 รายการ"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"แอปที่ไม่ได้ใช้ <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> รายการ"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"มีการนำสิทธิ์ออกเพื่อปกป้องความเป็นส่วนตัวของคุณ แตะเพื่อตรวจสอบ"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"นำสิทธิ์ออกจากแอปที่ไม่ได้ใช้แล้ว"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"บางแอปไม่มีการใช้งานมา 2-3 เดือนแล้ว แตะเพื่อตรวจสอบ"</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other">มี <xliff:g id="COUNT_1">%1$d</xliff:g> แอปที่ไม่มีการใช้งานมา 2-3 เดือนแล้ว แตะเพื่อตรวจสอบ</item>
+      <item quantity="one">มี <xliff:g id="COUNT_0">%1$d</xliff:g> แอปที่ไม่มีการใช้งานมา 2-3 เดือนแล้ว แตะเพื่อตรวจสอบ</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"บางแอปไม่มีการใช้งานมา 2-3 เดือนแล้ว"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other">มี <xliff:g id="COUNT_1">%1$d</xliff:g> แอปที่ไม่มีการใช้งานมา 2-3 เดือนแล้ว</item>
+      <item quantity="one">มี <xliff:g id="COUNT_0">%1$d</xliff:g> แอปที่ไม่มีการใช้งานมา 2-3 เดือนแล้ว</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"นำสิทธิ์ออกแล้ว"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"นำสิทธิ์ออกแล้ว"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"แอปที่ไม่ได้ใช้ทั้งหมด"</string>
+    <!-- no translation found for months_ago (6541240625299588045) -->
+    <skip />
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"มีการนำสิทธิ์ออกเพื่อปกป้องความเป็นส่วนตัวของคุณ"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> เข้าถึงตำแหน่งของคุณอยู่เบื้องหลัง"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"แอปนี้เข้าถึงตำแหน่งของคุณได้ตลอดเวลา แตะเพื่อเปลี่ยน"</string>
@@ -195,6 +211,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>และ<xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> <xliff:g id="PERM_NAME_1">%2$s</xliff:g> และอีก <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> รายการ"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ระบบได้นำสิทธิ์ออกจากแอปที่คุณไม่ได้ใช้งานนาน 2-3 เดือนเพื่อปกป้องข้อมูลของคุณ"</string>
+    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
+    <skip />
     <string name="one_unused_app_summary" msgid="4609894550969723046">"มี 1 แอปที่ไม่มีการใช้งานมา 2-3 เดือนแล้ว"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"มี <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> แอปที่ไม่มีการใช้งานมา 2-3 เดือนแล้ว"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"เมื่อมีการใช้แอปเท่านั้น"</string>

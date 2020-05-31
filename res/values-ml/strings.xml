@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"മാസങ്ങളായി ഈ ആപ്പ് ഉപയോഗിക്കുന്നില്ലെങ്കിൽ നിങ്ങളുടെ ഡാറ്റ സംരക്ഷിക്കുന്നതിന്, ഈ ആപ്പിനുള്ള അനുമതികൾ നീക്കം ചെയ്യുന്നതായിരിക്കും."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"കുറച്ച് മാസം ആപ്പ് ഉപയോഗിച്ചില്ലെങ്കിൽ, നിങ്ങളുടെ ഡാറ്റ സംരക്ഷിക്കുന്നതിന്, ഇനിപ്പറയുന്ന അനുമതികൾ നീക്കം ചെയ്യുന്നതായിരിക്കും: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"നിങ്ങളുടെ ഡാറ്റ സംരക്ഷിക്കുന്നതിന്, കുറച്ച് മാസങ്ങളായി ഉപയോഗിക്കാത്ത ആപ്പുകളിൽ നിന്ന് അനുമതികൾ നീക്കം ചെയ്തിരിക്കുന്നു."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"വീണ്ടും അനുമതികൾ നൽകാൻ താൽപ്പര്യമുണ്ടെങ്കിൽ ആപ്പ് തുറക്കുക"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"വീണ്ടും അനുമതികൾ നൽകണമെങ്കിൽ, ആപ്പ് തുറക്കുക."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"ഈ ആപ്പിന് സ്വയമേവയുള്ള നീക്കം ചെയ്യൽ നിലവിൽ പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"സ്വയമേവ തിരിച്ചെടുക്കാവുന്ന അനുമതികളൊന്നും നിലവിൽ നൽകിയിട്ടില്ല"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> എന്നതിനുള്ള അനുമതി നീക്കം ചെയ്യപ്പെടും."</string>
@@ -179,6 +179,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"ഒരു ഉപയോഗിക്കാത്ത ആപ്പ്"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ഉപയോഗിക്കാത്ത ആപ്പുകൾ"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"നിങ്ങളുടെ സ്വകാര്യത പരിരക്ഷിക്കാൻ അനുമതികൾ നീക്കം ചെയ്തു. അവലോകനം ചെയ്യാൻ ടാപ്പ് ചെയ്യുക"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"ഉപയോഗിക്കാത്ത ആപ്പുകൾക്കുള്ള അനുമതി നീക്കം ചെയ്‌തു"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"കുറച്ച് മാസങ്ങളായി ചില ആപ്പുകൾ ഉപയോഗിച്ചിട്ടില്ല. റിവ്യൂ ചെയ്യുന്നതിന് ടാപ്പ് ചെയ്യുക."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other">കുറച്ച് മാസങ്ങളായി <xliff:g id="COUNT_1">%1$d</xliff:g> ആപ്പുകൾ ഉപയോഗിച്ചിട്ടില്ല. റിവ്യൂ ചെയ്യുന്നതിന് ടാപ്പ് ചെയ്യുക</item>
+      <item quantity="one">കുറച്ച് മാസങ്ങളായി <xliff:g id="COUNT_0">%1$d</xliff:g> ആപ്പ് ഉപയോഗിച്ചിട്ടില്ല. റിവ്യൂ ചെയ്യുന്നതിന് ടാപ്പ് ചെയ്യുക</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"കുറച്ച് മാസങ്ങളായി ചില ആപ്പുകൾ ഉപയോഗിച്ചിട്ടില്ല"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other">കുറച്ച് മാസങ്ങളായി <xliff:g id="COUNT_1">%1$d</xliff:g> ആപ്പുകൾ ഉപയോഗിച്ചിട്ടില്ല</item>
+      <item quantity="one">കുറച്ച് മാസങ്ങളായി <xliff:g id="COUNT_0">%1$d</xliff:g> ആപ്പ് ഉപയോഗിച്ചിട്ടില്ല</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"അനുമതികൾ നീക്കം ചെയ്‌തവ"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"അനുമതികൾ നീക്കം ചെയ്‌തവ"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"ഉപയോഗിക്കാത്ത എല്ലാ ആപ്പുകളും"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> മാസം മുമ്പ്"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"നിങ്ങളുടെ സ്വകാര്യത പരിരക്ഷിക്കാൻ അനുമതികൾ നീക്കം ചെയ്തു"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>-ന് നിങ്ങളുടെ ലൊക്കേഷൻ പശ്ചാത്തലത്തിൽ ലഭിച്ചു"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ഈ ആപ്പിന് എപ്പോഴും നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാനാവും. മാറ്റാൻ ടാപ്പ് ചെയ്യുക."</string>
@@ -195,6 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> എന്നിവ"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> എന്നിവയും <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> കൂടുതലും"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"നിങ്ങളുടെ ഡാറ്റ പരിരക്ഷിക്കാൻ, കുറച്ച് മാസങ്ങളായി ഉപയോഗിക്കാത്ത ആപ്പുകളിൽ നിന്ന് അനുമതികൾ നീക്കം ചെയ്തു"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"നിങ്ങളുടെ ഡാറ്റ പരിരക്ഷിക്കാൻ, കുറച്ച് മാസങ്ങളായി ഉപയോഗിക്കാത്ത ചില ആപ്പുകളിൽ നിന്ന് അനുമതികൾ നീക്കം ചെയ്തിരിക്കുന്നു"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"കുറച്ച് മാസങ്ങളായി ഒരു ആപ്പ് ഉപയോഗിച്ചിട്ടില്ല"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"കുറച്ച് മാസങ്ങളായി <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ആപ്പുകൾ ഉപയോഗിച്ചിട്ടില്ല"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ആപ്പ് ഉപയോഗത്തിലുള്ളപ്പോൾ മാത്രം"</string>
