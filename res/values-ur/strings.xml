@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"آپ کے ڈیٹا کی حفاظت کے لیے، اگر ایپ کو کچھ مہینوں تک استعمال نہیں کیا گیا تو اس ایپ کے لیے اجازتیں ہٹا دی جائیں گی۔"</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"آپ کے ڈیٹا کی حفاظت کے لیے، اگر ایپ کو کچھ مہینوں تک استعمال نہیں کیا گيا تو درج ذیل اجازتیں ہٹا دی جائیں گی: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"آپ کے ڈیٹا کی حفاظت کے لیے، اجازتوں کو ان ایپس سے ہٹا دیا گیا ہے جنہیں آپ نے کچھ مہینوں سے استعمال نہیں کیا ہے۔"</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"اگر آپ دوبارہ اجازتیں دینا چاہتے ہیں تو ایپ کھولیں"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"اگر آپ دوبارہ اجازتیں دینا چاہتے ہیں تو ایپ کھولیں۔"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"اس ایپ کے لیے خودکار طور پر ہٹانے کی سہولت فی الحال غیر فعال ہے۔"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"فی الحال کوئی بھی خودکار قابل منسوخ اجازت نہیں دی گئی ہے"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> کی اجازت ہٹا دی جائے گی۔"</string>
@@ -179,6 +179,22 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 غیر مستعمل ایپ"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> غیر مستعمل ایپس"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"آپ کی رازداری کی حفاظت کے لیے اجازتوں کو ہٹا دیا گیا۔ جائزہ کے لیے تھپتھپائیں"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"غیر مستعمل ایپس کے ليے اجازتیں ہٹا دی گئیں"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"کچھ ایپس کا استعمال کچھ مہینوں سے نہیں کیا گیا ہے۔ جائزہ کے لیے تھپتھپائیں۔"</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ایپس کا استعمال کچھ مہینوں سے نہیں کیا گیا ہے۔ جائزہ کے لیے تھپتھپائیں</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ایپ کا استعمال کچھ مہینوں سے نہیں کیا گیا ہے۔ جائزہ کے لیے تھپتھپائیں</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"کچھ ایپس کا استعمال کچھ مہینوں سے نہیں کیا گیا ہے"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ایپس کا استعمال کچھ مہینوں سے نہیں کیا گیا ہے</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ایپ کا استعمال کچھ مہینوں سے نہیں کیا گیا ہے</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"اجازتیں ہٹا دی گئیں"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"اجازتیں ہٹا دی گئیں"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"سبھی غیر مستعمل ایپس"</string>
+    <!-- no translation found for months_ago (6541240625299588045) -->
+    <skip />
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"آپ کی رازداری کی حفاظت کے لیے اجازتوں کو ہٹایا گیا"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> نے پس منظر میں آپ کا مقام حاصل کر لیا ہے"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"یہ ایپ ہمیشہ آپ کے مقام تک رسائی حاصل کر سکتی ہے۔ تبدیل کرنے کے لیے تھپتھپائیں۔"</string>
@@ -195,6 +211,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> اور <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>، <xliff:g id="PERM_NAME_1">%2$s</xliff:g> اور <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> مزید"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"آپ کے ڈیٹا کی حفاظت کے لیے، اجازتوں کو ان ایپس سے ہٹا دیا گیا ہے جنہیں آپ نے کچھ مہینوں سے استعمال نہیں کیا ہے"</string>
+    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
+    <skip />
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 ایپ کا استعمال کچھ مہینوں سے نہیں کیا گیا ہے"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ایپس کا استعمال کچھ مہینوں سے نہیں کیا گیا ہے"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"صرف اپپ کے زیر استعمال ہونے کے دوران"</string>

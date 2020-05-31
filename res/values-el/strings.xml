@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Για την προστασία των δεδομένων σας, οι άδειες για αυτήν την εφαρμογή θα καταργηθούν εάν η εφαρμογή δεν χρησιμοποιηθεί για μερικούς μήνες."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Για την προστασία των δεδομένων σας, εάν δεν έχει χρησιμοποιηθεί η εφαρμογή για μερικούς μήνες, οι παρακάτω άδειες θα καταργηθούν: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Για την προστασία των δεδομένων σας, έχουν καταργηθεί οι άδειες εφαρμογών που δεν έχετε χρησιμοποιήσει κατά τους τελευταίους μήνες."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Εάν θέλετε να επιτραπούν ξανά οι άδειες, ανοίξτε την εφαρμογή."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Εάν θέλετε να επιτραπούν ξανά οι άδειες, ανοίξτε την εφαρμογή."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Αυτήν τη στιγμή η αυτόματη κατάργηση είναι απενεργοποιημένη για αυτή την εφαρμογή."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Μέχρι στιγμής δεν έχουν εκχωρηθεί άδειες αυτόματης ανάκλησης."</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> άδειες που θα καταργηθούν."</string>
@@ -179,6 +179,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 εφαρμογή που δεν χρησιμοποιείται"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> εφαρμογές που δεν χρησιμοποιούνται"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Οι άδειες καταργήθηκαν για την προστασία του απορρήτου σας. Πατήστε για έλεγχο"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Κατάργηση αδειών για εφαρμογές που δεν χρησιμοποιούνται"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Ορισμένες εφαρμογές δεν έχουν χρησιμοποιηθεί τους τελευταίους μήνες. Πατήστε για έλεγχο."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> εφαρμογές δεν έχουν χρησιμοποιηθεί τους τελευταίους μήνες. Πατήστε για έλεγχο.</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> εφαρμογή δεν έχει χρησιμοποιηθεί τους τελευταίους μήνες. Πατήστε για έλεγχο.</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Ορισμένες εφαρμογές δεν έχουν χρησιμοποιηθεί τους τελευταίους μήνες."</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> εφαρμογές δεν έχουν χρησιμοποιηθεί τους τελευταίους μήνες.</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> εφαρμογή δεν έχει χρησιμοποιηθεί τους τελευταίους μήνες.</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Άδειες που καταργήθηκαν"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Οι άδειες καταργήθηκαν"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Όλες οι εφαρμογές που δεν χρησιμοποιούνται"</string>
+    <string name="months_ago" msgid="6541240625299588045">"Πριν από <xliff:g id="COUNT">%1$d</xliff:g> μήνες"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Οι άδειες καταργήθηκαν για την προστασία του απορρήτου σας"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Η εφαρμογή <xliff:g id="APP_NAME">%s</xliff:g> έλαβε την τοποθεσία σας στο παρασκήνιο"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Αυτή η εφαρμογή μπορεί να έχει πάντα πρόσβαση στην τοποθεσία σας. Πατήστε για να αλλάξετε τη ρύθμιση."</string>
@@ -195,6 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> και <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> και <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ακόμη"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Για την προστασία των δεδομένων σας, έχουν καταργηθεί οι άδειες εφαρμογών που δεν έχετε χρησιμοποιήσει κατά τους τελευταίους μήνες."</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Για την προστασία των δεδομένων σας, έχουν καταργηθεί οι άδειες ορισμένων εφαρμογών που δεν έχετε χρησιμοποιήσει κατά τους τελευταίους μήνες."</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 εφαρμογή δεν έχει χρησιμοποιηθεί για αρκετούς μήνες."</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> εφαρμογές δεν έχουν χρησιμοποιηθεί για αρκετούς μήνες."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Μόνο κατά τη χρήση της εφαρμογής"</string>

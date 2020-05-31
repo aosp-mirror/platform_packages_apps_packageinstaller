@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"আপোনাৰ ডেটা সুৰক্ষিত কৰিবলৈ এই এপ্‌টো কেইমাহমান ব্যৱহাৰ নকৰিলে এইটোৰ বাবে থকা অনুমতিসমূহ আঁতৰোৱা হ\'ব।"</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"আপোনাৰ ডেটা সুৰক্ষিত কৰিবলৈ এই এপ্‌টো কেইমাহমান ব্যৱহাৰ নকৰিলে তলত উল্লেখ কৰা অনুমতিসমূহ আঁতৰোৱা হ\'ব: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"আপোনাৰ ডেটা সুৰক্ষিত কৰিবলৈ আপুনি কেইমাহমান ব্যৱহাৰ নকৰা এপ্‌সমূহৰ পৰা অনুমতিসমূহ আঁতৰোৱা হ\'ব।"</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"আপুনি যদি পুনৰ অনুমতিসমূহ দিব বিচাৰে, তেন্তে এপ্‌টো খোলক"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"আপুনি যদি পুনৰ অনুমতিসমূহ দিবলৈ বিচাৰে, তেন্তে এপ্‌টো খোলক।"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"এই এপ্‌টোৰ বাবে স্বয়ংক্ৰিয়ভাৱে আঁতৰোৱা সুবিধাটো বৰ্তমান অক্ষম কৰা আছে।"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"স্বয়ংক্ৰিয়ভাৱে প্ৰত্যাহাৰ কৰিব পৰা কোনো অনুমতি সম্প্ৰতি দিয়া হোৱা নাই"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g>ৰ অনুমতি আঁতৰোৱা হ’ব।"</string>
@@ -179,6 +179,22 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"১ টা অব্যৱহৃত এপ্‌"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> টা অব্যৱহৃত এপ্‌"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"আপোনাৰ গোপনীয়তা সুৰক্ষিত কৰিবলৈ অনুমতিসমূহ আঁতৰোৱা হৈছে। পর্যালোচনা কৰিবলৈ টিপক"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"ব্যৱহাৰ নোহোৱা এপ্‌সমূহৰ বাবে অনুমতিসমূহ আঁতৰোৱা হৈছে"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"কিছুমান এপ্‌ কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই। পর্যালোচনা কৰিবলৈ টিপক।"</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> টা এপ্‌ কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই। পর্যালোচনা কৰিবলৈ টিপক</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> টা এপ্‌ কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই। পর্যালোচনা কৰিবলৈ টিপক</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"কিছুমান এপ্‌ কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> টা এপ্‌ কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> টা এপ্‌ কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"অনুমতি আঁতৰোৱা এপ্‌সমূহ"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"অনুমতিসমূহ আঁতৰোৱা হৈছে"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"সকলো ব্যৱহাৰ নোহোৱা এপ্‌"</string>
+    <!-- no translation found for months_ago (6541240625299588045) -->
+    <skip />
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"আপোনাৰ গোপনীয়তা সুৰক্ষিত কৰিবলৈ অনুমতিসমূহ আঁতৰোৱা হৈছে"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>এ নেপথ্যত আপোনাৰ অৱস্থান লাভ কৰিছে"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"এই এপটোৱে সদায় আপোনাৰ অৱস্থান এক্সেছ কৰিব পাৰে। সলনি কৰিবলৈ টিপক।"</string>
@@ -195,6 +211,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> আৰু <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> আৰু <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> টা অধিক"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"আপোনাৰ ডেটা সুৰক্ষিত কৰিবলৈ আপুনি কেইমাহমান ব্যৱহাৰ নকৰা এপ্‌টোৰ পৰা অনুমতিসমূহ আঁতৰোৱা হ\'ব"</string>
+    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
+    <skip />
     <string name="one_unused_app_summary" msgid="4609894550969723046">"১ টা এপ্ কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> টা এপ্ কেইমাহমান ব্যৱহাৰ কৰা হোৱা নাই"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"কেৱল এপটো ব্যৱহাৰ হৈ থকা সময়ত"</string>

@@ -122,7 +122,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Калі праграма не выкарыстоўваецца на працягу некалькіх месяцаў, то ў мэтах абароны вашых даных з яе будуць выдалены дазволы."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Калі праграма не выкарыстоўваецца на працягу некалькіх месяцаў, у мэтах абароны вашых даных будуць выдалены наступныя дазволы: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"У мэтах абароны вашых даных выдалены дазволы для праграм, якія не выкарыстоўваліся некалькі месяцаў."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Калі вы зноў захочаце даць дазволы, адкрыйце праграму"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Калі вы зноў хочаце даць дазволы, адкрыйце праграму."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Аўтаматычнае выдаленне цяпер выключана для гэтай праграмы."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Пакуль няма дазволаў з аўтаматычным адкліканнем"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Дазвол \"<xliff:g id="PERM">%1$s</xliff:g>\" будзе выдалены."</string>
@@ -189,6 +189,25 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 праграма не ў карыстанні"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Колькасць праграм не ў карыстанні: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Дазволы выдалены ў мэтах абароны прыватнасці. Націсніце, каб праглядзець"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Для праграм, якія не выкарыстоўваюцца, дазволы выдалены"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Некаторыя праграмы не выкарыстоўваліся некалькі месяцаў. Націсніце, каб праглядзець."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> праграма не выкарыстоўвалася некалькі месяцаў. Націсніце, каб праглядзець</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> праграмы не выкарыстоўваліся некалькі месяцаў. Націсніце, каб праглядзець</item>
+      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> праграм не выкарыстоўваліся некалькі месяцаў. Націсніце, каб праглядзець</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> праграмы не выкарыстоўваліся некалькі месяцаў. Націсніце, каб праглядзець</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Некаторыя праграмы не выкарыстоўваліся некалькі месяцаў"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> праграма не выкарыстоўвалася некалькі месяцаў</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> праграмы не выкарыстоўваліся некалькі месяцаў</item>
+      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> праграм не выкарыстоўваліся некалькі месяцаў</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> праграмы не выкарыстоўваліся некалькі месяцаў</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Выдаленыя дазволы"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Дазволы выдалены"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Усе праграмы, якія не выкарыстоўваюцца"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> мес. таму"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Дазволы выдалены ў мэтах абароны прыватнасці"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> атрымала доступ да даных месцазнаходжання ў фонавым рэжыме"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Гэта праграма заўсёды можа атрымаць доступ да даных пра ваша месцазнаходжанне. Націсніце, каб змяніць."</string>
@@ -205,6 +224,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> і <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> і яшчэ <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"У мэтах абароны вашых даных выдалены дазволы для праграм, якія не выкарыстоўваліся некалькі месяцаў"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"У мэтах абароны вашых даных выдалены дазволы для некаторых праграм, якія не выкарыстоўваліся некалькі месяцаў"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 праграма не выкарыстоўвалася некалькі месяцаў"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"Некаторыя праграмы (<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> шт.) не выкарыстоўваліся некалькі месяцаў"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Толькі ў актыўным рэжыме праграмы"</string>

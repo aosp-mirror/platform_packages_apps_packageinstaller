@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"ដើម្បីការពារ​ទិន្នន័យរបស់អ្នក ការអនុញ្ញាត​សម្រាប់កម្មវិធីនេះ​នឹងត្រូវ​ដកចេញ ប្រសិនបើ​មិនប្រើប្រាស់​កម្មវិធីនេះ​រយៈពេល​ពីរបីខែ។"</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"ដើម្បីការពារ​ទិន្នន័យរបស់អ្នក ការអនុញ្ញាត​ខាងក្រោម​នឹងត្រូវដកចេញ ប្រសិនបើ​មិនប្រើប្រាស់​កម្មវិធីនេះ​រយៈពេល​ពីរបីខែ៖ <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"ដើម្បីការពារ​ទិន្នន័យរបស់អ្នក ការអនុញ្ញាត​ត្រូវបាន​ដកចេញ​ពីកម្មវិធី​ដែល​អ្នកមិនបាន​ប្រើប្រាស់​រយៈពេល​ពីរបីខែ។"</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"ប្រសិនបើអ្នកចង់​ផ្ដល់ការអនុញ្ញាត​ម្ដងទៀត សូមបើក​កម្មវិធី"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"ប្រសិនបើអ្នកចង់​ផ្ដល់ការអនុញ្ញាត​ម្ដងទៀត សូមបើក​កម្មវិធី។"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"បច្ចុប្បន្ននេះ ការដកចេញ​ដោយ​ស្វ័យប្រវត្តិ​ត្រូវបានបិទ​សម្រាប់​កម្មវិធីនេះ។"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ការអនុញ្ញាត​ដែលអាចដកចេញ​ដោយស្វ័យប្រវត្តិ​មិនត្រូវបាន​ផ្ដល់ជូនទេ​នៅពេល​បច្ចុប្បន្ន"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ការអនុញ្ញាត <xliff:g id="PERM">%1$s</xliff:g> នឹងត្រូវ​ដកចេញ។"</string>
@@ -179,6 +179,22 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"កម្មវិធី​ដែលមិនប្រើ​ចំនួន 1"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"កម្មវិធី​ដែលមិនប្រើ​ចំនួន <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"បានដក​ការអនុញ្ញាត ដើម្បីការពារ​ឯកជនភាព​របស់អ្នក។ សូមចុច ដើម្បី​ពិនិត្យមើល"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"បានដក​ការអនុញ្ញាត​សម្រាប់កម្មវិធី​ដែលមិនប្រើ"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"កម្មវិធី​មួយចំនួន​មិនត្រូវបាន​ប្រើប្រាស់​រយៈពេល​ពីរបីខែហើយ។ សូមចុច ដើម្បី​ពិនិត្យមើល។"</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other">កម្មវិធី <xliff:g id="COUNT_1">%1$d</xliff:g> មិនត្រូវបានប្រើប្រាស់​រយៈពេល​ពីរបីខែហើយ។ សូមចុច ដើម្បី​ពិនិត្យមើល</item>
+      <item quantity="one">កម្មវិធី <xliff:g id="COUNT_0">%1$d</xliff:g> មិនត្រូវបាន​ប្រើប្រាស់​រយៈពេល​ពីរបីខែ​ហើយ។ សូមចុច ដើម្បី​ពិនិត្យមើល</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"កម្មវិធី​មួយចំនួន​មិនត្រូវបាន​ប្រើប្រាស់​រយៈពេល​ពីរបីខែ​ហើយ"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other">កម្មវិធី <xliff:g id="COUNT_1">%1$d</xliff:g> មិនត្រូវ​បានប្រើប្រាស់​រយៈពេល​ពីរបីខែហើយ</item>
+      <item quantity="one">កម្មវិធី <xliff:g id="COUNT_0">%1$d</xliff:g> មិនត្រូវបាន​ប្រើប្រាស់​រយៈពេល​ពីរបីខែ​ហើយ</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"ការអនុញ្ញាត​ដែលបានដក"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"បានដក​ការអនុញ្ញាត"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"កម្មវិធី​ដែលមិនប្រើ​ទាំងអស់"</string>
+    <!-- no translation found for months_ago (6541240625299588045) -->
+    <skip />
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"បានដក​ការអនុញ្ញាត ដើម្បីការពារ​ឯកជនភាព​របស់អ្នក"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> បានទទួល​ទីតាំង​របស់អ្នក​នៅផ្ទៃខាងក្រោយ"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"កម្មវិធី​នេះ​អាច​ចូលប្រើប្រាស់​ទីតាំង​របស់អ្នក​បានជា​និច្ច។ សូម​ចុច​ដើម្បី​ប្ដូរ។"</string>
@@ -195,6 +211,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> និង <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> និង <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ទៀត"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ដើម្បី​ការពារ​ទិន្នន័យ​របស់អ្នក ការអនុញ្ញាត​ត្រូវបាន​ដកចេញ​ពីកម្មវិធី​ដែល​អ្នកមិនបាន​ប្រើប្រាស់​រយៈពេល​ពីរបីខែ"</string>
+    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
+    <skip />
     <string name="one_unused_app_summary" msgid="4609894550969723046">"កម្មវិធី 1 មិនត្រូវបានប្រើប្រាស់​រយៈពេល​ពីរបីខែហើយ"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"កម្មវិធី <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> មិនត្រូវបានប្រើប្រាស់​រយៈពេល​ពីរបីខែហើយ"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ពេល​កំពុង​ប្រើប្រាស់​កម្មវិធីតែ​ប៉ុណ្ណោះ"</string>
