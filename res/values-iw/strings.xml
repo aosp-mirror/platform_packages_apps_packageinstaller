@@ -122,7 +122,8 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"כדי להגן על הנתונים שלך, אם האפליקציה הזו לא תהיה בשימוש במשך מספר חודשים, ההרשאות שניתנו לה יוסרו."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"כדי להגן על הנתונים שלך, אם האפליקציה לא תהיה בשימוש במשך מספר חודשים, ההרשאות הבאות יוסרו: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"כדי להגן על הנתונים שלך, הוסרו הרשאות מאפליקציות שלא השתמשת בהן במשך מספר חודשים."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"כדי להעניק הרשאות שוב, יש לפתוח את האפליקציה"</string>
+    <!-- no translation found for auto_revoke_open_app_message (7159193262034433811) -->
+    <skip />
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"ההסרה האוטומטית מושבתת בשלב זה לאפליקציה הזו."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"אין הרשאות שמוענקות כרגע, שניתנות לביטול אוטומטית"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"הרשאת <xliff:g id="PERM">%1$s</xliff:g> תוסר."</string>
@@ -189,6 +190,22 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"אפליקציה אחת שמזמן לא השתמשת בה"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> אפליקציות שמזמן לא השתמשת בהן"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"הוסרו הרשאות כדי להגן על הפרטיות שלך. יש להקיש כדי לבדוק"</string>
+    <!-- no translation found for auto_revoke_permission_notification_title (7216492977743895366) -->
+    <skip />
+    <!-- no translation found for auto_revoke_permission_notification_content (7535335306414309309) -->
+    <skip />
+    <!-- no translation found for auto_revoke_permission_notification_content_count (3130723967533728039) -->
+    <!-- no translation found for auto_revoke_setting_subtitle (8151093881906344464) -->
+    <skip />
+    <!-- no translation found for auto_revoke_setting_subtitle_count (8360897918922510305) -->
+    <!-- no translation found for permissions_removed_category_title (189425131292668991) -->
+    <skip />
+    <!-- no translation found for permission_removed_page_title (6249023142431438359) -->
+    <skip />
+    <!-- no translation found for all_unused_apps_category_title (7882561467377852786) -->
+    <skip />
+    <!-- no translation found for months_ago (6541240625299588045) -->
+    <skip />
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"הוסרו הרשאות כדי להגן על הפרטיות שלך"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"האפליקציה <xliff:g id="APP_NAME">%s</xliff:g> קיבלה גישה ברקע למיקום שלך"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"האפליקציה הזו יכולה תמיד לגשת למיקום שלך. יש להקיש כדי לשנות הגדרה זו."</string>
@@ -205,6 +222,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> וגם <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ועוד <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"כדי להגן על הנתונים שלך, הוסרו הרשאות מאפליקציות שלא השתמשת בהן כבר כמה חודשים"</string>
+    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
+    <skip />
     <string name="one_unused_app_summary" msgid="4609894550969723046">"לא נעשה שימוש באפליקציה אחת במשך מספר חודשים"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"לא נעשה שימוש ב-<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> אפליקציות במשך מספר חודשים"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"רק בזמן שהאפליקציה בשימוש"</string>

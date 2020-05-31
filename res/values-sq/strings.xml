@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Për të mbrojtur të dhënat e tua, lejet për këtë aplikacion do të hiqen nëse aplikacioni nuk përdoret për disa muaj."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Për të mbrojtur të dhënat e tua, nëse aplikacioni nuk është përdorur për disa muaj, lejet e mëposhtme do të hiqen: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Për të mbrojtur të dhënat e tua, lejet janë hequr nga aplikacionet që nuk i ke përdorur për disa muaj."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Nëse dëshiron t\'i lejosh përsëri lejet, hap aplikacionin"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Nëse dëshiron t\'i lejosh përsëri lejet, hap aplikacionin."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Heqja automatike aktualisht është çaktivizuar për këtë aplikacion."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Aktualisht nuk janë dhënë leje të revokueshme automatikisht"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Leja për \"<xliff:g id="PERM">%1$s</xliff:g>\" do të hiqet."</string>
@@ -179,6 +179,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 aplikacion i papërdorur"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplikacione të papërdorura"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Lejet u hoqën për të mbrojtur privatësinë tënde. Trokit për t\'i rishikuar."</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Janë hequr lejet për aplikacionet e papërdorura"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Disa aplikacione nuk janë përdorur për disa muaj. Trokit për t\'i rishikuar."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikacione nuk janë përdorur për disa muaj. Trokit për t\'i rishikuar</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> aplikacion nuk është përdorur për disa muaj. Trokit për ta rishikuar</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Disa aplikacione nuk janë përdorur për disa muaj"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikacione nuk janë përdorur për disa muaj</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> aplikacion nuk është përdorur për disa muaj</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Me leje të hequra"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Leje të hequra"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Të gjitha aplikacionet e papërdorura"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> muaj më parë"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Lejet u hoqën për të mbrojtur privatësinë tënde"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ka marrë vendndodhjen tënde në sfond"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ky aplikacion mund të qaset gjithmonë te vendndodhja jote. Trokit për ta ndryshuar."</string>
@@ -195,6 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> dhe <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> dhe <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> të tjera"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Për të mbrojtur të dhënat e tua, lejet janë hequr nga aplikacionet që nuk i ke përdorur për disa muaj"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Për të mbrojtur të dhënat e tua, lejet janë hequr nga disa aplikacione që nuk i ke përdorur për disa muaj"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 aplikacion nuk është përdorur për disa muaj"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplikacione nuk janë përdorur për disa muaj"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Vetëm kur aplikacioni është në përdorim"</string>

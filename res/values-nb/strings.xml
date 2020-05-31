@@ -40,7 +40,7 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"ingen er slått av"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Ja"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Tillat hele tiden"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Under bruk av appen"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Når appen brukes"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Bare denne gangen"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Tillat hele tiden"</string>
     <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Gi tillatelse til administrering av alle filer"</string>
@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"For å beskytte dataene dine fjernes tillatelser for denne appen hvis appen ikke brukes på noen måneder."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"For å beskytte dataene din fjernes disse tillatelsene hvis appen ikke brukes på noen måneder: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"For å beskytte dataene dine har tillatelser blitt fjernet fra apper du ikke har brukt på noen måneder."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Åpne appen hvis du vil gi tillatelser igjen"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Åpne appen hvis du vil gi tillatelser igjen."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatisk fjerning er for øyeblikket slått av for denne appen."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Ingen tillatelser som kan gjenkalles automatisk, er gitt for øyeblikket"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Tillatelsen <xliff:g id="PERM">%1$s</xliff:g> blir fjernet."</string>
@@ -179,6 +179,22 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"Én ubrukt app"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ubrukte apper"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Tillatelser er fjernet for å ivareta personvernet ditt. Trykk for å gjennomgå."</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Tillatelser er fjernet for ubrukte apper"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Enkelte apper er ikke brukt på noen måneder. Trykk for å gjennomgå."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> apper er ikke brukt på noen måneder. Trykk for å gjennomgå</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> app er ikke brukt på noen måneder. Trykk for å gjennomgå</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Enkelte apper er ikke brukt på et par måneder"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> apper er ikke brukt på noen måneder</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> app er ikke brukt på noen måneder</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Fjernede tillatelser"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Tillatelser er fjernet"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Alle ubrukte apper"</string>
+    <!-- no translation found for months_ago (6541240625299588045) -->
+    <skip />
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Tillatelser er fjernet for å ivareta personvernet ditt"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> fikk posisjonen din i bakgrunnen"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Denne appen har alltid tilgang til posisjonen din. Trykk for å endre."</string>
@@ -195,6 +211,8 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> og <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> og <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> til"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"For å beskytte dataene dine har tillatelser blitt fjernet fra apper du ikke har brukt på noen måneder"</string>
+    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
+    <skip />
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 app har ikke blitt brukt på noen måneder"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apper har ikke blitt brukt på noen måneder"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Bare mens appen er i bruk"</string>

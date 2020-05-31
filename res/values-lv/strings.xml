@@ -121,7 +121,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Lai aizsargātu jūsu datus, šīs lietotnes atļaujas tiks atsauktas, ja lietotne nebūs izmantota vairākus mēnešus."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Lai aizsargātu datus, ja lietotne nebūs izmantota vairākus mēnešus, tiks atsauktas tālāk norādītās atļaujas: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Lai aizsargātu jūsu datus, tika atsauktas atļaujas tām lietotnēm, kas nav izmantotas vairākus mēnešus."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Ja vēlaties atkal piešķirt atļaujas, atveriet lietotni"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Ja vēlaties atkal piešķirt atļaujas, atveriet lietotni."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automātiskā noņemšana šai lietotnei pašlaik ir atspējota."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Pašlaik nav piešķirta neviena automātiski atsaucama atļauja"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Tiks noņemta šāda atļauja: <xliff:g id="PERM">%1$s</xliff:g>."</string>
@@ -184,6 +184,23 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 neizmantota lietotne"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> neizmantotas lietotnes"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Lai aizsargātu jūsu konfidencialitāti, atļaujas ir atsauktas. Pieskarieties, lai skatītu izmaiņas."</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Noņemtas atļaujas neizmantotām lietotnēm"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Dažas lietotnes nav izmantotas vairākus mēnešus. Pieskarieties, lai tās skatītu."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="zero"><xliff:g id="COUNT_1">%1$d</xliff:g> lietotnes nav izmantotas vairākus mēnešus. Pieskarieties, lai tās skatītu.</item>
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> lietotne nav izmantota vairākus mēnešus. Pieskarieties, lai tās skatītu.</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> lietotnes nav izmantotas vairākus mēnešus. Pieskarieties, lai tās skatītu.</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Dažas lietotnes nav izmantotas vairākus mēnešus."</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="zero"><xliff:g id="COUNT_1">%1$d</xliff:g> lietotnes nav izmantotas vairākus mēnešus.</item>
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> lietotne nav izmantota vairākus mēnešus.</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> lietotnes nav izmantotas vairākus mēnešus.</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Noņemtās atļaujas"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Atļaujas noņemtas"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Visas neizmantotās lietotnes"</string>
+    <string name="months_ago" msgid="6541240625299588045">"Pirms <xliff:g id="COUNT">%1$d</xliff:g> mēneša(-iem)"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Lai aizsargātu jūsu konfidencialitāti, atļaujas ir noņemtas."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Lietotne <xliff:g id="APP_NAME">%s</xliff:g> ieguva jūsu atrašanās vietas informāciju fonā"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Šī lietotne jebkurā laikā var piekļūt jūsu atrašanās vietai. Pieskarieties, lai mainītu šo iestatījumu."</string>
@@ -200,6 +217,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> un <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> un vēl <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Lai aizsargātu jūsu datus, ir noņemtas atļaujas no lietotnes, kas nav izmantota vairākus mēnešus"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Lai aizsargātu jūsu datus, tika atsauktas atļaujas dažām lietotnēm, kas nav izmantotas vairākus mēnešus"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"Viena lietotne nav izmantota vairākus mēnešus"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"Dažas lietotnes nav izmantotas vairākus mēnešus (šādu lietotņu skaits: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>)"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Tikai lietotnes izmantošanas laikā"</string>
