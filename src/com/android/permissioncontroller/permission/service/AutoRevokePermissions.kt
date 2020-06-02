@@ -54,7 +54,6 @@ import android.os.Bundle
 import android.os.Process.myUserHandle
 import android.os.UserHandle
 import android.os.UserManager
-import android.permission.PermissionManager
 import android.printservice.PrintService
 import android.provider.DeviceConfig
 import android.provider.Settings
@@ -120,7 +119,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.util.Date
 import java.util.Random
 import java.util.concurrent.TimeUnit.DAYS
@@ -305,10 +303,6 @@ private suspend fun revokePermissionsOnUnusedApps(
         }
     }
 
-    // TODO: Support more than the current user
-    val manifestExemptPackages = AutoRevokeManifestExemptPackagesLiveData[myUserHandle()]
-            .getInitializedValue()
-
     val revokedApps = mutableListOf<Pair<String, UserHandle>>()
     val userManager = context.getSystemService(UserManager::class.java)
     for ((user, userApps) in unusedApps) {
@@ -326,7 +320,7 @@ private suspend fun revokePermissionsOnUnusedApps(
             }
 
             val packageName = pkg.packageName
-            if (isPackageAutoRevokeExempt(context, pkg, manifestExemptPackages)) {
+            if (isPackageAutoRevokeExempt(context, pkg)) {
                 return@forEachInParallel
             }
 
@@ -482,15 +476,6 @@ suspend fun isPackageAutoRevokePermanentlyExempt(
 suspend fun isPackageAutoRevokeExempt(
     context: Context,
     pkg: LightPackageInfo
-) = isPackageAutoRevokeExempt(context, pkg, withContext(IPC) {
-    context.getSystemService<PermissionManager>()
-            .getAutoRevokeExemptionGrantedPackages()
-})
-
-private suspend fun isPackageAutoRevokeExempt(
-    context: Context,
-    pkg: LightPackageInfo,
-    manifestExemptPackages: Set<String>
 ): Boolean {
     val packageName = pkg.packageName
     val packageUid = pkg.uid
@@ -507,15 +492,11 @@ private suspend fun isPackageAutoRevokeExempt(
             return false
         }
 
-        if (pkg.targetSdkVersion <= android.os.Build.VERSION_CODES.Q &&
-                TeamfoodSettings.get(context)?.enabledForPreRApps != true) {
-            // Q- packages exempt by default
-            return true
-        } else {
-            // R+ packages only exempt with manifest attribute
-            return packageName in manifestExemptPackages
-        }
+        // Q- packages exempt by default, except for dogfooding
+        return pkg.targetSdkVersion <= android.os.Build.VERSION_CODES.Q &&
+                TeamfoodSettings.get(context)?.enabledForPreRApps != true
     }
+    // Check whether user/installer exempt
     return whitelistAppOpMode != MODE_ALLOWED
 }
 
