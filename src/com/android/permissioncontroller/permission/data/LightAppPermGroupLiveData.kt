@@ -117,16 +117,16 @@ class LightAppPermGroupLiveData private constructor(
         // Determine if this app permission group is a special location package or provider
         var specialLocationGrant: Boolean? = null
         val userContext = Utils.getUserContext(app, user)
-        if (isSpecialLocation) {
-            specialLocationGrant = LocationUtils.isLocationEnabled(app)
-        }
-        // The permission of the extra location controller package is determined by the status of
-        // the controller package itself.
-        if (LocationUtils.isLocationGroupAndControllerExtraPackage(app, permGroupName,
+        if (LocationUtils.isLocationGroupAndProvider(userContext, permGroupName, packageName)) {
+            specialLocationGrant = LocationUtils.isLocationEnabled(userContext)
+        } else if (LocationUtils.isLocationGroupAndControllerExtraPackage(app, permGroupName,
                 packageName)) {
+            // The permission of the extra location controller package is determined by the status
+            // of the controller package itself.
             specialLocationGrant = LocationUtils.isExtraLocationControllerPackageEnabled(
                 userContext)
         }
+
         val hasInstallToRuntimeSplit = hasInstallToRuntimeSplit(packageInfo, permissionMap)
         value = LightAppPermGroup(packageInfo, permGroup.groupInfo, permissionMap,
             hasInstallToRuntimeSplit, specialLocationGrant)
