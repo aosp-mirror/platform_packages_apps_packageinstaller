@@ -69,6 +69,8 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
     private val children =
         mutableListOf<Triple<SmartUpdateMediatorLiveData<*>, Observer<in T>, Boolean>>()
 
+    private val stacktraceExceptionMessage = "Caller of coroutine"
+
     @MainThread
     override fun setValue(newValue: T?) {
         ensureMainThread()
@@ -147,6 +149,17 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
     }
 
     override fun <S : Any?> addSource(source: LiveData<S>, onChanged: Observer<in S>) {
+        addSourceWithError(source, onChanged)
+    }
+
+    private fun <S : Any?> addSourceWithError(
+        source: LiveData<S>,
+        onChanged: Observer<in S>,
+        e: IllegalStateException? = null
+    ) {
+        // Get the stacktrace of the call to addSource, so it isn't lost in any errors
+        val exception = e ?: IllegalStateException(stacktraceExceptionMessage)
+
         GlobalScope.launch(Main.immediate) {
             if (source is SmartUpdateMediatorLiveData) {
                 if (source in sources) {
@@ -156,7 +169,11 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
                     staleObservers.isNotEmpty() || children.any { it.third })
                 sources.add(source)
             }
-            super.addSource(source, onChanged)
+            try {
+                super.addSource(source, onChanged)
+            } catch (other: IllegalStateException) {
+                throw other.apply { initCause(exception) }
+            }
         }
     }
 
@@ -195,6 +212,8 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
 
         val removed = toRemove.map { have.remove(it) }.toMutableList()
 
+        val stackTraceException = java.lang.IllegalStateException(stacktraceExceptionMessage)
+
         GlobalScope.launch(Main.immediate) {
             // If any state got out of sorts before this coroutine ran, correct it
             for (key in toRemove) {
@@ -209,13 +228,14 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
                 val liveData = getLiveDataFun(key)
                 // Should be a no op, but there is a slight possibility it isn't
                 have[key] = liveData
-                addSource(liveData) {
+                val observer = Observer<Any> {
                     if (onUpdateFun != null) {
                         onUpdateFun(key)
                     } else {
                         updateIfActive()
                     }
                 }
+                addSourceWithError(liveData, observer, stackTraceException)
             }
         }
     }
