@@ -264,8 +264,12 @@ class AppPermGroupUiInfoLiveData private constructor(
     }
 
     private fun getIsSpecialLocationState(): Boolean? {
+        if (!isSpecialLocation) {
+            return null
+        }
+
         val userContext = Utils.getUserContext(app, user)
-        if (isSpecialLocation) {
+        if (LocationUtils.isLocationGroupAndProvider(userContext, permGroupName, packageName)) {
             return LocationUtils.isLocationEnabled(userContext)
         }
         // The permission of the extra location controller package is determined by the
