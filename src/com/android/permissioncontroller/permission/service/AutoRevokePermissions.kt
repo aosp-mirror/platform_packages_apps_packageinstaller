@@ -32,6 +32,7 @@ import android.app.NotificationManager.IMPORTANCE_LOW
 import android.app.PendingIntent
 import android.app.PendingIntent.FLAG_ONE_SHOT
 import android.app.PendingIntent.FLAG_UPDATE_CURRENT
+import android.app.admin.DeviceAdminReceiver
 import android.app.admin.DevicePolicyManager
 import android.app.job.JobInfo
 import android.app.job.JobParameters
@@ -84,7 +85,9 @@ import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.AppOpLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokeManifestExemptPackagesLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokeStateLiveData
+import com.android.permissioncontroller.permission.data.BroadcastReceiverLiveData
 import com.android.permissioncontroller.permission.data.DataRepositoryForPackage
+import com.android.permissioncontroller.permission.data.HasIntentAction
 import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
 import com.android.permissioncontroller.permission.data.ServiceLiveData
@@ -626,7 +629,7 @@ class AutoRevokeService : JobService() {
  */
 private class ExemptServicesLiveData(val user: UserHandle)
     : SmartUpdateMediatorLiveData<Map<String, List<String>>>() {
-    private val serviceLiveDatas = listOf(
+    private val serviceLiveDatas: List<SmartUpdateMediatorLiveData<Set<String>>> = listOf(
             ServiceLiveData[InputMethod.SERVICE_INTERFACE,
                     Manifest.permission.BIND_INPUT_METHOD,
                     user],
@@ -677,6 +680,10 @@ private class ExemptServicesLiveData(val user: UserHandle)
             ServiceLiveData[
                     DevicePolicyManager.ACTION_DEVICE_ADMIN_SERVICE,
                     Manifest.permission.BIND_DEVICE_ADMIN,
+                    user],
+            BroadcastReceiverLiveData[
+                    DeviceAdminReceiver.ACTION_DEVICE_ADMIN_ENABLED,
+                    Manifest.permission.BIND_DEVICE_ADMIN,
                     user]
     )
 
@@ -691,7 +698,7 @@ private class ExemptServicesLiveData(val user: UserHandle)
             serviceLiveDatas.forEach { serviceLD ->
                 serviceLD.value!!.forEach { packageName ->
                     pksToServices.getOrPut(packageName, { mutableListOf() })
-                            .add(serviceLD.serviceInterface)
+                            .add((serviceLD as? HasIntentAction)?.intentAction ?: "???")
                 }
             }
 
