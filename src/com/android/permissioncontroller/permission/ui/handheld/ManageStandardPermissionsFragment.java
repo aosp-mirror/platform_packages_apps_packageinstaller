@@ -114,7 +114,7 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
             }
         } else {
             if (additionalPermissionsPreference == null) {
-                additionalPermissionsPreference = new Preference(
+                additionalPermissionsPreference = new FixedSizeIconPreference(
                         getPreferenceManager().getContext());
                 additionalPermissionsPreference.setKey(EXTRA_PREFS_KEY);
                 additionalPermissionsPreference.setIcon(Utils.applyTint(getActivity(),
@@ -137,24 +137,20 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
         }
 
         Integer numAutoRevoked = mViewModel.getNumAutoRevoked().getValue();
+
         Preference autoRevokePreference = screen.findPreference(AUTO_REVOKE_KEY);
         if (numAutoRevoked != null && numAutoRevoked != 0) {
             if (autoRevokePreference == null) {
-                autoRevokePreference = new Preference(getPreferenceManager().getContext());
+                autoRevokePreference = new FixedSizeIconPreference(
+                        getPreferenceManager().getContext(), true, true);
                 autoRevokePreference.setOrder(-1);
                 autoRevokePreference.setKey(AUTO_REVOKE_KEY);
                 autoRevokePreference.setSingleLineTitle(false);
-                autoRevokePreference.setIcon(R.drawable.ic_info_outline);
-                if (numAutoRevoked == 1) {
-                    autoRevokePreference.setTitle(
-                            R.string.auto_revoke_permission_reminder_notification_title_one);
-                } else {
-                    autoRevokePreference.setTitle(getString(
-                            R.string.auto_revoke_permission_reminder_notification_title_many,
-                            numAutoRevoked));
-                }
+                autoRevokePreference.setIcon(R.drawable.ic_info_outline_accent);
+                autoRevokePreference.setTitle(
+                            R.string.auto_revoke_permission_notification_title);
                 autoRevokePreference.setSummary(
-                        R.string.auto_revoke_preference_summary);
+                        R.string.auto_revoke_setting_subtitle);
                 autoRevokePreference.setOnPreferenceClickListener(preference -> {
                     mViewModel.showAutoRevoke(this, AutoRevokeFragment.createArgs(
                             getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID)));
@@ -166,6 +162,7 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
         } else if (numAutoRevoked != null && autoRevokePreference != null) {
             screen.removePreference(autoRevokePreference);
         }
+
         return screen;
     }
 
