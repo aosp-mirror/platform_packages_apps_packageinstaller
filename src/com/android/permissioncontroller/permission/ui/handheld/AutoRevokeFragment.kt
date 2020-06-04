@@ -55,7 +55,8 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
 
     companion object {
         private const val SHOW_LOAD_DELAY_MS = 200L
-        private const val NOTIFICATION_CLICKED = "notification_clicked"
+        private const val INFO_MSG_KEY = "info_msg"
+        private const val ELEVATION_HIGH = 8f
         private val LOG_TAG = AutoRevokeFragment::class.java.simpleName
 
         @JvmStatic
@@ -79,6 +80,7 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        mUseShadowController = false
         super.onCreate(savedInstanceState)
         isFirstLoad = true
 
@@ -108,7 +110,11 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
 
     override fun onStart() {
         super.onStart()
-        activity!!.title = getString(R.string.unused_apps)
+        val ab = activity?.actionBar
+        if (ab != null) {
+            ab!!.setElevation(ELEVATION_HIGH)
+        }
+        activity!!.title = getString(R.string.permission_removed_page_title)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -122,6 +128,8 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
     private fun updatePackages(categorizedPackages: Map<Months, List<RevokedPackageInfo>>) {
         if (preferenceScreen == null) {
             addPreferencesFromResource(R.xml.unused_app_categories)
+            val infoPref = preferenceScreen?.findPreference<FooterPreference>(INFO_MSG_KEY)
+            infoPref?.secondSummary = getString(R.string.auto_revoke_open_app_message)
         }
 
         val removedPrefs = mutableMapOf<String, AutoRevokePermissionPreference>()
