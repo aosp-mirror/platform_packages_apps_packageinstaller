@@ -96,7 +96,8 @@
         <service android:name="com.android.permissioncontroller.permission.service.AutoRevokeService"
                  android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <service android:name="com.android.permissioncontroller.permission.service.AutoRevokeReGrantService" />
+        <service android:name="com.android.permissioncontroller.permission.service.AutoRevokeReGrantService"
+                 android:permission="android.permission.BIND_JOB_SERVICE" />
 
 
         <activity android:name="com.android.permissioncontroller.permission.ui.GrantPermissionsActivity"

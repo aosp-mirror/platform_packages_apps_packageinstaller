@@ -516,10 +516,20 @@ private val Context.firstBootTime: Long get() {
 
 private fun reGrantAutoRevokedPermissionsIfNeeded(context: Context) {
     val sharedPreferences = context.sharedPreferences
-    val key = "auto_revoke_regrant_done"
+    val key = "auto_revoke_regrant2_done"
     if (!sharedPreferences.getBoolean(key, false)) {
-        context.startService(
-                Intent().setComponent(ComponentName(context, AutoRevokeReGrantService::class.java)))
+        val jobInfo = JobInfo.Builder(
+                Constants.AUTO_REVOKE_REGRANT_JOB_ID,
+                ComponentName(context, AutoRevokeReGrantService::class.java))
+                .build()
+        val status = context
+                .getSystemService(JobScheduler::class.java)!!
+                .schedule(jobInfo)
+        if (status != JobScheduler.RESULT_SUCCESS) {
+            DumpableLog.e(LOG_TAG,
+                    "Could not schedule ${AutoRevokeReGrantService::class.java.simpleName}: " +
+                            "$status")
+        }
         sharedPreferences.edit().putBoolean(key, true).apply()
     }
 }
