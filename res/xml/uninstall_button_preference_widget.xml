@@ -20,19 +20,19 @@
               android:layout_height="match_parent"
               android:orientation="horizontal" >
     <View
-        android:id="@+id/divider_two"
+        android:id="@+id/divider"
         android:layout_width="1dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_gravity="end|center_vertical"
-        android:background="?android:attr/textColorSecondary"/>
+        android:theme="@style/AutoRevokeDivider"/>
 
     <ImageButton
         android:id="@+id/uninstall_button"
         style="@style/SettingsActionButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_gravity="end|center_vertical"
         android:contentDescription="@string/uninstall_or_disable"
         android:src="@drawable/ic_settings_delete"
