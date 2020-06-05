@@ -114,7 +114,6 @@ import com.android.permissioncontroller.permission.utils.Utils.PROPERTY_AUTO_REV
 import com.android.permissioncontroller.permission.utils.Utils.PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS
 import com.android.permissioncontroller.permission.utils.application
 import com.android.permissioncontroller.permission.utils.forEachInParallel
-import com.android.permissioncontroller.permission.utils.getUid
 import com.android.permissioncontroller.permission.utils.updatePermissionFlags
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
@@ -461,7 +460,7 @@ suspend fun isPackageAutoRevokePermanentlyExempt(
         }
         return true
     }
-    val carrierPrivilegedStatus = CarrierPrivilegedStatusLiveData[user.getUid(pkg.uid)]
+    val carrierPrivilegedStatus = CarrierPrivilegedStatusLiveData[pkg.packageName]
             .getInitializedValue()
     if (carrierPrivilegedStatus != CARRIER_PRIVILEGE_STATUS_HAS_ACCESS &&
             carrierPrivilegedStatus != CARRIER_PRIVILEGE_STATUS_NO_ACCESS) {

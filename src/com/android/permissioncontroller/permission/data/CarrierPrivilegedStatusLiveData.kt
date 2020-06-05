@@ -24,26 +24,27 @@ import com.android.permissioncontroller.PermissionControllerApplication
  * A LiveData which represents the carrier privileged status for a package
  *
  * @param app The current application
- * @param uid The uid of the package
+ * @param packageName The name of the package
  */
 class CarrierPrivilegedStatusLiveData private constructor(
     private val app: Application,
-    private val uid: Int
+    private val packageName: String
 ) : SmartUpdateMediatorLiveData<Int>() {
 
     val telephonyManager = app.getSystemService(TelephonyManager::class.java)!!
 
     override fun onUpdate() {
-        value = telephonyManager.getCarrierPrivilegeStatus(uid)
+        value = telephonyManager.checkCarrierPrivilegesForPackageAnyPhone(packageName)
     }
 
     /**
      * Repository for [CarrierPrivilegedStatusLiveData].
-     * <p> Key value is a package uid, value is its corresponding LiveData.
+     * <p> Key value is a package name, value is its corresponding LiveData of
+     * [android.telephony.Annotation.CarrierPrivilegeStatus]
      */
     companion object
-        : DataRepository<Int, CarrierPrivilegedStatusLiveData>() {
-        override fun newValue(key: Int): CarrierPrivilegedStatusLiveData {
+        : DataRepository<String, CarrierPrivilegedStatusLiveData>() {
+        override fun newValue(key: String): CarrierPrivilegedStatusLiveData {
             return CarrierPrivilegedStatusLiveData(PermissionControllerApplication.get(), key)
         }
     }
