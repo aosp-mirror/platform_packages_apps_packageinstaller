@@ -25,6 +25,7 @@ import android.os.UserHandle
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
 import com.android.permissioncontroller.permission.model.livedatatypes.AutoRevokeState
+import com.android.permissioncontroller.permission.service.ExemptServicesLiveData
 import com.android.permissioncontroller.permission.service.isAutoRevokeEnabled
 import com.android.permissioncontroller.permission.service.isPackageAutoRevokeExempt
 import com.android.permissioncontroller.permission.service.isPackageAutoRevokePermanentlyExempt
@@ -47,6 +48,7 @@ class AutoRevokeStateLiveData private constructor(
         PackagePermissionsLiveData[packageName, user]
     private val packageLiveData = LightPackageInfoLiveData[packageName, user]
     private val permStateLiveDatas = mutableMapOf<String, PermStateLiveData>()
+    private val exemptServicesLiveData = ExemptServicesLiveData[user]
     private val appOpsManager = app.getSystemService(AppOpsManager::class.java)!!
 
     init {
@@ -56,28 +58,21 @@ class AutoRevokeStateLiveData private constructor(
         addSource(packageLiveData) {
             updateIfActive()
         }
+        addSource(exemptServicesLiveData) {
+            updateIfActive()
+        }
     }
 
     override suspend fun loadDataAndPostValue(job: Job) {
-        if (!packageLiveData.isInitialized) {
-            return
-        }
-        if (packageLiveData.value == null) {
-            postValue(null)
-            return
-        }
-
-        val uid = packageLiveData.value?.uid
-        if (uid == null) {
-            postValue(null)
+        if (!packageLiveData.isInitialized || !packagePermsLiveData.isInitialized ||
+            !exemptServicesLiveData.isInitialized) {
             return
         }
 
         val groups = packagePermsLiveData.value?.keys?.filter { it != NON_RUNTIME_NORMAL_PERMS }
-        if (groups == null && packagePermsLiveData.isInitialized) {
+
+        if (packageLiveData.value?.uid == null || groups == null) {
             postValue(null)
-            return
-        } else if (groups == null) {
             return
         }
 
