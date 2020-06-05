@@ -47,7 +47,7 @@ class AutoRevokePermissionPreference(
         }
 
     init {
-        widgetLayoutResource = R.xml.two_button_preference_widget
+        widgetLayoutResource = R.xml.uninstall_button_preference_widget
     }
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
