@@ -42,7 +42,7 @@ val Context.application: Application get() = when (this) {
  * The number of threads in the IPC thread pool. Set to the maximum number of binder threads allowed
  * to an app by the Android System.
  */
-const val IPC_THREAD_POOL_COUNT = 16
+const val IPC_THREAD_POOL_COUNT = 8
 
 /**
  * A coroutine dispatcher with a fixed thread pool size, to be used for background tasks
