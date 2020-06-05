@@ -155,11 +155,21 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
     }
 
     /**
-     * A preference whose icons have the same fixed size.
+     * A preference whose icons have the same fixed size. Allows the setting of dividers above and
+     * below the preference.
      */
-    private static final class FixedSizeIconPreference extends Preference {
+    protected static final class FixedSizeIconPreference extends Preference {
+        private boolean mShowDividerAbove = true;
+        private boolean mShowDividerBelow = false;
+
         FixedSizeIconPreference(Context context) {
             super(context);
+        }
+
+        FixedSizeIconPreference(Context context, boolean dividerAbove, boolean dividerBelow) {
+            super(context);
+            mShowDividerAbove = dividerAbove;
+            mShowDividerBelow = dividerBelow;
         }
 
         @Override
@@ -174,6 +184,9 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
             icon.getLayoutParams().width = size;
             icon.getLayoutParams().height = size;
             icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+
+            holder.setDividerAllowedAbove(mShowDividerAbove);
+            holder.setDividerAllowedBelow(mShowDividerBelow);
         }
     }
 }
