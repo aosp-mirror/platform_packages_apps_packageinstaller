@@ -16,6 +16,8 @@
 
 package com.android.permissioncontroller;
 
+import com.android.permissioncontroller.permission.service.AutoRevokeReGrantService;
+
 /**
  * App-global constants
  */
@@ -38,6 +40,11 @@ public class Constants {
      * {@link com.android.permissioncontroller.permission.service.AutoRevokeService}
      */
     public static final int AUTO_REVOKE_JOB_ID = 2;
+
+    /**
+     * ID of the one-time job {@link AutoRevokeReGrantService}
+     */
+    public static final int AUTO_REVOKE_REGRANT_JOB_ID = 3;
 
     /**
      * Name of file to containing the packages we already showed a notificaiton for.
