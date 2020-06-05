@@ -16,7 +16,8 @@
 
 package com.android.permissioncontroller.permission.service
 
-import android.content.Intent
+import android.app.job.JobParameters
+import android.app.job.JobService
 import android.os.Process.myUserHandle
 import android.os.UserHandle
 import com.android.permissioncontroller.DumpableLog
@@ -35,33 +36,29 @@ import kotlinx.coroutines.launch
 /**
  * A service to re-grant auto revoked permissions on a one-time basis
  */
-class AutoRevokeReGrantService : android.app.Service() {
+class AutoRevokeReGrantService : JobService() {
     companion object {
         private const val LOG_TAG = "AutoRevokeReGrantService"
     }
 
     lateinit var job: Job
 
-    override fun onCreate() {
-        super.onCreate()
+    override fun onStartJob(params: JobParameters?): Boolean {
         job = GlobalScope.launch(Main) {
-            try {
-                reGrantAutoRevokedPermissions()
-            } finally {
-                stopSelf()
-            }
+            reGrantAutoRevokedPermissions()
+            jobFinished(params, /* wantsReschedule */ false)
         }
+        return true
     }
 
-    override fun onDestroy() {
+    override fun onStopJob(params: JobParameters?): Boolean {
         if (!job.isCompleted) {
             DumpableLog.e(LOG_TAG, "${javaClass.simpleName} terminated before completing",
                     RuntimeException())
+            return true
         }
-        super.onDestroy()
+        return false
     }
-
-    override fun onBind(intent: Intent?) = null
 
     private suspend fun reGrantAutoRevokedPermissions() {
         DumpableLog.i(LOG_TAG, "reGrantAutoRevokedPermissions")
