@@ -51,6 +51,8 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
     private ViewGroup mPrefsView;
     private boolean mIsLoading;
 
+    protected boolean mUseShadowController = true;
+
     /**
      * Returns the view group that holds the preferences objects. This will
      * only be set after {@link #onCreateView} has been called.
@@ -98,8 +100,10 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
             if (ab != null) {
                 ab.setElevation(0);
             }
-            ActionBarShadowController.attachToView(getActivity(), getLifecycle(),
-                    getListView());
+            if (mUseShadowController) {
+                ActionBarShadowController.attachToView(getActivity(), getLifecycle(),
+                        getListView());
+            }
         }
     }
 
