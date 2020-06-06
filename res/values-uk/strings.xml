@@ -189,26 +189,25 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 невикористовуваний додаток"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Невикористовуваних додатків: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Дозволи відкликано, щоб захистити вашу конфіденційність. Натисніть, щоб переглянути"</string>
-    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Дозволи вилучено для невикористовуваних додатків"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Дозволи скасовано для невикористовуваних додатків"</string>
     <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Деякі додатки не використовувалися кілька місяців. Натисніть, щоб переглянути."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
-      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> додаток не використовувався впродовж кількох місяців. Натисніть, щоб переглянути</item>
-      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> додатки не використовувалися впродовж кількох місяців. Натисніть, щоб переглянути</item>
-      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> додатків не використовувалися впродовж кількох місяців. Натисніть, щоб переглянути</item>
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> додатка не використовувалося впродовж кількох місяців. Натисніть, щоб переглянути</item>
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> додаток не використовувався кілька місяців. Натисніть, щоб переглянути</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> додатки не використовувалися кілька місяців. Натисніть, щоб переглянути</item>
+      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> додатків не використовувалися кілька місяців. Натисніть, щоб переглянути</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> додатка не використовувалися кілька місяців. Натисніть, щоб переглянути</item>
     </plurals>
     <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Деякі додатки не використовувалися кілька місяців"</string>
     <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
-      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> додаток не використовувався впродовж кількох місяців</item>
-      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> додатки не використовувалися впродовж кількох місяців</item>
-      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> додатків не використовувалися впродовж кількох місяців</item>
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> додатка не використовувалося впродовж кількох місяців</item>
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> додаток не використовувався кілька місяців</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> додатки не використовувалися кілька місяців</item>
+      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> додатків не використовувалися кілька місяців</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> додатка не використовувалися кілька місяців</item>
     </plurals>
-    <string name="permissions_removed_category_title" msgid="189425131292668991">"Вилучені дозволи"</string>
-    <string name="permission_removed_page_title" msgid="6249023142431438359">"Дозволи вилучено"</string>
-    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Всі невикористовувані додатки"</string>
-    <!-- no translation found for months_ago (6541240625299588045) -->
-    <skip />
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Скасовані дозволи"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Дозволи скасовано"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Усі невикористовувані додатки"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> міс. тому"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Дозволи відкликано, щоб захистити вашу конфіденційність"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Додаток <xliff:g id="APP_NAME">%s</xliff:g> визначив ваше місцезнаходження у фоновому режимі"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Цей додаток завжди має доступ до геоданих пристрою. Торкніться, щоб змінити це."</string>
@@ -225,8 +224,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> і <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> і ще <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Щоб захистити ваші дані, було відкликано дозволи додатків, які не використовувалися впродовж кількох місяців"</string>
-    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
-    <skip />
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Щоб захистити ваші дані, було скасовано дозволи деяких додатків, які не використовувалися кілька місяців"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 додаток не використовувався кілька місяців"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"Кілька додатків (<xliff:g id="NUMBER_OF_APPS">%s</xliff:g>) не використовувалися впродовж кількох місяців"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Лише коли додаток використовується"</string>

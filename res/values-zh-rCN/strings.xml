@@ -193,8 +193,7 @@
     <string name="permissions_removed_category_title" msgid="189425131292668991">"已移除权限的应用"</string>
     <string name="permission_removed_page_title" msgid="6249023142431438359">"已移除权限的应用"</string>
     <string name="all_unused_apps_category_title" msgid="7882561467377852786">"所有未使用的应用"</string>
-    <!-- no translation found for months_ago (6541240625299588045) -->
-    <skip />
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> 个月前"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"为保护您的隐私，系统已移除这些权限"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>在后台获取了您的位置信息"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"此应用随时可以使用您的位置信息。点按即可更改。"</string>
@@ -211,8 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"“<xliff:g id="PERM_NAME_0">%1$s</xliff:g>”权限和“<xliff:g id="PERM_NAME_1">%2$s</xliff:g>”权限"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"“<xliff:g id="PERM_NAME_0">%1$s</xliff:g>”权限、“<xliff:g id="PERM_NAME_1">%2$s</xliff:g>”权限和另外 <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> 项权限"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"为了保护您的数据，系统已移除您在几个月内未使用过的应用的权限"</string>
-    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
-    <skip />
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"为了保护您的数据，对于一些您连续几个月未使用过的应用，系统已将其权限移除"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 个应用已连续几个月未使用过"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 个应用已连续几个月未使用过"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"仅在使用该应用期间允许"</string>

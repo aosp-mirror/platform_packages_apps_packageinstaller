@@ -179,7 +179,7 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"प्रयोग नगरिएको १ एप"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"प्रयोग नगरिएका <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> एपहरू"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"तपाईंको गोपनीयताको सुरक्षार्थ अनुमतिहरू रद्द गरिए। समीक्षा गर्न ट्याप गर्नुहोस्"</string>
-    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"प्रयोग नगरिएका एपलाई दिइएका अनुमतिहरू रद्द गरिएका छन्"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"प्रयोग नगरिएका एपलाई दिइएका अनुमति रद्द गरिएका छन्"</string>
     <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"तपाईंले केही महिनादेखि केही एपहरू प्रयोग गर्नुभएका छैन। समीक्षा गर्न ट्याप गर्नुहोस्।"</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
       <item quantity="other">तपाईंले केही महिनादेखि <xliff:g id="COUNT_1">%1$d</xliff:g> वटा एप प्रयोग गर्नुभएको छैन। समीक्षा गर्न ट्याप गर्नुहोस्</item>
@@ -190,11 +190,10 @@
       <item quantity="other">तपाईंले केही महिनादेखि <xliff:g id="COUNT_1">%1$d</xliff:g> वटा एप प्रयोग गर्नुभएको छैन</item>
       <item quantity="one">तपाईंले केही महिनादेखि <xliff:g id="COUNT_0">%1$d</xliff:g> एप प्रयोग गर्नुभएको छैन</item>
     </plurals>
-    <string name="permissions_removed_category_title" msgid="189425131292668991">"रद्द गरिएका अनुमति"</string>
-    <string name="permission_removed_page_title" msgid="6249023142431438359">"अनुमति रद्द गरियो"</string>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"अनुमति रद्द गरिएका एपहरू"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"अनुमति रद्द गरिएका एपहरू"</string>
     <string name="all_unused_apps_category_title" msgid="7882561467377852786">"प्रयोग नगरिएका सबै एपहरू"</string>
-    <!-- no translation found for months_ago (6541240625299588045) -->
-    <skip />
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> महिनाअघि"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"तपाईंको गोपनीयताको सुरक्षार्थ अनुमतिहरू रद्द गरिए"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ले पृष्ठभूमिमा तपाईंको स्थानमाथिको पहुँच प्राप्त गर्‍यो"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"यो अनुप्रयोगले सधैँ तपाईंको स्थान प्रयोग गर्न सक्छ। बदल्न ट्याप गर्नुहोस्‌।"</string>
@@ -211,8 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> र <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> र थप <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"तपाईंका डेटाको सुरक्षार्थ तपाईंले केही महिनादेखि प्रयोग नगरेका एपलाई दिइएका अनुमतिहरू रद्द गरिएका छन्"</string>
-    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
-    <skip />
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"तपाईंका डेटाको सुरक्षार्थ तपाईंले केही महिनादेखि प्रयोग नगरेका एपलाई दिइएका अनुमति रद्द गरिएका छन्"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"तपाईंले १ वटा एप केही महिनादेखि प्रयोग गर्नुभएको छैन"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"तपाईंले <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> वटा एप केही महिनादेखि प्रयोग गर्नुभएको छैन"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"एप प्रयोगमा भएको बेला मात्र"</string>

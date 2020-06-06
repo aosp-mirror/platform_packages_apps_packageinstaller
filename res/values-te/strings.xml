@@ -183,18 +183,17 @@
     <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"కొన్ని యాప్‌లు గత కొన్ని నెలలుగా వినియోగంలో లేవు. రివ్యూ చేయడానికి ట్యాప్ చేయండి."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> యాప్‌లు గత కొన్ని నెలలుగా వినియోగంలో లేవు. రివ్యూ చేయడానికి ట్యాప్ చేయండి</item>
-      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> యాప్ గత కొన్ని నెలలుగా వినియోగంలో లేదు. రివ్యూ చేయడానికి ట్యాప్ చేయండి</item>
+      <item quantity="one">గత కొన్ని నెలలుగా <xliff:g id="COUNT_0">%1$d</xliff:g> యాప్ వినియోగంలో లేదు. రివ్యూ చేయడానికి ట్యాప్ చేయండి</item>
     </plurals>
-    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"కొన్ని యాప్‌లు గత కొన్ని నెలలుగా వినియోగంలో లేవు"</string>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"గత కొన్ని నెలలుగా కొన్ని యాప్‌లు వినియోగంలో లేవు"</string>
     <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> యాప్‌లు గత కొన్ని నెలలుగా వినియోగంలో లేవు</item>
-      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> యాప్ గత కొన్ని నెలలుగా వినియోగంలో లేదు</item>
+      <item quantity="one">గత కొన్ని నెలలుగా <xliff:g id="COUNT_0">%1$d</xliff:g> యాప్ వినియోగంలో లేదు</item>
     </plurals>
-    <string name="permissions_removed_category_title" msgid="189425131292668991">"తీసివేయబడిన అనుమతులు"</string>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"అనుమతులు తీసివేసినవి"</string>
     <string name="permission_removed_page_title" msgid="6249023142431438359">"అనుమతులు తీసివేయబడ్డాయి"</string>
-    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"వినియోగంలో లేని యాప్‌లన్నీ"</string>
-    <!-- no translation found for months_ago (6541240625299588045) -->
-    <skip />
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"వినియోగంలో లేని అన్ని యాప్‌లు"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> నెలల క్రితం"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"మీ గోప్యతను రక్షించడానికి అనుమతులు తీసివేయబడ్డాయి"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"మీ స్థానాన్ని <xliff:g id="APP_NAME">%s</xliff:g> నేపథ్యంలో ఉపయోగిస్తోంది"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ఈ యాప్ మీ స్థానాన్ని ఎల్లప్పుడూ యాక్సెస్ చేయగలదు. మార్చడానికి నొక్కండి."</string>
@@ -211,8 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, మరియు మరో <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"మీ డేటాను రక్షించడానికి, కొన్ని నెలలుగా ఉపయోగించని యాప్‌ల నుండి అనుమతులు తీసివేయబడ్డాయి"</string>
-    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
-    <skip />
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"మీ డేటాను సురక్షితంగా ఉంచడానికి, గత కొన్ని నెలలుగా వినియోగంలో లేని కొన్ని యాప్‌ల అనుమతులు తీసివేయబడ్డాయి"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 యాప్ కొన్ని నెలలుగా వినియోగంలో లేదు"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> యాప్‌లు కొన్ని నెలలుగా వినియోగంలో లేవు"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"యాప్ వినియోగంలో ఉన్నప్పుడు మాత్రమే"</string>

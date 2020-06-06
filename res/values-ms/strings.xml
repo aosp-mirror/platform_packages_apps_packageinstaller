@@ -185,7 +185,7 @@
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> apl tidak digunakan selama beberapa bulan. Ketik untuk menyemak</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> apl tidak digunakan selama beberapa bulan. Ketik untuk menyemak</item>
     </plurals>
-    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Sesetengah apl tidak digunakan selama beberapa bulan."</string>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Sesetengah apl tidak digunakan selama beberapa bulan"</string>
     <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> apl tidak digunakan selama beberapa bulan</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> apl tidak digunakan selama beberapa bulan</item>
@@ -193,8 +193,7 @@
     <string name="permissions_removed_category_title" msgid="189425131292668991">"Kebenaran dialih keluar"</string>
     <string name="permission_removed_page_title" msgid="6249023142431438359">"Kebenaran dialih keluar"</string>
     <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Semua apl yang tidak digunakan"</string>
-    <!-- no translation found for months_ago (6541240625299588045) -->
-    <skip />
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> bulan yang lalu"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Kebenaran dialih keluar untuk melindungi privasi anda"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> mendapat lokasi anda di latar belakang"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Apl ini boleh mengakses lokasi anda pada setiap masa. Ketik untuk menukar."</string>
@@ -211,8 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> dan <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> dan <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> lagi"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Untuk melindungi data anda, kebenaran telah dialih keluar daripada apl yang tidak anda gunakan selama beberapa bulan."</string>
-    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
-    <skip />
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Untuk melindungi data anda, kebenaran telah dialih keluar daripada sesetengah apl yang anda tidak gunakan selama beberapa bulan"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 apl tidak digunakan selama beberapa bulan"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apl tidak digunakan selama beberapa bulan"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Hanya semasa apl sedang digunakan"</string>
