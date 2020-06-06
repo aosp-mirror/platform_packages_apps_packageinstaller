@@ -88,6 +88,8 @@ import androidx.core.util.Preconditions;
 
 import com.android.launcher3.icons.IconFactory;
 import com.android.permissioncontroller.Constants;
+import com.android.permissioncontroller.DeviceUtils;
+import com.android.permissioncontroller.PermissionControllerApplication;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 
@@ -1110,5 +1112,19 @@ public final class Utils {
     public static boolean couldHaveForegroundCapabilities(@NonNull Context context,
             @NonNull String packageName) throws NameNotFoundException {
         return getForegroundCapableType(context, packageName) != ForegroundCapableType.NONE;
+    }
+
+    /**
+     * Determines if a given user is disabled, or is a work profile.
+     * @param user The user to check
+     * @return true if the user is disabled, or the user is a work profile
+     */
+    public static boolean isUserDisabledOrWorkProfile(UserHandle user) {
+        Application app = PermissionControllerApplication.get();
+        UserManager userManager = app.getSystemService(UserManager.class);
+        // In android TV, parental control accounts are managed profiles
+        return !userManager.getEnabledProfiles().contains(user)
+                || (userManager.isManagedProfile(user.getIdentifier())
+                && !DeviceUtils.isTelevision(app));
     }
 }

@@ -26,14 +26,14 @@ import com.android.permissioncontroller.permission.utils.Utils.getUserContext
 import kotlinx.coroutines.Job
 
 /**
- * A LiveData which tracks services for a certain type
+ * A LiveData which tracks broadcast receivers for a certain type
  *
  * @param app The current application
- * @param intentAction The name of interface the service implements
- * @param permission The permission required for the service
- * @param user The user the services should be determined for
+ * @param intentAction The name of the action the receiver receives
+ * @param permission The permission required for the receiver
+ * @param user The user the receivers should be determined for
  */
-class ServiceLiveData(
+class BroadcastReceiverLiveData(
     private val app: Application,
     override val intentAction: String,
     private val permission: String,
@@ -53,14 +53,14 @@ class ServiceLiveData(
         }
 
         val packageNames = getUserContext(app, user).packageManager
-                .queryIntentServices(
+                .queryBroadcastReceivers(
                         Intent(intentAction),
-                        PackageManager.GET_SERVICES or PackageManager.GET_META_DATA)
+                        PackageManager.GET_RECEIVERS or PackageManager.GET_META_DATA)
                 .mapNotNull { resolveInfo ->
-                    if (resolveInfo?.serviceInfo?.permission != permission) {
+                    if (resolveInfo?.activityInfo?.permission != permission) {
                         return@mapNotNull null
                     }
-                    resolveInfo?.serviceInfo?.packageName
+                    resolveInfo?.activityInfo?.packageName
                 }.toSet()
         if (DEBUG) {
             DumpableLog.i(LOG_TAG,
@@ -85,15 +85,15 @@ class ServiceLiveData(
     }
 
     /**
-     * Repository for [ServiceLiveData]
+     * Repository for [BroadcastReceiverLiveData]
      *
-     * <p> Key value is a (string service name, required permission, user) triple, value is its
+     * <p> Key value is a (string intent action, required permission, user) triple, value is its
      * corresponding LiveData.
      */
     companion object : DataRepositoryForPackage<Triple<String, String, UserHandle>,
-            ServiceLiveData>() {
-        override fun newValue(key: Triple<String, String, UserHandle>): ServiceLiveData {
-            return ServiceLiveData(PermissionControllerApplication.get(),
+            BroadcastReceiverLiveData>() {
+        override fun newValue(key: Triple<String, String, UserHandle>): BroadcastReceiverLiveData {
+            return BroadcastReceiverLiveData(PermissionControllerApplication.get(),
                     key.first, key.second, key.third)
         }
     }
