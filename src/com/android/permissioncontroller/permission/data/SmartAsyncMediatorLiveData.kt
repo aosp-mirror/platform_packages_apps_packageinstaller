@@ -16,6 +16,7 @@
 
 package com.android.permissioncontroller.permission.data
 
+import android.os.Binder
 import com.android.permissioncontroller.permission.utils.IPC
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
@@ -55,6 +56,8 @@ abstract class SmartAsyncMediatorLiveData<T> : SmartUpdateMediatorLiveData<T>() 
         GlobalScope.launch(IPC) {
             currentJob = coroutineContext[Job]
             loadDataAndPostValue(currentJob!!)
+            // TODO ntmyren: generalize this command to the IPC dispatcher
+            Binder.flushPendingCommands()
             jobRunning = false
             if (jobQueued) {
                 jobQueued = false
