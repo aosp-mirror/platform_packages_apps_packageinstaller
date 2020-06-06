@@ -180,21 +180,20 @@
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> न वापरलेली अ‍ॅप्स"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"तुमच्या गोपनीयतेचे संरक्षण करण्यासाठी परवानग्या काढून टाकल्या आहेत. परीक्षण करण्यासाठी टॅप करा"</string>
     <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"न वापरलेल्या ॲप्सच्या परवानग्या काढून टाकल्या आहेत"</string>
-    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"काही अ‍ॅप्स काही महिन्यांपासून वापरलेली नाहीत. परीक्षण करण्यासाठी टॅप करा."</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"काही ॲप्‍स काही महिन्यांत वापरलेली नाहीत. परीक्षण करण्यासाठी टॅप करा."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> अ‍ॅप्स काही महिन्यांपासून वापरलेली नाहीत. परीक्षण करण्यासाठी टॅप करा</item>
-      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ॲप काही महिन्यांपासून वापरलेले नाही. परीक्षण करण्यासाठी टॅप करा</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ॲप्‍स काही महिन्यांत वापरलेली नाहीत. परीक्षण करण्यासाठी टॅप करा</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ॲप काही महिन्यांत वापरलेले नाही. परीक्षण करण्यासाठी टॅप करा</item>
     </plurals>
-    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"काही अ‍ॅप्स काही महिन्यांपासून वापरलेली नाहीत"</string>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"काही ॲप्‍स काही महिन्यांत वापरलेली नाहीत"</string>
     <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ॲप्स काही महिन्यांपासून वापरलेली नाहीत</item>
-      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ॲप काही महिन्यांपासून वापरलेले नाही</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ॲप्‍स काही महिन्यांत वापरलेली नाहीत</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ॲप काही महिन्यांत वापरलेले नाही</item>
     </plurals>
-    <string name="permissions_removed_category_title" msgid="189425131292668991">"परवानग्या काढून टाकल्या आहेत"</string>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"काढून टाकलेल्या परवानग्या"</string>
     <string name="permission_removed_page_title" msgid="6249023142431438359">"परवानग्या काढून टाकल्या आहेत"</string>
-    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"सर्व न वापरलेली ॲप्स"</string>
-    <!-- no translation found for months_ago (6541240625299588045) -->
-    <skip />
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"न वापरलेली सर्व ॲप्स"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> महिन्यांपूर्वी"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"तुमच्या गोपनीयतेचे संरक्षण करण्यासाठी परवानग्या काढून टाकल्या आहेत"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ने बॅकग्राउंडमध्ये तुमचे स्थान मिळवले"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"हे अ‍ॅप नेहमी तुमचे स्थान अ‍ॅक्सेस करू शकते. बदलण्यासाठी टॅप करा."</string>
@@ -211,8 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> आणि <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> आणि आणखी <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"तुमचा डेटा संरक्षित करण्यासाठी तुम्ही काही महिन्यांपासून न वापरलेल्या ॲप्सवरून परवानग्या काढून टाकल्या आहेत"</string>
-    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
-    <skip />
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"तुमच्या डेटाचे संरक्षण करण्यासाठी, तुम्ही काही महिन्यांत न वापरलेल्या काही ॲप्समधून परवानग्या काढून टाकल्या आहेत"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"एक अ‍ॅप काही महिन्यांत वापरले गेले नाही"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> अ‍ॅप्स काही महिन्यांत वापरली गेली नाहीत"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"फक्त अ‍ॅप वापरत असताना"</string>
