@@ -180,21 +180,20 @@
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ta ishlatilmagan ilova"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Xavfsizlik yuzasidan, ruxsatlar olib tashlandi. Tekshirish uchun bosing."</string>
     <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Ishlatilmagan ilovalar uchun ruxsatlar olib tashlandi"</string>
-    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Ayrim ilovalar bir necha oydan beri ishlatilmagan. Tekshirish uchun bosing."</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Ayrim ilovalar bir necha oydan beri ishlatilmadi. Tekshirish uchun bosing."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ta ilova bir necha oydan beri ishlatilmagan. Tekshirish uchun bosing.</item>
-      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ta ilova bir necha oydan beri ishlatilmagan. Tekshirish uchun bosing.</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ta ilova bir necha oydan beri ishlatilmadi. Tekshirish uchun bosing</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ta ilova bir necha oydan beri ishlatilmadi. Tekshirish uchun bosing</item>
     </plurals>
     <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Ayrim ilovalar bir necha oydan beri ishlatilmagan."</string>
     <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ta ilova bir necha oydan beri ishlatilmagan</item>
-      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ta ilova bir necha oydan beri ishlatilmagan</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ta ilova bir necha oydan beri ishlatilmadi</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ta ilova bir necha oydan beri ishlatilmadi.</item>
     </plurals>
     <string name="permissions_removed_category_title" msgid="189425131292668991">"Olib tashlangan ruxsatlar"</string>
     <string name="permission_removed_page_title" msgid="6249023142431438359">"Ruxsatlar olib tashlandi"</string>
     <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Barcha ishlatilmagan ilovalar"</string>
-    <!-- no translation found for months_ago (6541240625299588045) -->
-    <skip />
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> oy oldin"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Xavfsizlik yuzasidan, ruxsatlar olib tashlandi"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ilova joylashuv axborotingizni orqa fonda oldi"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Bu ilova joylashuv axborotingizdan foydalana oladi. Oʻzgartirish uchun bosing."</string>
@@ -211,8 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> va <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> va yana <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ta"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Xavfsizlik yuzasidan, bir necha oydan beri ishlatilmagan ilovalardan ruxsatlar olib tashlanadi"</string>
-    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
-    <skip />
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Xavfsizlik yuzasidan bir necha oydan beri ishlatilmagan ayrim ilovalardan ruxsatlar olib tashlandi"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 ta ilova bir necha oydan beri ishlatilmadi"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ta ilova bir necha oydan beri ishlatilmadi"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Faqat ilova faolligida ruxsat"</string>
