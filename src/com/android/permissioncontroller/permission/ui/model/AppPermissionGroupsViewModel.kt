@@ -83,6 +83,8 @@ class AppPermissionGroupsViewModel(
             this(groupName, isSystem, PermSubtitle.NONE)
     }
 
+    val autoRevokeLiveData = AutoRevokeStateLiveData[packageName, user]
+
     /**
      * LiveData whose data is a map of grant category (either allowed or denied) to a list
      * of permission group names that match the key, and two booleans representing if this is a
@@ -103,6 +105,10 @@ class AppPermissionGroupsViewModel(
             addSource(fullStoragePermsLiveData) {
                 updateIfActive()
             }
+            addSource(autoRevokeLiveData) {
+                removeSource(autoRevokeLiveData)
+                updateIfActive()
+            }
             updateIfActive()
         }
 
@@ -112,7 +118,7 @@ class AppPermissionGroupsViewModel(
                 value = null
                 return
             } else if (groups == null || (Manifest.permission_group.STORAGE in groups &&
-                    !fullStoragePermsLiveData.isInitialized)) {
+                    !fullStoragePermsLiveData.isInitialized) || !autoRevokeLiveData.isInitialized) {
                 return
             }
 
@@ -167,8 +173,6 @@ class AppPermissionGroupsViewModel(
             value = groupGrantStates
         }
     }
-
-    val autoRevokeLiveData = AutoRevokeStateLiveData[packageName, user]
 
     fun setAutoRevoke(enabled: Boolean) {
         GlobalScope.launch(IPC) {
