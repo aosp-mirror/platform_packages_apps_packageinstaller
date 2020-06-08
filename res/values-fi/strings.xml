@@ -52,7 +52,7 @@
     <string name="app_disable_dlg_text" msgid="5218197617670218828">"Jos poistat sovelluksen käytöstä, Android ja muut sovellukset eivät välttämättä enää toimi oikein. Muista, ettet voi poistaa sovellusta, sillä se tuli laitteesi mukana. Poistamalla sovelluksen käytöstä suljet sen ja piilotat sen laitteella."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Käyttöoikeuksien ylläpitäjä"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Älä kysy enää"</string>
-    <string name="no_permissions" msgid="2193893107241172888">"Ei käyttöoikeuksia"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Ei lupia"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Lisäluvat"</string>
     <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Avaa sovelluksen tiedot"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
@@ -182,7 +182,7 @@
     <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Luvat poistettu käyttämättömiltä sovelluksilta"</string>
     <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Joitain sovelluksia ei ole käytetty muutamaan kuukauteen. Tarkista napauttamalla."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> sovellusta ei ole käytetty muutamaan kuukauteen Tarkista napauttamalla.</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> sovellusta ei ole käytetty muutamaan kuukauteen. Tarkista napauttamalla.</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> sovellusta ei ole käytetty muutamaan kuukauteen. Tarkista napauttamalla.</item>
     </plurals>
     <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Joitain sovelluksia ei ole käytetty muutamaan kuukauteen"</string>
@@ -193,8 +193,7 @@
     <string name="permissions_removed_category_title" msgid="189425131292668991">"Poistetut luvat"</string>
     <string name="permission_removed_page_title" msgid="6249023142431438359">"Luvat poistettu"</string>
     <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Kaikki käyttämättömät sovellukset"</string>
-    <!-- no translation found for months_ago (6541240625299588045) -->
-    <skip />
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> kuukautta sitten"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Luvat poistettu tietoturvasyistä"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> sai sijaintitietosi taustalla"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Tämä sovellus voi aina käyttää sijaintiasi. Muuta napauttamalla."</string>
@@ -211,8 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> ja <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ja <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> muuta"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Datasi suojaamiseksi luvat on poistettu sovelluksilta, joita et ole käyttänyt muutamaan kuukauteen"</string>
-    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
-    <skip />
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Datasi suojaamiseksi luvat on poistettu joiltain sovelluksilta, joita et ole käyttänyt muutamaan kuukauteen"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"Yhtä sovellusta ei ole käytetty muutamaan kuukauteen"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> sovellusta ei ole käytetty muutamaan kuukauteen"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Vain kun sovellusta käytetään"</string>

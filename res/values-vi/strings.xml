@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Để bảo vệ dữ liệu của bạn, các quyền cấp cho ứng dụng này sẽ bị thu hồi nếu bạn không dùng ứng dụng trong vài tháng."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Để bảo vệ dữ liệu của bạn, nếu bạn không dùng ứng dụng này trong vài tháng thì các quyền sau đây sẽ bị thu hồi: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Để bảo vệ dữ liệu của bạn, quản trị viên CNTT đã thu hồi các quyền đối với những ứng dụng bạn không dùng trong vài tháng."</string>
-    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Hãy mở ứng dụng không dùng đến nếu bạn muốn cấp quyền một lần nữa."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Hãy mở ứng dụng nếu bạn muốn cấp quyền một lần nữa."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Tính năng tự động thu hồi quyền hiện đã bị tắt đối với ứng dụng này."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Không có quyền có thể tự động thu hồi nào đang được cấp"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Quyền <xliff:g id="PERM">%1$s</xliff:g> sẽ bị xóa."</string>
@@ -180,21 +180,20 @@
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ứng dụng không dùng đến"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Đã thu hồi các quyền để bảo vệ quyền riêng tư của bạn. Nhấn để xem lại"</string>
     <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Đã xóa quyền của các ứng dụng không dùng đến"</string>
-    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Có một số ứng dụng mà vài tháng qua bạn chưa dùng đến. Nhấn để xem."</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Bạn không dùng một số ứng dụng trong vài tháng qua. Nhấn để xem."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
-      <item quantity="other">Có <xliff:g id="COUNT_1">%1$d</xliff:g> ứng dụng mà vài tháng qua bạn chưa dùng đến. Nhấn để xem</item>
-      <item quantity="one">Có <xliff:g id="COUNT_0">%1$d</xliff:g> ứng dụng mà vài tháng qua bạn chưa dùng đến. Nhấn để xem</item>
+      <item quantity="other">Bạn không dùng <xliff:g id="COUNT_1">%1$d</xliff:g> ứng dụng trong vài tháng qua. Nhấn để xem</item>
+      <item quantity="one">Bạn không dùng <xliff:g id="COUNT_0">%1$d</xliff:g> ứng dụng trong vài tháng qua. Nhấn để xem</item>
     </plurals>
-    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Có một số ứng dụng mà vài tháng qua bạn chưa dùng đến"</string>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Bạn không dùng một số ứng dụng trong vài tháng qua"</string>
     <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
-      <item quantity="other">Có <xliff:g id="COUNT_1">%1$d</xliff:g> ứng dụng mà vài tháng qua bạn chưa dùng đến</item>
-      <item quantity="one">Có <xliff:g id="COUNT_0">%1$d</xliff:g> ứng dụng mà vài tháng qua bạn chưa dùng đến</item>
+      <item quantity="other">Bạn không dùng <xliff:g id="COUNT_1">%1$d</xliff:g> ứng dụng trong vài tháng qua</item>
+      <item quantity="one">Bạn không dùng <xliff:g id="COUNT_0">%1$d</xliff:g> ứng dụng trong vài tháng qua</item>
     </plurals>
     <string name="permissions_removed_category_title" msgid="189425131292668991">"Các quyền bị xóa"</string>
     <string name="permission_removed_page_title" msgid="6249023142431438359">"Các quyền đã xóa"</string>
     <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Tất cả ứng dụng không dùng đến"</string>
-    <!-- no translation found for months_ago (6541240625299588045) -->
-    <skip />
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> tháng trước"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Đã thu hồi các quyền để bảo vệ quyền riêng tư của bạn"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> đã truy cập thông tin vị trí của bạn trong nền"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ứng dụng này luôn có thể truy cập vào thông tin vị trí của bạn. Hãy nhấn để thay đổi."</string>
@@ -211,8 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> và <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> và <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> quyền khác"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Để bảo vệ dữ liệu của bạn, quản trị viên CNTT đã thu hồi các quyền đối với những ứng dụng bạn chưa dùng đến trong vài tháng"</string>
-    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
-    <skip />
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Để bảo vệ dữ liệu của bạn, quản trị viên CNTT đã thu hồi các quyền đối với những ứng dụng bạn không dùng trong vài tháng"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"Bạn không dùng 1 ứng dụng trong vài tháng"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"Bạn không dùng <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ứng dụng trong vài tháng"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Chỉ khi đang sử dụng ứng dụng"</string>

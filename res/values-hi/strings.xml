@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"अगर इस ऐप्लिकेशन का इस्तेमाल कुछ महीनों तक नहीं किया गया, तो इसे दी गई अनुमतियां हटा दी जाएंगी. ऐसा आपके डेटा को सुरक्षित रखने के लिए किया जाएगा."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"अगर ऐप्लिकेशन कुछ महीनों से इस्तेमाल नहीं हुआ है, तो आपके डेटा को सुरक्षित रखने के लिए ये अनुमतियां हटा दी जाएंगी: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"जिन ऐप्लिकेशन का इस्तेमाल कुछ महीनों से नहीं हुआ है उन्हें दी गई अनुमतियां हटा दी गई हैं. ऐसा आपके डेटा को सुरक्षित रखने के लिए किया गया है."</string>
-    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"अगर आप दोबारा अनुमतियां देना चाहते हैं, तो ऐप्लिकेशन खोलें."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"अगर आप फिर से अनुमतियां देना चाहते हैं, तो ऐप्लिकेशन खोलें."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"फ़िलहाल, इस ऐप्लिकेशन को अपने-आप नहीं हटाया जा सकता."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"फ़िलहाल, अपने-आप वापस होने वाली कोई भी अनुमति नहीं दी गई है"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> की अनुमति हटा दी जाएगी."</string>
@@ -179,7 +179,7 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"एक ऐप्लिकेशन इस्तेमाल नहीं किया जा रहा"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ऐप्लिकेशन इस्तेमाल नहीं किए जा रहे"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"आपकी निजता की सुरक्षा के लिए अनुमतियां हटाई गई हैं. देखने के लिए टैप करें"</string>
-    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"इस्तेमाल नहीं किए जा रहे ऐप्लिकेशन से अनुमतियां हटाई गई हैं"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"जो ऐप इस्तेमाल नहीं किए गए उन्हें मिली अनुमतियां हटाई गई हैं"</string>
     <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"कुछ ऐप्लिकेशन का इस्तेमाल कुछ महीनों से नहीं किया गया है. देखने के लिए टैप करें."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
       <item quantity="one">कुछ महीनों से <xliff:g id="COUNT_1">%1$d</xliff:g> ऐप्लिकेशन इस्तेमाल नहीं किया गया है. देखने के लिए टैप करें</item>
@@ -190,11 +190,10 @@
       <item quantity="one">कुछ महीनों से <xliff:g id="COUNT_1">%1$d</xliff:g> ऐप्लिकेशन इस्तेमाल नहीं किया गया है</item>
       <item quantity="other">कुछ महीनों से <xliff:g id="COUNT_1">%1$d</xliff:g> ऐप्लिकेशन इस्तेमाल नहीं किए गए हैं</item>
     </plurals>
-    <string name="permissions_removed_category_title" msgid="189425131292668991">"हटाई गई अनुमतियां"</string>
-    <string name="permission_removed_page_title" msgid="6249023142431438359">"अनुमतियां हटाई गई हैं"</string>
-    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"ऐसे सभी ऐप्लिकेशन जो इस्तेमाल नहीं किए जा रहे हैं"</string>
-    <!-- no translation found for months_ago (6541240625299588045) -->
-    <skip />
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"वे ऐप्लिकेशन जिनकी अनुमतियां हटाई गई हैं"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"वे ऐप्लिकेशन जिनकी अनुमतियां हटाई गई हैं"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"ऐसे सभी ऐप्लिकेशन जो इस्तेमाल नहीं किए गए हैं"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> महीने पहले"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"आपकी निजता की सुरक्षा के लिए अनुमतियां हटाई गई हैं"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> अब बैकग्राउंड में आपकी जगह की जानकारी ऐक्सेस कर सकता है"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"यह ऐप्लिकेशन हमेशा आपकी जगह की जानकारी ऐक्सेस कर सकता है. बदलने के लिए टैप करें."</string>
@@ -211,8 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> और <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, और अन्य<xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> अनुमतियां"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"जिन ऐप्लिकेशन का इस्तेमाल कुछ महीनों से नहीं हुआ है उन्हें दी गई अनुमतियां हटा दी गई हैं. ऐसा आपके डेटा को सुरक्षित रखने के लिए किया गया है"</string>
-    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
-    <skip />
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"जिन ऐप्लिकेशन का इस्तेमाल कुछ महीनों से नहीं हुआ है उनमें से कुछ ऐप्लिकेशन को दी गई अनुमतियां हटा दी गई हैं. ऐसा आपके डेटा को सुरक्षित रखने के लिए किया गया है."</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"कुछ महीनों से एक ऐप्लिकेशन का इस्तेमाल नहीं किया गया है"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"कुछ महीनों से <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ऐप्लिकेशन इस्तेमाल नहीं किए गए हैं"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"सिर्फ़ ऐप्लिकेशन इस्तेमाल में होने के दौरान"</string>

@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"데이터 보호를 위해 몇 개월 동안 앱을 사용하지 않으면 앱의 권한이 삭제됩니다."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"데이터 보호를 위해 몇 개월 동안 앱을 사용하지 않으면 다음 권한이 삭제됩니다. <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"데이터 보호를 위해 몇 개월 동안 사용하지 않은 앱에서 권한이 삭제되었습니다."</string>
-    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"권한을 다시 허용하려면 앱을 여세요."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"권한을 다시 부여하려면 앱을 여세요."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"이 앱의 자동 삭제가 사용 중지되어 있습니다."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"현재 자동 취소 가능한 권한이 부여되어 있지 않습니다."</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> 권한이 삭제됩니다."</string>
@@ -190,11 +190,10 @@
       <item quantity="other">앱 <xliff:g id="COUNT_1">%1$d</xliff:g>개를 몇 개월 동안 사용하지 않았습니다.</item>
       <item quantity="one">앱 <xliff:g id="COUNT_0">%1$d</xliff:g>개를 몇 개월 동안 사용하지 않았습니다.</item>
     </plurals>
-    <string name="permissions_removed_category_title" msgid="189425131292668991">"삭제된 권한"</string>
-    <string name="permission_removed_page_title" msgid="6249023142431438359">"삭제된 권한"</string>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"권한이 삭제된 앱"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"권한이 삭제된 앱"</string>
     <string name="all_unused_apps_category_title" msgid="7882561467377852786">"사용하지 않는 모든 앱"</string>
-    <!-- no translation found for months_ago (6541240625299588045) -->
-    <skip />
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g>개월 전"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"개인정보 보호를 위해 권한이 삭제됨"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>에서 백그라운드에서 내 위치에 액세스함"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"이 앱에서 내 위치에 항상 액세스할 수 있습니다. 변경하려면 탭하세요."</string>
@@ -211,8 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> 외 <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>개"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"개인정보 보호를 위해 몇 개월 동안 사용하지 않은 앱에서 권한이 삭제됩니다."</string>
-    <!-- no translation found for unused_app_permissions_removed_summary_some (6280714834316090266) -->
-    <skip />
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"개인 정보 보호를 위해 몇 개월 동안 사용하지 않은 일부 앱에서 권한이 삭제됩니다."</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"앱 1개를 몇 개월 동안 사용하지 않았습니다."</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"앱 <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>개를 몇 개월 동안 사용하지 않았습니다."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"앱 사용 중에만"</string>
