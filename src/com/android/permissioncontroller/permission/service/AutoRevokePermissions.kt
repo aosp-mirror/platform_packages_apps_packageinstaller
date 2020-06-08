@@ -32,6 +32,7 @@ import android.app.NotificationManager.IMPORTANCE_LOW
 import android.app.PendingIntent
 import android.app.PendingIntent.FLAG_ONE_SHOT
 import android.app.PendingIntent.FLAG_UPDATE_CURRENT
+import android.app.admin.DeviceAdminReceiver
 import android.app.admin.DevicePolicyManager
 import android.app.job.JobInfo
 import android.app.job.JobParameters
@@ -84,7 +85,9 @@ import com.android.permissioncontroller.permission.data.AllPackageInfosLiveData
 import com.android.permissioncontroller.permission.data.AppOpLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokeManifestExemptPackagesLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokeStateLiveData
+import com.android.permissioncontroller.permission.data.BroadcastReceiverLiveData
 import com.android.permissioncontroller.permission.data.DataRepositoryForPackage
+import com.android.permissioncontroller.permission.data.HasIntentAction
 import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData
 import com.android.permissioncontroller.permission.data.ServiceLiveData
@@ -582,18 +585,12 @@ class AutoRevokeService : JobService() {
         val pendingIntent = PendingIntent.getActivity(this, 0, clickIntent,
             FLAG_ONE_SHOT or FLAG_UPDATE_CURRENT)
 
-        val numRevoked = UnusedAutoRevokedPackagesLiveData.getInitializedValue().size
-        val titleString = if (numRevoked == 1) {
-            getString(R.string.auto_revoke_permission_reminder_notification_title_one)
-        } else {
-            getString(R.string.auto_revoke_permission_reminder_notification_title_many, numRevoked)
-        }
         val b = Notification.Builder(this, PERMISSION_REMINDER_CHANNEL_ID)
-            .setContentTitle(titleString)
+            .setContentTitle(getString(R.string.auto_revoke_permission_notification_title))
             .setContentText(getString(
-                R.string.auto_revoke_permission_reminder_notification_content))
+                R.string.auto_revoke_permission_notification_content))
             .setStyle(Notification.BigTextStyle().bigText(getString(
-                R.string.auto_revoke_permission_reminder_notification_content)))
+                R.string.auto_revoke_permission_notification_content)))
             .setSmallIcon(R.drawable.ic_settings_24dp)
             .setColor(getColor(android.R.color.system_notification_accent_color))
             .setAutoCancel(true)
@@ -607,6 +604,8 @@ class AutoRevokeService : JobService() {
 
         notificationManager.notify(AutoRevokeService::class.java.simpleName,
             AUTO_REVOKE_NOTIFICATION_ID, b.build())
+        // Preload the auto revoked packages
+        UnusedAutoRevokedPackagesLiveData.getInitializedValue()
     }
 
     companion object {
@@ -626,7 +625,7 @@ class AutoRevokeService : JobService() {
  */
 private class ExemptServicesLiveData(val user: UserHandle)
     : SmartUpdateMediatorLiveData<Map<String, List<String>>>() {
-    private val serviceLiveDatas = listOf(
+    private val serviceLiveDatas: List<SmartUpdateMediatorLiveData<Set<String>>> = listOf(
             ServiceLiveData[InputMethod.SERVICE_INTERFACE,
                     Manifest.permission.BIND_INPUT_METHOD,
                     user],
@@ -677,6 +676,10 @@ private class ExemptServicesLiveData(val user: UserHandle)
             ServiceLiveData[
                     DevicePolicyManager.ACTION_DEVICE_ADMIN_SERVICE,
                     Manifest.permission.BIND_DEVICE_ADMIN,
+                    user],
+            BroadcastReceiverLiveData[
+                    DeviceAdminReceiver.ACTION_DEVICE_ADMIN_ENABLED,
+                    Manifest.permission.BIND_DEVICE_ADMIN,
                     user]
     )
 
@@ -691,7 +694,7 @@ private class ExemptServicesLiveData(val user: UserHandle)
             serviceLiveDatas.forEach { serviceLD ->
                 serviceLD.value!!.forEach { packageName ->
                     pksToServices.getOrPut(packageName, { mutableListOf() })
-                            .add(serviceLD.serviceInterface)
+                            .add((serviceLD as? HasIntentAction)?.intentAction ?: "???")
                 }
             }
 
