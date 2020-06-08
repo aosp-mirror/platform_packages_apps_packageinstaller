@@ -250,7 +250,11 @@ private suspend fun revokePermissionsOnUnusedApps(
     // TODO ntmyren: remove once b/154796729 is fixed
     Log.i(LOG_TAG, "getting UserPackageInfoLiveData for all users " +
         "in AutoRevokePermissions")
-    val unusedApps = AllPackageInfosLiveData.getInitializedValue().toMutableMap()
+    val allPackagesByUser = AllPackageInfosLiveData.getInitializedValue()
+    val allPackagesByUserByUid = allPackagesByUser.mapValues { (_, pkgs) ->
+        pkgs.groupBy { pkg -> pkg.uid }
+    }
+    val unusedApps = allPackagesByUser.toMutableMap()
 
     val userStats = UsageStatsLiveData[getUnusedThresholdMs(context),
         if (DEBUG_OVERRIDE_THRESHOLDS) INTERVAL_DAILY else INTERVAL_MONTHLY].getInitializedValue()
@@ -277,7 +281,13 @@ private suspend fun revokePermissionsOnUnusedApps(
         unusedUserApps = unusedUserApps.filter { packageInfo ->
             val pkgName = packageInfo.packageName
 
-            var lastTimeVisible: Long = stats.lastTimeVisible(pkgName)
+            val uidPackages = allPackagesByUserByUid[user]!![packageInfo.uid]
+                    ?.map { info -> info.packageName } ?: emptyList()
+            if (pkgName !in uidPackages) {
+                Log.wtf(LOG_TAG, "Package $pkgName not among packages for " +
+                        "its uid ${packageInfo.uid}: $uidPackages")
+            }
+            var lastTimeVisible: Long = stats.lastTimeVisible(uidPackages)
 
             // Limit by install time
             lastTimeVisible = Math.max(lastTimeVisible, packageInfo.firstInstallTime)
@@ -432,14 +442,18 @@ private suspend fun revokePermissionsOnUnusedApps(
     return revokedApps
 }
 
-private fun List<UsageStats>.lastTimeVisible(pkgName: String): Long {
+private fun List<UsageStats>.lastTimeVisible(pkgNames: List<String>): Long {
     var result = 0L
     for (stat in this) {
-        if (stat.packageName == pkgName) {
+        if (stat.packageName in pkgNames) {
             result = Math.max(result, stat.lastTimeVisible)
         }
     }
     return result
+}
+
+private fun List<UsageStats>.lastTimeVisible(pkgName: String): Long {
+    return lastTimeVisible(listOf(pkgName))
 }
 
 /**
