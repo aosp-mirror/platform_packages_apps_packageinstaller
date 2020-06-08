@@ -66,6 +66,8 @@ import android.service.notification.NotificationListenerService
 import android.service.textclassifier.TextClassifierService
 import android.service.voice.VoiceInteractionService
 import android.service.wallpaper.WallpaperService
+import android.telephony.TelephonyManager.CARRIER_PRIVILEGE_STATUS_HAS_ACCESS
+import android.telephony.TelephonyManager.CARRIER_PRIVILEGE_STATUS_NO_ACCESS
 import android.util.Log
 import android.view.inputmethod.InputMethod
 import androidx.annotation.MainThread
@@ -86,6 +88,7 @@ import com.android.permissioncontroller.permission.data.AppOpLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokeManifestExemptPackagesLiveData
 import com.android.permissioncontroller.permission.data.AutoRevokeStateLiveData
 import com.android.permissioncontroller.permission.data.BroadcastReceiverLiveData
+import com.android.permissioncontroller.permission.data.CarrierPrivilegedStatusLiveData
 import com.android.permissioncontroller.permission.data.DataRepositoryForPackage
 import com.android.permissioncontroller.permission.data.HasIntentAction
 import com.android.permissioncontroller.permission.data.LightAppPermGroupLiveData
@@ -111,6 +114,7 @@ import com.android.permissioncontroller.permission.utils.Utils.PROPERTY_AUTO_REV
 import com.android.permissioncontroller.permission.utils.Utils.PROPERTY_AUTO_REVOKE_UNUSED_THRESHOLD_MILLIS
 import com.android.permissioncontroller.permission.utils.application
 import com.android.permissioncontroller.permission.utils.forEachInParallel
+import com.android.permissioncontroller.permission.utils.getUid
 import com.android.permissioncontroller.permission.utils.updatePermissionFlags
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
@@ -306,11 +310,6 @@ private suspend fun revokePermissionsOnUnusedApps(
     val manifestExemptPackages = AutoRevokeManifestExemptPackagesLiveData[myUserHandle()]
             .getInitializedValue()
 
-    // Exempt important system-bound services
-    // TODO: Support more than the current user
-    val exemptServicePackages = ExemptServicesLiveData[myUserHandle()]
-            .getInitializedValue().keys
-
     val revokedApps = mutableListOf<Pair<String, UserHandle>>()
     val userManager = context.getSystemService(UserManager::class.java)
     for ((user, userApps) in unusedApps) {
@@ -323,7 +322,7 @@ private suspend fun revokePermissionsOnUnusedApps(
                 return@forEachInParallel
             }
 
-            if (pkg.packageName in exemptServicePackages) {
+            if (isPackageAutoRevokePermanentlyExempt(pkg, user)) {
                 return@forEachInParallel
             }
 
@@ -443,6 +442,44 @@ private fun List<UsageStats>.lastTimeVisible(pkgName: String): Long {
     return result
 }
 
+/**
+ * Checks if the given package is exempt from auto revoke in a way that's not user-overridable
+ */
+suspend fun isPackageAutoRevokePermanentlyExempt(
+    pkg: LightPackageInfo,
+    user: UserHandle
+): Boolean {
+    if (!ExemptServicesLiveData[user]
+            .getInitializedValue()[pkg.packageName]
+            .isNullOrEmpty()) {
+        return true
+    }
+    if (Utils.isUserDisabledOrWorkProfile(user)) {
+        if (DEBUG) {
+            DumpableLog.i(LOG_TAG,
+                    "Exempted ${pkg.packageName} - $user is disabled or a work profile")
+        }
+        return true
+    }
+    val carrierPrivilegedStatus = CarrierPrivilegedStatusLiveData[user.getUid(pkg.uid)]
+            .getInitializedValue()
+    if (carrierPrivilegedStatus != CARRIER_PRIVILEGE_STATUS_HAS_ACCESS &&
+            carrierPrivilegedStatus != CARRIER_PRIVILEGE_STATUS_NO_ACCESS) {
+        DumpableLog.w(LOG_TAG, "Error carrier privileged status for ${pkg.packageName}: " +
+                carrierPrivilegedStatus)
+    }
+    if (carrierPrivilegedStatus == CARRIER_PRIVILEGE_STATUS_HAS_ACCESS) {
+        if (DEBUG) {
+            DumpableLog.i(LOG_TAG, "Exempted ${pkg.packageName} - carrier privileged")
+        }
+        return true
+    }
+    return false
+}
+
+/**
+ * Checks if the given package is exempt from auto revoke in a way that's user-overridable
+ */
 suspend fun isPackageAutoRevokeExempt(
     context: Context,
     pkg: LightPackageInfo
@@ -519,10 +556,20 @@ private val Context.firstBootTime: Long get() {
 
 private fun reGrantAutoRevokedPermissionsIfNeeded(context: Context) {
     val sharedPreferences = context.sharedPreferences
-    val key = "auto_revoke_regrant_done"
+    val key = "auto_revoke_regrant2_done"
     if (!sharedPreferences.getBoolean(key, false)) {
-        context.startService(
-                Intent().setComponent(ComponentName(context, AutoRevokeReGrantService::class.java)))
+        val jobInfo = JobInfo.Builder(
+                Constants.AUTO_REVOKE_REGRANT_JOB_ID,
+                ComponentName(context, AutoRevokeReGrantService::class.java))
+                .build()
+        val status = context
+                .getSystemService(JobScheduler::class.java)!!
+                .schedule(jobInfo)
+        if (status != JobScheduler.RESULT_SUCCESS) {
+            DumpableLog.e(LOG_TAG,
+                    "Could not schedule ${AutoRevokeReGrantService::class.java.simpleName}: " +
+                            "$status")
+        }
         sharedPreferences.edit().putBoolean(key, true).apply()
     }
 }
@@ -623,7 +670,7 @@ class AutoRevokeService : JobService() {
  * Packages using exempt services for the current user (package-name -> list<service-interfaces>
  * implemented by the package)
  */
-private class ExemptServicesLiveData(val user: UserHandle)
+class ExemptServicesLiveData(val user: UserHandle)
     : SmartUpdateMediatorLiveData<Map<String, List<String>>>() {
     private val serviceLiveDatas: List<SmartUpdateMediatorLiveData<Set<String>>> = listOf(
             ServiceLiveData[InputMethod.SERVICE_INTERFACE,
