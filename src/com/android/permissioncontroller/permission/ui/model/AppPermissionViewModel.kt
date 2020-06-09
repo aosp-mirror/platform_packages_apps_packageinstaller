@@ -343,8 +343,6 @@ class AppPermissionViewModel(
                         allowedAllFilesState.isShown = true
                         if (storageState.isGranted) {
                             allowedAllFilesState.isChecked = true
-                        } else if (allowedState.isChecked) {
-                            allowedMediaOnlyState.isChecked = true
                         }
                 } else {
                     allowedAllFilesState.isEnabled = false
@@ -352,7 +350,8 @@ class AppPermissionViewModel(
                 }
                 allowedMediaOnlyState.isShown = true
                 allowedMediaOnlyState.isEnabled = allowedState.isEnabled
-                allowedMediaOnlyState.isChecked = allowedState.isChecked
+                allowedMediaOnlyState.isChecked = allowedState.isChecked &&
+                    storageState?.isGranted != true
                 allowedState.isChecked = false
                 allowedState.isShown = false
             }
