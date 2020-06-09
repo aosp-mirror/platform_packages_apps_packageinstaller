@@ -21,8 +21,6 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.os.UserHandle
 import android.util.Log
 import android.view.MenuItem
@@ -39,7 +37,11 @@ import com.android.permissioncontroller.permission.ui.model.AutoRevokeViewModel
 import com.android.permissioncontroller.permission.ui.model.AutoRevokeViewModel.Months
 import com.android.permissioncontroller.permission.ui.model.AutoRevokeViewModel.RevokedPackageInfo
 import com.android.permissioncontroller.permission.ui.model.AutoRevokeViewModelFactory
+import com.android.permissioncontroller.permission.utils.IPC
 import com.android.permissioncontroller.permission.utils.KotlinUtils
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.text.Collator
 
 /**
@@ -100,11 +102,12 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
         activity?.getActionBar()?.setDisplayHomeAsUpEnabled(true)
 
         if (!viewModel.areAutoRevokedPackagesLoaded()) {
-            Handler(Looper.getMainLooper()).postDelayed(Runnable {
+            GlobalScope.launch(IPC) {
+                delay(SHOW_LOAD_DELAY_MS)
                 if (!viewModel.areAutoRevokedPackagesLoaded()) {
                     setLoading(true, false)
                 }
-            }, SHOW_LOAD_DELAY_MS)
+            }
         }
     }
 
