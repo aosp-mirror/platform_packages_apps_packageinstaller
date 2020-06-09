@@ -27,6 +27,8 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.location.LocationManager;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
@@ -43,6 +45,8 @@ public class LocationUtils {
     public static final String LOCATION_PERMISSION = Manifest.permission_group.LOCATION;
 
     private static final String TAG = LocationUtils.class.getSimpleName();
+    private static final long LOCATION_UPDATE_DELAY_MS = 1000;
+    private static final Handler sMainHandler = new Handler(Looper.getMainLooper());
 
     public static void showLocationDialog(final Context context, CharSequence label) {
         new AlertDialog.Builder(context)
@@ -121,11 +125,13 @@ public class LocationUtils {
         @Override
         public void onReceive(Context context, Intent intent) {
             boolean isEnabled = intent.getBooleanExtra(EXTRA_LOCATION_ENABLED, true);
-            synchronized (sLocationListeners) {
-                for (LocationListener l: sLocationListeners) {
-                    l.onLocationStateChange(isEnabled);
+            sMainHandler.postDelayed(() -> {
+                synchronized (sLocationListeners) {
+                    for (LocationListener l : sLocationListeners) {
+                        l.onLocationStateChange(isEnabled);
+                    }
                 }
-            }
+            }, LOCATION_UPDATE_DELAY_MS);
         }
     };
 
