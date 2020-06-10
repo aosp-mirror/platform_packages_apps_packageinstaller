@@ -27,13 +27,13 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.leanback.widget.VerticalGridView;
-import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.permissioncontroller.R;
 
-public abstract class PermissionsFrameFragment extends PreferenceFragment {
+public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat {
 
     // Key identifying the preference used on TV as the extra header in a permission fragment.
     // This is to distinguish it from the rest of the preferences
