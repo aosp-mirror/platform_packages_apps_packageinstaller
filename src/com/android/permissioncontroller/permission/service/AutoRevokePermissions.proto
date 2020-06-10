@@ -24,8 +24,6 @@ message PackageProto {
   optional int64 first_install_time = 5;
   repeated PermissionGroupProto groups = 6;
   repeated string implemented_services = 7;
-  optional bool is_auto_revoke_manifest_exempt = 8;
-  optional bool is_auto_revoke_enabled = 9;
 }
 
 message PermissionGroupProto {
