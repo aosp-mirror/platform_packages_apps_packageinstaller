@@ -261,6 +261,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                         || DeviceUtils.isTelevision(this)) {
                     androidXFragment = com.android.permissioncontroller.permission.ui.handheld
                             .AutoRevokeFragment.newInstance();
+                    androidXFragment.setArguments(AutoRevokeFragment.createArgs(sessionId));
                 } else {
                     setNavGraph(AutoRevokeFragment.createArgs(sessionId), R.id.auto_revoke);
                     return;
