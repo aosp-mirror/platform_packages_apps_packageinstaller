@@ -130,7 +130,7 @@
     <string name="auto_manage_title" msgid="4059499629753336321">"Управљајте дозволама аутоматски"</string>
     <string name="off" msgid="4561379152328580345">"Искључено"</string>
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Дозвола <xliff:g id="PERMISSION_NAME">%s</xliff:g> је уклоњена"</string>
-    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> и још <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> дозволе су уклоњене"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Дозволе <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> и <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> су уклоњене"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Уклоњено: <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> и још <xliff:g id="NUMBER">%2$s</xliff:g> дозволе"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Последњи пут отворено пре више од <xliff:g id="NUMBER">%s</xliff:g> мес."</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Апликација је последњи пут отворена: <xliff:g id="DATE">%s</xliff:g>"</string>
@@ -185,13 +185,13 @@
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Апликација које се не користе: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Дозволе су уклоњене ради заштите приватности. Додирните да бисте прегледали"</string>
     <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Уклоњене су дозволе за апликације које се не користе"</string>
-    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Неке апликације нису коришћене неколико месеци. Додирните да бисте прегледали."</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Неке апликације нису коришћене пар месеци. Додирните да бисте прегледали."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> апликација није коришћена неколико месеци. Додирните да бисте прегледали</item>
       <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> апликације нису коришћене неколико месеци. Додирните да бисте прегледали</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> апликација није коришћено неколико месеци. Додирните да бисте прегледали</item>
     </plurals>
-    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Неке апликације нису коришћене неколико месеци"</string>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Неке апликације нису коришћене пар месеци"</string>
     <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> апликација није коришћена неколико месеци</item>
       <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> апликације нису коришћене неколико месеци</item>
