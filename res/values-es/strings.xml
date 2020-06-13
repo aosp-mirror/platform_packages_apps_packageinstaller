@@ -119,8 +119,8 @@
     <string name="auto_revoke_label" msgid="8755748230070160969">"Quitar permisos si la aplicación no se utiliza"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Para proteger tus datos, se quitarán los permisos de esta aplicación si no la usas durante unos meses."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Para proteger tus datos, si la aplicación no se ha utilizado durante unos meses, se quitarán los siguientes permisos: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
-    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Para proteger tus datos, se han revocado los permisos de las aplicaciones que llevas unos meses sin usar."</string>
-    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Si quieres volver a dar los permisos, abre la aplicación."</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Para proteger tus datos, se han quitado los permisos de las aplicaciones que llevas unos meses sin usar."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Si quieres volver a dar permisos, abre la aplicación."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"La retirada automática está inhabilitada en esta aplicación."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"No se ha concedido ningún permiso que se pueda revocar automáticamente"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Se quitará el permiso de <xliff:g id="PERM">%1$s</xliff:g>."</string>
@@ -129,7 +129,7 @@
     <string name="auto_manage_title" msgid="4059499629753336321">"Gestionar permisos automáticamente"</string>
     <string name="off" msgid="4561379152328580345">"No"</string>
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Permiso <xliff:g id="PERMISSION_NAME">%s</xliff:g> quitado"</string>
-    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Retirados los permisos <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> y <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Permisos <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> y <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> quitados"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Permisos <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> y <xliff:g id="NUMBER">%2$s</xliff:g> más quitados"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Abierto por última vez hace más de <xliff:g id="NUMBER">%s</xliff:g> meses"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"La aplicación se abrió por última vez el <xliff:g id="DATE">%s</xliff:g>"</string>
@@ -179,19 +179,19 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 aplicación no usada"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplicaciones no usadas"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Permisos quitados para proteger tu privacidad. Toca para revisarlo"</string>
-    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Se han revocado permisos de las aplicaciones que no se usan"</string>
-    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Hay varias aplicaciones que llevan unos meses sin usarse. Toca para revisarlas."</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Se han quitado permisos de las aplicaciones que no se usan"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Hay varias aplicaciones que llevan meses sin usarse. Toca para revisarlas."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
-      <item quantity="other">Hay <xliff:g id="COUNT_1">%1$d</xliff:g> aplicaciones que llevan unos meses sin usarse. Toca para revisarlas.</item>
-      <item quantity="one">Hay <xliff:g id="COUNT_0">%1$d</xliff:g> aplicación que lleva unos meses sin usarse. Toca para revisarla.</item>
+      <item quantity="other">Hay <xliff:g id="COUNT_1">%1$d</xliff:g> aplicaciones que llevan meses sin usarse. Toca para revisarlas.</item>
+      <item quantity="one">Hay <xliff:g id="COUNT_0">%1$d</xliff:g> aplicación que lleva meses sin usarse. Toca para revisarla.</item>
     </plurals>
-    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Hay varias aplicaciones que llevan unos meses sin usarse"</string>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Hay varias aplicaciones que llevan meses sin usarse"</string>
     <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
-      <item quantity="other">Hay <xliff:g id="COUNT_1">%1$d</xliff:g> aplicaciones que llevan unos meses sin usarse</item>
-      <item quantity="one">Hay <xliff:g id="COUNT_0">%1$d</xliff:g> aplicación que lleva unos meses sin usarse</item>
+      <item quantity="other">Hay <xliff:g id="COUNT_1">%1$d</xliff:g> aplicaciones que llevan meses sin usarse</item>
+      <item quantity="one">Hay <xliff:g id="COUNT_0">%1$d</xliff:g> aplicación que lleva meses sin usarse</item>
     </plurals>
-    <string name="permissions_removed_category_title" msgid="189425131292668991">"Permisos revocados"</string>
-    <string name="permission_removed_page_title" msgid="6249023142431438359">"Permisos revocados"</string>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Permisos quitados"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Permisos quitados"</string>
     <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Todas las aplicaciones que no se usan"</string>
     <string name="months_ago" msgid="6541240625299588045">"Hace <xliff:g id="COUNT">%1$d</xliff:g> meses"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Permisos quitados para proteger tu privacidad"</string>
@@ -205,12 +205,12 @@
     <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplicaciones no se utilizan"</string>
     <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Se revocarán los permisos para proteger tu privacidad. Toca para revisarlo."</string>
     <string name="unused_apps_title" msgid="4528745145780586943">"Aplicaciones no utilizadas"</string>
-    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Se han revocado los permisos de"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Se han quitado los permisos de"</string>
     <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Se revocarán los permisos de"</string>
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> y <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> y <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> más"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Para proteger tus datos, se han revocado los permisos de las aplicaciones que no has utilizado desde hace unos meses"</string>
-    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Para proteger tus datos, se han revocado permisos de algunas aplicaciones que llevan unos meses sin usarse"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Para proteger tus datos, se han quitado los permisos de las aplicaciones que no has utilizado desde hace unos meses"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Para proteger tus datos, se han quitado permisos de algunas aplicaciones que llevan meses sin usarse"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"Hay 1 aplicación que llevas unos meses sin usar"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"Hay <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplicaciones que llevas unos meses sin usar"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Solo mientras la aplicación está en uso"</string>
