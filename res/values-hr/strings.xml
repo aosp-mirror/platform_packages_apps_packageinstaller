@@ -120,7 +120,7 @@
     <string name="auto_revoke_label" msgid="8755748230070160969">"Ukloni dopuštenja ako se aplikacija ne upotrebljava"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Kako bi se vaši podaci zaštitili, dopuštenja za ovu aplikaciju uklonit će se ako se aplikacija ne upotrebljava nekoliko mjeseci."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Kako bi se vaši podaci zaštitili, ako se aplikacija ne upotrebljava nekoliko mjeseci, uklonit će se sljedeća dopuštenja: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
-    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Radi zaštite vaših podataka iz aplikacija koje nekoliko mjeseci niste upotrebljavali uklonjena su dopuštenja."</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Radi zaštite vaših podataka uklonjena su dopuštenja aplikacijama koje nekoliko mjeseci niste upotrebljavali."</string>
     <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Ako želite ponovno odobriti dopuštenja, otvorite aplikaciju."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatsko uklanjanje trenutačno je onemogućeno za ovu aplikaciju."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Trenutačno nema dodijeljenih dopuštenja s automatskim opozivom"</string>
@@ -132,7 +132,7 @@
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Uklonjeno je dopuštenje <xliff:g id="PERMISSION_NAME">%s</xliff:g>"</string>
     <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Uklonjena su dopuštenja <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> i <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Uklonjeno je dopuštenje <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> i njih još <xliff:g id="NUMBER">%2$s</xliff:g>"</string>
-    <string name="last_opened_category_title" msgid="4204626487716958146">"Posljednji puta otvoreno prije više od <xliff:g id="NUMBER">%s</xliff:g> mj."</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Posljednji put otvoreno prije više od <xliff:g id="NUMBER">%s</xliff:g> mj."</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Aplikacija je posljednji put otvorena <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Posljednje otvaranje <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Ako dopustite upravljanje svim datotekama, ova će aplikacija moći pristupiti datotekama u zajedničkoj pohrani na ovom uređaju ili povezanim uređajima za pohranu te mijenjati i brisati ih. Aplikacija može pristupiti datotekama bez vašeg dopuštenja."</string>
@@ -184,7 +184,7 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 nekorištena aplikacija"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Nekorištenih aplikacija: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Uklonjena su dopuštenja radi zaštite vaše privatnosti. Dodirnite za pregled"</string>
-    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Uklonjena su dopuštenja za aplikacije koje ne upotrebljavate"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Uklonjena su dopuštenja neupotrebljavanim apl."</string>
     <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Neke aplikacije niste upotrebljavali nekoliko mjeseci. Dodirnite za pregled."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikaciju niste upotrebljavali nekoliko mjeseci. Dodirnite za pregled</item>
@@ -216,7 +216,7 @@
     <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Dopuštenja će se ukloniti iz"</string>
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> i <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> i još <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
-    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Radi zaštite vaših podataka iz aplikacija koje nekoliko mjeseci niste upotrebljavali uklonjena su dopuštenja"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Radi zaštite vaših podataka uklonjena su dopuštenja aplikacijama koje nekoliko mjeseci niste upotrebljavali."</string>
     <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Radi zaštite vaših podataka za neke aplikacije koje niste upotrebljavali nekoliko mjeseci uklonjena su dopuštenja"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 aplikaciju niste upotrebljavali nekoliko mjeseci"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplik. niste upotrebljavali nekoliko mjeseci"</string>

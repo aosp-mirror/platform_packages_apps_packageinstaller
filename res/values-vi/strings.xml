@@ -179,7 +179,7 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ứng dụng không dùng đến"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ứng dụng không dùng đến"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Đã thu hồi các quyền để bảo vệ quyền riêng tư của bạn. Nhấn để xem lại"</string>
-    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Đã xóa quyền của các ứng dụng không dùng đến"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Đã thu hồi quyền của các ứng dụng không dùng đến"</string>
     <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Bạn không dùng một số ứng dụng trong vài tháng qua. Nhấn để xem."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
       <item quantity="other">Bạn không dùng <xliff:g id="COUNT_1">%1$d</xliff:g> ứng dụng trong vài tháng qua. Nhấn để xem</item>
@@ -191,7 +191,7 @@
       <item quantity="one">Bạn không dùng <xliff:g id="COUNT_0">%1$d</xliff:g> ứng dụng trong vài tháng qua</item>
     </plurals>
     <string name="permissions_removed_category_title" msgid="189425131292668991">"Các quyền bị xóa"</string>
-    <string name="permission_removed_page_title" msgid="6249023142431438359">"Các quyền đã xóa"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Các quyền đã thu hồi"</string>
     <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Tất cả ứng dụng không dùng đến"</string>
     <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> tháng trước"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Đã thu hồi các quyền để bảo vệ quyền riêng tư của bạn"</string>
@@ -330,8 +330,8 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Các quyền bị kiểm soát"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Ứng dụng có thể truy cập thông tin vị trí"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Quản trị viên CNTT đang cho phép ứng dụng <xliff:g id="APP_NAME">%s</xliff:g> truy cập vào thông tin vị trí của bạn"</string>
-    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Không có một số tùy chọn vì ứng dụng này cần phát hiện âm thanh"</string>
-    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Không có một số tùy chọn vì ứng dụng này là trợ lý kỹ thuật số mặc định"</string>
-    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Không có một số tùy chọn vì ứng dụng này dùng để nhập bằng giọng nói"</string>
-    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Không có một số tùy chọn vì ứng dụng này do nhà mạng quản lý"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Một số tùy chọn có thể không có sẵn vì ứng dụng này cần phát hiện âm thanh"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Một số tùy chọn có thể không có sẵn vì ứng dụng này là trợ lý kỹ thuật số mặc định"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Một số tùy chọn có thể không có sẵn vì ứng dụng này dùng để nhập liệu bằng giọng nói"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Một số tùy chọn có thể không có sẵn vì ứng dụng này do nhà mạng quản lý"</string>
 </resources>
