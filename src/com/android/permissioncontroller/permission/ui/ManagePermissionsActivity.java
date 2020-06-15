@@ -56,6 +56,7 @@ import com.android.permissioncontroller.permission.ui.handheld.AutoRevokeFragmen
 import com.android.permissioncontroller.permission.ui.handheld.PermissionAppsFragment;
 import com.android.permissioncontroller.permission.ui.legacy.AppPermissionActivity;
 import com.android.permissioncontroller.permission.ui.wear.AppPermissionsFragmentWear;
+import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 import java.util.Random;
@@ -181,12 +182,15 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                                 APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION, sessionId, uid,
                                 packageName, autoRevokeAction);
                     } else {
-                        Log.i(LOG_TAG, "sessionId: " + sessionId
-                                + " Reaching AppPermissionGroupsFragment from intent. packageName "
-                                + packageName + " uid " + uid);
-                        PermissionControllerStatsLog.write(
-                                APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION, sessionId, uid,
-                                packageName, openFromIntentAction);
+                        if (KotlinUtils.INSTANCE.isROrAutoRevokeEnabled(getApplication(),
+                                packageName, userHandle)) {
+                            Log.i(LOG_TAG, "sessionId: " + sessionId
+                                    + " Reaching AppPermissionGroupsFragment from intent. "
+                                    + "packageName " + packageName + " uid " + uid);
+                            PermissionControllerStatsLog.write(
+                                    APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION, sessionId,
+                                    uid, packageName, openFromIntentAction);
+                        }
                     }
                 } catch (PackageManager.NameNotFoundException e) {
                     // Do no logging
