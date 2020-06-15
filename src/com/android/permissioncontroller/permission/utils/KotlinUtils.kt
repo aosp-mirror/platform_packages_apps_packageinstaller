@@ -23,6 +23,7 @@ import android.app.AppOpsManager
 import android.app.AppOpsManager.MODE_ALLOWED
 import android.app.AppOpsManager.MODE_FOREGROUND
 import android.app.AppOpsManager.MODE_IGNORED
+import android.app.AppOpsManager.OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED
 import android.app.AppOpsManager.permissionToOp
 import android.app.Application
 import android.content.Context
@@ -334,6 +335,33 @@ object KotlinUtils {
                 null
             }
         }
+    }
+
+    /**
+     * Determines if an app is R or above, or if it is Q-, and has auto revoke enabled
+     *
+     * @param app The currenct application
+     * @param packageName The package name to check
+     * @param user The user whose package we want to check
+     *
+     * @return true if the package is R+ (and not a work profile) or has auto revoke enabled
+     */
+    fun isROrAutoRevokeEnabled(app: Application, packageName: String, user: UserHandle): Boolean {
+        val userContext = Utils.getUserContext(app, user)
+        val liveDataValue = LightPackageInfoLiveData[packageName, user].value
+        val (targetSdk, uid) = if (liveDataValue != null) {
+            liveDataValue.targetSdkVersion to liveDataValue.uid
+        } else {
+            val appInfo = userContext.packageManager.getApplicationInfo(packageName, 0)
+            appInfo.targetSdkVersion to appInfo.uid
+        }
+
+        if (targetSdk <= Build.VERSION_CODES.Q) {
+            val opsManager = app.getSystemService(AppOpsManager::class.java)!!
+            return opsManager.unsafeCheckOpNoThrow(OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED, uid,
+                packageName) == MODE_ALLOWED
+        }
+        return true
     }
 
     /**
