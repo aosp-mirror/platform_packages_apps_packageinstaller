@@ -114,7 +114,7 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Дозволяти, лише коли додаток використовується"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Запитувати щоразу"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Заборонити"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Дозвіл – <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> (дозвіл)"</string>
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: доступ для цього додатка"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Переглянути всі дозволи додатка <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Переглянути всі додатки з цим дозволом"</string>
@@ -130,9 +130,9 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Дозволи, які буде відкликано: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"Керувати дозволами автоматично"</string>
     <string name="off" msgid="4561379152328580345">"Вимкнути"</string>
-    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Дозвіл додатка \"<xliff:g id="PERMISSION_NAME">%s</xliff:g>\" вилучено"</string>
-    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Дозволи \"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>\" та \"<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>\" вилучено"</string>
-    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Дозвіл \"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>\" і ще <xliff:g id="NUMBER">%2$s</xliff:g> вилучено"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Дозвіл додатка \"<xliff:g id="PERMISSION_NAME">%s</xliff:g>\" скасовано"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Дозволи \"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>\" та \"<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>\" скасовано"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Дозвіл \"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>\" і ще <xliff:g id="NUMBER">%2$s</xliff:g> скасовано"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Відкривались понад <xliff:g id="NUMBER">%s</xliff:g> міс. тому"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Додаток востаннє відкрито <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Востаннє відкрито <xliff:g id="DATE">%s</xliff:g>"</string>
@@ -189,7 +189,7 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 невикористовуваний додаток"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Невикористовуваних додатків: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Дозволи відкликано, щоб захистити вашу конфіденційність. Натисніть, щоб переглянути"</string>
-    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Дозволи скасовано для невикористовуваних додатків"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Дозволи скасовано для додатків, що не використовуються"</string>
     <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Деякі додатки не використовувалися кілька місяців. Натисніть, щоб переглянути."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> додаток не використовувався кілька місяців. Натисніть, щоб переглянути</item>

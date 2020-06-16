@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"За да се заштитат вашите податоци, дозволите за апликацијава ќе се отстранат ако апликацијата не се користи неколку месеци."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Ако апликацијата не се користи неколку месеци, заради заштита на податоците, ќе се отстранат следниве дозволи: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"За заштита на податоците, отстранети се дозволите од апликациите што не сте ги користеле неколку месеци."</string>
-    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Ако сакате повторно да дадете дозволи, отворете ја апликацијата."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Ако сакате повторно да доделите дозволи, отворете ја апликацијата."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Автоматското отстранување моментално е оневозможено за апликацијава."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Во моментов не се одобрени дозволи со автоматско повлекување"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Дозволата за <xliff:g id="PERM">%1$s</xliff:g> ќе се отстрани."</string>
@@ -129,8 +129,8 @@
     <string name="auto_manage_title" msgid="4059499629753336321">"Автоматско управување со дозволите"</string>
     <string name="off" msgid="4561379152328580345">"Исклучи"</string>
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Дозволата за „<xliff:g id="PERMISSION_NAME">%s</xliff:g>“ е отстранета"</string>
-    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Дозволите за <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>“ и „<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>“ се отстранети"</string>
-    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> и уште <xliff:g id="NUMBER">%2$s</xliff:g> други дозволи се отстранети"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Дозволите за „<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>“ и „<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>“ се отстранети"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Дозволата за „<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>“ и уште <xliff:g id="NUMBER">%2$s</xliff:g> други дозволи се отстранети"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Последно отворени пред повеќе од <xliff:g id="NUMBER">%s</xliff:g> месеци"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Последно отворање на апликацијата: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Последно отворање: <xliff:g id="DATE">%s</xliff:g>"</string>
@@ -179,19 +179,19 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 некористена апликација"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> некористени апликации"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Дозволите се отстранети за да се заштити вашата приватност. Допрете за да прегледате"</string>
-    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Одземени се дозволите за некористените апликации"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Отстранети се дозволите за некористените апликации"</string>
     <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Некои апликации не се користени неколку месеци. Допрете за да прегледате."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> апликација не е користена неколку месеци Допрете за да прегледате</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> апликации не се користени неколку месеци Допрете за да прегледате</item>
     </plurals>
-    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Некои апликации не се користени неколку месеци."</string>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Некои апликации не се користени неколку месеци"</string>
     <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> апликација не е користена неколку месеци</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> апликации не се користени неколку месеци</item>
     </plurals>
     <string name="permissions_removed_category_title" msgid="189425131292668991">"Одземени дозволи"</string>
-    <string name="permission_removed_page_title" msgid="6249023142431438359">"Дозволите се одземени"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Отстранети дозволи"</string>
     <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Сите некористени апликации"</string>
     <string name="months_ago" msgid="6541240625299588045">"Пред <xliff:g id="COUNT">%1$d</xliff:g> месеци"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Дозволите се отстранети за да се заштити вашата приватност"</string>
