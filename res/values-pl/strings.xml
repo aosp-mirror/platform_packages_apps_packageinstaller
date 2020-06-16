@@ -63,7 +63,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Ta aplikacja jest na straszą wersję Androida. Jeśli odmówisz uprawnień, aplikacja może nie działać prawidłowo."</string>
     <string name="default_permission_description" msgid="692254823411049573">"wykonywanie nieznanych działań"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Dostęp ma: <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikacji"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Przyznano dostęp <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikacji"</string>
     <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> dozwolonych aplikacji"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Pokaż systemowe"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Ukryj systemowe"</string>
@@ -131,8 +131,8 @@
     <string name="auto_manage_title" msgid="4059499629753336321">"Automatyczne zarządzanie uprawnieniami"</string>
     <string name="off" msgid="4561379152328580345">"Wyłącz"</string>
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Usunięto uprawnienie <xliff:g id="PERMISSION_NAME">%s</xliff:g>"</string>
-    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Usunięto uprawnienia <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> i <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>"</string>
-    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Usunięto te uprawnienia: <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> i <xliff:g id="NUMBER">%2$s</xliff:g> inne"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Usunięto uprawnienia: <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> oraz <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Usunięto uprawnienia: <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> oraz kilka innych (<xliff:g id="NUMBER">%2$s</xliff:g>)"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Ostatnio otwarto ponad <xliff:g id="NUMBER">%s</xliff:g> mies. temu"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Aplikacja została ostatnio otwarta <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Ostatnio otwarto <xliff:g id="DATE">%s</xliff:g>"</string>
