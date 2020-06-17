@@ -28,6 +28,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.ArraySet;
 import android.util.Log;
@@ -37,19 +38,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceViewHolder;
 import androidx.preference.SwitchPreference;
 
-import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissions;
+import com.android.permissioncontroller.permission.model.livedatatypes.AutoRevokeState;
+import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModel;
+import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModelFactory;
 import com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity;
 import com.android.permissioncontroller.permission.utils.LocationUtils;
 import com.android.permissioncontroller.permission.utils.SafetyNetLogger;
 import com.android.permissioncontroller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 public final class AppPermissionsFragment extends SettingsWithHeader
         implements OnPreferenceChangeListener {
@@ -57,22 +63,26 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     private static final String LOG_TAG = "ManagePermsFragment";
 
     static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
+    private static final String AUTO_REVOKE_SWITCH_KEY = "_AUTO_REVOKE_SWITCH_KEY";
 
     private static final int MENU_ALL_PERMS = 0;
 
     private ArraySet<AppPermissionGroup> mToggledGroups;
+    private AppPermissionGroupsViewModel mViewModel;
     private AppPermissions mAppPermissions;
     private PreferenceScreen mExtraScreen;
 
     private boolean mHasConfirmedRevoke;
 
-    public static AppPermissionsFragment newInstance(String packageName) {
-        return setPackageName(new AppPermissionsFragment(), packageName);
+    public static AppPermissionsFragment newInstance(String packageName, UserHandle user) {
+        return setPackage(new AppPermissionsFragment(), packageName, user);
     }
 
-    private static <T extends Fragment> T setPackageName(T fragment, String packageName) {
+    private static <T extends PermissionsFrameFragment> T setPackage(
+            T fragment, String packageName, UserHandle user) {
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
+        arguments.putParcelable(Intent.EXTRA_USER, user);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -87,7 +97,9 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             ab.setDisplayHomeAsUpEnabled(true);
         }
 
-        String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        final String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        final UserHandle user = getArguments().getParcelable(Intent.EXTRA_USER);
+
         Activity activity = getActivity();
         PackageInfo packageInfo = getPackageInfo(activity, packageName);
         if (packageInfo == null) {
@@ -96,24 +108,30 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             return;
         }
 
-
         mAppPermissions = new AppPermissions(activity, packageInfo, true,
                 () -> getActivity().finish());
 
         if (mAppPermissions.isReviewRequired()) {
             Intent intent = new Intent(getActivity(), ReviewPermissionsActivity.class);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName);
+            intent.putExtra(Intent.EXTRA_USER, user);
             startActivity(intent);
             getActivity().finish();
             return;
         }
-
-        loadPreferences();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        final String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        final UserHandle user = getArguments().getParcelable(Intent.EXTRA_USER);
+
+        AppPermissionGroupsViewModelFactory factory =
+                new AppPermissionGroupsViewModelFactory(packageName, user, 0);
+        mViewModel = new ViewModelProvider(this, factory).get(AppPermissionGroupsViewModel.class);
+        mViewModel.getAutoRevokeLiveData().observe(this, this::setAutoRevokeToggleState);
+
         mAppPermissions.refresh();
         loadPreferences();
         setPreferencesCheckedState();
@@ -128,8 +146,9 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             }
 
             case MENU_ALL_PERMS: {
-                Fragment frag = AllAppPermissionsFragment.newInstance(
-                        getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
+                PermissionsFrameFragment frag =
+                        AllAppPermissionsFragment.newInstance(
+                                getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
                 getFragmentManager().beginTransaction()
                         .replace(android.R.id.content, frag)
                         .addToBackStack("AllPerms")
@@ -224,10 +243,13 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             }
         }
 
+        final String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        final UserHandle user = getArguments().getParcelable(Intent.EXTRA_USER);
+
         if (mExtraScreen != null) {
             extraPerms.setOnPreferenceClickListener(preference -> {
                 AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
-                setPackageName(frag, getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
+                setPackage(frag, packageName, user);
                 frag.setTargetFragment(AppPermissionsFragment.this, 0);
                 getFragmentManager().beginTransaction()
                         .replace(android.R.id.content, frag)
@@ -240,6 +262,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                     R.plurals.additional_permissions_more, count, count));
             screen.addPreference(extraPerms);
         }
+
+        addAutoRevokePreferences(getPreferenceScreen());
 
         setLoading(false /* loading */, true /* animate */);
     }
@@ -314,6 +338,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
     @Override
     public void onPause() {
+        mViewModel.getAutoRevokeLiveData().removeObservers(this);
         super.onPause();
         logToggledGroups();
     }
@@ -337,6 +362,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         if (mExtraScreen != null) {
             setPreferencesCheckedState(mExtraScreen);
         }
+        setAutoRevokeToggleState(mViewModel.getAutoRevokeLiveData().getValue());
     }
 
     private void setPreferencesCheckedState(PreferenceScreen screen) {
@@ -351,6 +377,35 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 }
             }
         }
+    }
+
+
+    private void addAutoRevokePreferences(PreferenceScreen screen) {
+        SwitchPreference autoRevokeSwitch =
+                new SwitchPreference(screen.getPreferenceManager().getContext());
+        autoRevokeSwitch.setOnPreferenceClickListener((preference) -> {
+            mViewModel.setAutoRevoke(autoRevokeSwitch.isChecked());
+            android.util.Log.w(LOG_TAG, "setAutoRevoke " + autoRevokeSwitch.isChecked());
+            return true;
+        });
+        autoRevokeSwitch.setTitle(R.string.auto_revoke_label);
+        autoRevokeSwitch.setSummary(R.string.auto_revoke_summary);
+        autoRevokeSwitch.setKey(AUTO_REVOKE_SWITCH_KEY);
+        screen.addPreference(autoRevokeSwitch);
+    }
+
+    private void setAutoRevokeToggleState(AutoRevokeState state) {
+        SwitchPreference autoRevokeSwitch = getPreferenceScreen().findPreference(
+                AUTO_REVOKE_SWITCH_KEY);
+        if (state == null || autoRevokeSwitch == null) {
+            return;
+        }
+        if (!state.isEnabledGlobal() || !state.getShouldShowSwitch()) {
+            autoRevokeSwitch.setVisible(false);
+            return;
+        }
+        autoRevokeSwitch.setVisible(true);
+        autoRevokeSwitch.setChecked(state.isEnabledForApp());
     }
 
     private static PackageInfo getPackageInfo(Activity activity, String packageName) {
