@@ -59,7 +59,8 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         return setPermissionName(new PermissionAppsFragment(), permissionName);
     }
 
-    private static <T extends Fragment> T setPermissionName(T fragment, String permissionName) {
+    private static <T extends PermissionsFrameFragment> T setPermissionName(
+            T fragment, String permissionName) {
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PERMISSION_NAME, permissionName);
         fragment.setArguments(arguments);

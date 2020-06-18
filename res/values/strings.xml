@@ -54,6 +54,9 @@
     <!-- Title for the dialog button to deny a permission grant despite a warning of implications. [CHAR LIMIT=15] -->
     <string name="grant_dialog_button_deny_anyway">Deny anyway</string>
 
+    <!-- Alternative dialog button to deny a permission, but phrased as dismissing the dialog. Currently only used in automotive. [CHAR LIMIT=20] -->
+    <string name="grant_dialog_button_dismiss">Dismiss</string>
+
     <!-- Template for the current permission from the total number of permissions. [CHAR LIMIT=100] -->
     <string name="current_permission_template">
         <xliff:g id="current_permission_index" example="1">%1$s</xliff:g> of
