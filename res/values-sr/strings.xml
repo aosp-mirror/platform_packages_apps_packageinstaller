@@ -27,7 +27,7 @@
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Одбиј и не питај поново"</string>
     <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"Задржи „Док се апликација користи“"</string>
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Задржи Само овај пут"</string>
-    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Више инфор."</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Више информација"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Ипак одбиј"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> од <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Желите ли да дозволите да &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; обави следећу радњу: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -121,7 +121,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Ради заштите података, дозволе за ову апликацију се уклањају ако се апликација не користи пар месеци."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Ради заштите података, следеће дозволе се уклањају ако се апликација не користи пар месеци: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Ради заштите података, дозволе су уклоњене из апликација које нисте користили пар месеци."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Ако желите да поново омогућите дозволе, отворите апликацију"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Ако желите да поново омогућите дозволе, отворите апликацију."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Аутоматско уклањање је тренутно онемогућено за ову апликацију."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Тренутно није одобрена ниједна дозвола која може да се опозове"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Уклониће се дозвола: <xliff:g id="PERM">%1$s</xliff:g>."</string>
@@ -130,7 +130,7 @@
     <string name="auto_manage_title" msgid="4059499629753336321">"Управљајте дозволама аутоматски"</string>
     <string name="off" msgid="4561379152328580345">"Искључено"</string>
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Дозвола <xliff:g id="PERMISSION_NAME">%s</xliff:g> је уклоњена"</string>
-    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> и још <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> дозволе су уклоњене"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Дозволе <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> и <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> су уклоњене"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Уклоњено: <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> и још <xliff:g id="NUMBER">%2$s</xliff:g> дозволе"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Последњи пут отворено пре више од <xliff:g id="NUMBER">%s</xliff:g> мес."</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Апликација је последњи пут отворена: <xliff:g id="DATE">%s</xliff:g>"</string>
@@ -184,6 +184,23 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 апликација која се не користи"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Апликација које се не користе: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Дозволе су уклоњене ради заштите приватности. Додирните да бисте прегледали"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Уклоњене су дозволе за апликације које се не користе"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Неке апликације нису коришћене пар месеци. Додирните да бисте прегледали."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> апликација није коришћена неколико месеци. Додирните да бисте прегледали</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> апликације нису коришћене неколико месеци. Додирните да бисте прегледали</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> апликација није коришћено неколико месеци. Додирните да бисте прегледали</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Неке апликације нису коришћене пар месеци"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> апликација није коришћена неколико месеци</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> апликације нису коришћене неколико месеци</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> апликација није коришћено неколико месеци</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Уклоњене дозволе"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Уклоњене дозволе"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Све апликације које се не користе"</string>
+    <string name="months_ago" msgid="6541240625299588045">"пре <xliff:g id="COUNT">%1$d</xliff:g> месеца(и)"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Дозволе су уклоњене ради заштите приватности"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> има вашу локацију у позадини"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ова апликација може увек да приступа локацији. Додирните да бисте то променили."</string>
@@ -200,6 +217,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> и <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> и још <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Ради заштите података, дозволе су уклоњене из апликација које нисте користили пар месеци"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Ради заштите података, дозволе су уклоњене из неких апликација које нисте користили неколико месеци"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 апликација није коришћена пар месеци"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"Апликације које нису коришћене пар месеци: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Само док се апликација користи"</string>

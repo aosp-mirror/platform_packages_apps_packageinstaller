@@ -120,7 +120,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"ເພື່ອປົກປ້ອງຂໍ້ມູນຂອງທ່ານ, ສິດອະນຸຍາດສຳລັບແອັບນີ້ຈະຖືກລຶບອອກຫາກບໍ່ໄດ້ໃຊ້ແອັບສອງສາມເດືອນ."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"ເພື່ອປົກປ້ອງຂໍ້ມູນຂອງທ່ານ, ຫາກບໍ່ໄດ້ໃຊ້ແອັບສອງສາມເດືອນ, ສິດອະນຸຍາດຕໍ່ໄປນີ້ຈະຖືກລຶບອອກ: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"ເພື່ອປົກປ້ອງຂໍ້ມູນຂອງທ່ານ, ລະບົບໄດ້ລຶບສິດອະນຸຍາດອອກຈາກແອັບຕ່າງໆທີ່ທ່ານບໍ່ໄດ້ໃຊ້ສອງສາມເດືອນແລ້ວ."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"ກະລຸນາເປີດແອັບຂຶ້ນມາຫາກທ່ານຕ້ອງການອະນຸຍາດສິດອະນຸຍາດຄືນໃໝ່"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"ກະລຸນາເປີດແອັບຂຶ້ນມາຫາກທ່ານຕ້ອງການອະນຸຍາດສິດອະນຸຍາດຄືນໃໝ່."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"ຕອນນີ້ແອັບນີ້ປິດການລຶບອັດຕະໂນມັດຢູ່."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ຕອນນີ້ບໍ່ມີການອະນຸມັດສິດການຖອດຖອນອັດຕະໂນມັດ"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ສິດອະນຸຍາດ <xliff:g id="PERM">%1$s</xliff:g> ຈະຖືກລຶບອອກ."</string>
@@ -179,6 +179,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ແອັບທີ່ບໍ່ໄດ້ໃຊ້"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ແອັບທີ່ບໍ່ໄດ້ໃຊ້"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"ລຶບສິດອະນຸຍາດອອກແລ້ວເພື່ອປົກປ້ອງຄວາມເປັນສ່ວນຕົວຂອງທ່ານ. ແຕະເພື່ອກວດສອບ"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"ລຶບສິດອະນຸຍາດສຳລັບແອັບທີ່ບໍ່ໄດ້ໃຊ້ອອກແລ້ວ"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"ບາງແອັບບໍ່ໄດ້ໃຊ້ມາສອງສາມເດືອນແລ້ວ. ແຕະເພື່ອກວດສອບ."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other">ບໍ່ໄດ້ໃຊ້ <xliff:g id="COUNT_1">%1$d</xliff:g> ແອັບມາສອງສາມເດືອນແລ້ວ. ແຕະເພື່ອກວດສອບ</item>
+      <item quantity="one">ບໍ່ໄດ້ໃຊ້ <xliff:g id="COUNT_0">%1$d</xliff:g> ມາສອງສາມເດືອນແລ້ວ. ແຕະເພື່ອກວດສອບ</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"ບາງແອັບບໍ່ໄດ້ໃຊ້ມາສອງສາມເດືອນແລ້ວ"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other">ບໍ່ໄດ້ໃຊ້ <xliff:g id="COUNT_1">%1$d</xliff:g> ແອັບມາສອງສາມເດືອນແລ້ວ</item>
+      <item quantity="one">ບໍ່ໄດ້ໃຊ້ <xliff:g id="COUNT_0">%1$d</xliff:g> ມາສອງສາມເດືອນແລ້ວ</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"ລຶບສິດອະນຸຍາດອອກແລ້ວ"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"ລຶບສິດອະນຸຍາດອອກແລ້ວ"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"ແອັບທີ່ບໍ່ໄດ້ໃຊ້ທັງໝົດ"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> ເດືອນກ່ອນ"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"ລຶບສິດອະນຸຍາດອອກແລ້ວເພື່ອປົກປ້ອງຄວາມເປັນສ່ວນຕົວຂອງທ່ານ"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ໄດ້ຂໍ້ມູນສະຖານທີ່ຂອງທ່ານໃນພື້ນຫຼັງແລ້ວ"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ແອັບນີ້ສາມາດເຂົ້າເຖິງສະຖານທີ່ຂອງທ່ານໄດ້ຕະຫຼອດເວລາ. ແຕະເພື່ອປ່ຽນແປງ."</string>
@@ -195,6 +210,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> ແລະ <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ແລະ ອື່ນໆອີກ <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> ແອັບ"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ເພື່ອປົກປ້ອງຂໍ້ມູນຂອງທ່ານ, ລະບົບໄດ້ລຶບສິດອະນຸຍາດອອກຈາກແອັບຕ່າງໆທີ່ທ່ານບໍ່ໄດ້ໃຊ້ສອງສາມເດືອນແລ້ວ"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"ເພື່ອປົກປ້ອງຂໍ້ມູນຂອງທ່ານ, ລະບົບໄດ້ລຶບສິດອະນຸຍາດອອກຈາກບາງແອັບທີ່ທ່ານບໍ່ໄດ້ໃຊ້ສອງສາມເດືອນແລ້ວ"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"ບໍ່ໄດ້ໃຊ້ 1 ແອັບມາສອງສາມເດືອນແລ້ວ"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"ບໍ່ໄດ້ໃຊ້ <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ແອັບມາສອງສາມເດືອນແລ້ວ"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ສະເພາະເມື່ອມີການໃຊ້ແອັບ"</string>
