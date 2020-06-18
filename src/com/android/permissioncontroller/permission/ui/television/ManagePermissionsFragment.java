@@ -16,7 +16,6 @@
 package com.android.permissioncontroller.permission.ui.television;
 
 import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +25,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.loader.app.LoaderManager;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceClickListener;
 import androidx.preference.PreferenceScreen;
@@ -63,7 +64,8 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
-        mPermissions = new PermissionGroups(getContext(), getLoaderManager(), this, false, true);
+        mPermissions = new PermissionGroups(
+                getContext(), getActivity().getLoaderManager(), this, false, true);
     }
 
     @Override
