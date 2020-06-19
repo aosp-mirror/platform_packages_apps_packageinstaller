@@ -16,26 +16,40 @@
 
 package com.android.permissioncontroller.permission.ui.auto;
 
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_ALWAYS_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_FOREGROUND_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_ONE_TIME_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.DENY_AND_DONT_ASK_AGAIN_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.DENY_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.NO_UPGRADE_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.NO_UPGRADE_OT_BUTTON;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
 import com.android.car.ui.AlertDialogBuilder;
+import com.android.car.ui.recyclerview.CarUiContentListItem;
+import com.android.car.ui.recyclerview.CarUiListItem;
+import com.android.car.ui.recyclerview.CarUiListItemAdapter;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * A {@link GrantPermissionsViewHandler} that is specific for the auto use-case. In this case, the
  * permissions dialog is displayed using car-ui-lib {@link AlertDialogBuilder}
  */
-public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHandler,
-        DialogInterface.OnClickListener, DialogInterface.OnDismissListener {
+public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHandler {
     private static final String ARG_GROUP_NAME = "ARG_GROUP_NAME";
     private static final String ARG_GROUP_COUNT = "ARG_GROUP_COUNT";
     private static final String ARG_GROUP_INDEX = "ARG_GROUP_INDEX";
@@ -94,25 +108,67 @@ public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHand
         if (mDialog != null) {
             mDialog.setOnDismissListener(null);
             mDialog.dismiss();
+            mDialog = null;
         }
 
         AlertDialogBuilder builder = new AlertDialogBuilder(mContext)
-                .setTitle(mContext.getString(R.string.permission_request_title))
-                .setMessage(mGroupMessage)
-                .setIcon(mGroupIcon.loadDrawable(mContext))
-                .setIconTinted(true)
-                .setOnDismissListener(this)
-                .setNeutralButton(mContext.getString(R.string.grant_dialog_button_deny), this)
-                .setPositiveButton(mContext.getString(R.string.grant_dialog_button_allow), this);
-        if (mButtonVisibilities[DENY_AND_DONT_ASK_AGAIN_BUTTON]) {
-            builder.setNegativeButton(mContext.getString(R.string.never_ask_again), this);
+                .setTitle(mGroupMessage)
+                .setSubtitle(mDetailMessage)
+                .setNegativeButton(R.string.grant_dialog_button_dismiss, (dialog, which) ->
+                        dialog.dismiss())
+                .setOnDismissListener((dialog) -> {
+                    mDialog = null;
+                    mResultListener.onPermissionGrantResult(mGroupName, DENIED);
+                });
+        if (mGroupIcon != null) {
+            builder.setIcon(mGroupIcon.loadDrawable(mContext));
         }
-        if (mGroupCount > 1) {
-            builder.setSubtitle(mContext.getString(R.string.current_permission_template,
-                    mGroupIndex + 1, mGroupCount));
-        }
+
+        List<CarUiListItem> itemList = new ArrayList<>();
+
+        // Don't show the allow one time button as per automotive design decisions
+        createListItem(itemList, R.string.grant_dialog_button_allow,
+                GRANTED_ALWAYS, ALLOW_BUTTON, ALLOW_ONE_TIME_BUTTON);
+        createListItem(itemList, R.string.grant_dialog_button_allow_always,
+                GRANTED_ALWAYS, ALLOW_ALWAYS_BUTTON);
+        createListItem(itemList, R.string.grant_dialog_button_allow_foreground,
+                GRANTED_FOREGROUND_ONLY, ALLOW_FOREGROUND_BUTTON);
+        createListItem(itemList, R.string.grant_dialog_button_deny,
+                DENIED, DENY_BUTTON);
+        createListItem(itemList, R.string.grant_dialog_button_deny_and_dont_ask_again,
+                DENIED_DO_NOT_ASK_AGAIN, DENY_AND_DONT_ASK_AGAIN_BUTTON);
+
+        // It seems even on phone the same strings are used for "no upgrade" and
+        // "no upgrade don't ask again"
+        createListItem(itemList, R.string.grant_dialog_button_no_upgrade, DENIED,
+                NO_UPGRADE_BUTTON, NO_UPGRADE_OT_BUTTON);
+        createListItem(itemList, R.string.grant_dialog_button_no_upgrade, DENIED_DO_NOT_ASK_AGAIN,
+                NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON, NO_UPGRADE_OT_AND_DONT_ASK_AGAIN_BUTTON);
+
+        builder.setAdapter(new CarUiListItemAdapter(itemList));
+
         mDialog = builder.create();
         mDialog.show();
+    }
+
+    private void createListItem(List<CarUiListItem> list,
+            int stringId, @Result int result, int... indices) {
+        // Check that at least one of the indices is shown.
+        if (IntStream.of(indices)
+                .mapToObj(i -> i >= 0 && i < mButtonVisibilities.length && mButtonVisibilities[i])
+                .noneMatch(b -> b)) {
+            return;
+        }
+
+        CarUiContentListItem item = new CarUiContentListItem(CarUiContentListItem.Action.NONE);
+        item.setTitle(mContext.getString(stringId));
+        item.setOnItemClickedListener(i -> {
+            mDialog.setOnDismissListener(null);
+            mDialog.dismiss();
+            mDialog = null;
+            mResultListener.onPermissionGrantResult(mGroupName, result);
+        });
+        list.add(item);
     }
 
     @Override
@@ -124,7 +180,6 @@ public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHand
         arguments.putCharSequence(ARG_GROUP_MESSAGE, mGroupMessage);
         arguments.putCharSequence(ARG_GROUP_DETAIL_MESSAGE, mDetailMessage);
         arguments.putBooleanArray(ARG_BUTTON_VISIBILITIES, mButtonVisibilities);
-
     }
 
     @Override
@@ -141,31 +196,10 @@ public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHand
     }
 
     @Override
-    public void onClick(DialogInterface dialog, int which) {
-        mDialog.setOnDismissListener(null);
-        switch (which) {
-            case DialogInterface.BUTTON_POSITIVE:
-                mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ALWAYS);
-                break;
-            case DialogInterface.BUTTON_NEUTRAL:
-                mResultListener.onPermissionGrantResult(mGroupName, DENIED);
-                break;
-            case DialogInterface.BUTTON_NEGATIVE:
-                mResultListener.onPermissionGrantResult(mGroupName, DENIED_DO_NOT_ASK_AGAIN);
-                break;
-        }
-    }
-
-    @Override
     public void onBackPressed() {
-        if (mResultListener != null) {
-            mResultListener.onPermissionGrantResult(mGroupName, DENIED);
-        }
-    }
-
-    @Override
-    public void onDismiss(DialogInterface dialog) {
-        if (mResultListener != null) {
+        if (mDialog != null) {
+            mDialog.dismiss();
+        } else if (mResultListener != null) {
             mResultListener.onPermissionGrantResult(mGroupName, DENIED);
         }
     }

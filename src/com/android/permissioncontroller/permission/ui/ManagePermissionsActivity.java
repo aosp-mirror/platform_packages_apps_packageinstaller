@@ -120,7 +120,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 if (DeviceUtils.isAuto(this)) {
                     androidXFragment = AutoManageStandardPermissionsFragment.newInstance();
                 } else if (DeviceUtils.isTelevision(this)) {
-                    fragment =
+                    androidXFragment =
                             com.android.permissioncontroller.permission.ui.television
                                     .ManagePermissionsFragment.newInstance();
                 } else {
@@ -211,8 +211,8 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 } else if (DeviceUtils.isWear(this)) {
                     androidXFragment = AppPermissionsFragmentWear.newInstance(packageName);
                 } else if (DeviceUtils.isTelevision(this)) {
-                    fragment = com.android.permissioncontroller.permission.ui.television
-                            .AppPermissionsFragment.newInstance(packageName);
+                    androidXFragment = com.android.permissioncontroller.permission.ui.television
+                            .AppPermissionsFragment.newInstance(packageName, userHandle);
                 } else {
                     Bundle args = AppPermissionGroupsFragment.createArgs(packageName, userHandle,
                             sessionId, true);
@@ -245,7 +245,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 if (DeviceUtils.isAuto(this)) {
                     androidXFragment = AutoPermissionAppsFragment.newInstance(permissionName);
                 } else if (DeviceUtils.isTelevision(this)) {
-                    fragment = com.android.permissioncontroller.permission.ui.television
+                    androidXFragment = com.android.permissioncontroller.permission.ui.television
                             .PermissionAppsFragment.newInstance(permissionName);
                 } else {
 
@@ -265,6 +265,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                         || DeviceUtils.isTelevision(this)) {
                     androidXFragment = com.android.permissioncontroller.permission.ui.handheld
                             .AutoRevokeFragment.newInstance();
+                    androidXFragment.setArguments(AutoRevokeFragment.createArgs(sessionId));
                 } else {
                     setNavGraph(AutoRevokeFragment.createArgs(sessionId), R.id.auto_revoke);
                     return;
