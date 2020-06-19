@@ -612,6 +612,7 @@ class AutoRevokeService : JobService() {
             .setColor(getColor(android.R.color.system_notification_accent_color))
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
+            .extend(Notification.TvExtender())
         Utils.getSettingsLabelForNotifications(applicationContext.packageManager)?.let {
             settingsLabel ->
             val extras = Bundle()
