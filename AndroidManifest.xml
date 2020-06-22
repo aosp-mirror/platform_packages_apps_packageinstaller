@@ -297,7 +297,7 @@
         </receiver>
 
         <activity android:name="com.android.permissioncontroller.incident.ConfirmationActivity"
-                android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert"
+                android:theme="@style/Theme.DeviceDefault.Dialog.Alert.DayNight"
                 android:exported="false"
                 android:excludeFromRecents="true"
                 android:noHistory="true" />
