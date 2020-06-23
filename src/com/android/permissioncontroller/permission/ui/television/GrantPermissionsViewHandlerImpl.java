@@ -1,5 +1,7 @@
 package com.android.permissioncontroller.permission.ui.television;
 
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_BUTTON;
+import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_ALWAYS_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_FOREGROUND_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_ONE_TIME_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.DENY_AND_DONT_ASK_AGAIN_BUTTON;
@@ -39,6 +41,7 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
     private ImageView mIconView;
     private TextView mCurrentGroupView;
     private Button mAllowButton;
+    private Button mAllowAlwaysButton;
     private Button mAllowForegroundOnlyButton;
     private Button mAllowOneTimeButton;
     private Button mSoftDenyButton;
@@ -63,6 +66,7 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
         mIconView = (ImageView) mRootView.findViewById(R.id.permission_icon);
         mCurrentGroupView = (TextView) mRootView.findViewById(R.id.current_page_text);
         mAllowButton = (Button) mRootView.findViewById(R.id.permission_allow_button);
+        mAllowAlwaysButton = (Button) mRootView.findViewById(R.id.permission_allow_always_button);
         mAllowForegroundOnlyButton =
                 (Button) mRootView.findViewById(R.id.permission_allow_foreground_only_button);
         mAllowOneTimeButton =
@@ -72,6 +76,8 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
                 R.id.permission_deny_dont_ask_again_button);
 
         mAllowButton.setOnClickListener(this);
+        mAllowAlwaysButton.setOnClickListener(this);
+        mAllowForegroundOnlyButton.setOnClickListener(this);
         mAllowOneTimeButton.setOnClickListener(this);
         mSoftDenyButton.setOnClickListener(this);
         mHardDenyButton.setOnClickListener(this);
@@ -102,6 +108,10 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
             mIconView.setImageIcon(icon);
         }
 
+        mAllowButton.setVisibility(
+                buttonVisibilities[ALLOW_BUTTON] ? View.VISIBLE : View.GONE);
+        mAllowAlwaysButton.setVisibility(
+                buttonVisibilities[ALLOW_ALWAYS_BUTTON] ? View.VISIBLE : View.GONE);
         mAllowForegroundOnlyButton.setVisibility(
                 buttonVisibilities[ALLOW_FOREGROUND_BUTTON] ? View.VISIBLE : View.GONE);
         mAllowOneTimeButton.setVisibility(
@@ -131,6 +141,9 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.permission_allow_button:
+                mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ALWAYS);
+                break;
+            case R.id.permission_allow_always_button:
                 mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ALWAYS);
                 break;
             case R.id.permission_allow_foreground_only_button:
