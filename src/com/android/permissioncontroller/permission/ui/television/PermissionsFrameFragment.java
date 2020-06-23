@@ -154,30 +154,28 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
             adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                 @Override
                 public void onChanged() {
-                    checkEmpty();
+                    checkEmpty(adapter, recyclerView, emptyView);
                 }
 
                 @Override
                 public void onItemRangeInserted(int positionStart, int itemCount) {
-                    checkEmpty();
+                    checkEmpty(adapter, recyclerView, emptyView);
                 }
 
                 @Override
                 public void onItemRangeRemoved(int positionStart, int itemCount) {
-                    checkEmpty();
-                }
-
-                private void checkEmpty() {
-                    boolean isEmpty = isPreferenceListEmpty();
-                    emptyView.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
-                    recyclerView.setVisibility(isEmpty && adapter.getItemCount() == 0 ?
-                            View.GONE : View.VISIBLE);
-                    if (!isEmpty && mGridView != null) {
-                        mGridView.requestFocus();
-                    }
+                    checkEmpty(adapter, recyclerView, emptyView);
                 }
             });
 
+            checkEmpty(adapter, recyclerView, emptyView);
+        }
+
+        return adapter;
+    }
+
+    private void checkEmpty(RecyclerView.Adapter<?> adapter, View recyclerView, View emptyView) {
+        emptyView.postDelayed(() -> {
             boolean isEmpty = isPreferenceListEmpty();
             emptyView.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
             recyclerView.setVisibility(isEmpty && adapter.getItemCount() == 0 ?
@@ -185,9 +183,7 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
             if (!isEmpty && mGridView != null) {
                 mGridView.requestFocus();
             }
-        }
-
-        return adapter;
+        }, 250);
     }
 
     private boolean isPreferenceListEmpty() {
