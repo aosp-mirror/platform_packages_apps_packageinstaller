@@ -662,6 +662,10 @@ public class RequestRoleFragment extends DialogFragment {
 
         @Override
         public long getItemId(int position) {
+            if (position >= getCount()) {
+                // Work around AbsListView.confirmCheckedPositionsById() not respecting our count.
+                return ListView.INVALID_ROW_ID;
+            }
             Pair<ApplicationInfo, Boolean> qualifyingApplication = getItem(position);
             return qualifyingApplication == null ? 0
                     : qualifyingApplication.first.packageName.hashCode();
