@@ -47,9 +47,11 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceViewHolder;
 import androidx.preference.SwitchPreference;
 
+import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissions;
 import com.android.permissioncontroller.permission.model.livedatatypes.AutoRevokeState;
+import com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity;
 import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModel;
 import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModelFactory;
 import com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity;
@@ -57,7 +59,6 @@ import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.LocationUtils;
 import com.android.permissioncontroller.permission.utils.SafetyNetLogger;
 import com.android.permissioncontroller.permission.utils.Utils;
-import com.android.permissioncontroller.R;
 
 public final class AppPermissionsFragment extends SettingsWithHeader
         implements OnPreferenceClickListener {
@@ -397,6 +398,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     private void addAutoRevokePreferences(PreferenceScreen screen) {
         SwitchPreference autoRevokeSwitch =
                 new SwitchPreference(screen.getPreferenceManager().getContext());
+        autoRevokeSwitch.setLayoutResource(R.layout.preference_permissions_revoke);
         autoRevokeSwitch.setOnPreferenceClickListener((preference) -> {
             mViewModel.setAutoRevoke(autoRevokeSwitch.isChecked());
             android.util.Log.w(LOG_TAG, "setAutoRevoke " + autoRevokeSwitch.isChecked());
