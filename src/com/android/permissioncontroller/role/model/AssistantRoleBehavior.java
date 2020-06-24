@@ -38,7 +38,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.permission.utils.CollectionUtils;
 import com.android.permissioncontroller.role.utils.UserUtils;
 
 import org.xmlpull.v1.XmlPullParserException;
@@ -77,12 +76,6 @@ public class AssistantRoleBehavior implements RoleBehavior {
     public boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
             @NonNull Context context) {
         return !UserUtils.isWorkProfile(user, context);
-    }
-
-    @Nullable
-    @Override
-    public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
-        return CollectionUtils.firstOrNull(role.getDefaultHolders(context));
     }
 
     @Override
