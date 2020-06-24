@@ -1387,6 +1387,19 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      *                                     caller has to make sure to kill the app if needed.
      */
     public void persistChanges(boolean mayKillBecauseOfAppOpsChange) {
+        persistChanges(mayKillBecauseOfAppOpsChange, null);
+    }
+
+
+    /**
+     * If the changes to this group were delayed, persist them to the platform.
+     *
+     * @param mayKillBecauseOfAppOpsChange If the app these permissions belong to may be killed if
+     *                                     app ops change. If this is set to {@code false} the
+     *                                     caller has to make sure to kill the app if needed.
+     * @param revokeReason If any permissions are getting revoked, the reason for revoking them.
+     */
+    public void persistChanges(boolean mayKillBecauseOfAppOpsChange, String revokeReason) {
         int uid = mPackageInfo.applicationInfo.uid;
 
         int numPermissions = mPermissions.size();
@@ -1404,8 +1417,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                             uid) == PERMISSION_GRANTED;
 
                     if (isCurrentlyGranted) {
-                        mPackageManager.revokeRuntimePermission(mPackageInfo.packageName,
-                                permission.getName(), mUserHandle);
+                        if (revokeReason == null) {
+                            mPackageManager.revokeRuntimePermission(mPackageInfo.packageName,
+                                    permission.getName(), mUserHandle);
+                        } else {
+                            mPackageManager.revokeRuntimePermission(mPackageInfo.packageName,
+                                    permission.getName(), mUserHandle, revokeReason);
+                        }
                     }
                 }
             }
