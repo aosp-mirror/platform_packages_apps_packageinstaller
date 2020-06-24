@@ -79,6 +79,7 @@
         defaultHolders="config_defaultAssistant"
         description="@string/role_assistant_description"
         exclusive="true"
+        fallBackToDefaultHolder="true"
         showNone="true"
         label="@string/role_assistant_label"
         requestable="false"
@@ -167,6 +168,7 @@
         defaultHolders="config_defaultDialer"
         description="@string/role_dialer_description"
         exclusive="true"
+        fallBackToDefaultHolder="true"
         label="@string/role_dialer_label"
         requestDescription="@string/role_dialer_request_description"
         requestTitle="@string/role_dialer_request_title"
@@ -426,6 +428,7 @@
         name="android.app.role.SYSTEM_GALLERY"
         defaultHolders="config_systemGallery"
         exclusive="true"
+        fallBackToDefaultHolder="true"
         systemOnly="true"
         visible="false">
         <permissions>
