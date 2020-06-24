@@ -16,10 +16,11 @@
 
 package com.android.permissioncontroller.permission.ui.television;
 
+import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
+
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Fragment;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -30,6 +31,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.text.BidiFormatter;
 import android.util.ArraySet;
 import android.util.Log;
 import android.view.Menu;
@@ -40,25 +42,26 @@ import android.widget.Toast;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference.OnPreferenceClickListener;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceViewHolder;
 import androidx.preference.SwitchPreference;
 
+import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissions;
 import com.android.permissioncontroller.permission.model.livedatatypes.AutoRevokeState;
+import com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity;
 import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModel;
 import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModelFactory;
 import com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity;
+import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.LocationUtils;
 import com.android.permissioncontroller.permission.utils.SafetyNetLogger;
 import com.android.permissioncontroller.permission.utils.Utils;
-import com.android.permissioncontroller.R;
 
 public final class AppPermissionsFragment extends SettingsWithHeader
-        implements OnPreferenceChangeListener {
+        implements OnPreferenceClickListener {
 
     private static final String LOG_TAG = "ManagePermsFragment";
 
@@ -102,9 +105,9 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
         Activity activity = getActivity();
         PackageInfo packageInfo = getPackageInfo(activity, packageName);
-        if (packageInfo == null) {
+        if (packageName == null) {
             Toast.makeText(activity, R.string.app_not_found_dlg_title, Toast.LENGTH_LONG).show();
-            activity.finish();
+            getActivity().finish();
             return;
         }
 
@@ -163,7 +166,10 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (mAppPermissions != null) {
-            bindUi(this, mAppPermissions.getPackageInfo());
+            bindUi(this,
+                getArguments().getString(Intent.EXTRA_PACKAGE_NAME),
+                getArguments().getParcelable(Intent.EXTRA_USER),
+                R.string.app_permissions_decor_title);
         }
     }
 
@@ -173,20 +179,23 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         menu.add(Menu.NONE, MENU_ALL_PERMS, Menu.NONE, R.string.all_permissions);
     }
 
-    private static void bindUi(SettingsWithHeader fragment, PackageInfo packageInfo) {
-        Activity activity = fragment.getActivity();
-        PackageManager pm = activity.getPackageManager();
-        ApplicationInfo appInfo = packageInfo.applicationInfo;
+    static void bindUi(SettingsWithHeader fragment, String packageName,
+            UserHandle user, int decorTitleStringResId) {
+        final Activity activity = fragment.getActivity();
+        final Application application = activity.getApplication();
+
+        CharSequence label = BidiFormatter.getInstance().unicodeWrap(
+                KotlinUtils.INSTANCE.getPackageLabel(application, packageName, user));
+        Drawable icon= KotlinUtils.INSTANCE.getBadgedPackageIcon(application, packageName, user);
+
         Intent infoIntent = null;
         if (!activity.getIntent().getBooleanExtra(EXTRA_HIDE_INFO_BUTTON, false)) {
             infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    .setData(Uri.fromParts("package", packageInfo.packageName, null));
+                    .setData(Uri.fromParts("package", packageName, null));
         }
 
-        Drawable icon = appInfo.loadIcon(pm);
-        CharSequence label = appInfo.loadLabel(pm);
         fragment.setHeader(icon, label, infoIntent, fragment.getString(
-                R.string.app_permissions_decor_title));
+                R.string.additional_permissions_decor_title));
     }
 
     private void loadPreferences() {
@@ -215,8 +224,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
             boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
 
-            SwitchPreference preference = new SwitchPreference(context);
-            preference.setOnPreferenceChangeListener(this);
+            Preference preference = new Preference(context);
+            preference.setOnPreferenceClickListener(this);
             preference.setKey(group.getName());
             Drawable icon = Utils.loadDrawable(context.getPackageManager(),
                     group.getIconPkg(), group.getIconResId());
@@ -230,7 +239,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             }
             preference.setPersistent(false);
             preference.setEnabled(!group.isSystemFixed() && !group.isPolicyFixed());
-            preference.setChecked(group.areRuntimePermissionsGranted());
 
             if (isPlatform) {
                 screen.addPreference(preference);
@@ -293,7 +301,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     }
 
     @Override
-    public boolean onPreferenceChange(final Preference preference, Object newValue) {
+    public boolean onPreferenceClick(final Preference preference) {
         String groupName = preference.getKey();
         final AppPermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
 
@@ -308,30 +316,22 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             LocationUtils.showLocationDialog(getContext(), mAppPermissions.getAppLabel());
             return false;
         }
-        if (newValue == Boolean.TRUE) {
-            group.grantRuntimePermissions(true, false);
-        } else {
-            final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
-            if (grantedByDefault || (!group.doesSupportRuntimePermissions()
-                    && !mHasConfirmedRevoke)) {
-                new AlertDialog.Builder(getContext())
-                        .setMessage(grantedByDefault ? R.string.system_warning
-                                : R.string.old_sdk_deny_warning)
-                        .setNegativeButton(R.string.cancel, null)
-                        .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
-                                (dialog, which) -> {
-                                    ((SwitchPreference) preference).setChecked(false);
-                                    group.revokeRuntimePermissions(false);
-                                    if (!grantedByDefault) {
-                                        mHasConfirmedRevoke = true;
-                                    }
-                                })
-                        .show();
-                return false;
-            } else {
-                group.revokeRuntimePermissions(false);
-            }
-        }
+
+        AppPermissionFragment frag = new AppPermissionFragment();
+
+        frag.setArguments(AppPermissionFragment.createArgs(
+                    /* packageName= */ group.getApp().packageName,
+                    /* permName= */ null,
+                    /* groupName= */ group.getName(),
+                    /* userHandle= */ group.getUser(),
+                    /* caller= */ null,
+                    /* sessionId= */ INVALID_SESSION_ID,
+                    /* grantCategory= */ null));
+        frag.setTargetFragment(AppPermissionsFragment.this, 0);
+        getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, frag)
+                .addToBackStack(null)
+                .commit();
 
         return true;
     }
@@ -369,12 +369,27 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         int preferenceCount = screen.getPreferenceCount();
         for (int i = 0; i < preferenceCount; i++) {
             Preference preference = screen.getPreference(i);
-            if (preference instanceof SwitchPreference) {
-                SwitchPreference switchPref = (SwitchPreference) preference;
-                AppPermissionGroup group = mAppPermissions.getPermissionGroup(switchPref.getKey());
-                if (group != null) {
-                    switchPref.setChecked(group.areRuntimePermissionsGranted());
+            if (preference.getKey() == null) {
+                continue;
+            }
+            AppPermissionGroup group = mAppPermissions.getPermissionGroup(preference.getKey());
+            if (group == null) {
+                continue;
+            }
+            AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
+
+            if (group.areRuntimePermissionsGranted()) {
+                if (backgroundGroup == null) {
+                    preference.setSummary(R.string.app_permission_button_allow);
+                } else {
+                    if (backgroundGroup.areRuntimePermissionsGranted()) {
+                        preference.setSummary(R.string.permission_access_always);
+                    } else {
+                        preference.setSummary(R.string.permission_access_only_foreground);
+                    }
                 }
+            } else {
+                preference.setSummary(R.string.permission_access_never);
             }
         }
     }
@@ -383,6 +398,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     private void addAutoRevokePreferences(PreferenceScreen screen) {
         SwitchPreference autoRevokeSwitch =
                 new SwitchPreference(screen.getPreferenceManager().getContext());
+        autoRevokeSwitch.setLayoutResource(R.layout.preference_permissions_revoke);
         autoRevokeSwitch.setOnPreferenceClickListener((preference) -> {
             mViewModel.setAutoRevoke(autoRevokeSwitch.isChecked());
             android.util.Log.w(LOG_TAG, "setAutoRevoke " + autoRevokeSwitch.isChecked());
@@ -436,24 +452,10 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         @Override
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
-            String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
-            bindUi(this, getPackageInfo(getActivity(), packageName));
-        }
-
-        private static void bindUi(SettingsWithHeader fragment, PackageInfo packageInfo) {
-            Activity activity = fragment.getActivity();
-            PackageManager pm = activity.getPackageManager();
-            ApplicationInfo appInfo = packageInfo.applicationInfo;
-            Intent infoIntent = null;
-            if (!activity.getIntent().getBooleanExtra(EXTRA_HIDE_INFO_BUTTON, false)) {
-                infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                        .setData(Uri.fromParts("package", packageInfo.packageName, null));
-            }
-
-            Drawable icon = appInfo.loadIcon(pm);
-            CharSequence label = appInfo.loadLabel(pm);
-            fragment.setHeader(icon, label, infoIntent, fragment.getString(
-                    R.string.additional_permissions_decor_title));
+            bindUi(this,
+                getArguments().getString(Intent.EXTRA_PACKAGE_NAME),
+                getArguments().getParcelable(Intent.EXTRA_USER),
+                R.string.additional_permissions_decor_title);
         }
 
         @Override
