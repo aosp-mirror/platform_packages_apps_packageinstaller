@@ -27,7 +27,6 @@ import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.permission.utils.CollectionUtils;
 
 import java.util.Objects;
 
@@ -66,12 +65,6 @@ public class DialerRoleBehavior implements RoleBehavior {
             @NonNull Context context) {
         return EncryptionUnawareConfirmationMixin.getConfirmationMessage(role, packageName,
                 context);
-    }
-
-    @Nullable
-    @Override
-    public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
-        return CollectionUtils.firstOrNull(role.getDefaultHolders(context));
     }
 
     @Override

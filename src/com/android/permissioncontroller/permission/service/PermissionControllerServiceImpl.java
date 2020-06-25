@@ -74,7 +74,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.function.Consumer;
@@ -92,6 +91,7 @@ import kotlinx.coroutines.GlobalScope;
  */
 public final class PermissionControllerServiceImpl extends PermissionControllerLifecycleService {
     private static final String LOG_TAG = PermissionControllerServiceImpl.class.getSimpleName();
+    public static final String ONE_TIME_PERMISSION_REVOKED_REASON = "one-time permission revoked";
     private static final int MAX_RETRY_ATTEMPTS = 3;
     private static final long RETRY_DELAY_MS = 500;
 
@@ -629,14 +629,14 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
                 groups.add(group);
             }
         }
-        long requestId = new Random().nextLong();
+        long requestId = Utils.getValidSessionId();
         for (AppPermissionGroup group : groups) {
             if (group.areRuntimePermissionsGranted()) {
                 logOneTimeSessionRevoke(packageName, uid, group, requestId);
                 group.revokeRuntimePermissions(false);
             }
             group.setUserSet(false);
-            group.persistChanges(false);
+            group.persistChanges(false, ONE_TIME_PERMISSION_REVOKED_REASON);
         }
     }
 

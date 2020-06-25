@@ -75,6 +75,7 @@ public class RoleParser {
     private static final String ATTRIBUTE_DEFAULT_HOLDERS = "defaultHolders";
     private static final String ATTRIBUTE_DESCRIPTION = "description";
     private static final String ATTRIBUTE_EXCLUSIVE = "exclusive";
+    private static final String ATTRIBUTE_FALL_BACK_TO_DEFAULT_HOLDER = "fallBackToDefaultHolder";
     private static final String ATTRIBUTE_LABEL = "label";
     private static final String ATTRIBUTE_REQUEST_TITLE = "requestTitle";
     private static final String ATTRIBUTE_REQUEST_DESCRIPTION = "requestDescription";
@@ -323,6 +324,9 @@ public class RoleParser {
             return null;
         }
 
+        boolean fallBackToDefaultHolder = getAttributeBooleanValue(parser,
+                ATTRIBUTE_FALL_BACK_TO_DEFAULT_HOLDER, false);
+
         boolean requestable = getAttributeBooleanValue(parser, ATTRIBUTE_REQUESTABLE, visible);
         Integer requestDescriptionResource;
         Integer requestTitleResource;
@@ -436,9 +440,10 @@ public class RoleParser {
             preferredActivities = Collections.emptyList();
         }
         return new Role(name, behavior, defaultHoldersResourceName, descriptionResource, exclusive,
-                labelResource, requestDescriptionResource, requestTitleResource, requestable,
-                searchKeywordsResource, shortLabelResource, showNone, systemOnly, visible,
-                requiredComponents, permissions, appOpPermissions, appOps, preferredActivities);
+                fallBackToDefaultHolder, labelResource, requestDescriptionResource,
+                requestTitleResource, requestable, searchKeywordsResource, shortLabelResource,
+                showNone, systemOnly, visible, requiredComponents, permissions, appOpPermissions,
+                appOps, preferredActivities);
     }
 
     @NonNull

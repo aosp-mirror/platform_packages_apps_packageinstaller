@@ -36,6 +36,7 @@ import androidx.annotation.StringRes;
 import androidx.preference.Preference;
 
 import com.android.permissioncontroller.Constants;
+import com.android.permissioncontroller.permission.utils.CollectionUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 import com.android.permissioncontroller.role.ui.TwoTargetPreference;
 import com.android.permissioncontroller.role.utils.PackageUtils;
@@ -97,6 +98,11 @@ public class Role {
      * Whether this role is exclusive, i.e. allows at most one holder.
      */
     private final boolean mExclusive;
+
+    /**
+     * Whether this role should fall back to the default holder.
+     */
+    private final boolean mFallBackToDefaultHolder;
 
     /**
      * The string resource for the label of this role.
@@ -186,7 +192,7 @@ public class Role {
 
     public Role(@NonNull String name, @Nullable RoleBehavior behavior,
             @Nullable String defaultHoldersResourceName, @StringRes int descriptionResource,
-            boolean exclusive, @StringRes int labelResource,
+            boolean exclusive, boolean fallBackToDefaultHolder, @StringRes int labelResource,
             @StringRes int requestDescriptionResource, @StringRes int requestTitleResource,
             boolean requestable, @StringRes int searchKeywordsResource,
             @StringRes int shortLabelResource, boolean showNone, boolean systemOnly,
@@ -198,6 +204,7 @@ public class Role {
         mDefaultHoldersResourceName = defaultHoldersResourceName;
         mDescriptionResource = descriptionResource;
         mExclusive = exclusive;
+        mFallBackToDefaultHolder = fallBackToDefaultHolder;
         mLabelResource = labelResource;
         mRequestDescriptionResource = requestDescriptionResource;
         mRequestTitleResource = requestTitleResource;
@@ -416,7 +423,13 @@ public class Role {
      */
     @Nullable
     public String getFallbackHolder(@NonNull Context context) {
-        if (mBehavior != null && !isNoneHolderSelected(context)) {
+        if (isNoneHolderSelected(context)) {
+            return null;
+        }
+        if (mFallBackToDefaultHolder) {
+            return CollectionUtils.firstOrNull(getDefaultHolders(context));
+        }
+        if (mBehavior != null) {
             return mBehavior.getFallbackHolder(this, context);
         }
         return null;
@@ -860,6 +873,7 @@ public class Role {
                 + ", mDefaultHoldersResourceName=" + mDefaultHoldersResourceName
                 + ", mDescriptionResource=" + mDescriptionResource
                 + ", mExclusive=" + mExclusive
+                + ", mFallBackToDefaultHolder=" + mFallBackToDefaultHolder
                 + ", mLabelResource=" + mLabelResource
                 + ", mRequestDescriptionResource=" + mRequestDescriptionResource
                 + ", mRequestTitleResource=" + mRequestTitleResource
