@@ -74,6 +74,13 @@
             style="@style/GrantPermissions.ActionItem" />
 
         <Button
+            android:id="@+id/permission_allow_always_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/grant_dialog_button_allow_always"
+            style="@style/GrantPermissions.ActionItem" />
+
+        <Button
             android:id="@+id/permission_allow_foreground_only_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
