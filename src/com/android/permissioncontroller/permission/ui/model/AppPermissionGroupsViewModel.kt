@@ -21,13 +21,16 @@ import android.app.AppOpsManager.MODE_ALLOWED
 import android.app.AppOpsManager.MODE_IGNORED
 import android.app.AppOpsManager.OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED
 import android.Manifest
+import android.app.role.RoleManager
 import android.os.Bundle
 import android.os.UserHandle
+import android.provider.Settings
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.android.permissioncontroller.Constants.ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION
@@ -45,8 +48,10 @@ import com.android.permissioncontroller.permission.data.get
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.ui.Category
 import com.android.permissioncontroller.permission.utils.IPC
+import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils
 import com.android.permissioncontroller.permission.utils.navigateSafe
+import com.android.permissioncontroller.permission.utils.updateUserSensitiveForUid
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -66,6 +71,8 @@ class AppPermissionGroupsViewModel(
     companion object {
         val LOG_TAG: String = AppPermissionGroupsViewModel::class.java.simpleName
     }
+
+    val app = PermissionControllerApplication.get()!!
 
     enum class PermSubtitle(val value: Int) {
         NONE(0),
@@ -174,10 +181,15 @@ class AppPermissionGroupsViewModel(
         }
     }
 
+    fun shouldShowAssistantMicSwitch(): Boolean {
+        val rolePkgs = Utils.getUserContext(app, user).getSystemService(RoleManager::class.java)!!
+            .getRoleHolders(RoleManager.ROLE_ASSISTANT)
+        return packageName in rolePkgs
+    }
+
     fun setAutoRevoke(enabled: Boolean) {
         GlobalScope.launch(IPC) {
-            val aom = PermissionControllerApplication.get()
-                .getSystemService(AppOpsManager::class.java)!!
+            val aom = app.getSystemService(AppOpsManager::class.java)!!
             val uid = LightPackageInfoLiveData[packageName, user].getInitializedValue()?.uid
 
             if (uid != null) {
@@ -200,6 +212,17 @@ class AppPermissionGroupsViewModel(
                 aom.setUidMode(OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED, uid, mode)
             }
         }
+    }
+
+    fun setShowAssistantMicUsage(enabled: Boolean) {
+        val value = if (enabled) {
+            1
+        } else {
+            0
+        }
+        Settings.Secure.putInt(app.contentResolver, ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY,
+            value)
+        updateUserSensitiveForUid(KotlinUtils.getPackageUid(app, packageName, user) ?: return)
     }
 
     fun showExtraPerms(fragment: Fragment, args: Bundle) {

@@ -81,6 +81,9 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
     private static final String AUTO_REVOKE_CATEGORY_KEY = "_AUTO_REVOKE_KEY";
     private static final String AUTO_REVOKE_SWITCH_KEY = "_AUTO_REVOKE_SWITCH_KEY";
     private static final String AUTO_REVOKE_SUMMARY_KEY = "_AUTO_REVOKE_SUMMARY_KEY";
+    private static final String ASSISTANT_MIC_CATEGORY_KEY = "_ASSISTANT_MIC_KEY";
+    private static final String ASSISTANT_MIC_SWITCH_KEY = "_ASSISTANT_MIC_SWITCH_KEY";
+    private static final String ASSISTANT_MIC_SUMMARY_KEY = "_ASSISTANT_MIC_SUMMARY_KEY";
 
     static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
@@ -211,6 +214,9 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         if (getPreferenceScreen() == null) {
             addPreferencesFromResource(R.xml.allowed_denied);
             addAutoRevokePreferences(getPreferenceScreen());
+            if (mViewModel.shouldShowAssistantMicSwitch()) {
+                addAssistantMicrophonePreference(getPreferenceScreen());
+            }
             bindUi(this, mPackageName, mUser);
         }
     }
@@ -333,6 +339,23 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         autoRevokeCategory.addPreference(autoRevokeSummary);
     }
 
+    private void addAssistantMicrophonePreference(PreferenceScreen screen) {
+        Context context = screen.getPreferenceManager().getContext();
+        PreferenceCategory assistantMicCategory = new PreferenceCategory(context);
+        assistantMicCategory.setKey(ASSISTANT_MIC_CATEGORY_KEY);
+        screen.addPreference(assistantMicCategory);
+
+        SwitchPreference assistantMicSwitch = new SwitchPreference(context);
+        assistantMicSwitch.setOnPreferenceClickListener((preference) -> {
+            mViewModel.setShowAssistantMicUsage(assistantMicSwitch.isChecked());
+            return true;
+        });
+        assistantMicSwitch.setTitle(R.string.assistant_mic_label);
+        assistantMicSwitch.setKey(ASSISTANT_MIC_SWITCH_KEY);
+        assistantMicCategory.addPreference(assistantMicSwitch);
+
+    }
+
     private void setAutoRevokeToggleState(AutoRevokeState state) {
         if (state == null || !mViewModel.getPackagePermGroupsLiveData().isInitialized()
                 || getListView() == null || getView() == null) {
@@ -346,10 +369,12 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         Preference autoRevokeSummary = autoRevokeCategory.findPreference(AUTO_REVOKE_SUMMARY_KEY);
 
         if (!state.isEnabledGlobal() || !state.getShouldShowSwitch()) {
+            autoRevokeCategory.setVisible(false);
             autoRevokeSwitch.setVisible(false);
             autoRevokeSummary.setVisible(false);
             return;
         }
+        autoRevokeCategory.setVisible(true);
         autoRevokeSwitch.setVisible(true);
         autoRevokeSummary.setVisible(true);
         autoRevokeSwitch.setChecked(state.isEnabledForApp());
