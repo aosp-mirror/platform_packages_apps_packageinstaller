@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"「今回のみ」の設定を維持"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"詳細"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"許可しない"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"閉じる"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; に「<xliff:g id="ACTION">%2$s</xliff:g>」を許可しますか？"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"「<xliff:g id="ACTION">%2$s</xliff:g>」を &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; に常に許可しますか？"</string>
@@ -297,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"デバッグデータの共有"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"詳細なデバッグデータを共有しますか？"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> がデバッグ情報のアップロードをリクエストしています。"</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"デバッグデータの共有"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"デバッグデータを共有しますか？"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"システムで問題が検出されました。"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> が、<xliff:g id="DATE">%2$s</xliff:g>、<xliff:g id="TIME">%3$s</xliff:g>にこのデバイスから取得したバグレポートのアップロードをリクエストしています。バグレポートには、ユーザー名、位置情報、デバイスの識別情報、ネットワーク情報など、デバイスに関する個人情報やアプリで記録された個人情報が含まれます。この情報を含むバグレポートは、信頼できる人やアプリとのみ共有してください。<xliff:g id="APP_NAME_1">%4$s</xliff:g> にバグレポートのアップロードを許可しますか？"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> のバグレポートの処理中にエラーが発生しました。詳細なデバッグデータの共有が許可されませんでした。ご不便をおかけして申し訳ありません。"</string>

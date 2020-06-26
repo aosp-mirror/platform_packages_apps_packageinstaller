@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"“सिर्फ़ इस बार अनुमति दें” को बनाए रखें"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ज़्यादा जानकारी"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"फिर भी अनुमति न दें"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"खारिज करें"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> में से <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; को <xliff:g id="ACTION">%2$s</xliff:g> की अनुमति दें?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; को <xliff:g id="ACTION">%2$s</xliff:g> की अनुमति हमेशा दें?"</string>
@@ -297,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"डीबग करने की प्रक्रिया का डेटा शेयर करें"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"डीबग करने की ज़्यादा जानकारी शेयर करना चाहते हैं?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> डीबग करने की जानकारी अपलोड करना चाहता है."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"डीबग करने की प्रक्रिया का डेटा शेयर करें"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"डीबग करने से जुड़ा डेटा शेयर करना चाहते हैं?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"सिस्टम को किसी समस्या का पता चला है."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> इस डिवाइस से <xliff:g id="DATE">%2$s</xliff:g> को <xliff:g id="TIME">%3$s</xliff:g> बजे ली गई गड़बड़ी की रिपोर्ट अपलोड करने की मंज़ूरी मांग रहा है. गड़बड़ी की रिपोर्ट में आपके डिवाइस के बारे में या ऐप्लिकेशन की ओर से लॉग की गई निजी जानकारी शामिल होती है, जैसे कि उपयोगकर्ता नाम, जगह की जानकारी का डेटा, डिवाइस पहचानकर्ता, और नेटवर्क की जानकारी. गड़बड़ी की रिपोर्ट सिर्फ़ उन लोगों और ऐप्लिकेशन के साथ शेयर करें जिन पर आप इस जानकारी को लेकर भरोसा करते हैं. क्या आप <xliff:g id="APP_NAME_1">%4$s</xliff:g> को गड़बड़ी की रिपोर्ट अपलोड करने देना चाहते हैं?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> के लिए गड़बड़ी की रिपोर्ट तैयार करने में दिक्कत हुई. इसलिए, डीबग करने के बारे में ज़्यादा जानकारी का डेटा शेयर नहींं किया जा सका. रुकावट के लिए खेद है."</string>
@@ -332,6 +333,6 @@
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"आपका आईटी एडमिन <xliff:g id="APP_NAME">%s</xliff:g> को आपकी जगह की जानकारी देखने की अनुमति दे रहा है"</string>
     <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"कुछ विकल्प मौजूद नहीं हैं, क्योंकि इस ऐप्लिकेशन को आवाज़ पहचाननी पड़ रही है"</string>
     <string name="fg_capabilities_assistant" msgid="6285681832588297471">"कुछ विकल्प मौजूद नहीं हैं, क्योंकि यह ऐप्लिकेशन आपका डिफ़ॉल्ट डिजिटल असिस्टेंट है"</string>
-    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"कुछ विकल्प मौजूद नहीं हैं, क्योंकि इस ऐप्लिकेशन का इस्तेमाल बोलकर फ़ोन को निर्देश देने के लिए किया जा रहा है"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"कुछ विकल्प मौजूद नहीं हैं, क्योंकि इस ऐप्लिकेशन का इस्तेमाल फ़ोन को बोलकर निर्देश देने के लिए किया जा रहा है"</string>
     <string name="fg_capabilities_carrier" msgid="4063467791736574406">"कुछ विकल्प मौजूद नहीं हैं, क्योंकि इस ऐप्लिकेशन को आपकी मोबाइल और इंटरनेट सेवा देने वाली कंपनी प्रबंधित कर रही है"</string>
 </resources>
