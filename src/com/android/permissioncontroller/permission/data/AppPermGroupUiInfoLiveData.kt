@@ -25,6 +25,7 @@ import android.content.pm.PermissionInfo
 import android.os.Build
 import android.os.UserHandle
 import com.android.permissioncontroller.PermissionControllerApplication
+import com.android.permissioncontroller.permission.debug.shouldShowCameraMicIndicators
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
@@ -78,7 +79,7 @@ class AppPermGroupUiInfoLiveData private constructor(
             updateIfActive()
         }
 
-        if (isMicrophone) {
+        if (isMicrophone && shouldShowCameraMicIndicators()) {
             addSource(assistantPkgsLiveData) {
                 updateIfActive()
             }
@@ -91,7 +92,8 @@ class AppPermGroupUiInfoLiveData private constructor(
         val permissionState = permissionStateLiveData.value
 
         if (packageInfo == null || permissionGroup == null || permissionState == null ||
-            (isMicrophone && assistantPkgsLiveData.value == null)) {
+            ((isMicrophone && shouldShowCameraMicIndicators()) &&
+                assistantPkgsLiveData.value == null)) {
             if (packageInfoLiveData.isInitialized && permGroupLiveData.isInitialized &&
                 permissionStateLiveData.isInitialized) {
                 invalidateSingle(Triple(packageName, permGroupName, user))
@@ -193,7 +195,8 @@ class AppPermGroupUiInfoLiveData private constructor(
         }
 
         // Make the current assistant microphone permission show as user sensitive
-        if (isMicrophone && packageName in assistantPkgsLiveData.value ?: emptyList()) {
+        if (shouldShowCameraMicIndicators() &&
+            isMicrophone && packageName in assistantPkgsLiveData.value ?: emptyList()) {
             return true
         }
 
@@ -309,7 +312,6 @@ class AppPermGroupUiInfoLiveData private constructor(
 
     override fun onActive() {
         super.onActive()
-
         if (isSpecialLocation) {
             LocationUtils.addLocationListener(this)
             updateIfActive()

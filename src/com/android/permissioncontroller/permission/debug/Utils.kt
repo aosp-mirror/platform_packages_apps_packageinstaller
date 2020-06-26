@@ -23,20 +23,50 @@ import android.text.format.DateFormat.getMediumDateFormat
 import android.text.format.DateFormat.getTimeFormat
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.permission.debug.AppPermissionUsage.GroupUsage
-import java.util.*
+import java.util.Locale
 
 /** Whether to show the Permissions Hub.  */
 private const val PROPERTY_PERMISSIONS_HUB_2_ENABLED = "permissions_hub_2_enabled"
 
+/** Whether to show the mic and camera icons.  */
+private const val PROPERTY_CAMERA_MIC_ICONS_ENABLED = "camera_mic_icons_enabled"
 
 /**
- * Whether the Permissions Hub 2 is enabled.
+ * Whether the Permissions Hub 2 flag is enabled
  *
- * @return whether the Permissions Hub is enabled.
+ * @return whether the flag is enabled
  */
-fun isPermissionsHub2Enabled(): Boolean {
+fun isPermissionsHub2FlagEnabled(): Boolean {
     return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
-            PROPERTY_PERMISSIONS_HUB_2_ENABLED, false)
+        PROPERTY_PERMISSIONS_HUB_2_ENABLED, false)
+}
+/**
+ * Whether to show the Permissions Dashboard
+ *
+ * @return whether to show the Permissions Dashboard.
+ */
+fun shouldShowPermissionsDashboard(): Boolean {
+    return isPermissionsHub2FlagEnabled()
+}
+
+/**
+ * Whether the Camera and Mic Icons are enabled by flag.
+ *
+ * @return whether the Camera and Mic Icons are enabled.
+ */
+fun isCameraMicIconsFlagEnabled(): Boolean {
+    return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
+        PROPERTY_CAMERA_MIC_ICONS_ENABLED, false)
+}
+
+/**
+ * Whether to show Camera and Mic Icons. They should be shown if the permission hub, or the icons
+ * specifically, are enabled.
+ *
+ * @return whether to show the icons.
+ */
+fun shouldShowCameraMicIndicators(): Boolean {
+    return isCameraMicIconsFlagEnabled() || isPermissionsHub2FlagEnabled()
 }
 
 /**
