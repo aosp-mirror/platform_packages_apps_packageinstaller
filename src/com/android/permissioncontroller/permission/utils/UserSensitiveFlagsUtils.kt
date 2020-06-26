@@ -31,6 +31,7 @@ import android.util.Log
 import com.android.permissioncontroller.Constants.ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.data.UserSensitivityLiveData
+import com.android.permissioncontroller.permission.debug.shouldShowCameraMicIndicators
 import com.android.permissioncontroller.permission.model.livedatatypes.UidSensitivityState
 import com.android.permissioncontroller.permission.utils.Utils.FLAGS_ALWAYS_USER_SENSITIVE
 import kotlinx.coroutines.GlobalScope
@@ -78,7 +79,7 @@ private fun updateUserSensitiveForUidsInternal(
                     // If this package is the current assistant, its microphone permission is not
                     // user sensitive
                     if (perm == Manifest.permission.RECORD_AUDIO &&
-                        pkg.packageName == assistantPkg) {
+                        pkg.packageName == assistantPkg && shouldShowCameraMicIndicators()) {
                         val contentResolver = PermissionControllerApplication.get().contentResolver
                         val shouldHide = Settings.Secure.getInt(contentResolver,
                             ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY, 0) == 0
