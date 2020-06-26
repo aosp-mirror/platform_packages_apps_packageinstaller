@@ -18,9 +18,17 @@
 
 package com.android.permissioncontroller.permission.utils
 
+import android.Manifest
+import android.app.role.OnRoleHoldersChangedListener
+import android.app.role.RoleManager
+import android.app.role.RoleManager.ROLE_ASSISTANT
+import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Process
 import android.os.UserHandle
+import android.provider.Settings
 import android.util.Log
+import com.android.permissioncontroller.Constants.ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.data.UserSensitivityLiveData
 import com.android.permissioncontroller.permission.model.livedatatypes.UidSensitivityState
@@ -56,14 +64,28 @@ fun updateUserSensitiveForUser(user: UserHandle, callback: Runnable) {
 private fun updateUserSensitiveForUidsInternal(
     uidsUserSensitivity: Map<Int, UidSensitivityState>,
     user: UserHandle,
-    callback: Runnable
+    callback: Runnable?,
+    assistantPkg: String? = null
 ) {
-    val pm = Utils.getUserContext(PermissionControllerApplication.get(), user).packageManager
+    val userContext = Utils.getUserContext(PermissionControllerApplication.get(), user)
+    val pm = userContext.packageManager
 
-        for ((uid, uidState) in uidsUserSensitivity) {
+    for ((uid, uidState) in uidsUserSensitivity) {
             for (pkg in uidState.packages) {
                 for (perm in pkg.requestedPermissions) {
-                    val flags = uidState.permStates[perm] ?: continue
+                    var flags = uidState.permStates[perm] ?: continue
+
+                    // If this package is the current assistant, its microphone permission is not
+                    // user sensitive
+                    if (perm == Manifest.permission.RECORD_AUDIO &&
+                        pkg.packageName == assistantPkg) {
+                        val contentResolver = PermissionControllerApplication.get().contentResolver
+                        val shouldHide = Settings.Secure.getInt(contentResolver,
+                            ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY, 0) == 0
+                        if (shouldHide) {
+                            flags = 0
+                        }
+                    }
 
                     try {
                         val oldFlags = pm.getPermissionFlags(perm, pkg.packageName, user) and
@@ -83,7 +105,7 @@ private fun updateUserSensitiveForUidsInternal(
                 }
             }
         }
-    callback.run()
+    callback?.run()
 }
 
 /**
@@ -91,16 +113,78 @@ private fun updateUserSensitiveForUidsInternal(
  *
  * @param uid The uid to be updated
  * @param callback A callback which will be executed when finished
+ * @param assistantPkg Optional, the name of the assistant role package we expect to have this uid.
+ * Used for special assistant handling.
  */
-fun updateUserSensitiveForUid(uid: Int, callback: Runnable) {
+@JvmOverloads
+fun updateUserSensitiveForUid(uid: Int, callback: Runnable? = null, assistantPkg: String? = null) {
     GlobalScope.launch(IPC) {
         val uidSensitivityState = UserSensitivityLiveData[uid].getInitializedValue()
         if (uidSensitivityState != null) {
             updateUserSensitiveForUidsInternal(uidSensitivityState,
-                UserHandle.getUserHandleForUid(uid), callback)
+                UserHandle.getUserHandleForUid(uid), callback, assistantPkg)
         } else {
             Log.e(LOG_TAG, "No packages associated with uid $uid, not updating flags")
-            callback.run()
+            callback?.run()
         }
     }
+}
+
+/**
+ * Notifies the Permission Controller that the assistant role is about to change. If the change has
+ * already happened, recompute the user sensitive flags for the assistant role. If the change has
+ * not happened yet, register a listener for role changes, and recompute when it does change.
+ *
+ * @param packageName The package which will be added or removed from the assistant role
+ * @param isAssistant {@code true} if the package is being added as the assistant, {@code false}
+ * if it is being removed
+ */
+fun setMicUserSensitiveWhenReady(packageName: String, isAssistant: Boolean) {
+    val context = PermissionControllerApplication.get().applicationContext
+
+    val uid: Int
+    try {
+        uid = context.packageManager.getPackageUid(packageName,
+            PackageManager.MATCH_ALL)
+    } catch (e: PackageManager.NameNotFoundException) {
+        Log.w(LOG_TAG, "Can't find uid for packageName " + packageName + " user " +
+            Process.myUserHandle() + " not setting microphone user sensitive flags")
+        return
+    }
+
+    val user = Process.myUserHandle()
+    val roleManager = context.getSystemService(RoleManager::class.java)
+
+    val listener = object : OnRoleHoldersChangedListener {
+        override fun onRoleHoldersChanged(roleName: String, user: UserHandle) {
+            if (roleName == ROLE_ASSISTANT && user == Process.myUserHandle()) {
+                if (setMicUserSensitive(context, packageName, uid, isAssistant)) {
+                    roleManager!!.removeOnRoleHoldersChangedListenerAsUser(this, user)
+                }
+            }
+        }
+    }
+
+    roleManager!!.addOnRoleHoldersChangedListenerAsUser(context.mainExecutor, listener,
+        user)
+    // If the role holder list is already updated (though this is unlikely, and we successfully
+    // set the flags, remove the change listener
+    if (setMicUserSensitive(context, packageName, uid, isAssistant)) {
+        roleManager.removeOnRoleHoldersChangedListenerAsUser(listener, user)
+    }
+}
+
+private fun setMicUserSensitive(
+    context: Context,
+    packageName: String,
+    uid: Int,
+    isAssistant: Boolean
+): Boolean {
+    val roleManager = context.getSystemService(RoleManager::class.java)
+    val currentHolders = roleManager!!.getRoleHolders(ROLE_ASSISTANT)
+    if (currentHolders.contains(packageName) == isAssistant) {
+        updateUserSensitiveForUid(uid, null, packageName)
+        return true
+    }
+    return false
 }
