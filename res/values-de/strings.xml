@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"\"Nur dieses Mal\" aktiviert lassen"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Weitere Infos"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Trotzdem ablehnen"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Schließen"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> von <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Zulassen, dass die App &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; Folgendes darf: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; immer Folgendes erlauben: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -113,7 +114,7 @@
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Jedes Mal fragen"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Ablehnen"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Berechtigung \"<xliff:g id="PERM">%1$s</xliff:g>\""</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Dieser App Zugriff auf <xliff:g id="PERM">%1$s</xliff:g> erlauben?"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Dieser App <xliff:g id="PERM">%1$s</xliff:g>-Zugriff erlauben?"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Alle Berechtigungen der App \"<xliff:g id="APP">%1$s</xliff:g>\" anzeigen"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Alle Apps mit dieser Berechtigung anzeigen"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Berechtigungen entfernen, wenn die App nicht verwendet wird"</string>
@@ -297,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Daten zur Fehlerbehebung teilen"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Detaillierte Daten zur Fehlerbehebung teilen?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> möchte Informationen zur Fehlerbehebung hochladen."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Daten zur Fehlerbehebung teilen"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Daten zur Fehlerbehebung teilen?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Das System hat ein Problem erkannt."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> möchte einen Fehlerbericht von diesem Gerät hochladen, der am <xliff:g id="DATE">%2$s</xliff:g> um <xliff:g id="TIME">%3$s</xliff:g> erstellt wurde. Fehlerberichte enthalten Informationen zu deinem Gerät, die du persönlich eingegeben hast oder die von Apps aufgezeichnet werden, z. B. Nutzernamen, Standortdaten, Geräte-IDs und Netzwerkinformationen. Teile Fehlerberichte nur mit Personen und Apps, denen du vertraust. Darf <xliff:g id="APP_NAME_1">%4$s</xliff:g> einen Fehlerbericht hochladen?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Bei der Verarbeitung des Fehlerberichts für <xliff:g id="APP_NAME">%1$s</xliff:g> ist ein Fehler aufgetreten. Die detaillierten Daten zur Fehlerbehebung wurden daher nicht geteilt. Wir entschuldigen uns für die Störung."</string>

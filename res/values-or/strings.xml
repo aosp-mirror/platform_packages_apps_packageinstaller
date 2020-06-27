@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"“କେବଳ ଏହି ସମୟ” ରଖନ୍ତୁ"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ଅଧିକ ସୂଚନା"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"ତଥାପି ମନାକରନ୍ତୁ"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"ଖାରଜ କରନ୍ତୁ"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> ରୁ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;କୁ <xliff:g id="ACTION">%2$s</xliff:g> ପାଇଁ ଅନୁମତି ଦେବେ କି?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ସବୁବେଳେ <xliff:g id="ACTION">%2$s</xliff:g>କୁ ଅନୁମତି ଦେବେ?"</string>
@@ -114,7 +115,7 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"ଅଗ୍ରାହ୍ୟ କରନ୍ତୁ"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> ଅନୁମତି"</string>
     <string name="app_permission_header" msgid="228974007660007656">"ଏହି ଆପ୍‍ ପାଇଁ <xliff:g id="PERM">%1$s</xliff:g> ଆକ୍ସେସ୍‌ ଅନୁମତି ଦିଅନ୍ତୁ"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ସମସ୍ତ <xliff:g id="APP">%1$s</xliff:g> ଅନୁମତିଗୁଡ଼ିକ ଦେଖନ୍ତୁ"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ସମସ୍ତ <xliff:g id="APP">%1$s</xliff:g> ଅନୁମତି ଦେଖନ୍ତୁ"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ଏହି ଅନୁମତି ଥିବା ସମସ୍ତ ଆପ୍ସ ଦେଖନ୍ତୁ"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"ଯଦି ଆପ୍ ବ୍ୟବହାର କରାଯାଇନାହିଁ, ତେବେ ଅନୁମତିଗୁଡ଼ିକୁ କାଢ଼ି ଦିଅନ୍ତୁ"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"ଯଦି ଏହି ଆପକୁ କିଛି ମାସ ପାଇଁ ବ୍ୟବହାର କରାଯାଇନାହିଁ, ତେବେ ଆପଣଙ୍କ ଡାଟାର ସୁରକ୍ଷା ନିମନ୍ତେ ଏହାର ଅନୁମତିଗୁଡ଼ିକୁ କାଢ଼ି ଦିଆଯିବ।"</string>
@@ -297,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"ଡିବଗିଂ ଡାଟା ସେୟାର୍ କରନ୍ତୁ"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"ବିସ୍ତୃତ ଡିବଗିଂ ଡାଟା ସେୟାର୍ କରିବେ?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ଡିବଗିଂ ସୂଚନା ଅପ୍‌ଲୋଡ୍ କରିବାକୁ ଚାହାନ୍ତି।"</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"ଡିବଗିଂ ଡାଟା ସେୟାର୍ କରନ୍ତୁ"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"ଡିବଗିଂ ଡାଟା ସେୟାର୍ କରିବେ?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"ସିଷ୍ଟମ୍ ଗୋଟିଏ ସମସ୍ୟା ଚିହ୍ନଟ କରିଛି"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> <xliff:g id="DATE">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g>ରେ ଏହି ଡିଭାଇସ୍‌ରୁ ନିଆଯାଇଥିବା ଏକ ବଗ୍ ରିପୋର୍ଟ ଅପ୍‌ଲୋଡ୍ କରିବାକୁ ଅନୁରୋଧ କରୁଛି। ବଗ୍ ରିପୋର୍ଟରେ ଆପଣଙ୍କ ଡିଭାଇସ୍ ସମ୍ବନ୍ଧରେ ବ୍ୟକ୍ତିଗତ ସୂଚନା ବା ଆପ୍ସ ଲଗ୍ କରିଥିବା ବ୍ୟକ୍ତିଗତ ସୂଚନା, ଉଦାହରଣ ସ୍ୱରୂପ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ନାମ, ଲୋକେସନ୍ ଡାଟା, ଡିଭାଇସ୍ ଚିହ୍ନଟକାରୀ, ଏବଂ ନେଟୱାର୍କ ସୂଚନା ଅନ୍ତର୍ଭୁକ୍ତ ରହିଛି। ଏହି ସୂଚନା ସେୟାର୍ କରିବା ପାଇଁ ଆପଣ ଯାହାକୁ ଭରସା କରୁଛନ୍ତି କେବଳ ସେହି ଲୋକ ଏବଂ ଆପ୍ସ ସହିତ ବଗ୍ ରିପୋର୍ଟ ସେୟାର୍ କରନ୍ତୁ। ଏକ ବଗ୍ ରିପୋର୍ଟ ଅପ୍‌ଲୋଡ୍ କରିବା ପାଇଁ <xliff:g id="APP_NAME_1">%4$s</xliff:g>କୁ ଅନୁମତି ଦେବେ?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> ପାଇଁ ବଗ୍ ରିପୋର୍ଟ ପ୍ରକ୍ରିୟାକରଣରେ ଏକ ତ୍ରୁଟି ହୋଇଛି। ତେଣୁ ଡିବଗିଂ ବିବରଣୀ ଡାଟା ସେୟାରିଂ ପ୍ରତ୍ୟାକ୍ଷାନ ହୋଇଛି। ଅସୁବିଧା ପାଇଁ ଦୁଃଖିତ।"</string>

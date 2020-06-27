@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"مواصلة استخدام الإذن \"هذه المرة فقط\""</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"معلومات أكثر"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"الرفض على أي حال"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"رفض"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> من <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"‏هل تريد السماح للتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بإجراء <xliff:g id="ACTION">%2$s</xliff:g>؟"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"‏هل تريد السماح دائمًا للتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بهذا الإجراء <xliff:g id="ACTION">%2$s</xliff:g>؟"</string>
@@ -302,7 +303,7 @@
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"لا يجب تقديم أذونات."</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"التطبيق التلقائي الحالي"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"لا تسألني مرة أخرى."</string>
-    <string name="request_role_set_as_default" msgid="5706081295230541240">"ضبط التطبيق كتلقائي"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"ضبط كتطبيق تلقائي"</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"التطبيقات التلقائية"</string>
     <string name="settings_button" msgid="4747434541214595321">"الإعدادات"</string>
     <string name="default_apps" msgid="8554530939151957828">"التطبيقات التلقائية"</string>
@@ -325,7 +326,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"مشاركة بيانات تصحيح الأخطاء"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"هل تريد مشاركة بيانات تصحيح الأخطاء التفصيلية؟"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"يريد تطبيق <xliff:g id="APP_NAME">%1$s</xliff:g> تحميل معلومات تصحيح الأخطاء."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"مشاركة بيانات تصحيح الأخطاء"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"هل تريد مشاركة بيانات تصحيح الأخطاء؟"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"رصَد النظام مشكلة."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"يطلب تطبيق <xliff:g id="APP_NAME_0">%1$s</xliff:g> تحميل تقرير للأخطاء من هذا الجهاز تم تسجيله بتاريخ <xliff:g id="DATE">%2$s</xliff:g> في <xliff:g id="TIME">%3$s</xliff:g>. وتشمل تقارير الأخطاء المعلومات الشخصية حول جهازك أو المعلومات التي سجلتها التطبيقات، مثل أسماء المستخدمين وبيانات الموقع الجغرافي ومعرّفات الأجهزة ومعلومات الشبكة. ويجب عدم مشاركة تقارير الأخطاء إلا مع المستخدمين والتطبيقات التي تثق بمشاركة هذه المعلومات معها. هل تريد السماح لتطبيق <xliff:g id="APP_NAME_1">%4$s</xliff:g> بتحميل تقرير أخطاء؟"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"حدث خطأ أثناء معالجة تقرير الخطأ لتطبيق <xliff:g id="APP_NAME">%1$s</xliff:g>، ولذلك تم رفض مشاركة بيانات تصحيح الأخطاء التفصيلية. نأسف للمقاطعة."</string>
