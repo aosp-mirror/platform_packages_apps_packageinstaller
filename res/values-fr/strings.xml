@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Conserver le paramètre \"Uniquement cette fois-ci\""</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Plus d\'infos"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Confirmer refus"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Fermer"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> sur <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Autoriser l\'application &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; à <xliff:g id="ACTION">%2$s</xliff:g> ?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Toujours autoriser &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; à <xliff:g id="ACTION">%2$s</xliff:g> ?"</string>
@@ -182,12 +183,12 @@
     <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Autorisations supprimées pour les applications inutilisées"</string>
     <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Certaines applications n\'ont pas été utilisées depuis plusieurs mois. Appuyez ici pour en savoir plus."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
-      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> apps haven’t been used in a few months. Tap to review</item>
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> application inutilisée depuis plusieurs mois. Appuyez ici pour en savoir plus</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> applications inutilisées depuis plusieurs mois. Appuyez ici pour en savoir plus</item>
     </plurals>
     <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Certaines applications n\'ont pas été utilisées depuis plusieurs mois"</string>
     <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
-      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> apps haven’t been used in a few months</item>
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> application inutilisée depuis plusieurs mois</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> applications inutilisées depuis plusieurs mois</item>
     </plurals>
     <string name="permissions_removed_category_title" msgid="189425131292668991">"Autorisations supprimées"</string>
@@ -297,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Partager les données de débogage"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Partager les données de débogage détaillées ?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"L\'application <xliff:g id="APP_NAME">%1$s</xliff:g> souhaite transférer des informations de débogage."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Partager les données de débogage"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Partager les données de débogage ?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Le système a détecté un problème."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"L\'application <xliff:g id="APP_NAME_0">%1$s</xliff:g> souhaite transférer un rapport de bug créé le <xliff:g id="DATE">%2$s</xliff:g> à <xliff:g id="TIME">%3$s</xliff:g> depuis cet appareil. Les rapports de bug contiennent des informations personnelles relatives à votre appareil ou enregistrées par des applications, telles que des noms d\'utilisateur, des données de localisation, des identifiants d\'appareils et des informations relatives au réseau. Ne partagez les rapports de bug qu\'avec des personnes et des applications que vous estimez fiables. Autoriser l\'application <xliff:g id="APP_NAME_1">%4$s</xliff:g> à transférer un rapport de bug ?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Une erreur s\'est produite lors du traitement du rapport de bug pour <xliff:g id="APP_NAME">%1$s</xliff:g>. Le partage des informations détaillées de débogage a donc été refusé. Veuillez nous excuser pour cette interruption."</string>

@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Manter “Apenas desta vez”"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Mais informação"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Recus. na mesma"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Ignorar"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Permitir a &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Permitir que a app &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g> sempre?"</string>
@@ -287,8 +288,8 @@
     <string name="default_app_no_apps" msgid="5344668465735677271">"Sem aplicações"</string>
     <string name="car_default_app_selected" msgid="2813270284225505741">"Selecionada"</string>
     <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Selecionada – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
-    <string name="special_app_access_search_keyword" msgid="462008045110320714">"acesso especial a aplicações"</string>
-    <string name="special_app_access" msgid="2561673957499408877">"Acesso especial a aplicações"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"acesso especial a apps"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Acesso especial a apps"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Sem acesso especial a app"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Sem aplicações"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Não suporta o perfil de trabalho."</string>
@@ -297,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Partilhar dados de depuração"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Pretende partilhar dados de depuração detalhados?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"A app <xliff:g id="APP_NAME">%1$s</xliff:g> pretende carregar informações de depuração."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Partilhar dados de depuração"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Pretende partilhar dados de depuração?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"O sistema detetou um problema."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"A app <xliff:g id="APP_NAME_0">%1$s</xliff:g> está a solicitar o carregamento de um relatório de erro a partir deste dispositivo realizado a <xliff:g id="DATE">%2$s</xliff:g> à(s) <xliff:g id="TIME">%3$s</xliff:g>. Os relatórios de erros incluem informações pessoais acerca do seu dispositivo ou registadas por app, por exemplo, nomes de utilizador, dados de localização, identificadores do dispositivo e informações da rede. Apenas partilhe relatórios de erros com pessoas e apps nas quais confia. Permite que a app <xliff:g id="APP_NAME_1">%4$s</xliff:g> carregue um relatório de erro?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Ocorreu um erro ao processar o relatório de erro para a app <xliff:g id="APP_NAME">%1$s</xliff:g>. Como tal, a partilha dos dados de depuração detalhados foi negada. Pedimos desculpa pela interrupção."</string>

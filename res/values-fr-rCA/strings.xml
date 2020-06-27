@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Garder « Uniquement cette fois »"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"En savoir plus"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Confirmer refus"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Fermer"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> sur <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Autoriser &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; à <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Toujours autoriser « <xliff:g id="APP_NAME">%1$s</xliff:g> » à <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -82,7 +83,7 @@
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
     <string name="permission_access_always" msgid="5419580764084361573">"Autoriser tout le temps"</string>
-    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Autoriser si appli utilisée"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Autoriser si l\'application est utilisée"</string>
     <string name="permission_access_never" msgid="425385910378172045">"Refuser"</string>
     <string name="loading" msgid="323483393167148377">"Chargement en cours…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Toutes les autorisations"</string>
@@ -297,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Partager les données de débogage"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Partager des données de débogage détaillées?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> souhaite téléverser des données de débogage."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Partager les données de débogage"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Partager les données de débogage?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Le système a détecté un problème."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"L\'application <xliff:g id="APP_NAME_0">%1$s</xliff:g> souhaite téléverser un rapport de bogue créé le <xliff:g id="DATE">%2$s</xliff:g> à <xliff:g id="TIME">%3$s</xliff:g> sur cet appareil. Les rapports de bogue contiennent des données personnelles relatives à votre appareil ou enregistrées par des applications, comme des noms d\'utilisateur, des données de localisation, des identifiants d\'appareils et des renseignements relatifs au réseau. Ne partagez les rapports de bogue qu\'avec des personnes et des applications que vous jugez fiables. Autoriser l\'application <xliff:g id="APP_NAME_1">%4$s</xliff:g> à téléverser un rapport de bogue?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Une erreur s\'est produite lors du traitement du rapport de bogue pour <xliff:g id="APP_NAME">%1$s</xliff:g>, alors le partage des données de débogage détaillées a été refusé. Nous sommes désolés de l\'interruption."</string>

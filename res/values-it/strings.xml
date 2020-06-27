@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Mantieni solo questa volta"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Altre info"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Rifiuta comunque"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Ignora"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> di <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Consentire all\'app &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; di <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Vuoi consentire sempre all\'app &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; di <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -274,7 +275,7 @@
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nessuna autorizzazione necessaria"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Valore predefinito attuale"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Non chiedermelo più"</string>
-    <string name="request_role_set_as_default" msgid="5706081295230541240">"Imposta predefinita"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"Imposta predefinito"</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"app predefinite"</string>
     <string name="settings_button" msgid="4747434541214595321">"Impostazioni"</string>
     <string name="default_apps" msgid="8554530939151957828">"App predefinite"</string>
@@ -297,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Condividi dati di debug"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Condividere i dati di debug dettagliati?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"L\'app <xliff:g id="APP_NAME">%1$s</xliff:g> vorrebbe caricare informazioni di debug."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Condividi dati di debug"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Vuoi condividere i dati di debug?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Il sistema ha rilevato un problema."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"L\'app <xliff:g id="APP_NAME_0">%1$s</xliff:g> chiede di caricare una segnalazione di bug da questo dispositivo fatta il giorno <xliff:g id="DATE">%2$s</xliff:g> alle ore <xliff:g id="TIME">%3$s</xliff:g>. Le segnalazioni di bug includono informazioni personali relative al tuo dispositivo oppure registrate dalle app, ad esempio nomi utente, dati sulla posizione, identificatori dei dispositivi e informazioni sulle reti. Condividi le segnalazioni di bug solo con persone e app che ritieni affidabili. Consentire all\'app <xliff:g id="APP_NAME_1">%4$s</xliff:g> di caricare una segnalazione di bug?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Si è verificato un errore durante l\'elaborazione della segnalazione di bug per l\'app <xliff:g id="APP_NAME">%1$s</xliff:g>. Di conseguenza, la condivisione dei dati di debug dettagliati è stata negata. Siamo spiacenti per l\'interruzione."</string>
@@ -332,6 +333,6 @@
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"L\'amministratore IT consentirà all\'app <xliff:g id="APP_NAME">%s</xliff:g> di accedere alla tua posizione"</string>
     <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Alcune opzioni non sono disponibili perché questa app deve rilevare i suoni"</string>
     <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Alcune opzioni non sono disponibili perché questa app è il tuo assistente digitale predefinito"</string>
-    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Alcune opzioni non sono disponibili perché questa app viene utilizzata per gli input vocali"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Alcune opzioni non sono disponibili perché questa app viene usata per gli input vocali"</string>
     <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Alcune opzioni non sono disponibili perché questa app è gestita dal tuo operatore"</string>
 </resources>
