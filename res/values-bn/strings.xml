@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"“শুধুমাত্র এই সময়ে অনুমতি দিন” বিকল্পটি রাখুন"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"আরও তথ্য"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"তবুও না বলুন"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"বাতিল করুন"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>টির মধ্যে <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> নম্বর"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; অ্যাপটিকে <xliff:g id="ACTION">%2$s</xliff:g> করার অনুমতি দেবেন?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; অ্যাপটিকে সব সময় <xliff:g id="ACTION">%2$s</xliff:g> করার অনুমতি দেবেন?"</string>
@@ -82,7 +83,7 @@
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
     <string name="permission_access_always" msgid="5419580764084361573">"সব সময়ের জন্য অনুমতি দিন"</string>
-    <string name="permission_access_only_foreground" msgid="2857031150724321567">"অ্যাপ ব্যবহারের সময় অনুমতি দিন"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"শুধু অ্যাপ ব্যবহারের সময় অনুমতি দিন"</string>
     <string name="permission_access_never" msgid="425385910378172045">"খারিজ করুন"</string>
     <string name="loading" msgid="323483393167148377">"লোড হচ্ছে…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"সব অনুমতি"</string>
@@ -109,7 +110,7 @@
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"সমস্ত ফাইল ম্যানেজ করার অনুমতি দিন"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"শুধু মিডিয়া অ্যাক্সেসের অনুমতি দিন"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"সব সময়ের জন্য অনুমতি দিন"</string>
-    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"অ্যাপ ব্যবহারের সময় অনুমতি দিন"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"শুধু অ্যাপ ব্যবহারের সময় অনুমতি দিন"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"প্রতিবার জিজ্ঞাসা করা হবে"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"খারিজ করুন"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> অনুমতি"</string>
@@ -297,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"ডিবাগিং ডেটা শেয়ার করুন"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"ডিবাগিংয়ের বিস্তারিত ডেটা শেয়ার করতে চান?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ডিবাগিংয়ের তথ্য আপলোড করতে চায়।"</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"ডিবাগিং ডেটা শেয়ার করুন"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"ডিবাগিং ডেটা শেয়ার করবেন?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"সিস্টেম একটি সমস্যা শনাক্ত করেছে।"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"এই ডিভাইস থেকে <xliff:g id="DATE">%2$s</xliff:g> তারিখে <xliff:g id="TIME">%3$s</xliff:g>-এ নেওয়া একটি সমস্যার রিপোর্ট <xliff:g id="APP_NAME_0">%1$s</xliff:g> আপলোড করতে চাইছে। ইউজার নেম, লোকেশন ডেটা, ডিভাইসের শনাক্তকারী ও নেটওয়ার্কের তথ্যের মতো আপনার ডিভাইস ও লগ-ইন করা অ্যাপের ব্যাপারে ব্যক্তিগত তথ্য সমস্যার রিপোর্টে অন্তর্ভুক্ত থাকে। যেসব লোকজন বা অ্যাপকে আপনি এই তথ্য জানানোর ব্যাপারে বিশ্বাস করতে পারেন শুধুমাত্র তাদের সাথেই সমস্যার রিপোর্ট শেয়ার করুন। একটি সমস্যার রিপোর্ট আপলোড করতে <xliff:g id="APP_NAME_1">%4$s</xliff:g>-কে অনুমতি দিতে চান?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g>-এর ত্রুটির প্রতিবেদন প্রসেস করার সময় সমস্যা হয়েছে। তাই ডিবাগিং সংক্রান্ত বিস্তারিত ডেটা শেয়ার করার প্রক্রিয়াটি বাতিল করা হয়েছে। বিঘ্ন ঘটায় দুঃখিত।"</string>
