@@ -122,6 +122,7 @@
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSION" />
                 <action android:name="android.intent.action.MANAGE_PERMISSION_APPS" />
                 <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
+                <action android:name="android.intent.action.REVIEW_PERMISSION_USAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -132,6 +133,7 @@
                   android:theme="@android:style/Theme.NoDisplay">
             <intent-filter android:priority="1">
                 <action android:name="com.android.permissioncontroller.settingssearch.action.MANAGE_PERMISSION_APPS" />
+                <action android:name="com.android.permissioncontroller.settingssearch.action.REVIEW_PERMISSION_USAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -159,6 +161,17 @@
         <activity android:name="com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog"
                   android:excludeFromRecents="true"
                   android:theme="@style/PermissionDialog.FilterTouches" />
+
+        <activity android:name="com.android.permissioncontroller.permission.debug.ReviewOngoingUsageActivity"
+                  android:excludeFromRecents="true"
+                  android:theme="@style/PermissionDialog"
+                  android:launchMode="singleInstance"
+                  android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS" >
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.REVIEW_ONGOING_PERMISSION_USAGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity android:name="com.android.permissioncontroller.permission.ui.ReviewAccessibilityServicesActivity"
                   android:excludeFromRecents="true"

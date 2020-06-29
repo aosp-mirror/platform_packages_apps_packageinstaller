@@ -1141,4 +1141,15 @@ public final class Utils {
             return false;
         }
     }
+
+    /**
+     * Whether the Permissions Hub is enabled.
+     *
+     * @return whether the Permissions Hub is enabled.
+     */
+    public static boolean isPermissionUsageIconEnabled() {
+        return true;
+        //return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
+        //        PROPERTY_PERMISSIONS_HUB_ENABLED, false);
+    }
 }
