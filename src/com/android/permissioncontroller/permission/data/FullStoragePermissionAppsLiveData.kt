@@ -16,10 +16,12 @@
 
 package com.android.permissioncontroller.permission.data
 
-import android.Manifest
+import android.Manifest.permission.MANAGE_EXTERNAL_STORAGE
 import android.Manifest.permission_group.STORAGE
 import android.app.AppOpsManager
 import android.app.AppOpsManager.MODE_ALLOWED
+import android.app.AppOpsManager.MODE_DEFAULT
+import android.app.AppOpsManager.MODE_FOREGROUND
 import android.app.AppOpsManager.OPSTR_LEGACY_STORAGE
 import android.app.AppOpsManager.OPSTR_MANAGE_EXTERNAL_STORAGE
 import android.app.Application
@@ -64,7 +66,7 @@ object FullStoragePermissionAppsLiveData :
         for ((user, packageInfoList) in AllPackageInfosLiveData.value ?: emptyMap()) {
             val userPackages = packageInfoList.filter {
                 storagePackages.contains(it.packageName to user) ||
-                    it.requestedPermissions.contains(Manifest.permission.MANAGE_EXTERNAL_STORAGE)
+                    it.requestedPermissions.contains(MANAGE_EXTERNAL_STORAGE)
             }
 
             for (packageInfo in userPackages) {
@@ -80,10 +82,12 @@ object FullStoragePermissionAppsLiveData :
                         isLegacy = true, isGranted = true))
                     continue
                 }
-                if (packageInfo.requestedPermissions.contains(
-                        Manifest.permission.MANAGE_EXTERNAL_STORAGE)) {
-                    val granted = appOpsManager.unsafeCheckOpNoThrow(OPSTR_MANAGE_EXTERNAL_STORAGE,
-                            packageInfo.uid, packageInfo.packageName) == MODE_ALLOWED
+                if (MANAGE_EXTERNAL_STORAGE in packageInfo.requestedPermissions) {
+                    val mode = appOpsManager.unsafeCheckOpNoThrow(OPSTR_MANAGE_EXTERNAL_STORAGE,
+                        packageInfo.uid, packageInfo.packageName)
+                    val granted = mode == MODE_ALLOWED || mode == MODE_FOREGROUND ||
+                        (mode == MODE_DEFAULT &&
+                            MANAGE_EXTERNAL_STORAGE in packageInfo.grantedPermissions)
                     fullStoragePackages.add(FullStoragePackageState(packageInfo.packageName, user,
                         isLegacy = false, isGranted = granted))
                 }
@@ -95,6 +99,14 @@ object FullStoragePermissionAppsLiveData :
 
     override fun onActive() {
         super.onActive()
+        updateAsync()
+    }
+
+    /**
+     * Recalculate the LiveData
+     * TODO ntmyren: Make livedata properly observe app ops
+     */
+    fun recalculate() {
         updateAsync()
     }
 }
