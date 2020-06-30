@@ -118,7 +118,8 @@ class LightPackageInfoLiveData private constructor(
             registeredUid = uid
             PermissionListenerMultiplexer.addCallback(it, this)
         }
-        if (userPackagesLiveData.hasActiveObservers() && !watchingUserPackagesLiveData) {
+        if (userPackagesLiveData.hasActiveObservers() && !watchingUserPackagesLiveData &&
+            !userPackagesLiveData.permChangeStale) {
             watchingUserPackagesLiveData = true
             addSource(userPackagesLiveData, userPackageInfosObserver)
         } else {

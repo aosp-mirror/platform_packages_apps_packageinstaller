@@ -359,6 +359,11 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
             setResult(DENIED);
         });
         mDenyButton.setOnClickListener((v) -> {
+
+            if (mViewModel.getFullStorageStateLiveData().getValue() != null
+                    && !mViewModel.getFullStorageStateLiveData().getValue().isLegacy()) {
+                mViewModel.setAllFilesAccess(false);
+            }
             mViewModel.requestChange(false, this, this, ChangeRequest.REVOKE_BOTH,
                     APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__DENY);
             setResult(DENIED_DO_NOT_ASK_AGAIN);
@@ -421,12 +426,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
             return;
         }
 
-        if (storageState.isGranted()) {
-            textView.setText(R.string.app_permission_footer_special_file_access);
-            textView.setVisibility(View.VISIBLE);
-        } else {
-            textView.setVisibility(View.GONE);
-        }
+        textView.setText(R.string.app_permission_footer_special_file_access);
+        textView.setVisibility(View.VISIBLE);
     }
 
     private void setResult(@GrantPermissionsViewHandler.Result int result) {
@@ -532,7 +533,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
         private static final String KEY = ConfirmDialog.class.getName() + ".arg.key";
         private static final String BUTTON = ConfirmDialog.class.getName() + ".arg.button";
         private static final String ONE_TIME = ConfirmDialog.class.getName() + ".arg.onetime";
-
+        private static int sCode =  APP_PERMISSION_FRAGMENT_ACTION_REPORTED__BUTTON_PRESSED__ALLOW;
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AppPermissionFragment fragment = (AppPermissionFragment) getParentFragment();
@@ -550,6 +551,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader
                             (DialogInterface dialog, int which) -> {
                                 if (isGrantFileAccess) {
                                     fragment.mViewModel.setAllFilesAccess(true);
+                                    fragment.mViewModel.requestChange(false, fragment,
+                                            fragment, ChangeRequest.GRANT_BOTH, sCode);
                                 } else {
                                     fragment.mViewModel.onDenyAnyWay((ChangeRequest)
                                                     getArguments().getSerializable(CHANGE_REQUEST),
