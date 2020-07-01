@@ -35,10 +35,37 @@ class UserPackageInfosLiveData private constructor(
     private val app: Application,
     private val user: UserHandle
 ) : SmartAsyncMediatorLiveData<@kotlin.jvm.JvmSuppressWildcards List<LightPackageInfo>>(),
-    PackageBroadcastReceiver.PackageBroadcastListener {
+    PackageBroadcastReceiver.PackageBroadcastListener,
+    PermissionListenerMultiplexer.PermissionChangeCallback {
+
+    /**
+     * Whether or not the permissions in this liveData are out of date
+     */
+    var permChangeStale = false
 
     override fun onPackageUpdate(packageName: String) {
         updateAsync()
+    }
+
+    // TODO ntmyren: replace with correctly updating
+    override fun onPermissionChange() {
+        permChangeStale = true
+        for (packageInfo in value ?: emptyList()) {
+            PermissionListenerMultiplexer.removeCallback(packageInfo.uid, this)
+        }
+    }
+
+    override fun setValue(newValue: List<LightPackageInfo>?) {
+        if (newValue != value) {
+            for (packageInfo in value ?: emptyList()) {
+                PermissionListenerMultiplexer.removeCallback(packageInfo.uid, this)
+            }
+            for (packageInfo in newValue ?: emptyList()) {
+                PermissionListenerMultiplexer.addCallback(packageInfo.uid, this)
+            }
+        }
+        super.setValue(newValue)
+        permChangeStale = false
     }
 
     /**
@@ -53,6 +80,7 @@ class UserPackageInfosLiveData private constructor(
             "${user.identifier}")
         val packageInfos = app.applicationContext.packageManager
             .getInstalledPackagesAsUser(GET_PERMISSIONS or MATCH_ALL, user.identifier)
+
         postValue(packageInfos.map { packageInfo -> LightPackageInfo(packageInfo) })
     }
 
@@ -60,11 +88,20 @@ class UserPackageInfosLiveData private constructor(
         super.onActive()
 
         PackageBroadcastReceiver.addAllCallback(this)
+
+        for (packageInfo in value ?: emptyList()) {
+            PermissionListenerMultiplexer.addCallback(packageInfo.uid, this)
+        }
+
         updateAsync()
     }
 
     override fun onInactive() {
         super.onInactive()
+
+        for (packageInfo in value ?: emptyList()) {
+            PermissionListenerMultiplexer.removeCallback(packageInfo.uid, this)
+        }
 
         PackageBroadcastReceiver.removeAllCallback(this)
     }
