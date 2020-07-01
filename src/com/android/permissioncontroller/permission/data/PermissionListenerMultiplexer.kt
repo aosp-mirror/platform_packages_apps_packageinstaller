@@ -35,7 +35,7 @@ object PermissionListenerMultiplexer : PackageManager.OnPermissionsChangedListen
     private val pm = app.applicationContext.packageManager
 
     override fun onPermissionsChanged(uid: Int) {
-        callbacks[uid]?.forEach { callback ->
+        callbacks[uid]?.toList()?.forEach { callback ->
             callback.onPermissionChange()
         }
     }
