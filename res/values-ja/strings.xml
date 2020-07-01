@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"「今回のみ」の設定を維持"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"詳細"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"許可しない"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"閉じる"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; に「<xliff:g id="ACTION">%2$s</xliff:g>」を許可しますか？"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"「<xliff:g id="ACTION">%2$s</xliff:g>」を &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; に常に許可しますか？"</string>
@@ -120,7 +121,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"データ保護のため、このアプリが数か月使用されていない場合はアプリの権限が取り消されます。"</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"データ保護のため、アプリが数か月使用されていない場合は以下の権限が取り消されます。<xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"データ保護のため、数か月使用していないアプリの権限を削除しました。"</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"もう一度権限を許可するには、アプリを開いてください"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"もう一度権限を許可するには、アプリを開いてください。"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"このアプリでは現在、自動削除は無効になっています。"</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"現在、自動取り消し可能な権限は付与されていません"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g>の権限が削除されます。"</string>
@@ -179,6 +180,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"使用していないアプリ: 1 個"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"使用していないアプリ: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 個"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"プライバシー保護のため権限を削除しました。タップしてご確認ください"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"使用していないアプリの権限を削除しました"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"数か月使用していないアプリがあります。タップしてご確認ください。"</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other">数か月使用していないアプリが <xliff:g id="COUNT_1">%1$d</xliff:g> 個あります。タップしてご確認ください</item>
+      <item quantity="one">数か月使用していないアプリが <xliff:g id="COUNT_0">%1$d</xliff:g> 個あります。タップしてご確認ください</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"数か月使用していないアプリがあります"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other">数か月使用していないアプリが <xliff:g id="COUNT_1">%1$d</xliff:g> 個あります</item>
+      <item quantity="one">数か月使用していないアプリが <xliff:g id="COUNT_0">%1$d</xliff:g> 個あります</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"削除された権限"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"削除済みの権限"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"使用していないすべてのアプリ"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> か月前"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"プライバシー保護のため権限を削除しました"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> がバックグラウンドで位置情報を取得しました"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"このアプリは常に位置情報にアクセスできます。設定を変更するにはタップしてください。"</string>
@@ -195,6 +211,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>、<xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>、<xliff:g id="PERM_NAME_1">%2$s</xliff:g>、他 <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> 件"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"データ保護のため、数か月使用していないアプリから権限を削除しました"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"データ保護のため、数か月使用していないアプリから権限を削除しました"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"数か月使用していアプリ: 1 件"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"数か月使用していないアプリ: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> 件"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"アプリが使用中の場合のみ"</string>
@@ -281,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"デバッグデータの共有"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"詳細なデバッグデータを共有しますか？"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> がデバッグ情報のアップロードをリクエストしています。"</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"デバッグデータの共有"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"デバッグデータを共有しますか？"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"システムで問題が検出されました。"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> が、<xliff:g id="DATE">%2$s</xliff:g>、<xliff:g id="TIME">%3$s</xliff:g>にこのデバイスから取得したバグレポートのアップロードをリクエストしています。バグレポートには、ユーザー名、位置情報、デバイスの識別情報、ネットワーク情報など、デバイスに関する個人情報やアプリで記録された個人情報が含まれます。この情報を含むバグレポートは、信頼できる人やアプリとのみ共有してください。<xliff:g id="APP_NAME_1">%4$s</xliff:g> にバグレポートのアップロードを許可しますか？"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> のバグレポートの処理中にエラーが発生しました。詳細なデバッグデータの共有が許可されませんでした。ご不便をおかけして申し訳ありません。"</string>
@@ -299,9 +316,9 @@
     <string name="permgrouprequest_location" msgid="4367626296074714965">"このデバイスの位置情報へのアクセスを「&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;」に許可しますか？"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"このアプリは、ユーザーがアプリを使用している間のみ位置情報にアクセスできます"</string>
     <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"このデバイスの位置情報へのアクセスを「&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;」に許可しますか？"</string>
-    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"このアプリは、未使用時も含め、常に位置情報にアクセスしようとすることがあります。"<annotation id="link">"[設定] で許可してください。"</annotation></string>
-    <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; に対する位置情報へのアクセス許可を変更しますか?"</string>
-    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"このアプリは、未使用時も含め、常に位置情報にアクセスしようとしています。"<annotation id="link">"[設定] で許可してください。"</annotation></string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"このアプリは、未使用時も含め、常に位置情報にアクセスする可能性があります。"<annotation id="link">"[設定] で許可してください。"</annotation></string>
+    <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"「&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;」に対する位置情報へのアクセス許可を変更しますか?"</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"このアプリは、未使用時も含め、常に位置情報へのアクセスを試みます。"<annotation id="link">"[設定] で許可してください。"</annotation></string>
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"カレンダーへのアクセスを「&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;」に許可しますか？"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"SMS メッセージの送信と表示を「&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;」に許可しますか？"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"デバイス内の写真、メディア、ファイルへのアクセスを「&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;」に許可しますか？"</string>

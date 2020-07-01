@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Garder « Uniquement cette fois »"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"En savoir plus"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Confirmer refus"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Fermer"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> sur <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Autoriser &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; à <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Toujours autoriser « <xliff:g id="APP_NAME">%1$s</xliff:g> » à <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -82,7 +83,7 @@
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
     <string name="permission_access_always" msgid="5419580764084361573">"Autoriser tout le temps"</string>
-    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Autoriser si appli utilisée"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Autoriser si l\'application est utilisée"</string>
     <string name="permission_access_never" msgid="425385910378172045">"Refuser"</string>
     <string name="loading" msgid="323483393167148377">"Chargement en cours…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Toutes les autorisations"</string>
@@ -120,7 +121,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Afin de protéger vos données, les autorisations pour cette application seront supprimées si elle n\'est pas utilisée pendant quelques mois."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Afin de protéger vos données, si l\'application n\'est pas utilisée pendant quelques mois, les autorisations suivantes seront supprimées : <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Afin de protéger vos données, les autorisations ont été supprimées pour les applications que vous n\'avez pas utilisées depuis quelques mois."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Pour accorder les autorisations de nouveau, ouvrez l\'application"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Pour accorder les autorisations de nouveau, ouvrez l\'application."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"La suppression automatique des autorisations est actuellement désactivée pour cette application."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Aucune autorisation révocable automatiquement n\'est présentement accordée"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"L\'autorisation <xliff:g id="PERM">%1$s</xliff:g> sera supprimée."</string>
@@ -179,6 +180,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 application non utilisée"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> applications non utilisées"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Les autorisations ont été supprimées afin de protéger votre confidentialité. Touchez pour examiner"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Autoris. suppr. pour applis non utilisées"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Certaines applications n\'ont pas été utilisées depuis quelques mois. Touchez pour examiner."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> application n\'a pas été utilisée depuis quelques mois. Touchez pour examiner</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> applications n\'ont pas été utilisées depuis quelques mois. Touchez pour examiner</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Certaines applications n\'ont pas été utilisées depuis quelques mois"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> application n\'a pas été utilisée depuis quelques mois</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> applications n\'ont pas été utilisées depuis quelques mois</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Autorisations supprimées"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Autorisations supprimées"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Toutes les applications non utilisées"</string>
+    <string name="months_ago" msgid="6541240625299588045">"Il y a <xliff:g id="COUNT">%1$d</xliff:g> mois"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Les autorisations ont été supprimées afin de protéger votre confidentialité"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"L\'application <xliff:g id="APP_NAME">%s</xliff:g> a accédé à votre position en arrière-plan"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Cette application peut toujours accéder à votre position. Touchez l\'écran pour modifier cela."</string>
@@ -195,6 +211,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> et <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> et <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> autres"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Pour protéger vos données, les autorisations ont été supprimées pour les applications que vous n\'avez pas utilisées depuis plusieurs mois"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Pour protéger vos données, les autorisations ont été supprimées pour certaines applications que vous n\'avez pas utilisées depuis plusieurs mois"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 application n\'a pas été utilisée depuis quelques mois"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> applications n\'ont pas été utilisées depuis quelques mois"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Uniquement lorsque l\'application est en cours d\'utilisation"</string>
@@ -281,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Partager les données de débogage"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Partager des données de débogage détaillées?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> souhaite téléverser des données de débogage."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Partager les données de débogage"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Partager les données de débogage?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Le système a détecté un problème."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"L\'application <xliff:g id="APP_NAME_0">%1$s</xliff:g> souhaite téléverser un rapport de bogue créé le <xliff:g id="DATE">%2$s</xliff:g> à <xliff:g id="TIME">%3$s</xliff:g> sur cet appareil. Les rapports de bogue contiennent des données personnelles relatives à votre appareil ou enregistrées par des applications, comme des noms d\'utilisateur, des données de localisation, des identifiants d\'appareils et des renseignements relatifs au réseau. Ne partagez les rapports de bogue qu\'avec des personnes et des applications que vous jugez fiables. Autoriser l\'application <xliff:g id="APP_NAME_1">%4$s</xliff:g> à téléverser un rapport de bogue?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Une erreur s\'est produite lors du traitement du rapport de bogue pour <xliff:g id="APP_NAME">%1$s</xliff:g>, alors le partage des données de débogage détaillées a été refusé. Nous sommes désolés de l\'interruption."</string>
@@ -314,7 +331,7 @@
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Autorisations contrôlées"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"L\'accès à la position est autorisé"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Votre administrateur informatique autorise <xliff:g id="APP_NAME">%s</xliff:g> à accéder à votre position"</string>
-    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Certaines options ne sont pas accessibles parce que cette application est doit être en mesure de détecter le son"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Certaines options ne sont pas accessibles parce que cette application doit être en mesure de détecter le son"</string>
     <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Certaines options ne sont pas accessibles parce que cette application est votre assistant numérique par défaut"</string>
     <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Certaines options ne sont pas accessibles parce que cette application est utilisée pour l\'entrée vocale"</string>
     <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Certaines options ne sont pas accessibles parce que cette application est gérée par votre fournisseur de services"</string>

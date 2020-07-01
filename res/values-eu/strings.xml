@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Mantendu \"Oraingo honetan soilik\""</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Datu gehiago"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Ukatu hala ere"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Baztertu"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioak <xliff:g id="ACTION">%2$s</xliff:g> ahal izatea baimendu nahi duzu?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Beti eman nahi diozu \"<xliff:g id="ACTION">%2$s</xliff:g>\" baimena &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
@@ -120,7 +121,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Zure datuak babeste aldera, aplikazio honen baimenak kendu egingo dira aplikazioa ez baduzu erabiltzen zenbait hilabetez."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Zure datuak babeste aldera, kendu egingo dira honako baimen hauek zenbait hilabetez aplikazioa erabiltzen ez baduzu: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Zure datuak babeste aldera, kendu egin dira zenbait hilabetez erabili ez dituzun aplikazioen baimenak."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Ireki aplikazioa baimenak berriro ere eman ahal izateko."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Ireki aplikazioa baimenak berriro ere eman ahal izateko."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Desgaituta dago automatikoki kentzeko aukera aplikazio honetan."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Une honetan ez da ematen automatikoki baliogabe daitekeen baimenik"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> baimena kenduko da."</string>
@@ -129,7 +130,7 @@
     <string name="auto_manage_title" msgid="4059499629753336321">"Kudeatu baimenak automatikoki"</string>
     <string name="off" msgid="4561379152328580345">"Desaktibatu"</string>
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g> erabiltzeko baimena kendu da"</string>
-    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> eta <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> baimenak kendu dira"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> eta <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> atzitzeko baimenak kendu dira"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> eta beste <xliff:g id="NUMBER">%2$s</xliff:g> baimen kendu dira"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Azken irekitze-data: duela <xliff:g id="NUMBER">%s</xliff:g> hilabete baino gehiago"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Aplikazioaren azken irekitze-data: <xliff:g id="DATE">%s</xliff:g>"</string>
@@ -179,6 +180,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"Erabiltzen ez den 1 aplikazio"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Erabiltzen ez diren <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplikazio"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Baimenak kendu egin dira zure pribatutasuna babesteko. Sakatu berrikusteko."</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Kendu dira erabiltzen ez diren aplikazioen baimenak"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Aplikazio batzuk ez dira erabili zenbait hilabetez. Sakatu berrikusteko."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikazio ez dira erabili zenbait hilabetez. Sakatu berrikusteko.</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> aplikazio ez da erabili zenbait hilabetez. Sakatu berrikusteko.</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Aplikazio batzuk ez dira erabili zenbait hilabetez"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikazio ez dira erabili zenbait hilabetez</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> aplikazio ez da erabili zenbait hilabetez</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Baimenak kendu zaizkien aplikazioak"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Baimenak kendu zaizkien aplikazioak"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Erabiltzen ez diren aplikazio guztiak"</string>
+    <string name="months_ago" msgid="6541240625299588045">"Duela <xliff:g id="COUNT">%1$d</xliff:g> hilabete"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Baimenak kendu egin dira zure pribatutasuna babesteko"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> aplikazioak kokapena atzitu du atzeko planoan"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Aplikazio honek beti atzi dezake kokapena. Sakatu aldatzeko."</string>
@@ -195,6 +211,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> eta <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> eta beste <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Zure datuak babeste aldera, hainbat hilabetean zehar erabili ez dituzun aplikazioen baimenak kendu dira"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Zure datuak babeste aldera, kendu egin dira zenbait hilabetez erabili ez dituzun aplikazio batzuen baimenak"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"Aplikazio bat ez da erabili zenbait hilabetez"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplikazio ez dira erabili zenbait hilabetez"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Aplikazioa erabiltzen ari zarenean soilik"</string>
@@ -281,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Partekatu arazketa-datuak"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Arazketa-datu xehatuak partekatu nahi dituzu?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioak arazketa-informazioa kargatu nahi du."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Partekatu arazketa-datuak"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Arazketa-datuak partekatu nahi dituzu?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Arazo bat hauteman du sistemak."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> (<xliff:g id="TIME">%3$s</xliff:g>) datan sortutako akatsen txostena kargatzeko baimena eskatzen ari da <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Akatsen txostenek zure gailuari buruzkoa den edo aplikazioek erregistratu duten informazio pertsonala dute; adibidez, erabiltzaile-izenak, kokapenari buruzko datuak, gailuaren identifikatzaileak eta sareari buruzko informazioa. Informazio hori izateko fidagarriak iruditzen zaizkizun pertsona eta aplikazioekin soilik partekatu beharko zenituzke akatsen txostenak. <xliff:g id="APP_NAME_1">%4$s</xliff:g> aplikazioari akatsen txostena kargatzeko baimena eman nahi diozu?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Errore bat gertatu da <xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioaren akatsen txostena prozesatzean; beraz, ezin izan dira partekatu arazketa-datu xehatuak. Barkatu eragozpenak."</string>

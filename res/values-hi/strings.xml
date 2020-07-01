@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"“सिर्फ़ इस बार अनुमति दें” को बनाए रखें"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ज़्यादा जानकारी"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"फिर भी अनुमति न दें"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"खारिज करें"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> में से <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; को <xliff:g id="ACTION">%2$s</xliff:g> की अनुमति दें?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; को <xliff:g id="ACTION">%2$s</xliff:g> की अनुमति हमेशा दें?"</string>
@@ -120,7 +121,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"अगर इस ऐप्लिकेशन का इस्तेमाल कुछ महीनों तक नहीं किया गया, तो इसे दी गई अनुमतियां हटा दी जाएंगी. ऐसा आपके डेटा को सुरक्षित रखने के लिए किया जाएगा."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"अगर ऐप्लिकेशन कुछ महीनों से इस्तेमाल नहीं हुआ है, तो आपके डेटा को सुरक्षित रखने के लिए ये अनुमतियां हटा दी जाएंगी: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"जिन ऐप्लिकेशन का इस्तेमाल कुछ महीनों से नहीं हुआ है उन्हें दी गई अनुमतियां हटा दी गई हैं. ऐसा आपके डेटा को सुरक्षित रखने के लिए किया गया है."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"अगर आप दोबारा अनुमतियां देना चाहते हैं, तो ऐप्लिकेशन खोलें"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"अगर आप फिर से अनुमतियां देना चाहते हैं, तो ऐप्लिकेशन खोलें."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"फ़िलहाल, इस ऐप्लिकेशन को अपने-आप नहीं हटाया जा सकता."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"फ़िलहाल, अपने-आप वापस होने वाली कोई भी अनुमति नहीं दी गई है"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> की अनुमति हटा दी जाएगी."</string>
@@ -179,6 +180,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"एक ऐप्लिकेशन इस्तेमाल नहीं किया जा रहा"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ऐप्लिकेशन इस्तेमाल नहीं किए जा रहे"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"आपकी निजता की सुरक्षा के लिए अनुमतियां हटाई गई हैं. देखने के लिए टैप करें"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"जो ऐप इस्तेमाल नहीं किए गए उन्हें मिली अनुमतियां हटाई गई हैं"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"कुछ ऐप्लिकेशन का इस्तेमाल कुछ महीनों से नहीं किया गया है. देखने के लिए टैप करें."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="one">कुछ महीनों से <xliff:g id="COUNT_1">%1$d</xliff:g> ऐप्लिकेशन इस्तेमाल नहीं किया गया है. देखने के लिए टैप करें</item>
+      <item quantity="other">कुछ महीनों से <xliff:g id="COUNT_1">%1$d</xliff:g> ऐप्लिकेशन इस्तेमाल नहीं किए गए हैं. देखने के लिए टैप करें</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"कुछ ऐप्लिकेशन का इस्तेमाल कुछ महीनों से नहीं किया गया है"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="one">कुछ महीनों से <xliff:g id="COUNT_1">%1$d</xliff:g> ऐप्लिकेशन इस्तेमाल नहीं किया गया है</item>
+      <item quantity="other">कुछ महीनों से <xliff:g id="COUNT_1">%1$d</xliff:g> ऐप्लिकेशन इस्तेमाल नहीं किए गए हैं</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"वे ऐप्लिकेशन जिनकी अनुमतियां हटाई गई हैं"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"वे ऐप्लिकेशन जिनकी अनुमतियां हटाई गई हैं"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"ऐसे सभी ऐप्लिकेशन जो इस्तेमाल नहीं किए गए हैं"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> महीने पहले"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"आपकी निजता की सुरक्षा के लिए अनुमतियां हटाई गई हैं"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> अब बैकग्राउंड में आपकी जगह की जानकारी ऐक्सेस कर सकता है"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"यह ऐप्लिकेशन हमेशा आपकी जगह की जानकारी ऐक्सेस कर सकता है. बदलने के लिए टैप करें."</string>
@@ -195,6 +211,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> और <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, और अन्य<xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> अनुमतियां"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"जिन ऐप्लिकेशन का इस्तेमाल कुछ महीनों से नहीं हुआ है उन्हें दी गई अनुमतियां हटा दी गई हैं. ऐसा आपके डेटा को सुरक्षित रखने के लिए किया गया है"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"जिन ऐप्लिकेशन का इस्तेमाल कुछ महीनों से नहीं हुआ है उनमें से कुछ ऐप्लिकेशन को दी गई अनुमतियां हटा दी गई हैं. ऐसा आपके डेटा को सुरक्षित रखने के लिए किया गया है."</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"कुछ महीनों से एक ऐप्लिकेशन का इस्तेमाल नहीं किया गया है"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"कुछ महीनों से <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ऐप्लिकेशन इस्तेमाल नहीं किए गए हैं"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"सिर्फ़ ऐप्लिकेशन इस्तेमाल में होने के दौरान"</string>
@@ -281,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"डीबग करने की प्रक्रिया का डेटा शेयर करें"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"डीबग करने की ज़्यादा जानकारी शेयर करना चाहते हैं?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> डीबग करने की जानकारी अपलोड करना चाहता है."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"डीबग करने की प्रक्रिया का डेटा शेयर करें"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"डीबग करने से जुड़ा डेटा शेयर करना चाहते हैं?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"सिस्टम को किसी समस्या का पता चला है."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> इस डिवाइस से <xliff:g id="DATE">%2$s</xliff:g> को <xliff:g id="TIME">%3$s</xliff:g> बजे ली गई गड़बड़ी की रिपोर्ट अपलोड करने की मंज़ूरी मांग रहा है. गड़बड़ी की रिपोर्ट में आपके डिवाइस के बारे में या ऐप्लिकेशन की ओर से लॉग की गई निजी जानकारी शामिल होती है, जैसे कि उपयोगकर्ता नाम, जगह की जानकारी का डेटा, डिवाइस पहचानकर्ता, और नेटवर्क की जानकारी. गड़बड़ी की रिपोर्ट सिर्फ़ उन लोगों और ऐप्लिकेशन के साथ शेयर करें जिन पर आप इस जानकारी को लेकर भरोसा करते हैं. क्या आप <xliff:g id="APP_NAME_1">%4$s</xliff:g> को गड़बड़ी की रिपोर्ट अपलोड करने देना चाहते हैं?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> के लिए गड़बड़ी की रिपोर्ट तैयार करने में दिक्कत हुई. इसलिए, डीबग करने के बारे में ज़्यादा जानकारी का डेटा शेयर नहींं किया जा सका. रुकावट के लिए खेद है."</string>
@@ -316,6 +333,6 @@
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"आपका आईटी एडमिन <xliff:g id="APP_NAME">%s</xliff:g> को आपकी जगह की जानकारी देखने की अनुमति दे रहा है"</string>
     <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"कुछ विकल्प मौजूद नहीं हैं, क्योंकि इस ऐप्लिकेशन को आवाज़ पहचाननी पड़ रही है"</string>
     <string name="fg_capabilities_assistant" msgid="6285681832588297471">"कुछ विकल्प मौजूद नहीं हैं, क्योंकि यह ऐप्लिकेशन आपका डिफ़ॉल्ट डिजिटल असिस्टेंट है"</string>
-    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"कुछ विकल्प मौजूद नहीं हैं, क्योंकि इस ऐप्लिकेशन का इस्तेमाल बोलकर फ़ोन को निर्देश देने के लिए किया जा रहा है"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"कुछ विकल्प मौजूद नहीं हैं, क्योंकि इस ऐप्लिकेशन का इस्तेमाल फ़ोन को बोलकर निर्देश देने के लिए किया जा रहा है"</string>
     <string name="fg_capabilities_carrier" msgid="4063467791736574406">"कुछ विकल्प मौजूद नहीं हैं, क्योंकि इस ऐप्लिकेशन को आपकी मोबाइल और इंटरनेट सेवा देने वाली कंपनी प्रबंधित कर रही है"</string>
 </resources>
