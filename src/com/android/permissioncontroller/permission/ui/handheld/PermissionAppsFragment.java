@@ -131,8 +131,6 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
                     setLoading(true /* loading */, false /* animate */);
                 }
             }, SHOW_LOAD_DELAY_MS);
-        } else if (mViewModel.getCategorizedAppsLiveData().getValue() != null) {
-            onPackagesLoaded(mViewModel.getCategorizedAppsLiveData().getValue());
         }
 
         setHasOptionsMenu(true);
