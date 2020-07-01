@@ -88,15 +88,6 @@ class PermissionAppsViewModel(
         init {
             var fullStorageLiveData: FullStoragePermissionAppsLiveData? = null
 
-            addSource(packagesUiInfoLiveData) {
-                if (fullStorageLiveData == null || fullStorageLiveData?.isInitialized == true)
-                    update()
-            }
-            addSource(shouldShowSystemLiveData) {
-                if (fullStorageLiveData == null || fullStorageLiveData?.isInitialized == true)
-                    update()
-            }
-
             // If this is the Storage group, observe a FullStoragePermissionAppsLiveData, update
             // the packagesWithFullFileAccess list, and call update to populate the subtitles.
             if (groupName == Manifest.permission_group.STORAGE) {
@@ -104,7 +95,6 @@ class PermissionAppsViewModel(
                 addSource(FullStoragePermissionAppsLiveData) { fullAccessPackages ->
                     if (fullAccessPackages != packagesWithFullFileAccess) {
                         packagesWithFullFileAccess = fullAccessPackages.filter { it.isGranted }
-                            ?: emptyList()
                         if (packagesUiInfoLiveData.isInitialized) {
                             update()
                         }
@@ -112,8 +102,19 @@ class PermissionAppsViewModel(
                 }
             }
 
+            addSource(packagesUiInfoLiveData) {
+                if (fullStorageLiveData == null || fullStorageLiveData.isInitialized)
+                    update()
+            }
+            addSource(shouldShowSystemLiveData) {
+                if (fullStorageLiveData == null || fullStorageLiveData.isInitialized)
+                    update()
+            }
+
             if ((fullStorageLiveData == null || fullStorageLiveData.isInitialized) &&
                 packagesUiInfoLiveData.isInitialized) {
+                packagesWithFullFileAccess = fullStorageLiveData?.value?.filter { it.isGranted }
+                    ?: emptyList()
                 update()
             }
         }
@@ -155,12 +156,18 @@ class PermissionAppsViewModel(
                     showAlwaysAllowedString = true
                 }
 
-                val category = when (uiInfo.permGrantState) {
+                var category = when (uiInfo.permGrantState) {
                     PermGrantState.PERMS_ALLOWED -> Category.ALLOWED
                     PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY -> Category.ALLOWED_FOREGROUND
                     PermGrantState.PERMS_ALLOWED_ALWAYS -> Category.ALLOWED
                     PermGrantState.PERMS_DENIED -> Category.DENIED
                     PermGrantState.PERMS_ASK -> Category.ASK
+                }
+
+                if (groupName == Manifest.permission_group.STORAGE &&
+                    packagesWithFullFileAccess.any { !it.isLegacy && it.isGranted &&
+                        it.packageName to it.user == packageUserPair }) {
+                    category = Category.ALLOWED
                 }
                 categoryMap[category]!!.add(packageUserPair)
             }
