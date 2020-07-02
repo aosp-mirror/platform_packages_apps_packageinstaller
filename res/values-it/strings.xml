@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Mantieni solo questa volta"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Altre info"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Rifiuta comunque"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Ignora"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> di <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Consentire all\'app &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; di <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Vuoi consentire sempre all\'app &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; di <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -120,7 +121,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Per proteggere i tuoi dati, le autorizzazioni di questa app verranno rimosse se l\'app non viene usata per alcuni mesi."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Per proteggere i tuoi dati, se l\'app non viene usata per alcuni mesi, le seguenti autorizzazioni verranno rimosse: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Per proteggere i tuoi dati, sono state rimosse le autorizzazioni dalle app che non hai utilizzato per alcuni mesi."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Apri l\'app per consentire di nuovo le autorizzazioni"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Apri l\'app per consentire di nuovo le autorizzazioni."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Al momento, la rimozione automatica è disattivata per questa app."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Al momento non vengono concesse autorizzazioni revocabili automaticamente"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"L\'autorizzazione <xliff:g id="PERM">%1$s</xliff:g> verrà rimossa."</string>
@@ -179,6 +180,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 app inutilizzata"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> app inutilizzate"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Autorizzazioni rimosse per proteggere la tua privacy. Tocca per controllare"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Autorizzazioni rimosse per le app inutilizzate"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Alcune app non sono state usate per alcuni mesi. Tocca per controllare."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> app non sono state usate per alcuni mesi. Tocca per controllare.</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> app non è stata usata per alcuni mesi. Tocca per controllare.</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Alcune app non sono state usate per alcuni mesi"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> app non sono state usate per alcuni mesi</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> app non è stata usata per alcuni mesi</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Autorizzazioni rimosse"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Autorizzazioni rimosse"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Tutte le app inutilizzate"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> mesi fa"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Autorizzazioni rimosse per proteggere la tua privacy"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ha recuperato la tua posizione in background"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Questa app può accedere sempre alla tua posizione. Tocca per modificare."</string>
@@ -195,6 +211,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> e <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> e altre <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> autorizzazioni"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Per proteggere i tuoi dati, le autorizzazioni sono state rimosse dalle app che non hai utilizzato per alcuni mesi"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Per proteggere i tuoi dati, sono state rimosse le autorizzazioni da alcune app che non hai utilizzato per alcuni mesi"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 app non è stata usata per alcuni mesi"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> app non sono state usate per alcuni mesi"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Solo mentre l\'app è in uso"</string>
@@ -258,7 +275,7 @@
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nessuna autorizzazione necessaria"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Valore predefinito attuale"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Non chiedermelo più"</string>
-    <string name="request_role_set_as_default" msgid="5706081295230541240">"Imposta predefinita"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"Imposta predefinito"</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"app predefinite"</string>
     <string name="settings_button" msgid="4747434541214595321">"Impostazioni"</string>
     <string name="default_apps" msgid="8554530939151957828">"App predefinite"</string>
@@ -281,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Condividi dati di debug"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Condividere i dati di debug dettagliati?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"L\'app <xliff:g id="APP_NAME">%1$s</xliff:g> vorrebbe caricare informazioni di debug."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Condividi dati di debug"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Vuoi condividere i dati di debug?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Il sistema ha rilevato un problema."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"L\'app <xliff:g id="APP_NAME_0">%1$s</xliff:g> chiede di caricare una segnalazione di bug da questo dispositivo fatta il giorno <xliff:g id="DATE">%2$s</xliff:g> alle ore <xliff:g id="TIME">%3$s</xliff:g>. Le segnalazioni di bug includono informazioni personali relative al tuo dispositivo oppure registrate dalle app, ad esempio nomi utente, dati sulla posizione, identificatori dei dispositivi e informazioni sulle reti. Condividi le segnalazioni di bug solo con persone e app che ritieni affidabili. Consentire all\'app <xliff:g id="APP_NAME_1">%4$s</xliff:g> di caricare una segnalazione di bug?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Si è verificato un errore durante l\'elaborazione della segnalazione di bug per l\'app <xliff:g id="APP_NAME">%1$s</xliff:g>. Di conseguenza, la condivisione dei dati di debug dettagliati è stata negata. Siamo spiacenti per l\'interruzione."</string>
@@ -316,6 +333,6 @@
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"L\'amministratore IT consentirà all\'app <xliff:g id="APP_NAME">%s</xliff:g> di accedere alla tua posizione"</string>
     <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Alcune opzioni non sono disponibili perché questa app deve rilevare i suoni"</string>
     <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Alcune opzioni non sono disponibili perché questa app è il tuo assistente digitale predefinito"</string>
-    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Alcune opzioni non sono disponibili perché questa app viene utilizzata per gli input vocali"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Alcune opzioni non sono disponibili perché questa app viene usata per gli input vocali"</string>
     <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Alcune opzioni non sono disponibili perché questa app è gestita dal tuo operatore"</string>
 </resources>

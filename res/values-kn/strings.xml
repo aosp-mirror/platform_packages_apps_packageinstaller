@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"“ಈ ಬಾರಿ ಮಾತ್ರ” ಇರಿಸಿ"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ಹೆಚ್ಚಿನ ಮಾಹಿತಿ"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"ನಿರಾಕರಿಸಿ"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"ವಜಾಗೊಳಿಸಿ"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> ರಲ್ಲಿ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ಆ್ಯಪ್‌ಗೆ <xliff:g id="ACTION">%2$s</xliff:g> ಕ್ರಿಯೆಯನ್ನು ಮಾಡಲು ಅನುಮತಿಸುವುದೇ?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ಆ್ಯಪ್‌ಗೆ <xliff:g id="ACTION">%2$s</xliff:g> ಕ್ರಿಯೆಯನ್ನು ಮಾಡಲು ಯಾವಾಗಲೂ ಅನುಮತಿಸುವುದೇ?"</string>
@@ -120,7 +121,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"ಆ್ಯಪ್ ಅನ್ನು ಕೆಲವು ತಿಂಗಳುಗಳ ಕಾಲ ಬಳಸದಿದ್ದರೆ, ನಿಮ್ಮ ಡೇಟಾವನ್ನು ರಕ್ಷಿಸಲು ಈ ಆ್ಯಪ್‌ನ ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗುವುದು."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"ಆ್ಯಪ್ ಅನ್ನು ಕೆಲವು ತಿಂಗಳುಗಳ ಕಾಲ ಬಳಸದಿದ್ದರೆ, ನಿಮ್ಮ ಡೇಟಾವನ್ನು ರಕ್ಷಿಸಲು, ಈ ಕೆಳಗಿನ ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗುವುದು: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"ನಿಮ್ಮ ಡೇಟಾವನ್ನು ರಕ್ಷಿಸಲು, ಕೆಲವು ತಿಂಗಳುಗಳಿಂದ ನೀವು ಬಳಸದಿರುವ ಆ್ಯಪ್‌ಗಳಿಂದ ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"ನೀವು ಪುನಃ ಅನುಮತಿಗಳನ್ನು ಸಮ್ಮತಿಸಲು ಬಯಸಿದರೆ, ಆ್ಯಪ್ ತೆರೆಯಿರಿ"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"ನೀವು ಪುನಃ ಅನುಮತಿಗಳನ್ನು ಸಮ್ಮತಿಸಲು ಬಯಸಿದರೆ, ಆ್ಯಪ್ ತೆರೆಯಿರಿ."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"ಈ ಆ್ಯಪ್‌ಗಾಗಿ ಪ್ರಸ್ತುತ ಸ್ವಯಂಚಾಲಿತ ತೆಗೆದುಹಾಕುವಿಕೆಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ಪ್ರಸ್ತುತ, ಸ್ವಯಂಚಾಲಿತವಾಗಿ ರದ್ದುಗೊಳಿಸಬಹುದಾದ ಅನುಮತಿಗಳನ್ನು ಒದಗಿಸಲಾಗಿಲ್ಲ"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> ಅನುಮತಿಯನ್ನು ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ."</string>
@@ -179,6 +180,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ಬಳಕೆಯಾಗದ ಆ್ಯಪ್"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ಬಳಕೆಯಾಗದ ಆ್ಯಪ್‌ಗಳು"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"ನಿಮ್ಮ ಗೌಪ್ಯತೆಯನ್ನು ರಕ್ಷಿಸಲು ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ. ಪರಿಶೀಲಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"ಬಳಕೆಯಾಗದ ಆ್ಯಪ್‌ಗಳಿಗೆ ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"ಹಲವಾರು ತಿಂಗಳುಗಳಿಂದ ಕೆಲವು ಆ್ಯಪ್‌ಗಳನ್ನು ಬಳಸಲಾಗಿಲ್ಲ. ಪರಿಶೀಲಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> ಆ್ಯಪ್‌ಗಳನ್ನು ಕೆಲವು ತಿಂಗಳುಗಳಿಂದ ಬಳಸಲಾಗಿಲ್ಲ. ಪರಿಶೀಲಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ಆ್ಯಪ್‌ಗಳನ್ನು ಕೆಲವು ತಿಂಗಳುಗಳಿಂದ ಬಳಸಲಾಗಿಲ್ಲ. ಪರಿಶೀಲಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"ಹಲವಾರು ತಿಂಗಳುಗಳಿಂದ ಕೆಲವು ಆ್ಯಪ್‌ಗಳನ್ನು ಬಳಸಲಾಗಿಲ್ಲ"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> ಆ್ಯಪ್‌ಗಳನ್ನು ಕೆಲವು ತಿಂಗಳುಗಳಿಂದ ಬಳಸಲಾಗಿಲ್ಲ</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ಆ್ಯಪ್‌ಗಳನ್ನು ಕೆಲವು ತಿಂಗಳುಗಳಿಂದ ಬಳಸಲಾಗಿಲ್ಲ</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"ತೆಗೆದುಹಾಕಲಾದ ಅನುಮತಿಗಳು"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"ಬಳಕೆಯಾಗದ ಎಲ್ಲಾ ಆ್ಯಪ್‌ಗಳು"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> ತಿಂಗಳುಗಳ ಹಿಂದೆ"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"ನಿಮ್ಮ ಗೌಪ್ಯತೆಯನ್ನು ರಕ್ಷಿಸಲು ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಹಿನ್ನಲೆಯಲ್ಲಿ ಪಡೆದುಕೊಂಡಿದೆ"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ಈ ಆ್ಯಪ್‌ ಯಾವಾಗಲೂ ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಪ್ರವೇಶಿಸಬಹುದು. ಬದಲಾಯಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
@@ -195,6 +211,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> ಮತ್ತು <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ಮತ್ತು ಇನ್ನೂ <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"ನಿಮ್ಮ ಡೇಟಾವನ್ನು ರಕ್ಷಿಸಲು, ಕೆಲವು ತಿಂಗಳುಗಳಿಂದ ನೀವು ಬಳಸದಿರುವ ಆ್ಯಪ್‌ಗಳಿಂದ ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"ನಿಮ್ಮ ಡೇಟಾವನ್ನು ರಕ್ಷಿಸಲು, ಹಲವಾರು ತಿಂಗಳುಗಳಿಂದ ನೀವು ಬಳಸದಿರುವ ಕೆಲವು ಆ್ಯಪ್‌ಗಳಿಂದ ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 ಆ್ಯಪ್ ಅನ್ನು ಕೆಲವು ತಿಂಗಳುಗಳಿಂದ ಬಳಸಲಾಗಿಲ್ಲ."</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ಆ್ಯಪ್‌ಗಳನ್ನು ಕೆಲವು ತಿಂಗಳುಗಳಿಂದ ಬಳಸಲಾಗಿಲ್ಲ"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ಆ್ಯಪ್ ಬಳಕೆಯಲ್ಲಿದ್ದಾಗ ಮಾತ್ರ"</string>
@@ -281,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"ವಿವರವಾದ ಡೀಬಗ್ ಮಾಡುವಿಕೆಯ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಬೇಕೆ?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಆ್ಯಪ್, ಡೀಬಗ್ ಮಾಡುವಿಕೆಯ ಮಾಹಿತಿಯನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲು ಬಯಸುತ್ತದೆ."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಬೇಕೆ?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"ಸಮಸ್ಯೆಯೊಂದನ್ನು ಸಿಸ್ಟಮ್ ಪತ್ತೆಹಚ್ಚಿದೆ."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> ದಿನಾಂಕದಂದು <xliff:g id="TIME">%3$s</xliff:g> ಸಮಯಕ್ಕೆ ತೆಗೆದುಕೊಂಡ ಬಗ್ ವರದಿಯನ್ನು ಈ ಸಾಧನದಿಂದ ಅಪ್‌ಲೋಡ್ ಮಾಡುವಂತೆ <xliff:g id="APP_NAME_0">%1$s</xliff:g> ಆ್ಯಪ್ ವಿನಂತಿಸುತ್ತಿದೆ. ಬಗ್ ವರದಿಗಳು, ನಿಮ್ಮ ಸಾಧನ ಅಥವಾ ಆ್ಯಪ್‌ಗಳ ಮೂಲಕ ಲಾಗ್ ಮಾಡಿದ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು, ಉದಾಹರಣೆಗೆ ಬಳಕೆದಾರರ ಹೆಸರುಗಳು, ಸ್ಥಳದ ಡೇಟಾ, ಸಾಧನ ಗುರುತಿಸುವಿಕೆಗಳು ಮತ್ತು ನೆಟ್‌ವರ್ಕ್‌ ಮಾಹಿತಿಯನ್ನು ಒಳಗೊಂಡಿದೆ. ಈ ಮಾಹಿತಿ ಒಳಗೊಂಡಂತೆ, ನೀವು ನಂಬುವ ಜನರು ಮತ್ತು ಆ್ಯಪ್‌ಗಳ ಜೊತೆಗೆ ಮಾತ್ರ ಬಗ್ ವರದಿಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ. ಬಗ್ ವರದಿಯನ್ನು ಅಪ್‌ಲೋಡ್‌ ಮಾಡಲು <xliff:g id="APP_NAME_1">%4$s</xliff:g> ಆ್ಯಪ್‌ಗೆ ಅನುಮತಿಸುವುದೇ?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಗಾಗಿ ಬಗ್ ವರದಿ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸುವಾಗ ದೋಷ ಕಂಡುಬಂದಿದೆ. ಆದ್ದರಿಂದ, ವಿವರವಾದ ದೋಷ ಡೀಬಗ್ ಮಾಡುವಿಕೆಯ ಡೇಟಾ ಹಂಚಿಕೊಳ್ಳುವುದನ್ನು ನಿರಾಕರಿಸಲಾಗಿದೆ. ಅಡಚಣೆಗಾಗಿ ಕ್ಷಮಿಸಿ."</string>

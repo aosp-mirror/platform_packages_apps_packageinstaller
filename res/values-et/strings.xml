@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Säilita ainult sel korral"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Lisateave"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Keela ikkagi"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Loobu"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Kas lubada rakenduse &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; puhul toiming <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Kas lubada rakenduse &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; puhul alati toiming <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -120,7 +121,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Teie andmete kaitsmiseks eemaldatakse selle rakenduse load, kui seda mõne kuu jooksul ei kasutata."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Teie andmete kaitsmiseks eemaldatakse selle rakenduse järgmised load, kui rakendust mõne kuu jooksul ei kasutata: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Teie andmete kaitsmiseks eemaldati load rakendustelt, mida te ei ole mõne kuu jooksul kasutanud."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Kui soovite load uuesti anda, avage rakendus"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Kui soovite load uuesti anda, avage rakendus."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automaatne eemaldamine on praegu selle rakenduse jaoks keelatud."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Praegu ei ole antud ühtki automaatselt tühistatavat luba"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Luba <xliff:g id="PERM">%1$s</xliff:g> eemaldatakse."</string>
@@ -179,6 +180,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 kasutamata rakendus"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> kasutamata rakendust"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Load eemaldati, et teie privaatsust kaitsta. Puudutage ülevaatamiseks."</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Kasutamata rakenduste load eemaldati"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Mõningaid rakendusi ei ole mõne kuu jooksul kasutatud. Puudutage ülevaatamiseks."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> rakendust ei ole mõne kuu jooksul kasutatud. Puudutage ülevaatamiseks</item>
+      <item quantity="one">Rakendust <xliff:g id="COUNT_0">%1$d</xliff:g> ei ole mõne kuu jooksul kasutatud. Puudutage ülevaatamiseks</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Mõningaid rakendusi ei ole mõne kuu jooksul kasutatud"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> rakendust ei ole mõne kuu jooksul kasutatud</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> rakendust ei ole mõne kuu jooksul kasutatud</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Eemaldatud load"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Eemaldatud load"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Kõik kasutamata rakendused"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> kuud tagasi"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Load eemaldati, et teie privaatsust kaitsta"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> sai taustal teie asukoha"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"See rakendus pääseb teie asukohale alati juurde. Puudutage muutmiseks."</string>
@@ -195,6 +211,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> ja <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ja veel <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Teie andmete kaitsmiseks eemaldati load rakendustelt, mida te ei ole mõne kuu jooksul kasutanud."</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Teie andmete kaitsmiseks eemaldati load mõningatelt rakendustelt, mida te ei ole mõne kuu jooksul kasutanud."</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 rakendust ei ole mõne kuu jooksul kasutatud"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> rakendust ei ole mõne kuu jooksul kasutatud"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Ainult rakenduse kasutamise ajal"</string>
@@ -281,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Silumisandmete jagamine"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Kas jagada üksikasjalikke silumisandmeid?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> soovib üles laadida silumisteavet."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Silumisandmete jagamine"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Kas soovite silumisandmeid jagada?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Süsteem tuvastas probleemi."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> palub luba sellest seadmest veaaruande üleslaadimiseks (jäädvustati <xliff:g id="DATE">%2$s</xliff:g> kell <xliff:g id="TIME">%3$s</xliff:g>). Veaaruanded hõlmavad teie seadmega seotud isiklikke andmeid või rakenduste logitud isiklikke andmeid (nt kasutajanimesid, asukohaandmeid, seadme ID-sid ja võrguteavet). Jagage veaaruandeid ainult inimeste ja rakendustega, keda/mida usaldate. Kas lubada rakendusel <xliff:g id="APP_NAME_1">%4$s</xliff:g> veaaruanne üles laadida?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Rakenduse <xliff:g id="APP_NAME">%1$s</xliff:g> veaaruande töötlemisel ilmnes viga. Seetõttu keelati üksikasjalike silumisandmete jagamine. Vabandage katkestuse pärast!"</string>
