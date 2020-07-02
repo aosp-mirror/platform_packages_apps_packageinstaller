@@ -198,10 +198,6 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
             final List<PermissionGroup> groups = PermissionGroups.getPermissionGroups(
                     getContext(), this::isLoadInBackgroundCanceled, mGetUiInfo,
                     mGetNonPlatformPermissions, mFilterPermissionGroups, mFilterPackageName);
-            if (!Utils.isPermissionUsageIconEnabled()) {
-                return Collections.emptyList();
-            }
-
             if (groups.isEmpty()) {
                 return Collections.emptyList();
             }
