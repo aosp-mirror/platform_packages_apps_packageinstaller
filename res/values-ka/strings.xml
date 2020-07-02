@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"დაშვება „მხოლოდ ამ ერთხელ“"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"მეტი ინფორმაცია"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"მაინც უარყოფა"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"დახურვა"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-დან"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"გსურთ, დაუშვათ, რომ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-მა შეასრულოს <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"გსურთ, ყოველთვის შესრულდეს <xliff:g id="ACTION">%2$s</xliff:g> &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>-ის&lt;/b&gt; მიერ?"</string>
@@ -120,7 +121,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"თქვენი მონაცემების დასაცავად ნებართვები ამოიშლება ამ აპიდან, თუ ის რამდენიმე თვის განმავლობაში არ გამოგიყენებიათ."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"თქვენი მონაცემების დაცვის მიზნით, თუ აპს რამდენიმე თვის განმავლობაში არ გამოიყენებთ, ამოიშლება შემდეგი ნებართვები: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"თქვენი მონაცემების დასაცავად ნებართვები ამოიშალა აპებიდან, რომლებიც რამდენიმე თვის განმავლობაში არ გამოგიყენებიათ."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"გახსენით აპი, თუ კვლავ გსურთ ნებართვების მინიჭება"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"გახსენით აპი, თუ კვლავ გსურთ ნებართვების მინიჭება"</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"ავტომატური ამოშლა ამჟამად გათიშულია ამ აპისთვის."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ამჟამად არცერთი ავტომატურად გაუქმებადი ნებართვა არ არის მინიჭებული"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ნებართვა <xliff:g id="PERM">%1$s</xliff:g> ამოიშლება."</string>
@@ -179,6 +180,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 გამოუყენებელი აპი"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> გამოუყენებელი აპი"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"ნებართვები ამოიშალა თქვენი კონფიდენციალურობის დასაცავად. შეეხეთ გადასახედად"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"გამოუყენებელი აპების ნებართვები გაუქმდა"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"ზოგიერთი აპი რამდენიმე თვეა გამოუყენებელია. შეეხეთ გადასახედად."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> აპი რამდენიმე თვეა გამოუყენებელია. შეეხეთ გადასახედად</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> აპი რამდენიმე თვეა გამოუყენებელია. შეეხეთ გადასახედად</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"ზოგიერთი აპი რამდენიმე თვეა გამოუყენებელია"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> აპი რამდენიმე თვეა გამოუყენებელია</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> აპი რამდენიმე თვეა გამოუყენებელია</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"გაუქმებული ნებართვები"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"ნებართვები გაუქმდა"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"ყველა გამოუყენებელი აპი"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> თვის წინ"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"ნებართვები ამოიშალა თქვენი კონფიდენციალურობის დასაცავად"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>-მა მიიღო თქვენი მდებარეობა ფონურ რეჟიმში"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ამ აპს ყოველთვის შეუძლია თქვენს მდებარეობაზე წვდომა. შეეხეთ შესაცვლელად."</string>
@@ -195,6 +211,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> და <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> და <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> სხვა"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"თქვენი მონაცემების დასაცავად ნებართვები ამოიშალა აპებიდან, რომლებიც რამდენიმე თვის განმავლობაში არ გამოგიყენებიათ."</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"თქვენი მონაცემების დასაცავად ნებართვები ამოიშალა ზოგიერთი აპიდან, რომლებიც რამდენიმე თვეა არ გამოგიყენებიათ."</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 გამოუყენებელია რამდენიმე თვის განმავლობაში"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> გამოუყენებელია რამდენიმე თვის განმავლობაში"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"მხოლოდ აპის გამოყენებისას"</string>
@@ -281,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"გამართვის მონაცემების გაზიარება"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"გსურთ გამართვის დეტალური მონაცემების გაზიარება?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ითხოვს გამართვის ინფორმაციის ატვირთვას."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"გამართვის მონაცემების გაზიარება"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"გააზიარებთ შეცდომების გამართვის მონაცემებს?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"სისტემამ აღმოაჩინა პრობლემა."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ითხოვს ამ მოწყობილობიდან ხარვეზების ანგარიშის ატვირთვას, რომლის შექმნის თარიღია <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>. ხარვეზების ანგარიშები მოიცავს პერსონალურ ინფორმაციას თქვენი მოწყობილობის შესახებ ან აპების ჟურნალებში დაფიქსირებულ მონაცემებს, მაგალითად, მომხმარებლის სახელებს, მდებარეობის მონაცემებს, მოწყობილობების იდენტიფიკატორებსა და ქსელის ინფორმაციას. გირჩევთ, ხარვეზების ანგარიშები გაუზიაროთ მხოლოდ იმ ადამიანებსა და აპებს, რომლებსაც შეგიძლიათ ანდოთ ეს ინფორმაცია. გსურთ, <xliff:g id="APP_NAME_1">%4$s</xliff:g>-მა ატვირთოს ხარვეზების ანგარიში?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ისთვის სისტემის ხარვეზის ანგარიშის დამუშავებისას შეცდომა დაფიქსირდა. ამიტომ შეცდომების გამართვის დეტალური მონაცემების გაზიარება უარყოფილია. ბოდიშს გიხდით წყვეტის გამო."</string>

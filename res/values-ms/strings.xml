@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Simpan “Kali ini sahaja”"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Lagi maklumat"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Tolak juga"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Tolak"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> daripada <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Benarkan &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Sentiasa benarkan &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -120,7 +121,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Untuk melindungi data anda, kebenaran apl ini akan dialih keluar jika apl tidak digunakan selama beberapa bulan."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Untuk melindungi data anda, jika apl tidak digunakan selama beberapa bulan, kebenaran berikut akan dialih keluar: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Untuk melindungi data anda, kebenaran telah dialih keluar daripada apl yang tidak anda gunakan selama beberapa bulan."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Jika anda mahu memberikan kebenaran lagi, buka apl itu"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Jika anda mahu memberikan kebenaran lagi, buka apl itu."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Pengalihan keluar automatik dilumpuhkan pada masa ini untuk apl ini."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Tiada kebenaran yang boleh dibatalkan secara automatik dibenarkan pada masa ini"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> kebenaran dialih keluar."</string>
@@ -179,6 +180,21 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 apl tidak digunakan"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apl yang tidak digunakan"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Kebenaran dialih keluar untuk melindungi privasi anda. Ketik untuk menyemak"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Kebenaran untuk apl tidak digunakan dialih keluar"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Sesetengah apl tidak digunakan selama beberapa bulan. Ketik untuk menyemak."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> apl tidak digunakan selama beberapa bulan. Ketik untuk menyemak</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> apl tidak digunakan selama beberapa bulan. Ketik untuk menyemak</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Sesetengah apl tidak digunakan selama beberapa bulan"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> apl tidak digunakan selama beberapa bulan</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> apl tidak digunakan selama beberapa bulan</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Kebenaran dialih keluar"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Kebenaran dialih keluar"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Semua apl yang tidak digunakan"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> bulan yang lalu"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Kebenaran dialih keluar untuk melindungi privasi anda"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> mendapat lokasi anda di latar belakang"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Apl ini boleh mengakses lokasi anda pada setiap masa. Ketik untuk menukar."</string>
@@ -195,6 +211,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> dan <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> dan <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> lagi"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Untuk melindungi data anda, kebenaran telah dialih keluar daripada apl yang tidak anda gunakan selama beberapa bulan."</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Untuk melindungi data anda, kebenaran telah dialih keluar daripada sesetengah apl yang anda tidak gunakan selama beberapa bulan"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 apl tidak digunakan selama beberapa bulan"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apl tidak digunakan selama beberapa bulan"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Hanya semasa apl sedang digunakan"</string>
@@ -281,7 +298,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Kongsi Data Penyahpepijatan"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Kongsi data penyahpepijatan secara terperinci?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> mahu memuat naik maklumat penyahpepijatan."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Kongsi Data Penyahpepijatan"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Kongsi data penyahpepijatan?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Sistem telah mengesan masalah."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> mahu memuat naik laporan pepijat daripada peranti ini yang diambil pada <xliff:g id="DATE">%2$s</xliff:g> pada <xliff:g id="TIME">%3$s</xliff:g>. Laporan pepijat termasuk maklumat peribadi tentang peranti anda atau yang dilog oleh apl, contohnya, nama pengguna, data lokasi, pengecam peranti dan maklumat rangkaian. Kongsi laporan pepijat dengan orang dan apl yang anda percayai sahaja berhubung maklumat ini. Benarkan <xliff:g id="APP_NAME_1">%4$s</xliff:g> memuat naik laporan pepijat?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Ralat telah berlaku semasa memproses laporan pepijat untuk <xliff:g id="APP_NAME">%1$s</xliff:g>. Oleh sebab itu, perkongsian data penyahpepijatan yang terperinci telah ditolak. Kami memohon maaf kerana gangguan ini."</string>

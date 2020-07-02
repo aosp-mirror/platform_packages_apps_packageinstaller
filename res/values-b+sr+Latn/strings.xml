@@ -27,8 +27,9 @@
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Odbij i ne pitaj ponovo"</string>
     <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"Zadrži „Dok se aplikacija koristi“"</string>
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Zadrži Samo ovaj put"</string>
-    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Više infor."</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Više informacija"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Ipak odbij"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Odbaci"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> od <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Želite li da dozvolite da &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; obavi sledeću radnju: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Želite li da uvek dozvolite da &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; obavlja sledeću radnju: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -121,7 +122,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"Radi zaštite podataka, dozvole za ovu aplikaciju se uklanjaju ako se aplikacija ne koristi par meseci."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Radi zaštite podataka, sledeće dozvole se uklanjaju ako se aplikacija ne koristi par meseci: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Radi zaštite podataka, dozvole su uklonjene iz aplikacija koje niste koristili par meseci."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"Ako želite da ponovo omogućite dozvole, otvorite aplikaciju"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Ako želite da ponovo omogućite dozvole, otvorite aplikaciju."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatsko uklanjanje je trenutno onemogućeno za ovu aplikaciju."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Trenutno nije odobrena nijedna dozvola koja može da se opozove"</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Ukloniće se dozvola: <xliff:g id="PERM">%1$s</xliff:g>."</string>
@@ -130,7 +131,7 @@
     <string name="auto_manage_title" msgid="4059499629753336321">"Upravljajte dozvolama automatski"</string>
     <string name="off" msgid="4561379152328580345">"Isključeno"</string>
     <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Dozvola <xliff:g id="PERMISSION_NAME">%s</xliff:g> je uklonjena"</string>
-    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> i još <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> dozvole su uklonjene"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Dozvole <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> i <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> su uklonjene"</string>
     <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Uklonjeno: <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> i još <xliff:g id="NUMBER">%2$s</xliff:g> dozvole"</string>
     <string name="last_opened_category_title" msgid="4204626487716958146">"Poslednji put otvoreno pre više od <xliff:g id="NUMBER">%s</xliff:g> mes."</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Aplikacija je poslednji put otvorena: <xliff:g id="DATE">%s</xliff:g>"</string>
@@ -184,6 +185,23 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 aplikacija koja se ne koristi"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Aplikacija koje se ne koriste: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Dozvole su uklonjene radi zaštite privatnosti. Dodirnite da biste pregledali"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Uklonjene su dozvole za aplikacije koje se ne koriste"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Neke aplikacije nisu korišćene par meseci. Dodirnite da biste pregledali."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikacija nije korišćena nekoliko meseci. Dodirnite da biste pregledali</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikacije nisu korišćene nekoliko meseci. Dodirnite da biste pregledali</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikacija nije korišćeno nekoliko meseci. Dodirnite da biste pregledali</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Neke aplikacije nisu korišćene par meseci"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikacija nije korišćena nekoliko meseci</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikacije nisu korišćene nekoliko meseci</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikacija nije korišćeno nekoliko meseci</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Uklonjene dozvole"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Uklonjene dozvole"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Sve aplikacije koje se ne koriste"</string>
+    <string name="months_ago" msgid="6541240625299588045">"pre <xliff:g id="COUNT">%1$d</xliff:g> meseca(i)"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Dozvole su uklonjene radi zaštite privatnosti"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ima vašu lokaciju u pozadini"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ova aplikacija može uvek da pristupa lokaciji. Dodirnite da biste to promenili."</string>
@@ -200,6 +218,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> i <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> i još <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Radi zaštite podataka, dozvole su uklonjene iz aplikacija koje niste koristili par meseci"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Radi zaštite podataka, dozvole su uklonjene iz nekih aplikacija koje niste koristili nekoliko meseci"</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"1 aplikacija nije korišćena par meseci"</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"Aplikacije koje nisu korišćene par meseci: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Samo dok se aplikacija koristi"</string>
@@ -286,7 +305,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Deljenje podataka o otklanjanju grešaka"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Delite detaljne podatke za otklanjanje grešaka?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> želi da otpremi informacije za otklanjanje grešaka."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Deljenje podataka o otklanjanju grešaka"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Želite da delite podatke o otklanjanju grešaka?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Sistem je otkrio problem."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> traži da otpremi izveštaj o greškama sa ovog uređaja koji je napravljen <xliff:g id="DATE">%2$s</xliff:g> u <xliff:g id="TIME">%3$s</xliff:g>. Izveštaji o greškama obuhvataju lične podatke o uređaju ili podatke koje su evidentirale aplikacije, na primer, korisnička imena, podatke o lokaciji, identifikatore uređaja i informacije o mreži. Delite izveštaje o greškama samo sa ljudima i aplikacijama kojima možete da poverite te informacije. Želite li da dozvolite da <xliff:g id="APP_NAME_1">%4$s</xliff:g> otpremi izveštaj o grešci?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Došlo je do greške pri obradi izveštaja o grešci za aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g>. Zato je odbijeno deljenje detaljnih podataka o otklanjanju grešaka. Izvinjavamo se zbog prekida."</string>

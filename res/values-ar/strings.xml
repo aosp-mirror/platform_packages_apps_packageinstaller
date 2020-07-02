@@ -29,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"مواصلة استخدام الإذن \"هذه المرة فقط\""</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"معلومات أكثر"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"الرفض على أي حال"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"رفض"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> من <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"‏هل تريد السماح للتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بإجراء <xliff:g id="ACTION">%2$s</xliff:g>؟"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"‏هل تريد السماح دائمًا للتطبيق &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بهذا الإجراء <xliff:g id="ACTION">%2$s</xliff:g>؟"</string>
@@ -124,7 +125,7 @@
     <string name="auto_revoke_summary" msgid="308686883215278993">"لحماية بياناتك، ستتم إزالة أذونات هذا التطبيق إذا لم يتم استخدامه لبضعة أشهر."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"لحماية بياناتك، إذا لم يتم استخدام التطبيق لبضعة أشهر، ستتم إزالة الأذونات التالية: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"لحماية بياناتك، تمت إزالة الأذونات من هذه التطبيقات التي لم تستخدمها منذ بضعة أشهر."</string>
-    <string name="auto_revoke_open_app_message" msgid="7960965074929429500">"إذا أردت منح الأذونات مرة أخرى، افتَح التطبيق."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"إذا أردت منح الأذونات مرة أخرى، افتَح التطبيق."</string>
     <string name="auto_revoke_disabled" msgid="4480748641016277290">"ميزة الإزالة التلقائية غير مفعّلة حاليًا لهذا التطبيق."</string>
     <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"لا يتم حاليًا منح أذونات قابلة للإلغاء تلقائيًا."</string>
     <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"ستتم إزالة الإذن <xliff:g id="PERM">%1$s</xliff:g>."</string>
@@ -132,10 +133,10 @@
     <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"الأذونات التي ستتم إزالتها: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
     <string name="auto_manage_title" msgid="4059499629753336321">"إدارة الأذونات تلقائيًا"</string>
     <string name="off" msgid="4561379152328580345">"إيقاف"</string>
-    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"تمت إزالة <xliff:g id="PERMISSION_NAME">%s</xliff:g>."</string>
-    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"تمت إزالة إذنَي <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> و<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>."</string>
-    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"تمت إزالة <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> وعدد <xliff:g id="NUMBER">%2$s</xliff:g> من الأذونات الأخرى."</string>
-    <string name="last_opened_category_title" msgid="4204626487716958146">"تم فتح هذه التطبيقات آخر مرة قبل أكثر من <xliff:g id="NUMBER">%s</xliff:g> من الأشهر"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"تمت إزالة إذن \"<xliff:g id="PERMISSION_NAME">%s</xliff:g>\"."</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"تمت إزالة إذنَي \"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>\" و\"<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>\"."</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"تمت إزالة إذن \"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>\" وعدد <xliff:g id="NUMBER">%2$s</xliff:g> من الأذونات الأخرى."</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"تم فتح هذه التطبيقات آخر مرة قبل أكثر من <xliff:g id="NUMBER">%s</xliff:g> شهر"</string>
     <string name="last_opened_summary" msgid="8038737442154732">"آخر مرة تم فتح التطبيق فيها: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"آخر مرة تم فتحه: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"في حال السماح لهذا التطبيق بإدارة كل الملفات، سيتمكن من الوصول إلى أي ملفات وتعديلها وحذفها من مساحة التخزين العادية على هذا الجهاز أو أجهزة التخزين المتصلة. يمكن أن يصل التطبيق إلى الملفات بدون طلب موافقتك."</string>
@@ -199,6 +200,29 @@
     <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"تطبيق واحد غير مستخدم"</string>
     <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"عدد التطبيقات غير المُستخدمة: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
     <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"تمت إزالة الأذونات لحماية خصوصيتك. انقر لمراجعة الأذونات."</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"تمت إزالة الأذونات من التطبيقات غير المستخدمة"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"لم يتم استخدام بعض التطبيقات منذ عدة أشهر. انقر لمراجعة الأذونات."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="zero">لم يتم استخدام <xliff:g id="COUNT_1">%1$d</xliff:g> تطبيق منذ عدة شهور. انقر لمراجعة الأذونات.</item>
+      <item quantity="two">لم يتم استخدام تطبيقين (<xliff:g id="COUNT_1">%1$d</xliff:g>) منذ عدة أشهر. انقر لمراجعة الأذونات.</item>
+      <item quantity="few">لم يتم استخدام <xliff:g id="COUNT_1">%1$d</xliff:g> تطبيقات منذ عدة شهور. انقر لمراجعة الأذونات.</item>
+      <item quantity="many">لم يتم استخدام <xliff:g id="COUNT_1">%1$d</xliff:g> تطبيقًا منذ عدة شهور. انقر لمراجعة الأذونات.</item>
+      <item quantity="other">لم يتم استخدام <xliff:g id="COUNT_1">%1$d</xliff:g> تطبيق منذ عدة شهور. انقر لمراجعة الأذونات.</item>
+      <item quantity="one">لم يتم استخدام تطبيق واحد (<xliff:g id="COUNT_0">%1$d</xliff:g>) منذ عدة أشهر. انقر لمراجعة الأذونات.</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"لم يتم استخدام بعض التطبيقات منذ عدة أشهر"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="zero">لم يتم استخدام <xliff:g id="COUNT_1">%1$d</xliff:g> تطبيق منذ عدة شهور.</item>
+      <item quantity="two">لم يتم استخدام تطبيقين (<xliff:g id="COUNT_1">%1$d</xliff:g>) منذ عدة أشهر.</item>
+      <item quantity="few">لم يتم استخدام <xliff:g id="COUNT_1">%1$d</xliff:g> تطبيقات منذ عدة شهور.</item>
+      <item quantity="many">لم يتم استخدام <xliff:g id="COUNT_1">%1$d</xliff:g> تطبيقًا منذ عدة شهور.</item>
+      <item quantity="other">لم يتم استخدام <xliff:g id="COUNT_1">%1$d</xliff:g> تطبيق منذ عدة شهور.</item>
+      <item quantity="one">لم يتم استخدام تطبيق واحد (<xliff:g id="COUNT_0">%1$d</xliff:g>) منذ عدة أشهر.</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"الأذونات التي تمت إزالتها"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"تمت إزالة الأذونات"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"كل التطبيقات غير المستخدمة"</string>
+    <string name="months_ago" msgid="6541240625299588045">"قبل <xliff:g id="COUNT">%1$d</xliff:g> شهر"</string>
     <string name="auto_revoke_preference_summary" msgid="422689541593333180">"تمت إزالة الأذونات لحماية خصوصيتك."</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"وضع <xliff:g id="APP_NAME">%s</xliff:g> الموقع الجغرافي لك في الخلفية"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"يمكن لهذا التطبيق دائمًا الوصول إلى بيانات موقعك الجغرافي. انقر لتغيير ذلك."</string>
@@ -215,6 +239,7 @@
     <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> و<xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
     <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> و<xliff:g id="PERM_NAME_1">%2$s</xliff:g> و<xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> إذن آخر"</string>
     <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"لحماية بياناتك، تمت إزالة الأذونات من هذه التطبيقات التي لم تستخدمها منذ بضعة أشهر."</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"لحماية بياناتك، تمت إزالة الأذونات من بعض التطبيقات التي لم تستخدمها منذ عدة أشهر."</string>
     <string name="one_unused_app_summary" msgid="4609894550969723046">"لم يتم استخدام تطبيق واحد لبضعة أشهر."</string>
     <string name="num_unused_apps_summary" msgid="2950515592303103371">"لم يتم استخدام <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> تطبيق لبضعة شهور."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"أثناء استخدام التطبيق فقط"</string>
@@ -278,7 +303,7 @@
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"لا يجب تقديم أذونات."</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"التطبيق التلقائي الحالي"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"لا تسألني مرة أخرى."</string>
-    <string name="request_role_set_as_default" msgid="5706081295230541240">"ضبط التطبيق كتلقائي"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"ضبط كتطبيق تلقائي"</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"التطبيقات التلقائية"</string>
     <string name="settings_button" msgid="4747434541214595321">"الإعدادات"</string>
     <string name="default_apps" msgid="8554530939151957828">"التطبيقات التلقائية"</string>
@@ -301,7 +326,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"مشاركة بيانات تصحيح الأخطاء"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"هل تريد مشاركة بيانات تصحيح الأخطاء التفصيلية؟"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"يريد تطبيق <xliff:g id="APP_NAME">%1$s</xliff:g> تحميل معلومات تصحيح الأخطاء."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"مشاركة بيانات تصحيح الأخطاء"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"هل تريد مشاركة بيانات تصحيح الأخطاء؟"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"رصَد النظام مشكلة."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"يطلب تطبيق <xliff:g id="APP_NAME_0">%1$s</xliff:g> تحميل تقرير للأخطاء من هذا الجهاز تم تسجيله بتاريخ <xliff:g id="DATE">%2$s</xliff:g> في <xliff:g id="TIME">%3$s</xliff:g>. وتشمل تقارير الأخطاء المعلومات الشخصية حول جهازك أو المعلومات التي سجلتها التطبيقات، مثل أسماء المستخدمين وبيانات الموقع الجغرافي ومعرّفات الأجهزة ومعلومات الشبكة. ويجب عدم مشاركة تقارير الأخطاء إلا مع المستخدمين والتطبيقات التي تثق بمشاركة هذه المعلومات معها. هل تريد السماح لتطبيق <xliff:g id="APP_NAME_1">%4$s</xliff:g> بتحميل تقرير أخطاء؟"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"حدث خطأ أثناء معالجة تقرير الخطأ لتطبيق <xliff:g id="APP_NAME">%1$s</xliff:g>، ولذلك تم رفض مشاركة بيانات تصحيح الأخطاء التفصيلية. نأسف للمقاطعة."</string>
