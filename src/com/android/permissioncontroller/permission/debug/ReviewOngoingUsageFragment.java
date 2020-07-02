@@ -80,11 +80,6 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (!Utils.isPermissionUsageIconEnabled()) {
-            getActivity().finish();
-            return;
-        }
-
         long numMillis = getArguments().getLong(Intent.EXTRA_DURATION_MILLIS);
 
         mPermissionUsages = new PermissionUsages(getActivity());
