@@ -79,6 +79,9 @@ public class FooterPreference extends Preference {
         holder.setDividerAllowedAbove(true);
 
         View iconFrame = holder.findViewById(R.id.icon_frame);
+        if (iconFrame == null) {
+            iconFrame = holder.findViewById(android.R.id.icon_frame);
+        }
         LinearLayout.LayoutParams iconFrameLayoutParams = (LinearLayout.LayoutParams)
                 iconFrame.getLayoutParams();
         iconFrameLayoutParams.gravity = Gravity.TOP;

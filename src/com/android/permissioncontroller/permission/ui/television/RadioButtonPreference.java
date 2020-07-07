@@ -40,7 +40,7 @@ public class RadioButtonPreference extends Preference {
     @Override
     public void onBindViewHolder(PreferenceViewHolder viewHolder) {
         super.onBindViewHolder(viewHolder);
-        final RadioButton rb = (RadioButton) viewHolder.findViewById(android.R.id.checkbox);
+        final RadioButton rb = (RadioButton) viewHolder.findViewById(R.id.radio_button);
         rb.setChecked(mIsChecked);
         mViewHolder = viewHolder;
     }
@@ -54,7 +54,8 @@ public class RadioButtonPreference extends Preference {
     public void setChecked(boolean isChecked) {
         mIsChecked = isChecked;
         if (mViewHolder != null) {
-            ((RadioButton) mViewHolder.findViewById(android.R.id.checkbox)).setChecked(mIsChecked);
+            ((RadioButton) mViewHolder.findViewById(R.id.radio_button))
+                    .setChecked(mIsChecked);
         }
     }
 }
