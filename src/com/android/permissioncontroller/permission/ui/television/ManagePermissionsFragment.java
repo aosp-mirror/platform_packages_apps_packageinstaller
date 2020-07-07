@@ -127,7 +127,7 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
 
         // Use this to speed up getting the info for all of the PermissionApps below.
         // Create a new one for each refresh to make sure it has fresh data.
-        PmCache cache = new PmCache(getContext().getPackageManager());
+        PmCache cache = new PmCache(context.getPackageManager());
         for (PermissionGroup group : groups) {
             boolean isSystemPermission = group.getDeclaringPackage().equals(OS_PKG);
 
