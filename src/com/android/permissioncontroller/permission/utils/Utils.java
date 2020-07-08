@@ -1127,4 +1127,18 @@ public final class Utils {
                 || (userManager.isManagedProfile(user.getIdentifier())
                 && !DeviceUtils.isTelevision(app));
     }
+
+    /**
+     * @return Whether a package is an emergency app.
+     */
+    public static boolean isEmergencyApp(@NonNull Context context,  @NonNull String packageName) {
+        try {
+            return context.getSystemService(RoleManager.class)
+                    .getRoleHolders(RoleManager.ROLE_EMERGENCY).contains(packageName);
+        } catch (Throwable t) {
+            // Avoid crashing for any reason, this isn't very well tested
+            Log.e(LOG_TAG, "Unable to check if " + packageName + " is an emergency app.", t);
+            return false;
+        }
+    }
 }
