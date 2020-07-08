@@ -756,7 +756,8 @@ public class GrantPermissionsActivity extends Activity
                                 || groupState.mGroup.getName().equals(
                                 Manifest.permission_group.MICROPHONE)) {
                             mButtonVisibilities[ALLOW_BUTTON] = false;
-                            if (mCouldHaveFgCapabilities) {
+                            if (mCouldHaveFgCapabilities
+                                    || Utils.isEmergencyApp(this, mCallingPackage)) {
                                 mButtonVisibilities[ALLOW_ALWAYS_BUTTON] = true;
                                 mButtonVisibilities[ALLOW_ONE_TIME_BUTTON] = false;
                             } else {
@@ -832,7 +833,8 @@ public class GrantPermissionsActivity extends Activity
                                 || groupState.mGroup.getName().equals(
                                         Manifest.permission_group.MICROPHONE)) {
                             mButtonVisibilities[ALLOW_BUTTON] = false;
-                            if (mCouldHaveFgCapabilities) {
+                            if (mCouldHaveFgCapabilities
+                                    || Utils.isEmergencyApp(this, mCallingPackage)) {
                                 mButtonVisibilities[ALLOW_ALWAYS_BUTTON] = true;
                                 mButtonVisibilities[ALLOW_ONE_TIME_BUTTON] = false;
                             } else {
