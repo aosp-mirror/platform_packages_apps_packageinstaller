@@ -82,6 +82,13 @@ public final class ManagePermissionsActivity extends FragmentActivity {
     public static final String EXTRA_RESULT_PERMISSION_RESULT = "com.android"
             + ".permissioncontroller.extra.PERMISSION_RESULT";
 
+    /**
+     * The requestCode used when we decide not to use this activity, but instead launch
+     * another activity in our place. When that activity finishes, we set it's result
+     * as our result and then finish.
+     */
+    private static final int PROXY_ACTIVITY_REQUEST_CODE = 5;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         if (DeviceUtils.isAuto(this)) {
@@ -139,8 +146,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                         || DeviceUtils.isWear(this)) {
                     Intent compatIntent = new Intent(this, AppPermissionActivity.class);
                     compatIntent.putExtras(getIntent().getExtras());
-                    startActivity(compatIntent);
-                    finish();
+                    startActivityForResult(compatIntent, PROXY_ACTIVITY_REQUEST_CODE);
                     return;
                 }
                 String packageName = getIntent().getStringExtra(Intent.EXTRA_PACKAGE_NAME);
@@ -320,5 +326,14 @@ public final class ManagePermissionsActivity extends FragmentActivity {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PROXY_ACTIVITY_REQUEST_CODE) {
+            setResult(resultCode, data);
+            finish();
+        }
     }
 }
