@@ -278,7 +278,9 @@ class AppPermissionViewModel(
 
                     if (detailId == 0) {
                         detailId = getForegroundCapableDetailResId(foregroundCapableType)
-                        detailResIdLiveData.value = detailId to null
+                        if (detailId != 0) {
+                            detailResIdLiveData.value = detailId to null
+                        }
                     }
                 }
             } else {
@@ -308,7 +310,8 @@ class AppPermissionViewModel(
                     allowedState.isShown = false
                     allowedForegroundState.isChecked = allowedState.isChecked
                     allowedForegroundState.isEnabled = allowedState.isEnabled
-                    if (couldPackageHaveFgCapabilities) {
+                    if (couldPackageHaveFgCapabilities || (Utils.isEmergencyApp(app, packageName) &&
+                                    isMicrophone(permGroupName))) {
                         allowedAlwaysState.isShown = true
                         allowedAlwaysState.isChecked = allowedForegroundState.isChecked
                         allowedAlwaysState.isEnabled = allowedForegroundState.isEnabled
@@ -319,7 +322,9 @@ class AppPermissionViewModel(
 
                         if (detailId == 0) {
                             detailId = getForegroundCapableDetailResId(foregroundCapableType)
-                            detailResIdLiveData.value = detailId to null
+                            if (detailId != 0) {
+                                detailResIdLiveData.value = detailId to null
+                            }
                         }
                     }
                 }
@@ -366,6 +371,9 @@ class AppPermissionViewModel(
     private fun isForegroundGroupSpecialCase(permissionGroupName: String): Boolean {
         return permissionGroupName.equals(Manifest.permission_group.CAMERA) ||
                 permissionGroupName.equals(Manifest.permission_group.MICROPHONE)
+    }
+    private fun isMicrophone(permissionGroupName: String): Boolean {
+        return permissionGroupName.equals(Manifest.permission_group.MICROPHONE)
     }
 
     /**
