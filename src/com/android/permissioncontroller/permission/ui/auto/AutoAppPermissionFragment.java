@@ -16,6 +16,9 @@
 
 package com.android.permissioncontroller.permission.ui.auto;
 
+import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_RESULT_PERMISSION_INTERACTED;
+import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_RESULT_PERMISSION_RESULT;
+
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 import android.app.Activity;
@@ -49,6 +52,7 @@ import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.auto.AutoSettingsFrameFragment;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.Permission;
+import com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandler;
 import com.android.permissioncontroller.permission.utils.LocationUtils;
 import com.android.permissioncontroller.permission.utils.PackageRemovalMonitor;
 import com.android.permissioncontroller.permission.utils.SafetyNetLogger;
@@ -138,17 +142,25 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
         }
 
         setHeaderLabel(
-                getContext().getString(R.string.app_permission_title, mGroup.getFullLabel()));
+                requireContext().getString(R.string.app_permission_title, mGroup.getFullLabel()));
+    }
+
+    private void setResult(@GrantPermissionsViewHandler.Result int result) {
+        Intent intent = new Intent()
+                .putExtra(EXTRA_RESULT_PERMISSION_INTERACTED,
+                        requireArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME))
+                .putExtra(EXTRA_RESULT_PERMISSION_RESULT, result);
+        requireActivity().setResult(Activity.RESULT_OK, intent);
     }
 
     private AppPermissionGroup getAppPermissionGroup() {
-        Activity activity = getActivity();
+        Activity activity = requireActivity();
         Context context = getPreferenceManager().getContext();
 
-        String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
-        String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME);
+        String packageName = requireArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        String groupName = requireArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME);
         if (groupName == null) {
-            groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
+            groupName = requireArguments().getString(Intent.EXTRA_PERMISSION_NAME);
         }
         PackageItemInfo groupInfo = Utils.getGroupInfo(groupName, context);
         List<PermissionInfo> groupPermInfos = Utils.getGroupPermissionInfos(groupName, context);
@@ -156,7 +168,11 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
             Log.i(LOG_TAG, "Illegal group: " + groupName);
             return null;
         }
-        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
+        UserHandle userHandle = requireArguments().getParcelable(Intent.EXTRA_USER);
+        if (userHandle == null) {
+            Log.e(LOG_TAG, "User handle is null");
+            return null;
+        }
         PackageInfo packageInfo = AutoPermissionsUtils.getPackageInfo(activity, packageName,
                 userHandle);
         if (packageInfo == null) {
@@ -176,7 +192,7 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
-        setPreferenceScreen(getPreferenceManager().createPreferenceScreen(getContext()));
+        setPreferenceScreen(getPreferenceManager().createPreferenceScreen(requireContext()));
     }
 
     @Override
@@ -185,29 +201,29 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
 
         PreferenceScreen screen = getPreferenceScreen();
         screen.addPreference(
-                AutoPermissionsUtils.createHeaderPreference(getContext(),
+                AutoPermissionsUtils.createHeaderPreference(requireContext(),
                         mGroup.getApp().applicationInfo));
 
         // Add permissions selector preferences.
-        PreferenceGroup permissionSelector = new PreferenceCategory(getContext());
+        PreferenceGroup permissionSelector = new PreferenceCategory(requireContext());
         permissionSelector.setTitle(
-                getContext().getString(R.string.app_permission_header, mGroup.getFullLabel()));
+                getString(R.string.app_permission_header, mGroup.getFullLabel()));
         screen.addPreference(permissionSelector);
 
-        mAlwaysPermissionPreference = new SelectedPermissionPreference(getContext());
+        mAlwaysPermissionPreference = new SelectedPermissionPreference(requireContext());
         mAlwaysPermissionPreference.setTitle(R.string.app_permission_button_allow_always);
         permissionSelector.addPreference(mAlwaysPermissionPreference);
 
-        mForegroundOnlyPermissionPreference = new SelectedPermissionPreference(getContext());
+        mForegroundOnlyPermissionPreference = new SelectedPermissionPreference(requireContext());
         mForegroundOnlyPermissionPreference.setTitle(
                 R.string.app_permission_button_allow_foreground);
         permissionSelector.addPreference(mForegroundOnlyPermissionPreference);
 
-        mDenyPermissionPreference = new SelectedPermissionPreference(getContext());
+        mDenyPermissionPreference = new SelectedPermissionPreference(requireContext());
         mDenyPermissionPreference.setTitle(R.string.app_permission_button_deny);
         permissionSelector.addPreference(mDenyPermissionPreference);
 
-        mDetailsPreference = new AutoTwoTargetPreference(getContext());
+        mDetailsPreference = new AutoTwoTargetPreference(requireContext());
         screen.addPreference(mDetailsPreference);
     }
 
@@ -223,7 +239,7 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
 
         // Get notified when the package is removed.
         String packageName = mGroup.getApp().packageName;
-        mPackageRemovalMonitor = new PackageRemovalMonitor(getContext(), packageName) {
+        mPackageRemovalMonitor = new PackageRemovalMonitor(requireContext(), packageName) {
             @Override
             public void onPackageRemoved() {
                 Log.w(LOG_TAG, packageName + " was uninstalled");
@@ -259,7 +275,7 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
         }
 
         if (mPermissionChangeListener != null) {
-            getActivity().getPackageManager().removeOnPermissionsChangeListener(
+            requireActivity().getPackageManager().removeOnPermissionsChangeListener(
                     mPermissionChangeListener);
             mPermissionChangeListener = null;
         }
@@ -281,15 +297,20 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
             setSelectedPermissionState(mDenyPermissionPreference);
         }
 
-        mAlwaysPermissionPreference.setOnPreferenceClickListener(
-                v -> requestChange(/* requestGrant= */true, CHANGE_BOTH));
+        mAlwaysPermissionPreference.setOnPreferenceClickListener(v -> {
+            setResult(GrantPermissionsViewHandler.GRANTED_ALWAYS);
+            return requestChange(/* requestGrant= */true, CHANGE_BOTH);
+        });
         mForegroundOnlyPermissionPreference.setOnPreferenceClickListener(v -> {
+            setResult(GrantPermissionsViewHandler.GRANTED_FOREGROUND_ONLY);
             requestChange(/* requestGrant= */false, CHANGE_BACKGROUND);
             requestChange(/* requestGrant= */true, CHANGE_FOREGROUND);
             return true;
         });
-        mDenyPermissionPreference.setOnPreferenceClickListener(
-                v -> requestChange(/* requestGrant= */ false, CHANGE_BOTH));
+        mDenyPermissionPreference.setOnPreferenceClickListener(v -> {
+            setResult(GrantPermissionsViewHandler.DENIED);
+            return requestChange(/* requestGrant= */ false, CHANGE_BOTH);
+        });
 
         // Set the allow and foreground-only button states appropriately.
         if (mGroup.hasPermissionWithBackgroundMode()) {
@@ -320,7 +341,7 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
             }
 
             updateDetailForFixedByPolicyPermissionGroup();
-        } else if (Utils.areGroupPermissionsIndividuallyControlled(getContext(),
+        } else if (Utils.areGroupPermissionsIndividuallyControlled(requireContext(),
                 mGroup.getName())) {
             // If the permissions are individually controlled, also show a link to the page that
             // lets you control them.
@@ -454,9 +475,7 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
     private void updateDetailForIndividuallyControlledPermissionGroup() {
         int revokedCount = 0;
         List<Permission> permissions = mGroup.getPermissions();
-        int permissionCount = permissions.size();
-        for (int i = 0; i < permissionCount; i++) {
-            Permission permission = permissions.get(i);
+        for (Permission permission : permissions) {
             if (!permission.isGrantedIncludingAppOp()) {
                 revokedCount++;
             }
@@ -465,13 +484,13 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
         int resId;
         if (revokedCount == 0) {
             resId = R.string.permission_revoked_none;
-        } else if (revokedCount == permissionCount) {
+        } else if (revokedCount == permissions.size()) {
             resId = R.string.permission_revoked_all;
         } else {
             resId = R.string.permission_revoked_count;
         }
 
-        mDetailsPreference.setSummary(getContext().getString(resId, revokedCount));
+        mDetailsPreference.setSummary(getString(resId, revokedCount));
         mDetailsPreference.setVisible(true);
     }
 
@@ -570,7 +589,7 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
     private void showAllPermissions(@NonNull String filterGroup) {
         Fragment frag = AutoAllAppPermissionsFragment.newInstance(mGroup.getApp().packageName,
                 filterGroup, UserHandle.getUserHandleForUid(mGroup.getApp().applicationInfo.uid));
-        getFragmentManager().beginTransaction()
+        requireFragmentManager().beginTransaction()
                 .replace(android.R.id.content, frag)
                 .addToBackStack("AllPerms")
                 .commit();
@@ -597,7 +616,7 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
         if (LocationUtils.isLocationGroupAndProvider(getContext(), mGroup.getName(),
                 mGroup.getApp().packageName)) {
             LocationUtils.showLocationDialog(getContext(),
-                    Utils.getAppLabel(mGroup.getApp().applicationInfo, getContext()));
+                    Utils.getAppLabel(mGroup.getApp().applicationInfo, requireContext()));
 
             // The request was denied, so update the buttons.
             updateUi();
@@ -705,7 +724,7 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
         DefaultDenyDialog defaultDenyDialog = new DefaultDenyDialog();
         defaultDenyDialog.setArguments(args);
         defaultDenyDialog.setTargetFragment(this, 0);
-        defaultDenyDialog.show(getFragmentManager().beginTransaction(),
+        defaultDenyDialog.show(requireFragmentManager().beginTransaction(),
                 DefaultDenyDialog.class.getName());
     }
 
@@ -716,7 +735,7 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
      * @param changeTarget whether to change foreground, background, or both.
      * @see #showDefaultDenyDialog(int)
      */
-    void onDenyAnyWay(@ChangeTarget int changeTarget) {
+    private void onDenyAnyWay(@ChangeTarget int changeTarget) {
         boolean hasDefaultPermissions = false;
         if ((changeTarget & CHANGE_FOREGROUND) != 0) {
             if (mGroup.areRuntimePermissionsGranted()) {
@@ -775,16 +794,17 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
         private static final String CHANGE_TARGET = DefaultDenyDialog.class.getName()
                 + ".arg.changeTarget";
 
+        @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AutoAppPermissionFragment fragment = (AutoAppPermissionFragment) getTargetFragment();
             return new AlertDialogBuilder(getContext())
-                    .setMessage(getArguments().getInt(MSG))
+                    .setMessage(requireArguments().getInt(MSG))
                     .setNegativeButton(R.string.cancel,
                             (dialog, which) -> fragment.updateUi())
                     .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
                             (dialog, which) ->
-                                    fragment.onDenyAnyWay(getArguments().getInt(CHANGE_TARGET)))
+                                    fragment.onDenyAnyWay(requireArguments().getInt(CHANGE_TARGET)))
                     .create();
         }
     }
