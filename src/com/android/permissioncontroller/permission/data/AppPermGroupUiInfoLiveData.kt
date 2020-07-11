@@ -241,7 +241,8 @@ class AppPermGroupUiInfoLiveData private constructor(
                 return PermGrantState.PERMS_ASK
             } else {
                 if (Utils.couldHaveForegroundCapabilities(
-                                Utils.getUserContext(app, user), packageName)) {
+                                Utils.getUserContext(app, user), packageName) ||
+                        Utils.isEmergencyApp(Utils.getUserContext(app, user), packageName)) {
                     return PermGrantState.PERMS_ALLOWED_ALWAYS
                 } else {
                     return PermGrantState.PERMS_ALLOWED_FOREGROUND_ONLY
