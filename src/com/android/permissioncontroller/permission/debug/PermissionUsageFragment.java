@@ -25,13 +25,19 @@ import static java.util.concurrent.TimeUnit.DAYS;
 import static java.util.concurrent.TimeUnit.HOURS;
 import static java.util.concurrent.TimeUnit.MINUTES;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.os.UserManager;
+import android.text.Html;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
@@ -54,10 +60,11 @@ import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.PreferenceViewHolder;
 
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.debug.AppPermissionUsage.GroupUsage;
+import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps.PermissionApp;
 import com.android.permissioncontroller.permission.ui.handheld.PermissionControlPreference;
@@ -311,9 +318,14 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
 
     private void updateMenu() {
         if (mHasSystemApps) {
-            mShowSystemMenu.setVisible(!mShowSystem);
-            mHideSystemMenu.setVisible(mShowSystem);
+            /* Do not show system apps for now
+                mShowSystemMenu.setVisible(!mShowSystem);
+                mHideSystemMenu.setVisible(mShowSystem);
+             */
+            mShowSystemMenu.setVisible(false);
+            mHideSystemMenu.setVisible(false);
         }
+
         mSortByApp.setVisible(mSort != SORT_RECENT_APPS);
         mSortByTime.setVisible(mSort != SORT_RECENT);
     }
@@ -351,8 +363,30 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         }
         screen.removeAll();
 
-        Preference countsWarningPreference = new Preference(getContext());
-        countsWarningPreference.setTitle("Access counts do not reflect amount of private data accessed");
+        Preference countsWarningPreference = new Preference(getContext()) {
+            @Override
+            public void onBindViewHolder(PreferenceViewHolder holder) {
+                super.onBindViewHolder(holder);
+                ((TextView) holder.itemView.findViewById(android.R.id.title))
+                        .setTextColor(Color.RED);
+                holder.itemView.setBackgroundColor(Color.YELLOW);
+            }
+        };
+
+        StringBuffer accounts = new StringBuffer();
+        for (UserHandle user : getContext().getSystemService(UserManager.class).getAllProfiles()) {
+            for (Account account : getContext().createContextAsUser(user, 0).getSystemService(AccountManager.class).getAccounts()) {
+                accounts.append(", " + account.name);
+            }
+        }
+        if (accounts.length() > 0) {
+            accounts.delete(0, 2);
+        }
+
+        countsWarningPreference.setTitle(Html.fromHtml("<b>INTERNAL ONLY</b> - For debugging.<br/><br/>"
+                + "- Access counts do not reflect amount of private data accessed.<br/>"
+                + "- Data might not be accurate.<br/><br/>"
+                + "Accounts: " + accounts, Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH));
         countsWarningPreference.setIcon(R.drawable.ic_info);
         screen.addPreference(countsWarningPreference);
 
