@@ -37,6 +37,7 @@ import com.android.permissioncontroller.permission.ui.GrantPermissionsViewHandle
 import com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog;
 import com.android.permissioncontroller.permission.ui.ManagePermissionsActivity;
 import com.android.permissioncontroller.permission.ui.auto.AutoAppPermissionFragment;
+import com.android.permissioncontroller.permission.ui.television.AppPermissionFragment;
 import com.android.permissioncontroller.permission.utils.LocationUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 
@@ -150,6 +151,14 @@ public final class AppPermissionActivity extends FragmentActivity {
 
             getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
                     androidXFragment).commit();
+        } else if (DeviceUtils.isTelevision(this)) {
+            Fragment androidXFragment = new AppPermissionFragment();
+            androidXFragment.setArguments(
+                    AppPermissionFragment.createArgs(
+                            packageName, permissionName, groupName, userHandle, null, 0, null));
+            getSupportFragmentManager().beginTransaction()
+                    .replace(android.R.id.content, androidXFragment)
+                    .commit();
         } else {
             startActivity(new Intent(getIntent()).setAction(ACTION_MANAGE_APP_PERMISSION));
             finish();
