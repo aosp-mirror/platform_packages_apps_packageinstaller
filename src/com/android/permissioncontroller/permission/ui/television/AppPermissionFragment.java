@@ -386,7 +386,6 @@ public class AppPermissionFragment extends SettingsWithHeader
                 .putExtra(EXTRA_RESULT_PERMISSION_INTERACTED, mPermGroupName)
                 .putExtra(EXTRA_RESULT_PERMISSION_RESULT, result);
         getActivity().setResult(Activity.RESULT_OK, intent);
-        getActivity().onBackPressed();
     }
 
     /**
@@ -418,7 +417,8 @@ public class AppPermissionFragment extends SettingsWithHeader
         ConfirmDialog defaultDenyDialog = new ConfirmDialog();
         defaultDenyDialog.setCancelable(true);
         defaultDenyDialog.setArguments(args);
-        defaultDenyDialog.show(getChildFragmentManager().beginTransaction(),
+        defaultDenyDialog.setTargetFragment(this, 0);
+        defaultDenyDialog.show(getFragmentManager(),
                 ConfirmDialog.class.getName());
     }
 
@@ -440,7 +440,7 @@ public class AppPermissionFragment extends SettingsWithHeader
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            AppPermissionFragment fragment = (AppPermissionFragment) getParentFragment();
+            AppPermissionFragment fragment = (AppPermissionFragment) getTargetFragment();
             boolean isGrantFileAccess = getArguments().getSerializable(CHANGE_REQUEST)
                     == ChangeRequest.GRANT_All_FILE_ACCESS;
             int positiveButtonStringResId = R.string.grant_dialog_button_deny_anyway;
@@ -469,7 +469,7 @@ public class AppPermissionFragment extends SettingsWithHeader
 
         @Override
         public void onCancel(DialogInterface dialog) {
-            AppPermissionFragment fragment = (AppPermissionFragment) getParentFragment();
+            AppPermissionFragment fragment = (AppPermissionFragment) getTargetFragment();
             fragment.setRadioButtonsState(fragment.mViewModel.getButtonStateLiveData().getValue());
         }
     }
