@@ -1080,7 +1080,7 @@ public final class Utils {
                 "voice_interaction_service");
         if (!TextUtils.isEmpty(voiceInteraction)) {
             ComponentName component = ComponentName.unflattenFromString(voiceInteraction);
-            if (component != null && packageName.equals(component.getPackageName())) {
+            if (component != null && TextUtils.equals(packageName, component.getPackageName())) {
                 return ForegroundCapableType.VOICE_INTERACTION;
             }
         }
