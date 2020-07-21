@@ -46,7 +46,7 @@
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Permitir sempre"</string>
     <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Permitir a gestão de todos os ficheiros"</string>
     <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Permitir o acesso aos ficheiros multimédia"</string>
-    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplicações"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Apps"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Autorizações da app"</string>
     <string name="unused_apps" msgid="3935514133237470759">"Apps não utilizadas"</string>
     <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Desativar app"</string>
@@ -90,7 +90,7 @@
     <string name="other_permissions" msgid="1956312685853070715">"Outras capacidades de aplicações"</string>
     <string name="permission_request_title" msgid="6779348653783761548">"Pedido de autorização"</string>
     <string name="screen_overlay_title" msgid="1632732130312696010">"Sobreposição de ecrã detetada"</string>
-    <string name="screen_overlay_message" msgid="3222033787364955006">"Para alterar esta definição de autorização, primeiro tem de desativar a sobreposição do ecrã em Definições &gt; Aplicações"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Para alterar esta definição de autorização, primeiro tem de desativar a sobreposição do ecrã em Definições &gt; Apps"</string>
     <string name="screen_overlay_button" msgid="3554849308322944411">"Abrir definições"</string>
     <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"As ações de instalar/desinstalar não são compatíveis com o Android Wear."</string>
@@ -236,7 +236,7 @@
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Obtém acesso aos SMS e ao registo de chamadas."</string>
     <string name="role_browser_label" msgid="814240075813716311">"App navegador predefinida"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"Aplicação de navegador"</string>
-    <string name="role_browser_description" msgid="2326990202516329438">"Aplicações que lhe dão acesso à Internet e apresentam links em que pode tocar."</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"Apps que lhe dão acesso à Internet e apresentam links em que pode tocar."</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a app de navegador predefinida?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Não são necessárias autorizações."</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"App de telefone predefinida"</string>
@@ -253,7 +253,7 @@
     <string name="role_sms_search_keywords" msgid="6818482413212931585">"mensagem de texto, enviar mensagens de texto, mensagens"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"Aplicação de emergência pred."</string>
     <string name="role_emergency_short_label" msgid="2546309839225058762">"Aplicação de emergência"</string>
-    <string name="role_emergency_description" msgid="3567231505957373289">"Aplicações que permitem registar as suas informações médicas e disponibilizá-las aos contactos de resposta a emergências, receber alertas acerca de eventos atmosféricos e desastres graves, bem como notificar outras pessoas quando precisar de ajuda."</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"Apps que permitem registar as suas informações médicas e disponibilizá-las aos contactos de resposta a emergências, receber alertas acerca de eventos atmosféricos e desastres graves, bem como notificar outras pessoas quando precisar de ajuda."</string>
     <string name="role_emergency_request_title" msgid="6595296517085761522">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a app de emergência predefinida?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Não são necessárias autorizações."</string>
     <string name="role_emergency_search_keywords" msgid="7310029268876820646">"em caso de emergência"</string>
@@ -265,12 +265,12 @@
     <string name="role_home_search_keywords" msgid="8277315231013298175">"iniciador"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Aplic. redirec. chamadas pred."</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Aplic. de redirec. de chamadas"</string>
-    <string name="role_call_redirection_description" msgid="769231030043298555">"Aplicações que permitem encaminhar chamadas efetuadas para outro número de telefone."</string>
+    <string name="role_call_redirection_description" msgid="769231030043298555">"Apps que permitem encaminhar chamadas efetuadas para outro número de telefone."</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Pretende definir <xliff:g id="APP_NAME">%1$s</xliff:g> como a app de redirecionamento de chamadas predefinida?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Não são necessárias autorizações."</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"App identific. chamadas e spam predef."</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"App de ID de chamada e spam"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"Aplicações que permitem identificar chamadas, bloquear spam e chamadas automáticas e adicionar números indesejados à lista negra."</string>
+    <string name="role_call_screening_description" msgid="4470066768170089758">"Apps que permitem identificar chamadas, bloquear spam e chamadas automáticas e adicionar números indesejados à lista negra."</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a app de identificação de chamadas e spam predefinida?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Não são necessárias autorizações."</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Predefinição atual"</string>
@@ -278,7 +278,7 @@
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Definir como predef."</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"aplicações predefinidas"</string>
     <string name="settings_button" msgid="4747434541214595321">"Definições"</string>
-    <string name="default_apps" msgid="8554530939151957828">"Aplicações predefinidas"</string>
+    <string name="default_apps" msgid="8554530939151957828">"Apps predefinidas"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Sem aplicações predefinidas"</string>
     <string name="default_apps_more" msgid="3908067305593075127">"Mais predefinições"</string>
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Abertura de links"</string>
