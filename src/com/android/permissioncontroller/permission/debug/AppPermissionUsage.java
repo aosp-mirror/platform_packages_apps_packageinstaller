@@ -154,6 +154,15 @@ public final class AppPermissionUsage {
             );
         }
 
+        public long getLastAccessDuration() {
+            if (mLastUsage == null) {
+                return 0;
+            }
+            return lastAccessAggregate(
+                    (op) -> op.getLastDuration(AppOpsManager.OP_FLAGS_ALL_TRUSTED));
+        }
+
+
         public long getAccessDuration() {
             if (mHistoricalUsage == null) {
                 return 0;

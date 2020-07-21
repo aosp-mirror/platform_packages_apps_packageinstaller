@@ -109,9 +109,22 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
                 GroupUsage groupUsage = appGroups.get(groupNum);
                 String groupName = groupUsage.getGroup().getName();
 
-                if (groupUsage.getLastAccessTime() < mStartTime && !groupUsage.isRunning()) {
-                    continue;
+                if (!groupUsage.isRunning()) {
+                    if (groupUsage.getLastAccessDuration() == -1) {
+                        if (groupUsage.getLastAccessTime() < mStartTime) {
+                            continue;
+                        }
+                    } else {
+                        // TODO: Warning: Only works for groups with a single permission as it is
+                        // not guaranteed the last access time and duration refer to same permission
+                        // in AppPermissionUsage#lastAccessAggregate
+                        if (groupUsage.getLastAccessTime() + groupUsage.getLastAccessDuration()
+                                < mStartTime) {
+                            continue;
+                        }
+                    }
                 }
+
                 if (!Utils.isGroupOrBgGroupUserSensitive(groupUsage.getGroup())) {
                     continue;
                 }
