@@ -21,7 +21,9 @@ import android.app.Application
 import android.app.Service
 import android.content.Context
 import android.content.ContextWrapper
+import android.content.pm.ComponentInfo
 import android.content.pm.PackageManager
+import android.content.pm.ResolveInfo
 import android.os.Looper
 import android.os.UserHandle
 import kotlinx.coroutines.asCoroutineDispatcher
@@ -76,3 +78,14 @@ fun PackageManager.updatePermissionFlags(
 fun UserHandle.getUid(appId: Int): Int {
     return identifier * 100000 + (appId % 100000)
 }
+
+/**
+ * Gets a [ComponentInfo] from a [ResolveInfo]
+ */
+val ResolveInfo.componentInfo: ComponentInfo
+    get() {
+        return (activityInfo as ComponentInfo?)
+                ?: serviceInfo
+                ?: providerInfo
+                ?: throw IllegalStateException("Missing ComponentInfo!")
+    }
