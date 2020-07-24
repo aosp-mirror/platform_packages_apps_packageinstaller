@@ -49,7 +49,6 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
 import android.content.pm.PackageManager.PERMISSION_GRANTED
-import android.net.NetworkScoreManager
 import android.os.Bundle
 import android.os.Process.myUserHandle
 import android.os.UserHandle
@@ -678,10 +677,6 @@ class ExemptServicesLiveData(val user: UserHandle)
             ServiceLiveData[
                     DreamService.SERVICE_INTERFACE,
                     Manifest.permission.BIND_DREAM_SERVICE,
-                    user],
-            ServiceLiveData[
-                    NetworkScoreManager.ACTION_RECOMMEND_NETWORKS,
-                    Manifest.permission.BIND_NETWORK_RECOMMENDATION_SERVICE,
                     user],
             ServiceLiveData[
                     AutofillService.SERVICE_INTERFACE,
