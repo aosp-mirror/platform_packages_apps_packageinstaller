@@ -62,7 +62,6 @@ import android.service.autofill.AutofillService
 import android.service.autofill.augmented.AugmentedAutofillService
 import android.service.dreams.DreamService
 import android.service.notification.NotificationListenerService
-import android.service.textclassifier.TextClassifierService
 import android.service.voice.VoiceInteractionService
 import android.service.wallpaper.WallpaperService
 import android.telephony.TelephonyManager.CARRIER_PRIVILEGE_STATUS_HAS_ACCESS
@@ -666,10 +665,6 @@ class ExemptServicesLiveData(val user: UserHandle)
             ServiceLiveData[
                     AttentionService.SERVICE_INTERFACE,
                     Manifest.permission.BIND_ATTENTION_SERVICE,
-                    user],
-            ServiceLiveData[
-                    TextClassifierService.SERVICE_INTERFACE,
-                    Manifest.permission.BIND_TEXTCLASSIFIER_SERVICE,
                     user],
             ServiceLiveData[
                     PrintService.SERVICE_INTERFACE,
