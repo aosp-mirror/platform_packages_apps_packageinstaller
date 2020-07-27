@@ -17,17 +17,13 @@
 package com.android.permissioncontroller.permission.data
 
 import android.app.Application
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
 import android.content.pm.PackageManager.GET_PERMISSIONS
 import android.content.pm.PackageManager.MATCH_FACTORY_ONLY
-import android.content.pm.PackageManager.MATCH_SYSTEM_ONLY
 import android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES
 import android.os.UserHandle
 import android.util.Log
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
-import com.android.permissioncontroller.permission.utils.Utils.getUserContext
 import kotlinx.coroutines.Job
 
 /**
@@ -52,21 +48,10 @@ class PreinstalledUserPackageInfosLiveData private constructor(
         // TODO ntmyren: remove once b/154796729 is fixed
         Log.i("PreinstalledUserPackageInfos", "updating PreinstalledUserPackageInfosLiveData for " +
             "user ${user.identifier}")
-        val pm = getUserContext(app, user).packageManager
-        val packageInfos = pm.getInstalledPackages(MATCH_UNINSTALLED_PACKAGES or MATCH_SYSTEM_ONLY)
-        postValue(packageInfos.mapNotNull {
-            packageInfo -> getFactoryPackageInfoSafe(pm, packageInfo)
-        })
-    }
-
-    private fun getFactoryPackageInfoSafe(pm: PackageManager, packageInfo: PackageInfo):
-            LightPackageInfo? {
-        return try {
-            LightPackageInfo(pm.getPackageInfo(packageInfo.packageName,
-                    GET_PERMISSIONS or MATCH_UNINSTALLED_PACKAGES or MATCH_FACTORY_ONLY))
-        } catch (e: PackageManager.NameNotFoundException) {
-            null
-        }
+        val packageInfos = app.applicationContext.packageManager
+                .getInstalledPackagesAsUser(GET_PERMISSIONS or MATCH_UNINSTALLED_PACKAGES
+                        or MATCH_FACTORY_ONLY, user.identifier)
+        postValue(packageInfos.map { packageInfo -> LightPackageInfo(packageInfo) })
     }
 
     override fun onActive() {
