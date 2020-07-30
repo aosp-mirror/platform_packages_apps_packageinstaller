@@ -15,7 +15,9 @@
 //
 
 android_test_helper_app {
-    name: "AppThatUsesTwoAdditionalPermissions",
+    name: "AppThatUsesCameraPermission",
+
+    srcs: ["src/**/*.kt"],
 
     sdk_version: "current",
 

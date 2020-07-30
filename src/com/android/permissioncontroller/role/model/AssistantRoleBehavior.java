@@ -38,6 +38,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.permissioncontroller.R;
+import com.android.permissioncontroller.permission.utils.UserSensitiveFlagsUtils;
 import com.android.permissioncontroller.role.utils.UserUtils;
 
 import org.xmlpull.v1.XmlPullParserException;
@@ -169,6 +170,16 @@ public class AssistantRoleBehavior implements RoleBehavior {
         }
 
         return hasAssistantActivity;
+    }
+
+    @Override
+    public void grant(@NonNull Role role, @NonNull String packageName, @NonNull Context context) {
+        UserSensitiveFlagsUtils.setMicUserSensitiveWhenReady(packageName, true);
+    }
+
+    @Override
+    public void revoke(@NonNull Role role, @NonNull String packageName, @NonNull Context context) {
+        UserSensitiveFlagsUtils.setMicUserSensitiveWhenReady(packageName, false);
     }
 
     private boolean isAssistantVoiceInteractionService(@NonNull PackageManager pm,
