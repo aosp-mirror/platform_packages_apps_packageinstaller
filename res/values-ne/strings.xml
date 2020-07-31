@@ -102,10 +102,68 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"एपले हाल प्रयोग गर्ने अनुमति"</string>
     <string name="message_staging" msgid="641286607664721291">"एप स्थापना गर्न तयारी गर्दै…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"अज्ञात"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ड्यासबोर्ड"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> पहुँच</item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_3">%1$s</xliff:g> <xliff:g id="NUM_4">%2$s</xliff:g> \n पहुँचहरू (<xliff:g id="NUM_5">%3$s</xliff:g>पृष्ठभूमिमा)</item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच (<xliff:g id="NUM_2">%3$s</xliff:g> पृष्ठभूमिमा)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> पहुँच\nअवधि: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच\nअवधि: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> पहुँचहरू (<xliff:g id="NUM_6">%3$s</xliff:g> पृष्ठभूमिमा)\nअवधि: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच (<xliff:g id="NUM_2">%3$s</xliff:g> पृष्ठभूमिमा)\nअवधि: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"पछिल्लो पटक पहुँच गरिएको समय: पृष्ठभूमिमा पछिल्लो पटक पहुँच गरिएको <xliff:g id="TIME">%1$s</xliff:g>\n"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"कुनै पनि अनुमति"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"कुनै पनि समय"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"पछिल्ला ७ दिन"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"पछिल्लो २४ घन्टा"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"पछिल्लो १ घन्टा"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"पछिल्लो १५ मिनेट"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"पछिल्लो १ मिनेट"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"उपयोगको अनुमति छैन"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"पछिल्लो पटक जुनसुकै बेला गरिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"गत ७ दिनमा पछिल्लो पटक गरिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"पछिल्लो २४ घन्टामा पछिल्लो पटक गरिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"पछिल्लो १ घन्टामा पछिल्लो पटक गरिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"पछिल्लो १५ मिनेटमा पछिल्लो पटक गरिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"पछिल्लो १ मिनेटमा पछिल्लो पटक गरिएको पहुँच"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"जुनसुकै बेला गरिएको अनुमतिको प्रयोग"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"पछिल्लो ७ दिनमा गरिएको अनुमतिको प्रयोग"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"पछिल्लो २४ घन्टामा गरिएको अनुमतिको प्रयोग"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"पछिल्लो १ घन्टामा गरिएको अनुमतिको प्रयोग"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"पछिल्लो १५ मिनेटमा गरिएको अनुमतिको प्रयोग"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"पछिल्लो १ मिनेटमा गरिएको अनुमतिको प्रयोग"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> एपहरू</item>
+      <item quantity="one">१ एप</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"ड्यासबोर्डमा सबै कुरा हेर्नुहोस्"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"यसअनुसार फिल्टर गरिएको: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"फिल्टर हटाउनुहोस्"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"यसअनुसार फिल्टर गर्नुहोस्"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"अनुमतिअनुसार फिल्टर गर्नुहोस्"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"समयका आधारमा फिल्टर गर्नुहोस्"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"सबैभन्दा धेेरै प्रयोग गरिएको अनुमति"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"सबैभन्दा धेरै पटक पहुँच राखिएको"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"हालसालैका"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"एपको प्रयोगअनुसार क्रमबद्ध गर्नु…"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"समयअनुसार क्रमबद्ध गर्नुहोस्"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"पुनः ताजा गर्नुहोस्"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> एपहरू</item>
+      <item quantity="one">१ एप</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"एपको अनुमतिको उपयोग"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"पहुँच: <xliff:g id="NUM">%1$s</xliff:g> पटक। कुल समय: <xliff:g id="DURATION">%2$s</xliff:g>। पछिल्लो पटक <xliff:g id="TIME">%3$s</xliff:g> अघि प्रयोग गरिएको।"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"पहुँच: <xliff:g id="NUM">%1$s</xliff:g> पटक। पछिल्लो पटक <xliff:g id="TIME">%2$s</xliff:g> अघि प्रयोग गरिएको।"</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"अनुमति दिनुहोस्"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"सबै फाइलहरू व्यवस्थापन गर्ने अनुमति दिइयोस्"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"केवल मिडिया प्रयोग गर्ने अनुमति दिइयोस्"</string>
@@ -117,6 +175,8 @@
     <string name="app_permission_header" msgid="228974007660007656">"यस अनुप्रयोगमाथि <xliff:g id="PERM">%1$s</xliff:g> पहुँच"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> का सबै अनुमतिहरू हेर्नुहोस्"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"यो अनुमति पाएका सबै एपहरू हेर्नुहोस्"</string>
+    <!-- no translation found for assistant_mic_label (1811192380583756826) -->
+    <skip />
     <string name="auto_revoke_label" msgid="8755748230070160969">"यो एप प्रयोग हुँदैन भने त्यसलाई दिइएका अनुमतिहरू रद्द गरियोस्"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"तपाईंका डेटाको सुरक्षार्थ यो एप केही महिनासम्म प्रयोग नगरिएका खण्डमा यसलाई दिइएका अनुमति रद्द गरिने छन्।"</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"तपाईंका डेटाको सुरक्षार्थ यो एप केही महिनासम्म प्रयोग नगरिएका खण्डमा निम्न अनुमति रद्द गरिने छन्: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
@@ -276,6 +336,11 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"हालको पूर्वनिर्धारित एप"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"फेरि नसोध्नुहोस्"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"डिफल्ट सेट गर्नुहोस्"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"बुझेँ"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"गोपनीयतासम्बन्धी सेटिङहरू"</string>
+    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"तपाईंको <xliff:g id="TYPES_LIST">%s</xliff:g> प्रयोग गरिरहेका एपहरू"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" र "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"पूर्वनिर्धारित एपहरू"</string>
     <string name="settings_button" msgid="4747434541214595321">"सेटिङहरू"</string>
     <string name="default_apps" msgid="8554530939151957828">"पूर्वनिर्धारित एपहरू"</string>
