@@ -21,6 +21,7 @@ import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.UserHandle
+import android.view.inputmethod.InputMethod
 import com.android.permissioncontroller.DumpableLog
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.service.DEBUG_AUTO_REVOKE
@@ -47,10 +48,18 @@ class ServiceLiveData(
     private val name = intentAction.substringAfterLast(".")
 
     private val enabledAccessibilityServicesLiveData = EnabledAccessibilityServicesLiveData[user]
+    private val enabledInputMethodsLiveData = EnabledInputMethodsLiveData[user]
 
     init {
-        addSource(enabledAccessibilityServicesLiveData) {
-            updateAsync()
+        if (intentAction == AccessibilityService.SERVICE_INTERFACE) {
+            addSource(enabledAccessibilityServicesLiveData) {
+                updateAsync()
+            }
+        }
+        if (intentAction == InputMethod.SERVICE_INTERFACE) {
+            addSource(enabledInputMethodsLiveData) {
+                updateAsync()
+            }
         }
     }
 
@@ -63,6 +72,9 @@ class ServiceLiveData(
             return
         }
         if (!enabledAccessibilityServicesLiveData.isInitialized) {
+            return
+        }
+        if (!enabledInputMethodsLiveData.isInitialized) {
             return
         }
 
@@ -100,6 +112,9 @@ class ServiceLiveData(
         return when (intentAction) {
             AccessibilityService.SERVICE_INTERFACE -> {
                 pkg in enabledAccessibilityServicesLiveData.value!!
+            }
+            InputMethod.SERVICE_INTERFACE -> {
+                pkg in enabledInputMethodsLiveData.value!!
             }
             // TODO(eugenesusla): fill in check implementations for most service types
             else -> true
