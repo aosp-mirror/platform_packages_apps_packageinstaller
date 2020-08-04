@@ -21,6 +21,7 @@ import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.UserHandle
+import android.service.wallpaper.WallpaperService
 import android.view.inputmethod.InputMethod
 import android.service.notification.NotificationListenerService
 import com.android.permissioncontroller.DumpableLog
@@ -51,6 +52,7 @@ class ServiceLiveData(
     private val enabledAccessibilityServicesLiveData = EnabledAccessibilityServicesLiveData[user]
     private val enabledInputMethodsLiveData = EnabledInputMethodsLiveData[user]
     private val enabledNotificationListenersLiveData = EnabledNotificationListenersLiveData[user]
+    private val selectedWallpaperServiceLiveData = SelectedWallpaperServiceLiveData[user]
 
     init {
         if (intentAction == AccessibilityService.SERVICE_INTERFACE) {
@@ -65,6 +67,11 @@ class ServiceLiveData(
         }
         if (intentAction == NotificationListenerService.SERVICE_INTERFACE) {
             addSource(enabledNotificationListenersLiveData) {
+                updateAsync()
+            }
+        }
+        if (intentAction == WallpaperService.SERVICE_INTERFACE) {
+            addSource(selectedWallpaperServiceLiveData) {
                 updateAsync()
             }
         }
@@ -85,6 +92,10 @@ class ServiceLiveData(
             return
         }
         if (!enabledNotificationListenersLiveData.isInitialized) {
+            return
+        }
+
+        if (!selectedWallpaperServiceLiveData.isInitialized) {
             return
         }
 
@@ -128,6 +139,9 @@ class ServiceLiveData(
             }
             NotificationListenerService.SERVICE_INTERFACE -> {
                 pkg in enabledNotificationListenersLiveData.value!!
+            }
+            WallpaperService.SERVICE_INTERFACE -> {
+                pkg == selectedWallpaperServiceLiveData.value
             }
             // TODO(eugenesusla): fill in check implementations for most service types
             else -> true
