@@ -22,6 +22,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.UserHandle
 import android.view.inputmethod.InputMethod
+import android.service.notification.NotificationListenerService
 import com.android.permissioncontroller.DumpableLog
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.service.DEBUG_AUTO_REVOKE
@@ -49,6 +50,7 @@ class ServiceLiveData(
 
     private val enabledAccessibilityServicesLiveData = EnabledAccessibilityServicesLiveData[user]
     private val enabledInputMethodsLiveData = EnabledInputMethodsLiveData[user]
+    private val enabledNotificationListenersLiveData = EnabledNotificationListenersLiveData[user]
 
     init {
         if (intentAction == AccessibilityService.SERVICE_INTERFACE) {
@@ -58,6 +60,11 @@ class ServiceLiveData(
         }
         if (intentAction == InputMethod.SERVICE_INTERFACE) {
             addSource(enabledInputMethodsLiveData) {
+                updateAsync()
+            }
+        }
+        if (intentAction == NotificationListenerService.SERVICE_INTERFACE) {
+            addSource(enabledNotificationListenersLiveData) {
                 updateAsync()
             }
         }
@@ -75,6 +82,9 @@ class ServiceLiveData(
             return
         }
         if (!enabledInputMethodsLiveData.isInitialized) {
+            return
+        }
+        if (!enabledNotificationListenersLiveData.isInitialized) {
             return
         }
 
@@ -115,6 +125,9 @@ class ServiceLiveData(
             }
             InputMethod.SERVICE_INTERFACE -> {
                 pkg in enabledInputMethodsLiveData.value!!
+            }
+            NotificationListenerService.SERVICE_INTERFACE -> {
+                pkg in enabledNotificationListenersLiveData.value!!
             }
             // TODO(eugenesusla): fill in check implementations for most service types
             else -> true
