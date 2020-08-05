@@ -31,8 +31,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.provider.Settings;
-import android.util.ArraySet;
+import android.util.ArrayMap;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +46,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.debug.AppPermissionUsage.GroupUsage;
+import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps.PermissionApp;
 import com.android.permissioncontroller.permission.utils.Utils;
@@ -55,7 +55,6 @@ import java.text.Collator;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * A dialog listing the currently uses of camera, microphone, and location.
@@ -159,18 +158,46 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
                         PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
                                 PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS, null))
                 .setOnDismissListener((dialog) -> getActivity().finish());
-        setNeutralButton(builder);
         mDialog = builder.create();
         mDialog.show();
     }
 
-    protected void setNeutralButton(AlertDialog.Builder builder) {
-        builder.setNeutralButton(R.string.ongoing_usage_dialog_open_settings, (dialog, which) -> {
-            PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
-                    PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_PRIVACY_SETTINGS, null);
-            startActivity(new Intent(Settings.ACTION_PRIVACY_SETTINGS).putExtra(
-                    Intent.EXTRA_DURATION_MILLIS, TimeUnit.MINUTES.toMillis(1)));
-        });
+    /**
+     * Get a list of permission labels.
+     *
+     * @param groups map<perm group name, perm group label>
+     *
+     * @return A localized string with the list of permissions
+     */
+    private CharSequence getListOfPermissionLabels(ArrayMap<String, CharSequence> groups) {
+        int numGroups = groups.size();
+
+        if (numGroups == 1) {
+            return groups.valueAt(0);
+        } else if (numGroups == 2 && groups.containsKey(MICROPHONE) && groups.containsKey(CAMERA)) {
+            // Special case camera + mic permission to be localization friendly
+            return getContext().getString(R.string.permgroup_list_microphone_and_camera);
+        } else {
+            // TODO: Use internationalization safe concatenation
+
+            ArrayList<CharSequence> sortedGroups = new ArrayList<>(groups.values());
+            Collator collator = Collator.getInstance(
+                    getResources().getConfiguration().getLocales().get(0));
+            sortedGroups.sort(collator);
+
+            StringBuilder listBuilder = new StringBuilder();
+
+            for (int i = 0; i < numGroups; i++) {
+                listBuilder.append(sortedGroups.get(i));
+                if (i < numGroups - 2) {
+                    listBuilder.append(getString(R.string.ongoing_usage_dialog_separator));
+                } else if (i < numGroups - 1) {
+                    listBuilder.append(getString(R.string.ongoing_usage_dialog_last_separator));
+                }
+            }
+
+            return listBuilder;
+        }
     }
 
     private @NonNull View createDialogView(
@@ -181,13 +208,14 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
         ViewGroup appsList = contentView.requireViewById(R.id.items_container);
 
         // Compute all of the permission group labels that were used.
-        ArraySet<String> usedGroups = new ArraySet<>();
+        ArrayMap<String, CharSequence> usedGroups = new ArrayMap<>();
         int numUsages = usages.size();
         for (int usageNum = 0; usageNum < numUsages; usageNum++) {
             List<GroupUsage> groups = usages.get(usageNum).second;
             int numGroups = groups.size();
             for (int groupNum = 0; groupNum < numGroups; groupNum++) {
-                usedGroups.add(groups.get(groupNum).getGroup().getLabel().toString().toLowerCase());
+                AppPermissionGroup group = groups.get(groupNum).getGroup();
+                usedGroups.put(group.getName(), group.getLabel());
             }
         }
 
@@ -205,16 +233,26 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             // Add the icons for the groups this app used as long as multiple groups were used by
             // some app.
             if (usedGroups.size() > 1) {
+                ArrayMap<String, CharSequence> usedGroupsThisApp = new ArrayMap<>();
+
                 ViewGroup iconFrame = itemView.requireViewById(R.id.icons);
                 int numGroups = usages.get(usageNum).second.size();
                 for (int groupNum = 0; groupNum < numGroups; groupNum++) {
-                    ViewGroup group = (ViewGroup) inflater.inflate(R.layout.image_view, null);
-                    ((ImageView) group.requireViewById(R.id.icon)).setImageDrawable(
-                            Utils.applyTint(context, groups.get(groupNum).getGroup().getIconResId(),
+                    AppPermissionGroup group = groups.get(groupNum).getGroup();
+
+                    ViewGroup groupView = (ViewGroup) inflater.inflate(R.layout.image_view, null);
+                    ((ImageView) groupView.requireViewById(R.id.icon)).setImageDrawable(
+                            Utils.applyTint(context, group.getIconResId(),
                                     android.R.attr.colorControlNormal));
-                    iconFrame.addView(group);
+                    iconFrame.addView(groupView);
+
+                    usedGroupsThisApp.put(group.getName(), group.getLabel());
                 }
                 iconFrame.setVisibility(View.VISIBLE);
+
+                TextView permissionsList = itemView.requireViewById(R.id.permissionsList);
+                permissionsList.setText(getListOfPermissionLabels(usedGroupsThisApp));
+                permissionsList.setVisibility(View.VISIBLE);
             }
 
             itemView.setOnClickListener((v) -> {
@@ -233,24 +271,9 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             appsList.addView(itemView);
         }
 
-        // Set the title of the dialog based on all of the permissions used.
-        StringBuilder titleBuilder = new StringBuilder();
-        int numGroups = usedGroups.size();
-        List<String> sortedGroups = new ArrayList<>(usedGroups);
-        Collator collator = Collator.getInstance(
-                getResources().getConfiguration().getLocales().get(0));
-        sortedGroups.sort(collator);
-        for (int i = 0; i < numGroups; i++) {
-            titleBuilder.append(sortedGroups.get(i));
-            if (i < numGroups - 2) {
-                titleBuilder.append(getString(R.string.ongoing_usage_dialog_separator));
-            } else if (i < numGroups - 1) {
-                titleBuilder.append(getString(R.string.ongoing_usage_dialog_last_separator));
-            }
-        }
-
         ((TextView) contentView.requireViewById(R.id.title)).setText(
-                getString(R.string.ongoing_usage_dialog_title, titleBuilder.toString()));
+                getString(R.string.ongoing_usage_dialog_title,
+                        getListOfPermissionLabels(usedGroups)));
 
         return contentView;
     }
