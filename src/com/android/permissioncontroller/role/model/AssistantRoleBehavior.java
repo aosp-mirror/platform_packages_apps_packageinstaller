@@ -16,6 +16,8 @@
 
 package com.android.permissioncontroller.role.model;
 
+import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldShowCameraMicIndicators;
+
 import android.app.ActivityManager;
 import android.app.role.RoleManager;
 import android.content.Context;
@@ -174,12 +176,16 @@ public class AssistantRoleBehavior implements RoleBehavior {
 
     @Override
     public void grant(@NonNull Role role, @NonNull String packageName, @NonNull Context context) {
-        UserSensitiveFlagsUtils.setMicUserSensitiveWhenReady(packageName, true);
+        if (shouldShowCameraMicIndicators()) {
+            UserSensitiveFlagsUtils.setMicUserSensitiveWhenReady(packageName, true);
+        }
     }
 
     @Override
     public void revoke(@NonNull Role role, @NonNull String packageName, @NonNull Context context) {
-        UserSensitiveFlagsUtils.setMicUserSensitiveWhenReady(packageName, false);
+        if (shouldShowCameraMicIndicators()) {
+            UserSensitiveFlagsUtils.setMicUserSensitiveWhenReady(packageName, false);
+        }
     }
 
     private boolean isAssistantVoiceInteractionService(@NonNull PackageManager pm,

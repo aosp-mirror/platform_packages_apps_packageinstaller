@@ -144,7 +144,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 break;
 
             case Intent.ACTION_REVIEW_PERMISSION_USAGE: {
-                if (!UtilsKt.isPermissionsHub2Enabled()) {
+                if (!UtilsKt.shouldShowPermissionsDashboard()) {
                     finish();
                     return;
                 }
