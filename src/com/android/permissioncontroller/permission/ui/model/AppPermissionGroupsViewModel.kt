@@ -45,6 +45,7 @@ import com.android.permissioncontroller.permission.data.PackagePermissionsLiveDa
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.data.get
+import com.android.permissioncontroller.permission.debug.shouldShowCameraMicIndicators
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.ui.Category
 import com.android.permissioncontroller.permission.utils.IPC
@@ -182,6 +183,9 @@ class AppPermissionGroupsViewModel(
     }
 
     fun shouldShowAssistantMicSwitch(): Boolean {
+        if (!shouldShowCameraMicIndicators()) {
+            return false
+        }
         val rolePkgs = Utils.getUserContext(app, user).getSystemService(RoleManager::class.java)!!
             .getRoleHolders(RoleManager.ROLE_ASSISTANT)
         return packageName in rolePkgs

@@ -17,7 +17,7 @@ package com.android.permissioncontroller.permission.ui.handheld;
 
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
-import static com.android.permissioncontroller.permission.debug.UtilsKt.isPermissionsHub2Enabled;
+import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldShowPermissionsDashboard;
 import static com.android.permissioncontroller.permission.ui.handheld.UtilsKt.pressBack;
 
 import android.content.Intent;
@@ -110,7 +110,7 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
 
-        if (isPermissionsHub2Enabled()) {
+        if (shouldShowPermissionsDashboard()) {
             menu.add(Menu.NONE, MENU_PERMISSION_USAGE, Menu.NONE, R.string.permission_usage_title);
         }
     }

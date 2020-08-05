@@ -24,6 +24,7 @@ import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIV
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_LINE_ITEM;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_PRIVACY_SETTINGS;
+import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldShowPermissionsDashboard;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -84,9 +85,13 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
         mPermissionUsages = new PermissionUsages(getActivity());
         mStartTime = Math.max(System.currentTimeMillis() - numMillis, Instant.EPOCH.toEpochMilli());
-        mPermissionUsages.load(null, new String[]{CAMERA, LOCATION, MICROPHONE}, mStartTime,
-                Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST, getActivity().getLoaderManager(),
-                false, false, this::onPermissionUsagesLoaded, false);
+        String[] permissions = new String[]{CAMERA, MICROPHONE};
+        if (shouldShowPermissionsDashboard()) {
+            permissions = new String[] {CAMERA, LOCATION, MICROPHONE};
+        }
+        mPermissionUsages.load(null, permissions, mStartTime, Long.MAX_VALUE,
+                PermissionUsages.USAGE_FLAG_LAST, getActivity().getLoaderManager(), false, false,
+                this::onPermissionUsagesLoaded, false);
     }
 
     private void onPermissionUsagesLoaded() {

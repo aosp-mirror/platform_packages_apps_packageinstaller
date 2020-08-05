@@ -22,7 +22,7 @@ import static com.android.permissioncontroller.PermissionControllerStatsLog.PERM
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__DENIED;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__UNDEFINED;
-import static com.android.permissioncontroller.permission.debug.UtilsKt.isPermissionsHub2Enabled;
+import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldShowPermissionsDashboard;
 import static com.android.permissioncontroller.permission.ui.Category.ALLOWED;
 import static com.android.permissioncontroller.permission.ui.Category.ALLOWED_FOREGROUND;
 import static com.android.permissioncontroller.permission.ui.Category.ASK;
@@ -156,7 +156,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
             updateMenu(mViewModel.getShouldShowSystemLiveData().getValue());
         }
 
-        if (isPermissionsHub2Enabled()) {
+        if (shouldShowPermissionsDashboard()) {
             menu.add(Menu.NONE, MENU_PERMISSION_USAGE, Menu.NONE, R.string.permission_usage_title);
         }
 
