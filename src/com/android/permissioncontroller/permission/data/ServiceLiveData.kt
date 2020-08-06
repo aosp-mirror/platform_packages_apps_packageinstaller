@@ -24,6 +24,7 @@ import android.os.UserHandle
 import android.service.autofill.AutofillService
 import android.service.notification.NotificationListenerService
 import android.service.voice.VoiceInteractionService
+import android.service.dreams.DreamService
 import android.service.wallpaper.WallpaperService
 import android.view.inputmethod.InputMethod
 import com.android.permissioncontroller.DumpableLog
@@ -58,6 +59,7 @@ class ServiceLiveData(
     private val selectedVoiceInteractionServiceLiveData =
             SelectedVoiceInteractionServiceLiveData[user]
     private val selectedAutofillServiceLiveData = SelectedAutofillServiceLiveData[user]
+    private val enabledDreamServicesLiveData = EnabledDreamServicesLiveData[user]
 
     init {
         if (intentAction == AccessibilityService.SERVICE_INTERFACE) {
@@ -87,6 +89,11 @@ class ServiceLiveData(
         }
         if (intentAction == AutofillService.SERVICE_INTERFACE) {
             addSource(selectedAutofillServiceLiveData) {
+                updateAsync()
+            }
+        }
+        if (intentAction == DreamService.SERVICE_INTERFACE) {
+            addSource(enabledDreamServicesLiveData) {
                 updateAsync()
             }
         }
@@ -123,6 +130,10 @@ class ServiceLiveData(
         }
         if (intentAction == AutofillService.SERVICE_INTERFACE &&
                 !selectedAutofillServiceLiveData.isInitialized) {
+            return
+        }
+        if (intentAction == DreamService.SERVICE_INTERFACE &&
+            !enabledDreamServicesLiveData.isInitialized) {
             return
         }
 
@@ -175,6 +186,9 @@ class ServiceLiveData(
             }
             AutofillService.SERVICE_INTERFACE -> {
                 pkg == selectedAutofillServiceLiveData.value
+            }
+            DreamService.SERVICE_INTERFACE -> {
+                pkg in enabledDreamServicesLiveData.value!!
             }
             // TODO(eugenesusla): fill in check implementations for most service types
             else -> true
