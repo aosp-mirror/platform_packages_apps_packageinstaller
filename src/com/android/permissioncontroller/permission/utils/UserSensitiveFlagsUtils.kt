@@ -23,12 +23,13 @@ import android.app.role.OnRoleHoldersChangedListener
 import android.app.role.RoleManager
 import android.app.role.RoleManager.ROLE_ASSISTANT
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.pm.PackageManager
 import android.os.Process
 import android.os.UserHandle
-import android.provider.Settings
 import android.util.Log
 import com.android.permissioncontroller.Constants.ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY
+import com.android.permissioncontroller.Constants.PREFERENCES_FILE
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.data.UserSensitivityLiveData
 import com.android.permissioncontroller.permission.debug.shouldShowCameraMicIndicators
@@ -65,11 +66,12 @@ fun updateUserSensitiveForUser(user: UserHandle, callback: Runnable) {
 private fun updateUserSensitiveForUidsInternal(
     uidsUserSensitivity: Map<Int, UidSensitivityState>,
     user: UserHandle,
-    callback: Runnable?,
-    assistantPkg: String? = null
+    callback: Runnable?
 ) {
     val userContext = Utils.getUserContext(PermissionControllerApplication.get(), user)
     val pm = userContext.packageManager
+    val assistantPkg = userContext.getSystemService(RoleManager::class.java)!!
+        .getRoleHolders(ROLE_ASSISTANT).getOrNull(0)
 
     for ((uid, uidState) in uidsUserSensitivity) {
             for (pkg in uidState.packages) {
@@ -80,10 +82,10 @@ private fun updateUserSensitiveForUidsInternal(
                     // user sensitive
                     if (perm == Manifest.permission.RECORD_AUDIO &&
                         pkg.packageName == assistantPkg && shouldShowCameraMicIndicators()) {
-                        val contentResolver = PermissionControllerApplication.get().contentResolver
-                        val shouldHide = Settings.Secure.getInt(contentResolver,
-                            ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY, 0) == 0
-                        if (shouldHide) {
+                        val showMic = PermissionControllerApplication.get().getSharedPreferences(
+                            PREFERENCES_FILE, MODE_PRIVATE).getBoolean(
+                            ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY, false)
+                        if (!showMic) {
                             flags = 0
                         }
                     }
@@ -114,16 +116,14 @@ private fun updateUserSensitiveForUidsInternal(
  *
  * @param uid The uid to be updated
  * @param callback A callback which will be executed when finished
- * @param assistantPkg Optional, the name of the assistant role package we expect to have this uid.
- * Used for special assistant handling.
  */
 @JvmOverloads
-fun updateUserSensitiveForUid(uid: Int, callback: Runnable? = null, assistantPkg: String? = null) {
+fun updateUserSensitiveForUid(uid: Int, callback: Runnable? = null) {
     GlobalScope.launch(IPC) {
         val uidSensitivityState = UserSensitivityLiveData[uid].getInitializedValue()
         if (uidSensitivityState != null) {
             updateUserSensitiveForUidsInternal(uidSensitivityState,
-                UserHandle.getUserHandleForUid(uid), callback, assistantPkg)
+                UserHandle.getUserHandleForUid(uid), callback)
         } else {
             Log.e(LOG_TAG, "No packages associated with uid $uid, not updating flags")
             callback?.run()
@@ -184,7 +184,7 @@ private fun setMicUserSensitive(
     val roleManager = context.getSystemService(RoleManager::class.java)
     val currentHolders = roleManager!!.getRoleHolders(ROLE_ASSISTANT)
     if (currentHolders.contains(packageName) == isAssistant) {
-        updateUserSensitiveForUid(uid, null, packageName)
+        updateUserSensitiveForUid(uid, null)
         return true
     }
     return false
