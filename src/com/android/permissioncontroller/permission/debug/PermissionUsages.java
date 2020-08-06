@@ -27,11 +27,14 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.content.Loader;
+import android.media.AudioManager;
+import android.media.AudioRecordingConfiguration;
 import android.os.Bundle;
 import android.os.Process;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Pair;
+import android.util.SparseArray;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -320,6 +323,25 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
                 }
             }
 
+            // Get audio recording config
+            List<AudioRecordingConfiguration> allRecordings = getContext()
+                    .getSystemService(AudioManager.class).getActiveRecordingConfigurations();
+            SparseArray<ArrayList<AudioRecordingConfiguration>> recordingsByUid =
+                    new SparseArray<>();
+
+            final int recordingsCount = allRecordings.size();
+            for (int i = 0; i < recordingsCount; i++) {
+                AudioRecordingConfiguration recording = allRecordings.get(i);
+
+                ArrayList<AudioRecordingConfiguration> recordings = recordingsByUid.get(
+                        recording.getClientUid());
+                if (recordings == null) {
+                    recordings = new ArrayList<>();
+                    recordingsByUid.put(recording.getClientUid(), recordings);
+                }
+                recordings.add(recording);
+            }
+
             // Construct the historical usages based on data we fetched
             final int builderCount = usageBuilders.size();
             for (int i = 0; i < builderCount; i++) {
@@ -329,6 +351,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
                 usageBuilder.setLastUsage(lastUsage);
                 final HistoricalPackageOps historicalUsage = historicalUsages.get(key);
                 usageBuilder.setHistoricalUsage(historicalUsage);
+                usageBuilder.setRecordingConfiguration(recordingsByUid.get(key.first));
                 usages.add(usageBuilder.build());
             }
 
