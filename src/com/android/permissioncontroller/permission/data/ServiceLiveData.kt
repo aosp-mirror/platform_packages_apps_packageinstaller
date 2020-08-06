@@ -21,6 +21,7 @@ import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.UserHandle
+import android.service.autofill.AutofillService
 import android.service.notification.NotificationListenerService
 import android.service.voice.VoiceInteractionService
 import android.service.wallpaper.WallpaperService
@@ -56,6 +57,7 @@ class ServiceLiveData(
     private val selectedWallpaperServiceLiveData = SelectedWallpaperServiceLiveData[user]
     private val selectedVoiceInteractionServiceLiveData =
             SelectedVoiceInteractionServiceLiveData[user]
+    private val selectedAutofillServiceLiveData = SelectedAutofillServiceLiveData[user]
 
     init {
         if (intentAction == AccessibilityService.SERVICE_INTERFACE) {
@@ -80,6 +82,11 @@ class ServiceLiveData(
         }
         if (intentAction == VoiceInteractionService.SERVICE_INTERFACE) {
             addSource(selectedVoiceInteractionServiceLiveData) {
+                updateAsync()
+            }
+        }
+        if (intentAction == AutofillService.SERVICE_INTERFACE) {
+            addSource(selectedAutofillServiceLiveData) {
                 updateAsync()
             }
         }
@@ -112,6 +119,10 @@ class ServiceLiveData(
         }
         if (intentAction == VoiceInteractionService.SERVICE_INTERFACE &&
                 !selectedVoiceInteractionServiceLiveData.isInitialized) {
+            return
+        }
+        if (intentAction == AutofillService.SERVICE_INTERFACE &&
+                !selectedAutofillServiceLiveData.isInitialized) {
             return
         }
 
@@ -161,6 +172,9 @@ class ServiceLiveData(
             }
             VoiceInteractionService.SERVICE_INTERFACE -> {
                 pkg == selectedVoiceInteractionServiceLiveData.value
+            }
+            AutofillService.SERVICE_INTERFACE -> {
+                pkg == selectedAutofillServiceLiveData.value
             }
             // TODO(eugenesusla): fill in check implementations for most service types
             else -> true
