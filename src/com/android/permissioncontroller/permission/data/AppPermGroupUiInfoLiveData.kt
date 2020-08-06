@@ -18,11 +18,14 @@ package com.android.permissioncontroller.permission.data
 
 import android.Manifest
 import android.app.Application
+import android.app.role.RoleManager
+import android.app.role.RoleManager.ROLE_ASSISTANT
 import android.content.pm.PackageManager
 import android.content.pm.PermissionInfo
 import android.os.Build
 import android.os.UserHandle
 import com.android.permissioncontroller.PermissionControllerApplication
+import com.android.permissioncontroller.permission.debug.shouldShowCameraMicIndicators
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
@@ -54,6 +57,7 @@ class AppPermGroupUiInfoLiveData private constructor(
 ) : SmartUpdateMediatorLiveData<AppPermGroupUiInfo>(), LocationUtils.LocationListener {
 
     private var isSpecialLocation = false
+    private val isMicrophone = permGroupName == Manifest.permission_group.MICROPHONE
     private val packageInfoLiveData = LightPackageInfoLiveData[packageName, user]
     private val permGroupLiveData = PermGroupLiveData[permGroupName]
     private val permissionStateLiveData = PermStateLiveData[packageName, permGroupName, user]
@@ -74,6 +78,12 @@ class AppPermGroupUiInfoLiveData private constructor(
         addSource(permissionStateLiveData) {
             updateIfActive()
         }
+
+        if (isMicrophone && shouldShowCameraMicIndicators()) {
+            addSource(assistantPkgsLiveData) {
+                updateIfActive()
+            }
+        }
     }
 
     override fun onUpdate() {
@@ -81,7 +91,9 @@ class AppPermGroupUiInfoLiveData private constructor(
         val permissionGroup = permGroupLiveData.value
         val permissionState = permissionStateLiveData.value
 
-        if (packageInfo == null || permissionGroup == null || permissionState == null) {
+        if (packageInfo == null || permissionGroup == null || permissionState == null ||
+            ((isMicrophone && shouldShowCameraMicIndicators()) &&
+                assistantPkgsLiveData.value == null)) {
             if (packageInfoLiveData.isInitialized && permGroupLiveData.isInitialized &&
                 permissionStateLiveData.isInitialized) {
                 invalidateSingle(Triple(packageName, permGroupName, user))
@@ -179,6 +191,12 @@ class AppPermGroupUiInfoLiveData private constructor(
      */
     private fun isUserSensitive(permissionState: Map<String, PermState>): Boolean {
         if (!isModernPermissionGroup(permGroupName)) {
+            return true
+        }
+
+        // Make the current assistant microphone permission show as user sensitive
+        if (shouldShowCameraMicIndicators() &&
+            isMicrophone && packageName in assistantPkgsLiveData.value ?: emptyList()) {
             return true
         }
 
@@ -294,7 +312,6 @@ class AppPermGroupUiInfoLiveData private constructor(
 
     override fun onActive() {
         super.onActive()
-
         if (isSpecialLocation) {
             LocationUtils.addLocationListener(this)
             updateIfActive()
@@ -320,6 +337,20 @@ class AppPermGroupUiInfoLiveData private constructor(
                 AppPermGroupUiInfoLiveData {
             return AppPermGroupUiInfoLiveData(PermissionControllerApplication.get(),
                     key.first, key.second, key.third)
+        }
+
+        private val assistantPkgsLiveData = object : SmartUpdateMediatorLiveData<List<String>>() {
+            val roleManager = PermissionControllerApplication.get().getSystemService(
+                RoleManager::class.java)!!
+
+            override fun onUpdate() {
+                value = roleManager.getRoleHolders(ROLE_ASSISTANT)
+            }
+
+            override fun onActive() {
+                super.onActive()
+                updateIfActive()
+            }
         }
     }
 }
