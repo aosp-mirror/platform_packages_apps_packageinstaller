@@ -16,12 +16,14 @@
 
 package com.android.permissioncontroller.permission.data
 
+import android.accessibilityservice.AccessibilityService
 import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.UserHandle
 import com.android.permissioncontroller.DumpableLog
 import com.android.permissioncontroller.PermissionControllerApplication
+import com.android.permissioncontroller.permission.service.DEBUG_AUTO_REVOKE
 import com.android.permissioncontroller.permission.utils.Utils.getUserContext
 import kotlinx.coroutines.Job
 
@@ -41,7 +43,16 @@ class ServiceLiveData(
 ) : SmartAsyncMediatorLiveData<Set<String>>(),
         PackageBroadcastReceiver.PackageBroadcastListener,
         HasIntentAction {
-    private val DEBUG = false
+
+    private val name = intentAction.substringAfterLast(".")
+
+    private val enabledAccessibilityServicesLiveData = EnabledAccessibilityServicesLiveData[user]
+
+    init {
+        addSource(enabledAccessibilityServicesLiveData) {
+            updateAsync()
+        }
+    }
 
     override fun onPackageUpdate(packageName: String) {
         updateAsync()
@@ -49,6 +60,9 @@ class ServiceLiveData(
 
     override suspend fun loadDataAndPostValue(job: Job) {
         if (job.isCancelled) {
+            return
+        }
+        if (!enabledAccessibilityServicesLiveData.isInitialized) {
             return
         }
 
@@ -60,14 +74,36 @@ class ServiceLiveData(
                     if (resolveInfo?.serviceInfo?.permission != permission) {
                         return@mapNotNull null
                     }
-                    resolveInfo?.serviceInfo?.packageName
+                    val packageName = resolveInfo?.serviceInfo?.packageName
+                    if (!isServiceEnabled(packageName)) {
+                        if (DEBUG_AUTO_REVOKE) {
+                            DumpableLog.i(LOG_TAG,
+                                    "Not exempting $packageName - not an active $name " +
+                                            "for u${user.identifier}")
+                        }
+                        return@mapNotNull null
+                    }
+                    packageName
                 }.toSet()
-        if (DEBUG) {
+        if (DEBUG_AUTO_REVOKE) {
             DumpableLog.i(LOG_TAG,
-                    "Detected ${intentAction.substringAfterLast(".")}s: $packageNames")
+                    "Detected ${name}s: $packageNames")
         }
 
         postValue(packageNames)
+    }
+
+    suspend fun isServiceEnabled(pkg: String?): Boolean {
+        if (pkg == null) {
+            return false
+        }
+        return when (intentAction) {
+            AccessibilityService.SERVICE_INTERFACE -> {
+                pkg in enabledAccessibilityServicesLiveData.value!!
+            }
+            // TODO(eugenesusla): fill in check implementations for most service types
+            else -> true
+        }
     }
 
     override fun onActive() {
@@ -92,6 +128,8 @@ class ServiceLiveData(
      */
     companion object : DataRepositoryForPackage<Triple<String, String, UserHandle>,
             ServiceLiveData>() {
+        private const val LOG_TAG = "ServiceLiveData"
+
         override fun newValue(key: Triple<String, String, UserHandle>): ServiceLiveData {
             return ServiceLiveData(PermissionControllerApplication.get(),
                     key.first, key.second, key.third)
