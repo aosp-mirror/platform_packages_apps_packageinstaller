@@ -44,8 +44,8 @@ class EnabledNotificationListenersLiveData(
                 Utils.getUserContext(app, user).contentResolver,
                 /* Settings.Secure.ENABLED_NOTIFICATION_LISTENERS */
                 "enabled_notification_listeners")
-                .split(":")
-                .map { pkgOrComponent ->
+                ?.split(":")
+                ?.map { pkgOrComponent ->
                     if ('/' in pkgOrComponent) {
                         ComponentName.unflattenFromString(pkgOrComponent)
                                 ?.packageName
@@ -53,7 +53,7 @@ class EnabledNotificationListenersLiveData(
                     } else {
                         pkgOrComponent
                     }
-                }
+                } ?: emptyList()
 
         postValue(packageNames)
     }
