@@ -56,7 +56,6 @@ import android.os.UserManager
 import android.printservice.PrintService
 import android.provider.DeviceConfig
 import android.provider.Settings
-import android.service.attention.AttentionService
 import android.service.autofill.AutofillService
 import android.service.dreams.DreamService
 import android.service.notification.NotificationListenerService
@@ -659,10 +658,6 @@ class ExemptServicesLiveData(val user: UserHandle)
             ServiceLiveData[
                     VoiceInteractionService.SERVICE_INTERFACE,
                     Manifest.permission.BIND_VOICE_INTERACTION,
-                    user],
-            ServiceLiveData[
-                    AttentionService.SERVICE_INTERFACE,
-                    Manifest.permission.BIND_ATTENTION_SERVICE,
                     user],
             ServiceLiveData[
                     PrintService.SERVICE_INTERFACE,
