@@ -887,11 +887,8 @@
     <!-- Action for accepting the Ongoing usage dialog [CHAR LIMIT=10]-->
     <string name="ongoing_usage_dialog_ok">Got it</string>
 
-    <!-- Action on Ongoing usage dialog to open the Privacy settings. [CHAR LIMIT=23]-->
-    <string name="ongoing_usage_dialog_open_settings">Privacy settings</string>
-
     <!-- Title for Ongoing usage dialog title when multiple apps are using app ops [CHAR LIMIT=NONE] -->
-    <string name="ongoing_usage_dialog_title">Apps using your <xliff:g id="types_list" example="camera( and location)">%s</xliff:g></string>
+    <string name="ongoing_usage_dialog_title">Recent use of <xliff:g id="types_list" example="camera( and location)">%s</xliff:g></string>
 
     <!-- Separator for permissions. Include spaces before and after if needed [CHAR LIMIT=10] -->
     <string name="ongoing_usage_dialog_separator">,\u0020</string>
@@ -901,6 +898,9 @@
 
     <!-- Keyword in the Settings app's search functionality that can be used to find links to the default app management screens [CHAR LIMIT=none] -->
     <string name="default_app_search_keyword">default apps</string>
+
+    <!-- List of the two permission group names for microphone (android:string/permgrouplab_microphone) and camera (android:string/permgrouplab_camera) [CHAR LIMIT=60]-->
+    <string name="permgroup_list_microphone_and_camera">Microphone &amp; Camera</string>
 
     <!-- Accessibility label for button that opens a settings screen [CHAR LIMIT=NONE] -->
     <string name="settings_button">Settings</string>
