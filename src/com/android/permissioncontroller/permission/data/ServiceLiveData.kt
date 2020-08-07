@@ -21,6 +21,7 @@ import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.UserHandle
+import android.printservice.PrintService
 import android.service.autofill.AutofillService
 import android.service.notification.NotificationListenerService
 import android.service.voice.VoiceInteractionService
@@ -60,6 +61,7 @@ class ServiceLiveData(
             SelectedVoiceInteractionServiceLiveData[user]
     private val selectedAutofillServiceLiveData = SelectedAutofillServiceLiveData[user]
     private val enabledDreamServicesLiveData = EnabledDreamServicesLiveData[user]
+    private val disabledPrintServicesLiveData = DisabledPrintServicesLiveData[user]
 
     init {
         if (intentAction == AccessibilityService.SERVICE_INTERFACE) {
@@ -94,6 +96,11 @@ class ServiceLiveData(
         }
         if (intentAction == DreamService.SERVICE_INTERFACE) {
             addSource(enabledDreamServicesLiveData) {
+                updateAsync()
+            }
+        }
+        if (intentAction == PrintService.SERVICE_INTERFACE) {
+            addSource(disabledPrintServicesLiveData) {
                 updateAsync()
             }
         }
@@ -133,7 +140,11 @@ class ServiceLiveData(
             return
         }
         if (intentAction == DreamService.SERVICE_INTERFACE &&
-            !enabledDreamServicesLiveData.isInitialized) {
+                !enabledDreamServicesLiveData.isInitialized) {
+            return
+        }
+        if (intentAction == PrintService.SERVICE_INTERFACE &&
+                !disabledPrintServicesLiveData.isInitialized) {
             return
         }
 
@@ -189,6 +200,9 @@ class ServiceLiveData(
             }
             DreamService.SERVICE_INTERFACE -> {
                 pkg in enabledDreamServicesLiveData.value!!
+            }
+            PrintService.SERVICE_INTERFACE -> {
+                pkg !in disabledPrintServicesLiveData.value!!
             }
             // TODO(eugenesusla): fill in check implementations for most service types
             else -> true
