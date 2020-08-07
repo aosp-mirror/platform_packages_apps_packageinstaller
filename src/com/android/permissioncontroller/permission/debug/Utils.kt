@@ -29,7 +29,7 @@ import java.util.Locale
 private const val PROPERTY_PERMISSIONS_HUB_2_ENABLED = "permissions_hub_2_enabled"
 
 /** Whether to show the mic and camera icons.  */
-private const val PROPERTY_CAMERA_MIC_ICONS_ENABLED = "camera_mic_icons_enabled"
+const val PROPERTY_CAMERA_MIC_ICONS_ENABLED = "camera_mic_icons_enabled"
 
 /**
  * Whether the Permissions Hub 2 flag is enabled

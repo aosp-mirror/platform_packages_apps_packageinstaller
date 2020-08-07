@@ -16,11 +16,14 @@
 
 package com.android.permissioncontroller.permission.debug;
 
+import static android.Manifest.permission_group.MICROPHONE;
+
 import android.app.AppOpsManager;
 import android.app.AppOpsManager.HistoricalOp;
 import android.app.AppOpsManager.HistoricalPackageOps;
 import android.app.AppOpsManager.OpEntry;
 import android.app.AppOpsManager.PackageOps;
+import android.media.AudioRecordingConfiguration;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,11 +46,35 @@ public final class AppPermissionUsage {
 
     private AppPermissionUsage(@NonNull PermissionApp permissionApp,
             @NonNull List<AppPermissionGroup> groups, @Nullable PackageOps lastUsage,
-            @Nullable HistoricalPackageOps historicalUsage) {
+            @Nullable HistoricalPackageOps historicalUsage,
+            @Nullable ArrayList<AudioRecordingConfiguration> recordings) {
         mPermissionApp = permissionApp;
         final int groupCount = groups.size();
         for (int i = 0; i < groupCount; i++) {
             final AppPermissionGroup group = groups.get(i);
+
+            /**
+             * TODO: HACK HACK HACK.
+             *
+             * Exclude for the UIDs that are currently silenced. This happens if an app keeps
+             * recording while in the background for more than a few seconds.
+             */
+            if (recordings != null && group.getName().equals(MICROPHONE)) {
+                boolean isSilenced = false;
+                int recordingsCount = recordings.size();
+                for (int recordingNum = 0; recordingNum < recordingsCount; recordingNum++) {
+                    AudioRecordingConfiguration recording = recordings.get(recordingNum);
+                    if (recording.isClientSilenced()) {
+                        isSilenced = true;
+                        break;
+                    }
+                }
+
+                if (isSilenced) {
+                    continue;
+                }
+            }
+
             mGroupUsages.add(new GroupUsage(group, lastUsage, historicalUsage));
         }
     }
@@ -238,6 +265,7 @@ public final class AppPermissionUsage {
         private final @NonNull PermissionApp mPermissionApp;
         private @Nullable PackageOps mLastUsage;
         private @Nullable HistoricalPackageOps mHistoricalUsage;
+        private @Nullable ArrayList<AudioRecordingConfiguration> mAudioRecordingConfigurations;
 
         public Builder(@NonNull PermissionApp permissionApp) {
             mPermissionApp = permissionApp;
@@ -258,11 +286,18 @@ public final class AppPermissionUsage {
             return this;
         }
 
+        public @NonNull Builder setRecordingConfiguration(
+                @Nullable ArrayList<AudioRecordingConfiguration> recordings) {
+            mAudioRecordingConfigurations = recordings;
+            return this;
+        }
+
         public @NonNull AppPermissionUsage build() {
             if (mGroups.isEmpty()) {
                 throw new IllegalStateException("mGroups cannot be empty.");
             }
-            return new AppPermissionUsage(mPermissionApp, mGroups, mLastUsage, mHistoricalUsage);
+            return new AppPermissionUsage(mPermissionApp, mGroups, mLastUsage, mHistoricalUsage,
+                    mAudioRecordingConfigurations);
         }
     }
 }
