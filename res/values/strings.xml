@@ -959,7 +959,7 @@
     <!-- Dialog message explaining that the app just selected by the user will not work after a reboot until the user enters their credentials, such as a PIN or password. [CHAR LIMIT=NONE] -->
     <string name="encryption_unaware_confirmation_message">Note: If you restart your device and have a screen lock set, this app can\u2019t start until you unlock your device.</string>
 
-    <!-- Dialog message warning about security implications of setting an assistant, displayed when the user selects an assistant. [CHAR LIMIT=NONE] -->
+    <!-- Dialog message warning about security implications of setting an assistant, displayed when the user selects an assistant. The assitant app here is a generic concept and can be any assistant app. [CHAR LIMIT=NONE] -->
     <string name="assistant_confirmation_message">The assistant will be able to read information about apps in use on your system, including information visible on your screen or accessible within the apps.</string>
 
     <!-- Name for the notification channel for incident / bug report confirmation. Appears in
