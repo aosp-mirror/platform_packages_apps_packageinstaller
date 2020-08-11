@@ -17,11 +17,13 @@
 package com.android.permissioncontroller.permission.data
 
 import android.app.Application
+import android.app.admin.DeviceAdminReceiver
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.UserHandle
 import com.android.permissioncontroller.DumpableLog
 import com.android.permissioncontroller.PermissionControllerApplication
+import com.android.permissioncontroller.permission.service.DEBUG_AUTO_REVOKE
 import com.android.permissioncontroller.permission.utils.Utils.getUserContext
 import kotlinx.coroutines.Job
 
@@ -41,7 +43,18 @@ class BroadcastReceiverLiveData(
 ) : SmartAsyncMediatorLiveData<Set<String>>(),
         PackageBroadcastReceiver.PackageBroadcastListener,
         HasIntentAction {
-    private val DEBUG = false
+
+    private val name = intentAction.substringAfterLast(".")
+
+    private val enabledDeviceAdminsLiveDataLiveData = EnabledDeviceAdminsLiveData[user]
+
+    init {
+        if (intentAction == DeviceAdminReceiver.ACTION_DEVICE_ADMIN_ENABLED) {
+            addSource(enabledDeviceAdminsLiveDataLiveData) {
+                updateAsync()
+            }
+        }
+    }
 
     override fun onPackageUpdate(packageName: String) {
         updateAsync()
@@ -49,6 +62,10 @@ class BroadcastReceiverLiveData(
 
     override suspend fun loadDataAndPostValue(job: Job) {
         if (job.isCancelled) {
+            return
+        }
+        if (intentAction == DeviceAdminReceiver.ACTION_DEVICE_ADMIN_ENABLED &&
+                !enabledDeviceAdminsLiveDataLiveData.isInitialized) {
             return
         }
 
@@ -60,14 +77,35 @@ class BroadcastReceiverLiveData(
                     if (resolveInfo?.activityInfo?.permission != permission) {
                         return@mapNotNull null
                     }
-                    resolveInfo?.activityInfo?.packageName
+                    val packageName = resolveInfo?.activityInfo?.packageName
+                    if (!isReceiverEnabled(packageName)) {
+                        if (DEBUG_AUTO_REVOKE) {
+                            DumpableLog.i(LOG_TAG,
+                                    "Not exempting $packageName - not an active $name " +
+                                            "for u${user.identifier}")
+                        }
+                        return@mapNotNull null
+                    }
+                    packageName
                 }.toSet()
-        if (DEBUG) {
+        if (DEBUG_AUTO_REVOKE) {
             DumpableLog.i(LOG_TAG,
                     "Detected ${intentAction.substringAfterLast(".")}s: $packageNames")
         }
 
         postValue(packageNames)
+    }
+
+    private fun isReceiverEnabled(pkg: String?): Boolean {
+        if (pkg == null) {
+            return false
+        }
+        return when (intentAction) {
+            DeviceAdminReceiver.ACTION_DEVICE_ADMIN_ENABLED -> {
+                pkg in enabledDeviceAdminsLiveDataLiveData.value!!
+            }
+            else -> true
+        }
     }
 
     override fun onActive() {
@@ -92,6 +130,8 @@ class BroadcastReceiverLiveData(
      */
     companion object : DataRepositoryForPackage<Triple<String, String, UserHandle>,
             BroadcastReceiverLiveData>() {
+        private const val LOG_TAG = "BroadcastReceiverLiveData"
+
         override fun newValue(key: Triple<String, String, UserHandle>): BroadcastReceiverLiveData {
             return BroadcastReceiverLiveData(PermissionControllerApplication.get(),
                     key.first, key.second, key.third)

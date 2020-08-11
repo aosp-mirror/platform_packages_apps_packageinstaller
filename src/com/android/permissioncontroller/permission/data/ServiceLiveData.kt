@@ -18,14 +18,15 @@ package com.android.permissioncontroller.permission.data
 
 import android.accessibilityservice.AccessibilityService
 import android.app.Application
+import android.app.admin.DevicePolicyManager
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.UserHandle
 import android.printservice.PrintService
 import android.service.autofill.AutofillService
+import android.service.dreams.DreamService
 import android.service.notification.NotificationListenerService
 import android.service.voice.VoiceInteractionService
-import android.service.dreams.DreamService
 import android.service.wallpaper.WallpaperService
 import android.view.inputmethod.InputMethod
 import com.android.permissioncontroller.DumpableLog
@@ -62,6 +63,7 @@ class ServiceLiveData(
     private val selectedAutofillServiceLiveData = SelectedAutofillServiceLiveData[user]
     private val enabledDreamServicesLiveData = EnabledDreamServicesLiveData[user]
     private val disabledPrintServicesLiveData = DisabledPrintServicesLiveData[user]
+    private val enabledDeviceAdminsLiveDataLiveData = EnabledDeviceAdminsLiveData[user]
 
     init {
         if (intentAction == AccessibilityService.SERVICE_INTERFACE) {
@@ -101,6 +103,11 @@ class ServiceLiveData(
         }
         if (intentAction == PrintService.SERVICE_INTERFACE) {
             addSource(disabledPrintServicesLiveData) {
+                updateAsync()
+            }
+        }
+        if (intentAction == DevicePolicyManager.ACTION_DEVICE_ADMIN_SERVICE) {
+            addSource(enabledDeviceAdminsLiveDataLiveData) {
                 updateAsync()
             }
         }
@@ -145,6 +152,10 @@ class ServiceLiveData(
         }
         if (intentAction == PrintService.SERVICE_INTERFACE &&
                 !disabledPrintServicesLiveData.isInitialized) {
+            return
+        }
+        if (intentAction == DevicePolicyManager.ACTION_DEVICE_ADMIN_SERVICE &&
+                !enabledDeviceAdminsLiveDataLiveData.isInitialized) {
             return
         }
 
@@ -204,7 +215,9 @@ class ServiceLiveData(
             PrintService.SERVICE_INTERFACE -> {
                 pkg !in disabledPrintServicesLiveData.value!!
             }
-            // TODO(eugenesusla): fill in check implementations for most service types
+            DevicePolicyManager.ACTION_DEVICE_ADMIN_SERVICE -> {
+                pkg in enabledDeviceAdminsLiveDataLiveData.value!!
+            }
             else -> true
         }
     }
