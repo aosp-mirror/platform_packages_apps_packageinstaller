@@ -21,9 +21,10 @@ import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.UserHandle
+import android.service.notification.NotificationListenerService
+import android.service.voice.VoiceInteractionService
 import android.service.wallpaper.WallpaperService
 import android.view.inputmethod.InputMethod
-import android.service.notification.NotificationListenerService
 import com.android.permissioncontroller.DumpableLog
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.permission.service.DEBUG_AUTO_REVOKE
@@ -53,6 +54,8 @@ class ServiceLiveData(
     private val enabledInputMethodsLiveData = EnabledInputMethodsLiveData[user]
     private val enabledNotificationListenersLiveData = EnabledNotificationListenersLiveData[user]
     private val selectedWallpaperServiceLiveData = SelectedWallpaperServiceLiveData[user]
+    private val selectedVoiceInteractionServiceLiveData =
+            SelectedVoiceInteractionServiceLiveData[user]
 
     init {
         if (intentAction == AccessibilityService.SERVICE_INTERFACE) {
@@ -75,6 +78,11 @@ class ServiceLiveData(
                 updateAsync()
             }
         }
+        if (intentAction == VoiceInteractionService.SERVICE_INTERFACE) {
+            addSource(selectedVoiceInteractionServiceLiveData) {
+                updateAsync()
+            }
+        }
     }
 
     override fun onPackageUpdate(packageName: String) {
@@ -85,17 +93,25 @@ class ServiceLiveData(
         if (job.isCancelled) {
             return
         }
-        if (!enabledAccessibilityServicesLiveData.isInitialized) {
+        if (intentAction == AccessibilityService.SERVICE_INTERFACE &&
+                !enabledAccessibilityServicesLiveData.isInitialized) {
             return
         }
-        if (!enabledInputMethodsLiveData.isInitialized) {
+        if (intentAction == InputMethod.SERVICE_INTERFACE &&
+                !enabledInputMethodsLiveData.isInitialized) {
             return
         }
-        if (!enabledNotificationListenersLiveData.isInitialized) {
+        if (intentAction == NotificationListenerService.SERVICE_INTERFACE &&
+                !enabledNotificationListenersLiveData.isInitialized) {
             return
         }
 
-        if (!selectedWallpaperServiceLiveData.isInitialized) {
+        if (intentAction == WallpaperService.SERVICE_INTERFACE &&
+                !selectedWallpaperServiceLiveData.isInitialized) {
+            return
+        }
+        if (intentAction == VoiceInteractionService.SERVICE_INTERFACE &&
+                !selectedVoiceInteractionServiceLiveData.isInitialized) {
             return
         }
 
@@ -142,6 +158,9 @@ class ServiceLiveData(
             }
             WallpaperService.SERVICE_INTERFACE -> {
                 pkg == selectedWallpaperServiceLiveData.value
+            }
+            VoiceInteractionService.SERVICE_INTERFACE -> {
+                pkg == selectedVoiceInteractionServiceLiveData.value
             }
             // TODO(eugenesusla): fill in check implementations for most service types
             else -> true
