@@ -23,7 +23,6 @@ import static android.Manifest.permission_group.MICROPHONE;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_LINE_ITEM;
-import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_PRIVACY_SETTINGS;
 import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldShowPermissionsDashboard;
 
 import android.app.AlertDialog;
@@ -156,7 +155,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
                 .setView(createDialogView(usages))
                 .setPositiveButton(R.string.ongoing_usage_dialog_ok, (dialog, which) ->
                         PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
-                                PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS, null))
+                                PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS))
                 .setOnDismissListener((dialog) -> getActivity().finish());
         mDialog = builder.create();
         mDialog.show();
@@ -258,7 +257,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             itemView.setOnClickListener((v) -> {
                 String packageName = app.getPackageName();
                 PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
-                        PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_LINE_ITEM, packageName);
+                        PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_LINE_ITEM);
                 UserHandle user = UserHandle.getUserHandleForUid(app.getUid());
                 Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
