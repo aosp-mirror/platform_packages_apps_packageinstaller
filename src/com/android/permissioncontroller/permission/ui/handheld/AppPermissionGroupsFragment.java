@@ -214,9 +214,6 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         if (getPreferenceScreen() == null) {
             addPreferencesFromResource(R.xml.allowed_denied);
             addAutoRevokePreferences(getPreferenceScreen());
-            if (mViewModel.shouldShowAssistantMicSwitch()) {
-                addAssistantMicrophonePreference(getPreferenceScreen());
-            }
             bindUi(this, mPackageName, mUser);
         }
     }
@@ -337,24 +334,6 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
                 android.R.attr.colorControlNormal));
         autoRevokeSummary.setKey(AUTO_REVOKE_SUMMARY_KEY);
         autoRevokeCategory.addPreference(autoRevokeSummary);
-    }
-
-    private void addAssistantMicrophonePreference(PreferenceScreen screen) {
-        Context context = screen.getPreferenceManager().getContext();
-        PreferenceCategory assistantMicCategory = new PreferenceCategory(context);
-        assistantMicCategory.setKey(ASSISTANT_MIC_CATEGORY_KEY);
-        screen.addPreference(assistantMicCategory);
-
-        SwitchPreference assistantMicSwitch = new SwitchPreference(context);
-        assistantMicSwitch.setOnPreferenceClickListener((preference) -> {
-            mViewModel.setShowAssistantMicUsage(assistantMicSwitch.isChecked());
-            return true;
-        });
-        assistantMicSwitch.setTitle(R.string.assistant_mic_label);
-        assistantMicSwitch.setChecked(mViewModel.isAssistantMicUsageShowingEnabled());
-        assistantMicSwitch.setKey(ASSISTANT_MIC_SWITCH_KEY);
-        assistantMicCategory.addPreference(assistantMicSwitch);
-
     }
 
     private void setAutoRevokeToggleState(AutoRevokeState state) {
