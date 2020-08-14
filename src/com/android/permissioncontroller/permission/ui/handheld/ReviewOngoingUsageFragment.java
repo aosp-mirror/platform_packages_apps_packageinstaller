@@ -19,6 +19,7 @@ package com.android.permissioncontroller.permission.ui.handheld;
 import static android.Manifest.permission_group.CAMERA;
 import static android.Manifest.permission_group.LOCATION;
 import static android.Manifest.permission_group.MICROPHONE;
+import static android.Manifest.permission_group.PHONE;
 
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS;
@@ -28,6 +29,7 @@ import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldSh
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.util.ArrayMap;
@@ -40,22 +42,27 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
+import com.android.permissioncontroller.permission.data.OpAccess;
+import com.android.permissioncontroller.permission.data.OpUsageLiveData;
 import com.android.permissioncontroller.permission.debug.PermissionUsages;
+import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.AppPermissionUsage;
 import com.android.permissioncontroller.permission.model.AppPermissionUsage.GroupUsage;
-import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps.PermissionApp;
+import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 import java.text.Collator;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A dialog listing the currently uses of camera, microphone, and location.
@@ -63,7 +70,11 @@ import java.util.List;
 public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
     private @NonNull PermissionUsages mPermissionUsages;
+    private boolean mPermissionUsagesLoaded;
     private @Nullable AlertDialog mDialog;
+    static final String PHONE_CALL = "phone_call";
+    static final String VIDEO_CALL = "video_call";
+    private OpUsageLiveData mOpUsageLiveData;
     private long mStartTime;
 
     /**
@@ -89,13 +100,25 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
         if (shouldShowPermissionsDashboard()) {
             permissions = new String[] {CAMERA, LOCATION, MICROPHONE};
         }
+        ArrayList<String> appOps = new ArrayList<>(List.of(PHONE_CALL, VIDEO_CALL));
+        mOpUsageLiveData = OpUsageLiveData.Companion.get(appOps);
+        mOpUsageLiveData.observe(this, new Observer<Map<String, List<OpAccess>>>() {
+
+            @Override
+            public void onChanged(Map<String, List<OpAccess>> stringMap) {
+                if (mPermissionUsagesLoaded) {
+                    onPermissionUsagesLoaded();
+                }
+            }
+        });
         mPermissionUsages.load(null, permissions, mStartTime, Long.MAX_VALUE,
                 PermissionUsages.USAGE_FLAG_LAST, getActivity().getLoaderManager(), false, false,
                 this::onPermissionUsagesLoaded, false);
     }
 
     private void onPermissionUsagesLoaded() {
-        if (getActivity() == null) {
+        mPermissionUsagesLoaded = true;
+        if (getActivity() == null || !mOpUsageLiveData.isInitialized()) {
             return;
         }
 
@@ -203,6 +226,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
     private @NonNull View createDialogView(
             @NonNull List<Pair<AppPermissionUsage, List<GroupUsage>>> usages) {
+        Map<String, List<OpAccess>> otherAccesses = mOpUsageLiveData.getValue();
         Context context = getActivity();
         LayoutInflater inflater = LayoutInflater.from(context);
         View contentView = inflater.inflate(R.layout.ongoing_usage_dialog_content, null);
@@ -217,6 +241,52 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             for (int groupNum = 0; groupNum < numGroups; groupNum++) {
                 AppPermissionGroup group = groups.get(groupNum).getGroup();
                 usedGroups.put(group.getName(), group.getLabel());
+            }
+        }
+
+        if (otherAccesses != null) {
+            if (otherAccesses.containsKey(VIDEO_CALL) || otherAccesses.containsKey(PHONE_CALL)) {
+                usedGroups.put(MICROPHONE,
+                        KotlinUtils.INSTANCE.getPermGroupLabel(getContext(), MICROPHONE));
+            }
+            if (otherAccesses.containsKey(VIDEO_CALL)) {
+                usedGroups.put(CAMERA,
+                        KotlinUtils.INSTANCE.getPermGroupLabel(getContext(), CAMERA));
+            }
+
+            for (String opName : otherAccesses.keySet()) {
+                CharSequence label = getString(R.string.phone_call);
+                Drawable icon = KotlinUtils.INSTANCE.getPermGroupIcon(getContext(), PHONE);
+                List<String> smallIconGroups = List.of(MICROPHONE);
+                if (opName.equals(VIDEO_CALL)) {
+                    label = getString(R.string.video_call);
+                    icon = KotlinUtils.INSTANCE.getPermGroupIcon(getContext(), CAMERA);
+                    smallIconGroups = List.of(MICROPHONE, CAMERA);
+                }
+                View itemView = inflater.inflate(R.layout.ongoing_usage_dialog_item, appsList,
+                        false);
+                ((TextView) itemView.requireViewById(R.id.app_name)).setText(label);
+                ((ImageView) itemView.requireViewById(R.id.app_icon)).setImageDrawable(icon);
+                if (usedGroups.size() > 1) {
+                    ViewGroup iconFrame = itemView.requireViewById(R.id.icons);
+                    ArrayMap<String, CharSequence> usedGroupsThisApp = new ArrayMap<>();
+                    for (String groupName: smallIconGroups) {
+                        ViewGroup groupView = (ViewGroup) inflater.inflate(R.layout.image_view,
+                                null);
+                        ((ImageView) groupView.requireViewById(R.id.icon)).setImageDrawable(
+                                KotlinUtils.INSTANCE.getPermGroupIcon(getContext(), groupName));
+
+                        iconFrame.addView(groupView);
+                        usedGroupsThisApp.put(groupName,
+                                KotlinUtils.INSTANCE.getPermGroupLabel(getContext(), groupName));
+                    }
+                    iconFrame.setVisibility(View.VISIBLE);
+
+                    TextView permissionsList = itemView.requireViewById(R.id.permissionsList);
+                    permissionsList.setText(getListOfPermissionLabels(usedGroupsThisApp));
+                    permissionsList.setVisibility(View.VISIBLE);
+                }
+                appsList.addView(itemView);
             }
         }
 
