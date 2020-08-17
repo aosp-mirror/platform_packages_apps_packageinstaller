@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.debug;
+package com.android.permissioncontroller.permission.model;
 
 import static android.Manifest.permission_group.MICROPHONE;
 
@@ -28,8 +28,6 @@ import android.media.AudioRecordingConfiguration;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.android.permissioncontroller.permission.model.AppPermissionGroup;
-import com.android.permissioncontroller.permission.model.Permission;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps.PermissionApp;
 
 import java.util.ArrayList;
@@ -124,7 +122,7 @@ public final class AppPermissionUsage {
         private final @Nullable PackageOps mLastUsage;
         private final @Nullable HistoricalPackageOps mHistoricalUsage;
 
-        GroupUsage(@NonNull AppPermissionGroup group, @Nullable PackageOps lastUsage,
+        public GroupUsage(@NonNull AppPermissionGroup group, @Nullable PackageOps lastUsage,
                 @Nullable HistoricalPackageOps historicalUsage) {
             mGroup = group;
             mLastUsage = lastUsage;

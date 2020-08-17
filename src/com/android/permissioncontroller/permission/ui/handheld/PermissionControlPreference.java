@@ -44,7 +44,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
-import com.android.permissioncontroller.permission.debug.AppPermissionUsage.GroupUsage;
+import com.android.permissioncontroller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog;
 import com.android.permissioncontroller.permission.utils.LocationUtils;

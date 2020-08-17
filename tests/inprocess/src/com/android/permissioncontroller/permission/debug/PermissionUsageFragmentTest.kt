@@ -26,11 +26,11 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import com.android.compatibility.common.util.SystemUtil.eventually
 import com.android.permissioncontroller.R
 import com.android.permissioncontroller.getPreferenceSummary
+import com.android.permissioncontroller.permission.PermissionHub2Test
 import com.android.permissioncontroller.permission.ui.ManagePermissionsActivity
 import com.android.permissioncontroller.scrollToPreference
 import com.google.common.truth.Truth.assertThat

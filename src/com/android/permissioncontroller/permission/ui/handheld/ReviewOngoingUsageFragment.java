@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.debug;
+package com.android.permissioncontroller.permission.ui.handheld;
 
 import static android.Manifest.permission_group.CAMERA;
 import static android.Manifest.permission_group.LOCATION;
@@ -44,7 +44,9 @@ import androidx.preference.PreferenceFragmentCompat;
 
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.permission.debug.AppPermissionUsage.GroupUsage;
+import com.android.permissioncontroller.permission.debug.PermissionUsages;
+import com.android.permissioncontroller.permission.model.AppPermissionUsage;
+import com.android.permissioncontroller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps.PermissionApp;
