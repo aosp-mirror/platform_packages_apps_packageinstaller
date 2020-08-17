@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.debug;
+package com.android.permissioncontroller.permission.ui;
 
 import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
@@ -26,6 +26,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import com.android.permissioncontroller.DeviceUtils;
+import com.android.permissioncontroller.permission.ui.handheld.ReviewOngoingUsageFragment;
+import com.android.permissioncontroller.permission.debug.UtilsKt;
 
 /**
  * A dialog listing the currently uses of camera, microphone, and location.

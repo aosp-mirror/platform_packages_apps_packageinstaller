@@ -22,7 +22,7 @@ import android.provider.DeviceConfig
 import android.text.format.DateFormat.getMediumDateFormat
 import android.text.format.DateFormat.getTimeFormat
 import com.android.permissioncontroller.R
-import com.android.permissioncontroller.permission.debug.AppPermissionUsage.GroupUsage
+import com.android.permissioncontroller.permission.model.AppPermissionUsage.GroupUsage
 import java.util.Locale
 
 /** Whether to show the Permissions Hub.  */
