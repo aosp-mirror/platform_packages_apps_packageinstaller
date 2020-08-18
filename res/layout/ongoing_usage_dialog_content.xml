@@ -35,6 +35,15 @@
             android:id="@+id/items_container"
             style="@style/PermissionUsageDialogItemsContainer"/>
 
+        <TextView
+            android:id="@+id/other_use_header"
+            android:text="@string/other_use"
+            style="@style/PermissionUsageDialogOtherUseHeader"/>
+
+        <TextView
+            android:id="@+id/other_use_content"
+            style="@style/PermissionUsageDialogOtherUseContent"/>
+
     </LinearLayout>
 
 </ScrollView>
