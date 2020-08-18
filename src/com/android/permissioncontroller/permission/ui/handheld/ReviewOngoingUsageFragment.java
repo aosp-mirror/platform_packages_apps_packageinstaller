@@ -28,10 +28,12 @@ import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldSh
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.text.Html;
 import android.util.ArrayMap;
+import android.util.ArraySet;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,6 +79,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
     private @Nullable AlertDialog mDialog;
     private OpUsageLiveData mOpUsageLiveData;
     private @Nullable Map<String, List<OpAccess>> mOpUsage;
+    private ArraySet<String> mSystemUsage = new ArraySet<>(0);
     private long mStartTime;
 
     /**
@@ -157,11 +160,13 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
                     }
                 }
 
-                if (!Utils.isGroupOrBgGroupUserSensitive(groupUsage.getGroup())) {
-                    continue;
+                if (Utils.isGroupOrBgGroupUserSensitive(groupUsage.getGroup())) {
+                    usedGroups.add(appGroups.get(groupNum));
+                } else if (getContext().getSystemService(LocationManager.class).isProviderPackage(
+                        appUsage.getPackageName())
+                        && (groupName.equals(CAMERA) || groupName.equals(MICROPHONE))) {
+                    mSystemUsage.add(groupName);
                 }
-
-                usedGroups.add(appGroups.get(groupNum));
             }
 
             if (!usedGroups.isEmpty()) {
@@ -170,7 +175,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             }
         }
 
-        if (usages.isEmpty() && mOpUsage.isEmpty()) {
+        if (usages.isEmpty() && mOpUsage.isEmpty() && mSystemUsage.isEmpty()) {
             getActivity().finish();
             return;
         }
@@ -230,7 +235,6 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
     private @NonNull View createDialogView(
             @NonNull List<Pair<AppPermissionUsage, List<GroupUsage>>> usages) {
-        Map<String, List<OpAccess>> otherAccesses = mOpUsage;
         Context context = getActivity();
         LayoutInflater inflater = LayoutInflater.from(context);
         View contentView = inflater.inflate(R.layout.ongoing_usage_dialog_content, null);
@@ -250,38 +254,67 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
         TextView otherUseHeader = contentView.requireViewById(R.id.other_use_header);
         TextView otherUseContent = contentView.requireViewById(R.id.other_use_content);
-        if (otherAccesses == null) {
+        TextView systemUseContent = contentView.requireViewById(R.id.system_use_content);
+        View otherUseSpacer = contentView.requireViewById(R.id.other_use_inside_spacer);
+
+        if (mOpUsage.isEmpty() && mSystemUsage.isEmpty()) {
             otherUseHeader.setVisibility(View.GONE);
             otherUseContent.setVisibility(View.GONE);
-        } else {
-            if (numUsages == 0) {
-                otherUseHeader.setVisibility(View.GONE);
-            }
+        }
 
-            if (otherAccesses.containsKey(VIDEO_CALL) && otherAccesses.containsKey(PHONE_CALL)) {
+        if (numUsages == 0) {
+            otherUseHeader.setVisibility(View.GONE);
+            appsList.setVisibility(View.GONE);
+        }
+
+        if (mOpUsage.isEmpty() || mSystemUsage.isEmpty()) {
+            otherUseSpacer.setVisibility(View.GONE);
+        }
+
+        if (mOpUsage.isEmpty()) {
+            otherUseContent.setVisibility(View.GONE);
+        }
+
+        if (mSystemUsage.isEmpty()) {
+            systemUseContent.setVisibility(View.GONE);
+        }
+
+        if (!mOpUsage.isEmpty()) {
+            if (mOpUsage.containsKey(VIDEO_CALL) && mOpUsage.containsKey(
+                    PHONE_CALL)) {
                 otherUseContent.setText(
                         Html.fromHtml(getString(R.string.phone_call_uses_microphone_and_camera),
                                 0));
-            } else if (otherAccesses.containsKey(VIDEO_CALL)) {
+            } else if (mOpUsage.containsKey(VIDEO_CALL)) {
                 otherUseContent.setText(
                         Html.fromHtml(getString(R.string.phone_call_uses_camera), 0));
-            } else {
+            } else if (mOpUsage.containsKey(PHONE_CALL)) {
                 otherUseContent.setText(
                         Html.fromHtml(getString(R.string.phone_call_uses_microphone), 0));
             }
 
-            if (otherAccesses.containsKey(VIDEO_CALL)) {
+            if (mOpUsage.containsKey(VIDEO_CALL)) {
                 usedGroups.put(CAMERA, KotlinUtils.INSTANCE.getPermGroupLabel(context, CAMERA));
             }
 
-            if (otherAccesses.containsKey(PHONE_CALL)) {
+            if (mOpUsage.containsKey(PHONE_CALL)) {
                 usedGroups.put(MICROPHONE,
                         KotlinUtils.INSTANCE.getPermGroupLabel(context, MICROPHONE));
             }
         }
 
-        if (numUsages == 0) {
-            appsList.setVisibility(View.GONE);
+        if (!mSystemUsage.isEmpty()) {
+            if (mSystemUsage.contains(MICROPHONE) && mSystemUsage.contains(CAMERA)) {
+                systemUseContent.setText(getString(R.string.system_uses_microphone_and_camera));
+            } else if (mSystemUsage.contains(CAMERA)) {
+                systemUseContent.setText(getString(R.string.system_uses_camera));
+            } else if (mSystemUsage.contains(MICROPHONE) ) {
+                systemUseContent.setText(getString(R.string.system_uses_microphone));
+            }
+
+            for (String usage : mSystemUsage) {
+                usedGroups.put(usage, KotlinUtils.INSTANCE.getPermGroupLabel(context, usage));
+            }
         }
 
         // Add the layout for each app.
