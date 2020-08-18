@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.debug
+package com.android.permissioncontroller.permission
 
 import android.app.AppOpsManager
 import android.app.AppOpsManager.MODE_ALLOWED
