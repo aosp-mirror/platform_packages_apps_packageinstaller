@@ -19,7 +19,6 @@ package com.android.permissioncontroller.permission.ui.handheld;
 import static android.Manifest.permission_group.CAMERA;
 import static android.Manifest.permission_group.LOCATION;
 import static android.Manifest.permission_group.MICROPHONE;
-import static android.Manifest.permission_group.PHONE;
 
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS;
@@ -29,9 +28,9 @@ import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldSh
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.text.Html;
 import android.util.ArrayMap;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -249,50 +248,40 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             }
         }
 
-        if (otherAccesses != null) {
-            if (otherAccesses.containsKey(VIDEO_CALL) || otherAccesses.containsKey(PHONE_CALL)) {
-                usedGroups.put(MICROPHONE,
-                        KotlinUtils.INSTANCE.getPermGroupLabel(getContext(), MICROPHONE));
+        TextView otherUseHeader = contentView.requireViewById(R.id.other_use_header);
+        TextView otherUseContent = contentView.requireViewById(R.id.other_use_content);
+        if (otherAccesses == null) {
+            otherUseHeader.setVisibility(View.GONE);
+            otherUseContent.setVisibility(View.GONE);
+        } else {
+            if (numUsages == 0) {
+                otherUseHeader.setVisibility(View.GONE);
             }
+
+            if (otherAccesses.containsKey(VIDEO_CALL) && otherAccesses.containsKey(PHONE_CALL)) {
+                otherUseContent.setText(
+                        Html.fromHtml(getString(R.string.phone_call_uses_microphone_and_camera),
+                                0));
+            } else if (otherAccesses.containsKey(VIDEO_CALL)) {
+                otherUseContent.setText(
+                        Html.fromHtml(getString(R.string.phone_call_uses_camera), 0));
+            } else {
+                otherUseContent.setText(
+                        Html.fromHtml(getString(R.string.phone_call_uses_microphone), 0));
+            }
+
             if (otherAccesses.containsKey(VIDEO_CALL)) {
-                usedGroups.put(CAMERA,
-                        KotlinUtils.INSTANCE.getPermGroupLabel(getContext(), CAMERA));
+                usedGroups.put(CAMERA, KotlinUtils.INSTANCE.getPermGroupLabel(context, CAMERA));
             }
 
-            for (String opName : otherAccesses.keySet()) {
-                CharSequence label = getString(R.string.phone_call);
-                Drawable icon = KotlinUtils.INSTANCE.getPermGroupIcon(getContext(), PHONE);
-                List<String> smallIconGroups = List.of(MICROPHONE);
-                if (opName.equals(VIDEO_CALL)) {
-                    label = getString(R.string.video_call);
-                    icon = KotlinUtils.INSTANCE.getPermGroupIcon(getContext(), CAMERA);
-                    smallIconGroups = List.of(MICROPHONE, CAMERA);
-                }
-                View itemView = inflater.inflate(R.layout.ongoing_usage_dialog_item, appsList,
-                        false);
-                ((TextView) itemView.requireViewById(R.id.app_name)).setText(label);
-                ((ImageView) itemView.requireViewById(R.id.app_icon)).setImageDrawable(icon);
-                if (usedGroups.size() > 1) {
-                    ViewGroup iconFrame = itemView.requireViewById(R.id.icons);
-                    ArrayMap<String, CharSequence> usedGroupsThisApp = new ArrayMap<>();
-                    for (String groupName: smallIconGroups) {
-                        ViewGroup groupView = (ViewGroup) inflater.inflate(R.layout.image_view,
-                                null);
-                        ((ImageView) groupView.requireViewById(R.id.icon)).setImageDrawable(
-                                KotlinUtils.INSTANCE.getPermGroupIcon(getContext(), groupName));
-
-                        iconFrame.addView(groupView);
-                        usedGroupsThisApp.put(groupName,
-                                KotlinUtils.INSTANCE.getPermGroupLabel(getContext(), groupName));
-                    }
-                    iconFrame.setVisibility(View.VISIBLE);
-
-                    TextView permissionsList = itemView.requireViewById(R.id.permissionsList);
-                    permissionsList.setText(getListOfPermissionLabels(usedGroupsThisApp));
-                    permissionsList.setVisibility(View.VISIBLE);
-                }
-                appsList.addView(itemView);
+            if (otherAccesses.containsKey(PHONE_CALL)) {
+                usedGroups.put(MICROPHONE,
+                        KotlinUtils.INSTANCE.getPermGroupLabel(context, MICROPHONE));
             }
+        }
+
+        if (numUsages == 0) {
+            appsList.setVisibility(View.GONE);
         }
 
         // Add the layout for each app.
