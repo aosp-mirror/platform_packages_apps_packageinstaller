@@ -17,10 +17,9 @@
 package com.android.permissioncontroller.permission.data
 
 import android.app.AppOpsManager
-import android.app.AppOpsManager.OP_FLAGS_ALL
+import android.app.AppOpsManager.OP_FLAGS_ALL_TRUSTED
 import android.app.Application
 import android.os.UserHandle
-import android.util.Log
 import com.android.permissioncontroller.PermissionControllerApplication
 import kotlinx.coroutines.Job
 import java.util.function.Consumer
@@ -28,14 +27,17 @@ import java.util.function.Consumer
 /**
  * LiveData that loads the last usage of each of a list of app ops for every package.
  *
+ * <p>For app-ops with duration the end of the access is considered.
+ *
  * @param app The current application
  * @param opNames The names of the app ops we wish to search for
- * @param
+ * @param usageDurationMs how much ago can an access have happened to be considered
  */
+// TODO: listen for updates
 class OpUsageLiveData(
     private val app: Application,
     private val opNames: List<String>,
-    private val usageDurationMs: Long = DEFAULT_SEARCH_RANGE_MS
+    private val usageDurationMs: Long
 ) : SmartAsyncMediatorLiveData<@JvmSuppressWildcards Map<String, List<OpAccess>>>(),
         Consumer<AppOpsManager.HistoricalOps> {
     val appOpsManager = app.getSystemService(AppOpsManager::class.java)!!
@@ -43,19 +45,27 @@ class OpUsageLiveData(
     override suspend fun loadDataAndPostValue(job: Job) {
         val now = System.currentTimeMillis()
         val opMap = mutableMapOf<String, MutableList<OpAccess>>()
-        /*
 
         val packageOps = appOpsManager.getPackagesForOps(opNames.toTypedArray())
         for (packageOp in packageOps) {
             for (opEntry in packageOp.ops) {
                 val user = UserHandle.getUserHandleForUid(packageOp.uid)
-                val lastAccessTime: Long = opEntry.getLastAccessTime(OP_FLAGS_ALL)
-                Log.i("ops", "ops for entry ${packageOp.packageName}: $lastAccessTime, running: ${opEntry.isRunning}")
+                val lastAccessTime: Long = opEntry.getLastAccessTime(OP_FLAGS_ALL_TRUSTED)
+
                 if (lastAccessTime == -1L) {
                     // There was no access, so skip
                     continue
                 }
-                if (opEntry.isRunning || lastAccessTime > (now - usageDurationMs)) {
+
+                var lastAccessDuration = opEntry.getLastDuration(OP_FLAGS_ALL_TRUSTED)
+
+                // Some accesses have no duration
+                if (lastAccessDuration == -1L) {
+                    lastAccessDuration = 0
+                }
+
+                if (opEntry.isRunning ||
+                        lastAccessTime + lastAccessDuration > (now - usageDurationMs)) {
                     val accessList = opMap.getOrPut(opEntry.opStr) { mutableListOf() }
                     val accessTime = if (opEntry.isRunning) {
                         -1
@@ -66,13 +76,7 @@ class OpUsageLiveData(
                 }
             }
         }
-        for (opName in opNames) {
-            Log.i("ops", "ops for $opName: ${opMap[opName]}")
-        }
-         */
 
-        opMap["phone_call"] = mutableListOf()
-        opMap["video_call"] = mutableListOf()
         postValue(opMap)
     }
 
@@ -104,13 +108,12 @@ class OpUsageLiveData(
     }
 
     companion object : DataRepository<Pair<List<String>, Long>, OpUsageLiveData>() {
-        private const val DEFAULT_SEARCH_RANGE_MS = 5000L
         override fun newValue(key: Pair<List<String>, Long>): OpUsageLiveData {
             return OpUsageLiveData(PermissionControllerApplication.get(), key.first, key.second)
         }
 
-        operator fun get(ops: List<String>): OpUsageLiveData {
-            return get(ops to DEFAULT_SEARCH_RANGE_MS)
+        operator fun get(ops: List<String>, usageDurationMs: Long): OpUsageLiveData {
+            return get(ops to usageDurationMs)
         }
     }
 }

@@ -69,12 +69,15 @@ import java.util.Map;
  */
 public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
+    // TODO: Replace with OPSTR... APIs
+    static final String PHONE_CALL = "android:phone_call_microphone";
+    static final String VIDEO_CALL = "android:phone_call_camera";
+
     private @NonNull PermissionUsages mPermissionUsages;
     private boolean mPermissionUsagesLoaded;
     private @Nullable AlertDialog mDialog;
-    static final String PHONE_CALL = "phone_call";
-    static final String VIDEO_CALL = "video_call";
     private OpUsageLiveData mOpUsageLiveData;
+    private @Nullable Map<String, List<OpAccess>> mOpUsage;
     private long mStartTime;
 
     /**
@@ -101,11 +104,13 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             permissions = new String[] {CAMERA, LOCATION, MICROPHONE};
         }
         ArrayList<String> appOps = new ArrayList<>(List.of(PHONE_CALL, VIDEO_CALL));
-        mOpUsageLiveData = OpUsageLiveData.Companion.get(appOps);
+        mOpUsageLiveData = OpUsageLiveData.Companion.get(appOps, numMillis);
         mOpUsageLiveData.observe(this, new Observer<Map<String, List<OpAccess>>>() {
-
             @Override
-            public void onChanged(Map<String, List<OpAccess>> stringMap) {
+            public void onChanged(Map<String, List<OpAccess>> opUsage) {
+                mOpUsage = opUsage;
+                mOpUsageLiveData.removeObserver(this);
+
                 if (mPermissionUsagesLoaded) {
                     onPermissionUsagesLoaded();
                 }
@@ -118,7 +123,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
     private void onPermissionUsagesLoaded() {
         mPermissionUsagesLoaded = true;
-        if (getActivity() == null || !mOpUsageLiveData.isInitialized()) {
+        if (getActivity() == null || mOpUsage == null) {
             return;
         }
 
@@ -166,7 +171,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             }
         }
 
-        if (usages.isEmpty()) {
+        if (usages.isEmpty() && mOpUsage.isEmpty()) {
             getActivity().finish();
             return;
         }
@@ -226,7 +231,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
     private @NonNull View createDialogView(
             @NonNull List<Pair<AppPermissionUsage, List<GroupUsage>>> usages) {
-        Map<String, List<OpAccess>> otherAccesses = mOpUsageLiveData.getValue();
+        Map<String, List<OpAccess>> otherAccesses = mOpUsage;
         Context context = getActivity();
         LayoutInflater inflater = LayoutInflater.from(context);
         View contentView = inflater.inflate(R.layout.ongoing_usage_dialog_content, null);
