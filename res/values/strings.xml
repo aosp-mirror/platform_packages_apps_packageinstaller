@@ -887,9 +887,16 @@
     <!-- Message telling the user that a phone call is currently using the microphone [CHAR LIMIT=none] -->
     <string name="phone_call_uses_microphone">Microphone is used in &lt;b>phone call&lt;/b></string>
     <!-- Message telling the user that a phone call is currently using the microphone and the camera [CHAR LIMIT=none] -->
-    <string name="phone_call_uses_microphone_and_camera">Camera and Microphone are used in &lt;b>phone call&lt;/b></string>
+    <string name="phone_call_uses_microphone_and_camera">Camera and Microphone are used in &lt;b>video call&lt;/b></string>
     <!-- Message telling the user that a phone call is currently using the camera [CHAR LIMIT=none] -->
-    <string name="phone_call_uses_camera">Camera is used in &lt;b>phone call&lt;/b></string>
+    <string name="phone_call_uses_camera">Camera is used in &lt;b>video call&lt;/b></string>
+
+    <!-- Message telling the user that a system service is currently using the microphone [CHAR LIMIT=none] -->
+    <string name="system_uses_microphone">Microphone is accessed using system service</string>
+    <!-- Message telling the user that a system service is currently using the microphone and the camera [CHAR LIMIT=none] -->
+    <string name="system_uses_microphone_and_camera">Camera and Microphone are accessed using system service</string>
+    <!-- Message telling the user that a system service is currently using the camera [CHAR LIMIT=none] -->
+    <string name="system_uses_camera">Camera is accessed using system service</string>
 
     <!-- Line above a list of other apps and system service that are currently microphone or camera [CHAR LIMIT=60] -->
     <string name="other_use">Other use:</string>
