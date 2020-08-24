@@ -164,7 +164,7 @@
                   android:excludeFromRecents="true"
                   android:theme="@style/PermissionDialog.FilterTouches" />
 
-        <activity android:name="com.android.permissioncontroller.permission.debug.ReviewOngoingUsageActivity"
+        <activity android:name="com.android.permissioncontroller.permission.ui.ReviewOngoingUsageActivity"
                   android:excludeFromRecents="true"
                   android:theme="@style/PermissionDialog"
                   android:launchMode="singleInstance"

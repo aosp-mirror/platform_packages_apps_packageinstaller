@@ -22,15 +22,16 @@ import android.app.AppOpsManager.MODE_IGNORED
 import android.app.AppOpsManager.OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED
 import android.Manifest
 import android.app.role.RoleManager
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.os.UserHandle
-import android.provider.Settings
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.android.permissioncontroller.Constants.ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY
+import com.android.permissioncontroller.Constants.PREFERENCES_FILE
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION
@@ -45,14 +46,11 @@ import com.android.permissioncontroller.permission.data.PackagePermissionsLiveDa
 import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
 import com.android.permissioncontroller.permission.data.SmartUpdateMediatorLiveData
 import com.android.permissioncontroller.permission.data.get
-import com.android.permissioncontroller.permission.debug.shouldShowCameraMicIndicators
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState
 import com.android.permissioncontroller.permission.ui.Category
 import com.android.permissioncontroller.permission.utils.IPC
-import com.android.permissioncontroller.permission.utils.KotlinUtils
 import com.android.permissioncontroller.permission.utils.Utils
 import com.android.permissioncontroller.permission.utils.navigateSafe
-import com.android.permissioncontroller.permission.utils.updateUserSensitiveForUid
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -182,15 +180,6 @@ class AppPermissionGroupsViewModel(
         }
     }
 
-    fun shouldShowAssistantMicSwitch(): Boolean {
-        if (!shouldShowCameraMicIndicators()) {
-            return false
-        }
-        val rolePkgs = Utils.getUserContext(app, user).getSystemService(RoleManager::class.java)!!
-            .getRoleHolders(RoleManager.ROLE_ASSISTANT)
-        return packageName in rolePkgs
-    }
-
     fun setAutoRevoke(enabled: Boolean) {
         GlobalScope.launch(IPC) {
             val aom = app.getSystemService(AppOpsManager::class.java)!!
@@ -216,17 +205,6 @@ class AppPermissionGroupsViewModel(
                 aom.setUidMode(OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED, uid, mode)
             }
         }
-    }
-
-    fun setShowAssistantMicUsage(enabled: Boolean) {
-        val value = if (enabled) {
-            1
-        } else {
-            0
-        }
-        Settings.Secure.putInt(app.contentResolver, ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY,
-            value)
-        updateUserSensitiveForUid(KotlinUtils.getPackageUid(app, packageName, user) ?: return)
     }
 
     fun showExtraPerms(fragment: Fragment, args: Bundle) {

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.debug;
+package com.android.permissioncontroller.permission.ui.handheld;
 
 import static android.Manifest.permission_group.CAMERA;
 import static android.Manifest.permission_group.LOCATION;
@@ -23,15 +23,17 @@ import static android.Manifest.permission_group.MICROPHONE;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_LINE_ITEM;
-import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_PRIVACY_SETTINGS;
 import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldShowPermissionsDashboard;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.text.Html;
 import android.util.ArrayMap;
+import android.util.ArraySet;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,28 +43,43 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.permission.debug.AppPermissionUsage.GroupUsage;
+import com.android.permissioncontroller.permission.data.OpAccess;
+import com.android.permissioncontroller.permission.data.OpUsageLiveData;
+import com.android.permissioncontroller.permission.debug.PermissionUsages;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
+import com.android.permissioncontroller.permission.model.AppPermissionUsage;
+import com.android.permissioncontroller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps.PermissionApp;
+import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 
 import java.text.Collator;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A dialog listing the currently uses of camera, microphone, and location.
  */
 public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
+    // TODO: Replace with OPSTR... APIs
+    static final String PHONE_CALL = "android:phone_call_microphone";
+    static final String VIDEO_CALL = "android:phone_call_camera";
+
     private @NonNull PermissionUsages mPermissionUsages;
+    private boolean mPermissionUsagesLoaded;
     private @Nullable AlertDialog mDialog;
+    private OpUsageLiveData mOpUsageLiveData;
+    private @Nullable Map<String, List<OpAccess>> mOpUsage;
+    private ArraySet<String> mSystemUsage = new ArraySet<>(0);
     private long mStartTime;
 
     /**
@@ -88,13 +105,27 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
         if (shouldShowPermissionsDashboard()) {
             permissions = new String[] {CAMERA, LOCATION, MICROPHONE};
         }
+        ArrayList<String> appOps = new ArrayList<>(List.of(PHONE_CALL, VIDEO_CALL));
+        mOpUsageLiveData = OpUsageLiveData.Companion.get(appOps, numMillis);
+        mOpUsageLiveData.observe(this, new Observer<Map<String, List<OpAccess>>>() {
+            @Override
+            public void onChanged(Map<String, List<OpAccess>> opUsage) {
+                mOpUsage = opUsage;
+                mOpUsageLiveData.removeObserver(this);
+
+                if (mPermissionUsagesLoaded) {
+                    onPermissionUsagesLoaded();
+                }
+            }
+        });
         mPermissionUsages.load(null, permissions, mStartTime, Long.MAX_VALUE,
                 PermissionUsages.USAGE_FLAG_LAST, getActivity().getLoaderManager(), false, false,
                 this::onPermissionUsagesLoaded, false);
     }
 
     private void onPermissionUsagesLoaded() {
-        if (getActivity() == null) {
+        mPermissionUsagesLoaded = true;
+        if (getActivity() == null || mOpUsage == null) {
             return;
         }
 
@@ -129,11 +160,13 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
                     }
                 }
 
-                if (!Utils.isGroupOrBgGroupUserSensitive(groupUsage.getGroup())) {
-                    continue;
+                if (Utils.isGroupOrBgGroupUserSensitive(groupUsage.getGroup())) {
+                    usedGroups.add(appGroups.get(groupNum));
+                } else if (getContext().getSystemService(LocationManager.class).isProviderPackage(
+                        appUsage.getPackageName())
+                        && (groupName.equals(CAMERA) || groupName.equals(MICROPHONE))) {
+                    mSystemUsage.add(groupName);
                 }
-
-                usedGroups.add(appGroups.get(groupNum));
             }
 
             if (!usedGroups.isEmpty()) {
@@ -142,7 +175,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             }
         }
 
-        if (usages.isEmpty()) {
+        if (usages.isEmpty() && mOpUsage.isEmpty() && mSystemUsage.isEmpty()) {
             getActivity().finish();
             return;
         }
@@ -156,7 +189,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
                 .setView(createDialogView(usages))
                 .setPositiveButton(R.string.ongoing_usage_dialog_ok, (dialog, which) ->
                         PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
-                                PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS, null))
+                                PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS))
                 .setOnDismissListener((dialog) -> getActivity().finish());
         mDialog = builder.create();
         mDialog.show();
@@ -219,6 +252,71 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             }
         }
 
+        TextView otherUseHeader = contentView.requireViewById(R.id.other_use_header);
+        TextView otherUseContent = contentView.requireViewById(R.id.other_use_content);
+        TextView systemUseContent = contentView.requireViewById(R.id.system_use_content);
+        View otherUseSpacer = contentView.requireViewById(R.id.other_use_inside_spacer);
+
+        if (mOpUsage.isEmpty() && mSystemUsage.isEmpty()) {
+            otherUseHeader.setVisibility(View.GONE);
+            otherUseContent.setVisibility(View.GONE);
+        }
+
+        if (numUsages == 0) {
+            otherUseHeader.setVisibility(View.GONE);
+            appsList.setVisibility(View.GONE);
+        }
+
+        if (mOpUsage.isEmpty() || mSystemUsage.isEmpty()) {
+            otherUseSpacer.setVisibility(View.GONE);
+        }
+
+        if (mOpUsage.isEmpty()) {
+            otherUseContent.setVisibility(View.GONE);
+        }
+
+        if (mSystemUsage.isEmpty()) {
+            systemUseContent.setVisibility(View.GONE);
+        }
+
+        if (!mOpUsage.isEmpty()) {
+            if (mOpUsage.containsKey(VIDEO_CALL) && mOpUsage.containsKey(
+                    PHONE_CALL)) {
+                otherUseContent.setText(
+                        Html.fromHtml(getString(R.string.phone_call_uses_microphone_and_camera),
+                                0));
+            } else if (mOpUsage.containsKey(VIDEO_CALL)) {
+                otherUseContent.setText(
+                        Html.fromHtml(getString(R.string.phone_call_uses_camera), 0));
+            } else if (mOpUsage.containsKey(PHONE_CALL)) {
+                otherUseContent.setText(
+                        Html.fromHtml(getString(R.string.phone_call_uses_microphone), 0));
+            }
+
+            if (mOpUsage.containsKey(VIDEO_CALL)) {
+                usedGroups.put(CAMERA, KotlinUtils.INSTANCE.getPermGroupLabel(context, CAMERA));
+            }
+
+            if (mOpUsage.containsKey(PHONE_CALL)) {
+                usedGroups.put(MICROPHONE,
+                        KotlinUtils.INSTANCE.getPermGroupLabel(context, MICROPHONE));
+            }
+        }
+
+        if (!mSystemUsage.isEmpty()) {
+            if (mSystemUsage.contains(MICROPHONE) && mSystemUsage.contains(CAMERA)) {
+                systemUseContent.setText(getString(R.string.system_uses_microphone_and_camera));
+            } else if (mSystemUsage.contains(CAMERA)) {
+                systemUseContent.setText(getString(R.string.system_uses_camera));
+            } else if (mSystemUsage.contains(MICROPHONE) ) {
+                systemUseContent.setText(getString(R.string.system_uses_microphone));
+            }
+
+            for (String usage : mSystemUsage) {
+                usedGroups.put(usage, KotlinUtils.INSTANCE.getPermGroupLabel(context, usage));
+            }
+        }
+
         // Add the layout for each app.
         for (int usageNum = 0; usageNum < numUsages; usageNum++) {
             Pair<AppPermissionUsage, List<GroupUsage>> usage = usages.get(usageNum);
@@ -258,7 +356,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             itemView.setOnClickListener((v) -> {
                 String packageName = app.getPackageName();
                 PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
-                        PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_LINE_ITEM, packageName);
+                        PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_LINE_ITEM);
                 UserHandle user = UserHandle.getUserHandleForUid(app.getUid());
                 Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
