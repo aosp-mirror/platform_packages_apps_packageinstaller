@@ -40,11 +40,11 @@ class SelectedVoiceInteractionServiceLiveData(
             return
         }
 
-        val packageName = ComponentName.unflattenFromString(
-            Settings.Secure.getString(
+        val packageName = Settings.Secure.getString(
                 Utils.getUserContext(app, user).contentResolver,
                 // Settings.Secure.VOICE_INTERACTION_SERVICE
-                "voice_interaction_service"))
+                "voice_interaction_service")
+            ?.let(ComponentName::unflattenFromString)
             ?.packageName
 
         postValue(packageName)
