@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.permissioncontroller.permission.debug
+package com.android.permissioncontroller.permission.ui.handheld
 
 import android.Manifest.permission.CAMERA
 import android.permission.cts.PermissionUtils.grantPermission
@@ -25,6 +25,8 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.rule.ActivityTestRule
+import com.android.permissioncontroller.permission.PermissionHub2Test
+import com.android.permissioncontroller.permission.ui.ReviewOngoingUsageActivity
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test

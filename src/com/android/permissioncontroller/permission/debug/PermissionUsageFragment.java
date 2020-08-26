@@ -63,7 +63,8 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceViewHolder;
 
 import com.android.permissioncontroller.R;
-import com.android.permissioncontroller.permission.debug.AppPermissionUsage.GroupUsage;
+import com.android.permissioncontroller.permission.model.AppPermissionUsage;
+import com.android.permissioncontroller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps;
 import com.android.permissioncontroller.permission.model.legacy.PermissionApps.PermissionApp;

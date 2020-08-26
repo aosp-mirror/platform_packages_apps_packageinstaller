@@ -22,14 +22,14 @@ import android.provider.DeviceConfig
 import android.text.format.DateFormat.getMediumDateFormat
 import android.text.format.DateFormat.getTimeFormat
 import com.android.permissioncontroller.R
-import com.android.permissioncontroller.permission.debug.AppPermissionUsage.GroupUsage
+import com.android.permissioncontroller.permission.model.AppPermissionUsage.GroupUsage
 import java.util.Locale
 
 /** Whether to show the Permissions Hub.  */
 private const val PROPERTY_PERMISSIONS_HUB_2_ENABLED = "permissions_hub_2_enabled"
 
 /** Whether to show the mic and camera icons.  */
-private const val PROPERTY_CAMERA_MIC_ICONS_ENABLED = "camera_mic_icons_enabled"
+const val PROPERTY_CAMERA_MIC_ICONS_ENABLED = "camera_mic_icons_enabled"
 
 /**
  * Whether the Permissions Hub 2 flag is enabled
