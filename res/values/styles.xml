@@ -108,9 +108,11 @@
            parent="@style/PermissionGrantButton"></style>
     <style name="PermissionGrantButtonAllowForeground"
            parent="@style/PermissionGrantButton"></style>
+    <style name="PermissionGrantButtonAllowOneTime"
+           parent="@style/PermissionGrantButton"></style>
     <style name="PermissionGrantButtonDeny"
            parent="@style/PermissionGrantButton"></style>
-    <style name="PermissionGrantButtonDenyDontAskAgain"
+    <style name="PermissionGrantButtonNoUpgrade"
            parent="@style/PermissionGrantButton"></style>
 
     <!-- END PERMISSION GRANT DIALOG -->
@@ -315,7 +317,6 @@
     <style name="AppPermissionDetails">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
         <item name="android:layout_marginStart">48dp</item>
     </style>
 
@@ -364,6 +365,17 @@
     <style name="AppPermissionFooterLink"
            parent="@style/AppPermissionFooterText">
         <item name="android:textColor">?android:attr/colorAccent</item>
+    </style>
+
+    <style name="AppPermissionFooterTextWithIcon">
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:clickable">false</item>
+        <item name="android:drawablePadding">20dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">?android:attr/listPreferredItemPaddingEnd</item>
+        <item name="android:layout_marginEnd">48dp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
 
     <!-- END APP PERMISSION SCREEN -->
@@ -518,6 +530,16 @@
     </style>
 
     <!-- END PREFERENCE USAGE -->
+
+    <!-- START AUTO REVOKE SCREEN -->
+
+    <style name="SettingsActionButton"
+           parent="android:Widget.DeviceDefault.Button.Borderless.Colored">
+        <item name="android:drawableTint">@color/open_btn_enabled_disabled_color</item>
+        <item name="android:tint">@color/open_btn_enabled_disabled_color</item>
+    </style>
+
+    <!-- END AUTO REVOKE SCREEN -->
 
     <!-- START TITLE SUMMARY IMAGE VIEW -->
 
@@ -868,22 +890,5 @@
     </style>
 
     <!-- END ACCESSIBILITY SERVICE DIALOG ITEM -->
-
-    <!-- START CAR SETTINGS PREFERENCE STYLES -->
-
-    <style name="CarPreferenceFragment">
-        <item name="android:layout">@layout/car_settings_frame</item>
-    </style>
-
-    <style name="CarPreferenceFragmentList">
-        <item name="android:paddingTop">0dp</item>
-        <item name="android:paddingBottom">0dp</item>
-        <item name="android:paddingStart">0dp</item>
-        <item name="android:paddingEnd">0dp</item>
-        <item name="android:paddingLeft">0dp</item>
-        <item name="android:paddingRight">0dp</item>
-    </style>
-
-    <!-- END CAR SETTINGS PREFERENCE STYLES -->
 
 </resources>

@@ -8,6 +8,15 @@
 -dontwarn androidx.core.**
 
 # Keep classes that implements RoleBehavior, which are used by reflection.
--keep class * implements com.android.packageinstaller.role.model.RoleBehavior {
+-keep class * implements com.android.permissioncontroller.role.model.RoleBehavior {
     *;
+}
+
+-keep class com.android.car.ui.** {*;}
+
+# for proto names for Proto.toString
+-keepclassmembers class * extends com.google.protobuf.GeneratedMessageLite {
+  *** get*();
+  *** set*(***);
+  *** has*();
 }
