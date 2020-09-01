@@ -74,6 +74,7 @@ import com.android.permissioncontroller.Constants.EXTRA_SESSION_ID
 import com.android.permissioncontroller.Constants.INVALID_SESSION_ID
 import com.android.permissioncontroller.Constants.PERMISSION_REMINDER_CHANNEL_ID
 import com.android.permissioncontroller.DumpableLog
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
@@ -473,6 +474,19 @@ suspend fun isPackageAutoRevokePermanentlyExempt(
         }
         return true
     }
+
+    if (PermissionControllerApplication.get()
+            .packageManager
+            .checkPermission(
+                    android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE,
+                    pkg.packageName) == PERMISSION_GRANTED) {
+        if (DEBUG_AUTO_REVOKE) {
+            DumpableLog.i(LOG_TAG, "Exempted ${pkg.packageName} " +
+                    "- holder of READ_PRIVILEGED_PHONE_STATE")
+        }
+        return true
+    }
+
     return false
 }
 
