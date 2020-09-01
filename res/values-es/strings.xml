@@ -23,8 +23,8 @@
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplicación no encontrada"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Denegar"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Denegar y no volver a preguntar"</string>
-    <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"Denegar acceso mientras esté en uso"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"Denegar y no volver a preguntar"</string>
+    <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"Mantener acceso solo mientras esté en uso"</string>
+    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"Mantener y no volver a preguntar"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Más información"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Denegar"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -53,9 +53,9 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Esta aplicación está diseñada para una versión anterior de Android. Si se le deniega el permiso, puede dejar de funcionar de la forma prevista."</string>
     <string name="default_permission_description" msgid="692254823411049573">"realizar una acción desconocida"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicaciones con el permiso"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"Mostrar aplicaciones del sistema"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"Ocultar aplicaciones del sistema"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicaciones con permiso"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Mostrar sistema"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Ocultar sistema"</string>
     <string name="no_apps" msgid="2377153782338039463">"No hay aplicaciones"</string>
     <string name="location_settings" msgid="547378321761364906">"Ajustes de ubicación"</string>
     <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> es un proveedor de servicios de ubicación de este dispositivo. El acceso a la ubicación se puede modificar en los ajustes de ubicación."</string>
@@ -92,7 +92,7 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Permisos actuales"</string>
     <string name="message_staging" msgid="641286607664721291">"Preparando aplicación…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Desconocida"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"Panel"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Panel de control"</string>
     <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"Último acceso: <xliff:g id="TIME">%1$s</xliff:g>\nÚltimo acceso mientras la aplicación estaba en uso"</string>
     <string name="permission_usage_summary_background" msgid="4789805581854248472">"Último acceso: <xliff:g id="TIME">%1$s</xliff:g>\nÚltimo acceso en segundo plano"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Cualquier permiso"</string>
@@ -173,7 +173,7 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ver todos los permisos de <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ver todas las aplicaciones con este permiso"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Las aplicaciones con este permiso pueden <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Las aplicaciones con este permiso pueden acceder a tu actividad física, como paseos a pie o en bici, trayectos en coche, recuento de pasos y mucho más"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Las aplicaciones con este permiso pueden acceder a tu actividad física, como paseos a pie o en bici, trayectos en coche, recuento de pasos y más"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Las aplicaciones que tengan este permiso pueden acceder a tu calendario"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Las aplicaciones que tengan este permiso pueden leer y editar el registro de llamadas del teléfono"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Las aplicaciones que tengan este permiso pueden hacer fotos y grabar vídeo"</string>
@@ -188,10 +188,10 @@
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Actualmente denegado / Último acceso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"No ha accedido nunca"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Denegado / Último acceso: Nunca"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"Con permiso"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Permitido"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Permitido siempre"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Permitido solo mientras se usa"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Sin permiso"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Denegado"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Ver uso detallado"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> días</item>
@@ -216,7 +216,7 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"No se ha concedido ningún permiso"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"No se ha denegado ningún permiso"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Ninguna aplicación tiene permiso"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"A ninguna aplicación se le ha denegado el permiso"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"No hay aplicaciones denegadas"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Seleccionado"</string>
     <string name="settings" msgid="2884124136779508907">"Ajustes"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> tiene acceso completo a tu dispositivo"</string>

@@ -57,7 +57,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"выполнять неизвестное действие"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Приложений с разрешением: <xliff:g id="COUNT_0">%1$d</xliff:g> из <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Показать системные процессы"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"Скрыть системные процессы"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Скрыть сист. процессы"</string>
     <string name="no_apps" msgid="2377153782338039463">"Нет приложений"</string>
     <string name="location_settings" msgid="547378321761364906">"Настройки геолокации"</string>
     <string name="location_warning" msgid="4687406043150343369">"Приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" обеспечивает геолокацию на этом устройстве. Вы всегда можете изменить настройки доступа к данным о местоположении."</string>
@@ -309,7 +309,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" запрашивает разрешение на загрузку данных об отладке."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Отправка данных об отладке"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"В системе обнаружена проблема"</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"Приложение \"<xliff:g id="APP_NAME_0">%1$s</xliff:g>\" запрашивает ваше согласие на загрузку с этого устройства отчета об ошибке от <xliff:g id="TIME">%3$s</xliff:g> <xliff:g id="DATE">%2$s</xliff:g>. Отчет может содержать персональную информацию с устройства или из установленных приложений, например имена пользователей, сведения о местоположении, идентификаторы устройства и данные сети. Мы рекомендуем отправлять отчеты об ошибке только тем приложениям и пользователям, которым вы доверяете. Разрешить приложению \"<xliff:g id="APP_NAME_1">%4$s</xliff:g>\" загрузку отчета об ошибке?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"Приложение \"<xliff:g id="APP_NAME_0">%1$s</xliff:g>\" запрашивает ваше согласие на загрузку с этого устройства отчета об ошибке, созданного <xliff:g id="DATE">%2$s</xliff:g> в <xliff:g id="TIME">%3$s</xliff:g>. Отчет может содержать персональную информацию с устройства или из установленных приложений, например имена пользователей, сведения о местоположении, идентификаторы устройства и данные сети. Отправляйте отчеты об ошибке только тем приложениям и пользователям, которым доверяете. Разрешить приложению \"<xliff:g id="APP_NAME_1">%4$s</xliff:g>\" загрузить отчет об ошибке?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Не удалось обработать информацию об ошибке в приложении \"<xliff:g id="APP_NAME">%1$s</xliff:g>\". Данные об отладке не отправлены. Приносим извинения за неудобства."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Разрешить"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Запретить"</string>
@@ -320,5 +320,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Показывать выбранные приложения"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Показывать значок активации голосового помощника"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Показывать значок в строке состояния, когда для активации голосового помощника используется микрофон"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Открыть приложению &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ к фото и мультимедиа на устройстве?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Разрешить приложению &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ к фото и мультимедиа на устройстве?"</string>
 </resources>
