@@ -20,9 +20,9 @@ import android.app.AppOpsManager
 import android.app.AppOpsManager.OP_FLAGS_ALL_TRUSTED
 import android.app.Application
 import android.os.UserHandle
+import android.util.Log
 import com.android.permissioncontroller.PermissionControllerApplication
 import kotlinx.coroutines.Job
-import java.util.function.Consumer
 
 /**
  * LiveData that loads the last usage of each of a list of app ops for every package.
@@ -38,8 +38,7 @@ class OpUsageLiveData(
     private val app: Application,
     private val opNames: List<String>,
     private val usageDurationMs: Long
-) : SmartAsyncMediatorLiveData<@JvmSuppressWildcards Map<String, List<OpAccess>>>(),
-        Consumer<AppOpsManager.HistoricalOps> {
+) : SmartAsyncMediatorLiveData<@JvmSuppressWildcards Map<String, List<OpAccess>>>() {
     val appOpsManager = app.getSystemService(AppOpsManager::class.java)!!
 
     override suspend fun loadDataAndPostValue(job: Job) {
@@ -73,33 +72,20 @@ class OpUsageLiveData(
                         lastAccessTime
                     }
                     accessList.add(OpAccess(packageOp.packageName, user, accessTime))
+                    // TODO ntmyren: remove logs once b/160724034 is fixed
+                    Log.i("OpUsageLiveData", "adding ${opEntry.opStr} for " +
+                        "${packageOp.packageName}, access time of $lastAccessTime, isRunning: " +
+                        "${opEntry.isRunning} current time $now, duration $lastAccessDuration")
+                } else {
+                    // TODO ntmyren: remove logs once b/160724034 is fixed
+                    Log.i("OpUsageLiveData", "NOT adding ${opEntry.opStr} for " +
+                        "${packageOp.packageName}, access time of $lastAccessTime, isRunning: " +
+                        "${opEntry.isRunning} current time $now, duration $lastAccessDuration")
                 }
             }
         }
 
         postValue(opMap)
-    }
-
-    override fun accept(historicalOps: AppOpsManager.HistoricalOps) {
-        val opMap = mutableMapOf<String, MutableList<OpAccess>>()
-        for (i in 0 until historicalOps.uidCount) {
-            val historicalUidOps = historicalOps.getUidOpsAt(i)
-            val user = UserHandle.getUserHandleForUid(historicalUidOps.uid)
-            for (j in 0 until historicalUidOps.packageCount) {
-                val historicalPkgOps = historicalUidOps.getPackageOpsAt(j)
-                val pkgName = historicalPkgOps.packageName
-                for (k in 0 until historicalPkgOps.opCount) {
-                    val historicalAttributedOps = historicalPkgOps.getAttributedOpsAt(k)
-                    for (l in 0 until historicalAttributedOps.opCount) {
-                        val historicalOp = historicalAttributedOps.getOpAt(l)
-                        val opName = historicalOp.opName
-
-                        val accessList = opMap.getOrPut(opName) { mutableListOf() }
-                        accessList.add(OpAccess(pkgName, user, -1))
-                    }
-                }
-            }
-        }
     }
 
     override fun onActive() {
