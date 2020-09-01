@@ -110,6 +110,9 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
         mOpUsageLiveData.observe(this, new Observer<Map<String, List<OpAccess>>>() {
             @Override
             public void onChanged(Map<String, List<OpAccess>> opUsage) {
+                if (mOpUsageLiveData.isStale()) {
+                    return;
+                }
                 mOpUsage = opUsage;
                 mOpUsageLiveData.removeObserver(this);
 
