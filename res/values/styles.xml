@@ -869,21 +869,4 @@
 
     <!-- END ACCESSIBILITY SERVICE DIALOG ITEM -->
 
-    <!-- START CAR SETTINGS PREFERENCE STYLES -->
-
-    <style name="CarPreferenceFragment">
-        <item name="android:layout">@layout/car_settings_frame</item>
-    </style>
-
-    <style name="CarPreferenceFragmentList">
-        <item name="android:paddingTop">0dp</item>
-        <item name="android:paddingBottom">0dp</item>
-        <item name="android:paddingStart">0dp</item>
-        <item name="android:paddingEnd">0dp</item>
-        <item name="android:paddingLeft">0dp</item>
-        <item name="android:paddingRight">0dp</item>
-    </style>
-
-    <!-- END CAR SETTINGS PREFERENCE STYLES -->
-
 </resources>
