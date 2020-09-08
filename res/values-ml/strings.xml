@@ -20,11 +20,16 @@
     <string name="ok" msgid="4417794827535157922">"ശരി"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"അനുമതികൾ"</string>
     <string name="cancel" msgid="7279939269964834974">"റദ്ദാക്കുക"</string>
+    <string name="back" msgid="8739808065891653074">"മടങ്ങുക"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"അൺഇൻസ്‌റ്റാൾ ചെയ്യുക അല്ലെങ്കിൽ പ്രവർത്തനരഹിതമാക്കുക"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ആപ്പ് കണ്ടെത്തിയില്ല"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"നിരസിക്കുക"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"നിരസിക്കുക, വീണ്ടും ആവശ്യപ്പെടരുത്"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"“ആപ്പ് ഉപയോഗത്തിലിരിക്കുമ്പോൾ” നിലനിർത്തുക"</string>
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"“ഇപ്പോഴത്തേക്ക് മാത്രം” നിലനിർത്തുക"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"കൂടുതൽ വിവരങ്ങൾ"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"എന്തായാലും നിരസിക്കുക"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"ഡിസ്‌മിസ് ചെയ്യുക"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-ൽ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> എണ്ണം"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"<xliff:g id="ACTION">%2$s</xliff:g> ചെയ്യുന്നതിന് &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; എന്ന ആപ്പിനെ അനുവദിക്കണോ?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; എന്നതിനെ എല്ലായ്‌പ്പോഴും <xliff:g id="ACTION">%2$s</xliff:g> എന്നതിലേക്ക് അനുവദിക്കണമോ?"</string>
@@ -36,9 +41,16 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"ഒന്നും പ്രവർത്തനരഹിതമാക്കിയിട്ടില്ല"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"അനുവദിക്കുക"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"ഏതുസമയത്തും അനുവദിക്കുക"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"ആപ്പ് ഉപയോഗത്തിലുള്ളപ്പോൾ മാത്രം അനുവദിക്കുക"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ആപ്പ് ഉപയോഗിക്കുമ്പോൾ"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"ഇപ്പോഴത്തേക്ക് മാത്രം"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"ഏതുസമയത്തും അനുവദിക്കുക"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"എല്ലാ ഫയലുകളും മാനേജ് ചെയ്യാൻ അനുവദിക്കുക"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"മീഡിയ ഫയലുകളിലേക്ക് ആക്‌സസ് അനുവദിക്കുക"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ആപ്പുകൾ"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ആപ്പ് അനുമതികൾ"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"ഉപയോഗിക്കാത്ത ആപ്പുകൾ"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"ആപ്പ് പ്രവർത്തനരഹിതമാക്കുക"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"നിങ്ങൾ ഈ ആപ്പ് പ്രവർത്തനരഹിതമാക്കിയാൽ, Android-ഉം മറ്റ് ആപ്പുകളും ഇനി ഉദ്ദേശിച്ചത് പോലെ പ്രവർത്തിച്ചേക്കില്ല. ശ്രദ്ധിക്കുക, നിങ്ങളുടെ ഉപകരണത്തിൽ മുമ്പേ ഇൻസ്‌റ്റാൾ ചെയ്‌തതായതിനാൽ ഈ ആപ്പ് നിങ്ങൾക്ക് ഇല്ലാതാക്കാനാവില്ല. പ്രവർത്തനരഹിതമാക്കുന്നത് വഴി, ഈ ആപ്പ് ഓഫാക്കി നിങ്ങൾക്കിത് ഉപകരണത്തിൽ മറച്ചു വയ്ക്കാം."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"അനുമതി മാനേജർ"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"വീണ്ടും ആവശ്യപ്പെടരുത്"</string>
     <string name="no_permissions" msgid="2193893107241172888">"അനുമതികൾ ഇല്ല"</string>
@@ -51,10 +63,9 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"ഈ ആപ്പ് Android-ന്റെ പഴയ പതിപ്പിനായാണ് രൂപകൽപ്പന ചെയ്‌തിരിക്കുന്നത്. അനുമതി നിരസിക്കുന്നത് തുടർന്ന് ഉദ്ദേശിച്ചവിധം പ്രവർത്തിക്കാതിരിക്കാനിടയാക്കുന്നു."</string>
     <string name="default_permission_description" msgid="692254823411049573">"ഒരു അജ്ഞാത പ്രവർത്തനം നടത്തുക"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g> ആപ്പുകൾ അനുവദനീയം"</string>
-    <string name="permission_usage_header" msgid="8802963718365732792">"അടുത്തിടെയുള്ള ഉപയോഗം"</string>
-    <string name="permission_usage_view_details" msgid="7398825662321010957">"അനുമതി ഡാഷ്‌ബോർഡ് കാണുക"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"സിസ്‌റ്റം ദൃശ്യമാക്കുക"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"സിസ്‌റ്റം അദൃശ്യമാക്കുക"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> ആപ്പുകൾക്ക് അനുമതി നൽകി"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"സിസ്‌റ്റം കാണിക്കുക"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"സിസ്‌റ്റം മറയ്ക്കുക"</string>
     <string name="no_apps" msgid="2377153782338039463">"ആപ്പുകൾ ഒന്നുമില്ല"</string>
     <string name="location_settings" msgid="547378321761364906">"ലൊക്കേഷൻ ക്രമീകരണം"</string>
     <string name="location_warning" msgid="4687406043150343369">"ഈ ഉപകരണത്തിനായുള്ള ലൊക്കേഷൻ സേവനങ്ങളുടെ ദാതാവ് <xliff:g id="APP_NAME">%1$s</xliff:g> ആണ്. ലൊക്കേഷൻ ക്രമീകരണത്തിൽ നിന്ന് ലൊക്കേഷൻ ആക്‌സസ് പരിഷ്‌കരിക്കാവുന്നതാണ്."</string>
@@ -67,13 +78,13 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"പശ്ചാത്തല ആക്‌സസ് അഡ്‌മിൻ പ്രവർത്തനരഹിതമാക്കി"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"പശ്ചാത്തല ആക്‌സസ് അഡ്‌മിൻ പ്രവർത്തനക്ഷമമാക്കി"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"പൂർവ്വതല ആക്‌സസ് അഡ്‌മിൻ പ്രവർത്തനക്ഷമമാക്കി"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"സിസ്‌റ്റം, അനുമതി സജ്ജീകരിച്ചു"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="5463084832974856683">"ഉപകരണത്തിന് പ്രവർത്തിക്കാൻ ഈ അനുമതി ആവശ്യമുണ്ട്"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
-    <string name="permission_access_always" msgid="2315256378850460955">"എപ്പോഴും"</string>
-    <string name="permission_access_only_foreground" msgid="8109903552082630801">"ആപ്പ് ഉപയോഗിക്കുമ്പോൾ മാത്രം"</string>
-    <string name="permission_access_never" msgid="4717648645876576508">"ഒരിക്കലും"</string>
+    <string name="permission_access_always" msgid="5419580764084361573">"ഏതുസമയത്തും അനുവദിക്കുക"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"ആപ്പ് ഉപയോഗിക്കുമ്പോൾ മാത്രം"</string>
+    <string name="permission_access_never" msgid="425385910378172045">"നിരസിക്കുക"</string>
     <string name="loading" msgid="323483393167148377">"ലോഡ് ചെയ്യുന്നു…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"എല്ലാ അനുമതികളും"</string>
     <string name="other_permissions" msgid="1956312685853070715">"മറ്റ് ആപ്പ് ശേഷികൾ"</string>
@@ -91,70 +102,64 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"നിലവിലെ അനുമതികൾ"</string>
     <string name="message_staging" msgid="641286607664721291">"ആപ്പ് തയ്യാറാക്കുന്നു…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"അജ്ഞാതം"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"ഡാഷ്‌ബോർഡ്"</string>
-    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
-      <item quantity="other">അവസാനം ആക്‌‌സസ് ചെയ്‌തത്: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> ആക്‌സസുകള്‍</item>
-      <item quantity="one">അവസാനം ആക്‌‌സസ് ചെയ്‌തത്: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> ആക്‌‌സസ്</item>
-    </plurals>
-    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
-      <item quantity="other">അവസാനം ആക്‌‌സസ് ചെയ്‌തത്: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ആക്‌സസുകള്‍ (പശ്‌ചാത്തലത്തില്‍ <xliff:g id="NUM_5">%3$s</xliff:g> എണ്ണം)</item>
-      <item quantity="one">അവസാനം ആക്‌‌സസ് ചെയ്‌തത്: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> ആക്‌‌സസ് (പശ്‌ചാത്തലത്തില്‍<xliff:g id="NUM_2">%3$s</xliff:g> എണ്ണം)</item>
-    </plurals>
-    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
-      <item quantity="other">അവസാനം ആക്‌‌സസ് ചെയ്‌തത്: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ആക്‌സസുകള്\nസമയ ദൈർഘ്യം: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-      <item quantity="one">അവസാനം ആക്‌‌സസ് ചെയ്‌തത്: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> ആക്‌‌സസ്\nസമയ ദൈർഘ്യം: <xliff:g id="TIME_2">%3$s</xliff:g></item>
-    </plurals>
-    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
-      <item quantity="other">അവസാനം ആക്‌‌സസ് ചെയ്‌തത്: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> ആക്‌സസുകള്‍ (പശ്ചാത്തലത്തിൽ <xliff:g id="NUM_6">%3$s</xliff:g> എണ്ണം)\nസമയ ദൈർഘ്യം: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-      <item quantity="one">അവസാനം ആക്‌‌സസ് ചെയ്‌തത്: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> ആക്‌സസ് (പശ്ചാത്തലത്തിൽ <xliff:g id="NUM_2">%3$s</xliff:g> എണ്ണം)\nസമയ ദൈർഘ്യം: <xliff:g id="TIME_3">%3$s</xliff:g></item>
-    </plurals>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"ഏതെങ്കിലും അനുമതി"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"ഏത് സമയത്തും"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"കഴിഞ്ഞ 7 ദിവസം"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"അവസാന 24 മണിക്കൂർ"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"കഴിഞ്ഞ ഒരു മണിക്കൂര്‍‌"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"കഴിഞ്ഞ 15 മിനിറ്റ്"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"അവസാന ഒരു മിനിറ്റ്"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"അനുമതി ഉപയോഗങ്ങളൊന്നുമില്ല"</string>
-    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"എല്ലായ്‌പ്പോഴത്തെയും ആക്‌സസ്"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"കഴിഞ്ഞ 7 ദിവസത്തെ ആക്‌സസ്"</string>
-    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"കഴിഞ്ഞ 24 മണിക്കൂറിലെ ആക്‌സസ്"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"കഴിഞ്ഞ മണിക്കൂറിലെ ആക്‌സസ്"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"കഴിഞ്ഞ 15 മിനിറ്റിലെ ആക്‌സസ്"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"കഴിഞ്ഞ ഒരു മിനിറ്റിലെ ആക്‌സസ്"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"പൊതുവായ അനുമതിയുടെ എല്ലായ്‌പ്പോഴുമുള്ള ഉപയോഗം"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"പൊതുവായ അനുമതിയുടെ കഴിഞ്ഞ 7 ദിവസത്തെ ഉപയോഗം"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"പൊതുവായ അനുമതിയുടെ കഴിഞ്ഞ 24 മണിക്കൂറിലെ ഉപയോഗം"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"പൊതുവായ അനുമതിയുടെ കഴിഞ്ഞ ഒരു മണിക്കൂറിലെ ഉപയോഗം"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"പൊതുവായ അനുമതിയുടെ കഴിഞ്ഞ 15 മിനിറ്റിലെ ഉപയോഗം"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"പൊതുവായ അനുമതിയുടെ കഴിഞ്ഞ ഒരു മിനിറ്റിലെ ഉപയോഗം"</string>
-    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"ആപ്പുകൾ"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"ഇതുപ്രകാരം ഫിൽട്ടർ ചെയ്‌‌തു: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"ഫിൽട്ടർ നീക്കം ചെയ്യുക"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"ഇതുപ്രകാരം ഫിൽട്ടർ ചെയ്യുക"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"അനുമതികൾ പ്രകാരം ഫിൽട്ടർ ചെയ്യുക"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"ഏറ്റവുമധികം ഉപയോഗിച്ച അനുമതികൾ"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"ഏറ്റവുമധികം ആക്‌സസ് ചെയ്‌തത്"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"ഏറ്റവും പുതിയവ"</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"പുതുക്കിയെടുക്കുക"</string>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"ആപ്പ് അനുമതികളുടെ ഉപയോഗം"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"ആക്‌സസ്: <xliff:g id="NUM">%1$s</xliff:g> തവണ. ആകെ ദൈർഘ്യം: <xliff:g id="DURATION">%2$s</xliff:g>. അവസാനം ഉപയോഗിച്ചത് <xliff:g id="TIME">%3$s</xliff:g> മുമ്പ്."</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ആക്‌സസ്: <xliff:g id="NUM">%1$s</xliff:g> തവണ. അവസാനം ഉപയോഗിച്ചത് <xliff:g id="TIME">%2$s</xliff:g> മുമ്പ്."</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"സമയമനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക"</string>
+    <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"അനുവദിക്കുക"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"എല്ലാ ഫയലുകളും മാനേജ് ചെയ്യാൻ അനുവദിക്കുക"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"മീഡിയ ഫയലുകളിലേക്ക് മാത്രം ആക്‌സസ് അനുവദിക്കുക"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ഏതുസമയത്തും അനുവദിക്കുക"</string>
-    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"ആപ്പ് ഉപയോഗത്തിലുള്ളപ്പോൾ മാത്രം അനുവദിക്കുക"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"ആപ്പ് ഉപയോഗിക്കുമ്പോൾ മാത്രം"</string>
+    <string name="app_permission_button_ask" msgid="2757216269887794205">"എപ്പോഴും ചോദിക്കുക"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"നിരസിക്കുക"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> അനുമതി"</string>
-    <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="APP">%2$s</xliff:g>-നായുള്ള <xliff:g id="PERM">%1$s</xliff:g> ആക്‌സസ്"</string>
-    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ <xliff:g id="PERM">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g> മുമ്പ് ആക്‌സസ് ചെയ്‌തു."</string>
-    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ <xliff:g id="PERM">%2$s</xliff:g>ആക്‌‌സസ് ചെയ്‌തിട്ടില്ല."</string>
-    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"അനുമതികളുടെ വിശദമായ ഉപയോഗം കാണുക"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"ഈ ആപ്പിനുള്ള <xliff:g id="PERM">%1$s</xliff:g> ആക്‌സ‌സ്"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"എല്ലാ <xliff:g id="APP">%1$s</xliff:g> അനുമതികളും കാണുക"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ഈ അനുമതിയുള്ള എല്ലാ ആപ്പുകളും കാണുക"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"ഉപയോഗിക്കാത്ത ആപ്പാണെങ്കിൽ അനുമതികൾ നീക്കം ചെയ്യുക"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"മാസങ്ങളായി ഈ ആപ്പ് ഉപയോഗിക്കുന്നില്ലെങ്കിൽ നിങ്ങളുടെ ഡാറ്റ സംരക്ഷിക്കുന്നതിന്, ഈ ആപ്പിനുള്ള അനുമതികൾ നീക്കം ചെയ്യുന്നതായിരിക്കും."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"കുറച്ച് മാസം ആപ്പ് ഉപയോഗിച്ചില്ലെങ്കിൽ, നിങ്ങളുടെ ഡാറ്റ സംരക്ഷിക്കുന്നതിന്, ഇനിപ്പറയുന്ന അനുമതികൾ നീക്കം ചെയ്യുന്നതായിരിക്കും: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"നിങ്ങളുടെ ഡാറ്റ സംരക്ഷിക്കുന്നതിന്, കുറച്ച് മാസങ്ങളായി ഉപയോഗിക്കാത്ത ആപ്പുകളിൽ നിന്ന് അനുമതികൾ നീക്കം ചെയ്തിരിക്കുന്നു."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"വീണ്ടും അനുമതികൾ നൽകണമെങ്കിൽ, ആപ്പ് തുറക്കുക."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"ഈ ആപ്പിന് സ്വയമേവയുള്ള നീക്കം ചെയ്യൽ നിലവിൽ പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"സ്വയമേവ തിരിച്ചെടുക്കാവുന്ന അനുമതികളൊന്നും നിലവിൽ നൽകിയിട്ടില്ല"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> എന്നതിനുള്ള അനുമതി നീക്കം ചെയ്യപ്പെടും."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g>, <xliff:g id="PERM_1">%2$s</xliff:g> എന്നിവയ്ക്കുള്ള അനുമതികൾ നീക്കം ചെയ്യപ്പെടും."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"നീക്കം ചെയ്യപ്പെടുന്ന അനുമതികൾ: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"അനുമതികൾ സ്വയമേവ മാനേജ് ചെയ്യുക"</string>
+    <string name="off" msgid="4561379152328580345">"ഓഫാക്കുക"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g> അനുമതി നീക്കം ചെയ്തു"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>, <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> അനുമതികൾ നീക്കം ചെയ്തു"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> അനുമതിയും മറ്റ് <xliff:g id="NUMBER">%2$s</xliff:g> അനുമതികളും നീക്കം ചെയ്തു"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"അവസാനം തുറന്നിട്ട് <xliff:g id="NUMBER">%s</xliff:g> മാസത്തിൽ കൂടുതലായി"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"ആപ്പ് അവസാനം തുറന്നത് <xliff:g id="DATE">%s</xliff:g>-നാണ്"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"അവസാനം തുറന്നത് <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"എല്ലാ ഫയലുകളും മാനേജ് ചെയ്യാൻ അനുവദിച്ചാൽ ഈ ഉപകരണത്തിലെയോ കണക്റ്റ് ചെയ്‌തിരിക്കുന്ന സ്റ്റോറേജ് ഉപകരണങ്ങളിലെയോ പൊതു സ്റ്റോറേജിലുള്ള ഏത് ഫയലും ആക്‌സസ് ചെയ്യാനും പരിഷ്‌കരിക്കാനും ഇല്ലാതാക്കാനും ഈ ആപ്പിന് കഴിയും. നിങ്ങളോട് ചോദിക്കാതെ തന്നെ ആപ്പ് ഫയലുകൾ ആക്‌സസ് ചെയ്തേക്കാം."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"ഈ ഉപകരണത്തിലെയോ കണക്റ്റ് ചെയ്‌തിരിക്കുന്ന ഏതെങ്കിലും സ്റ്റോറേജ് ഉപകരണത്തിലെയോ ഫയലുകൾ ആക്‌സസ് ചെയ്യാനും പരിഷ്‌കരിക്കാനും ഇല്ലാതാക്കാനും ഈ ആപ്പിനെ അനുവദിക്കണോ? നിങ്ങളോട് ചോദിക്കാതെ തന്നെ ഈ ആപ്പ് ഫയലുകൾ ആക്‌സസ് ചെയ്തേക്കാം."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"നടത്തം, സൈക്ലിംഗ്, ഡ്രൈവിംഗ്, സ്‌റ്റെപ് കൗണ്ട് എന്നിവപോലുള്ള നിങ്ങളുടെ കായിക പ്രവർത്തനം ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ആക്‌സസ് ചെയ്യാനാകും"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് നിങ്ങളുടെ കലണ്ടർ ആക്‌സസ് ചെയ്യാനാവും"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ഫോൺ കോൾ ചരിത്രം വായിക്കാനും എഴുതാനുമാവും"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് വീഡിയോ റെക്കോർഡ് ചെയ്യുകയും ചിത്രങ്ങളെടുക്കുകയും ചെയ്യാം"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് നിങ്ങളുടെ കോൺടാക്റ്റുകൾ ആക്‌സസ് ചെയ്യാം"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ഈ ഉപകരണത്തിന്റെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാം"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് ഓഡിയോ റെക്കോർഡ് ചെയ്യാം"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് കോളുകൾ ചെയ്യാനും അവ മാനേജ് ചെയ്യാനുമാവും"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് നിങ്ങളുടെ ജീവാധാര ലക്ഷണങ്ങളെ കുറിച്ചുള്ള സെൻസർ വിവരങ്ങൾ ആക്‌സസ് ചെയ്യാനാവും"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് SMS സന്ദേശങ്ങൾ കാണാനും അയയ്ക്കാനുമാവും"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"നിങ്ങളുടെ ഉപകരണത്തിലെ ഫോട്ടോകളും മീഡിയയും ഫയലുകളും ആക്‌സസ് ചെയ്യാൻ ഈ അനുമതിയുള്ള ആപ്പുകൾക്ക് കഴിയും"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"അവസാനം ആക്‌‌സസ് ചെയ്‌തത്: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"നിലവിൽ നിരസിച്ചവ / അവസാന ആക്‌സസ്: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ഒരിക്കലും ആക്‌‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"നിരസിച്ചത് / ഒരിക്കലും ആക്‌‌സസ് ചെയ്യാത്തത്"</string>
     <string name="allowed_header" msgid="6279244592227088158">"അനുവദിച്ചവ"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"എല്ലാസമയത്തും അനുവദിച്ചത്"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ഉപയോഗിക്കുമ്പോൾ മാത്രം അനുവദനീയം"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"മീഡിയ ഫയലുകളിലേക്ക് മാത്രം ആക്‌സസ് അനുവദിച്ചവ"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"എല്ലാ ഫയലുകളും മാനേജ് ചെയ്യാൻ അനുവദിച്ചവ"</string>
+    <string name="ask_header" msgid="4471670860332046665">"എപ്പോഴും ചോദിക്കുക"</string>
     <string name="denied_header" msgid="2277998574238617699">"നിരസിച്ചവ"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"വിശദമായ ഉപയോഗം കാണുക"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ദിവസം</item>
       <item quantity="one">ഒരു ദിവസം</item>
@@ -171,53 +176,163 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> സെക്കൻഡ്</item>
       <item quantity="one">ഒരു സെക്കൻഡ്</item>
     </plurals>
-    <string name="role_request_message_add" msgid="1977772335648650272">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; എന്നതിനെ നിങ്ങളുടെ <xliff:g id="ROLE_NAME">%2$s</xliff:g> ആയി ഉപയോഗിക്കണോ?"</string>
-    <string name="role_request_message_replace" msgid="6367571247558110210">"&lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; എന്നതിന് പകരം &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; എന്നത്, നിങ്ങളുടെ <xliff:g id="ROLE_NAME">%2$s</xliff:g> ആയി ഉപയോഗിക്കണോ?"</string>
     <string name="permission_reminders" msgid="8040710767178843151">"അനുമതിയ്ക്കുള്ള റിമൈൻഡറുകൾ"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g>എന്ന ആപ്പ് നിങ്ങളുടെ ലൊക്കേഷൻ ഉപയോഗിക്കുന്നു"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"ഒരു ഉപയോഗിക്കാത്ത ആപ്പ്"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ഉപയോഗിക്കാത്ത ആപ്പുകൾ"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"നിങ്ങളുടെ സ്വകാര്യത പരിരക്ഷിക്കാൻ അനുമതികൾ നീക്കം ചെയ്തു. അവലോകനം ചെയ്യാൻ ടാപ്പ് ചെയ്യുക"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"ഉപയോഗിക്കാത്തവയ്ക്കുള്ള അനുമതി നീക്കം ചെയ്‌തു"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"കുറച്ച് മാസങ്ങളായി ചില ആപ്പുകൾ ഉപയോഗിച്ചിട്ടില്ല. അവലോകനം ചെയ്യാൻ ടാപ്പ് ചെയ്യുക."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other">കുറച്ച് മാസങ്ങളായി <xliff:g id="COUNT_1">%1$d</xliff:g> ആപ്പുകൾ ഉപയോഗിച്ചിട്ടില്ല. റിവ്യൂ ചെയ്യുന്നതിന് ടാപ്പ് ചെയ്യുക</item>
+      <item quantity="one">കുറച്ച് മാസങ്ങളായി <xliff:g id="COUNT_0">%1$d</xliff:g> ആപ്പ് ഉപയോഗിച്ചിട്ടില്ല. റിവ്യൂ ചെയ്യുന്നതിന് ടാപ്പ് ചെയ്യുക</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"കുറച്ച് മാസങ്ങളായി ചില ആപ്പുകൾ ഉപയോഗിച്ചിട്ടില്ല"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other">കുറച്ച് മാസങ്ങളായി <xliff:g id="COUNT_1">%1$d</xliff:g> ആപ്പുകൾ ഉപയോഗിച്ചിട്ടില്ല</item>
+      <item quantity="one">കുറച്ച് മാസങ്ങളായി <xliff:g id="COUNT_0">%1$d</xliff:g> ആപ്പ് ഉപയോഗിച്ചിട്ടില്ല</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"അനുമതികൾ നീക്കം ചെയ്‌തവ"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"അനുമതികൾ നീക്കം ചെയ്‌തവ"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"ഉപയോഗിക്കാത്ത എല്ലാ ആപ്പുകളും"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> മാസം മുമ്പ്"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"നിങ്ങളുടെ സ്വകാര്യത പരിരക്ഷിക്കാൻ അനുമതികൾ നീക്കം ചെയ്തു"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>-ന് നിങ്ങളുടെ ലൊക്കേഷൻ പശ്ചാത്തലത്തിൽ ലഭിച്ചു"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ഈ ആപ്പിന് എപ്പോഴും നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാനാവും. മാറ്റാൻ ടാപ്പ് ചെയ്യുക."</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"സ്വകാര്യത പരിരക്ഷിക്കാൻ ആപ്പ് അനുമതികൾ നീക്കം ചെയ്തു"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"കുറച്ച് മാസങ്ങളായി <xliff:g id="APP_NAME">%s</xliff:g> ഉപയോഗിച്ചിട്ടില്ല. അവലോകനം ചെയ്യുന്നതിന് ടാപ്പ് ചെയ്യുക."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> എന്നതും മറ്റൊരു ആപ്പും കുറച്ച് മാസങ്ങളായി ഉപയോഗിച്ചിട്ടില്ല. അവലോകനം ചെയ്യുന്നതിന് ടാപ്പ് ചെയ്യുക."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നതും <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> മറ്റ് ആപ്പുകളും കുറച്ച് മാസങ്ങളായി ഉപയോഗിച്ചിട്ടില്ല. അവലോകനം ചെയ്യുന്നതിന് ടാപ്പ് ചെയ്യുക."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"ഒരു ആപ്പ് ഉപയോഗിക്കാത്തതാണ്"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ആപ്പുകൾ ഉപയോഗിക്കാത്തവയാണ്"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"നിങ്ങളുടെ സ്വകാര്യത പരിരക്ഷിക്കാൻ അനുമതികൾ നീക്കം ചെയ്യപ്പെടും. അവലോകനം ചെയ്യുന്നതിന് ടാപ്പ് ചെയ്യുക."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"ഉപയോഗിക്കാത്ത ആപ്പുകൾ"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"ഇനിപ്പറയുന്നതിൽ നിന്നും അനുമതികൾ നീക്കം ചെയ്തു"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"ഇനിപ്പറയുന്നതിൽ നിന്നും അനുമതികൾ നീക്കം ചെയ്യപ്പെടും"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> എന്നിവ"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> എന്നിവയും <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> കൂടുതലും"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"നിങ്ങളുടെ ഡാറ്റ പരിരക്ഷിക്കാൻ, കുറച്ച് മാസങ്ങളായി ഉപയോഗിക്കാത്ത ആപ്പുകളിൽ നിന്ന് അനുമതികൾ നീക്കം ചെയ്തു"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"നിങ്ങളുടെ ഡാറ്റ പരിരക്ഷിക്കാൻ, കുറച്ച് മാസങ്ങളായി ഉപയോഗിക്കാത്ത ചില ആപ്പുകളിൽ നിന്ന് അനുമതികൾ നീക്കം ചെയ്തിരിക്കുന്നു"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"കുറച്ച് മാസങ്ങളായി ഒരു ആപ്പ് ഉപയോഗിച്ചിട്ടില്ല"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"കുറച്ച് മാസങ്ങളായി <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ആപ്പുകൾ ഉപയോഗിച്ചിട്ടില്ല"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ആപ്പ് ഉപയോഗത്തിലുള്ളപ്പോൾ മാത്രം"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"മീഡിയ"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"എല്ലാ ഫയലുകളും"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"അനുമതികളൊന്നും നൽകിയിട്ടില്ല"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"അനുമതികളൊന്നും നിഷേധിച്ചിട്ടില്ല"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"ആപ്പുകൾക്കൊന്നും അനുമതി നൽകിയിട്ടില്ല"</string>
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"എല്ലാ ഫയലുകൾക്കും ആപ്പുകളൊന്നും അനുവദിച്ചിട്ടില്ല"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"മീഡിയക്ക് മാത്രമായി ആപ്പുകളൊന്നും അനുവദിച്ചിട്ടില്ല"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"ആപ്പുകൾക്കൊന്നും അനുമതി നിഷേധിച്ചിട്ടില്ല"</string>
-    <string name="launch_app" msgid="5641437562665039291">"തുറക്കുക"</string>
-    <string name="uninstall_app" msgid="8756507666995809214">"അൺഇൻസ്‌റ്റാൾ ചെയ്യുക"</string>
-    <string name="force_stop_app" msgid="4253426323145479826">"നിർബന്ധിതമായി നിർത്തുക"</string>
+    <string name="car_permission_selected" msgid="2163426344720483487">"തിരഞ്ഞെടുത്തു"</string>
     <string name="settings" msgid="2884124136779508907">"ക്രമീകരണം"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"നിങ്ങളുടെ ഉപകരണത്തിലേക്ക് <xliff:g id="SERVICE_NAME">%s</xliff:g> എന്നതിന് പൂർണ്ണമായ ആക്‌സസുണ്ട്"</string>
-    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"നിങ്ങളുടെ ഉപകരണത്തിലേക്ക് <xliff:g id="NUM_SERVICES">%s</xliff:g> ഉപയോഗസഹായി സേവനങ്ങൾക്ക് പൂർണ്ണമായ ആക്‌സസുണ്ട്"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"നിങ്ങളുടെ ഉപകരണത്തിലേക്ക് <xliff:g id="NUM_SERVICES">%s</xliff:g> ഉപയോഗസഹായി ആപ്പുകൾക്ക് പൂർണ്ണമായ ആക്‌സസുണ്ട്"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> എന്നതിന് നിങ്ങളുടെ സ്‌ക്രീൻ, പ്രവർത്തനങ്ങൾ, ഇൻപുട്ടുകൾ എന്നിവ കാണാനും പ്രവർത്തനങ്ങൾ നിർവഹിക്കാനും, ഡിസ്‌പ്ലേ നിയന്ത്രിക്കാനും കഴിയും."</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"ഈ സേവനങ്ങൾക്ക് നിങ്ങളുടെ സ്‌ക്രീൻ, പ്രവർത്തനങ്ങൾ, ഇൻപുട്ടുകൾ എന്നിവ കാണാനും പ്രവർത്തനങ്ങൾ നിർവഹിക്കാനും, ഡിസ്‌പ്ലേ നിയന്ത്രിക്കാനും കഴിയും."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"ഈ ആപ്പുകൾക്ക് നിങ്ങളുടെ സ്‌ക്രീൻ, പ്രവർത്തനങ്ങൾ, ഇൻപുട്ടുകൾ എന്നിവ കാണാനും പ്രവർത്തനങ്ങൾ നിർവഹിക്കാനും, ഡിസ്‌പ്ലേ നിയന്ത്രിക്കാനുമാവും."</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"ഡിഫോൾട്ട് ഡിജിറ്റൽ അസിസ്‌റ്റന്റ് ആപ്പ്"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"ഡിജിറ്റൽ അസിസ്‌റ്റന്റ് ആപ്പ്"</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"നിങ്ങൾ കാണുന്ന സ്ക്രീനിൽ നിന്നുള്ള വിവരങ്ങളെ അടിസ്ഥാനമാക്കി സഹായിക്കാൻ സഹായ ആപ്പിന് കഴിയും. നിങ്ങൾക്ക് സമ്പൂർണ്ണമായ സഹായം നൽകാൻ ലോഞ്ചറിനെയും വോയ്‌സ് ഇൻപുട്ട് സേവനങ്ങളെയും ചില ആപ്പുകൾ പിന്തുണയ്‌ക്കുന്നു."</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നതിനെ നിങ്ങളുടെ ഡിഫോൾട്ട് സഹായ ആപ്പായി സജ്ജീകരിക്കണോ?"</string>
+    <string name="role_assistant_request_description" msgid="1086168907357494789">"SMS, കോൾ ലോഗ് എന്നിവയിലേക്ക് ആക്‌സസ് നേടുക"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"ഡിഫോൾട്ട് ബ്രൗസർ ആപ്പ്"</string>
+    <string name="role_browser_short_label" msgid="6222206565850006894">"ബ്രൗസർ ആപ്പ്"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"നിങ്ങൾ ടാപ്പ് ചെയ്യുന്ന ലിങ്കുകൾ പ്രദർശിപ്പിക്കുകയും ഇന്റർനെറ്റ് ആക്‌സസ് നൽകുകയും ചെയ്യുന്ന ആപ്പുകൾ"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നത് നിങ്ങളുടെ ഡിഫോൾട്ട് ബ്രൗസർ ആപ്പായി സജ്ജീകരിക്കണോ?"</string>
+    <string name="role_browser_request_description" msgid="3204873553391043604">"അനുമതികൾ ആവശ്യമില്ല"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"ഡിഫോൾട്ട് ഫോൺ ആപ്പ്"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"ഫോൺ ആപ്പ്"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"നിങ്ങളുടെ ഉപകരണത്തിൽ ടെലിഫോൺ കോളുകൾ ചെയ്യാനും സ്വീകരിക്കാനും അനുവദിക്കുന്ന ആപ്പുകൾ"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നതിനെ നിങ്ങളുടെ ഡിഫോൾട്ട് ഫോൺ ആപ്പായി സജ്ജീകരിക്കണോ?"</string>
+    <string name="role_dialer_request_description" msgid="2931069491309771312">"SMS അയയ്‌ക്കൽ, കോൾ ചരിത്രം എന്നിവയിലേക്ക് ആക്‌സസ് നേടുക"</string>
+    <string name="role_dialer_search_keywords" msgid="6215791911228160821">"ഡയലർ"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"ഡിഫോൾട്ട് SMS ആപ്പ്"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"SMS ആപ്പ്"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"ചുരുക്കത്തിലുള്ള ടെക്‌സ്‌റ്റ് മെസേജുകൾ, ഫോട്ടോകൾ, വീഡിയോകൾ എന്നിവയും മറ്റും അയയ്ക്കാനും സ്വീകരിക്കാനും നിങ്ങളുടെ ഫോൺ നമ്പർ ഉപയോഗിക്കാൻ അനുവദിക്കുന്ന ആപ്പുകൾ"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നതിനെ നിങ്ങളുടെ ഡിഫോൾട്ട് SMS ആപ്പായി സജ്ജീകരിക്കണോ?"</string>
+    <string name="role_sms_request_description" msgid="4920787411350418630">"കോൺടാക്‌റ്റുകൾ, SMS, ഫോൺ എന്നിവയിലേക്ക് ആക്‌സസ് നേടുക"</string>
+    <string name="role_sms_search_keywords" msgid="6818482413212931585">"ടെക്സ്റ്റ് മെസേജ്, ടെക്സ്റ്റ് ചെയ്യൽ, സന്ദേശങ്ങൾ, സന്ദേശം അയയ്‌ക്കൽ എന്നിവ"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"ഡിഫോൾട്ട് അടിയന്തിര ആപ്പ്"</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"അടിയന്തിര ആപ്പ്"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"നിങ്ങളുടെ മെഡിക്കൽ വിവരങ്ങൾ റിക്കോർഡ് ചെയ്യാനും അടിയന്തര സാഹചര്യത്തിൽ പ്രതികരിക്കുന്നവർക്ക് ആക്‌സസ് ചെയ്യുന്നതിനും; ഗുരുതര കാലാവസ്ഥാ ഇവന്റുകളെയും ദുരന്തങ്ങളെയും കുറിച്ച് മുന്നറിയിപ്പുകൾ നേടാനും; നിങ്ങൾക്ക് സഹായമാവശ്യമുള്ളപ്പോൾ മറ്റുള്ളവരെ അറിയിക്കാനും അനുവദിക്കുന്ന ആപ്പുകൾ"</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നതിനെ നിങ്ങളുടെ ഡിഫോൾട്ട് അടിയന്തിര ആപ്പായി സജ്ജീകരിക്കണോ?"</string>
+    <string name="role_emergency_request_description" msgid="2824966073894226992">"അനുമതികൾ ആവശ്യമില്ല"</string>
+    <string name="role_emergency_search_keywords" msgid="7310029268876820646">"അടിയന്തര സാഹചര്യത്തിൽ"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"ഡിഫോൾട്ട് ഹോം ആപ്പ്"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"ഹോം ആപ്പ്"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Android ഉപകരണത്തിലെ ഹോം സ്‌ക്രീനുകൾക്ക് പകരം വയ്ക്കുന്ന, ഉപകരണത്തിന്റെ ഉള്ളടക്കത്തിലേക്കും ഫീച്ചറുകളിലേക്കും നിങ്ങൾക്ക് ആക്‌സസ് നൽകുന്ന, ലോഞ്ചറുകൾ എന്ന് വിളിക്കപ്പെടുന്ന ആപ്പുകൾ"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നതിനെ നിങ്ങളുടെ ഡിഫോൾട്ട് ഹോം ആപ്പായി സജ്ജീകരിക്കണോ?"</string>
+    <string name="role_home_request_description" msgid="6437733879812403277">"അനുമതികൾ ആവശ്യമില്ല"</string>
+    <string name="role_home_search_keywords" msgid="8277315231013298175">"ലോഞ്ചർ"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"ഡിഫോൾട്ട് കോൾ റീഡയറക്‌ടിംഗ് ആപ്പ്"</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"കോൾ റീഡയറക്‌ട് ചെയ്യുന്ന ആപ്പ്"</string>
+    <string name="role_call_redirection_description" msgid="769231030043298555">"മറ്റൊരു ഫോൺ നമ്പറിലേക്ക് നിങ്ങളുടെ ഔട്ട്‌ഗോയിംഗ് കോളുകൾ കൈമാറാൻ അനുവദിക്കുന്ന ആപ്പുകൾ"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നതിനെ നിങ്ങളുടെ ഡിഫോൾട്ട് കോൾ റീഡയറക്‌ട് ചെയ്യുന്ന ആപ്പായി സജ്ജീകരിക്കണോ?"</string>
+    <string name="role_call_redirection_request_description" msgid="6117172580087594081">"അനുമതികൾ ആവശ്യമില്ല"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"ഡിഫോൾട്ട് കോളർ ഐഡിയും സ്‌പാം ആപ്പും"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"കോളർ ഐഡിയും സ്‌പാം ആപ്പും"</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"കോളുകൾ തിരിച്ചറിയാനും സ്‌പാം, റോബോകോൾ, ആവശ്യമില്ലാത്ത നമ്പറുകൾ എന്നിവ ബ്ലോക്ക് ചെയ്യാനും നിങ്ങളെ അനുവദിക്കുന്ന ആപ്പുകൾ"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നതിനെ നിങ്ങളുടെ ഡിഫോൾട്ട് കോളർ ഐഡി സ്‌പാം ആപ്പായി സജ്ജീകരിക്കണോ?"</string>
+    <string name="role_call_screening_request_description" msgid="7788142583532880646">"അനുമതികൾ ആവശ്യമില്ല"</string>
+    <string name="request_role_current_default" msgid="7512045433655289638">"നിലവിലെ ഡിഫോൾട്ട്"</string>
+    <string name="request_role_dont_ask_again" msgid="6250680190065090205">"വീണ്ടും ആവശ്യപ്പെടരുത്"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"ഡിഫോൾട്ടായി സജ്ജമാക്കൂ"</string>
+    <string name="default_app_search_keyword" msgid="6938709626391437391">"ഡിഫോൾട്ട് ആപ്പുകൾ"</string>
+    <string name="settings_button" msgid="4747434541214595321">"ക്രമീകരണം"</string>
     <string name="default_apps" msgid="8554530939151957828">"ഡിഫോൾട്ട് ആപ്പുകൾ"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"ഡിഫോൾട്ട് ആപ്പുകൾ ഇല്ല"</string>
+    <string name="default_apps_more" msgid="3908067305593075127">"കൂടുതൽ ഡിഫോൾട്ടുകൾ"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"ലിങ്കുകൾ തുറക്കൽ"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"ജോലി ആവശ്യങ്ങൾക്ക് ഡിഫോൾട്ട്"</string>
     <string name="default_app_none" msgid="7671097769303174666">"ഒന്നുമില്ല"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(സിസ്‌റ്റം ഡിഫോൾട്ട്)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"ആപ്പുകൾ ഒന്നുമില്ല"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"തിരഞ്ഞെടുത്തു"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"<xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g> - തിരഞ്ഞെടുത്തു"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"പ്രത്യേക ആപ്പ് ആക്‌സസ്"</string>
     <string name="special_app_access" msgid="2561673957499408877">"പ്രത്യേക ആപ്പ് ആക്‌സസ്"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"പ്രത്യേക ആപ്പ് ആക്‌സസില്ല"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"ആപ്പുകൾ ലഭ്യമല്ല"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"സഹായ ആപ്പ്"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"ബ്രൗസർ ആപ്പ്"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"ഫോൺ ആപ്പ്"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"SMS ആപ്പ്"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"അടിയന്തര ആപ്പ്"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"ഹോം ആപ്പ്"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"സംഗീത ആപ്പ്"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"ഗാലറി ആപ്പ്"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"കാർ മോഡ് ഫോൺ ആപ്പ്"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"കോൾ റീഡയറക്‌ട് ചെയ്യുന്ന ആപ്പ്"</string>
-    <string name="role_label_call_screening" msgid="411212589764916370">"കോൾ സ്‌ക്രീനിംഗ് ആപ്പ്"</string>
-    <string name="role_label_call_companion" msgid="7369723859682076467">"കോൾ സഹകാരി ആപ്പ്"</string>
-    <string name="role_label_car_projection" msgid="3792929094325391213">"കാർ പ്രൊജക്ഷൻ ആപ്പ്"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"ഔദ്യോഗിക പ്രൊഫൈലിനെ പിന്തുണയ്‌ക്കുന്നില്ല"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"ശ്രദ്ധിക്കുക: നിങ്ങളുടെ ഉപകരണം റീസ്‌റ്റാർട്ട് ചെയ്‌ത്, സ്‌ക്രീൻ ലോക്ക് സജ്ജീകരിച്ചിട്ടുണ്ടെങ്കിൽ, നിങ്ങളുടെ ഉപകരണം അൺലോക്ക് ചെയ്യുന്നത് വരെ ഈ ആപ്പ് ആരംഭിക്കാനാവില്ല."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"നിങ്ങളുടെ സ്ക്രീനിൽ ദൃശ്യമാകുന്നതോ ആപ്പുകൾക്കുള്ളിൽ ആക്‌സസ് ചെയ്യാവുന്നതോ ആയ വിവരങ്ങൾ ഉൾപ്പെടെ, നിങ്ങളുടെ സിസ്‌റ്റത്തിൽ ഉപയോഗത്തിലുള്ള ആപ്പുകളെ കുറിച്ചുള്ള വിവരങ്ങൾ വായിക്കാൻ അസിസ്‌റ്റൻ്റിനാവും."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"ഡീബഗ്ഗ് ചെയ്യൽ ഡാറ്റ പങ്കിടുക"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"വിശദമായ ഡീബഗ്ഗ് ചെയ്യൽ വിവരങ്ങൾ പങ്കിടണോ?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"ഡീബഗ്ഗ് ചെയ്യൽ വിവരങ്ങൾ അപ്‌ലോഡ് ചെയ്യാൻ <xliff:g id="APP_NAME">%1$s</xliff:g> താൽപ്പര്യപ്പെടുന്നു."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"ഡീബഗ്ഗ് ചെയ്യൽ ഡാറ്റ പങ്കിടുക"</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"ഈ ഉപകരണത്തിൽ നിന്ന് <xliff:g id="DATE">%2$s</xliff:g>-ന് <xliff:g id="TIME">%3$s</xliff:g>-മണിയ്ക്ക് എടുത്ത ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ <xliff:g id="APP_NAME_0">%1$s</xliff:g> അഭ്യർത്ഥിക്കുന്നു. നിങ്ങളുടെ ഉപകരണത്തെക്കുറിച്ചുള്ള വ്യക്തിഗത വിവരമോ ആപ്പുകൾ ലോഗ് ചെയ്യുമ്പോൾ നൽകുന്ന വിവരമോ, ഉദാഹരണത്തിന് നെറ്റ്‌വർക്ക് വിവരങ്ങൾ, ഉപകരണ ഐഡന്റിഫയറുകൾ, ലൊക്കേഷൻ ഡാറ്റ, ഉപയോക്തൃനാമങ്ങൾ എന്നിവ ബഗ് റിപ്പോർട്ടുകളിൽ ഉൾപ്പെടുന്നു. ഈ വിവരം ഉപയോഗിച്ച് നിങ്ങൾ വിശ്വസിക്കുന്ന ആപ്പുകൾക്കും ആളുകൾക്കും മാത്രം ബഗ് റിപ്പോർട്ടുകൾ പങ്കിടുക. <xliff:g id="APP_NAME_1">%4$s</xliff:g> എന്നതിനെ ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ അനുവദിക്കണോ?"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"ഡീബഗ്ഗ് ചെയ്യൽ ഡാറ്റ പങ്കിടണോ?"</string>
+    <string name="incident_report_dialog_intro" msgid="153446034925770956">"സിസ്‌റ്റം ഒരു പ്രശ്‌നം കണ്ടെത്തി."</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"ഈ ഉപകരണത്തിൽ നിന്ന് <xliff:g id="DATE">%2$s</xliff:g>-ന് <xliff:g id="TIME">%3$s</xliff:g>-ന് എടുത്ത ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ <xliff:g id="APP_NAME_0">%1$s</xliff:g> അഭ്യർത്ഥിക്കുന്നു. നിങ്ങളുടെ ഉപകരണത്തെക്കുറിച്ചുള്ള വ്യക്തിപരമായ വിവരമോ ആപ്പുകൾ ലോഗ് ചെയ്യുമ്പോൾ നൽകുന്ന വിവരമോ, ഉദാഹരണത്തിന് നെറ്റ്‌വർക്ക് വിവരങ്ങൾ, ഉപകരണ ഐഡന്റിഫയറുകൾ, ലൊക്കേഷൻ ഡാറ്റ, ഉപയോക്തൃനാമങ്ങൾ എന്നിവ ബഗ് റിപ്പോർട്ടുകളിൽ ഉൾപ്പെടുന്നു. ഈ വിവരം ഉപയോഗിച്ച് നിങ്ങൾ വിശ്വസിക്കുന്ന ആപ്പുകൾക്കും ആളുകൾക്കും മാത്രം ബഗ് റിപ്പോർട്ടുകൾ പങ്കിടുക. <xliff:g id="APP_NAME_1">%4$s</xliff:g> എന്നതിനെ ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ അനുവദിക്കണോ?"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്ന ആപ്പിൻ്റെ ബഗ് റിപ്പോർട്ട് പ്രോസസ് ചെയ്യുന്നതിൽ ഒരു പിശകുണ്ടായി. അതിനാൽ വിശദമായ ഡീബഗ്ഗ് ചെയ്യൽ ഡാറ്റ പങ്കിടുന്നത് തടഞ്ഞു. തടസ്സം നേരിട്ടതിൽ ഖേദിക്കുന്നു."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"അനുവദിക്കുക"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"നിരസിക്കുക"</string>
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"വിപുലമായ ക്രമീകരണം"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"വിപുലമായ ക്രമീകരണം"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"സിസ്റ്റം ആപ്പിന്റെ ഉപയോഗം കാണിക്കുക"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"സിസ്റ്റം ആപ്പിന്റെ ഉപയോഗ അനുമതികൾ സ്റ്റാറ്റസ് ബാറിലും ഡാഷ് ബോർഡിലും മറ്റെവിടെയെങ്കിലുമോ കാണിക്കുക"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"ഇനിപ്പറയുന്നവയുടെ ഉപയോഗം ഹൈലൈറ്റ് ചെയ്യുക"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"അസിസ്‌റ്റന്റ് ട്രിഗർ കണ്ടെത്തൽ കാണിക്കുക"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"ശബ്‌ദ സഹായം സജീവമാക്കാൻ മൈക്രോഫോൺ ഉപയോഗിക്കുമ്പോൾ സ്റ്റാറ്റസ് ബാറിൽ ഐക്കൺ കാണിക്കുക"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"നിങ്ങളുടെ ഉപകരണത്തിലെ ഫോട്ടോകളും മീഡിയയും ഫയലുകളും ആക്‌സസ് ചെയ്യാൻ &lt;b&gt; <xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="permgrouprequest_contacts" msgid="1493445560009228831">"നിങ്ങളുടെ കോണ്‍ടാക്റ്റുകള്‍ ആക്‌സസ് ചെയ്യാൻ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="permgrouprequest_location" msgid="4367626296074714965">"ഈ ഉപകരണത്തിന്റെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാൻ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; എന്നതിനെ അനുവദിക്കണോ?"</string>
+    <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"നിങ്ങൾ ആപ്പ് ഉപയോഗിക്കുമ്പോൾ മാത്രമേ അതിന് ലൊക്കേഷൻ ആക്‌സസ് ലഭിക്കൂ."</string>
+    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"ഈ ഉപകരണത്തിന്റെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാൻ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; എന്നതിനെ അനുവദിക്കണോ?"</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"ആപ്പ് ഉപയോഗിക്കാത്തപ്പോൾ പോലും, എല്ലാ സമയത്തും ഈ ആപ്പിന് നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യേണ്ടതുണ്ട്. "<annotation id="link">"ക്രമീകരണത്തിൽ"</annotation>" അനുവദിക്കുക."</string>
+    <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; എന്നതിന്റെ ലൊക്കേഷൻ ആക്സസ് മാറ്റണോ?"</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"ആപ്പ് നിങ്ങൾ ഉപയോഗിക്കാത്തപ്പോഴടക്കം, എല്ലാ സമയത്തും ഈ ആപ്പ് നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാൻ ആഗ്രഹിക്കുന്നു. "<annotation id="link">"ക്രമീകരണത്തിൽ അനുവദിക്കുക."</annotation></string>
+    <string name="permgrouprequest_calendar" msgid="254840812783503926">"നിങ്ങളുടെ കലണ്ടർ ആക്‌സസ് ചെയ്യാൻ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="permgrouprequest_sms" msgid="2622312529683649944">"SMS സന്ദേശങ്ങൾ അയയ്ക്കാനും കാണാനും &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="permgrouprequest_storage" msgid="1092300826793175064">"നിങ്ങളുടെ ഉപകരണത്തിലെ ഫോട്ടോകളും മീഡിയയും ഫയലുകളും ആക്‌സസ് ചെയ്യാൻ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"ഓഡിയോ റെക്കോർഡ് ചെയ്യാൻ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-നെ നിങ്ങളുടെ കായിക പ്രവർത്തനം ആക്‌സസ് ചെയ്യാൻ അനുവദിക്കണോ?"</string>
+    <string name="permgrouprequest_camera" msgid="5379726026447957660">"ചിത്രം എടുക്കാനും വീഡിയോ റെക്കോർഡ് ചെയ്യാനും &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="permgrouprequest_calllog" msgid="8654341234544121138">"നിങ്ങളുടെ ഫോൺ കോൾ ലോഗുകൾ ആക്സസ് ചെയ്യാൻ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="permgrouprequest_phone" msgid="6240218310343431124">"ഫോൺ കോളുകൾ ചെയ്യാനും അവ മാനേജ് ചെയ്യാനും &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="permgrouprequest_sensors" msgid="1939578702884234985">"നിങ്ങളുടെ ജീവധാരണ ലക്ഷണങ്ങളെ കുറിച്ചുള്ള സെൻസർ ഡാറ്റ ആക്‌സസ് ചെയ്യാൻ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"നിയന്ത്രിത അനുമതികൾ"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാൻ കഴിയും"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാൻ നിങ്ങളുടെ ഐടി അഡ്‌മിൻ <xliff:g id="APP_NAME">%s</xliff:g> എന്നതിനെ അനുവദിക്കുന്നു"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"ഈ ആപ്പിന് ശബ്‌ദം തിരിച്ചറിയേണ്ടതിനാൽ ചില ഓപ്‌ഷനുകൾ ലഭ്യമല്ല"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"ഈ ആപ്പ് നിങ്ങളുടെ ഡിഫോൾട്ട് ഡിജിറ്റൽ അസിസ്‌റ്റന്റ് ആയതിനാൽ ചില ഓപ്ഷനുകൾ ലഭ്യമല്ല"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"വോയ്‌സ് ഇൻപുട്ടിന് ഈ ആപ്പ് ഉപയോഗിക്കുന്നതിനാൽ ചില ഓപ്‌ഷനുകൾ ലഭ്യമല്ല"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"ഈ ആപ്പ് നിങ്ങളുടെ സേവനദാതാവ് മാനേജ് ചെയ്യുന്നതിനാൽ ചില ഓപ്‌ഷനുകൾ ലഭ്യമല്ല"</string>
 </resources>

@@ -1,0 +1,63 @@
+{
+    "presubmit": [
+        {
+            "name": "CtsPermissionTestCases",
+            "options": [
+                {
+                    "include-filter": "android.permission.cts.PermissionControllerTest"
+                },
+                {
+                    "include-filter": "android.permission.cts.OneTimePermissionTest"
+                },
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
+                }
+            ]
+        },
+        {
+            "name": "CtsBackupTestCases",
+            "options": [
+                {
+                    "include-filter": "android.backup.cts.PermissionTest"
+                },
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
+                }
+            ]
+        },
+        {
+            "name": "PermissionControllerOutOfProcessTests",
+            "options": [
+                {
+                    "include-filter": "com.android.permissioncontroller.tests.outofprocess.DumpTest"
+                }
+            ]
+        }
+    ],
+    "presubmit-devicepolicy": [
+        {
+            "name": "CtsDevicePolicyManagerTestCases",
+            "options": [
+                {
+                    "include-annotation": "com.android.cts.devicepolicy.annotations.PermissionsTest"
+                },
+                {
+                    "exclude-annotation": "android.platform.test.annotations.FlakyTest"
+                }
+            ]
+        }
+    ],
+    "postsubmit": [
+        {
+            "name": "CtsPermissionTestCases",
+            "options": [
+                {
+                    "include-filter": "android.permission.cts.LocationAccessCheckTest"
+                },
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
+                }
+            ]
+        }
+    ]
+}

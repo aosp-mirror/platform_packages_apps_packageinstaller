@@ -20,11 +20,16 @@
     <string name="ok" msgid="4417794827535157922">"OK"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"käyttöoikeudet"</string>
     <string name="cancel" msgid="7279939269964834974">"Peruuta"</string>
+    <string name="back" msgid="8739808065891653074">"Takaisin"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Poista tai poista käytöstä"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Sovellusta ei löydy"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Estä"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Hylkää äläkä kysy uudelleen"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"Pidä \"Kun sovellusta käytetään\""</string>
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Säilytä \"Vain tällä kertaa\""</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Lisätietoja"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Kiellä silti"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Ohita"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Sallitaanko toiminto <xliff:g id="ACTION">%2$s</xliff:g> sovellukselle &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aina <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -36,13 +41,20 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"kaikki käytössä"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Salli"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Salli aina"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Salli vain, kun sovellusta käytetään"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Sovellusta käytettäessä"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Vain tämän kerran"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Salli aina"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Salli kaikkien tiedostojen ylläpito"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Salli pääsy mediatiedostoihin"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Sovell."</string>
     <string name="app_permissions" msgid="2778362347879465223">"Sovelluksen käyttöoikeudet"</string>
-    <string name="app_permission_manager" msgid="3802609813311662642">"Käyttöoikeuksien ylläpitäjä"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Käyttämättömät sovellukset"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Poista sovellus käytöstä"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Jos poistat sovelluksen käytöstä, Android ja muut sovellukset eivät välttämättä enää toimi oikein. Muista, ettet voi poistaa sovellusta, sillä se tuli laitteesi mukana. Poistamalla sovelluksen käytöstä suljet sen ja piilotat sen laitteella."</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Käyttöoikeuksien ylläpito"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Älä kysy enää"</string>
-    <string name="no_permissions" msgid="2193893107241172888">"Ei käyttöoikeuksia"</string>
-    <string name="additional_permissions" msgid="7124470111123472154">"Lisäkäyttöoikeudet"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Ei lupia"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Lisäluvat"</string>
     <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Avaa sovelluksen tiedot"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> lisää</item>
@@ -50,9 +62,8 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Tämä sovellus on suunniteltu vanhemmalle Android-versiolle. Se ei välttämättä toimi oikein, jos käyttöoikeuksia ei sallita."</string>
     <string name="default_permission_description" msgid="692254823411049573">"suorita tuntematon toiminto"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> sovelluksella käyttöoikeus"</string>
-    <string name="permission_usage_header" msgid="8802963718365732792">"Viimeaikainen käyttö"</string>
-    <string name="permission_usage_view_details" msgid="7398825662321010957">"Näytä käyttöoikeuksien hallintapaneeli"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> sovelluksella lupa"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> sovelluksella lupa"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Näytä järjestelmä"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Piilota järjestelmä"</string>
     <string name="no_apps" msgid="2377153782338039463">"Ei sovelluksia"</string>
@@ -67,13 +78,13 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Järjestelmänvalvoja estää taustakäytön"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Järjestelmänvalvoja sallii taustakäytön"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Järjestelmänvalvoja sallii käytön etualalla"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"Käyttöoikeudet määritetty järjestelmän mukaan"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="5463084832974856683">"Laite ei toimi ilman tätä käyttöoikeutta."</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
-    <string name="permission_access_always" msgid="2315256378850460955">"Aina"</string>
-    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Vain sovelluksen käytön aikana"</string>
-    <string name="permission_access_never" msgid="4717648645876576508">"Ei koskaan"</string>
+    <string name="permission_access_always" msgid="5419580764084361573">"Salli aina"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Salli vain, kun sov. on käyt."</string>
+    <string name="permission_access_never" msgid="425385910378172045">"Estä"</string>
     <string name="loading" msgid="323483393167148377">"Ladataan…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Kaikki käyttöoikeudet"</string>
     <string name="other_permissions" msgid="1956312685853070715">"Muut sovellusluvat"</string>
@@ -91,70 +102,64 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Nykyiset käyttöoikeudet"</string>
     <string name="message_staging" msgid="641286607664721291">"Valmistellaan sovellusta…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Tuntematon"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"Hallintapaneeli"</string>
-    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
-      <item quantity="other">Viimeinen käyttökerta: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> käyttökertaa</item>
-      <item quantity="one">Viimeinen käyttökerta: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> käyttökerta</item>
-    </plurals>
-    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
-      <item quantity="other">Viimeinen käyttökerta: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> käyttökertaa (<xliff:g id="NUM_5">%3$s</xliff:g> taustalla)</item>
-      <item quantity="one">Viimeinen käyttökerta: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> käyttökerta (<xliff:g id="NUM_2">%3$s</xliff:g> taustalla)</item>
-    </plurals>
-    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
-      <item quantity="other">Viimeinen käyttökerta: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> käyttökertaa\nKesto: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-      <item quantity="one">Viimeinen käyttökerta: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> käyttökerta\nKesto: <xliff:g id="TIME_2">%3$s</xliff:g></item>
-    </plurals>
-    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
-      <item quantity="other">Viimeinen käyttökerta: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> käyttökertaa (<xliff:g id="NUM_6">%3$s</xliff:g> taustalla)\nKesto: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-      <item quantity="one">Viimeinen käyttökerta: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> käyttökerta (<xliff:g id="NUM_2">%3$s</xliff:g> taustalla)\nKesto: <xliff:g id="TIME_3">%3$s</xliff:g></item>
-    </plurals>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Kaikki käyttöoikeudet"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"Milloin tahansa"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Viimeiset 7 päivää"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"Viimeiset 24 tuntia"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Viimeisin tunti"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Viimeiset 15 minuuttia"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Viimeinen minuutti"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"Käyttöoikeuksia ei käytetty"</string>
-    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Käyttöoikeudet milloin tahansa"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Käyttöoikeudet viimeisten 7 pv:n ajalta"</string>
-    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Käyttöoikeudet viimeisten 24 h:n ajalta"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Käyttöoikeudet viimeisen tunnin ajalta"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Käyttöoikeudet viimeisten 15 min ajalta"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Käyttöoikeudet viimeisen minuutin ajalta"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Yleisimmät käyttöoikeudet milloin tahansa"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Yleisimmät käyttöoikeudet viimeisten 7 pv:n ajalta"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Yleisimmät käyttöoikeudet viimeisten 24 h:n ajalta"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Yleisimmät käyttöoikeudet viimeisen tunnin ajalta"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Yleisimmät käyttöoikeudet viimeisten 15 min ajalta"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Yleisimmät käyttöoikeudet viimeisen minuutin ajalta"</string>
-    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Sovell."</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Suodatusperuste: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Poista suodatin"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Suodatusperuste"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Suodata käyttöoikeuksien perusteella"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Eniten käyttöoikeuksia"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Eniten käyttöoikeuksia"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"Viimeisimmät"</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"Päivitä"</string>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"Sovelluksen käyttöoikeudet"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Käyttö: <xliff:g id="NUM">%1$s</xliff:g> kertaa. Kokonaiskesto: <xliff:g id="DURATION">%2$s</xliff:g>. Käytetty viimeksi <xliff:g id="TIME">%3$s</xliff:g> sitten."</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Käyttö: <xliff:g id="NUM">%1$s</xliff:g> kertaa. Käytetty viimeksi <xliff:g id="TIME">%2$s</xliff:g> sitten."</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"Suodata ajan perusteella"</string>
+    <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Salli"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Salli kaikkien tiedostojen ylläpito"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Salli pääsy vain mediaan"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Salli aina"</string>
-    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Salli vain, kun sovellusta käytetään"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Salli vain, kun sovellus on käytössä"</string>
+    <string name="app_permission_button_ask" msgid="2757216269887794205">"Kysy aina"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Estä"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Käyttöoikeus: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="APP">%2$s</xliff:g> pyytää käyttöoikeutta: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="PERM">%2$s</xliff:g> oli sovelluksen (<xliff:g id="APP">%1$s</xliff:g>) käytössä <xliff:g id="TIME">%3$s</xliff:g> sitten"</string>
-    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ei ole käyttänyt kohdetta <xliff:g id="PERM">%2$s</xliff:g>."</string>
-    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Näytä tarkat käyttöoikeustiedot"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>lupa"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Sovellus pyytää pääsyä näihin: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Näytä kaikki luvat, jotka <xliff:g id="APP">%1$s</xliff:g> on saanut"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Näytä kaikki sovellukset, joilla on tämä lupa"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Poista luvat, jos sovellusta ei käytetä"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Datasi suojaamiseksi tämän sovelluksen luvat poistetaan, jos sovellusta ei käytetä muutamaan kuukauteen."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Jos sovellusta ei käytetä muutamaan kuukauteen, seuraavat luvat poistetaan datasi suojaamiseksi: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Datasi suojaamiseksi luvat on poistettu sovelluksilta, joita et ole käyttänyt muutamaan kuukauteen."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Jos haluat myöntää luvat uudelleen, avaa sovellus."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automaattinen poisto ei ole tällä hetkellä käytössä tässä sovelluksessa."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Automaattisesti peruutettavia lupia ei ole tällä hetkellä myönnetty"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Seuraava käyttölupa poistetaan: <xliff:g id="PERM">%1$s</xliff:g>."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Seuraavat käyttöluvat poistetaan: <xliff:g id="PERM_0">%1$s</xliff:g> ja <xliff:g id="PERM_1">%2$s</xliff:g>."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Nämä käyttöluvat poistetaan: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"Lupien automaattinen ylläpito"</string>
+    <string name="off" msgid="4561379152328580345">"Pois päältä"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Lupa poistettu: <xliff:g id="PERMISSION_NAME">%s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Luvat poistettu: <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> ja <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> ja <xliff:g id="NUMBER">%2$s</xliff:g> muuta käyttöoikeutta poistettiin"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Avattu viimeksi <xliff:g id="NUMBER">%s</xliff:g> kuukautta sitten"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"Sovellus avattiin viimeksi <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"Avattu viimeksi <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Jos sallit kaikkien tiedostojen ylläpidon, tämä sovellus voi nähdä, muokata ja poistaa kaikkia tiedostoja tämän laitteen yleisessä tallennustilassa ja yhdistetyillä tallennuslaitteilla. Sovelluksella on pääsy tiedostoihin ilman erillistä lupaasi."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Saako sovellus nähdä, muokata ja poistaa tiedostoja laitteella tai yhdistetyillä tallennuslaitteilla? Sovelluksella on pääsy tiedostoihin ilman erillistä lupaasi."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Sovellukset, joilla on tämä lupa, voivat <xliff:g id="DESCRIPTION">%1$s</xliff:g>."</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Sovelluksilla, joilla on tämä lupa, on pääsy liikuntatietoihisi, kuten kävelyyn, pyöräilyyn, ajamiseen ja askelmääriin."</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Sovelluksilla, joilla on tämä lupa, on pääsy kalenteriisi."</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Sovellukset, joilla on tämä lupa, voivat lukea ja kirjoittaa puhelulokia."</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Sovellukset, joilla on tämä lupa, voivat ottaa kuvia ja kuvata videota."</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Sovelluksilla, joilla on tämä lupa, on pääsy yhteystietoihisi."</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"Sovelluksilla, joilla on tämä lupa, on pääsy tämän laitteen sijaintiin."</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Sovellukset, joilla on tämä lupa, voivat tallentaa ääntä."</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Sovellukset, joilla on tämä lupa, voivat soittaa ja ylläpitää puheluita."</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Sovellukset, joilla on tämä lupa, saavat käyttää anturitietoja elintoiminnoistasi."</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Sovellukset, joilla on tämä lupa, voivat lähettää ja nähdä tekstiviestejä."</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Sovelluksilla, joilla on tämä lupa, on pääsy laitteesi kuviin, mediaan ja tiedostoihin."</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Viimeinen käyttökerta: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Tällä hetkellä estetty / Viimeinen käyttökerta: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Ei ole koskaan käytetty"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Estetty / Ei ole koskaan käytetty"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Sallittu"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Sallittu aina"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Sallittu vain käytön aikana"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Kielletty"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"Katso tarkat käyttötiedot"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Vain mediaan pääsy sallittu"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Kaikkien tiedostojen ylläpito sallittu"</string>
+    <string name="ask_header" msgid="4471670860332046665">"Kysy aina"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Estetty"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> päivää</item>
       <item quantity="one">1 päivä</item>
@@ -171,53 +176,163 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekuntia</item>
       <item quantity="one">1 sekunti</item>
     </plurals>
-    <string name="role_request_message_add" msgid="1977772335648650272">"Haluatko, että &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; on jatkossa <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
-    <string name="role_request_message_replace" msgid="6367571247558110210">"Haluatko, että &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; (tällä hetkellä &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt;) on jatkossa <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
     <string name="permission_reminders" msgid="8040710767178843151">"Käyttölupamuistutukset"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> on käyttänyt sijaintiasi"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 käyttämätön sovellus"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> käyttämätöntä sovellusta"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Luvat poistettu tietoturvasyistä. Tarkista napauttamalla."</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Luvat poistettu käyttämättömiltä sovelluksilta"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Joitain sovelluksia ei ole käytetty muutamaan kuukauteen. Tarkista napauttamalla."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> sovellusta ei ole käytetty muutamaan kuukauteen. Tarkista napauttamalla.</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> sovellusta ei ole käytetty muutamaan kuukauteen. Tarkista napauttamalla.</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Joitain sovelluksia ei ole käytetty muutamaan kuukauteen"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> sovellusta ei ole käytetty muutamaan kuukauteen</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> sovellusta ei ole käytetty muutamaan kuukauteen</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Poistetut luvat"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Luvat poistettu"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Kaikki käyttämättömät sovellukset"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> kuukautta sitten"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Luvat poistettu tietoturvasyistä"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> sai sijaintitietosi taustalla"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Tämä sovellus voi aina käyttää sijaintiasi. Muuta napauttamalla."</string>
-    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Vain, kun sovellusta käytetään"</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Sovellusten luvat poistettu tietoturvasyistä"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> ei ole ollut käytössä muutamaan kuukauteen. Tarkista napauttamalla."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> ja 1 muu sovellus ei ole ollut käytössä muutamaan kuukauteen. Tarkista napauttamalla."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> ja <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> muuta sovellusta ei ole ollut käytössä muutamaan kuukauteen Tarkista napauttamalla."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 sovellus ei ole käytössä"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> sovellusta ei ole käytössä"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Luvat poistetaan tietoturvasyistä. Tarkista napauttamalla."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"Käyttämättömät sovellukset"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Luvat poistettu seuraavilta:"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Luvat poistetaan seuraavilta:"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> ja <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> ja <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> muuta"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Datasi suojaamiseksi luvat on poistettu sovelluksilta, joita et ole käyttänyt muutamaan kuukauteen"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Datasi suojaamiseksi luvat on poistettu joiltain sovelluksilta, joita et ole käyttänyt muutamaan kuukauteen"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"Yhtä sovellusta ei ole käytetty muutamaan kuukauteen"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> sovellusta ei ole käytetty muutamaan kuukauteen"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Vain kun sovellusta käytetään"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Media"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Kaikki tiedostot"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Käyttöoikeuksia ei ole myönnetty"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"Ei estettyjä käyttöoikeuksia"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"Sovelluksilla ei ole käyttöoikeuksia"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Ei myöntämättömiä lupia"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Ei yksikään sovellus"</string>
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Ei sovelluksia, joilla on käyttöoikeudet kaikille tiedostoille"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Ei sovelluksia, joilla on käyttöoikeudet vain medialle"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Ei estettyjä sovelluksia"</string>
-    <string name="launch_app" msgid="5641437562665039291">"Avaa"</string>
-    <string name="uninstall_app" msgid="8756507666995809214">"Poista"</string>
-    <string name="force_stop_app" msgid="4253426323145479826">"Pakota sulkeutumaan"</string>
+    <string name="car_permission_selected" msgid="2163426344720483487">"Valittu"</string>
     <string name="settings" msgid="2884124136779508907">"Asetukset"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> on saanut laitteen täydet käyttöoikeudet"</string>
-    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> esteettömyyspalvelulla on laitteen täydet käyttöoikeudet"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> esteettömyyssovelluksella on laitteen täydet käyttöoikeudet"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> voi nähdä näyttösi, toimintasi ja syöttämäsi tiedot, suorittaa toimintoja ja muuttaa näytön asetuksia."</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Nämä palvelut voivat nähdä näyttösi, toimintasi ja syöttämäsi tiedot, suorittaa toimintoja ja muuttaa näytön asetuksia."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Nämä sovellukset voivat nähdä näyttösi, toimintasi ja syöttämäsi tiedot, suorittaa toimintoja ja muuttaa näytön asetuksia."</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Oletusdigiavustajasovellus"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Digiavustajasovellus"</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"Avustajasovellukset voivat auttaa sinua näytöllä näkyvien tietojen perusteella. Jotkin sovellukset tukevat myös käynnistysohjelma- ja äänisyötepalveluja, joten ne voivat tarjota sinulle integroitua apua."</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> oletusarvoiseksi avustajasovellukseksi?"</string>
+    <string name="role_assistant_request_description" msgid="1086168907357494789">"Saa tekstiviestien ja puhelulokin käyttöoikeudet"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Oletusselainsovellus"</string>
+    <string name="role_browser_short_label" msgid="6222206565850006894">"Selainsovellus"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"Sovellukset, joiden avulla voit käyttää internetiä ja jotka näyttävät napauttamasi linkit"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> oletusselainsovellukseksi?"</string>
+    <string name="role_browser_request_description" msgid="3204873553391043604">"Käyttöoikeuksia ei tarvita"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"Oletuspuhelinsovellus"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"Puhelinsovellus"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"Sovellukset, joiden avulla voit soittaa ja vastaanottaa puheluita laitteellasi"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> oletuspuhelinsovellukseksi?"</string>
+    <string name="role_dialer_request_description" msgid="2931069491309771312">"Saa puhelulokin käyttöoikeuden ja tekstiv. lähetysoikeuden"</string>
+    <string name="role_dialer_search_keywords" msgid="6215791911228160821">"puhelut"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"Tekstiviestien oletussovellus"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"Tekstiviestisovellus"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Sovellukset, joiden avulla voit käyttää puhelinnumeroa esimerkiksi lyhyiden tekstiviestien, kuvien ja videoiden lähettämiseen ja vastaanottamiseen"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> tekstiviestien oletussovellukseksi?"</string>
+    <string name="role_sms_request_description" msgid="4920787411350418630">"Saa yhteystietojen, tekstiviestien ja puhelimen käyttöoik."</string>
+    <string name="role_sms_search_keywords" msgid="6818482413212931585">"tekstiviesti, tekstiviestien lähetys, viestit, viestien lähetys"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"Oletushätäsovellus"</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"Hätäsovellus"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"Sovellukset, joiden avulla voit tallentaa terveystietojasi niin, että ne ovat ensihoitajien saatavilla, saada ilmoituksia säävaroituksista ja katastrofeista sekä ilmoittaa muille, jos tarvitset apua"</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> hätätilanteiden oletussovellukseksi?"</string>
+    <string name="role_emergency_request_description" msgid="2824966073894226992">"Käyttöoikeuksia ei tarvita"</string>
+    <string name="role_emergency_search_keywords" msgid="7310029268876820646">"jää"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Aloitusnäytön oletussovellus"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"Aloitusnäyttösovellus"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Sovellukset (tunnetaan myös käynnistysohjelmina), jotka korvaavat Android-laitteen aloitusnäytön ja mahdollistavat laitteen sisällön ja ominaisuuksien käytön"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> aloitusnäytön oletussovellukseksi?"</string>
+    <string name="role_home_request_description" msgid="6437733879812403277">"Käyttöoikeuksia ei tarvita"</string>
+    <string name="role_home_search_keywords" msgid="8277315231013298175">"käynnistysohjelma"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"Soitonsiirron oletussovellus"</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Soitonsiirtosovellus"</string>
+    <string name="role_call_redirection_description" msgid="769231030043298555">"Sovellukset, joiden avulla voit siirtää lähteviä puheluita toiseen numeroon"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> soitonsiirron oletussovellukseksi?"</string>
+    <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Käyttöoikeuksia ei tarvita"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Soittajan tunnistus"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Soittajan tunnus ja häirik."</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"Sovellukset, joiden avulla voit tunnistaa puhelut ja estää häirikkö- ja robottipuhelut tai ei-toivotut numerot"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> soittajan tunnuksen ja häiriköinnin eston oletussovellukseksi?"</string>
+    <string name="role_call_screening_request_description" msgid="7788142583532880646">"Käyttöoikeuksia ei tarvita"</string>
+    <string name="request_role_current_default" msgid="7512045433655289638">"Nykyinen oletus"</string>
+    <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Älä kysy uudelleen"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"Aseta oletukseksi"</string>
+    <string name="default_app_search_keyword" msgid="6938709626391437391">"oletussovellukset"</string>
+    <string name="settings_button" msgid="4747434541214595321">"Asetukset"</string>
     <string name="default_apps" msgid="8554530939151957828">"Oletussovellukset"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Ei oletussovelluksia"</string>
+    <string name="default_apps_more" msgid="3908067305593075127">"Lisää oletuksia"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Linkkien avaaminen"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Työkäytön oletus"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Ei mitään"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Järjestelmän oletusarvo)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Ei sovelluksia"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Valittu"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Valittu – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"sovellusten erikoiskäyttö"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Sovellusten erikoiskäyttö"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Ei sovellusten erikoiskäyttöä"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Ei sovelluksia"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Avustajasovellus"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"Selainsovellus"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"Puhelin-sovellus"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"Tekstiviestisovellus"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"Hätäsovellus"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"Aloitusnäyttösovellus"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"Musiikkisovellus"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"Galleriasovellus"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Autotilan puhelinsovellus"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"Soitonsiirtosovellus"</string>
-    <string name="role_label_call_screening" msgid="411212589764916370">"Puhelujen suodatussovellus"</string>
-    <string name="role_label_call_companion" msgid="7369723859682076467">"Puhelujen kumppanisovellus"</string>
-    <string name="role_label_car_projection" msgid="3792929094325391213">"Auton heijastussovellus"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Ei tue työprofiilia"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Huomaa: Jos käynnistät laitteen uudelleen ja näytön lukitus on käytössä, sovellus voi käynnistyä vasta avattuasi lukituksen."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"Avustaja voi lukea tietoja järjestelmäsi käyttämistä sovelluksista, mukaan lukien tietoja, jotka näkyvät näytöllä tai jotka ovat käytettävissä sovelluksissa."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Jaa virheenkorjaustietoja"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Jaetaanko yksityiskohtaisia virheenkorjaustietoja?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> haluaa ladata virheenkorjaustietoja palvelimelle."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Jaa virheenkorjaustietoja"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Jaetaanko virheenkorjausdataa?"</string>
+    <string name="incident_report_dialog_intro" msgid="153446034925770956">"Järjestelmä on havainnut ongelman."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> pyytää saada ladata laitteelta virheraportin, joka luotiin <xliff:g id="DATE">%2$s</xliff:g> kello <xliff:g id="TIME">%3$s</xliff:g>. Virheraportit sisältävät yksityisiä laitetietoja ja sovellusten kirjaamia tietoja, esimerkiksi käyttäjänimiä, sijaintitietoja, laitteen tunnistetietoja ja verkkotietoja. Jaa virheraportteja vain ihmisille ja sovelluksille, joiden tietojen käsittelyyn luotat. Saako <xliff:g id="APP_NAME_1">%4$s</xliff:g> lähettää virheraportin?"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Virheraportin (<xliff:g id="APP_NAME">%1$s</xliff:g>) käsittelyssä tapahtui virhe. Yksityiskohtaisen virheenkorjausdatan jakaminen on siis estetty. Pahoittelut keskeytyksestä."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Salli"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Estä"</string>
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Lisäasetukset"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Lisäasetukset"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Näytä järjestelmäsovellusten käyttö"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Näytä järjestelmäsovellusten käyttöluvat tilarivillä, hallintapaneelissa ja muualla."</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Korosta seuraavien käyttö"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Näytä Assistantin käynnistyskomennon havaitseminen"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Näytä tilarivillä kuvake, kun ääniapuri aktivoidaan mikrofonin avulla."</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; käyttää laitteellasi olevia kuvia ja mediaa?"</string>
+    <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; yhteystietojesi käyttöoikeuden?"</string>
+    <string name="permgrouprequest_location" msgid="4367626296074714965">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; pääsyn tämän laitteen sijaintiin?"</string>
+    <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Sovellus saa sijainnin käyttöoikeuden vain silloin, kun käytät sovellusta"</string>
+    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; pääsyn tämän laitteen sijaintiin?"</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"Sovellus voi haluta nähdä sijaintisi aina, myös silloin kun et käytä sitä. "<annotation id="link">"Myönnä lupa asetuksista"</annotation>"."</string>
+    <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"Muutetaanko sijainnin käyttöoikeutta (&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;)?"</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"Sovellus haluaa nähdä sijaintisi aina, myös silloin kun et käytä sitä. "<annotation id="link">"Myönnä lupa asetuksista"</annotation>"."</string>
+    <string name="permgrouprequest_calendar" msgid="254840812783503926">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; kalenterisi käyttöoikeuden?"</string>
+    <string name="permgrouprequest_sms" msgid="2622312529683649944">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; lähettää ja lukea tekstiviestejä?"</string>
+    <string name="permgrouprequest_storage" msgid="1092300826793175064">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; käyttää laitteellasi olevia kuvia, mediaa ja tiedostoja?"</string>
+    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; nauhoittaa ääntä?"</string>
+    <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; nähdä liikkumistietosi?"</string>
+    <string name="permgrouprequest_camera" msgid="5379726026447957660">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ottaa kuvia ja nauhoittaa videoita?"</string>
+    <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; puhelulokien käyttöoikeuden?"</string>
+    <string name="permgrouprequest_phone" msgid="6240218310343431124">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; soittaa ja hallinnoida puheluita?"</string>
+    <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; käyttää anturitietoja elintoiminnoistasi?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"Automaattisesti myönnetyt käyttöoikeudet"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Pääsy sijaintiin myönnetty"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"<xliff:g id="APP_NAME">%s</xliff:g> on saanut pääsyn sijaintiisi järjestelmänvalvojalta"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Kaikki vaihtoehdot eivät ole käytettävissä, koska tämän sovelluksen täytyy havaita ääntä"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Kaikki vaihtoehdot eivät ole käytettävissä, koska tämä sovellus on oletusdigiavustajasi"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Kaikki vaihtoehdot eivät ole käytettävissä, koska tätä sovellusta käytetään äänisyötteeseen"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Kaikki vaihtoehdot eivät ole käytettävissä, koska operaattorisi ylläpitää tätä sovellusta"</string>
 </resources>
