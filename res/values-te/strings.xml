@@ -335,6 +335,13 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"ప్రస్తుతం డిఫాల్ట్‌గా ఉన్నది"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"మళ్లీ అడగవద్దు"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"దీన్ని డిఫాల్ట్ చేయి"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"&lt;b&gt;ఫోన్ కాల్&lt;/b&gt;లో మైక్రోఫోన్ ఉపయోగించబడుతుంది"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"&lt;b&gt;వీడియో కాల్&lt;/b&gt;లో కెమెరా, మైక్రోఫోన్ ఉపయోగించబడతాయి"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"&lt;b&gt;వీడియో కాల్&lt;/b&gt;లో కెమెరా ఉపయోగించబడుతుంది"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"సిస్టమ్ సర్వీస్‌ను ఉపయోగించి మైక్రోఫోన్ యాక్సెస్ చేయబడుతుంది"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"సిస్టమ్ సర్వీస్‌ను ఉపయోగించి కెమెరా, మైక్రోఫోన్ యాక్సెస్ చేయబడతాయి"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"సిస్టమ్ సర్వీస్‌ను ఉపయోగించి కెమెరా యాక్సెస్ చేయబడుతుంది"</string>
+    <string name="other_use" msgid="9076086164996623754">"ఇతర ఉపయోగాలు:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"అర్థమైంది"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g> యొక్క ఇటీవలి వినియోగం"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
@@ -373,8 +380,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"సిస్టమ్ యాప్ వినియోగాన్ని చూపు"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"\'స్థితి బార్‌, డాష్‌బోర్డ్ &amp; మరెక్కడైనా\'లో సిస్టమ్ యాప్ వినియోగించే అనుమతులను చూపు"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"అనుసరిస్తున్న వినియోగాన్ని హైలైట్ చేయండి"</string>
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (772256764681129627) -->
-    <skip />
+    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"Assistant ట్రిగ్గర్ గుర్తింపును చూపించు"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"వాయిస్ అసిస్టెంట్‌ను యాక్టివేట్ చేయడానికి మైక్రోఫోన్‌ను ఉపయోగించినప్పుడు, స్థితి పట్టీలో చిహ్నాన్ని చూపు"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"మీ పరికరంలో ఫోటోలు, మీడియాను యాక్సెస్ చేయుటకు &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ను అనుమతించాలా?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"మీ పరిచయాలను యాక్సెస్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ని అనుమతించాలా?"</string>

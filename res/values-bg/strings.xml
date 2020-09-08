@@ -335,6 +335,13 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Текущо стандартно приложение"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Без повторно питане"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Задаване"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Микрофонът се използва за &lt;b&gt;телефонно обаждане&lt;/b&gt;"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"Камерата и микрофонът се използват за &lt;b&gt;видеообаждане&lt;/b&gt;"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"Камерата се използва за &lt;b&gt;видеообаждане&lt;/b&gt;"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Системна услуга осъществява достъп до микрофона"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Системна услуга осъществява достъп до камерата и микрофона"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Системна услуга осъществява достъп до камерата"</string>
+    <string name="other_use" msgid="9076086164996623754">"Използва се също от:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Разбрах"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Скорошно използване на <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
@@ -373,7 +380,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Показване на използването от системните приложения"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Използването на разрешения от системните приложения да се показва в лентата на състоянието, таблото за управление и на други места"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Открояване на употребата за следното"</string>
-    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"Показване на икона за готовност на Асистент"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"Показване на икона за готовност на асистент"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Показване на икона в лентата на състоянието, когато микрофонът се използва за активиране на гласовия асистент"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Да се разреши ли на &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да има достъп до снимките и мултимедията на устройството ви?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Да се разреши ли на &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да осъществява достъп до контактите ви?"</string>

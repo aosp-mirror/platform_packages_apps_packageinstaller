@@ -335,6 +335,13 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"ਮੌਜੂਦਾ ਪੂਰਵ-ਨਿਰਧਾਰਤ"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"ਦੁਬਾਰਾ ਨਾ ਪੁੱਛੋ"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"ਪੂਰਵ-ਨਿਰਧਾਰਤ ਵਜੋਂ ਸੈੱਟ ਕਰੋ"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"&lt;b&gt;ਫ਼ੋਨ ਕਾਲ&lt;/b&gt; ਲਈ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"&lt;b&gt;ਵੀਡੀਓ ਕਾਲ&lt;/b&gt; ਲਈ ਕੈਮਰਾ ਅਤੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"&lt;b&gt;ਵੀਡੀਓ ਕਾਲ&lt;/b&gt; ਲਈ ਕੈਮਰਾ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"ਸਿਸਟਮ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਨਾਲ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ ਜਾਂਦੀ ਹੈ"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"ਸਿਸਟਮ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਨਾਲ ਕੈਮਰੇ ਅਤੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ ਜਾਂਦੀ ਹੈ"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"ਸਿਸਟਮ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਨਾਲ ਕੈਮਰੇ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ ਜਾਂਦੀ ਹੈ"</string>
+    <string name="other_use" msgid="9076086164996623754">"ਹੋਰ ਵਰਤੋਂ:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"ਸਮਝ ਲਿਆ"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g> ਦੀ ਹਾਲੀਆ ਵਰਤੋਂ"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
@@ -373,8 +380,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"ਸਿਸਟਮ ਐਪ ਵਰਤੋਂ ਦਿਖਾਓ"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"ਸਥਿਤੀ ਪੱਟੀ, ਡੈਸ਼ਬੋਰਡ ਅਤੇ ਹੋਰ ਥਾਂਵਾਂ \'ਤੇ ਸਿਸਟਮ ਐਪ ਵੱਲੋਂ ਇਜਾਜ਼ਤਾਂ ਦੀ ਵਰਤੋਂ ਦਿਖਾਓ"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"ਹੇਠਾਂ ਦਿੱਤੇ ਲਈ ਵਰਤੋਂ ਨੂੰ ਉਜਾਗਰ ਕਰੋ"</string>
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (772256764681129627) -->
-    <skip />
+    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"ਸਹਾਇਕ ਟ੍ਰਿਗਰ ਦੀ ਸੂਹ ਦਿਖਾਓ"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"ਜਦੋਂ ਅਵਾਜ਼ੀ ਸਹਾਇਕ ਨੂੰ ਕਿਰਿਆਸ਼ੀਲ ਕਰਨ ਲਈ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਤਾਂ ਸਥਿਤੀ ਪੱਟੀ ਵਿੱਚ ਪ੍ਰਤੀਕ ਦਿਖਾਓ"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"ਕੀ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ਨੂੰ ਆਪਣੇ ਡੀਵਾਈਸ \'ਤੇ ਫ਼ੋਟੋਆਂ ਅਤੇ ਮੀਡੀਆ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਦੇਣੀ ਹੈ?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"ਕੀ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ਨੂੰ ਤੁਹਾਡੇ ਸੰਪਰਕਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਦੇਣੀ ਹੈ?"</string>

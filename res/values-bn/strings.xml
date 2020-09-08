@@ -335,6 +335,13 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"বর্তমান ডিফল্ট"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"আর দেখতে চাই না"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"ডিফল্ট হিসেবে রাখুন"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"&lt;b&gt;ফোন কল&lt;/b&gt; করার সময় মাইক্রোফোন ব্যবহার করা হয়"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"&lt;b&gt;ভিডিও কল&lt;/b&gt; করার সময় ক্যামেরা ও মাইক্রোফোন ব্যবহার করা হয়"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"&lt;b&gt;ভিডিও কল&lt;/b&gt; করার সময় ক্যামেরা ব্যবহার করা হয়"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"সিস্টেম সার্ভিস ব্যবহার করে মাইক্রোফোন অ্যাক্সেস করা হয়"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"সিস্টেম সার্ভিস ব্যবহার করে ক্যামেরা ও মাইক্রোফোন অ্যাক্সেস করা হয়"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"সিস্টেম সার্ভিস ব্যবহার করে ক্যামেরা অ্যাক্সেস করা হয়"</string>
+    <string name="other_use" msgid="9076086164996623754">"অন্যান্য ব্যবহার:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"বুঝেছি"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g>-এর সাম্প্রতিক ব্যবহার"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
@@ -373,8 +380,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"সিস্টেম অ্যাপের ব্যবহার দেখুন"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"স্ট্যাটাস বার, ড্যাশবোর্ড ও অন্য জায়গায় সিস্টেম অ্যাপ ব্যবহারের অনুমতি সংক্রান্ত বিজ্ঞপ্তি দেখায়"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"নিচে উল্লেখ করা তালিকা থেকে চালু অ্যাপগুলি দেখুন"</string>
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (772256764681129627) -->
-    <skip />
+    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"Assistant ট্রিগার করা সংক্রান্ত শনাক্তকরণ দেখুন"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"ভয়েস অ্যাসিস্ট্যান্ট চালু করতে মাইক্রোফোন ব্যবহার হলে স্ট্যাটাস বারে আইকন দেখায়"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-কে আপনার ডিভাইসের ফটো এবং মিডিয়াতে অ্যাক্সেস দেবেন?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-কে আপনার পরিচিতিতে অ্যাক্সেস দেবেন?"</string>

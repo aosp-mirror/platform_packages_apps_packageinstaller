@@ -335,6 +335,13 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Mevcut varsayılan"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Tekrar sorma"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Varsayılan olarak ayarla"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Mikrofon &lt;b&gt;telefon aramasında&lt;/b&gt; kullanılıyor"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"Kamera ve Mikrofon &lt;b&gt;görüntülü görüşmede&lt;/b&gt; kullanılıyor"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"Kamera &lt;b&gt;görüntülü görüşmede&lt;/b&gt; kullanılıyor"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Mikrofon sistem hizmeti tarafından kullanılıyor"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Kamera ve Mikrofon sistem hizmeti tarafından kullanılıyor"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Kamera sistem hizmeti tarafından kullanılıyor"</string>
+    <string name="other_use" msgid="9076086164996623754">"Diğer kullanım:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Anladım"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Son <xliff:g id="TYPES_LIST">%s</xliff:g> kullanımı"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
@@ -396,7 +403,7 @@
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Konuma erişilebilir"</string>
     <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"BT yöneticiniz, <xliff:g id="APP_NAME">%s</xliff:g> uygulamasının konumunuza erişmesine izin veriyor"</string>
     <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Bu uygulamanın, sesleri algılaması gerektiğinden bazı seçenekler kullanılamıyor"</string>
-    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Bu uygulama, varsayılan dijital asistanınız olduğundan bazı seçenekler kullanılamıyor"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Bu uygulama varsayılan dijital asistanınız olduğu için bazı seçenekler kullanılamıyor"</string>
     <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Bu uygulama, ses girişi için kullanıldığından bazı seçenekler kullanılamıyor"</string>
     <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Bu uygulama, operatörünüz tarafından yönetildiğinden bazı seçenekler kullanılamıyor"</string>
 </resources>

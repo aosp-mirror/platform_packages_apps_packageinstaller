@@ -153,8 +153,8 @@
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Ամենաշատ օգտագործում"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Թույլտվությունների քանակ"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Վերջինները"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"Տեսակավորել ըստ օգտագործման"</string>
-    <string name="sort_by_time" msgid="8280378662234104410">"Տեսակավորել ըստ ժամանակի"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Դասավորել ըստ օգտագործման"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Դասավորել ըստ ժամանակի"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="permission_usage_refresh" msgid="2182775682810005148">"Թարմացնել"</string>
     <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
@@ -335,6 +335,13 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Օգտագործվում է ըստ կանխադրման"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Նորից չհարցնել"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Նշել կանխադրված"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Խոսափողն օգտագործվում է &lt;b&gt;հեռախոսազանգում&lt;/b&gt;"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"Տեսախցիկն ու խոսափողը օգտագործվում են &lt;b&gt;տեսազանգում&lt;/b&gt;"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"Տեսախցիկն օգտագործվում է &lt;b&gt;տեսազանգում&lt;/b&gt;"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Խոսափողն այժմ օգտագործում է համակարգային ծառայություն"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Տեսախցիկն ու խոսափողն այժմ օգտագործում են համակարգային ծառայություն"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Տեսախցիկն այժմ օգտագործում է համակարգային ծառայություն"</string>
+    <string name="other_use" msgid="9076086164996623754">"Նաև օգտագործում են՝"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Եղավ"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g>․ վերջին օգտագործումը"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>

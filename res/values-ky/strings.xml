@@ -335,6 +335,13 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Учурдагы демейки колдонмо"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Экинчи суралбасын"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Демейки катары коюу"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Микрофон &lt;b&gt;телефон чалуу&lt;/b&gt; үчүн колдонулуп жатат"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"Камера менен микрофон &lt;b&gt;видео режиминдеги чалуу&lt;/b&gt; үчүн колдонулуп жатат"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"Камера &lt;b&gt;видео режиминдеги чалууда&lt;/b&gt; колдонулуп жатат"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Микрофон тутумдун кызматы аркылуу колдонулуп жатат"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Камера менен микрофон тутумдун кызматы аркылуу колдонулуп жатат"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Камера тутумдун кызматы аркылуу колдонулуп жатат"</string>
+    <string name="other_use" msgid="9076086164996623754">"Иштетип жаткан башка колдонмолор жана тутумдар:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Түшүндүм"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g> акыркы жолу колдонулган"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
@@ -373,8 +380,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Тутум колдонмолорунун колдонгондугун көрсөтүү"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Тутумдун уруксаттарды колдонгондугу абал тилкесинде, куралдар тактасында жана башка жерде көрүнөт"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Тандалган колдонмолорду көрсөтүү"</string>
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (772256764681129627) -->
-    <skip />
+    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"Үн жардамчысынын иштегенин чагылдырган сүрөтчөнү көрсөтүү"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Үн жардамчысын иштетүү үчүн микрофон колдонулганда, абал тилкесинде сүрөтчө көрүнөт"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; колдонмосу үчүн түзмөгүңүздөгү сүрөттөр менен мультимедиа файлдарын иштетесизби?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; колдонмосуна байланыштарыңызды пайдаланууга уруксат бересизби?"</string>

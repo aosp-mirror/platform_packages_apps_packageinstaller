@@ -335,6 +335,13 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"നിലവിലെ ഡിഫോൾട്ട്"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"വീണ്ടും ആവശ്യപ്പെടരുത്"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"ഡിഫോൾട്ടായി സജ്ജമാക്കൂ"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"&lt;b&gt;ഫോൺ കോളിൽ&lt;/b&gt; മൈക്രോഫോൺ ഉപയോഗിക്കുന്നു"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"&lt;b&gt;വീഡിയോ കോളിൽ&lt;/b&gt; ക്യാമറയും മൈക്രോഫോണും ഉപയോഗിക്കുന്നു"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"&lt;b&gt;വീഡിയോ കോളിൽ&lt;/b&gt; ക്യാമറ ഉപയോഗിക്കുന്നു"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"സിസ്‌റ്റം സേവനം ഉപയോഗിച്ച് മൈക്രോഫോൺ ആക്‌സസ് ചെയ്യുന്നു"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"സിസ്‌റ്റം സേവനം ഉപയോഗിച്ച് ക്യാമറയും മൈക്രോഫോണും ആക്‌സസ് ചെയ്യുന്നു"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"സിസ്‌റ്റം സേവനം ഉപയോഗിച്ച് ക്യാമറ ആക്‌സസ് ചെയ്യുന്നു"</string>
+    <string name="other_use" msgid="9076086164996623754">"മറ്റ് ഉപയോഗം:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"മനസ്സിലായി"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g> എന്നതിന്റെ അടുത്തിടെയുള്ള ഉപയോഗം"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
@@ -373,8 +380,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"സിസ്റ്റം ആപ്പിന്റെ ഉപയോഗം കാണിക്കുക"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"സിസ്റ്റം ആപ്പിന്റെ ഉപയോഗ അനുമതികൾ സ്റ്റാറ്റസ് ബാറിലും ഡാഷ് ബോർഡിലും മറ്റെവിടെയെങ്കിലുമോ കാണിക്കുക"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"ഇനിപ്പറയുന്നവയുടെ ഉപയോഗം ഹൈലൈറ്റ് ചെയ്യുക"</string>
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (772256764681129627) -->
-    <skip />
+    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"അസിസ്‌റ്റന്റ് ട്രിഗർ കണ്ടെത്തൽ കാണിക്കുക"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"ശബ്‌ദ സഹായം സജീവമാക്കാൻ മൈക്രോഫോൺ ഉപയോഗിക്കുമ്പോൾ സ്റ്റാറ്റസ് ബാറിൽ ഐക്കൺ കാണിക്കുക"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"നിങ്ങളുടെ ഉപകരണത്തിലെ ഫോട്ടോകളും മീഡിയയും ഫയലുകളും ആക്‌സസ് ചെയ്യാൻ &lt;b&gt; <xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"നിങ്ങളുടെ കോണ്‍ടാക്റ്റുകള്‍ ആക്‌സസ് ചെയ്യാൻ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>

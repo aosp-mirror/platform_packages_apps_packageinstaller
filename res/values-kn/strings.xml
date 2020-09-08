@@ -335,6 +335,13 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"ಪ್ರಸ್ತುತ ಡೀಫಾಲ್ಟ್"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"ಮತ್ತೆ ಕೇಳಬೇಡ"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"ಡೀಫಾಲ್ಟ್ ಆಗಿ ಹೊಂದಿಸಿ"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"&lt;b&gt;ಫೋನ್ ಕರೆಯಲ್ಲಿ&lt;/b&gt; ಮೈಕ್ರೋಫೋನ್ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"&lt;b&gt;ವೀಡಿಯೋ ಕರೆಯಲ್ಲಿ&lt;/b&gt; ಕ್ಯಾಮರಾ ಮತ್ತು ಮೈಕ್ರೋಫೋನ್ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"&lt;b&gt;ವೀಡಿಯೋ ಕರೆಯಲ್ಲಿ&lt;/b&gt; ಕ್ಯಾಮರಾವನ್ನು ಬಳಸಲಾಗುತ್ತದೆ"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"ಸಿಸ್ಟಂ ಸೇವೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಮೈಕ್ರೋಫೋನ್ ಅನ್ನು ಪ್ರವೇಶಿಸಲಾಗುತ್ತದೆ"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"ಸಿಸ್ಟಂ ಸೇವೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಕ್ಯಾಮರಾ ಮತ್ತು ಮೈಕ್ರೋಫೋನ್ ಅನ್ನು ಪ್ರವೇಶಿಸಲಾಗುತ್ತದೆ"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"ಸಿಸ್ಟಂ ಸೇವೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಕ್ಯಾಮರಾವನ್ನು ಪ್ರವೇಶಿಸಲಾಗುತ್ತದೆ"</string>
+    <string name="other_use" msgid="9076086164996623754">"ಇತರ ಬಳಕೆ:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"ಅರ್ಥವಾಯಿತು"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g> ಅನ್ನು ಇತ್ತೀಚೆಗೆ ಬಳಕೆ ಮಾಡಿರುವುದು"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
@@ -373,8 +380,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"ಸಿಸ್ಟಂ ಆ್ಯಪ್‌ ಬಳಕೆಯನ್ನು ತೋರಿಸಿ"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"ಸ್ಥಿತಿ ಬಾರ್, ಡ್ಯಾಶ್ ಬೋರ್ಡ್ &amp; ಬೇರೆಲ್ಲಿಯಾದರೂ ಅನುಮತಿಗಳ ಸಿಸ್ಟಂ ಆ್ಯಪ್‌ ಬಳಕೆಯನ್ನು ತೋರಿಸಿ"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"ಈ ಕೆಳಗಿನವುಗಳಿಗಾಗಿ ಬಳಕೆಯನ್ನು ಹೈಲೈಟ್ ಮಾಡಿ"</string>
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (772256764681129627) -->
-    <skip />
+    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"Assistant ಸಕ್ರಿಯವಾಗಿದೆಯೇ ಎಂದು ಪತ್ತೆಹಚ್ಚುವ ಐಕಾನ್ ಅನ್ನು ತೋರಿಸಿ"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"ಧ್ವನಿ ಅಸಿಸ್ಟೆಂಟ್ ಸಕ್ರಿಯಗೊಳಿಸಲು ಮೈಕ್ರೊಫೋನ್ ಬಳಸಿದಾಗ ಸ್ಥಿತಿ ಬಾರ್‌ನಲ್ಲಿ ಐಕಾನ್ ಅನ್ನು ತೋರಿಸಿ"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿರುವ ಫೋಟೋಗಳು ಮತ್ತು ಮೀಡಿಯಾ ಫೈಲ್‌ಗಳನ್ನು ಪ್ರವೇಶಿಸಲು &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ಗೆ ಅನುಮತಿಸಬೇಕೇ?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"ನಿಮ್ಮ ಸಂಪರ್ಕಗಳನ್ನು ಪ್ರವೇಶಿಸಲು &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ಗೆ ಅನುಮತಿಸಬೇಕೇ?"</string>

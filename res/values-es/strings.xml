@@ -335,6 +335,13 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Predeterminada"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"No volver a preguntar"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Establecer como predeterminado"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"El micrófono se utiliza en una &lt;b&gt;llamada&lt;/b&gt;"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"La cámara y el micrófono se utilizan en una &lt;b&gt;videollamada&lt;/b&gt;"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"La cámara se utiliza en una &lt;b&gt;videollamada&lt;/b&gt;"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Un servicio del sistema está accediendo al micrófono"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Un servicio del sistema está accediendo a la cámara y al micrófono"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Un servicio del sistema está accediendo a la cámara"</string>
+    <string name="other_use" msgid="9076086164996623754">"Otros usos:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Listo"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Uso reciente de <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
@@ -373,8 +380,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Mostrar el uso de las aplicaciones del sistema"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Mostrar el uso de permisos de las aplicaciones del sistema en la barra de estado, el panel de control y otros sitios"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Destacar el uso de estas aplicaciones"</string>
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (772256764681129627) -->
-    <skip />
+    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"Mostrar la detección de activación del asistente"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Mostrar icono en la barra de estado cuando se utilice el micrófono para activar el asistente de voz"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"¿Permitir que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; acceda a las fotos y archivos multimedia del dispositivo?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"¿Permitir que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; acceda a tus contactos?"</string>

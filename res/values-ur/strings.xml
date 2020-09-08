@@ -335,6 +335,13 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"موجودہ ڈیفالٹ"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"دوبارہ نہ پوچھیں"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"بطور ڈیفالٹ سیٹ کریں"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"‏&lt;b&gt;فون کال&lt;/b&gt; میں مائیکروفون کا استعمال کیا جاتا ہے"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"‏&lt;b&gt;ویڈیو کال&lt;/b&gt; میں کیمرا اور مائیکروفون کا استعمال کیا جاتا ہے"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"‏کیمرا &lt;b&gt;ویڈیو کالll&lt;/b&gt; میں استعمال کیا جاتا ہے"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"سسٹم سروس کا استعمال کر کے مائیکروفون تک رسائی حاصل کیا جاتا ہے"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"سسٹم سروس کا استعمال کر کے کیمرا اور مائیکروفون تک رسائی حاصل کیا جاتا ہے"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"سسٹم سروس کا استعمال کر کے کیمرا تک رسائی حاصل کیا جاتا ہے"</string>
+    <string name="other_use" msgid="9076086164996623754">"دیگر استعمال:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"سمجھ آ گئی"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g> کا حالیہ استعمال"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">"، "</string>
@@ -373,8 +380,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"سسٹم اپپ کا استعمال دکھائيں"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"اسٹیٹس بار، ڈیش بورڈ اور کسی بھی جگہ پر اجازتوں کے سسٹم اپپ کے استعمال کو شو کریں"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"مندرجہ ذیل کے استعمال کو نمایاں کریں"</string>
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (772256764681129627) -->
-    <skip />
+    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"اسسٹنٹ ٹریگر کا پتہ لگانا دکھائیں"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"جب صوتی معاون کو فعال کرنے کے لیے مائیکروفون کا استعمال کیا جائے تو اسٹیٹس بار میں آئیکن دکھائیں"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"‏‎&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;‎ کو آپ کے آلہ پر تصاویر، میڈیا تک رسائی کی اجازت دیں؟"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"‏&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; کو آپ کے رابطوں تک رسائی کی اجازت دیں؟"</string>
