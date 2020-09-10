@@ -107,9 +107,12 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
         }
         ArrayList<String> appOps = new ArrayList<>(List.of(PHONE_CALL, VIDEO_CALL));
         mOpUsageLiveData = OpUsageLiveData.Companion.get(appOps, numMillis);
-        mOpUsageLiveData.observe(this, new Observer<Map<String, List<OpAccess>>>() {
+        mOpUsageLiveData.observeStale(this, new Observer<Map<String, List<OpAccess>>>() {
             @Override
             public void onChanged(Map<String, List<OpAccess>> opUsage) {
+                if (mOpUsageLiveData.isStale()) {
+                    return;
+                }
                 mOpUsage = opUsage;
                 mOpUsageLiveData.removeObserver(this);
 
