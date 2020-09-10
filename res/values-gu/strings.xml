@@ -20,11 +20,16 @@
     <string name="ok" msgid="4417794827535157922">"ઓકે"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"પરવાનગીઓ"</string>
     <string name="cancel" msgid="7279939269964834974">"રદ કરો"</string>
+    <string name="back" msgid="8739808065891653074">"પાછળ"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"અનઇન્સ્ટૉલ કરો અથવા બંધ કરો"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ઍપ મળી નથી"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"નકારો"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"નકારો અને ફરીથી પૂછશો નહીં"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"“ઍપ ઉપયોગમાં હોય ત્યારે” આ રાખો"</string>
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"“ફક્ત આ વખતે” રાખો"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"વધુ માહિતી"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"કોઈપણ રીતે નકારો"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"છોડી દો"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> માંથી <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને <xliff:g id="ACTION">%2$s</xliff:g> માટેની મંજૂરી આપીએ?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને હંમેશાં <xliff:g id="ACTION">%2$s</xliff:g>ની મંજૂરી આપીએ?"</string>
@@ -36,9 +41,16 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"કોઈપણ પરવાનગી બંધ કરી નથી"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"મંજૂરી આપો"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"હંમેશાં મંજૂરી આપો"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"માત્ર ઍપ ઉપયોગમાં હોય ત્યારે જ મંજૂરી આપો"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"ઍપનો ઉપયોગ કરતી વખતે"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"ફક્ત આ વખતે"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"હંમેશાં મંજૂરી આપો"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"બધી ફાઇલો મેનેજ કરવાની મંજૂરી આપો"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"મીડિયા ફાઇલો ઍક્સેસ કરવાની મંજૂરી આપો"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ઍપ"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ઍપ પરવાનગીઓ"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"ન વપરાયેલી ઍપ"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"ઍપ બંધ કરો"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"જો તમે આ ઍપ બંધ કરશો, તો Android અને અન્ય ઍપ અપેક્ષા પ્રમાણે કાર્ય કરી શકશે નહીં. યાદ રાખો, તમે આ ઍપને ડિલીટ નહીં કરી શકો, કારણ કે તે તમારા ડિવાઇસ સાથે ઇન્સ્ટૉલ થયેલી આવી હતી. બંધ કરીને, તમે આ ઍપને માત્ર બંધ કરો છો અને તમારા ડિવાઇસમાં છુપાવો છો."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"પરવાનગી મેનેજર"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"ફરીથી પૂછશો નહીં"</string>
     <string name="no_permissions" msgid="2193893107241172888">"કોઈ પરવાનગીઓ નથી"</string>
@@ -51,8 +63,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"આ ઍપ Androidના જૂના વર્ઝન માટે તૈયાર કરવામાં આવી હતી. પરવાનગી નકારવાથી તે હેતુ પ્રમાણે કાર્ય કરશે નહી."</string>
     <string name="default_permission_description" msgid="692254823411049573">"અજાણી ક્રિયા કરો"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> માંથી <xliff:g id="COUNT_0">%1$d</xliff:g> ઍપની મંજૂરી છે"</string>
-    <string name="permission_usage_header" msgid="8802963718365732792">"તાજેતરનો વપરાશ"</string>
-    <string name="permission_usage_view_details" msgid="7398825662321010957">"પરવાનગીઓનું ડૅશબોર્ડ જુઓ"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> ઍપને મંજૂરી છે"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"સિસ્ટમ બતાવો"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"સિસ્ટમ છુપાવો"</string>
     <string name="no_apps" msgid="2377153782338039463">"કોઈ ઍપ નથી"</string>
@@ -67,13 +78,13 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"વ્યવસ્થાપકે બૅકગ્રાઉન્ડ ઍક્સેસ બંધ કર્યો છે"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"વ્યવસ્થાપકે બૅકગ્રાઉન્ડ ઍક્સેસ ચાલુ કર્યો છે"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"વ્યવસ્થાપકે ફૉરગ્રાઉન્ડ ઍક્સેસ ચાલુ કર્યો છે"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"સિસ્ટમ દ્વારા પરવાનગી સેટ કરવામાં આવી છે"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="5463084832974856683">"ડિવાઇસની કામગીરી માટે આ પરવાનગી જરૂરી છે"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
-    <string name="permission_access_always" msgid="2315256378850460955">"હંમેશાં"</string>
-    <string name="permission_access_only_foreground" msgid="8109903552082630801">"માત્ર ઍપનો ઉપયોગ કરતી વખતે જ"</string>
-    <string name="permission_access_never" msgid="4717648645876576508">"ક્યારેય નહીં"</string>
+    <string name="permission_access_always" msgid="5419580764084361573">"હંમેશાં મંજૂરી આપો"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"ઍપ વાપરતી વખતે જ મંજૂરી આપો"</string>
+    <string name="permission_access_never" msgid="425385910378172045">"નકારો"</string>
     <string name="loading" msgid="323483393167148377">"લોડ કરી રહ્યું છે…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"બધી પરવાનગીઓ"</string>
     <string name="other_permissions" msgid="1956312685853070715">"અન્ય ઍપ સુવિધાઓ"</string>
@@ -91,70 +102,64 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"વર્તમાન પરવાનગીઓ"</string>
     <string name="message_staging" msgid="641286607664721291">"ઍપની પ્રક્રિયા ચાલુ છે…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"અજાણ"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"ડૅશબોર્ડ"</string>
-    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
-      <item quantity="one">છેલ્લો ઍક્સેસ: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> ઍક્સેસ</item>
-      <item quantity="other">છેલ્લો ઍક્સેસ: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> ઍક્સેસ</item>
-    </plurals>
-    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
-      <item quantity="one">છેલ્લો ઍક્સેસ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ઍક્સેસ (<xliff:g id="NUM_5">%3$s</xliff:g> બૅકગ્રાઉન્ડમાં)</item>
-      <item quantity="other">છેલ્લો ઍક્સેસ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ઍક્સેસ (<xliff:g id="NUM_5">%3$s</xliff:g> બૅકગ્રાઉન્ડમાં)</item>
-    </plurals>
-    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
-      <item quantity="one">છેલ્લો ઍક્સેસ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ઍક્સેસ\nઅવધિ: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-      <item quantity="other">છેલ્લો ઍક્સેસ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ઍક્સેસ\nઅવધિ: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-    </plurals>
-    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
-      <item quantity="one">છેલ્લો ઍક્સેસ: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> ઍક્સેસ (બૅકગ્રાઉન્ડમાં <xliff:g id="NUM_6">%3$s</xliff:g>)\nઅવધિ: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-      <item quantity="other">છેલ્લો ઍક્સેસ: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> ઍક્સેસ (બૅકગ્રાઉન્ડમાં <xliff:g id="NUM_6">%3$s</xliff:g>)\nઅવધિ: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-    </plurals>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"કોઈપણ પરવાનગી"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"ગમે ત્યારે"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"છેલ્લા 7 દિવસ"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"છેલ્લા 24 કલાક"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"છેલ્લો 1 કલાક"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"છેલ્લી 15 મિનિટ"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"છેલ્લી 1 મિનિટ"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"પરવાનગીનો ઉપયોગ થયો નથી"</string>
-    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"કોઈપણ સમયે ઍક્સેસ"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"છેલ્લા 7 દિવસમાં ઍક્સેસ"</string>
-    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"છેલ્લા 24 કલાકમાં ઍક્સેસ"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"છેલ્લા કલાકમાં ઍક્સેસ"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"છેલ્લી 15 મિનિટમાં ઍક્સેસ"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"છેલ્લી 1 મિનિટમાં ઍક્સેસ"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"કોઈપણ સમયે પરવાનગીનો ટોચનો ઉપયોગ"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"છેલ્લા 7 દિવસમાં પરવાનગીનો ટોચનો ઉપયોગ"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"છેલ્લા 24 કલાકમાં પરવાનગીનો ટોચનો ઉપયોગ"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"છેલ્લા 1 કલાકમાં પરવાનગીનો ટોચનો ઉપયોગ"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"છેલ્લી 15 મિનિટમાં પરવાનગીનો ટોચનો ઉપયોગ"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"છેલ્લી 1 મિનિટમાં પરવાનગીનો ટોચનો ઉપયોગ"</string>
-    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"ઍપ"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"આના અનુસાર ફિલ્ટર કર્યું: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"ફિલ્ટર કાઢી નાખો"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"આના અનુસાર ફિલ્ટર કરો"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"પરવાનગીઓ અનુસાર ફિલ્ટર કરો"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"સૌથી વધુ પરવાનગીઓ"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"સૌથી વધુ ઍક્સેસ"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"તાજેતરના"</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"રિફ્રેશ કરો"</string>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"અ‍ૅપ પરવાનગીઓનો ઉપયોગ"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"ઍક્સેસ આપો: <xliff:g id="NUM">%1$s</xliff:g> વાર. કુલ અવધિ: <xliff:g id="DURATION">%2$s</xliff:g>. છેલ્લે <xliff:g id="TIME">%3$s</xliff:g> પહેલાં ઉપયોગ કર્યો હતો."</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ઍક્સેસ આપો: <xliff:g id="NUM">%1$s</xliff:g> વાર. છેલ્લે <xliff:g id="TIME">%2$s</xliff:g> પહેલાં ઉપયોગ કર્યો હતો."</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"સમય અનુસાર ફિલ્ટર કરો"</string>
+    <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"મંજૂરી આપો"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"બધી ફાઇલો મેનેજ કરવાની મંજૂરી આપો"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"માત્ર મીડિયાના ઍક્સેસની મંજૂરી આપો"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"હંમેશાં મંજૂરી આપો"</string>
-    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"માત્ર અ‍ૅપ ઉપયોગમાં હોય ત્યારે જ મંજૂરી આપો"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"ઍપ વાપરતી વખતે જ મંજૂરી આપો"</string>
+    <string name="app_permission_button_ask" msgid="2757216269887794205">"દર વખતે પૂછો"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"નકારો"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> પરવાનગી"</string>
-    <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="APP">%2$s</xliff:g> માટે <xliff:g id="PERM">%1$s</xliff:g> ઍક્સેસ"</string>
-    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> દ્વારા તમારી <xliff:g id="PERM">%2$s</xliff:g>ને <xliff:g id="TIME">%3$s</xliff:g> પહેલાં અ‍ૅક્સેસ કરવામાં આવી હતી."</string>
-    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g>એ તમારા <xliff:g id="PERM">%2$s</xliff:g>નો ઍક્સેસ મેળવ્યો નથી."</string>
-    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"પરવાનગીઓનો વિગતવાર ઉપયોગ જુઓ"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"આ ઍપ માટે <xliff:g id="PERM">%1$s</xliff:g>નો ઍક્સેસ"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g>ની બધી પરવાનગીઓ જુઓ"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"આ પરવાનગી સાથે બધી ઍપ જુઓ"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"ઍપ ઉપયોગમાં ન હોવા પર પરવાનગીઓ કાઢી નાખો"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"તમારા ડેટાની સુરક્ષા કરવા માટે, જો ઍપનો કેટલાક મહિનાથી ઉપયોગ કરવામાં આવ્યો ન હોય, તો આ ઍપની પરવાનગીઓ કાઢી નાખવામાં આવશે."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"તમારા ડેટાની સુરક્ષા કરવા માટે, જો ઍપનો કેટલાક મહિનાથી ઉપયોગ કરવામાં આવ્યો ન હોય, તો નીચેની પરવાનગીઓ કાઢી નાખવામાં આવશે: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"તમારા ડેટાની સુરક્ષા માટે, તમારા દ્વારા કેટલાક મહિનાથી ઉપયોગમાં ન લેવાયેલી ઍપની પરવાનગીઓ કાઢી નાખવામાં આવી છે."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"જો તમે પરવાનગીઓને ફરી મંજૂરી આપવા માંગતા હો, તો ઍપ ખોલો."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"આ ઍપ માટે ઑટોમૅટિક રીતે કાઢી નાખવાની સુવિધા હાલમાં બંધ છે."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"ઑટોમૅટિક રીતે રદ કરવા પાત્ર કોઈપણ પરવાનગીની હાલમાં મંજૂરી નથી"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> પરવાનગી કાઢી નાખવામાં આવશે."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> અને <xliff:g id="PERM_1">%2$s</xliff:g> પરવાનગી કાઢી નાખવામાં આવશે."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"પરવાનગીઓ કે જે કાઢી નાખવામાં આવશે: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"પરવાનગીઓને ઑટોમૅટિક રીતે મેનેજ કરો"</string>
+    <string name="off" msgid="4561379152328580345">"બંધ કરો"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g>ની પરવાનગી કાઢી નાખવામાં આવી"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> અને <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>ની પરવાનગીઓ કાઢી નાખવામાં આવી"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> અને અન્ય <xliff:g id="NUMBER">%2$s</xliff:g> પરવાનગીઓ કાઢી નાખવામાં આવી"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"છેલ્લે <xliff:g id="NUMBER">%s</xliff:g> મહિના કરતાં પર વધારે સમય અગાઉ ખોલી હતી"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"ઍપ છેલ્લે <xliff:g id="DATE">%s</xliff:g>ના રોજ ખોલી"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"છેલ્લે <xliff:g id="DATE">%s</xliff:g>ના રોજ ખોલી"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"તમે બધી ફાઇલો મેનેજ કરવાની મંજૂરી આપશો, તો આ ઍપ, આ ડિવાઇસના સામાન્ય સ્ટોરેજમાં અથવા કનેક્ટ કરેલા સ્ટોરેજ ડિવાઇસમાં રહેલી કોઈપણ ફાઇલને ઍક્સેસ કરી શકશે, તેમાં ફેરફાર કરી શકશે અથવા તેને ડિલીટ કરી શકશે. ઍપ તમને પૂછ્યા વિના ફાઇલો ઍક્સેસ કરે તેમ બની શકે છે."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"ડિવાઇસમાં અથવા કનેક્ટ કરેલા સ્ટોરેજ ડિવાઇસમાં રહેલી ફાઇલોને ઍક્સેસ કરવાની, તેમાં ફેરફાર કરવાની અથવા તેને ડિલીટ કરવાની મંજૂરી આપીએ? આ ઍપ તમને પૂછ્યા વિના ફાઇલો ઍક્સેસ કરે તેમ બની શકે છે."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"આ પરવાનગી ધરાવતી ઍપ <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"આ પરવાનગી ધરાવતી ઍપ તમારી શારીરિક પ્રવૃત્તિ જેમ કે ચાલવું, બાઇકિંગ, ડ્રાઇવિંગ, પગલાંની સંખ્યા અને બીજી ઘણી બધી પ્રવૃત્તિ ઍક્સેસ કરી શકે છે"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"આ પરવાનગી ધરાવતી ઍપ તમારા કૅલેન્ડરને ઍક્સેસ કરી શકશે"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"આ પરવાનગી ધરાવતી ઍપ ફોન કૉલ લૉગ વાંચી અને લખી શકે છે"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"આ પરવાનગી ધરાવતી ઍપ ફોટા લઈ શકે છે અને વીડિયો રેકોર્ડ કરી શકે છે"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"આ પરવાનગી ધરાવતી ઍપ તમારા સંપર્કોને ઍક્સેસ કરી શકશે"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"આ પરવાનગી ધરાવતી ઍપ આ ડિવાઇસનું સ્થાન ઍક્સેસ કરી શકે છે"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"આ પરવાનગી ધરાવતી ઍપ ઑડિયો રેકોર્ડ કરી શકશે"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"આ પરવાનગી ધરાવતી ઍપ ફોન કૉલ કરી શકશે અને તેને મેનેજ કરી શકશે"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"આ પરવાનગી ધરાવતી ઍપ તમારા મહત્ત્વપૂર્ણ ચિહ્નો વિશેના સેન્સર ડેટાને ઍક્સેસ કરી શકશે"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"આ પરવાનગી ધરાવતી ઍપ SMS સંદેશા મોકલી અને જોઈ શકે છે"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"આ પરવાનગી ધરાવતી ઍપ તમારા ડિવાઇસ પર ફોટા, મીડિયા અને ફાઇલોને ઍક્સેસ કરી શકે છે"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"છેલ્લે થયેલો ઍક્સેસ: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"હાલમાં નકારેલી / છેલ્લો ઍક્સેસ: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ક્યારેય ઍક્સેસ કરેલ નથી"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"નકારી / ક્યારેય ઍક્સેસ કરી નથી"</string>
     <string name="allowed_header" msgid="6279244592227088158">"મંજૂર"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"હંમેશાં માટે મંજૂરી આપી છે"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"માત્ર ઉપયોગમાં હોય ત્યારે જ મંજૂરી છે"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"માત્ર મીડિયા ઍક્સેસ કરવાની મંજૂરી છે"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"બધી ફાઇલો મેનેજ કરવાની મંજૂરી છે"</string>
+    <string name="ask_header" msgid="4471670860332046665">"દર વખતે પૂછો"</string>
     <string name="denied_header" msgid="2277998574238617699">"નકારેલ"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"વિગતવાર વપરાશ જુઓ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> દિવસ</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> દિવસ</item>
@@ -171,53 +176,163 @@
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> સેકંડ</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> સેકંડ</item>
     </plurals>
-    <string name="role_request_message_add" msgid="1977772335648650272">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;નો તમારા <xliff:g id="ROLE_NAME">%2$s</xliff:g> તરીકે ઉપયોગ કરીએ?"</string>
-    <string name="role_request_message_replace" msgid="6367571247558110210">"&lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને બદલે &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt;નો તમારા <xliff:g id="ROLE_NAME">%2$s</xliff:g> તરીકે ઉપયોગ કરીએ?"</string>
     <string name="permission_reminders" msgid="8040710767178843151">"મંજૂરીના રિમાઇન્ડર"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> તમારા સ્થાનનો ઉપયોગ કરી રહી છે"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 ન વપરાયેલી ઍપ"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ન વપરાયેલી ઍપ"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"તમારી પ્રાઇવસીનું રક્ષણ કરવા માટે પરવાનગીઓ દૂર કરવામાં આવી. રિવ્યૂ કરવા માટે ટૅપ કરો"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"ન વપરાયેલી ઍપ માટેની પરવાનગીઓ કાઢી નાખી"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"અમુક ઍપનો થોડા મહિનામાં ઉપયોગ થયો નથી. રિવ્યૂ કરવા માટે ટૅપ કરો."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> ઍપનો થોડા મહિનામાં ઉપયોગ થયો નથી. રિવ્યૂ કરવા માટે ટૅપ કરો</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ઍપનો થોડા મહિનામાં ઉપયોગ થયો નથી. રિવ્યૂ કરવા માટે ટૅપ કરો</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"અમુક ઍપનો થોડા મહિનામાં ઉપયોગ થયો નથી"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> ઍપનો થોડા મહિનામાં ઉપયોગ થયો નથી</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ઍપનો થોડા મહિનામાં ઉપયોગ થયો નથી</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"કાઢી નાખેલી પરવાનગીઓ"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"પરવાનગીઓ કાઢી નાખી છે"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"બધી ન વપરાયેલી ઍપ"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> મહિના પહેલાં"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"તમારી પ્રાઇવસીનું રક્ષણ કરવા માટે પરવાનગીઓ દૂર કરવામાં આવી"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>એ બૅકગ્રાઉન્ડમાં તમારું સ્થાન ઍક્સેસ કર્યુ છે"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"આ ઍપ હંમેશાં તમારા સ્થાનને ઍક્સેસ કરી શકે છે. ફેરફાર કરવા માટે ટૅપ કરો."</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"પ્રાઇવસીની સુરક્ષા કરવા માટે ઍપ્લિકેશન પરવાનગીઓ કાઢી નાખી"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g>નો થોડા મહિનાથી ઉપયોગ કરવામાં આવ્યો નથી. રિવ્યૂ કરવા માટે ટૅપ કરો."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> અને 1 અન્ય ઍપનો થોડા મહિનાથી ઉપયોગ કરવામાં આવ્યો નથી. રિવ્યૂ કરવા માટે ટૅપ કરો."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> અને <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> અન્ય ઍપનો થોડા મહિનાથી ઉપયોગ કરવામાં આવ્યો નથી. રિવ્યૂ કરવા માટે ટૅપ કરો."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 ઍપનો ઉપયોગ કરવામાં આવ્યો નથી"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ઍપનો ઉપયોગ કરવામાં આવ્યો નથી"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"તમારી પ્રાઇવસીની સુરક્ષા કરવા માટે પરવાનગીઓ કાઢી નાખવામાં આવશે. રિવ્યૂ કરવા માટે ટૅપ કરો."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"બિનવપરાયેલી ઍપ"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"પરવાનગીઓ કાઢી નાખી"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"આમાંથી પરવાનગીઓ કાઢી નાખવામાં આવશે"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> અને <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> અને વધુ <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"તમારા ડેટાની સુરક્ષા માટે, તમારા દ્વારા થોડા મહિનાથી ઉપયોગમાં ન લેવાયેલી ઍપની પરવાનગીઓ કાઢી નાખવામાં આવી છે"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"તમારા ડેટાની સુરક્ષા માટે, તમે થોડા મહિનામાં ઉપયોગમાં ન લીધી હોય એવી અમુક ઍપની પરવાનગીઓ કાઢી નાખવામાં આવી છે"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 ઍપનો કેટલાક મહિનાથી ઉપયોગ થયો નથી."</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> ઍપનો કેટલાક મહિનાથી ઉપયોગ થયો નથી."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"માત્ર ઍપ ઉપયોગમાં હોય ત્યારે જ"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"મીડિયા"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"બધી ફાઇલો"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"કોઈ પરવાનગીઓની મંજૂરી નથી"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"કોઈ પરવાનગીઓ નકારવામાં આવી નથી"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"કોઈ ઍપની મંજૂરી નથી"</string>
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"બધી ફાઇલો માટે કોઈ ઍપની મંજૂરી નથી"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"માત્ર મીડિયા માટે કોઈ ઍપની મંજૂરી નથી"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"કોઈ ઍપ નકારવામાં આવી નથી"</string>
-    <string name="launch_app" msgid="5641437562665039291">"ખોલો"</string>
-    <string name="uninstall_app" msgid="8756507666995809214">"અનઇન્સ્ટૉલ કરો"</string>
-    <string name="force_stop_app" msgid="4253426323145479826">"ફરજિયાત બંધ કરો"</string>
+    <string name="car_permission_selected" msgid="2163426344720483487">"પસંદ કરેલી"</string>
     <string name="settings" msgid="2884124136779508907">"સેટિંગ"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> તમારા ડિવાઇસ માટે સંપૂર્ણ ઍક્સેસ ધરાવે છે"</string>
-    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> ઍક્સેસિબિલિટી સેવાઓ તમારા ડિવાઇસ માટે સંપૂર્ણ ઍક્સેસ ધરાવે છે"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> ઍક્સેસિબિલિટી ઍપ તમારા ડિવાઇસ માટે સંપૂર્ણ ઍક્સેસ ધરાવે છે"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> તમારી સ્ક્રીન, ક્રિયાઓ તેમજ ઇનપુટ જોઈ શકે છે, ક્રિયાઓ કરી શકે છે અને ડિસ્પ્લેનું નિયંત્રણ કરી શકે છે."</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"આ સેવાઓ તમારી સ્ક્રીન, ક્રિયાઓ તેમજ ઇનપુટ જોઈ શકે છે, ક્રિયાઓ કરી શકે છે અને ડિસ્પ્લેનું નિયંત્રણ કરી શકે છે."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"આ ઍપ તમારી સ્ક્રીન, ક્રિયાઓ તેમજ ઇનપુટ જોઈ શકે છે, ક્રિયાઓ કરી શકે છે અને ડિસ્પ્લેનું નિયંત્રણ કરી શકે છે."</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"ડિફૉલ્ટ ડિજિટલ આસિસ્ટંટ ઍપ"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"ડિજિટલ આસિસ્ટંટ ઍપ"</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"તમે જોઈ રહ્યા હો તે સ્ક્રીન પરની માહિતીના આધારે સહાયક ઍપ તમને સહાય કરી શકે છે. કેટલીક ઍપ્લિકેશનો તમને એકીકૃત સહાયતા આપવા માટે લૉન્ચર અને વૉઇસ ઇનપુટ સેવાઓ એમ બંનેને સમર્થન આપે છે."</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g>ને તમારી ડિફૉલ્ટ સહાયક ઍપ તરીકે સેટ કરીએ?"</string>
+    <string name="role_assistant_request_description" msgid="1086168907357494789">"SMS અને કૉલ લૉગનો ઍક્સેસ મેળવો"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"ડિફૉલ્ટ બ્રાઉઝર ઍપ"</string>
+    <string name="role_browser_short_label" msgid="6222206565850006894">"બ્રાઉઝર ઍપ"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"ઍપ કે જે તમને ઇન્ટરનેટનો ઍક્સેસ આપે અને તમે જેના પર ટૅપ કરો તે લિંક દર્શાવે"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"<xliff:g id="APP_NAME">%1$s</xliff:g>ને તમારી ડિફૉલ્ટ બ્રાઉઝર ઍપ તરીકે સેટ કરીએ?"</string>
+    <string name="role_browser_request_description" msgid="3204873553391043604">"કોઈ પરવાનગી જરૂરી નથી"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"ડિફૉલ્ટ ફોન ઍપ"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"ફોન ઍપ"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"ઍપ કે જે તમને તમારા ડિવાઇસ પરથી ટેલિફોન કૉલ કરવાની અને તેના પર ટેલિફોન કૉલ પ્રાપ્ત કરવાની મંજૂરી આપે છે"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"<xliff:g id="APP_NAME">%1$s</xliff:g>ને તમારી ડિફૉલ્ટ ફોન ઍપ તરીકે સેટ કરીએ?"</string>
+    <string name="role_dialer_request_description" msgid="2931069491309771312">"કૉલ લૉગનો ઍક્સેસ મેળવે છે, SMS મોકલે છે"</string>
+    <string name="role_dialer_search_keywords" msgid="6215791911228160821">"ડાયલર"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"ડિફૉલ્ટ SMS ઍપ"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"SMS ઍપ"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"ઍપ કે જે તમને તમારા ફોન નંબરનો ઉપયોગ કરીને નાના ટેક્સ્ટ સંદેશા, ફોટા, વીડિયો અને ઘણું બધું મોકલવા અને પ્રાપ્ત કરવાની મંજૂરી આપે છે"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g>ને તમારી ડિફૉલ્ટ SMS ઍપ તરીકે સેટ કરીએ?"</string>
+    <string name="role_sms_request_description" msgid="4920787411350418630">"સંપર્કો, SMS અને ફોનનો ઍક્સેસ મેળવે છે"</string>
+    <string name="role_sms_search_keywords" msgid="6818482413212931585">"ટેક્સ્ટ સંદેશ, ટેક્સ્ટિંગ, સંદેશા, મેસેજિંગ"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"ડિફૉલ્ટ ઇમર્જન્સી ઍપ"</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"ઇમર્જન્સી ઍપ"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"ઍપ કે જે તમને તમારી તબીબી માહિતી રેકોર્ડ કરીને ઇમર્જન્સી દરમિયાન ઍક્સેસ કરવાની; હવામાનની ગંભીર ઘટનાઓ અને દુર્ઘટનાઓ વિશે ચેતવણી મેળવવાની અને તમને સહાયની જરૂર હોય ત્યારે બીજા લોકોને તે વિશે સૂચિત કરવાની મંજૂરી આપે છે"</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"<xliff:g id="APP_NAME">%1$s</xliff:g>ને તમારી ડિફૉલ્ટ ઇમર્જન્સી ઍપ તરીકે સેટ કરીએ?"</string>
+    <string name="role_emergency_request_description" msgid="2824966073894226992">"કોઈ પરવાનગી જરૂરી નથી"</string>
+    <string name="role_emergency_search_keywords" msgid="7310029268876820646">"કટોકટીના કિસ્સામાં"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"ડિફૉલ્ટ હોમ ઍપ"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"હોમ ઍપ"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"ઘણીવાર લૉન્ચર કહેવાતી ઍપ, કે જે તમારા Android ડિવાઇસ પર હોમ સ્ક્રીન બદલે છે અને તમને તમારા ડિવાઇસમાંના કન્ટેન્ટ અને સુવિધાઓનો ઍક્સેસ આપે છે"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g>ને તમારી ડિફૉલ્ટ હોમ ઍપ તરીકે સેટ કરીએ?"</string>
+    <string name="role_home_request_description" msgid="6437733879812403277">"કોઈ પરવાનગી જરૂરી નથી"</string>
+    <string name="role_home_search_keywords" msgid="8277315231013298175">"લૉન્ચર"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"ડિફૉલ્ટ કૉલ રીડાયરેક્ટિંગ ઍપ"</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"કૉલ રીડાયરેક્ટ કરનારી ઍપ"</string>
+    <string name="role_call_redirection_description" msgid="769231030043298555">"ઍપ કે જે તમને બીજા ફોન નંબર પર આઉટગોઇંગ કૉલ ફૉર્વર્ડ કરવાની મંજૂરી આપે છે"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g>ને તમારી ડિફૉલ્ટ કૉલ રીડાયરેક્શન ઍપ તરીકે સેટ કરીએ?"</string>
+    <string name="role_call_redirection_request_description" msgid="6117172580087594081">"કોઈ પરવાનગી જરૂરી નથી"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"ડિફૉલ્ટ કૉલર ID અને સ્પામ ઍપ"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"કૉલર ID અને સ્પામ ઍપ"</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"એવી ઍપ કે જે તમને કૉલ કરનારી વ્યક્તિને ઓળખવાની અને સ્પામ, રોબોકૉલ અથવા અનિચ્છનીય નંબરને બ્લૉક કરવાની મંજૂરી આપે છે"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g>ને તમારી ડિફૉલ્ટ કૉલર ID અને સ્પામ ઍપ તરીકે સેટ કરીએ?"</string>
+    <string name="role_call_screening_request_description" msgid="7788142583532880646">"કોઈ પરવાનગી જરૂરી નથી"</string>
+    <string name="request_role_current_default" msgid="7512045433655289638">"હાલની ડિફૉલ્ટ"</string>
+    <string name="request_role_dont_ask_again" msgid="6250680190065090205">"ફરીથી પૂછશો નહીં"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"ડિફૉલ્ટ તરીકે સેટ"</string>
+    <string name="default_app_search_keyword" msgid="6938709626391437391">"ડિફૉલ્ટ ઍપ"</string>
+    <string name="settings_button" msgid="4747434541214595321">"સેટિંગ"</string>
     <string name="default_apps" msgid="8554530939151957828">"ડિફૉલ્ટ ઍપ"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"કોઈ ડિફૉલ્ટ ઍપ નથી"</string>
+    <string name="default_apps_more" msgid="3908067305593075127">"વધુ ડિફૉલ્ટ"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"લિંક ખોલવી"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"કાર્ય માટે ડિફૉલ્ટ"</string>
     <string name="default_app_none" msgid="7671097769303174666">"કોઈ નહીં"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(સિસ્ટમ ડિફૉલ્ટ)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"કોઈ ઍપ નથી"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"પસંદ કરેલ"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"પસંદ કરેલ - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"વિશેષ ઍપનો ઍક્સેસ"</string>
     <string name="special_app_access" msgid="2561673957499408877">"વિશેષ ઍપનો ઍક્સેસ"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"કોઈ વિશેષ ઍપનો ઍક્સેસ નથી"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"કોઈ ઍપ નથી"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"સહાયક ઍપ્લિકેશન"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"બ્રાઉઝર ઍપ"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"ફોન ઍપ"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"SMS ઍપ"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"ઇમર્જન્સી ઍપ"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"હોમ ઍપ"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"મ્યુઝિક ઍપ"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"ગૅલેરી ઍપ"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"કાર મોડ ફોન ઍપ"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"કૉલ રીડાયરેક્ટ કરનારી ઍપ"</string>
-    <string name="role_label_call_screening" msgid="411212589764916370">"કૉલ સ્ક્રીનિંગ ઍપ"</string>
-    <string name="role_label_call_companion" msgid="7369723859682076467">"કૉલ સાથી ઍપ"</string>
-    <string name="role_label_car_projection" msgid="3792929094325391213">"કાર પ્રોજેક્શન ઍપ"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"કાર્યાલયની પ્રોફાઇલનું સમર્થન કરતી નથી"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"નોંધ: જો તમે તમારું ડિવાઇસ ફરીથી શરૂ કરો અને કોઈ સ્ક્રીન લૉક સેટ કરેલું હોય, તો જ્યાં સુધી તમે તમારું ડિવાઇસ અનલૉક નહીં કરો ત્યાં સુધી આ ઍપ શરૂ થઈ શકશે નહીં."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"આસિસ્ટંટ તમારી સ્ક્રીન પર જોઈ શકાતી અથવા ઍપમાંથી ઍક્સેસ કરી શકાય તેવી માહિતી સહિતની તમારી સિસ્ટમમાં ઉપયોગમાં લેવાતી ઍપ વિશેની માહિતી વાંચી શકશે."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"ડિબગીંગ ડેટા શેર કરો"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"વિગતવાર ડિબગીંગ ડેટા શેર કરીએ?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>, ડિબગીંગ માહિતી અપલોડ કરવા માગે છે"</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"ડિબગીંગ ડેટા શેર કરો"</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> આ ડિવાઇસથી <xliff:g id="DATE">%2$s</xliff:g>ના રોજ <xliff:g id="TIME">%3$s</xliff:g> વાગ્યે લેવામાં આવેલ ખામીની જાણકારી અપલોડ કરવાની મંજૂરી માગી રહી છે. ખામીની જાણકારીમાં તમારા ડિવાઇસ વિશે અથવા ઍપ દ્વારા લૉગ કરવામાં આવેલી વ્યક્તિગત માહિતી શામેલ હોય છે, જેમ કે વપરાશકર્તાનું નામ, સ્થાન ડેટા, ડિવાઇસ ઓળખકર્તા અને નેટવર્કની માહિતી. ખામીની જાણકારીને માત્ર તેવા જ લોકો અને ઍપ સાથે શેર કરો કે જેની પર તમે માહિતી બાબતે વિશ્વાસ કરો છો. <xliff:g id="APP_NAME_1">%4$s</xliff:g>ને ખામીની જાણકારી અપલોડ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"શું ડિબગીંગનો ડેટા શેર કરવો છે?"</string>
+    <string name="incident_report_dialog_intro" msgid="153446034925770956">"સિસ્ટમને સમસ્યા મળી છે."</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> આ ડિવાઇસથી <xliff:g id="DATE">%2$s</xliff:g>ના રોજ <xliff:g id="TIME">%3$s</xliff:g> વાગ્યે લેવામાં આવેલ બગ રિપોર્ટ અપલોડ કરવાની મંજૂરી માગી રહી છે. બગ રિપોર્ટમાં તમારા ડિવાઇસ વિશે અથવા ઍપ દ્વારા લૉગ કરવામાં આવેલી વ્યક્તિગત માહિતી શામેલ હોય છે, જેમ કે વપરાશકર્તાનું નામ, સ્થાન ડેટા, ડિવાઇસ ઓળખકર્તા અને નેટવર્કની માહિતી. બગ રિપોર્ટને માત્ર તેવા જ લોકો અને ઍપ સાથે શેર કરો કે જેની પર તમે માહિતી બાબતે વિશ્વાસ કરો છો. <xliff:g id="APP_NAME_1">%4$s</xliff:g>ને બગ રિપોર્ટ અપલોડ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> માટે ખામીની જાણકારીના રિપોર્ટ પર પ્રક્રિયા કરવામાં ભૂલ આવી હતી. તેથી ડિબગીંગના વિગતવાર ડેટાને શેર કરવાની વિનંતી નકારવામાં આવી છે. વિક્ષેપ બદલ માફ કરશો."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"મંજૂરી આપો"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"નકારો"</string>
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"વિગતવાર સેટિંગ"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"વિગતવાર સેટિંગ"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"સિસ્ટમ ઍપના વપરાશના આંકડા બતાવો"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"સિસ્ટમ ઍપ દ્વારા પરવાનગીઓના ઉપયોગની માહિતી સ્ટેટસ બાર, ડૅશબોર્ડ અને અન્ય કોઈ સ્થાને બતાવો"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"નીચે આપેલી ઍપના વપરાશને હાઇલાઇટ કરો"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"આસિસ્ટંટના ટ્રિગરની ઓળખ બતાવો"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"જ્યારે માઇક્રોફોનનો ઉપયોગ કરીને વૉઇસ આસિસ્ટંટ સક્રિય કરવામાં આવે, ત્યારે માઇક્રોફોનનું આઇકન સ્ટેટસ બારમાં બતાવો"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને તમારા ડિવાઇસ પર ફોટા અને મીડિયાને ઍક્સેસ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને તમારા સંપર્કોને ઍક્સેસ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="permgrouprequest_location" msgid="4367626296074714965">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને આ ડિવાઇસના સ્થાનને ઍક્સેસ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"જ્યારે તમે ઍપનો ઉપયોગ કરી રહ્યા હશો માત્ર ત્યારે જ ઍપ સ્થાનને ઍક્સેસ કરી શકશે"</string>
+    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને આ ડિવાઇસના સ્થાનને ઍક્સેસ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"તમે આ ઍપનો ઉપયોગ કરી રહ્યાં ન હો, તો પણ તે હંમેશાં તમારા સ્થાનને ઍક્સેસ કરી શકે છે. "<annotation id="link">"સેટિંગમાંથી મંજૂરી આપો."</annotation></string>
+    <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; માટે સ્થાનનો ઍક્સેસ બદલીએ?"</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"તમે આ ઍપનો ઉપયોગ કરી રહ્યાં ન હો, તો પણ તે હંમેશાં તમારા સ્થાનને ઍક્સેસ કરવા માગે છે. "<annotation id="link">"સેટિંગમાંથી મંજૂરી આપો."</annotation></string>
+    <string name="permgrouprequest_calendar" msgid="254840812783503926">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને તમારા કૅલેન્ડરને ઍક્સેસ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="permgrouprequest_sms" msgid="2622312529683649944">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને SMS સંદેશા મોકલવા અને જોવાની મંજૂરી આપીએ?"</string>
+    <string name="permgrouprequest_storage" msgid="1092300826793175064">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને તમારા ડિવાઇસ પર ફોટા, મીડિયા અને ફાઇલોને ઍક્સેસ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને ઑડિયો રેકૉર્ડ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને તમારી શારીરિક પ્રવૃત્તિને ઍક્સેસ કરવાની મંજૂરી આપવી છે?"</string>
+    <string name="permgrouprequest_camera" msgid="5379726026447957660">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને ફોટા પાડવાની અને વીડિયો રેકૉર્ડ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="permgrouprequest_calllog" msgid="8654341234544121138">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને તમારા ફોનના કૉલ લૉગ ઍક્સેસ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="permgrouprequest_phone" msgid="6240218310343431124">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને ફોન કૉલ કરવાની અને તેને મેનેજ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="permgrouprequest_sensors" msgid="1939578702884234985">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ને તમારી મહત્વપૂર્ણ સહી વિશેના સેન્સર ડેટાને ઍક્સેસ કરવાની મંજૂરી આપીએ?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"નિયંત્રિત પરવાનગીઓ"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"સ્થાન ઍક્સેસ કરી શકાય છે"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"તમારા IT વ્યવસ્થાપક <xliff:g id="APP_NAME">%s</xliff:g>ને તમારું સ્થાન ઍક્સેસ કરવાની મંજૂરી આપે છે"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"આ ઍપ દ્વારા સાઉન્ડની ભાળ મેળવવી જરૂરી હોવાને કારણે અમુક વિકલ્પો ઉપલબ્ધ રહેશે નહીં"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"આ ઍપ તમારું ડિફૉલ્ટ ડિજિટલ આસિસ્ટંટ હોવાને કારણે અમુક વિકલ્પો ઉપલબ્ધ રહેશે નહીં"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"વૉઇસ ઇનપુટ માટે આ ઍપનો ઉપયોગ થતો હોવાને કારણે અમુક વિકલ્પો ઉપલબ્ધ રહેશે નહીં"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"આ ઍપ તમારા કૅરિઅર દ્વારા મેનેજ થતી હોવાને કારણે અમુક વિકલ્પો ઉપલબ્ધ રહેશે નહીં"</string>
 </resources>

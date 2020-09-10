@@ -16,16 +16,22 @@
   -->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:filterTouchesWhenObscured="true">
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:filterTouchesWhenObscured="true">
 
     <FrameLayout
             android:layout_width="@dimen/lb_settings_pane_width"
             android:layout_height="match_parent"
             android:background="@color/lb_preference_decor_list_background"
             android:layout_gravity="end">
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+            <include layout="@layout/progress_header" />
+        </FrameLayout>
 
         <FrameLayout
                 android:id="@+id/prefs_container"
@@ -38,6 +44,7 @@
                     android:layout_height="match_parent"
                     android:text="@string/no_permissions"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:textAppearance="@android:style/TextAppearance.Large"
             />
 

@@ -20,11 +20,16 @@
     <string name="ok" msgid="4417794827535157922">"OK"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"engedélyek"</string>
     <string name="cancel" msgid="7279939269964834974">"Mégse"</string>
+    <string name="back" msgid="8739808065891653074">"Vissza"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Eltávolítás vagy letiltás"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Az alkalmazás nem található"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Tiltás"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Engedély megtagadása, és ne jelenjen meg többé"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"Továbbra is: „Amíg az alkalmazás használatban van”"</string>
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Maradjon „Csak most”"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Bővebben"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Tiltás"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Elvetés"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>/<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>."</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára a következőt: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Mindig engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&amp;gt számára a következőt: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -36,9 +41,16 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"egy sincs letiltva"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Engedélyezés"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Mindig engedélyezett"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Csak akkor engedélyezett, ha az alkalmazás használatban van"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Az alkalmazás használata közben"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Csak most"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Mindig engedélyezett"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Az összes fájl kezelésének engedélyezése"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Hozzáférés engedélyezése médiafájlokhoz"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Alkalmazások"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Alkalmazásengedélyek"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Nem használt alkalmazások"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Alkalmazás letiltása"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Ha letiltja ezt az alkalmazást, akkor előfordulhat, hogy az Android- és más alkalmazások nem működnek majd megfelelően. Ne feledje, hogy az alkalmazást nem törölheti, mert előre telepítették az eszközre. A letiltással kikapcsolja ezt az alkalmazást, és elrejti az eszközön."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Engedélykezelő"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Ne jelenjen meg többé"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Nincs engedély"</string>
@@ -51,8 +63,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Ez az alkalmazás az Android egy korábbi verziójához készült. Az engedély megtagadása esetén előfordulhat, hogy az alkalmazás a továbbiakban nem működik majd megfelelően."</string>
     <string name="default_permission_description" msgid="692254823411049573">"végrehajt egy ismeretlen műveletet"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>/<xliff:g id="COUNT_0">%1$d</xliff:g> alkalmazás kapott engedélyt"</string>
-    <string name="permission_usage_header" msgid="8802963718365732792">"Legutóbbi használat"</string>
-    <string name="permission_usage_view_details" msgid="7398825662321010957">"Az engedélyek irányítópultja"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_1">%2$d</xliff:g>/<xliff:g id="COUNT_0">%1$d</xliff:g> alkalmazás engedélyezve"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Rendszer megjelenítése"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Rendszer elrejtése"</string>
     <string name="no_apps" msgid="2377153782338039463">"Nincsenek alkalmazások"</string>
@@ -67,13 +78,13 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"A rendszergazda letiltotta a háttérhozzáférést"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"A rendszergazda engedélyezte a háttérhozzáférést"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"A rendszergazda engedélyezte az előtérbeli hozzáférést"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"A rendszer által beállított engedély"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="5463084832974856683">"Az eszköz működéséhez szükség van erre az engedélyre"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
-    <string name="permission_access_always" msgid="2315256378850460955">"Mindig"</string>
-    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Az alkalmazás használatakor"</string>
-    <string name="permission_access_never" msgid="4717648645876576508">"Soha"</string>
+    <string name="permission_access_always" msgid="5419580764084361573">"Mindig engedélyezett"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Engedélyezés csak használatkor"</string>
+    <string name="permission_access_never" msgid="425385910378172045">"Tiltás"</string>
     <string name="loading" msgid="323483393167148377">"Betöltés…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Az összes engedély"</string>
     <string name="other_permissions" msgid="1956312685853070715">"Egyéb alkalmazáslehetőségek"</string>
@@ -91,70 +102,64 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Jelenlegi engedélyek"</string>
     <string name="message_staging" msgid="641286607664721291">"Alkalmazás fokozatos közzététele…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Ismeretlen"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"Irányítópult"</string>
-    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
-      <item quantity="other">Legutóbbi hozzáférés: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> hozzáférés</item>
-      <item quantity="one">Legutóbbi hozzáférés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> hozzáférés</item>
-    </plurals>
-    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
-      <item quantity="other">Legutóbbi hozzáférés: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> hozzáférés (<xliff:g id="NUM_5">%3$s</xliff:g> a háttérben)</item>
-      <item quantity="one">Legutóbbi hozzáférés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> hozzáférés (<xliff:g id="NUM_2">%3$s</xliff:g> a háttérben)</item>
-    </plurals>
-    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
-      <item quantity="other">Legutóbbi hozzáférés: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> hozzáférés\nIdőtartam: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-      <item quantity="one">Legutóbbi hozzáférés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> hozzáférés\nIdőtartam: <xliff:g id="TIME_2">%3$s</xliff:g></item>
-    </plurals>
-    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
-      <item quantity="other">Legutóbbi hozzáférés: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> hozzáférés (<xliff:g id="NUM_6">%3$s</xliff:g> a háttérben)\nIdőtartam: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-      <item quantity="one">Legutóbbi hozzáférés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> hozzáférés (<xliff:g id="NUM_2">%3$s</xliff:g> a háttérben)\nIdőtartam: <xliff:g id="TIME_3">%3$s</xliff:g></item>
-    </plurals>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Bármely engedély"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"Bármikor"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Elmúlt 7 nap"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"Elmúlt 24 óra"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Elmúlt 1 óra"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Elmúlt 15 perc"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Elmúlt 1 perc"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"Nincs engedélyhasználat"</string>
-    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Hozzáférés bármikor"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Hozzáférés az elmúlt hét napban"</string>
-    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Hozzáférés az elmúlt 24 órában"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Hozzáférés az elmúlt órában"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Hozzáférés az elmúlt 15 percben"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Hozzáférés az elmúlt percben"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Leggyakoribb engedélyhasználat bármikor"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Leggyakoribb engedélyhasználat az elmúlt 7 napban"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Leggyakoribb engedélyhasználat az elmúlt 24 órában"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Leggyakoribb engedélyhasználat az elmúlt órában"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Leggyakoribb engedélyhasználat az előző 15 percben"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Leggyakoribb engedélyhasználat az elmúlt percben"</string>
-    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Alkalmazás"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Szűrve a következő alapján: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Szűrő eltávolítása"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Szűrő:"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Szűrés engedélyek szerint"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Legtöbb engedély"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Legtöbb hozzáférés"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"Legutóbbiak"</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"Frissítés"</string>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"Alkalmazásengedély-használat"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Hozzáférés: <xliff:g id="NUM">%1$s</xliff:g> alkalommal. Teljes időtartam: <xliff:g id="DURATION">%2$s</xliff:g>. Utoljára használva ennyi ideje: <xliff:g id="TIME">%3$s</xliff:g>"</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Hozzáférés: <xliff:g id="NUM">%1$s</xliff:g> alkalommal. Utoljára használva ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"Szűrés idő szerint"</string>
+    <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Engedélyezés"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Az összes fájl kezelésének engedélyezése"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Csak a médiatartalmakhoz való hozzáférés engedélyezése"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Mindig engedélyezett"</string>
-    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Csak akkor engedélyezett, ha az alkalmazás használatban van"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Engedélyezés csak az alkalmazás használatakor"</string>
+    <string name="app_permission_button_ask" msgid="2757216269887794205">"Mindig kérdezzen rá"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Tiltás"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> engedély"</string>
-    <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="PERM">%1$s</xliff:g> hozzáférés <xliff:g id="APP">%2$s</xliff:g> számára"</string>
-    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"A(z) <xliff:g id="APP">%1$s</xliff:g> alkalmazás hozzáfért a következőhöz: <xliff:g id="PERM">%2$s</xliff:g> (ennyi ideje: <xliff:g id="TIME">%3$s</xliff:g>)."</string>
-    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a következő engedélyhez: <xliff:g id="PERM">%2$s</xliff:g>."</string>
-    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Engedélyhasználat részletes adatainak megtekintése"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> – engedély"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Alkalmazás hozzáférése a következőhöz: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"A(z) <xliff:g id="APP">%1$s</xliff:g> összes engedélyének megtekintése"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Az ezzel az engedéllyel rendelkező összes alkalmazás megtekintése"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Engedélyek eltávolítása, ha nem használja az alkalmazást"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Az adatok védelme érdekében az ennek az alkalmazásnak adott engedélyek visszavonásra kerülnek, ha néhány hónapon át nem használja az alkalmazást."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Ha néhány hónapon át nem használja az alkalmazást, az adatok védelme érdekében a rendszer visszavonja a következő engedélyeket: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Az adatok védelme érdekében a rendszer eltávolította a néhány hónapja nem használt alkalmazások engedélyeit."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Ha újra meg szeretné adni az engedélyeket, nyissa meg az alkalmazást."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Az automatikus eltávolítás jelenleg le van tiltva ennél az alkalmazásnál."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Jelenleg egyetlen automatikusan visszavonható engedély sincs megadva"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"A(z) <xliff:g id="PERM">%1$s</xliff:g> engedély el lesz távolítva."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"A(z) <xliff:g id="PERM_0">%1$s</xliff:g> és a(z) <xliff:g id="PERM_1">%2$s</xliff:g> engedély el lesz távolítva."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Eltávolításra kerülő engedélyek: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"Engedélyek automatikus kezelése"</string>
+    <string name="off" msgid="4561379152328580345">"Ki"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"A(z) <xliff:g id="PERMISSION_NAME">%s</xliff:g> engedély visszavonva"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"A(z) <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> és a(z) <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> engedély visszavonva"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"A(z) <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> és <xliff:g id="NUMBER">%2$s</xliff:g> másik engedély visszavonva"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Utoljára több mint <xliff:g id="NUMBER">%s</xliff:g> hónapja nyitotta meg"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"Az alkalmazás legutóbbi megnyitása: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"Legutóbb megnyitva ekkor: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Ha engedélyezi az összes fájl kezelését, ez az alkalmazás hozzáférhet az eszköz tárhelyén és a csatlakoztatott tárolóeszközökön található fájlokhoz, valamint módosíthatja és törölheti őket. Az alkalmazás anélkül férhet hozzá a fájlokhoz, hogy Önt megkérdezné róla."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Engedélyezi ennek az alkalmazásnak, hogy hozzáférjen az eszközön és a csatlakoztatott tárolóeszközökön található összes fájlhoz, illetve módosíthassa és törölhesse őket? Ez az alkalmazás anélkül férhet hozzá a fájlokhoz, hogy Önt megkérdezné róla."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Az ezzel az engedéllyel rendelkező alkalmazások a következőket tehetik: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Az ezzel az engedéllyel rendelkező alkalmazások hozzáférhetnek az Ön fizikai tevékenységekkel (pl. séta, kerékpározás, vezetés, lépésszámlálás stb.) kapcsolatos adataihoz"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Az ezzel az engedéllyel rendelkező alkalmazások hozzáférhetnek a naptárához"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Az ezzel az engedéllyel rendelkező alkalmazások olvashatják és írhatják a telefon hívásnaplóját"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Az ezzel az engedéllyel rendelkező alkalmazások készíthetnek fotókat és videókat"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Az ezzel az engedéllyel rendelkező alkalmazások hozzáférhetnek a névjegyeihez"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"Az ezzel az engedéllyel rendelkező alkalmazások hozzáférhetnek az eszköz helyadataihoz"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Az ezzel az engedéllyel rendelkező alkalmazások készíthetnek hangfelvételt"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Az ezzel az engedéllyel rendelkező alkalmazások képesek a telefonhívások kezdeményezésére és kezelésére"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Az ezzel az engedéllyel rendelkező alkalmazások hozzáférhetnek az életjelekkel kapcsolatos szenzoradatokhoz"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Az ezzel az engedéllyel rendelkező alkalmazások küldhetnek és megtekinthetnek SMS-eket"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Az ezzel az engedéllyel rendelkező alkalmazások hozzáférhetnek az eszközön található fotókhoz, médiatartalmakhoz és fájlokhoz"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Legutóbbi hozzáférés: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Jelenleg megtagadva / Legutóbbi hozzáférés ideje: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Sosem használta"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Megtagadva / Sosem fért hozzá"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Engedélyezett"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Mindig engedélyezett"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Csak használat közben engedélyezett"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Elutasítva"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"Részletes használati adatok megtekintése"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Csak médiatartalmak eléréséhez engedélyezett"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Engedélyezve az összes fájl kezeléséhez"</string>
+    <string name="ask_header" msgid="4471670860332046665">"Mindig kérdezzen rá"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Elutasított"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> nap</item>
       <item quantity="one">1 nap</item>
@@ -171,53 +176,163 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> másodperc</item>
       <item quantity="one">1 másodperc</item>
     </plurals>
-    <string name="role_request_message_add" msgid="1977772335648650272">"A(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; alkalmazást szeretné használni a következőként: <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
-    <string name="role_request_message_replace" msgid="6367571247558110210">"A(z) &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; alkalmazást szeretné használni a(z) &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; helyett a következőként: <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
     <string name="permission_reminders" msgid="8040710767178843151">"Engedélyekre vonatkozó emlékeztetők"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"A(z) <xliff:g id="APP_NAME">%s</xliff:g> az Ön tartózkodási helyét használja"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 nem használt alkalmazás"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> nem használt alkalmazás"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Engedélyek visszavonva az adatainak védelme érdekében. Koppintson az áttekintéshez"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"A nem használt alkalmazások engedélyei visszavonva"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Egyes alkalmazásokat több hónapja nem használt. Koppintson az áttekintéshez."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> alkalmazást több hónapja nem használt. Koppintson az áttekintéshez.</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> alkalmazást több hónapja nem használt. Koppintson az áttekintéshez.</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Egyes alkalmazásokat több hónapja nem használt"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> alkalmazást több hónapja nem használt</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> alkalmazást több hónapja nem használt</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Visszavont engedélyek"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Engedély visszavonva"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Az összes nem használt alkalmazás"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> hónapja"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Engedélyek visszavonva az adatainak védelme érdekében"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"A(z) <xliff:g id="APP_NAME">%s</xliff:g> hozzáfér az Ön helyadataihoz a háttérben"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ez az alkalmazás bármikor hozzáférhet az Ön tartózkodási helyéhez. A módosításhoz koppintson."</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Alkalmazásengedélyek eltávolítva az adatvédelem érdekében"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"Több hónapja nem használta a(z) <xliff:g id="APP_NAME">%s</xliff:g> alkalmazást. Koppintson az áttekintéshez."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"Több hónapja nem használta a(z) <xliff:g id="APP_NAME">%s</xliff:g> és 1 további alkalmazást. Koppintson az áttekintéshez."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"Néhány hónapja nem használta a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> és <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> további alkalmazást. Koppintson az áttekintéshez."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 nem használt alkalmazás"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> nem használt alkalmazás"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"A rendszer eltávolít bizonyos engedélyeket az Ön adatainak védelme érdekében. Koppintson az áttekintéshez."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"Nem használt alkalmazások"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"A következő engedélyei eltávolítva:"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"A következő engedélyei eltávolításra kerülnek:"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> és <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g>, valamint további <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Az adatvédelem érdekében a rendszer eltávolította a néhány hónapja nem használt alkalmazások engedélyeit."</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Az adatok védelme érdekében a rendszer visszavonta a néhány hónapja nem használt alkalmazások engedélyeit"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 alkalmazást már több hónapja nem használt"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> alkalmazást már több hónapja nem használt"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Csak az alkalmazás használata közben"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Médiafájlok"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Minden fájl"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nincs megadott engedély"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nincs megtagadott engedély"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Nincs engedélyezett alkalmazás"</string>
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Nincs engedélyezett alkalmazás az összes fájlhoz"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Nincs engedélyezett alkalmazás csak médiatartalmakhoz"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Nincs elutasított alkalmazás"</string>
-    <string name="launch_app" msgid="5641437562665039291">"Megnyitás"</string>
-    <string name="uninstall_app" msgid="8756507666995809214">"Eltávolítás"</string>
-    <string name="force_stop_app" msgid="4253426323145479826">"Mindenképp álljon le"</string>
+    <string name="car_permission_selected" msgid="2163426344720483487">"Kijelölve"</string>
     <string name="settings" msgid="2884124136779508907">"Beállítások"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"A(z) <xliff:g id="SERVICE_NAME">%s</xliff:g> teljes körű hozzáféréssel rendelkezik az eszközhöz"</string>
-    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> kisegítő szolgáltatás teljes körű hozzáféréssel rendelkezik az eszközhöz"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> kisegítő alkalmazás teljes körű hozzáféréssel rendelkezik az eszközhöz"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"A(z) <xliff:g id="SERVICE_NAME">%s</xliff:g> megtekintheti a képernyőt, a műveleteket és a beviteleket, műveleteket végezhet, és vezérelheti a képernyőt."</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Ezek a szolgáltatások megtekinthetik a képernyőt, a műveleteket és a beviteleket, műveleteket végezhetnek, és vezérelhetik a képernyőt."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Ezek az alkalmazások megtekinthetik a képernyőt, a műveleteket és a beviteleket, műveleteket végezhetnek, és vezérelhetik a képernyőt."</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Alapértelmezett digitális asszisztens"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Digitális asszisztens app"</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"A segédalkalmazások az aktuális képernyőn lévő információk alapján segíthetnek. Egyes alkalmazások egyaránt támogatják az indítási és a hangbeviteli szolgáltatásokat annak érdekében, hogy integrált segítséget nyújthassanak Önnek."</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett segédalkalmazásként?"</string>
+    <string name="role_assistant_request_description" msgid="1086168907357494789">"Hozzáférést kap az SMS-ekhez és a hívásnaplóhoz"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Alapértelmezett böngésző"</string>
+    <string name="role_browser_short_label" msgid="6222206565850006894">"Böngészőalkalmazás"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"Alkalmazások, amelyek hozzáférést biztosítanak az internethez, valamint koppintható linkeket jelenítenek meg"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett böngészőalkalmazásként?"</string>
+    <string name="role_browser_request_description" msgid="3204873553391043604">"Nincs szükség engedélyre"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"Alapértelmezett telefonalkalmazás"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"Telefonalkalmazás"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"Alkalmazások, amelyek lehetővé teszik telefonhívások indítását és fogadását az eszközön"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett telefonalkalmazásként?"</string>
+    <string name="role_dialer_request_description" msgid="2931069491309771312">"Hozzáférést kap a hívásnaplóhoz, SMS-t küldhet"</string>
+    <string name="role_dialer_search_keywords" msgid="6215791911228160821">"tárcsázó"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"Alapértelmezett SMS-alkalmazás"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"SMS-alkalmazás"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Alkalmazások, amelyek lehetővé teszik a telefonszám használatát SMS-ek, fotók, videók és egyebek küldésére és fogadására"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett SMS-alkalmazásként?"</string>
+    <string name="role_sms_request_description" msgid="4920787411350418630">"Hozzáférést kap a névjegyekhez, az SMS-ekhez és a telefonhoz"</string>
+    <string name="role_sms_search_keywords" msgid="6818482413212931585">"SMS, SMS küldés, üzenetek, üzenetküldés"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"Alapértelmezett segélykérő"</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"Segélyhívó"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"Alkalmazások, amelyek lehetővé teszik az egészségügyi adatok rögzítését és hozzáférhetővé tételét a gyorsbeavatkozó szolgálatok számára; figyelmeztetés fogadását rendkívül rossz időjárás és katasztrófák esetén; illetve mások értesítését, ha segítségre van szüksége"</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett segélykérő alkalmazásként?"</string>
+    <string name="role_emergency_request_description" msgid="2824966073894226992">"Nincs szükség engedélyre"</string>
+    <string name="role_emergency_search_keywords" msgid="7310029268876820646">"vészhelyzet esetén"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Alapértelmezett kezdőalkalmazás"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"Kezdőalkalmazás"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Olyan alkalmazások (más néven indítók), amelyek felváltják az Android-eszköz kezdőképernyőit, és hozzáférést biztosítanak az eszköz tartalmaihoz és funkcióihoz"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett kezdőalkalmazásként?"</string>
+    <string name="role_home_request_description" msgid="6437733879812403277">"Nincs szükség engedélyre"</string>
+    <string name="role_home_search_keywords" msgid="8277315231013298175">"indító"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"Alapértelmezett hívásátirányító"</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Hívásátirányító alkalmazás"</string>
+    <string name="role_call_redirection_description" msgid="769231030043298555">"Alkalmazások, amelyek lehetővé teszik a kimenő hívások átirányítását másik telefonszámra"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett hívásátirányító alkalmazásként?"</string>
+    <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Nincs szükség engedélyre"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Alapértelmezett hívóazonosító és spamszűrő"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Hívóazonosító és spamszűrő"</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"Alkalmazások, amelyek lehetővé teszik a hívások azonosítását, a spam jellegű tartalmak és a robothívások letiltását, valamint a nemkívánatos telefonszámok tiltólistára tételét"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett hívóazonosító és spamszűrő alkalmazásként?"</string>
+    <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nincs szükség engedélyre"</string>
+    <string name="request_role_current_default" msgid="7512045433655289638">"Aktuális alapérték"</string>
+    <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Ne jelenjen meg többé"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"Alapértelmezett"</string>
+    <string name="default_app_search_keyword" msgid="6938709626391437391">"alapértelmezett alkalmazások"</string>
+    <string name="settings_button" msgid="4747434541214595321">"Beállítások"</string>
     <string name="default_apps" msgid="8554530939151957828">"Alapértelmezett alkalmazások"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Nincsenek alapértelmezettek"</string>
+    <string name="default_apps_more" msgid="3908067305593075127">"További alapértelmezések"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Linkek megnyitása"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Munkahelyi alapértelmezett"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Nincs"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Alapértelmezett)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nincs alkalmazás"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Kiválasztva"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Kiválasztva – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"különleges alkalmazás-hozzáférés"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Különleges alkalmazás-hozzáférés"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Nincs különleges hozzáférés"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Nincs alkalmazás"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Segédalkalmazás"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"Böngésző"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"Telefon alkalmazás"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"SMS-küldő"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"Segélyhívó"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"Kezdőalkalmazás"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"Zenealkalmazás"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"Galériaalkalmazás"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Telefonalkalmazás autós módhoz"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"Hívásátirányító alkalmazás"</string>
-    <string name="role_label_call_screening" msgid="411212589764916370">"Hívásszűrő alkalmazás"</string>
-    <string name="role_label_call_companion" msgid="7369723859682076467">"Társalkalmazás hívásokhoz"</string>
-    <string name="role_label_car_projection" msgid="3792929094325391213">"Autós kivetítő alkalmazás"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Az alkalmazás nem támogatja a munkaprofilt"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Megjegyzés: Ha újraindítja az eszközt, és képernyőzárat állított be, ez az alkalmazás csak a telefon feloldását követően indul el."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"A segéd hozzáfér majd a rendszer éppen használatban lévő alkalmazásainak információihoz, beleértve a képernyőn megjelenő vagy az alkalmazásokban hozzáférhető információkat is."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Hibakeresési adatok megosztása"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Megosztja a részletes hibakeresési adatokat?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"A(z) <xliff:g id="APP_NAME">%1$s</xliff:g> hibakeresési adatokat szeretne feltölteni."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Hibakeresési adatok megosztása"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Megosztja a hibakeresési adatokat?"</string>
+    <string name="incident_report_dialog_intro" msgid="153446034925770956">"A rendszer problémát észlelt."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"A(z) <xliff:g id="APP_NAME_0">%1$s</xliff:g> hibajelentést szeretne feltölteni az eszközről (a jelentés létrehozásának időpontja: <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>). A hibajelentések eszközre vonatkozó vagy alkalmazások által rögzített személyes adatokat tartalmazhatnak, például felhasználóneveket, helyadatokat, eszközazonosítókat és hálózati adatokat. Csak megbízható személyekkel és alkalmazásokkal osszon meg hibajelentéseket. Engedélyezi, hogy a(z) <xliff:g id="APP_NAME_1">%4$s</xliff:g> hibajelentést töltsön fel?"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Hiba történt a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazás hibajelentésének feldolgozásakor, ezért a rendszer megtagadta a részletes hibaelhárítási adatok megosztását. Elnézést a megszakításért."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Engedélyezés"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Elutasítás"</string>
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Speciális beállítások"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Speciális beállítások"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Rendszeralkalmazás-használat megjelenítése"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Az engedélyek rendszeralkalmazások általi használatának megjelenítése az állapotsoron, az irányítópulton és máshol"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"A következő használatának kiemelése"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Segédet aktiváló parancsok észlelésének megjelenítése"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Ikon megjelenítése az állapotsoron, amikor a rendszer a mikrofont használja a hangsegéd aktiválásához"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy hozzáférjen az eszközön tárolt fotókhoz és médiatartalmakhoz?"</string>
+    <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy hozzáférjen a névjegyekhez?"</string>
+    <string name="permgrouprequest_location" msgid="4367626296074714965">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy hozzáférjen az eszköz helyadataihoz?"</string>
+    <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Az alkalmazás csak akkor férhet hozzá a helyadatokhoz, amikor Ön használja az alkalmazást"</string>
+    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy hozzáférjen az eszköz helyadataihoz?"</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"Előfordulhat, hogy az alkalmazás akkor is hozzá szeretne férni a helyadataihoz, amikor nem használja az alkalmazást. "<annotation id="link">"A beállításokban engedélyezheti."</annotation></string>
+    <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"Megváltoztatja a helyadatokhoz való hozzáférést a következő számára: &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;?"</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"Az alkalmazás akkor is hozzá szeretne férni az Ön helyadataihoz, amikor Ön nem használja az alkalmazást. "<annotation id="link">"A beállításokban engedélyezheti."</annotation></string>
+    <string name="permgrouprequest_calendar" msgid="254840812783503926">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy hozzáférjen a naptárhoz?"</string>
+    <string name="permgrouprequest_sms" msgid="2622312529683649944">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy SMS-eket küldhessen és tekinthessen meg?"</string>
+    <string name="permgrouprequest_storage" msgid="1092300826793175064">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy hozzáférjen az eszközön tárolt fotókhoz, médiatartalmakhoz és fájlokhoz?"</string>
+    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy hangfelvételt készíthessen?"</string>
+    <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára a testmozgási adataihoz való hozzáférést?"</string>
+    <string name="permgrouprequest_camera" msgid="5379726026447957660">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy képeket és videókat készíthessen?"</string>
+    <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Engedélyezi, hogy a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; hozzáférjen az Ön hívásnaplóihoz?"</string>
+    <string name="permgrouprequest_phone" msgid="6240218310343431124">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy hívásokat indíthasson és kezelhessen?"</string>
+    <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy hozzáférjen az életjelekkel kapcsolatos szenzoradatokhoz?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"Szabályozott engedélyek"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"A helyadatok hozzáférhetők"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Az Ön adminisztrátora engedélyezi a(z) <xliff:g id="APP_NAME">%s</xliff:g> számára, hogy hozzáférjen az eszköz helyadataihoz"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Egyes lehetőségek nem választhatók, mert az alkalmazásnak észlelnie kell a hangokat"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Egyes lehetőségek nem választhatók, mert ez az alkalmazás az Ön alapértelmezett digitális asszisztense"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Egyes lehetőségek nem választhatók, mert az alkalmazást hangbevitelre használja"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Egyes lehetőségek nem választhatók, mert ezt az alkalmazást az Ön szolgáltatója kezeli"</string>
 </resources>

@@ -16,6 +16,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/grant_dialog"
     android:orientation="horizontal"
     android:paddingLeft="@dimen/action_dialog_padding_left"
     android:paddingRight="@dimen/action_dialog_padding_right"
@@ -71,6 +72,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/grant_dialog_button_allow"
+            style="@style/GrantPermissions.ActionItem" />
+
+        <Button
+            android:id="@+id/permission_allow_always_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/grant_dialog_button_allow_always"
+            style="@style/GrantPermissions.ActionItem" />
+
+        <Button
+            android:id="@+id/permission_allow_foreground_only_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/grant_dialog_button_allow_foreground"
+            style="@style/GrantPermissions.ActionItem" />
+
+        <Button
+            android:id="@+id/permission_allow_one_time_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/grant_dialog_button_allow_one_time"
             style="@style/GrantPermissions.ActionItem" />
 
         <Button

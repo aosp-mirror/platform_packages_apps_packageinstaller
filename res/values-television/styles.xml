@@ -16,21 +16,21 @@
 
 <resources>
 
-    <style name="PreferenceThemeOverlay.v14.Permissions">
-        <item name="preferenceStyle">@style/Preference.Permissions</item>
-        <item name="preferenceCategoryStyle">@style/Preference.Category.Permissions</item>
-        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference.Permissions</item>
+    <style name="PreferenceThemeOverlayLeanback.Permissions">
+        <item name="preferenceStyle">@style/LeanbackPreference.Permissions</item>
+        <item name="preferenceCategoryStyle">@style/LeanbackPreference.Category.Permissions</item>
+        <item name="switchPreferenceStyle">@style/LeanbackPreference.SwitchPreference.Permissions</item>
     </style>
 
-    <style name="Preference.Permissions">
+    <style name="LeanbackPreference.Permissions">
         <item name="layout">@layout/preference_permissions</item>
     </style>
 
-    <style name="Preference.Category.Permissions">
-        <item name="layout">@layout/preference_category_material</item>
+    <style name="LeanbackPreference.Category.Permissions">
+        <item name="layout">@layout/preference_permissions_category</item>
     </style>
 
-    <style name="Preference.SwitchPreference.Permissions">
+    <style name="LeanbackPreference.SwitchPreference.Permissions">
         <item name="layout">@layout/preference_permissions_switch</item>
     </style>
 

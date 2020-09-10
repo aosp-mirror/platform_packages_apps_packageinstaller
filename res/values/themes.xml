@@ -77,14 +77,41 @@
            parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
     </style>
 
-    <style name="CarSettings" parent="@android:style/Theme.DeviceDefault.NoActionBar">
-        <item name="preferenceTheme">@style/CarPreferenceTheme</item>
+    <style name="CarSettings" parent="Theme.CarUi.WithToolbar">
         <item name="carDividerColor">@*android:color/car_list_divider</item>
     </style>
 
-    <style name="CarPreferenceTheme">
-        <item name="preferenceFragmentCompatStyle">@style/CarPreferenceFragment</item>
-        <item name="preferenceFragmentListStyle">@style/CarPreferenceFragmentList</item>
+    <style name="AutoRevokeDivider">
+        <item name="android:background">@color/divider_color_primary</item>
+    </style>
+
+    <style name="Theme.DeviceDefault.Dialog.Alert.DayNight" parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert" />
+
+
+<!-- Do not allow OEMs to overlay these themes.
+ Must Guarantee that filterTouches is set for these activities -->
+    <style name="FilterTouches">
+        <item name="android:filterTouchesWhenObscured">true</item>
+    </style>
+
+    <style name="Settings.FilterTouches">
+        <item name="android:filterTouchesWhenObscured">true</item>
+    </style>
+
+    <style name="ReviewPermissions.FilterTouches">
+        <item name="android:filterTouchesWhenObscured">true</item>
+    </style>
+
+    <style name="GrantPermissions.FilterTouches">
+        <item name="android:filterTouchesWhenObscured">true</item>
+    </style>
+
+    <style name="RequestRole.FilterTouches">
+        <item name="android:filterTouchesWhenObscured">true</item>
+    </style>
+
+    <style name="PermissionDialog.FilterTouches">
+        <item name="android:filterTouchesWhenObscured">true</item>
     </style>
 
 </resources>

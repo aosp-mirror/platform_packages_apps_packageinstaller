@@ -26,11 +26,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nested_scroll_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
             <LinearLayout
                 android:id="@+id/prefs_container"
                 android:layout_width="match_parent"
@@ -42,8 +37,6 @@
                     style="@style/PermissionsFrameNoPermissionsText" />
 
             </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
 
         <include layout="@layout/loading_container" />
 
