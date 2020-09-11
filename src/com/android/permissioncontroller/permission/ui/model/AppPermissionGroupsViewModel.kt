@@ -150,15 +150,17 @@ class AppPermissionGroupsViewModel(
             for (groupName in groups) {
                 val isSystem = Utils.getPlatformPermissionGroups().contains(groupName)
                 appPermGroupUiInfoLiveDatas[groupName]?.value?.let { uiInfo ->
+                    if (groupName == Manifest.permission_group.STORAGE && hasFullStorage) {
+                        groupGrantStates[Category.ALLOWED]!!.add(
+                            GroupUiInfo(groupName, isSystem, PermSubtitle.ALL_FILES))
+                        return@let
+                    }
                     when (uiInfo.permGrantState) {
                         PermGrantState.PERMS_ALLOWED -> {
-                            var subtitle = PermSubtitle.NONE
-                            if (groupName == Manifest.permission_group.STORAGE) {
-                                subtitle = if (hasFullStorage) {
-                                    PermSubtitle.ALL_FILES
-                                } else {
-                                    PermSubtitle.MEDIA_ONLY
-                                }
+                            val subtitle = if (groupName == Manifest.permission_group.STORAGE) {
+                                PermSubtitle.MEDIA_ONLY
+                            } else {
+                                PermSubtitle.NONE
                             }
                             groupGrantStates[Category.ALLOWED]!!.add(
                                 GroupUiInfo(groupName, isSystem, subtitle))
