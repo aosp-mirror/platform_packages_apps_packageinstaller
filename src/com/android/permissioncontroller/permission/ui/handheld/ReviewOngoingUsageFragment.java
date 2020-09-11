@@ -331,30 +331,26 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             ((TextView) itemView.requireViewById(R.id.app_name)).setText(app.getLabel());
             ((ImageView) itemView.requireViewById(R.id.app_icon)).setImageDrawable(app.getIcon());
 
-            // Add the icons for the groups this app used as long as multiple groups were used by
-            // some app.
-            if (usedGroups.size() > 1) {
-                ArrayMap<String, CharSequence> usedGroupsThisApp = new ArrayMap<>();
+            ArrayMap<String, CharSequence> usedGroupsThisApp = new ArrayMap<>();
 
-                ViewGroup iconFrame = itemView.requireViewById(R.id.icons);
-                int numGroups = usages.get(usageNum).second.size();
-                for (int groupNum = 0; groupNum < numGroups; groupNum++) {
-                    AppPermissionGroup group = groups.get(groupNum).getGroup();
+            ViewGroup iconFrame = itemView.requireViewById(R.id.icons);
+            int numGroups = usages.get(usageNum).second.size();
+            for (int groupNum = 0; groupNum < numGroups; groupNum++) {
+                AppPermissionGroup group = groups.get(groupNum).getGroup();
 
-                    ViewGroup groupView = (ViewGroup) inflater.inflate(R.layout.image_view, null);
-                    ((ImageView) groupView.requireViewById(R.id.icon)).setImageDrawable(
-                            Utils.applyTint(context, group.getIconResId(),
-                                    android.R.attr.colorControlNormal));
-                    iconFrame.addView(groupView);
+                ViewGroup groupView = (ViewGroup) inflater.inflate(R.layout.image_view, null);
+                ((ImageView) groupView.requireViewById(R.id.icon)).setImageDrawable(
+                        Utils.applyTint(context, group.getIconResId(),
+                                android.R.attr.colorControlNormal));
+                iconFrame.addView(groupView);
 
-                    usedGroupsThisApp.put(group.getName(), group.getLabel());
-                }
-                iconFrame.setVisibility(View.VISIBLE);
-
-                TextView permissionsList = itemView.requireViewById(R.id.permissionsList);
-                permissionsList.setText(getListOfPermissionLabels(usedGroupsThisApp));
-                permissionsList.setVisibility(View.VISIBLE);
+                usedGroupsThisApp.put(group.getName(), group.getLabel());
             }
+            iconFrame.setVisibility(View.VISIBLE);
+
+            TextView permissionsList = itemView.requireViewById(R.id.permissionsList);
+            permissionsList.setText(getListOfPermissionLabels(usedGroupsThisApp));
+            permissionsList.setVisibility(View.VISIBLE);
 
             itemView.setOnClickListener((v) -> {
                 String packageName = app.getPackageName();
