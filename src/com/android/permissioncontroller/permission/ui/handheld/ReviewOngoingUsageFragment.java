@@ -26,9 +26,12 @@ import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIV
 import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldShowPermissionsDashboard;
 
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.location.LocationManager;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.text.Html;
@@ -74,6 +77,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
     static final String PHONE_CALL = "android:phone_call_microphone";
     static final String VIDEO_CALL = "android:phone_call_camera";
 
+    private AudioManager mAudioManager;
     private @NonNull PermissionUsages mPermissionUsages;
     private boolean mPermissionUsagesLoaded;
     private @Nullable AlertDialog mDialog;
@@ -81,6 +85,13 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
     private @Nullable Map<String, List<OpAccess>> mOpUsage;
     private ArraySet<String> mSystemUsage = new ArraySet<>(0);
     private long mStartTime;
+
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            onPermissionUsagesLoaded();
+        }
+    };
 
     /**
      * @return A new {@link ReviewOngoingUsageFragment}
@@ -99,6 +110,9 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
         long numMillis = getArguments().getLong(Intent.EXTRA_DURATION_MILLIS);
 
+        mAudioManager = getContext().getSystemService(AudioManager.class);
+        getContext().registerReceiver(mReceiver,
+                new IntentFilter(AudioManager.ACTION_MICROPHONE_MUTE_CHANGED));
         mPermissionUsages = new PermissionUsages(getActivity());
         mStartTime = Math.max(System.currentTimeMillis() - numMillis, Instant.EPOCH.toEpochMilli());
         String[] permissions = new String[]{CAMERA, MICROPHONE};
@@ -188,14 +202,18 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
     }
 
     private void showDialog(@NonNull List<Pair<AppPermissionUsage, List<GroupUsage>>> usages) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                .setView(createDialogView(usages))
-                .setPositiveButton(R.string.ongoing_usage_dialog_ok, (dialog, which) ->
-                        PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
-                                PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS))
-                .setOnDismissListener((dialog) -> getActivity().finish());
-        mDialog = builder.create();
-        mDialog.show();
+        if (mDialog == null || !mDialog.isShowing()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+                    .setView(createDialogView(usages))
+                    .setPositiveButton(R.string.ongoing_usage_dialog_ok, (dialog, which) ->
+                            PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
+                                    PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS))
+                    .setOnDismissListener((dialog) -> getActivity().finish());
+            mDialog = builder.create();
+            mDialog.show();
+        } else {
+            mDialog.setView(createDialogView(usages));
+        }
     }
 
     /**
@@ -251,6 +269,9 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             int numGroups = groups.size();
             for (int groupNum = 0; groupNum < numGroups; groupNum++) {
                 AppPermissionGroup group = groups.get(groupNum).getGroup();
+                if (group.getName().equals(MICROPHONE) && mAudioManager.isMicrophoneMute()) {
+                    continue;
+                }
                 usedGroups.put(group.getName(), group.getLabel());
             }
         }
@@ -283,35 +304,42 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
         }
 
         if (!mOpUsage.isEmpty()) {
-            if (mOpUsage.containsKey(VIDEO_CALL) && mOpUsage.containsKey(
-                    PHONE_CALL)) {
+            boolean hasVideo = mOpUsage.containsKey(VIDEO_CALL);
+            boolean hasPhone = mOpUsage.containsKey(PHONE_CALL)
+                    && !mAudioManager.isMicrophoneMute();
+            if (hasVideo && hasPhone) {
                 otherUseContent.setText(
                         Html.fromHtml(getString(R.string.phone_call_uses_microphone_and_camera),
                                 0));
-            } else if (mOpUsage.containsKey(VIDEO_CALL)) {
+            } else if (hasVideo && mAudioManager.isMicrophoneMute()) {
                 otherUseContent.setText(
                         Html.fromHtml(getString(R.string.phone_call_uses_camera), 0));
-            } else if (mOpUsage.containsKey(PHONE_CALL)) {
+            } else if (hasPhone) {
                 otherUseContent.setText(
                         Html.fromHtml(getString(R.string.phone_call_uses_microphone), 0));
             }
 
-            if (mOpUsage.containsKey(VIDEO_CALL)) {
+            if (hasVideo) {
                 usedGroups.put(CAMERA, KotlinUtils.INSTANCE.getPermGroupLabel(context, CAMERA));
+                if (!mAudioManager.isMicrophoneMute()) {
+                    usedGroups.put(MICROPHONE,
+                            KotlinUtils.INSTANCE.getPermGroupLabel(context, MICROPHONE));
+                }
             }
 
-            if (mOpUsage.containsKey(PHONE_CALL)) {
+            if (hasPhone) {
                 usedGroups.put(MICROPHONE,
                         KotlinUtils.INSTANCE.getPermGroupLabel(context, MICROPHONE));
             }
         }
 
         if (!mSystemUsage.isEmpty()) {
-            if (mSystemUsage.contains(MICROPHONE) && mSystemUsage.contains(CAMERA)) {
+            if (mSystemUsage.contains(MICROPHONE) && mSystemUsage.contains(CAMERA)
+                    && !mAudioManager.isMicrophoneMute()) {
                 systemUseContent.setText(getString(R.string.system_uses_microphone_and_camera));
             } else if (mSystemUsage.contains(CAMERA)) {
                 systemUseContent.setText(getString(R.string.system_uses_camera));
-            } else if (mSystemUsage.contains(MICROPHONE) ) {
+            } else if (mSystemUsage.contains(MICROPHONE) && !mAudioManager.isMicrophoneMute()) {
                 systemUseContent.setText(getString(R.string.system_uses_microphone));
             }
 
@@ -326,6 +354,14 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             PermissionApp app = usage.first.getApp();
             List<GroupUsage> groups = usage.second;
 
+            // Check if this uses only mic permission. If the mic is muted, do not show
+            if (groups.size() == 1) {
+                if (groups.get(0).getGroup().getName().equals(MICROPHONE)
+                        && mAudioManager.isMicrophoneMute()) {
+                    continue;
+                }
+            }
+
             View itemView = inflater.inflate(R.layout.ongoing_usage_dialog_item, appsList, false);
 
             ((TextView) itemView.requireViewById(R.id.app_name)).setText(app.getLabel());
@@ -337,6 +373,9 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             int numGroups = usages.get(usageNum).second.size();
             for (int groupNum = 0; groupNum < numGroups; groupNum++) {
                 AppPermissionGroup group = groups.get(groupNum).getGroup();
+                if (mAudioManager.isMicrophoneMute() && group.getName().equals(MICROPHONE)) {
+                    continue;
+                }
 
                 ViewGroup groupView = (ViewGroup) inflater.inflate(R.layout.image_view, null);
                 ((ImageView) groupView.requireViewById(R.id.icon)).setImageDrawable(
@@ -378,5 +417,12 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
         // empty
+    }
+
+    @Override
+    public void onDestroy() {
+        getContext().unregisterReceiver(mReceiver);
+        super.onDestroy();
+
     }
 }
