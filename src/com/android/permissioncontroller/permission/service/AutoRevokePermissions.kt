@@ -49,7 +49,6 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
 import android.content.pm.PackageManager.PERMISSION_GRANTED
-import android.net.NetworkScoreManager
 import android.os.Bundle
 import android.os.Process.myUserHandle
 import android.os.UserHandle
@@ -57,12 +56,9 @@ import android.os.UserManager
 import android.printservice.PrintService
 import android.provider.DeviceConfig
 import android.provider.Settings
-import android.service.attention.AttentionService
 import android.service.autofill.AutofillService
-import android.service.autofill.augmented.AugmentedAutofillService
 import android.service.dreams.DreamService
 import android.service.notification.NotificationListenerService
-import android.service.textclassifier.TextClassifierService
 import android.service.voice.VoiceInteractionService
 import android.service.wallpaper.WallpaperService
 import android.telephony.TelephonyManager.CARRIER_PRIVILEGE_STATUS_HAS_ACCESS
@@ -78,6 +74,7 @@ import com.android.permissioncontroller.Constants.EXTRA_SESSION_ID
 import com.android.permissioncontroller.Constants.INVALID_SESSION_ID
 import com.android.permissioncontroller.Constants.PERMISSION_REMINDER_CHANNEL_ID
 import com.android.permissioncontroller.DumpableLog
+import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED
 import com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_UNUSED_APP_PERMISSION_REVOKED
@@ -126,7 +123,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 private const val LOG_TAG = "AutoRevokePermissions"
 private const val DEBUG_OVERRIDE_THRESHOLDS = false
 // TODO eugenesusla: temporarily enabled for extra logs during dogfooding
-private const val DEBUG = true || DEBUG_OVERRIDE_THRESHOLDS
+const val DEBUG_AUTO_REVOKE = true || DEBUG_OVERRIDE_THRESHOLDS
 
 private const val AUTO_REVOKE_ENABLED = true
 
@@ -193,7 +190,7 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
         // Init firstBootTime
         val firstBootTime = context.firstBootTime
 
-        if (DEBUG) {
+        if (DEBUG_AUTO_REVOKE) {
             DumpableLog.i(LOG_TAG, "scheduleAutoRevokePermissions " +
                 "with frequency ${getCheckFrequencyMs(context)}ms " +
                 "and threshold ${getUnusedThresholdMs(context)}ms")
@@ -202,12 +199,12 @@ class AutoRevokeOnBootReceiver : BroadcastReceiver() {
         val userManager = context.getSystemService(UserManager::class.java)!!
         // If this user is a profile, then its auto revoke will be handled by the primary user
         if (userManager.isProfile) {
-            if (DEBUG) {
+            if (DEBUG_AUTO_REVOKE) {
                 DumpableLog.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile. Not " +
                     "running Auto Revoke.")
             }
             return
-        } else if (DEBUG) {
+        } else if (DEBUG_AUTO_REVOKE) {
             DumpableLog.i(LOG_TAG, "user ${myUserHandle().identifier} is a profile owner. " +
                 "Running Auto Revoke.")
         }
@@ -251,7 +248,7 @@ private suspend fun revokePermissionsOnUnusedApps(
 
     val userStats = UsageStatsLiveData[getUnusedThresholdMs(context),
         if (DEBUG_OVERRIDE_THRESHOLDS) INTERVAL_DAILY else INTERVAL_MONTHLY].getInitializedValue()
-    if (DEBUG) {
+    if (DEBUG_AUTO_REVOKE) {
         for ((user, stats) in userStats) {
             DumpableLog.i(LOG_TAG, "Usage stats for user ${user.identifier}: " +
                     stats.map { stat ->
@@ -261,7 +258,7 @@ private suspend fun revokePermissionsOnUnusedApps(
     }
     for (user in unusedApps.keys.toList()) {
         if (user !in userStats.keys) {
-            if (DEBUG) {
+            if (DEBUG_AUTO_REVOKE) {
                 DumpableLog.i(LOG_TAG, "Ignoring user ${user.identifier}")
             }
             unusedApps.remove(user)
@@ -303,7 +300,7 @@ private suspend fun revokePermissionsOnUnusedApps(
         }
 
         unusedApps[user] = unusedUserApps
-        if (DEBUG) {
+        if (DEBUG_AUTO_REVOKE) {
             DumpableLog.i(LOG_TAG, "Unused apps for user ${user.identifier}: " +
                 "${unusedUserApps.map { it.packageName }}")
         }
@@ -361,7 +358,7 @@ private suspend fun revokePermissionsOnUnusedApps(
                         return@forEachInParallel
                     }
 
-                    if (DEBUG) {
+                    if (DEBUG_AUTO_REVOKE) {
                         DumpableLog.i(LOG_TAG, "revokeUnused $packageName - $revocablePermissions" +
                                 " - lastVisible on " +
                                 userStats[user]?.lastTimeVisible(packageName)?.let(::Date))
@@ -378,7 +375,7 @@ private suspend fun revokePermissionsOnUnusedApps(
                         .getSystemService(ActivityManager::class.java)!!
                         .getPackageImportance(packageName)
                     if (packageImportance > IMPORTANCE_TOP_SLEEPING) {
-                        if (DEBUG) {
+                        if (DEBUG_AUTO_REVOKE) {
                             DumpableLog.i(LOG_TAG, "revoking $packageName - $revocablePermissions")
                             DumpableLog.i(LOG_TAG, "State pre revocation: ${group.allPermissions}")
                         }
@@ -388,7 +385,7 @@ private suspend fun revokePermissionsOnUnusedApps(
                                 context.application, group,
                                 userFixed = false, oneTime = false,
                                 filterPermissions = revocablePermissions)
-                        if (DEBUG) {
+                        if (DEBUG_AUTO_REVOKE) {
                             DumpableLog.i(LOG_TAG,
                                 "Bg state post revocation: ${bgRevokedState.allPermissions}")
                         }
@@ -396,7 +393,7 @@ private suspend fun revokePermissionsOnUnusedApps(
                             context.application, group,
                             userFixed = false, oneTime = false,
                             filterPermissions = revocablePermissions)
-                        if (DEBUG) {
+                        if (DEBUG_AUTO_REVOKE) {
                             DumpableLog.i(LOG_TAG,
                                 "Fg state post revocation: ${fgRevokedState.allPermissions}")
                         }
@@ -421,7 +418,7 @@ private suspend fun revokePermissionsOnUnusedApps(
                 }
             }
         }
-        if (DEBUG) {
+        if (DEBUG_AUTO_REVOKE) {
             synchronized(revokedApps) {
                 DumpableLog.i(LOG_TAG,
                         "Done auto-revoke for user ${user.identifier} - revoked $revokedApps")
@@ -458,7 +455,7 @@ suspend fun isPackageAutoRevokePermanentlyExempt(
         return true
     }
     if (Utils.isUserDisabledOrWorkProfile(user)) {
-        if (DEBUG) {
+        if (DEBUG_AUTO_REVOKE) {
             DumpableLog.i(LOG_TAG,
                     "Exempted ${pkg.packageName} - $user is disabled or a work profile")
         }
@@ -472,11 +469,24 @@ suspend fun isPackageAutoRevokePermanentlyExempt(
                 carrierPrivilegedStatus)
     }
     if (carrierPrivilegedStatus == CARRIER_PRIVILEGE_STATUS_HAS_ACCESS) {
-        if (DEBUG) {
+        if (DEBUG_AUTO_REVOKE) {
             DumpableLog.i(LOG_TAG, "Exempted ${pkg.packageName} - carrier privileged")
         }
         return true
     }
+
+    if (PermissionControllerApplication.get()
+            .packageManager
+            .checkPermission(
+                    android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE,
+                    pkg.packageName) == PERMISSION_GRANTED) {
+        if (DEBUG_AUTO_REVOKE) {
+            DumpableLog.i(LOG_TAG, "Exempted ${pkg.packageName} " +
+                    "- holder of READ_PRIVILEGED_PHONE_STATE")
+        }
+        return true
+    }
+
     return false
 }
 
@@ -553,13 +563,13 @@ class AutoRevokeService : JobService() {
     var jobStartTime: Long = -1L
 
     override fun onStartJob(params: JobParameters?): Boolean {
-        if (DEBUG) {
+        if (DEBUG_AUTO_REVOKE) {
             DumpableLog.i(LOG_TAG, "onStartJob")
         }
 
         if (SKIP_NEXT_RUN) {
             SKIP_NEXT_RUN = false
-            if (DEBUG) {
+            if (DEBUG_AUTO_REVOKE) {
                 Log.i(LOG_TAG, "Skipping auto revoke first run when scheduled by system")
             }
             jobFinished(params, false)
@@ -664,14 +674,6 @@ class ExemptServicesLiveData(val user: UserHandle)
                     Manifest.permission.BIND_VOICE_INTERACTION,
                     user],
             ServiceLiveData[
-                    AttentionService.SERVICE_INTERFACE,
-                    Manifest.permission.BIND_ATTENTION_SERVICE,
-                    user],
-            ServiceLiveData[
-                    TextClassifierService.SERVICE_INTERFACE,
-                    Manifest.permission.BIND_TEXTCLASSIFIER_SERVICE,
-                    user],
-            ServiceLiveData[
                     PrintService.SERVICE_INTERFACE,
                     Manifest.permission.BIND_PRINT_SERVICE,
                     user],
@@ -680,16 +682,8 @@ class ExemptServicesLiveData(val user: UserHandle)
                     Manifest.permission.BIND_DREAM_SERVICE,
                     user],
             ServiceLiveData[
-                    NetworkScoreManager.ACTION_RECOMMEND_NETWORKS,
-                    Manifest.permission.BIND_NETWORK_RECOMMENDATION_SERVICE,
-                    user],
-            ServiceLiveData[
                     AutofillService.SERVICE_INTERFACE,
                     Manifest.permission.BIND_AUTOFILL_SERVICE,
-                    user],
-            ServiceLiveData[
-                    AugmentedAutofillService.SERVICE_INTERFACE,
-                    Manifest.permission.BIND_AUGMENTED_AUTOFILL_SERVICE,
                     user],
             ServiceLiveData[
                     DevicePolicyManager.ACTION_DEVICE_ADMIN_SERVICE,
@@ -746,7 +740,7 @@ private data class TeamfoodSettings(
             return Settings.Global.getString(context.contentResolver,
                 "auto_revoke_parameters" /* Settings.Global.AUTO_REVOKE_PARAMETERS */)?.let { str ->
 
-                if (DEBUG) {
+                if (DEBUG_AUTO_REVOKE) {
                     DumpableLog.i(LOG_TAG, "Parsing teamfood setting value: $str")
                 }
                 str.split(",")
@@ -768,7 +762,7 @@ private data class TeamfoodSettings(
                     }
             }.also {
                 cached = it
-                if (DEBUG) {
+                if (DEBUG_AUTO_REVOKE) {
                     Log.i(LOG_TAG, "Parsed teamfood setting value: $it")
                 }
             }

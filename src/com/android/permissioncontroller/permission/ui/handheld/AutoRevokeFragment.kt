@@ -39,6 +39,7 @@ import com.android.permissioncontroller.permission.ui.model.AutoRevokeViewModel.
 import com.android.permissioncontroller.permission.ui.model.AutoRevokeViewModelFactory
 import com.android.permissioncontroller.permission.utils.IPC
 import com.android.permissioncontroller.permission.utils.KotlinUtils
+import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -105,7 +106,9 @@ class AutoRevokeFragment : PermissionsFrameFragment() {
             GlobalScope.launch(IPC) {
                 delay(SHOW_LOAD_DELAY_MS)
                 if (!viewModel.areAutoRevokedPackagesLoaded()) {
-                    setLoading(true, false)
+                    GlobalScope.launch(Main) {
+                        setLoading(true, true)
+                    }
                 }
             }
         }
