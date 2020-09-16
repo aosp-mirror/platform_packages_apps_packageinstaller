@@ -43,5 +43,7 @@ android_test {
 
     instrumentation_for: "PermissionController",
 
-    test_suites: ["device-tests"]
+    test_suites: ["device-tests"],
+
+    required: ["CtsAppThatRequestsLocationPermission29"]
 }
