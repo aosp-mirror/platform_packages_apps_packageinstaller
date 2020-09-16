@@ -103,6 +103,8 @@ public class GrantPermissionsActivity extends Activity
 
     private static final String KEY_REQUEST_ID = GrantPermissionsActivity.class.getName()
             + "_REQUEST_ID";
+    private static final String KEY_PENDING_ACTIVITY_RESULT =
+            GrantPermissionsActivity.class.getName() + "_PENDING_ACTIVITY_RESULT";
     public static final String ANNOTATION_ID = "link";
 
     public static final int NEXT_BUTTON = 11;
@@ -126,6 +128,7 @@ public class GrantPermissionsActivity extends Activity
     private String[] mRequestedPermissions;
     private boolean[] mButtonVisibilities;
     private boolean mCouldHaveFgCapabilities;
+    private boolean mPendingActivityResult;
 
     private ArrayMap<Pair<String, Boolean>, GroupState> mRequestGrantPermissionGroups =
             new ArrayMap<>();
@@ -296,6 +299,7 @@ public class GrantPermissionsActivity extends Activity
             mRequestId = new Random().nextLong();
         } else {
             mRequestId = icicle.getLong(KEY_REQUEST_ID);
+            mPendingActivityResult = icicle.getBoolean(KEY_PENDING_ACTIVITY_RESULT);
         }
 
         getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
@@ -601,6 +605,7 @@ public class GrantPermissionsActivity extends Activity
         mViewHandler.saveInstanceState(outState);
 
         outState.putLong(KEY_REQUEST_ID, mRequestId);
+        outState.putBoolean(KEY_PENDING_ACTIVITY_RESULT, mPendingActivityResult);
 
         int numGroups = mRequestGrantPermissionGroups.size();
         for (int i = 0; i < numGroups; i++) {
@@ -889,8 +894,11 @@ public class GrantPermissionsActivity extends Activity
 
     private void sendToSettings(GroupState groupState) {
         if (mActivityResultCallback == null) {
+            mPermissionGroupsToSkip.add(groupState.mGroup.getName());
+            mPendingActivityResult = true;
             startAppPermissionFragment(groupState);
             mActivityResultCallback = data -> {
+                mPendingActivityResult = false;
                 if (data == null || data.getStringExtra(
                         EXTRA_RESULT_PERMISSION_INTERACTED) == null) {
                     // User didn't interact, count against rate limit
@@ -900,7 +908,9 @@ public class GrantPermissionsActivity extends Activity
                         groupState.mGroup.setUserSet(true);
                     }
                 }
-                mPermissionGroupsToSkip.add(groupState.mGroup.getName());
+                if (!showNextPermissionGroupGrantRequest()) {
+                    setResultAndFinish();
+                }
             };
         }
     }
@@ -1175,6 +1185,9 @@ public class GrantPermissionsActivity extends Activity
     }
 
     private void setResultAndFinish() {
+        if (mPendingActivityResult) {
+            return;
+        }
         setResultIfNeeded(RESULT_OK);
         finish();
     }
