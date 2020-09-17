@@ -37,10 +37,10 @@
         android:paddingEnd="20dp"
         android:paddingTop="4dp"
         android:paddingBottom="4dp">
-        <com.android.packageinstaller.permission.ui.PreferenceImageView
+        <androidx.preference.internal.PreferenceImageView
             android:id="@android:id/icon"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/permission_icon_size"
+            android:layout_height="@dimen/permission_icon_size"
             android:scaleType="fitCenter" />
     </LinearLayout>
 

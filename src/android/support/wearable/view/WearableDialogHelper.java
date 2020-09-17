@@ -20,12 +20,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
+import android.widget.Button;
+
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import android.util.Log;
-import android.widget.Button;
 
 /**
  * Helper to add icons to AlertDialog buttons.AlertDialog buttons.

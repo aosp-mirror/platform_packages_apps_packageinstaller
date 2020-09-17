@@ -4,8 +4,8 @@
   xmlns:tools="http://schemas.android.com/tools"
   package="com.android.permissioncontroller"
   coreApp="true"
-  android:versionCode="290000000"
-  android:versionName="29 system image"
+  android:versionCode="300000000"
+  android:versionName="30 system image"
 >
 
     <original-package android:name="com.android.permissioncontroller" />
@@ -24,6 +24,8 @@
     <uses-permission android:name="android.permission.MANAGE_APP_OPS_MODES" />
     <uses-permission android:name="android.permission.GET_APP_OPS_STATS" />
     <uses-permission android:name="android.permission.KILL_UID" />
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+    <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE" />
     <uses-permission android:name="android.permission.MANAGE_APP_OPS_RESTRICTIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS" />
@@ -39,17 +41,23 @@
     <uses-permission android:name="android.permission.OPEN_ACCESSIBILITY_DETAILS_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME" />
+    <uses-permission android:name="android.permission.MANAGE_ONE_TIME_PERMISSION_SESSIONS" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29" />
 
-    <application android:name="com.android.packageinstaller.PackageInstallerApplication"
+    <application android:name="com.android.permissioncontroller.PermissionControllerApplication"
             android:label="@string/app_name"
             android:icon="@drawable/ic_permission_controller_app_icon"
             android:allowBackup="false"
             android:allowClearUserData="false"
             android:supportsRtl="true"
             android:defaultToDeviceProtectedStorage="true"
-            android:directBootAware="true">
+            android:forceQueryable="true"
+            android:directBootAware="true"
+            android:theme="@style/FilterTouches">
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
@@ -58,17 +66,23 @@
             android:exported="false"
             android:multiprocess="true" />
 
-        <receiver android:name="com.android.packageinstaller.permission.service.LocationAccessCheck$SetupPeriodicBackgroundLocationAccessCheck">
+        <receiver android:name="com.android.permissioncontroller.permission.service.LocationAccessCheck$SetupPeriodicBackgroundLocationAccessCheck">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.packageinstaller.permission.service.LocationAccessCheck$NotificationDeleteHandler" />
+        <receiver android:name="com.android.permissioncontroller.permission.service.AutoRevokeOnBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
-        <receiver android:name="com.android.packageinstaller.permission.service.LocationAccessCheck$NotificationClickHandler" />
+        <receiver android:name="com.android.permissioncontroller.permission.service.LocationAccessCheck$NotificationDeleteHandler" />
 
-        <receiver android:name="com.android.packageinstaller.permission.service.LocationAccessCheck$PackageResetHandler">
+        <receiver android:name="com.android.permissioncontroller.permission.service.LocationAccessCheck$NotificationClickHandler" />
+
+        <receiver android:name="com.android.permissioncontroller.permission.service.LocationAccessCheck$PackageResetHandler">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED"/>
                 <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
@@ -76,13 +90,20 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="com.android.packageinstaller.permission.service.LocationAccessCheck$LocationAccessCheckJobService"
+        <service android:name="com.android.permissioncontroller.permission.service.LocationAccessCheck$LocationAccessCheckJobService"
                  android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <activity android:name="com.android.packageinstaller.permission.ui.GrantPermissionsActivity"
+        <service android:name="com.android.permissioncontroller.permission.service.AutoRevokeService"
+                 android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service android:name="com.android.permissioncontroller.permission.service.AutoRevokeReGrantService"
+                 android:permission="android.permission.BIND_JOB_SERVICE" />
+
+
+        <activity android:name="com.android.permissioncontroller.permission.ui.GrantPermissionsActivity"
                 android:configChanges="keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
-                android:theme="@style/GrantPermissions"
+                android:theme="@style/GrantPermissions.FilterTouches"
                 android:visibleToInstantApps="true"
                 android:inheritShowWhenLocked="true">
             <intent-filter android:priority="1">
@@ -91,51 +112,39 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.permission.ui.ManagePermissionsActivity"
+        <activity android:name="com.android.permissioncontroller.permission.ui.ManagePermissionsActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"
                   android:label="@string/app_permissions"
-                  android:theme="@style/Settings"
+                  android:theme="@style/Settings.FilterTouches"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
+                <action android:name="android.intent.action.MANAGE_APP_PERMISSION" />
                 <action android:name="android.intent.action.MANAGE_PERMISSION_APPS" />
                 <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
-                <action android:name="android.intent.action.REVIEW_PERMISSION_USAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.permission.ui.AdjustUserSensitiveActivity"
-                  android:configChanges="orientation|keyboardHidden|screenSize"
-                  android:label="@string/adjust_user_sensitive_title"
-                  android:theme="@style/Settings"
-                  android:exported="false"
-                  android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS" />
-
-        <activity android:name="com.android.packageinstaller.permission.ui.ManagePermissionsActivityTrampoline"
+        <activity android:name="com.android.permissioncontroller.permission.ui.ManagePermissionsActivityTrampoline"
                   android:excludeFromRecents="true"
                   android:noHistory="true"
                   android:theme="@android:style/Theme.NoDisplay">
             <intent-filter android:priority="1">
                 <action android:name="com.android.permissioncontroller.settingssearch.action.MANAGE_PERMISSION_APPS" />
-                <action android:name="com.android.permissioncontroller.settingssearch.action.REVIEW_PERMISSION_USAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.permission.ui.AppPermissionActivity"
+        <activity android:name="com.android.permissioncontroller.permission.ui.legacy.AppPermissionActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"
-                  android:theme="@style/Settings"
+                  android:theme="@style/Settings.FilterTouches"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
-            <intent-filter android:priority="1">
-                <action android:name="android.intent.action.MANAGE_APP_PERMISSION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.permission.ui.ReviewPermissionsActivity"
+        <activity android:name="com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity"
                   android:excludeFromRecents="true"
-                  android:theme="@style/ReviewPermissions"
+                  android:theme="@style/ReviewPermissions.FilterTouches"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.REVIEW_PERMISSIONS" />
@@ -143,28 +152,17 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.permission.ui.OverlayWarningDialog"
+        <activity android:name="com.android.permissioncontroller.permission.ui.OverlayWarningDialog"
                 android:excludeFromRecents="true"
-                android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+                android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert" />
 
-        <activity android:name="com.android.packageinstaller.permission.ui.LocationProviderInterceptDialog"
+        <activity android:name="com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog"
                   android:excludeFromRecents="true"
-                  android:theme="@style/PermissionDialog" />
+                  android:theme="@style/PermissionDialog.FilterTouches" />
 
-        <activity android:name="com.android.packageinstaller.permission.ui.ReviewOngoingUsageActivity"
+        <activity android:name="com.android.permissioncontroller.permission.ui.ReviewAccessibilityServicesActivity"
                   android:excludeFromRecents="true"
-                  android:theme="@style/PermissionDialog"
-                  android:launchMode="singleInstance"
-                  android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS" >
-            <intent-filter android:priority="1">
-                <action android:name="android.intent.action.REVIEW_ONGOING_PERMISSION_USAGE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="com.android.packageinstaller.permission.ui.ReviewAccessibilityServicesActivity"
-                  android:excludeFromRecents="true"
-                  android:theme="@style/PermissionDialog"
+                  android:theme="@style/PermissionDialog.FilterTouches"
                   android:permission="android.permission.REVIEW_ACCESSIBILITY_SERVICES" >
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.REVIEW_ACCESSIBILITY_SERVICES" />
@@ -172,9 +170,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.role.ui.RequestRoleActivity"
+        <activity android:name="com.android.permissioncontroller.role.ui.RequestRoleActivity"
                   android:excludeFromRecents="true"
-                  android:theme="@style/RequestRole">
+                  android:theme="@style/RequestRole.FilterTouches">
             <intent-filter android:priority="1">
                 <action android:name="android.app.role.action.REQUEST_ROLE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -189,25 +187,25 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.role.ui.DefaultAppListActivity"
+        <activity android:name="com.android.permissioncontroller.role.ui.DefaultAppListActivity"
                   android:label="@string/default_apps"
-                  android:theme="@style/Settings">
+                  android:theme="@style/Settings.FilterTouches">
             <intent-filter android:priority="2">
                 <action android:name="android.settings.MANAGE_DEFAULT_APPS_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.role.ui.DefaultAppActivity"
+        <activity android:name="com.android.permissioncontroller.role.ui.DefaultAppActivity"
                   android:permission="android.permission.MANAGE_ROLE_HOLDERS"
-                  android:theme="@style/Settings">
+                  android:theme="@style/Settings.FilterTouches">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_DEFAULT_APP" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.role.ui.HomeSettingsActivity"
+        <activity android:name="com.android.permissioncontroller.role.ui.HomeSettingsActivity"
                   android:excludeFromRecents="true"
                   android:noHistory="true"
                   android:theme="@android:style/Theme.NoDisplay">
@@ -217,10 +215,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.role.ui.SpecialAppAccessListActivity"
+        <activity android:name="com.android.permissioncontroller.role.ui.SpecialAppAccessListActivity"
                   android:label="@string/special_app_access"
                   android:permission="android.permission.MANAGE_ROLE_HOLDERS"
-                  android:theme="@style/Settings">
+                  android:theme="@style/Settings.FilterTouches">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_SPECIAL_APP_ACCESSES" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -228,10 +226,10 @@
         </activity>
 
         <!-- TODO: Override other Settings intents when we've done migrating them. -->
-        <activity android:name="com.android.packageinstaller.role.ui.SpecialAppAccessActivity"
-                  android:theme="@style/Settings" />
+        <activity android:name="com.android.permissioncontroller.role.ui.SpecialAppAccessActivity"
+                  android:theme="@style/Settings.FilterTouches" />
 
-        <activity android:name="com.android.packageinstaller.role.ui.RoleSearchTrampolineActivity"
+        <activity android:name="com.android.permissioncontroller.role.ui.RoleSearchTrampolineActivity"
                   android:excludeFromRecents="true"
                   android:noHistory="true"
                   android:theme="@android:style/Theme.NoDisplay">
@@ -242,7 +240,7 @@
             </intent-filter>
         </activity>
 
-        <provider android:name="com.android.packageinstaller.permission.service.PermissionSearchIndexablesProvider"
+        <provider android:name="com.android.permissioncontroller.permission.service.PermissionSearchIndexablesProvider"
             android:authorities="com.android.permissioncontroller"
             android:multiprocess="false"
             android:grantUriPermissions="true"
@@ -253,7 +251,7 @@
             </intent-filter>
         </provider>
 
-        <provider android:name="com.android.packageinstaller.role.service.RoleSearchIndexablesProvider"
+        <provider android:name="com.android.permissioncontroller.role.service.RoleSearchIndexablesProvider"
                   android:authorities="com.android.permissioncontroller.role"
                   android:exported="true"
                   android:grantUriPermissions="true"
@@ -263,26 +261,26 @@
             </intent-filter>
         </provider>
 
-        <service android:name="com.android.packageinstaller.permission.service.PermissionControllerServiceImpl">
+        <service android:name="com.android.permissioncontroller.permission.service.PermissionControllerServiceImpl">
             <intent-filter android:priority="1">
                 <action android:name="android.permission.PermissionControllerService"/>
             </intent-filter>
         </service>
 
-        <service android:name="com.android.packageinstaller.permission.service.RuntimePermissionPresenterServiceLegacyImpl"
+        <service android:name="com.android.permissioncontroller.permission.service.RuntimePermissionPresenterServiceLegacyImpl"
                  android:permission="android.permission.BIND_RUNTIME_PERMISSION_PRESENTER_SERVICE">
             <intent-filter android:priority="1">
                 <action android:name="android.permissionpresenterservice.RuntimePermissionPresenterService"/>
             </intent-filter>
         </service>
 
-        <service android:name="com.android.packageinstaller.role.service.RoleControllerServiceImpl">
+        <service android:name="com.android.permissioncontroller.role.service.RoleControllerServiceImpl">
             <intent-filter android:priority="1">
                 <action android:name="android.app.role.RoleControllerService"/>
             </intent-filter>
         </service>
 
-        <receiver android:name="com.android.packageinstaller.role.service.ClearUserDeniedReceiver">
+        <receiver android:name="com.android.permissioncontroller.role.service.ClearUserDeniedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
                 <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED"/>
@@ -291,20 +289,20 @@
         </receiver>
 
         <!-- Debug report authorization (bugreport and incident report) -->
-        <receiver android:name="com.android.packageinstaller.incident.ConfirmationReceiver"
+        <receiver android:name="com.android.permissioncontroller.incident.ConfirmationReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.PENDING_INCIDENT_REPORTS_CHANGED" />
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.android.packageinstaller.incident.ConfirmationActivity"
-                android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar"
+        <activity android:name="com.android.permissioncontroller.incident.ConfirmationActivity"
+                android:theme="@style/Theme.DeviceDefault.Dialog.Alert.DayNight"
                 android:exported="false"
                 android:excludeFromRecents="true"
                 android:noHistory="true" />
 
-        <receiver android:name="com.android.packageinstaller.incident.ApprovalReceiver"
+        <receiver android:name="com.android.permissioncontroller.incident.ApprovalReceiver"
             android:exported="false" />
 
     </application>
