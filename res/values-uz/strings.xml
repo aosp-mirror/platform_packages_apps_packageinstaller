@@ -51,7 +51,7 @@
     <string name="unused_apps" msgid="3935514133237470759">"Ishlatilmagan ilovalar"</string>
     <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Ilovani faolsizlantirish"</string>
     <string name="app_disable_dlg_text" msgid="5218197617670218828">"Agar bu ilovani faolsizlantirsangiz, Android va boshqa ilovalar bundan buyon kutilganidek ishlamasligi mumkin. Yodda tuting, agar bu ilova qurilmangizga oldindan oʻrnatilgan boʻlsa, uni oʻchirib tashlash imkonsiz. Faolsizlantirish orqali bu ilova nofaol holatga keladi va qurilmangizda berkitiladi."</string>
-    <string name="app_permission_manager" msgid="3802609813311662642">"Ruxsatlar menejeri"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Ruxsatlar"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Boshqa so‘ralmasin"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Ruxsat talab qilinmaydi"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Qo‘shimcha ruxsatlar"</string>
@@ -343,11 +343,11 @@
     <string name="system_uses_camera" msgid="4961711670120922150">"Kamerani tizim xizmati ishlatmoqda"</string>
     <string name="other_use" msgid="9076086164996623754">"Boshqa xizmatlarning ishlatishi:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"OK"</string>
-    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Oxirgi amallar: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g>: oxirgi foydalanish"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" va "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"birlamchi ilovalar"</string>
-    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"Mikrofon va kamera"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"Mikrofon va Kamera"</string>
     <string name="settings_button" msgid="4747434541214595321">"Sozlamalar"</string>
     <string name="default_apps" msgid="8554530939151957828">"Birlamchi ilovalar"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Birlamchi ilovalar mavjud emas"</string>
@@ -380,7 +380,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Tizim ilovalaridan foydalanish"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Tizim tomonidan ruxsatlardan foydalanish haqidagi axborot holat qatorida, boshqaruv panelida va boshqa joylarda chiqadi"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Quyida belgilangan ilovalarni chiqarish"</string>
-    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"Assistent faollashgani haqidagi belgini chiqarish"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"Ovozli yordamchi faollashgani haqidagi belgini chiqarish"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Ovozli yordamchi mikrofon orqali faollashtirilganda, bu haqda holat qatorida maxsus belgi chiqadi"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"<xliff:g id="APP_NAME">%1$s</xliff:g> uchun qurilmadagi suratlar va media fayllarga kirish ruxsati berilsinmi?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uchun kontaktlaringizga kirish ruxsati berilsinmi?"</string>
