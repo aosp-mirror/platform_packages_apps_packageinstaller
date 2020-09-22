@@ -46,7 +46,12 @@ class OpUsageLiveData(
         val now = System.currentTimeMillis()
         val opMap = mutableMapOf<String, MutableList<OpAccess>>()
 
-        val packageOps = appOpsManager.getPackagesForOps(opNames.toTypedArray())
+        val packageOps = try {
+            appOpsManager.getPackagesForOps(opNames.toTypedArray())
+        } catch (e: NullPointerException) {
+            // older builds might not support all the app-ops requested
+            emptyList<AppOpsManager.PackageOps>()
+        }
         for (packageOp in packageOps) {
             for (opEntry in packageOp.ops) {
                 val user = UserHandle.getUserHandleForUid(packageOp.uid)
