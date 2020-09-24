@@ -389,7 +389,11 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                     }
                 }
             } else {
-                preference.setSummary(R.string.permission_access_never);
+                if (group.isOneTime()) {
+                    preference.setSummary(R.string.app_permission_button_ask);
+                } else {
+                    preference.setSummary(R.string.permission_access_never);
+                }
             }
         }
     }
