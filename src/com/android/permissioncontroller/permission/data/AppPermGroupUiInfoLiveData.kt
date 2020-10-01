@@ -54,6 +54,7 @@ class AppPermGroupUiInfoLiveData private constructor(
 ) : SmartUpdateMediatorLiveData<AppPermGroupUiInfo>(), LocationUtils.LocationListener {
 
     private var isSpecialLocation = false
+    private val isMicrophone = permGroupName == Manifest.permission_group.MICROPHONE
     private val packageInfoLiveData = LightPackageInfoLiveData[packageName, user]
     private val permGroupLiveData = PermGroupLiveData[permGroupName]
     private val permissionStateLiveData = PermStateLiveData[packageName, permGroupName, user]
@@ -294,7 +295,6 @@ class AppPermGroupUiInfoLiveData private constructor(
 
     override fun onActive() {
         super.onActive()
-
         if (isSpecialLocation) {
             LocationUtils.addLocationListener(this)
             updateIfActive()

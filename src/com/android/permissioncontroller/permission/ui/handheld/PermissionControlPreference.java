@@ -16,7 +16,11 @@
 
 package com.android.permissioncontroller.permission.ui.handheld;
 
+import static android.Manifest.permission_group.CAMERA;
+import static android.Manifest.permission_group.MICROPHONE;
+
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
+import static com.android.permissioncontroller.permission.debug.UtilsKt.getUsageDurationString;
 import static com.android.permissioncontroller.permission.ui.ManagePermissionsActivity.EXTRA_CALLER_NAME;
 import static com.android.permissioncontroller.permission.ui.handheld.AppPermissionFragment.GRANT_CATEGORY;
 import static com.android.permissioncontroller.permission.utils.KotlinUtilsKt.navigateSafe;
@@ -39,8 +43,9 @@ import androidx.navigation.Navigation;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
-import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.model.AppPermissionGroup;
+import com.android.permissioncontroller.permission.model.AppPermissionUsage.GroupUsage;
+import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.ui.LocationProviderInterceptDialog;
 import com.android.permissioncontroller.permission.utils.LocationUtils;
 
@@ -95,6 +100,18 @@ public class PermissionControlPreference extends Preference {
     }
 
     /**
+     * Sets this preference's right icon.
+     *
+     * Note that this must be called before preference layout to take effect.
+     *
+     * @param widgetIcon the icon to use.
+     */
+    public void setRightIcon(@NonNull Drawable widgetIcon) {
+        mWidgetIcon = widgetIcon;
+        setWidgetLayoutResource(R.layout.image_view);
+    }
+
+    /**
      * Sets this preference's left icon to be smaller than normal.
      *
      * Note that this must be called before preference layout to take effect.
@@ -126,6 +143,56 @@ public class PermissionControlPreference extends Preference {
             }
         }
         setSummary("");
+    }
+
+    /**
+     * Sets this preference's summary based on its permission usage.
+     *
+     * @param groupUsage the usage information
+     * @param accessTimeStr the string representing the last access time
+     */
+    public void setUsageSummary(@NonNull GroupUsage groupUsage, @NonNull String accessTimeStr) {
+        long backgroundAccessCount = groupUsage.getBackgroundAccessCount();
+        long duration = 0;
+        String groupName = groupUsage.getGroup().getName();
+        if (groupName.equals(CAMERA) || groupName.equals(MICROPHONE)) {
+            duration = groupUsage.getAccessDuration();
+        }
+        if (backgroundAccessCount == 0) {
+            long numForegroundAccesses = groupUsage.getForegroundAccessCount();
+            if (duration == 0) {
+                setSummary(mContext.getResources().getQuantityString(
+                        R.plurals.permission_usage_summary, (int) numForegroundAccesses,
+                        accessTimeStr, numForegroundAccesses));
+            } else {
+                setSummary(mContext.getResources().getQuantityString(
+                        R.plurals.permission_usage_summary_duration, (int) numForegroundAccesses,
+                        accessTimeStr, numForegroundAccesses,
+                        getUsageDurationString(mContext, groupUsage)));
+            }
+        } else {
+            long numAccesses = groupUsage.getAccessCount();
+            if (duration == 0) {
+                setSummary(mContext.getResources().getQuantityString(
+                        R.plurals.permission_usage_summary_background, (int) numAccesses,
+                        accessTimeStr, numAccesses, backgroundAccessCount));
+            } else {
+                setSummary(mContext.getResources().getQuantityString(
+                        R.plurals.permission_usage_summary_background_duration, (int) numAccesses,
+                        accessTimeStr, numAccesses, backgroundAccessCount,
+                        getUsageDurationString(mContext, groupUsage)));
+            }
+        }
+    }
+
+    /**
+     * Sets this preference to show the given icons to the left of its title.
+     *
+     * @param titleIcons the icons to show.
+     */
+    public void setTitleIcons(@NonNull List<Integer> titleIcons) {
+        mTitleIcons = titleIcons;
+        setLayoutResource(R.layout.preference_usage);
     }
 
     @Override

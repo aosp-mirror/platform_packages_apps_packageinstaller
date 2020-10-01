@@ -630,14 +630,28 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
-    <style name="PermissionUsageDialogItemAppName"
-           parent="@android:style/TextAppearance.DeviceDefault">
+    <style name="PermissionUsageDialogAppAndPermissions">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
         <item name="android:gravity">start|center_vertical</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemAppName"
+           parent="@android:style/TextAppearance.DeviceDefault">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textDirection">locale</item>
         <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemPermissionsList">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:textAppearanceListItemSecondary</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:layout_marginStart">16dp</item>
     </style>
 
@@ -647,7 +661,32 @@
         <item name="android:orientation">horizontal</item>
         <item name="android:gravity">end|center_vertical</item>
         <item name="android:layout_gravity">end</item>
-        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="PermissionUsageDialogOtherUseHeader">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:textAppearanceListItemSecondary</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <style name="PermissionUsageDialogOtherUseContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:textAppearanceListItemSecondary</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <style name="PermissionUsageDialogOtherUseInsideSpacer">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">16dp</item>
+    </style>
+
+    <style name="PermissionUsageDialogSystemUseContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:textAppearanceListItemSecondary</item>
+        <item name="android:layout_marginStart">16dp</item>
     </style>
 
     <!-- END ONGOING USAGE DIALOG -->

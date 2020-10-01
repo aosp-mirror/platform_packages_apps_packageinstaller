@@ -287,8 +287,113 @@
     <!-- Help URL, application permissions [DO NOT TRANSLATE] -->
     <string name="help_app_permissions" translatable="false"></string>
 
+    <!-- Title for permission usage [CHAR LIMIT=30] -->
+    <string name="permission_usage_title">Dashboard</string>
+
+    <!-- Summary for showing a single permission access and the number of accesses [CHAR LIMIT=80] -->
+    <plurals name="permission_usage_summary">
+        <item quantity="one">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> access</item>
+        <item quantity="other">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> accesses</item>
+    </plurals>
+
+    <!-- Summary for showing a single permission access and the number of accesses, including those in the background [CHAR LIMIT=80] -->
+    <plurals name="permission_usage_summary_background">
+        <item quantity="one">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> access (<xliff:g id="num" example="7">%3$s</xliff:g> in background)</item>
+        <item quantity="other">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> accesses (<xliff:g id="num" example="7">%3$s</xliff:g> in background)</item>
+    </plurals>
+
+    <!-- Summary for showing a single permission access and the number of accesses [CHAR LIMIT=120] -->
+    <plurals name="permission_usage_summary_duration">
+        <item quantity="one">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> access\nDuration: <xliff:g id="time" example="2 hours">%3$s</xliff:g></item>
+        <item quantity="other">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> accesses\nDuration: <xliff:g id="time" example="2 hours">%3$s</xliff:g></item>
+    </plurals>
+
+    <!-- Summary for showing a single permission access and the number of accesses, including those in the background [CHAR LIMIT=120] -->
+    <plurals name="permission_usage_summary_background_duration">
+        <item quantity="one">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> access (<xliff:g id="num" example="7">%3$s</xliff:g> in background)\nDuration: <xliff:g id="time" example="2 hours">%3$s</xliff:g></item>
+        <item quantity="other">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> accesses (<xliff:g id="num" example="7">%3$s</xliff:g> in background)\nDuration: <xliff:g id="time" example="2 hours">%3$s</xliff:g></item>
+    </plurals>
+
+    <!-- Summary for showing a single permission access and the time of the last access when it was in the background [CHAR LIMIT=80] -->
+    <string name="permission_usage_summary_background">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\nLast accessed in the background</string>
+
+    <!-- Description for showing permission accesses with any permission [CHAR LIMIT=30] -->
+    <string name="permission_usage_any_permission">Any permission</string>
+
+    <!-- Description for showing permission accesses accessed any time [CHAR LIMIT=30] -->
+    <string name="permission_usage_any_time">Any time</string>
+
+    <!-- Description for showing permissions accessed in the last 7 days [CHAR LIMIT=30] -->
+    <string name="permission_usage_last_7_days">Last 7 days</string>
+
+    <!-- Description for showing permissions accessed in the last day [CHAR LIMIT=30] -->
+    <string name="permission_usage_last_day">Last 24 hours</string>
+
+    <!-- Description for showing permissions accessed in the last hour [CHAR LIMIT=30] -->
+    <string name="permission_usage_last_hour">Last 1 hour</string>
+
+    <!-- Description for showing permissions accessed in the last 15 minutes [CHAR LIMIT=30] -->
+    <string name="permission_usage_last_15_minutes">Last 15 minutes</string>
+
+    <!-- Description for showing permissions accessed in the last minute [CHAR LIMIT=30] -->
+    <string name="permission_usage_last_minute">Last 1 minute</string>
+
+    <!-- Label when no apps have used the requested permissions [CHAR LIMIT=30] -->
+    <string name="no_permission_usages">No permission usages</string>
+
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_any_time">Most recent access at any time</string>
+
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_last_7_days">Most recent access in last 7 days</string>
+
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_last_day">Most recent access in last 24 hours</string>
+
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_last_hour">Most recent access in last 1 hour</string>
+
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_last_15_minutes">Most recent access in last 15 minutes</string>
+
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_last_minute">Most recent access in last 1 minute</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_any_time">Permission usage at any time</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_last_7_days">Permission usage in last 7 days</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_last_day">Permission usage in last 24 hours</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_last_hour">Permission usage in last 1 hour</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_last_15_minutes">Permission usage in last 15 minutes</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_last_minute">Permission usage in last 1 minute</string>
+
+    <!-- Label for the bars on the chart that shows how many apps have used various permissions [CHAR LIMIT=10] -->
+    <plurals name="permission_usage_bar_label">
+        <item quantity="one">1 app</item>
+        <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> apps</item>
+    </plurals>
+
+    <!-- Label for the button to bring the user to view the details of recent permission accesses [CHAR LIMIT=42] -->
+    <string name="permission_usage_view_details">See all in Dashboard</string>
+
     <!-- DO NOT TRANSLATE Summary placeholder -->
     <string name="summary_placeholder" translatable="false">&#160;</string>
+
+    <!-- Label for filtered view that shows permission usages of a single permission [CHAR LIMIT=40] -->
+    <string name="app_permission_usage_filter_label">Filtered by: <xliff:g id="perm" example="Location">%1$s</xliff:g> </string>
+
+    <!-- Label for the text that removes the filter by permission to view all usages [CHAR LIMIT=none] -->
+    <string name="app_permission_usage_remove_filter">Remove filter</string>
 
     <!-- Label for the title of the dialog allowing filtering by permissions [CHAR LIMIT=none] -->
     <string name="filter_by_title">Filter by</string>
@@ -299,8 +404,44 @@
     <!-- Label for the menu item allowing filtering by time [CHAR LIMIT=none] -->
     <string name="filter_by_time">Filter by time</string>
 
+    <!-- Label for sorting usages by the number of permissions used [CHAR LIMIT=30] -->
+    <string name="sort_spinner_most_permissions">Most permissions</string>
+
+    <!-- Label for sorting usages by the number of accesses [CHAR LIMIT=30] -->
+    <string name="sort_spinner_most_accesses">Most accesses</string>
+
+    <!-- Label for sorting usages by the most recent accesses [CHAR LIMIT=30] -->
+    <string name="sort_spinner_recent">Recent</string>
+
+    <!-- Label for sorting usages by which app used a permission most recently [CHAR LIMIT=30] -->
+    <string name="sort_by_app">Sort by app usage</string>
+
+    <!-- Label for sorting usages by access time [CHAR LIMIT=30] -->
+    <string name="sort_by_time">Sort by time</string>
+
     <!-- Separator for a list of items. Include spaces before and after if needed [CHAR LIMIT=10] -->
     <string name="item_separator">,\u0020</string>
+
+    <!-- Label for refreshing the list of permission usages. [CHAR LIMIT=30] -->
+    <string name="permission_usage_refresh">Refresh</string>
+
+    <!-- Subtitle for showing how many apps have accessed a given permission [CHAR LIMIT=20] -->
+    <plurals name="permission_usage_permission_filter_subtitle">
+        <item quantity="one">1 app</item>
+        <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> apps</item>
+    </plurals>
+
+    <!-- Help URL, permission usage [DO NOT TRANSLATE] -->
+    <string name="help_permission_usage" translatable="false"></string>
+
+    <!-- Title for permission usage [CHAR LIMIT=30] -->
+    <string name="app_permission_usage_title">App permissions usage</string>
+
+    <!-- Summary for an app's use of a permission [CHAR LIMIT=none] -->
+    <string name="app_permission_usage_summary">Access: <xliff:g id="num" example="2">%1$s</xliff:g> times. Total duration: <xliff:g id="duration" example="2 hours">%2$s</xliff:g>. Last used <xliff:g id="time" example="2 hours">%3$s</xliff:g> ago.</string>
+
+    <!-- Summary for an app's use of a permission without duration [CHAR LIMIT=none] -->
+    <string name="app_permission_usage_summary_no_duration">Access: <xliff:g id="num" example="2">%1$s</xliff:g> times. Last used <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago.</string>
 
     <!-- Title for the dialog button to allow a permission grant when you cannot only allow in the foreground. [CHAR LIMIT=60] -->
     <string name="app_permission_button_allow">Allow</string>
@@ -334,6 +475,9 @@
 
     <!-- Text for linking to the page that shows the apps with a given permission [CHAR LIMIT=none] -->
     <string name="app_permission_footer_permission_apps_link">See all apps with this permission</string>
+
+    <!-- Label for the assistant mic display switch [CHAR LIMIT=60] -->
+    <string name="assistant_mic_label">Show assistant microphone usage</string>
 
     <!-- Label for the auto revoke switch [CHAR LIMIT=60] -->
     <string name="auto_revoke_label">Remove permissions if app isn\u2019t used</string>
@@ -740,8 +884,40 @@
     <!-- Label for the button to set an application as the default application [CHAR LIMIT=20] -->
     <string name="request_role_set_as_default">Set as default</string>
 
+    <!-- Message telling the user that a phone call is currently using the microphone [CHAR LIMIT=none] -->
+    <string name="phone_call_uses_microphone">Microphone is used in &lt;b>phone call&lt;/b></string>
+    <!-- Message telling the user that a phone call is currently using the microphone and the camera [CHAR LIMIT=none] -->
+    <string name="phone_call_uses_microphone_and_camera">Camera and Microphone are used in &lt;b>video call&lt;/b></string>
+    <!-- Message telling the user that a phone call is currently using the camera [CHAR LIMIT=none] -->
+    <string name="phone_call_uses_camera">Camera is used in &lt;b>video call&lt;/b></string>
+
+    <!-- Message telling the user that a system service is currently using the microphone [CHAR LIMIT=none] -->
+    <string name="system_uses_microphone">Microphone is accessed using system service</string>
+    <!-- Message telling the user that a system service is currently using the microphone and the camera [CHAR LIMIT=none] -->
+    <string name="system_uses_microphone_and_camera">Camera and Microphone are accessed using system service</string>
+    <!-- Message telling the user that a system service is currently using the camera [CHAR LIMIT=none] -->
+    <string name="system_uses_camera">Camera is accessed using system service</string>
+
+    <!-- Line above a list of other apps and system service that are currently microphone or camera [CHAR LIMIT=60] -->
+    <string name="other_use">Other use:</string>
+
+    <!-- Action for accepting the Ongoing usage dialog [CHAR LIMIT=10]-->
+    <string name="ongoing_usage_dialog_ok">Got it</string>
+
+    <!-- Title for Ongoing usage dialog title when multiple apps are using app ops [CHAR LIMIT=NONE] -->
+    <string name="ongoing_usage_dialog_title">Recent use of <xliff:g id="types_list" example="camera( and location)">%s</xliff:g></string>
+
+    <!-- Separator for permissions. Include spaces before and after if needed [CHAR LIMIT=10] -->
+    <string name="ongoing_usage_dialog_separator">,\u0020</string>
+
+    <!-- Separator for permissions, before last type. Include spaces before and after if needed [CHAR LIMIT=10] -->
+    <string name="ongoing_usage_dialog_last_separator">\u0020and\u0020</string>
+
     <!-- Keyword in the Settings app's search functionality that can be used to find links to the default app management screens [CHAR LIMIT=none] -->
     <string name="default_app_search_keyword">default apps</string>
+
+    <!-- List of the two permission group names for microphone (android:string/permgrouplab_microphone) and camera (android:string/permgrouplab_camera) [CHAR LIMIT=60]-->
+    <string name="permgroup_list_microphone_and_camera">Microphone &amp; Camera</string>
 
     <!-- Accessibility label for button that opens a settings screen [CHAR LIMIT=NONE] -->
     <string name="settings_button">Settings</string>
