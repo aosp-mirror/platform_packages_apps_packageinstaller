@@ -20,11 +20,16 @@
     <string name="ok" msgid="4417794827535157922">"OK"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"behörigheter"</string>
     <string name="cancel" msgid="7279939269964834974">"Avbryt"</string>
+    <string name="back" msgid="8739808065891653074">"Tillbaka"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Avinstallera eller inaktivera"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Appen hittades inte"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Neka"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Neka och fråga inte igen"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"Behåll När appen används"</string>
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Behåll Bara den här gången"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Mer info"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Neka ändå"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Stäng"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> av <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Tillåter du &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; att göra följande: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Vill du alltid tillåta att &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -36,9 +41,16 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"inga har inaktiverats"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Tillåt"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Tillåt alltid"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Tillåt bara när appen används"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"När du använder appen"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Bara den här gången"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Tillåt alltid"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Tillåt hantering av alla filer"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Tillåt åtkomst till mediefiler"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Appar"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Appbehörigheter"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Appar som inte används"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Inaktivera app"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Om du inaktiverar den här appen kan det påverka Android och andra appar så att de inte längre fungerar som de ska. Du kan inte radera appen eftersom den har förinstallerats på enheten. Om du inaktiverar appen döljs den på enheten."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Behörighetshantering"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Fråga inte igen"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Inga behörigheter"</string>
@@ -51,8 +63,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Den här appen utformades för en äldre version av Android. Om du nekar appen behörighet kan det hända att den inte längre fungerar som den ska."</string>
     <string name="default_permission_description" msgid="692254823411049573">"utför en okänd åtgärd"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> av <xliff:g id="COUNT_1">%2$d</xliff:g> appar tillåts"</string>
-    <string name="permission_usage_header" msgid="8802963718365732792">"Senaste användningen"</string>
-    <string name="permission_usage_view_details" msgid="7398825662321010957">"Visa behörighetsöversikt"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> appar tillåts"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Visa systemet"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Dölj systemet"</string>
     <string name="no_apps" msgid="2377153782338039463">"Inga appar"</string>
@@ -67,13 +78,13 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Åtkomst i bakgrunden har inaktiverats av administratören"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Åtkomst i bakgrunden har aktiverats av administratören"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Åtkomst i förgrunden har aktiverats av administratören"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"Behörigheten har angetts av systemet"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="5463084832974856683">"Behörigheten behövs för att enheten ska fungera"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
-    <string name="permission_access_always" msgid="2315256378850460955">"Alltid"</string>
-    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Bara när appen används"</string>
-    <string name="permission_access_never" msgid="4717648645876576508">"Aldrig"</string>
+    <string name="permission_access_always" msgid="5419580764084361573">"Tillåt alltid"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Tillåt bara när appen används"</string>
+    <string name="permission_access_never" msgid="425385910378172045">"Neka"</string>
     <string name="loading" msgid="323483393167148377">"Läser in …"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Alla behörigheter"</string>
     <string name="other_permissions" msgid="1956312685853070715">"Andra appbehörigheter"</string>
@@ -91,70 +102,64 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Nuvarande behörighet"</string>
     <string name="message_staging" msgid="641286607664721291">"Provkör appen …"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Okänd"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"Översikt"</string>
-    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
-      <item quantity="other">Senaste åtkomst: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> åtkomster</item>
-      <item quantity="one">Senaste åtkomst: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> åtkomst</item>
-    </plurals>
-    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
-      <item quantity="other">Senaste åtkomst: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> åtkomster (<xliff:g id="NUM_5">%3$s</xliff:g> i bakgrunden)</item>
-      <item quantity="one">Senaste åtkomst: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> åtkomst (<xliff:g id="NUM_2">%3$s</xliff:g> i bakgrunden)</item>
-    </plurals>
-    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
-      <item quantity="other">Senaste åtkomst: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> åtkomster\nVaraktighet: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-      <item quantity="one">Senaste åtkomst: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> åtkomst\nVaraktighet: <xliff:g id="TIME_2">%3$s</xliff:g></item>
-    </plurals>
-    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
-      <item quantity="other">Senaste åtkomst: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> åtkomster (<xliff:g id="NUM_6">%3$s</xliff:g> i bakgrunden)\nVaraktighet: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-      <item quantity="one">Senaste åtkomst: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> åtkomst (<xliff:g id="NUM_2">%3$s</xliff:g> i bakgrunden)\nVaraktighet: <xliff:g id="TIME_3">%3$s</xliff:g></item>
-    </plurals>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Alla behörigheter"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"När som helst"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Senaste 7 dagarna"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"Senaste 24 timmarna"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Senaste timmen"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"De senaste 15 minuterna"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Senaste minuten"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"Ingen behörighetsanvändning"</string>
-    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Åtkomst när som helst"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Åtkomst de senaste sju dagarna"</string>
-    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Åtkomst det senaste dygnet"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Åtkomst den senaste timmen"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Åtkomst de senaste 15 minuterna"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Åtkomst den senaste minuten"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Vanlig behörighetsanvändning när som helst"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Vanlig behörighetsanvändning de senaste 7 dagarna"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Vanlig behörighetsanvändning det senaste dygnet"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Vanlig behörighetsanvändning den senaste timmen"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Vanlig behörighetsanvändning de senaste 15 min"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Vanlig behörighetsanvändning den senaste minuten"</string>
-    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Appar"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtreras efter: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Ta bort filter"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrera efter"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrera efter behörigheter"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Flest behörigheter"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Flest åtkomster"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"Senaste"</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"Uppdatera"</string>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"Appens behörighetsanvändning"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Åtkomst: <xliff:g id="NUM">%1$s</xliff:g> gånger. Användningstid totalt: <xliff:g id="DURATION">%2$s</xliff:g>. Användes senast för <xliff:g id="TIME">%3$s</xliff:g> sedan."</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Åtkomst: <xliff:g id="NUM">%1$s</xliff:g> gånger. Användes senast för <xliff:g id="TIME">%2$s</xliff:g> sedan."</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"Filtrera efter klockslag"</string>
+    <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Tillåt"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Tillåt hantering av alla filer"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Tillåt endast åtkomst till media"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Tillåt alltid"</string>
-    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Tillåt bara när appen används"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Tillåt bara när appen används"</string>
+    <string name="app_permission_button_ask" msgid="2757216269887794205">"Fråga varje gång"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Neka"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Behörighet till <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="5704679725169517493">"Åtkomst till <xliff:g id="PERM">%1$s</xliff:g> för <xliff:g id="APP">%2$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> använde din <xliff:g id="PERM">%2$s</xliff:g> för <xliff:g id="TIME">%3$s</xliff:g> sedan."</string>
-    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> har inte fått åtkomst till <xliff:g id="PERM">%2$s</xliff:g>."</string>
-    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Visa utförlig information om behörighetsanvändning"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Åtkomst till <xliff:g id="PERM">%1$s</xliff:g> för appen"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Visa alla behörigheter för <xliff:g id="APP">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Visa alla appar med den här behörigheten"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Ta bort behörigheter om en app inte används"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Behörigheter tas bort av säkerhetsskäl från den här appen om den inte används på några månader."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Följande behörigheter tas bort av säkerhetsskäl från appen om den inte används på några månader: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Behörigheter har tagits bort av säkerhetsskäl från appar som inte har använts på några månader."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Öppna appen om du vill tillåta de behörigheter som krävs igen."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatisk borttagning är just nu inaktiverat för den här appen."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Inga behörigheter som kan återkallas automatiskt är beviljade just nu"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Behörigheten <xliff:g id="PERM">%1$s</xliff:g> tas bort."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Behörigheterna <xliff:g id="PERM_0">%1$s</xliff:g> och <xliff:g id="PERM_1">%2$s</xliff:g> tas bort."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Behörigheter som tas bort: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"Hantera behörigheter automatiskt"</string>
+    <string name="off" msgid="4561379152328580345">"Av"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Följande behörighet har tagits bort: <xliff:g id="PERMISSION_NAME">%s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Följande behörigheter har tagits bort: <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> och <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> och <xliff:g id="NUMBER">%2$s</xliff:g> andra behörigheter har tagits bort"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Öppnades senast för över <xliff:g id="NUMBER">%s</xliff:g> månader sedan"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"Appen öppnades senast den <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"Öppnades senast <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Om du tillåter hantering av alla filer kan appen komma åt, redigera och radera alla filer i det vanliga lagringsutrymmet på denna enhet eller anslutna lagringsenheter. Appen kan komma åt filer utan att du tillfrågas."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Vill du tillåta att den här appen får komma åt, redigera och radera filer på enheten och eventuella anslutna lagringsenheter? Appen kan komma åt filer utan att du tillfrågas."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Appar med den här behörigheten kan få <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Appar med den här behörigheten får åtkomst till din fysiska aktivitet, till exempel promenader, cykelturer, körning, stegräkning och annat"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Appar med den här behörigheten får åtkomst till din kalender"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Appar med den här behörigheten kan läsa och skriva samtalshistoriken"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Appar med den här behörigheten kan ta foton och spela in video"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Appar med den här behörigheten får åtkomst till dina kontakter"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"Appar med den här behörigheten får åtkomst till enhetens plats"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Appar med den här behörigheten kan spela in ljud"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Appar med den här behörigheten kan ringa och hantera telefonsamtal"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Appar med den här behörigheten får åtkomst till sensordata om vitalparametrar"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Appar med den här behörigheten kan skicka och visa sms"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Appar med den här behörigheten får åtkomst till foton, media och filer på enheten"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Användes senast: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Nekad för närvarande/Senaste åtkomst: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Aldrig använd"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Nekad/Aldrig använd"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Tillåts"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Tillåt bara vid användning"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Tillåts alltid"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Tillåts bara vid användning"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Tillåts endast åtkomst till media"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Tillåts att hantera alla filer"</string>
+    <string name="ask_header" msgid="4471670860332046665">"Fråga varje gång"</string>
     <string name="denied_header" msgid="2277998574238617699">"Nekas"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"Visa utförlig information om användning"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dagar</item>
       <item quantity="one">1 dag</item>
@@ -171,53 +176,163 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekunder</item>
       <item quantity="one">1 sekund</item>
     </plurals>
-    <string name="role_request_message_add" msgid="1977772335648650272">"Vill du använda &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; som <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
-    <string name="role_request_message_replace" msgid="6367571247558110210">"Vill du använda &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; i stället för &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; som <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
     <string name="permission_reminders" msgid="8040710767178843151">"Behörighetspåminnelser"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> har använt din plats"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 app som inte används"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> appar som inte används"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Behörigheterna har tagits bort för att skydda din integritet. Tryck för att granska."</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Behörigheter för oanvända appar har tagits bort"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Vissa appar har inte använts på några månader. Tryck för att granska."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> appar har inte använts på några månader. Tryck för att granska</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> app har inte använts på några månader. Tryck för att granska</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Vissa appar har inte använts på några månader"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> appar har inte använts på några månader</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> app har inte använts på ett par månader</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Borttagna behörigheter"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Behörigheter har tagits bort"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Alla appar som inte används"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> månader sedan"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Behörigheterna har tagits bort för att skydda din integritet"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> har åtkomst till din plats i bakgrunden"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Den här appen har alltid åtkomst till din plats. Tryck här om du vill ändra det."</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Appbehörigheter har tagits bort av integritetsskäl"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> har inte använts på ett par månader. Tryck för att granska."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> och en app till har inte använts på ett par månader. Tryck för att granska."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> och <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> appar till har inte använts på ett par månader. Tryck för att granska."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 app används inte"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> appar används inte"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Behörigheter tas bort för att skydda din integritet. Tryck för att granska."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"Appar som inte används"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Behörigheter har tagits bort från"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Behörigheter tas bort från"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> och <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> och <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> till"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Behörigheter har tagits bort av säkerhetsskäl från appar som inte har använts på några månader"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Behörigheter har tagits bort av säkerhetsskäl från vissa appar som inte har använts på några månader"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 app har inte använts på några månader"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> appar har inte använts på några månader."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Endast när appen används"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Media"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Alla filer"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Inga behörigheter har beviljats"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Inga behörigheter har nekats"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Inga appar har tillåtits"</string>
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Inga appar tillåts för alla filer"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Inga appar tillåts endast för media"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Inga appar har nekats"</string>
-    <string name="launch_app" msgid="5641437562665039291">"Öppna"</string>
-    <string name="uninstall_app" msgid="8756507666995809214">"Avinstallera"</string>
-    <string name="force_stop_app" msgid="4253426323145479826">"Tvinga att avsluta"</string>
+    <string name="car_permission_selected" msgid="2163426344720483487">"Vald"</string>
     <string name="settings" msgid="2884124136779508907">"Inställningar"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> har fullständig åtkomst till din enhet"</string>
-    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> tillgänglighetstjänster har fullständig åtkomst till din enhet"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> tillgänglighetsappar har fullständig åtkomst till din enhet"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> får visa din skärm, dina åtgärder och inmatningar, utföra åtgärder och styra skärmen."</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Dessa tjänster får visa din skärm, dina åtgärder och inmatningar, utföra åtgärder och styra skärmen."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"De här apparna får visa din skärm, dina åtgärder och inmatningar, utföra åtgärder och styra skärmen."</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Digital assistentapp, standard"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Digital assistentapp"</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"Med assistentappar kan du få hjälp av som baseras på den information som visas på den aktuella skärmen. Vissa appar har stöd för både översikts- och röstinmatningstjänster för att hjälpa dig."</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardassistentapp?"</string>
+    <string name="role_assistant_request_description" msgid="1086168907357494789">"Får åtkomst till sms och samtalshistorik"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Standardwebbläsarapp"</string>
+    <string name="role_browser_short_label" msgid="6222206565850006894">"Webbläsarapp"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"Appar som visar länkar du trycker på och du använder för att ansluta till internet"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardwebbläsarapp?"</string>
+    <string name="role_browser_request_description" msgid="3204873553391043604">"Inga behörigheter krävs"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"Standardtelefonapp"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"Appen Telefon"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"Appar som möjliggör att ringa och ta emot telefonsamtal på enheten"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardtelefonapp?"</string>
+    <string name="role_dialer_request_description" msgid="2931069491309771312">"Får åtkomst till samtalshistoriken och kan skicka sms"</string>
+    <string name="role_dialer_search_keywords" msgid="6215791911228160821">"uppringning"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"Standardapp för sms"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"Sms-app"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Appar som använder ditt telefonnummer för att skicka och ta emot sms, foton, videor och annat"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp för sms?"</string>
+    <string name="role_sms_request_description" msgid="4920787411350418630">"Får åtkomst till sms, kontakter och telefon"</string>
+    <string name="role_sms_search_keywords" msgid="6818482413212931585">"sms, sms:a, meddelanden, skicka meddelanden"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"Standardapp för nödsituationer"</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"App för nödsituationer"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"Appar som möjliggör registrering av dina medicinska uppgifter och gör dem tillgängliga för utryckningspersonal, att få varningar om extremt väder och katastrofer och att du larmar andra när du behöver hjälp"</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp för nödsituationer?"</string>
+    <string name="role_emergency_request_description" msgid="2824966073894226992">"Inga behörigheter krävs"</string>
+    <string name="role_emergency_search_keywords" msgid="7310029268876820646">"ice"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Standardstartskärmsapp"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"Startskärmsapp"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Appar som kallas Översikter ersätter startskärmarna på Android-enheten. Du får åtkomst till innehåll och funktioner på enheten via översikten."</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp för startskärm?"</string>
+    <string name="role_home_request_description" msgid="6437733879812403277">"Inga behörigheter krävs"</string>
+    <string name="role_home_search_keywords" msgid="8277315231013298175">"översikt"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"Standardapp för omdirigering"</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Omdirigeringsapp för samtal"</string>
+    <string name="role_call_redirection_description" msgid="769231030043298555">"Appar som möjliggör vidarebefordran av utgående samtal till andra telefonnummer"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp för omdirigering av samtal?"</string>
+    <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Inga behörigheter krävs"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Standardapp för nummerpresentatör och spam"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Spam- och nummerpresentatörapp"</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"Appar som möjliggör identifiering av samtal och blockering av spam, robotsamtal eller oönskade nummer"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp för spam och nummerpresentatör?"</string>
+    <string name="role_call_screening_request_description" msgid="7788142583532880646">"Inga behörigheter krävs"</string>
+    <string name="request_role_current_default" msgid="7512045433655289638">"Nuvarande standardapp"</string>
+    <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Fråga inte igen"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"Ange som standard"</string>
+    <string name="default_app_search_keyword" msgid="6938709626391437391">"standardappar"</string>
+    <string name="settings_button" msgid="4747434541214595321">"Inställningar"</string>
     <string name="default_apps" msgid="8554530939151957828">"Standardappar"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Inga standardappar"</string>
+    <string name="default_apps_more" msgid="3908067305593075127">"Fler standardappar"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Öppna länkar"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Standardinställning för jobbet"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Ingen"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Systemstandard)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Inga appar"</string>
-    <string name="special_app_access" msgid="2561673957499408877">"Särskild åtkomst för app"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Vald"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Vald – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"särskild appåtkomst"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Särskild appåtkomst"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Ingen särskild åtkomst för app"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Inga appar"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Assistentapp"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"Webbläsarapp"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"Appen Telefon"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"Sms-app"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"App för nödsituationer"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"Startskärmsapp"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"Appen Musik"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"Appen Galleri"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Mobilapp för billäge"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"Omdirigeringsapp för samtal"</string>
-    <string name="role_label_call_screening" msgid="411212589764916370">"App för samtalsspärr"</string>
-    <string name="role_label_call_companion" msgid="7369723859682076467">"Tillhörande samtalsapp"</string>
-    <string name="role_label_car_projection" msgid="3792929094325391213">"App för projicering i bilen"</string>
-    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Arbetsprofiler stöds inte"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Jobbprofiler stöds inte"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Obs! Om du startar om mobilen och har ställt in ett skärmlås kan appen inte startas förrän du låser upp mobilen."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"Assistenten kan läsa information om appar som används i systemet, inklusive information som visas på skärmen eller är åtkomlig i apparna."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Dela felsökningsinformation"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Vill du dela detaljerad felsökningsinformation?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> vill ladda upp felsökningsinformation."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Dela felsökningsinformation"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Vill du dela felsökningsinformation?"</string>
+    <string name="incident_report_dialog_intro" msgid="153446034925770956">"Ett problem har upptäckts i systemet."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> begär tillstånd att ladda upp en felrapport som sparades den <xliff:g id="DATE">%2$s</xliff:g> kl. <xliff:g id="TIME">%3$s</xliff:g> från den här enheten. Felrapporter innehåller personlig information om enheten eller information som loggats av appar, t.ex. användarnamn, platsdata, enhetsidentifierare och nätverksinformation. Dela bara felrapporter med personer och appar du litar på. Tillåter du att <xliff:g id="APP_NAME_1">%4$s</xliff:g> laddar upp en felrapport?"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Ett fel uppstod när felrapporten för <xliff:g id="APP_NAME">%1$s</xliff:g> skulle behandlas. Därför har delning av utförlig felsökningsdata nekats. Ursäkta avbrottet."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Tillåt"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Neka"</string>
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Avancerade inställningar"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Avancerade inställningar"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Visa användning för systemappar"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Visa vilka behörigheter som systemappar använder i statusfältet, översikten och på andra ställen"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Visa alltid användning för följande"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Visa när enheten lyssnar efter ord som aktiverar assistenten"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Visa en ikon i statusfältet när mikrofonen används för att aktivera röstassistenten"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; åtkomstbehörighet till foton och media på enheten?"</string>
+    <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; åtkomst till dina kontakter?"</string>
+    <string name="permgrouprequest_location" msgid="4367626296074714965">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; åtkomst till enhetens plats?"</string>
+    <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Appen får endast åtkomst till din plats när du använder den"</string>
+    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; åtkomst till enhetens plats?"</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"Appen kanske vill få åtkomst till din plats hela tiden, även när du inte använder den. "<annotation id="link">"Tillåt i inställningarna."</annotation></string>
+    <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"Vill du ändra platsåtkomsten för &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;?"</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"Appen vill få åtkomst till din plats hela tiden, även när du inte använder den. "<annotation id="link">"Tillåt i inställningarna."</annotation></string>
+    <string name="permgrouprequest_calendar" msgid="254840812783503926">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; åtkomst till din kalender?"</string>
+    <string name="permgrouprequest_sms" msgid="2622312529683649944">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; behörighet att skicka och visa sms?"</string>
+    <string name="permgrouprequest_storage" msgid="1092300826793175064">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; åtkomst till foton, mediefiler och andra filer på enheten?"</string>
+    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; behörighet att spela in ljud?"</string>
+    <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; åtkomst till data om fysisk aktivitet?"</string>
+    <string name="permgrouprequest_camera" msgid="5379726026447957660">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; behörighet att ta bilder och spela in video?"</string>
+    <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; åtkomst till samtalsloggarna?"</string>
+    <string name="permgrouprequest_phone" msgid="6240218310343431124">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; behörighet att ringa och hantera telefonsamtal?"</string>
+    <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; åtkomst till sensordata om vitalparametrar?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"Styrda behörigheter"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Plats kan kommas åt"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"IT-administratören tillåter att <xliff:g id="APP_NAME">%s</xliff:g> får åtkomst till din plats"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Vissa alternativ är inte tillgängliga eftersom appen behöver registrera ljud"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Vissa alternativ är inte tillgängliga eftersom appen är den digitala assistent du har valt som standard"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Vissa alternativ är inte tillgängliga eftersom appen används till röstinmatning"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Vissa alternativ är inte tillgängliga eftersom den här appen hanteras av operatören"</string>
 </resources>

@@ -16,15 +16,20 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2792757108872430971">"کنترل‌کننده مجوز"</string>
+    <string name="app_name" msgid="2792757108872430971">"کنترل‌کننده اجازه"</string>
     <string name="ok" msgid="4417794827535157922">"تأیید"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"مجوزها"</string>
     <string name="cancel" msgid="7279939269964834974">"لغو"</string>
+    <string name="back" msgid="8739808065891653074">"برگشت"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"حذف نصب یا غیرفعال کردن"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"برنامه یافت نشد"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"رد کردن"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"رد شود و دیگر سؤال نشود"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"حفظ کردن «هنگامی که از برنامه استفاده می‌شود»"</string>
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"«فقط این بار» نگه داشته شود"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"اطلاعات بیشتر"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"درهرصورت نادیده گرفتن"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"رد کردن"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> مجوز از <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> مجوز"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه <xliff:g id="ACTION">%2$s</xliff:g> را می‌دهید؟"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"‏همیشه به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; برای <xliff:g id="ACTION">%2$s</xliff:g> اجازه داده شود؟"</string>
@@ -36,13 +41,20 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"هیچ‌ موردی غیرفعال نیست"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"مجاز"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"همیشه مجاز بودن"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"مجاز بودن تنها هنگام استفاده از برنامه"</string>
-    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"برنامه"</string>
-    <string name="app_permissions" msgid="2778362347879465223">"مجوزهای برنامه"</string>
-    <string name="app_permission_manager" msgid="3802609813311662642">"مدیر مجوز"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"هنگام استفاده از برنامه"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"فقط این بار"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"همیشه مجاز بودن"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"اجازه دادن برای مدیریت همه فایل‌ها"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"اجازه دادن برای دسترسی به فایل‌های رسانه"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"برنامه‌ها"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"اجازه‌های برنامه"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"برنامه‌های استفاده‌نشده"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"غیرفعال کردن برنامه"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"‏اگر این برنامه را غیرفعال کنید، ممکن است Android و سایر برنامه‌های دیگر عملکرد موردانتظار را نداشته باشند. به‌خاطر داشته باشید که نمی‌توانید این برنامه را حذف کنید، چون از برنامه‌های ازپیش نصب‌شده روی دستگاه است. این برنامه، با غیرفعال کردن، خاموش می‌شود و در دستگاه پنهان می‌شود."</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"مدیر اجازه‌ها"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"دوباره سؤال نشود"</string>
     <string name="no_permissions" msgid="2193893107241172888">"مجوزی موجود نیست"</string>
-    <string name="additional_permissions" msgid="7124470111123472154">"مجوزهای بیشتر"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"اجازه‌های تکمیلی"</string>
     <string name="app_permissions_info_button_label" msgid="6566057048862462066">"باز کردن اطلاعات برنامه"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> مجوز دیگر</item>
@@ -50,9 +62,8 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"‏این برنامه برای نسخه قدیمی‌تری از Android طراحی شده بود. رد کردن مجوز ممکن است باعث شود که برنامه دیگر عملکرد موردانتظار را نداشته باشند."</string>
     <string name="default_permission_description" msgid="692254823411049573">"انجام یک اقدام ناشناس"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> برنامه از <xliff:g id="COUNT_1">%2$d</xliff:g> برنامه مجاز شد"</string>
-    <string name="permission_usage_header" msgid="8802963718365732792">"مصرف اخیر"</string>
-    <string name="permission_usage_view_details" msgid="7398825662321010957">"مشاهده داشبورد مجوزها"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> برنامه از <xliff:g id="COUNT_1">%2$d</xliff:g> برنامه مجاز است"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g> برنامه از <xliff:g id="COUNT_1">%2$d</xliff:g> برنامه مجاز است"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"نمایش سیستم"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"پنهان کردن سیستم"</string>
     <string name="no_apps" msgid="2377153782338039463">"برنامه‌ای موجود نیست"</string>
@@ -67,13 +78,13 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"دسترسی به پس‌زمینه توسط سرپرست غیرفعال شد"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"دسترسی به پس‌زمینه توسط سرپرست فعال شد"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"دسترسی به پیش‌زمینه توسط سرپرست فعال شد"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"مجوز تنظیم‌شده توسط سیستم"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="5463084832974856683">"دستگاه برای کار کردن به این مجوز نیاز دارد"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
-    <string name="permission_access_always" msgid="2315256378850460955">"همیشه"</string>
-    <string name="permission_access_only_foreground" msgid="8109903552082630801">"فقط هنگام استفاده از برنامه"</string>
-    <string name="permission_access_never" msgid="4717648645876576508">"هرگز"</string>
+    <string name="permission_access_always" msgid="5419580764084361573">"همیشه مجاز بودن"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"مجاز فقط حین استفاده از برنامه"</string>
+    <string name="permission_access_never" msgid="425385910378172045">"رد کردن"</string>
     <string name="loading" msgid="323483393167148377">"درحال بارگیری…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"همه مجوزها"</string>
     <string name="other_permissions" msgid="1956312685853070715">"سایر قابلیت‌های برنامه"</string>
@@ -91,70 +102,64 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"مجوزهای کنونی"</string>
     <string name="message_staging" msgid="641286607664721291">"مرحله‌بندی برنامه…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"نامشخص"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"داشبورد"</string>
-    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
-      <item quantity="one">آخرین دسترسی: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> دسترسی</item>
-      <item quantity="other">آخرین دسترسی: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> دسترسی</item>
-    </plurals>
-    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
-      <item quantity="one">آخرین دسترسی: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> دسترسی (<xliff:g id="NUM_5">%3$s</xliff:g> دسترسی در پس‌زمینه)</item>
-      <item quantity="other">آخرین دسترسی: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> دسترسی (<xliff:g id="NUM_5">%3$s</xliff:g> دسترسی در پس‌زمینه)</item>
-    </plurals>
-    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
-      <item quantity="one">آخرین دسترسی: <xliff:g id="TIME_3">%1$s</xliff:g>\n مدت\n<xliff:g id="NUM_4">%2$s</xliff:g> دسترسی: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-      <item quantity="other">آخرین دسترسی: <xliff:g id="TIME_3">%1$s</xliff:g>\n مدت\n<xliff:g id="NUM_4">%2$s</xliff:g> دسترسی: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-    </plurals>
-    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
-      <item quantity="one">آخرین دسترسی: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> دسترسی (<xliff:g id="NUM_6">%3$s</xliff:g> دسترسی در پس‌زمینه)\nمدت: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-      <item quantity="other">آخرین دسترسی: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> دسترسی (<xliff:g id="NUM_6">%3$s</xliff:g> دسترسی در پس‌زمینه)\nمدت: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-    </plurals>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"همه مجوزها"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"هر زمانی"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"۷ روز اخیر"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"۲۴ ساعت اخیر"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"۱ ساعت اخیر"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"۱۵ دقیقه اخیر"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"۱ دقیقه آخر"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"هیچ مجوزی استفاده نشده است"</string>
-    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"دسترسی در هرزمانی"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"دسترسی در ۷ روز گذشته"</string>
-    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"دسترسی در ۲۴ ساعت گذشته"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"دسترسی در ساعت گذشته"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"دسترسی در ۱۵ دقیقه گذشته"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"دسترسی در ۱ دقیقه آخر"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"پراستفاده‌ترین مجوزها در هرزمانی"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"پراستفاده‌ترین مجوزها در ۷ روز گذشته"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"پراستفاده‌ترین مجوزها در ۲۴ ساعت گذشته"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"پراستفاده‌ترین مجوزها در ۱ ساعت گذشته"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"پراستفاده‌ترین مجوزها در ۱۵ دقیقه گذشته"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"پراستفاده‌ترین مجوزها در ۱ دقیقه گذشته"</string>
-    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"برنامه‌ها"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"فیلترشده براساس: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"حذف فیلتر"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"فیلتر کردن براساس"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"فیلتر کردن براساس مجوزها"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"بیشترین مجوزها"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"بیشترین تعداد دسترسی"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"اخیر"</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"بازخوانی"</string>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"استفاده از مجوزهای برنامه"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"دسترسی: <xliff:g id="NUM">%1$s</xliff:g> بار. کل مدت: <xliff:g id="DURATION">%2$s</xliff:g>. آخرین استفاده: <xliff:g id="TIME">%3$s</xliff:g> قبل."</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"دسترسی: <xliff:g id="NUM">%1$s</xliff:g> بار. آخرین استفاده: <xliff:g id="TIME">%2$s</xliff:g> قبل."</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"فیلتر براساس زمان"</string>
+    <string name="item_separator" msgid="8266062815210378175">"، "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"مجاز"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"اجازه دادن برای مدیریت همه فایل‌ها"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"اجازه دادن فقط برای دسترسی به رسانه‌ها"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"همیشه مجاز بودن"</string>
-    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"مجاز بودن تنها هنگام استفاده از برنامه"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"مجاز فقط حین استفاده از برنامه"</string>
+    <string name="app_permission_button_ask" msgid="2757216269887794205">"هربار پرسیده شود"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"اجازه ندادن"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"مجوز <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="5704679725169517493">"دسترسی <xliff:g id="PERM">%1$s</xliff:g> برای <xliff:g id="APP">%2$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> پیش به <xliff:g id="PERM">%2$s</xliff:g> دسترسی یافت."</string>
-    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> به <xliff:g id="PERM">%2$s</xliff:g> شما دسترسی پیدا نکرده است."</string>
-    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"مشاهده استفاده از مجوزها با جزئیات"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"اجازه <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"دسترسی <xliff:g id="PERM">%1$s</xliff:g> برای این برنامه"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"مشاهده همه اجازه‌های <xliff:g id="APP">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"دیدن همه برنامه‌هایی که این مجوز را دارند"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"اگر از برنامه استفاده نمی‌شود، اجازه‌ها برداشته شوند"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"برای محافظت از داده‌هایتان، اگر طی چند ماه گذشته از این برنامه استفاده نشده باشد، اجازه‌های آن برداشته خواهد شد."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"برای محافظت از داده‌هایتان، اگر طی چند ماه گذشته از این برنامه استفاده نشده باشد، اجازه‌های زیر برداشته خواهد شد: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"برای محافظت از داده‌هایتان، اجازه‌ها از برنامه‌هایی که طی چند ماه گذشته استفاده نشده‌اند برداشته شده است."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"اگر می‌خواهید اجازه‌ها را دوباره اعطا کنید، برنامه را باز کنید."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"درحال‌حاضر، حذف خودکار برای این برنامه غیرفعال است."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"درحال‌حاضر هیچ اجازه‌ای ارائه نشده است که به‌طور خودکار قابل فسخ باشد"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"اجازه <xliff:g id="PERM">%1$s</xliff:g> برداشته خواهد شد."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"اجازه‌های <xliff:g id="PERM_0">%1$s</xliff:g> و <xliff:g id="PERM_1">%2$s</xliff:g> برداشته خواهند شد."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"اجازه‌هایی که برداشته خواهند شد: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"مدیریت خودکار اجازه‌ها"</string>
+    <string name="off" msgid="4561379152328580345">"خاموش"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"اجازه <xliff:g id="PERMISSION_NAME">%s</xliff:g> برداشته شده است"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"اجازه <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> و <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> برداشته شده است"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"اجازه <xliff:g id="PERMISSION_NAME">%1$s</xliff:g> و <xliff:g id="NUMBER">%2$s</xliff:g> اجازه دیگر برداشته شده است"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"آخرین بار بیش از <xliff:g id="NUMBER">%s</xliff:g> ماه قبل باز شده است"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"آخرین باری که برنامه باز شده است: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"آخرین باری که باز شده است: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"اگر مدیریت همه فایل‌ها را مجاز کنید، این برنامه می‌تواند به همه فایل‌های موجود در فضای ذخیره‌سازی استاندارد این دستگاه یا دستگاه‌های ذخیره‌سازی متصل دسترسی داشته باشد، آن‌ها را تغییر دهد، و حذف کند. این برنامه ممکن است بدون سؤال کردن از شما به فایل‌ها دسترسی پیدا کند."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"به این برنامه اجازه داده شود به فایل‌های موجود در این دستگاه یا دستگاه‌های ذخیره‌سازی متصل دسترسی داشته باشد، آن‌ها را تغییر دهد، و حذف کند؟ این برنامه ممکن است بدون سؤال کردن از شما به فایل‌ها دسترسی پیدا کند."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به فعالیت فیزیکی شما، مانند پیاده‌روی، دوچرخه‌سواری، رانندگی، قدم‌شماری، و غیره دسترسی داشته باشند"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به تقویمتان دسترسی داشته باشند"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند گزارش تماس تلقنی را بخوانند و بنویسند"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند عکس بگیرند و ویدیو ضبط کنند"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به مخاطبین دسترسی داشته باشند"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به مکان این دستگاه دسترسی داشته باشند"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند صدا ضبط کنند"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند تماس تلفنی برقرار کنند و آن‌ را مدیریت کنند"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به داده‌های حسگر مربوط به نشانه‌های حیاتی دسترسی داشته باشند"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند هم پیامک ارسال کنند هم آن‌ها را ببینند"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به عکس‌ها، رسانه‌ها و فایل‌های موجود در دستگاهتان دسترسی داشته باشند"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"آخرین دسترسی: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"درحال‌حاضر رد شده است / آخرین دسترسی: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"هرگز دسترسی نداشته است"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"غیرمجاز / هرگز دسترسی نداشته است"</string>
     <string name="allowed_header" msgid="6279244592227088158">"مجاز"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"همیشه مجاز بودن"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"مجاز فقط هنگام استفاده از برنامه"</string>
-    <string name="denied_header" msgid="2277998574238617699">"رد شد"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"مشاهده اطلاعات مصرف مفصل‌تر"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"مجاز فقط برای دسترسی به رسانه‌ها"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"مجاز برای مدیریت همه فایل‌ها"</string>
+    <string name="ask_header" msgid="4471670860332046665">"هربار پرسیده شود"</string>
+    <string name="denied_header" msgid="2277998574238617699">"غیرمجاز"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> روز</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> روز</item>
@@ -171,53 +176,163 @@
       <item quantity="one">‏<xliff:g id="NUMBER">%s</xliff:g> ثانیه</item>
       <item quantity="other">‏<xliff:g id="NUMBER">%s</xliff:g> ثانیه</item>
     </plurals>
-    <string name="role_request_message_add" msgid="1977772335648650272">"‏از &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; به‌عنوان <xliff:g id="ROLE_NAME">%2$s</xliff:g> شما استفاده شود؟"</string>
-    <string name="role_request_message_replace" msgid="6367571247558110210">"‏از &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; به‌جای &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; به‌عنوان <xliff:g id="ROLE_NAME">%2$s</xliff:g> شما استفاده شود؟"</string>
     <string name="permission_reminders" msgid="8040710767178843151">"یادآوری‌های مجوز"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> از مکانتان استفاده می‌کند"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"۱ برنامه استفاده‌نشده"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> برنامه استفاده‌نشده"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"برای محافظت از حریم‌خصوصی شما، اجازه‌ها برداشته شد. برای مرور، ضربه بزنید"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"اجازه‌های مربوط به برنامه‌های استفاده‌نشده برداشته شد"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"برخی از برنامه‌ها به‌مدت چند ماه استفاده نشده‌اند. برای مرور، ضربه بزنید."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> برنامه به‌مدت چند ماه استفاده نشده است. برای مرور، ضربه بزنید</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> برنامه به‌مدت چند ماه استفاده نشده است. برای مرور، ضربه بزنید</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"برخی از برنامه‌ها به‌مدت چند ماه استفاده نشده‌اند"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> برنامه به‌مدت چند ماه استفاده نشده است</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> برنامه به‌مدت چند ماه استفاده نشده است</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"اجازه‌های برداشته‌شده"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"اجازه‌ها برداشته شد"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"همه برنامه‌های استفاده‌نشده"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> ماه قبل"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"برای محافظت از حریم‌خصوصی شما، اجازه‌ها برداشته شد"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> به موقعیت مکانی شما در پس‌زمینه دسترسی دارد"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"این برنامه همیشه می‌تواند به مکانتان دسترسی داشته باشد. برای تغییر دادن، ضربه بزنید."</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"برای محافظت از حریم‌خصوصی، اجازه‌های برنامه برداشته شدند"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> طی چند ماه استفاده نشده است. برای مرور، ضربه بزنید."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> و ۱ برنامه دیگر طی چند ماه استفاده نشده‌اند. برای مرور، ضربه بزنید."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> و <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> برنامه دیگر طی چند ماه استفاده نشده‌اند. برای مرور، ضربه بزنید."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"۱ برنامه استفاده نشده است"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> برنامه استفاده نشده‌اند"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"برای محافظت از حریم‌خصوصی، اجازه‌ها برداشته خواهند شد. برای مرور، ضربه بزنید."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"برنامه‌های استفاده‌نشده"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"اجازه‌ها از این برنامه‌ها برداشته شد"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"اجازه‌ها از این برنامه‌ها برداشته خواهند شد"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> و <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>، <xliff:g id="PERM_NAME_1">%2$s</xliff:g> و <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> مورد دیگر"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"برای محافظت از داده‌هایتان، اجازه‌ها از برنامه‌هایی که چند ماه استفاده نشده‌اند برداشته شد"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"برای محافظت از داده‌هایتان، اجازه‌های برخی از برنامه‌هایی که به‌مدت چند ماه گذشته استفاده نشده‌اند برداشته شده است."</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"۱ برنامه طی چند ماه گذشته استفاده نشده است"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> برنامه طی چند ماه گذشته استفاده نشده‌اند"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"تنها هنگام استفاده از برنامه"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"رسانه"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"همه فایل‌ها"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"هیچ مجوزی اعطا نشده است"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"هیچ مجوزی رد نشد"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"هیچ اجازه‌ای رد نشده"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"هیچ برنامه‌ای مجاز نیست"</string>
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"هیچ برنامه‌ای برای همه فایل‌ها مجاز نیست"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"هیچ برنامه‌ای فقط برای رسانه‌ها مجاز نیست"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"هیچ برنامه‌ای رد نشد"</string>
-    <string name="launch_app" msgid="5641437562665039291">"باز"</string>
-    <string name="uninstall_app" msgid="8756507666995809214">"حذف نصب"</string>
-    <string name="force_stop_app" msgid="4253426323145479826">"توقف اجباری"</string>
+    <string name="car_permission_selected" msgid="2163426344720483487">"انتخاب‌شده"</string>
     <string name="settings" msgid="2884124136779508907">"تنظیمات"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> سرویس به دستگاه شما دسترسی کامل دارند"</string>
-    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> سرویس دسترس‌پذیری به دستگاه شما دسترسی کامل دارند"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> برنامه دسترس‌پذیری به دستگاه شما دسترسی کامل دارند"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> می‌تواند صفحه، کنش‌ها و ورودی‌های شما را ببیند، کنش‌هایی را انجام دهد و نمایشگر را کنترل کند."</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"این سرویس‌ها می‌توانند صفحه، کنش‌ها و ورودی‌های شما را ببینند، کنش‌هایی را انجام دهند و نمایشگر را کنترل کنند."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"این برنامه‌ها می‌توانند صفحه، کنش‌ها و ورودی‌های شما را ببینند، کنش‌هایی انجام دهند، و نمایشگر را کنترل کنند."</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"برنامه دستیار دیجیتال پیش‌فرض"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"برنامه دستیار دیجیتال"</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"برنامه‌های همیار می‌توانند براساس اطلاعات موجود در صفحه‌ای که در آن هستید، کمکتان کنند. برخی برنامه‌ها از هر دو سرویس راه‌انداز و ورودی صوتی پشتیبانی می‌کنند تا کمک یکپارچه‌ای ارائه دهند."</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان برنامه همیار پیش‌فرض تنظیم شود؟"</string>
+    <string name="role_assistant_request_description" msgid="1086168907357494789">"به پیامک و گزارش تماس دسترسی می‌یابد"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"برنامه مرورگر پیش‌فرض"</string>
+    <string name="role_browser_short_label" msgid="6222206565850006894">"برنامه مرورگر"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"برنامه‌هایی که به شما دسترسی به اینترنت را می‌دهند و پیوندهایی را نشان می‌دهند که روی آن‌ها می‌زنید"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان برنامه مرورگر پیش‌فرض تنظیم شود؟"</string>
+    <string name="role_browser_request_description" msgid="3204873553391043604">"مجوز نیاز نیست"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"برنامه تلفن پیش‌فرض"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"برنامه تلفن"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"برنامه‌هایی که امکان می‌دهند با دستگاهتان تماس تلفنی برقرار و دریافت کنید"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان برنامه تلفن پیش‌فرض تنظیم شود؟"</string>
+    <string name="role_dialer_request_description" msgid="2931069491309771312">"به گزارش تماس و ارسال پیامک دسترسی می‌یابد"</string>
+    <string name="role_dialer_search_keywords" msgid="6215791911228160821">"شماره‌گیر"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"برنامه پیامک پیش‌فرض"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"برنامه پیامک"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"برنامه‌هایی که امکان می‌دهند از شماره تلفنتان برای ارسال و دریافت پیام‌‌های نوشتاری کوتاه، عکس، ویدیو، و موارد دیگر استفاده کنید"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان برنامه پیامک پیش‌فرض تنظیم شود؟"</string>
+    <string name="role_sms_request_description" msgid="4920787411350418630">"به مخاطبین، پیامک، و تلفن دسترسی می‌یابد"</string>
+    <string name="role_sms_search_keywords" msgid="6818482413212931585">"پیام نوشتاری، ارسال پیامک، پیام‌ها، پیام‌رسانی"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"برنامه اضطراری پیش‌فرض"</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"برنامه اضطراری"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"برنامه‌هایی که امکان می‌دهند اطلاعات پزشکی‌تان را ثبت کنید و آن‌ها را برای مسئولان خدمات اضطراری دسترس‌پذیر کنید، درباره رویدادهای آب‌وهوایی شدید و فجایع هشدار دریافت کنید، و هنگام نیاز به کمک، دیگران را مطلع کنید."</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان برنامه اضطراری پیش‌فرض تنظیم شود؟"</string>
+    <string name="role_emergency_request_description" msgid="2824966073894226992">"مجوز نیاز نیست"</string>
+    <string name="role_emergency_search_keywords" msgid="7310029268876820646">"ice"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"برنامه صفحه اصلی پیش‌فرض"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"برنامه صفحه اصلی"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"‏برنامه‌های عموماً موسوم به راه‌انداز، که جایگزین صفحه‌های اصلی در دستگاه Android می‌شوند و امکان دسترسی به محتواها و ویژگی‌های دستگاه را می‌دهند"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان برنامه صفحه اصلی پیش‌فرض تنظیم شود؟"</string>
+    <string name="role_home_request_description" msgid="6437733879812403277">"مجوز نیاز نیست"</string>
+    <string name="role_home_search_keywords" msgid="8277315231013298175">"راه‌انداز"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"برنامه هدایت تماس پیش‌فرض"</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"برنامه هدایت تماس"</string>
+    <string name="role_call_redirection_description" msgid="769231030043298555">"برنامه‌هایی که امکان می‌دهند تماس‌های خروجی را به شماره تلفن دیگری بازارسال کنید"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان برنامه هدایت تماس پیش‌فرض تنظیم شود؟"</string>
+    <string name="role_call_redirection_request_description" msgid="6117172580087594081">"مجوز نیاز نیست"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"شناسه تماس‌گیرنده و برنامه هرزنامه پیش‌فرض"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"شناسه تماس‌گیرنده و برنامه هرزنامه"</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"برنامه‌هایی که به شما امکان می‌دهند تماس‌ها را شناسایی کنید و هرزنامه‌ها، تماس‌های تلفنی خودکار، یا شماره‌های ناخواسته را مسدود کنید."</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان شناسه تماس‌گیرنده و برنامه هرزنامه‌ پیش‌فرض تنظیم شود؟"</string>
+    <string name="role_call_screening_request_description" msgid="7788142583532880646">"مجوز نیاز نیست"</string>
+    <string name="request_role_current_default" msgid="7512045433655289638">"برنامه پیش‌فرض کنونی"</string>
+    <string name="request_role_dont_ask_again" msgid="6250680190065090205">"دوباره سؤال نشود"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"تنظیم برای پیش‌فرض"</string>
+    <string name="default_app_search_keyword" msgid="6938709626391437391">"برنامه‌های پیش‌فرض"</string>
+    <string name="settings_button" msgid="4747434541214595321">"تنظیمات"</string>
     <string name="default_apps" msgid="8554530939151957828">"برنامه‌های پیش‌فرض"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"هیچ برنامه پیش‌فرضی وجود ندارد."</string>
+    <string name="default_apps_more" msgid="3908067305593075127">"سایر پیش‌فرض‌ها"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"باز کردن پیوندها"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"پیش‌فرض برای کار"</string>
     <string name="default_app_none" msgid="7671097769303174666">"هیچ‌کدام"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(پیش‌فرض سیستم)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"برنامه‌ای موجود نیست"</string>
-    <string name="special_app_access" msgid="2561673957499408877">"دسترسی ویژه به برنامه"</string>
-    <string name="no_special_app_access" msgid="994977666694457811">"عدم دسترسی ویژه به برنامه"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"انتخاب شد"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"انتخاب‌شده - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"دسترسی ویژه برنامه"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"دسترسی ویژه برنامه"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"دسترسی ویژه برنامه وجود ندارد"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"برنامه‌ای موجود نیست"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"برنامه همیار"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"برنامه مرورگر"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"برنامه تلفن"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"برنامه پیامک"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"برنامه اضطراری"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"برنامه صفحه اصلی"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"برنامه موسیقی"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"برنامه گالری"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"برنامه تلفن حالت خودرو"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"فراخوانی برنامه هدایت"</string>
-    <string name="role_label_call_screening" msgid="411212589764916370">"برنامه غربالگری تماس"</string>
-    <string name="role_label_call_companion" msgid="7369723859682076467">"برنامه همراه تماس"</string>
-    <string name="role_label_car_projection" msgid="3792929094325391213">"برنامه طرح سه‌بعدی خودرو"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"از نمایه کاری پشتیبانی نمی‌کند"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"توجه: اگر دستگاهتان را بازراه‌اندازی کنید و قفل صفحه تنظیم کرده باشید، تا قفل تلفن را باز نکنید، این برنامه نمی‌تواند شروع به کار کند."</string>
-    <string name="assistant_confirmation_message" msgid="4529925223796676824">"«دستیار» می‌تواند اطلاعات مربوط به برنامه‌های درحال استفاده در سیستم شما را بخواند، ازجمله اطلاعاتی که در صفحه‌نمایش شما قابل‌مشاهده است یا در برنامه‌ها قابل‌دسترسی است."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"دستیار می‌تواند اطلاعات مربوط به برنامه‌های درحال استفاده در سیستم شما را بخواند، ازجمله اطلاعاتی که در صفحه‌نمایش شما قابل‌مشاهده است یا در برنامه‌ها قابل‌دسترسی است."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"هم‌رسانی داده‌های اشکال‌زدایی"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"جزئیات داده‌های اشکال‌زدایی هم‌رسانی شود؟"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> می‌خواهد اطلاعات اشکال‌زدایی را بارگذاری کند."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"هم‌رسانی داده‌های اشکال‌زدایی"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"داده‌های اشکال‌زدایی هم‌رسانی شود؟"</string>
+    <string name="incident_report_dialog_intro" msgid="153446034925770956">"سیستم مشکلی را تشخیص داده است."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> درخواست بارگذاری گزارش اشکالی را دارد که در <xliff:g id="DATE">%2$s</xliff:g> ساعت <xliff:g id="TIME">%3$s</xliff:g> در این دستگاه پیش آمده است. گزارش‌های اشکال شامل اطلاعات شخصی درباره دستگاه شما است یا اطلاعاتی که توسط برنامه‌ها گزارش شده است، برای مثال نام‌های کاربر، داده‌های مکان، شناسه‌های دستگاه و اطلاعات شبکه. گزارش‌های اشکال را تنها با افراد و برنامه‌هایی هم‌رسانی کنید که به آن‌ها در این‌باره اعتماد دارید. به <xliff:g id="APP_NAME_1">%4$s</xliff:g> اجازه بارگذاری گزارش اشکال داده شود؟"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"هنگام پردازش گزارش اشکال برای <xliff:g id="APP_NAME">%1$s</xliff:g> خطایی رخ داد. بنابراین هم‌رسانی داده‌های اشکال‌زدایی دقیق رد شد. از وقفه پیش‌آمده پوزش می‌طلبیم."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"مجاز"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"رد کردن"</string>
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"تنظیمات پیشرفته"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"تنظیمات پیشرفته"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"نمایش استفادهٔ برنامه سیستم"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"نمایش استفاده برنامه سیستم از مجوزها در نوار وضعیت، داشبورد، و جاهای دیگر"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"برجسته کردن استفاده برای موارد زیر"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"نمایش تشخیص راه‌انداز دستیار"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"نمایش نماد مربوطه در نوار وضعیت وقتی از میکروفون برای فعال کردن دستیار صوتی استفاده می‌شود"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt; اجازه داده شود به عکس‌ها و رسانه‌های موجود در دستگاهتان دسترسی پیدا کند؟"</string>
+    <string name="permgrouprequest_contacts" msgid="1493445560009228831">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه داده شود به مخاطبین شما دسترسی پیدا کند؟"</string>
+    <string name="permgrouprequest_location" msgid="4367626296074714965">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه داده شود به مکان این دستگاه دسترسی پیدا کند؟"</string>
+    <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"این برنامه فقط وقتی از آن استفاده می‌کنید، به مکان دسترسی خواهد داشت"</string>
+    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه داده شود به مکان این دستگاه دسترسی پیدا کند؟"</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"این برنامه ممکن است بخواهد مرتب به مکانتان دسترسی داشته باشد، حتی زمانی‌که از برنامه استفاده نمی‌کنید. "<annotation id="link">"در تنظیمات به آن اجازه دهید."</annotation></string>
+    <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"‏دسترسی به مکان برای &lt;b&amp;gt؛<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&amp;gt تغییر کند؟"</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"این برنامه می‌خواهد مرتب به مکانتان دسترسی داشته باشد، حتی زمانی‌که از برنامه استفاده نمی‌کنید. "<annotation id="link">"در تنظیمات به آن اجازه دهید."</annotation></string>
+    <string name="permgrouprequest_calendar" msgid="254840812783503926">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه داده شود به تقویم شما دسترسی پیدا کند؟"</string>
+    <string name="permgrouprequest_sms" msgid="2622312529683649944">"‏به «&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt;» اجازه داده شود پیامک ارسال و مشاهده کند؟"</string>
+    <string name="permgrouprequest_storage" msgid="1092300826793175064">"‏به برنامه &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt; اجازه داده شود به عکس‌ها، رسانه، و فایل‌های موجود در دستگاهتان دسترسی داشته باشد؟"</string>
+    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"‏به &lt;/b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه داده شود صدا ضبط کند؟"</string>
+    <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه می‌دهید به فعالیت فیزیکی‌تان دسترسی پیدا کند؟"</string>
+    <string name="permgrouprequest_camera" msgid="5379726026447957660">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه داده شود عکس بگیرد و ویدیو ضبط کند؟"</string>
+    <string name="permgrouprequest_calllog" msgid="8654341234544121138">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه داده شود به گزارش تماس‌های تلفنی شما دسترسی داشته باشد؟"</string>
+    <string name="permgrouprequest_phone" msgid="6240218310343431124">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt; اجازه داده شود تماس‌های تلفنی برقرار کند و آن‌ها را مدیریت کند؟"</string>
+    <string name="permgrouprequest_sensors" msgid="1939578702884234985">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt; اجازه داده شود به داده‌های حسگر مربوط به علائم حیاتی شما دسترسی پیدا کند؟"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"مجوزهای کنترل‌شده"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"می‌توان به مکان دسترسی پیدا کرد"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"سرپرست فناوری اطلاعاتتان به <xliff:g id="APP_NAME">%s</xliff:g> اجازه داده است به مکانتان دسترسی داشته باشد"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"برخی از گزینه‌ها در دسترس نخواهد بود زیرا این برنامه باید بتواند صدا را شناسایی کند"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"برخی از گزینه‌ها در دسترس نخواهد بود زیرا این برنامه دستیار دیجیتال پیش‌فرض شما است"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"برخی از گزینه‌ها در دسترس نخواهد بود زیرا از این برنامه برای ورودی گفتاری استفاده می‌شود"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"برخی از گزینه‌ها در دسترس نخواهد بود زیرا این برنامه را شرکت مخابراتی شما مدیریت می‌کند"</string>
 </resources>

@@ -20,15 +20,16 @@
     <string name="ok" msgid="4417794827535157922">"Ados"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"baimenak"</string>
     <string name="cancel" msgid="7279939269964834974">"Utzi"</string>
+    <string name="back" msgid="8739808065891653074">"Atzera"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Desinstalatu edo desgaitu"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Ez da aurkitu aplikazioa"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Ukatu"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Ukatu eta ez galdetu berriro"</string>
-    <!-- no translation found for grant_dialog_button_deny_background (5378693207810841555) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_deny_background_and_dont_ask_again (1032019626928637454) -->
-    <skip />
+    <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"Mantendu “Aplikazioa abian denean” aukera"</string>
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Mantendu \"Oraingo honetan soilik\""</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Datu gehiago"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Ukatu hala ere"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Baztertu"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioak <xliff:g id="ACTION">%2$s</xliff:g> ahal izatea baimendu nahi duzu?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Beti eman nahi diozu \"<xliff:g id="ACTION">%2$s</xliff:g>\" baimena &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
@@ -40,12 +41,16 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"guztiak gaituta"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Baimendu"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Baimendu beti"</string>
-    <!-- no translation found for grant_dialog_button_allow_foreground (8090382319222429427) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_background (3190568549032350790) -->
-    <skip />
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Aplikazioa erabili bitartean"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Oraingo honetan soilik"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Baimendu beti"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Eman fitxategi guztiak kudeatzeko baimena"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Eman multimedia-fitxategiak atzitzeko baimena"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplikazioak"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Aplikazio-baimenak"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Erabiltzen ez diren aplikazioak"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Desgaitu aplikazioa"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Aplikazioa desgaitzen baduzu, baliteke Android-ek eta beste aplikazio batzuek behar bezala ez funtzionatzea. Kontuan izan ezin duzula ezabatu aplikazio hau gailuan berez instalatuta zetorrelako. Desgaituz gero, aplikazioa desaktibatu egingo duzu, eta gailutik ezkutatuko."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Baimenen kudeatzailea"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Ez galdetu berriro"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Ez dago baimenik"</string>
@@ -58,7 +63,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Android-en bertsio zaharrago baterako diseinatuta dago aplikazio hau. Baimena ukatzen baduzu, agian aurrerantzean ez du behar bezala funtzionatuko."</string>
     <string name="default_permission_description" msgid="692254823411049573">"Gauzatu ekintza ezezagunak"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> aplikaziok dute baimena"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"Erakutsi sistema"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"Baimena daukaten <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> aplikazio"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Erakutsi sistemaren aplikazioak"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Ezkutatu sistema"</string>
     <string name="no_apps" msgid="2377153782338039463">"Ez dago aplikaziorik"</string>
     <string name="location_settings" msgid="547378321761364906">"Kokapen-ezarpenak"</string>
@@ -72,17 +78,13 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Administratzaileak atz. planoa atzitzeko aukera desgaitu du"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Administratzaileak atzeko planoa atzitzeko aukera gaitu du"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Administratzaileak aurreko planoa atzitzeko aukera gaitu du"</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (5463084832974856683) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="5463084832974856683">"Gailuak baimen hau behar du funtzionatzeko"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
-    <!-- no translation found for permission_access_always (5419580764084361573) -->
-    <skip />
-    <!-- no translation found for permission_access_only_foreground (2857031150724321567) -->
-    <skip />
-    <!-- no translation found for permission_access_never (425385910378172045) -->
-    <skip />
+    <string name="permission_access_always" msgid="5419580764084361573">"Baimendu beti"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Aplikazioa erabiltzean soilik"</string>
+    <string name="permission_access_never" msgid="425385910378172045">"Ukatu"</string>
     <string name="loading" msgid="323483393167148377">"Kargatzen…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Baimen guztiak"</string>
     <string name="other_permissions" msgid="1956312685853070715">"Aplikazioaren beste gaitasun batzuk"</string>
@@ -100,114 +102,64 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Uneko baimenak"</string>
     <string name="message_staging" msgid="641286607664721291">"Aplikazioa prestatzen…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Ezezaguna"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"Panela"</string>
-    <!-- no translation found for permission_usage_summary_foreground (3203419920107457274) -->
-    <skip />
-    <!-- no translation found for permission_usage_summary_background (5719598203265078254) -->
-    <skip />
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Edozein baimen"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"Edonoiz"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Azken 7 egunetan"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"Azken 24 orduetan"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Azken orduan"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Azken 15 minutuetan"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Azken minutua"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"Ez da eskatu baimenik"</string>
-    <!-- no translation found for permission_usage_list_title_any_time (5641676869304328239) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_7_days (2972289322203714509) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_day (6298662604046093174) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (7224982939487774388) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_15_minutes (49045607172810502) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_minute (7716966405942817635) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_any_time (862654449303514044) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (5393381637937213483) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_last_day (7202567658282481259) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_last_hour (4672313408976666479) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (1776918144361651860) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_last_minute (236300476767668315) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_bar_label (7261634017833698654) -->
-    <!-- no translation found for permission_usage_view_details (4728049344017619500) -->
-    <skip />
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Iragazteko irizpidea: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Kendu iragazkia"</string>
-    <string name="filter_by_title" msgid="5940302511365561845">"Iragazi honen arabera"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Iragazteko irizpidea"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Iragazi baimenen arabera"</string>
-    <!-- no translation found for filter_by_time (1763143592970195407) -->
-    <skip />
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Baimen gehien erabili dituztenak"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Erabilienak"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"Azkenak"</string>
-    <!-- no translation found for sort_by_app (1912228966803416485) -->
-    <skip />
-    <!-- no translation found for sort_by_time (8280378662234104410) -->
-    <skip />
-    <!-- no translation found for item_separator (8266062815210378175) -->
-    <skip />
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"Freskatu"</string>
-    <!-- no translation found for permission_usage_permission_filter_subtitle (5539392196389332769) -->
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"Aplikazio-baimenen erabilera"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Sarbidea: <xliff:g id="NUM">%1$s</xliff:g> aldiz. Iraupena, guztira: <xliff:g id="DURATION">%2$s</xliff:g>. Duela <xliff:g id="TIME">%3$s</xliff:g> erabili zen azken aldiz."</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Sarbidea: <xliff:g id="NUM">%1$s</xliff:g> aldiz. Duela <xliff:g id="TIME">%2$s</xliff:g> erabili zen azken aldiz."</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"Iragazi orduaren arabera"</string>
+    <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Baimendu"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Eman fitxategi guztiak kudeatzeko baimena"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Eman multimedia-fitxategiak soilik atzitzeko baimena"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Baimendu beti"</string>
-    <!-- no translation found for app_permission_button_allow_foreground (2303741829613210541) -->
-    <skip />
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Aplikazioa erabiltzean soilik"</string>
+    <string name="app_permission_button_ask" msgid="2757216269887794205">"Galdetu beti"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Ukatu"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> atzitzeko baimena"</string>
-    <!-- no translation found for app_permission_header (228974007660007656) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary (1034436308858219976) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages (4444374134047275841) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_app_permissions_link (8033278634020892918) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_permission_apps_link (8759141212929298774) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_generic (5479202003136667039) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_activity_recognition (2022880340017289990) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (2846128908236787586) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_call_log (2429916962093948340) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_camera (6699611334403400091) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (5169995707720233126) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_location (687820658574645201) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_media_aural (2102206495149326019) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_media_visual (3105938942794669520) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_microphone (2300290217308759293) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (3773977614654088578) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_sensors (6733606479604624853) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_sms (8850213022386508528) -->
-    <skip />
+    <string name="app_permission_header" msgid="228974007660007656">"Aplikazio honek <xliff:g id="PERM">%1$s</xliff:g> atzitzeko duen baimena"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ikusi <xliff:g id="APP">%1$s</xliff:g> aplikazioaren baimen guztiak"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ikusi baimen hau duten aplikazio guztiak"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Kendu baimenak aplikazioa ez bada erabiltzen"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Zure datuak babeste aldera, aplikazio honen baimenak kendu egingo dira aplikazioa ez baduzu erabiltzen zenbait hilabetez."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Zure datuak babeste aldera, kendu egingo dira honako baimen hauek zenbait hilabetez aplikazioa erabiltzen ez baduzu: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Zure datuak babeste aldera, kendu egin dira zenbait hilabetez erabili ez dituzun aplikazioen baimenak."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Ireki aplikazioa baimenak berriro ere eman ahal izateko."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Desgaituta dago automatikoki kentzeko aukera aplikazio honetan."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Une honetan ez da ematen automatikoki baliogabe daitekeen baimenik"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"<xliff:g id="PERM">%1$s</xliff:g> baimena kenduko da."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"<xliff:g id="PERM_0">%1$s</xliff:g> eta <xliff:g id="PERM_1">%2$s</xliff:g> baimenak kenduko dira."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Kenduko diren baimenak: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"Kudeatu baimenak automatikoki"</string>
+    <string name="off" msgid="4561379152328580345">"Desaktibatu"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"<xliff:g id="PERMISSION_NAME">%s</xliff:g> erabiltzeko baimena kendu da"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> eta <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> atzitzeko baimenak kendu dira"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> eta beste <xliff:g id="NUMBER">%2$s</xliff:g> baimen kendu dira"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Azken irekitze-data: duela <xliff:g id="NUMBER">%s</xliff:g> hilabete baino gehiago"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"Aplikazioaren azken irekitze-data: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"Azken irekitze-data: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Fitxategi guztiak kudeatzeko baimena ematen badiozu, gailu honen memorian eta hari konektatutako biltegiratze-gailuetan dauden fitxategi guztiak atzitu, editatu eta ezabatu ahal izango ditu aplikazioak. Baimenik eskatu gabe atzitu ahalko ditu fitxategiak aplikazioak."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Gailu honen memorian eta hari konektatutako biltegiratze-gailuetan dauden fitxategi guztiak atzitu, editatu eta ezabatzeko baimena eman nahi diozu aplikazio honi? Baliteke fitxategiak baimenik eskatu gabe atzitzea."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Hau egin dezakete baimen hau duten aplikazioek: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Zure ariketa fisikoaren informazioa atzi dezakete baimen hau duten aplikazioek; esaterako, oinez, bizikletaz edota autoz egin duzun denbora eta egindako urratsen kopurua"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Zure egutegia atzi dezakete baimen hau duten aplikazioek"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Telefonoko deien erregistroa irakur dezakete baimen hau duten aplikazioek, baita bertan idatzi ere"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Argazkiak atera eta bideoak graba ditzakete baimen hau duten aplikazioek"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Zure kontaktuak atzi ditzakete baimen hau duten aplikazioek"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"Gailu honen kokapena atzi dezakete baimen hau duten aplikazioek"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Audioa graba dezakete baimen hau duten aplikazioek"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Telefono-deiak egin eta kudea ditzakete baimen hau duten aplikazioek"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Bizi-konstanteen sentsoreen datuak atzi ditzakete baimen hau duten aplikazioek"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"SMS mezuak bidali eta ikus ditzakete baimen hau duten aplikazioek"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Gailuko argazkiak, multimedia-edukia eta fitxategiak atzi ditzakete baimen hau duten aplikazioek"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Azken sarbidea: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Une honetan ukatuta / Azken sarbide-data: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Ez da erabili inoiz"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"Baimenduta"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Erabili bitartean soilik baimenduta"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Ukatuta"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"Ikusi erabilera xehea"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Ukatuta / Ez da erabili inoiz"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Baimendutakoak"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Beti baimendutakoak"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Erabili bitartean soilik baimendutakoak"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Multimedia-fitx. soilik atzitzeko baimena dutenak"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Fitxategi guztiak kudeatzeko baimena dutenak"</string>
+    <string name="ask_header" msgid="4471670860332046665">"Galdetu beti"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Ukatutakoak"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> egun</item>
       <item quantity="one">1 egun</item>
@@ -225,77 +177,162 @@
       <item quantity="one">1 segundo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Baimenen abisuak"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> zure kokapena erabiltzen aritu da"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"Erabiltzen ez den 1 aplikazio"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Erabiltzen ez diren <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplikazio"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Baimenak kendu egin dira zure pribatutasuna babesteko. Sakatu berrikusteko."</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Kendu dira erabiltzen ez diren aplikazioen baimenak"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Aplikazio batzuk ez dira erabili zenbait hilabetez. Sakatu berrikusteko."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikazio ez dira erabili zenbait hilabetez. Sakatu berrikusteko.</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> aplikazio ez da erabili zenbait hilabetez. Sakatu berrikusteko.</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Aplikazio batzuk ez dira erabili zenbait hilabetez"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> aplikazio ez dira erabili zenbait hilabetez</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> aplikazio ez da erabili zenbait hilabetez</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Baimenak kendu zaizkien aplikazioak"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Baimenak kendu zaizkien aplikazioak"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Erabiltzen ez diren aplikazio guztiak"</string>
+    <string name="months_ago" msgid="6541240625299588045">"Duela <xliff:g id="COUNT">%1$d</xliff:g> hilabete"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Baimenak kendu egin dira zure pribatutasuna babesteko"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> aplikazioak kokapena atzitu du atzeko planoan"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Aplikazio honek beti atzi dezake kokapena. Sakatu aldatzeko."</string>
-    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Aplikazioa erabiltzen ari zarenean soilik"</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Aplikazio-baimenak kendu dira pribatutasuna babesteko"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> aplikazioa ez da erabili hainbat hilabetean zehar. Sakatu berrikusteko."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> eta beste aplikazio bat ez dira erabili hainbat hilabetean zehar. Sakatu berrikusteko."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> eta beste <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> aplikazio ez dira erabili hainbat hilabetean zehar. Sakatu berrikusteko."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"Ez da erabiltzen aplikazio bat"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"Ez dira erabiltzen <xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplikazio"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Baimenak kenduko dira zure pribatutasuna babesteko. Sakatu berrikusteko."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"Erabiltzen ez diren aplikazioak"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Hemengo baimenak kendu dira:"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Hemengo baimenak kenduko dira:"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> eta <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> eta beste <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Zure datuak babeste aldera, hainbat hilabetean zehar erabili ez dituzun aplikazioen baimenak kendu dira"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Zure datuak babeste aldera, kendu egin dira zenbait hilabetez erabili ez dituzun aplikazio batzuen baimenak"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"Aplikazio bat ez da erabili zenbait hilabetez"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> aplikazio ez dira erabili zenbait hilabetez"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Aplikazioa abian denean soilik"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Multimedia-fitxategiak"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Fitxategi guztiak"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Ez zaio eman baimenik"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Ez zaio ukatu baimenik"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Ez zaio eman baimena ezein aplikaziori"</string>
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Ez dago fitxategi guztiak irakurtzeko baimena duen aplikaziorik"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Ez dago multimedia-edukia soilik atzitzeko baimena duen aplikaziorik"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Ez zaio ukatu baimena ezein aplikaziori"</string>
+    <string name="car_permission_selected" msgid="2163426344720483487">"Hautatuta"</string>
     <string name="settings" msgid="2884124136779508907">"Ezarpenak"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> zerbitzuak gailurako sarbide osoa du"</string>
-    <!-- no translation found for accessibility_service_dialog_title_multiple (8129325613496173909) -->
-    <skip />
+    <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> erabilerraztasun-aplikaziok dute gailurako sarbide osoa"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> zerbitzuak pantaila, egiten dituzun ekintzak eta idazten dituzun gauzak ikusi ahalko ditu, bai eta ekintzak gauzatu eta pantaila kontrolatu ere."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (1387803460488775887) -->
-    <skip />
-    <!-- no translation found for request_role_title (3611734134669430568) -->
-    <skip />
-    <!-- no translation found for request_role_current_default (7512045433655289638) -->
-    <skip />
-    <!-- no translation found for request_role_set_as_default (5706081295230541240) -->
-    <skip />
-    <!-- no translation found for default_app_search_keyword (6938709626391437391) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (3007005536659549573) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (3368892579319881043) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_title (7173961211414061803) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_separator (9008030412869423988) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_last_separator (7455459775266515801) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Aplikazio horiek pantaila, egiten dituzun ekintzak eta idazten dituzun gauzak ikusi ahalko dituzte, bai eta ekintzak gauzatu eta pantaila kontrolatu ere."</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Laguntzaile digitalaren aplikazio lehenetsia"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Laguntzaile digitalaren aplik."</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"Ikusten ari zaren pantailako informazioaren araberako laguntza eskain diezazukete laguntza-aplikazioek. Zenbait aplikaziok abiarazlea eta ahots bidezko zerbitzuak onartzen dituzte laguntza integratua eskaintzeko."</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu laguntza-aplikazio lehenetsi gisa?"</string>
+    <string name="role_assistant_request_description" msgid="1086168907357494789">"SMSak eta deien erregistroa atzitu ahalko ditu"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Arakatzaile lehenetsia"</string>
+    <string name="role_browser_short_label" msgid="6222206565850006894">"Arakatzaile-aplikazioa"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"Interneterako sarbidea ematen dizuten eta sakatzen dituzun estekak bistaratzen dituzten aplikazioak"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu arakatzaile-aplikazio lehenetsi gisa?"</string>
+    <string name="role_browser_request_description" msgid="3204873553391043604">"Ez du behar baimenik"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"Telefonoaren aplik. lehenetsia"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"Telefonoa aplikazioa"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"Gailuaren bidez telefono-deiak egitea eta jasotzea ahalbidetzen duten aplikazioak"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu telefono-aplikazio lehenetsi gisa?"</string>
+    <string name="role_dialer_request_description" msgid="2931069491309771312">"SMSak bidal eta deien erregistroa atzitu ahalko ditu"</string>
+    <string name="role_dialer_search_keywords" msgid="6215791911228160821">"markagailua"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"SMSetarako aplik. lehenetsia"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"SMS mezuetarako aplikazioa"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Telefono-zenbakiaren bidez testu-mezu laburrak, argazkiak, bideoak eta beste zenbait gauza bidaltzea eta jasotzea ahalbidetzen dizuten aplikazioak"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu SMS mezuetarako aplikazio lehenetsi gisa?"</string>
+    <string name="role_sms_request_description" msgid="4920787411350418630">"Kontaktuak, SMSak ete telefonoa atzitu ahalko ditu"</string>
+    <string name="role_sms_search_keywords" msgid="6818482413212931585">"testu-mezua, testu-mezuak, mezuak, bidali"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"Larrialdietarako aplikazio lehenetsia"</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"Larrialdietarako aplikazioa"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"Hauetarako aukera ematen dizuten aplikazioak: zure informazio medikoa grabatu eta larrialdi-zerbitzuen langileei eman, eguraldi-gertaera eta hondamendi larriei buruzko alertak jaso, eta besteei laguntza eskatu."</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu larrialdietarako aplikazio lehenetsi gisa?"</string>
+    <string name="role_emergency_request_description" msgid="2824966073894226992">"Ez du behar baimenik"</string>
+    <string name="role_emergency_search_keywords" msgid="7310029268876820646">"ice"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Hasierako aplikazio lehenetsia"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"Hasierako aplikazioa"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Android-eko gailuko hasierako pantailak ordezten dituzten aplikazioak (\"abiarazle\" ere deitzen zaie). Gailuko eduki eta eginbideetarako sarbidea ematen dute."</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu hasierako aplikazio lehenetsi gisa?"</string>
+    <string name="role_home_request_description" msgid="6437733879812403277">"Ez du behar baimenik"</string>
+    <string name="role_home_search_keywords" msgid="8277315231013298175">"abiarazlea"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"Deiak desbideratzeko aplikazio lehenetsia"</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Deiak birbideratzeko aplikazioa"</string>
+    <string name="role_call_redirection_description" msgid="769231030043298555">"Egiten dituzun deiak beste telefono-zenbaki batera desbideratzeko aukera ematen dizuten aplikazioak"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu deiak birbideratzeko aplikazio lehenetsi gisa?"</string>
+    <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Ez du behar baimenik"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Deitzailearen ID eta spam-aplikazio lehenetsia"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Deitzailearen IDrako eta spamerako aplikazioa"</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"Deiak identifikatzeko, eta spama, dei automatizatuak eta nahi ez dituzun zenbakiak blokeatzeko aukera ematen dizuten aplikazioak"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu deitzailearen IDrako eta spamerako aplikazio lehenetsi gisa?"</string>
+    <string name="role_call_screening_request_description" msgid="7788142583532880646">"Ez du behar baimenik"</string>
+    <string name="request_role_current_default" msgid="7512045433655289638">"Uneko aplikazio lehenetsia"</string>
+    <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Ez galdetu berriro"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"Ezarri lehenetsi gisa"</string>
+    <string name="default_app_search_keyword" msgid="6938709626391437391">"aplikazio lehenetsiak"</string>
+    <string name="settings_button" msgid="4747434541214595321">"Ezarpenak"</string>
     <string name="default_apps" msgid="8554530939151957828">"Aplikazio lehenetsiak"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Ez dago aplikazio lehenetsirik"</string>
-    <!-- no translation found for default_apps_manage_domain_urls (3146379064445013719) -->
-    <skip />
+    <string name="default_apps_more" msgid="3908067305593075127">"Aplikazio lehenetsi gehiago"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Irekiko diren estekak"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Lanerako aplikazio lehenetsiak"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Bat ere ez"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(sistemaren aplikazio lehenetsia)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Ez dago aplikaziorik"</string>
-    <!-- no translation found for special_app_access_search_keyword (462008045110320714) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Hautatuta"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Hautatuta - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"aplikazio-baimen bereziak"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Aplikazio-baimen bereziak"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Ez dago aplikazio-baimen berezirik"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Ez dago aplikaziorik"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Laguntza-aplikazioa"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"Arakatzailea"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"Telefonoa"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"SMS"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"Larrialdietarako aplikazioa"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"Etxeko aplikazioa"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"Musika aplikazioa"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"Galeria aplikazioa"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Gidatze modua ezartzeko aplikazioa"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"Deiak birbideratzeko aplikazioa"</string>
-    <!-- no translation found for role_label_call_screening (1089966334646538858) -->
-    <skip />
-    <string name="role_label_call_companion" msgid="7369723859682076467">"Deien aplikazio osagarria"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Ez ditu onartzen laneko profilak"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Oharra: gailua berrabiarazten baduzu eta pantailaren blokeoa badaukazu ezarrita, ezingo da abiarazi aplikazioa gailua desblokeatzen duzun arte."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"Zure sistemak darabiltzan aplikazioei buruzko informazioa irakurri ahal izango du laguntzaileak; besteak beste, pantailan ikusgai duzun edo aplikazioetatik atzi daitekeen informazioa."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Partekatu arazketa-datuak"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Arazketa-datu xehatuak partekatu nahi dituzu?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioak arazketa-informazioa kargatu nahi du."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Partekatu arazketa-datuak"</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> datan (<xliff:g id="TIME">%3$s</xliff:g>) sortutako akatsen txostena kargatzeko baimena eskatzen ari da <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Akatsen txostenek zure gailuari buruzkoa den edo aplikazioek erregistratu duten informazio pertsonala dute; adibidez, erabiltzaile-izenak, kokapenari buruzko datuak, gailuaren identifikatzaileak eta sareari buruzko informazioa. Informazio hori izateko fidagarriak iruditzen zaizkizun pertsona eta aplikazioekin soilik partekatu beharko zenituzke akatsen txostenak. <xliff:g id="APP_NAME_1">%4$s</xliff:g> aplikazioari akatsen txostena kargatzea baimendu nahi diozu?"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Arazketa-datuak partekatu nahi dituzu?"</string>
+    <string name="incident_report_dialog_intro" msgid="153446034925770956">"Arazo bat hauteman du sistemak."</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> (<xliff:g id="TIME">%3$s</xliff:g>) datan sortutako akatsen txostena kargatzeko baimena eskatzen ari da <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Akatsen txostenek zure gailuari buruzkoa den edo aplikazioek erregistratu duten informazio pertsonala dute; adibidez, erabiltzaile-izenak, kokapenari buruzko datuak, gailuaren identifikatzaileak eta sareari buruzko informazioa. Informazio hori izateko fidagarriak iruditzen zaizkizun pertsona eta aplikazioekin soilik partekatu beharko zenituzke akatsen txostenak. <xliff:g id="APP_NAME_1">%4$s</xliff:g> aplikazioari akatsen txostena kargatzeko baimena eman nahi diozu?"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Errore bat gertatu da <xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioaren akatsen txostena prozesatzean; beraz, ezin izan dira partekatu arazketa-datu xehatuak. Barkatu eragozpenak."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Baimendu"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Ukatu"</string>
-    <!-- no translation found for grandfathered_modern_storage_permission_deny_warning_title (5699953608028268176) -->
-    <skip />
-    <!-- no translation found for grandfathered_modern_storage_permission_deny_warning_content (6960592986228883592) -->
-    <skip />
-    <!-- no translation found for dismiss_with_acknowledgment (2879819713128822468) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Ezarpen aurreratuak"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Ezarpen aurreratuak"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Erakutsi sistema-aplikazioen erabilera"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Erakutsi egoera-barran sistema-aplikazioek nola erabiltzen dituzten baimenak, panelean eta dagokion toki guztietan"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Nabarmendu hauen erabilera"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Erakutsi Laguntzailea abiarazteko hautematea"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Mikrofonoa erabiltzen denean ahozko laguntza aktibatzeko, erakutsi dagokion ikonoa egoera-barran"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Gailuko argazkiak eta multimedia-edukia atzitzeko baimena eman nahi diozu &lt;b&amp;gt<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Kontaktuak atzitzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequest_location" msgid="4367626296074714965">"Gailuaren kokapena atzitzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Hura erabiltzen ari zarenean soilik atzituko du aplikazioak kokapena"</string>
+    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"Gailuaren kokapena atzitzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"Baliteke aplikazioak beti atzitu nahi izatea zure kokapena, baita aplikazioa erabiltzen ari ez zarenean ere. "<annotation id="link">"Eman baimen hori Ezarpenak atalean"</annotation>"."</string>
+    <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"Kokapenerako sarbidea aldatu nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"Aplikazioak beti atzitu nahi du zure kokapena, baita aplikazioa erabiltzen ari ez zarenean ere. "<annotation id="link">"Eman baimen hori Ezarpenak atalean"</annotation>"."</string>
+    <string name="permgrouprequest_calendar" msgid="254840812783503926">"Egutegia atzitzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequest_sms" msgid="2622312529683649944">"SMS mezuak bidaltzeko eta ikusteko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequest_storage" msgid="1092300826793175064">"Gailuko argazkiak, multimedia-edukia eta fitxategiak atzitzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"Audioa grabatzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"Zure ariketa fisikoak atzitzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequest_camera" msgid="5379726026447957660">"Argazkiak ateratzeko eta bideoak grabatzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Telefonoko deien erregistroa atzitzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequest_phone" msgid="6240218310343431124">"Telefono-deiak egiteko eta kudeatzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Bizi-konstanteei buruzko sentsorearen datuak atzitzeko baimena eman nahi diozu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aplikazioari?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"Kontrolatutako baimenak"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Kokapena atzi daiteke"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"IKT saileko administratzaileak zure kokapena atzitzeko baimena eman dio <xliff:g id="APP_NAME">%s</xliff:g> aplikazioari"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Aukera batzuk ez daude erabilgarri aplikazio horrek ez duelako hautematen soinua"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Aukera batzuk ez daude erabilgarri laguntzaile digital lehenetsia delako aplikazio hori"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Aukera batzuk ez daude erabilgarri ahozko idazketarako erabiltzen delako aplikazio hori"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Aukera batzuk ez daude erabilgarri operadoreak kudeatzen duelako aplikazio hori"</string>
 </resources>

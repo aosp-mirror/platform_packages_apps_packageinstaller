@@ -1,0 +1,28 @@
+{
+    "presubmit": [
+        {
+            "name": "CtsPermissionTestCases",
+            "options": [
+                {
+                    "include-filter": "android.permission.cts.BackgroundPermissionsTest"
+                }
+            ]
+        },
+        {
+            "name": "CtsPermission3TestCases",
+            "options": [
+                {
+                    "exclude-annotation": "android.platform.test.annotations.FlakyTest"
+                }
+            ]
+        },
+        {
+            "name": "CtsOsTestCases",
+            "options": [
+                {
+                    "include-filter": "android.os.cts.AutoRevokeTest"
+                }
+            ]
+        }
+    ]
+}

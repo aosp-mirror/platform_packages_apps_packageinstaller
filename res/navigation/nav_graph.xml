@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2019 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/manage_standard">
+
+    <!-- TODO ntmyren: remove placeholder animations -->
+
+    <!-- For explanation of the navigation component, and this graph, see
+    https://developer.android.com/guide/navigation -->
+
+    <fragment
+        android:id="@+id/manage_standard"
+        android:name="com.android.permissioncontroller.permission.ui.handheld.ManageStandardPermissionsFragment"
+        android:label="ManageStandard">
+
+        <!-- Represents a transition from this fragment to another that this fragment can then
+        activate -->
+        <action
+            android:id="@+id/standard_to_custom"
+            app:destination="@id/manage_custom"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popEnterAnim="@anim/activity_close_enter"
+            app:popExitAnim="@anim/activity_close_exit"/>
+
+        <action
+            android:id="@+id/manage_to_perm_apps"
+            app:destination="@id/permission_apps"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popEnterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"/>
+
+        <action
+            android:id="@+id/manage_to_auto_revoke"
+            app:destination="@id/auto_revoke"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popEnterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/manage_custom"
+        android:name="com.android.permissioncontroller.permission.ui.handheld.ManageCustomPermissionsFragment"
+        android:label="ManageCustom">
+
+        <action
+            android:id="@+id/manage_to_perm_apps"
+            app:destination="@id/permission_apps"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/auto_revoke"
+        android:name="com.android.permissioncontroller.permission.ui.handheld.AutoRevokeFragment"
+        android:label="AutoRevoke">
+
+        <action
+            android:id="@+id/auto_revoke_to_app_perms"
+            app:destination="@id/app_permission_groups"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/permission_apps"
+        android:name="com.android.permissioncontroller.permission.ui.handheld.PermissionAppsFragment"
+        android:label="PermissionApps">
+
+        <action
+            android:id="@+id/perm_apps_to_app"
+            app:destination="@id/app_permission"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/app_permission_groups"
+        android:name="com.android.permissioncontroller.permission.ui.handheld.AppPermissionGroupsFragment"
+        android:label="AppPermissionGroups">
+
+        <action
+            android:id="@+id/perm_groups_to_app"
+            app:destination="@id/app_permission"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+
+        <action
+            android:id="@+id/perm_groups_to_all_perms"
+            app:destination="@id/all_app_permissions"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+
+        <action
+            android:id="@+id/perm_groups_to_custom"
+            app:destination="@id/custom_app_permission_groups"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/custom_app_permission_groups"
+        android:name="com.android.permissioncontroller.permission.ui.handheld.AppPermissionGroupsFragment"
+        android:label="CustomAppPermissionGroups">
+
+        <action
+            android:id="@+id/perm_groups_to_app"
+            app:destination="@id/app_permission"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+
+        <action
+            android:id="@+id/perm_groups_to_all_perms"
+            app:destination="@id/all_app_permissions"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/all_app_permissions"
+        android:name="com.android.permissioncontroller.permission.ui.handheld.AllAppPermissionsFragment"
+        android:label="AllAppPermissions"/>
+
+    <fragment
+        android:id="@+id/app_permission"
+        android:name="com.android.permissioncontroller.permission.ui.handheld.AppPermissionFragment"
+        android:label="AppPermission">
+
+        <action
+            android:id="@+id/app_to_perm_apps"
+            app:destination="@id/permission_apps"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+
+        <action
+            android:id="@+id/app_to_perm_groups"
+            app:destination="@id/app_permission_groups"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+
+        <action
+            android:id="@+id/app_to_all_perms"
+            app:destination="@id/all_app_permissions"
+            app:enterAnim="@anim/activity_open_enter"
+            app:popExitAnim="@anim/activity_close_exit"
+            app:popEnterAnim="@anim/activity_open_enter"/>
+    </fragment>
+</navigation>

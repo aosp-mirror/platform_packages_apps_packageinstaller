@@ -21,12 +21,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.annotation.StyleRes;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Space;
 import android.widget.TextView;
+
+import androidx.annotation.StyleRes;
 
 import com.android.permissioncontroller.R;
 
