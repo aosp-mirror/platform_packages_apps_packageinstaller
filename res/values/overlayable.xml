@@ -23,7 +23,6 @@
 
             <!-- START HELP LINKS -->
             <item type="string" name="help_app_permissions" />
-            <item type="string" name="help_permission_usage" />
             <!-- END HELP LINKS -->
 
             <!-- START PERMISSION GRANT DIALOG -->
@@ -44,7 +43,7 @@
             <item type="style" name="PermissionGrantButtonAllowAlways" />
             <item type="style" name="PermissionGrantButtonAllowForeground" />
             <item type="style" name="PermissionGrantButtonDeny" />
-            <item type="style" name="PermissionGrantButtonDenyDontAskAgain" />
+            <item type="style" name="PermissionGrantButtonNoUpgrade" />
             <!-- END PERMISSION GRANT DIALOG -->
 
 
@@ -96,6 +95,7 @@
             <item type="style" name="AppPermissionFooterDivider" />
             <item type="style" name="AppPermissionFooterText" />
             <item type="style" name="AppPermissionFooterLink" />
+            <item type="style" name="AppPermissionFooterTextWithIcon" />
             <!-- END APP PERMISSION SCREEN -->
 
             <!-- START PERMISSION FILTER SCREEN -->
@@ -120,6 +120,12 @@
             <item type="style" name="PreferenceUsageSummary" />
             <item type="style" name="PreferenceUsageWidgetFrame" />
             <!-- END PREFERENCE USAGE -->
+
+            <!-- START AUTO REVOKE SCREEN -->
+
+            <item type="style" name="SettingsActionButton" />
+
+            <!-- END AUTO REVOKE SCREEN -->
 
             <!-- START TITLE SUMMARY IMAGE VIEW -->
             <item type="style" name="TitleSummaryImageViewIcon" />
@@ -197,26 +203,6 @@
             <item type="color" name="system_notification_accent_color" />
             <!-- END LOCATION ACCESS CHECK PIN DROP -->
 
-            <!-- START SETTINGSLIB BARCHARTPREFERENCE -->
-            <item type="style" name="SettingsBarChart" />
-            <item type="style" name="SettingsBarChartTitle" />
-
-            <item type="style" name="SettingsBarViewStyle" />
-            <!-- COLORS -->
-            <item type="color" name="settings_bar_view_1_color" />
-            <item type="color" name="settings_bar_view_2_color" />
-            <item type="color" name="settings_bar_view_3_color" />
-            <item type="color" name="settings_bar_view_4_color" />
-
-            <item type="style" name="SettingsBarChartDetailsButton" />
-            <item type="style" name="SettingsBarChartEmptyText" />
-
-            <item type="style" name="SettingsBarChartBar" />
-            <item type="style" name="SettingsBarChartBarIcon" />
-            <item type="style" name="SettingsBarChartBarTitle" />
-            <item type="style" name="SettingsBarChartBarSummary" />
-            <!-- END SETTINGSLIB BARCHARTPREFERENCE -->
-
             <!-- START SETTINGSLIB APPPREFERENCE -->
             <!-- DIMEN -->
             <item type="dimen" name="secondary_app_icon_size" />
@@ -248,15 +234,17 @@
             <item type="dimen" name="car_icon_size" />
             <!-- END CAR DIMENS -->
 
-            <!-- START CAR STYLES -->
-            <item type="style" name="CarPreferenceFragment" />
-            <item type="style" name="CarPreferenceFragmentList" />
-            <!-- END CAR STYLES -->
-
             <!-- START CAR THEMES -->
             <item type="style" name="CarSettings" />
-            <item type="style" name="CarPreferenceTheme" />
             <!-- END CAR THEMES -->
+
+            <!-- START LAYOUTPREFERENCE -->
+            <item type="style" name="TextAppearance.EntityHeaderTitle" />
+            <!-- END LAYOUTPREFERENCE -->
+
+            <!-- START GENERAL CONFIGS -->
+            <item type="bool" name="config_useAlternativePermGroupSummary" />
+            <!-- END GENERAL CONFIGS -->
 
         </policy>
 

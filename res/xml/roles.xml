@@ -76,8 +76,10 @@
     <role
         name="android.app.role.ASSISTANT"
         behavior="AssistantRoleBehavior"
+        defaultHolders="config_defaultAssistant"
         description="@string/role_assistant_description"
         exclusive="true"
+        fallBackToDefaultHolder="true"
         showNone="true"
         label="@string/role_assistant_label"
         requestable="false"
@@ -124,6 +126,7 @@
     <role
         name="android.app.role.BROWSER"
         behavior="BrowserRoleBehavior"
+        defaultHolders="config_defaultBrowser"
         description="@string/role_browser_description"
         exclusive="true"
         label="@string/role_browser_label"
@@ -162,11 +165,14 @@
     <role
         name="android.app.role.DIALER"
         behavior="DialerRoleBehavior"
+        defaultHolders="config_defaultDialer"
         description="@string/role_dialer_description"
         exclusive="true"
+        fallBackToDefaultHolder="true"
         label="@string/role_dialer_label"
         requestDescription="@string/role_dialer_request_description"
         requestTitle="@string/role_dialer_request_title"
+        searchKeywords="@string/role_dialer_search_keywords"
         shortLabel="@string/role_dialer_short_label">
         <required-components>
             <activity>
@@ -231,11 +237,13 @@
     <role
         name="android.app.role.SMS"
         behavior="SmsRoleBehavior"
+        defaultHolders="config_defaultSms"
         description="@string/role_sms_description"
         exclusive="true"
         label="@string/role_sms_label"
         requestDescription="@string/role_sms_request_description"
         requestTitle="@string/role_sms_request_title"
+        searchKeywords="@string/role_sms_search_keywords"
         shortLabel="@string/role_sms_short_label">
         <required-components>
             <receiver permission="android.permission.BROADCAST_SMS">
@@ -321,6 +329,7 @@
         label="@string/role_emergency_label"
         requestDescription="@string/role_emergency_request_description"
         requestTitle="@string/role_emergency_request_title"
+        searchKeywords="@string/role_emergency_search_keywords"
         shortLabel="@string/role_emergency_short_label"
         systemOnly="true">
         <required-components>
@@ -345,6 +354,7 @@
         label="@string/role_home_label"
         requestDescription="@string/role_home_request_description"
         requestTitle="@string/role_home_request_title"
+        searchKeywords="@string/role_home_search_keywords"
         shortLabel="@string/role_home_short_label">
         <!-- Also used by HomeRoleBehavior.getFallbackHolder(). -->
         <required-components>
@@ -374,12 +384,14 @@
     <!--- @see android.telecom.CallRedirectionService -->
     <role
         name="android.app.role.CALL_REDIRECTION"
+        defaultHolders="config_defaultCallRedirection"
         description="@string/role_call_redirection_description"
         exclusive="true"
         label="@string/role_call_redirection_label"
         requestDescription="@string/role_call_redirection_request_description"
         requestTitle="@string/role_call_redirection_request_title"
-        shortLabel="@string/role_call_redirection_short_label">
+        shortLabel="@string/role_call_redirection_short_label"
+        showNone="true">
         <required-components>
             <service permission="android.permission.BIND_CALL_REDIRECTION_SERVICE">
                 <intent-filter>
@@ -392,12 +404,14 @@
     <!--- @see android.telecom.CallScreeningService -->
     <role
         name="android.app.role.CALL_SCREENING"
+        defaultHolders="config_defaultCallScreening"
         description="@string/role_call_screening_description"
         exclusive="true"
         label="@string/role_call_screening_label"
         requestDescription="@string/role_call_screening_request_description"
         requestTitle="@string/role_call_screening_request_title"
-        shortLabel="@string/role_call_screening_short_label">
+        shortLabel="@string/role_call_screening_short_label"
+        showNone="true">
         <required-components>
             <service permission="android.permission.BIND_SCREENING_SERVICE">
                 <intent-filter>
@@ -405,5 +419,25 @@
                 </intent-filter>
             </service>
         </required-components>
+        <app-op-permissions>
+            <app-op-permission name="android.permission.SYSTEM_ALERT_WINDOW" />
+        </app-op-permissions>
+    </role>
+
+    <role
+        name="android.app.role.SYSTEM_GALLERY"
+        defaultHolders="config_systemGallery"
+        exclusive="true"
+        fallBackToDefaultHolder="true"
+        systemOnly="true"
+        visible="false">
+        <permissions>
+            <permission-set name="storage" />
+            <permission name="android.permission.ACCESS_MEDIA_LOCATION" />
+        </permissions>
+        <app-ops>
+            <app-op name="android:write_media_images" mode="allowed" />
+            <app-op name="android:write_media_video" mode="allowed" />
+        </app-ops>
     </role>
 </roles>

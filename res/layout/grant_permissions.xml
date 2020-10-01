@@ -22,11 +22,15 @@
     style="@style/PermissionGrantScrollView">
 
     <LinearLayout
+        android:id="@+id/grant_singleton"
+        android:importantForAccessibility="no"
         style="@style/PermissionGrantSingleton">
 
         <!-- The dialog -->
         <LinearLayout
+            android:id="@+id/grant_dialog"
             android:theme="@style/Theme.PermissionGrantDialog"
+            android:importantForAccessibility="no"
             style="@style/PermissionGrantDialog">
 
             <LinearLayout
@@ -75,14 +79,39 @@
                     style="@style/PermissionGrantButtonAllowForeground" />
 
                 <Button
+                    android:id="@+id/permission_allow_one_time_button"
+                    android:text="@string/grant_dialog_button_allow_one_time"
+                    style="@style/PermissionGrantButtonAllowOneTime" />
+
+                <Button
                     android:id="@+id/permission_deny_button"
                     android:text="@string/grant_dialog_button_deny"
                     style="@style/PermissionGrantButtonDeny" />
 
                 <Button
                     android:id="@+id/permission_deny_and_dont_ask_again_button"
-                    android:text="@string/grant_dialog_button_deny_and_dont_ask_again"
-                    style="@style/PermissionGrantButtonDenyDontAskAgain" />
+                    android:text="@string/grant_dialog_button_deny"
+                    style="@style/PermissionGrantButtonDeny" />
+
+                <Button
+                    android:id="@+id/permission_no_upgrade_button"
+                    android:text="@string/grant_dialog_button_no_upgrade"
+                    style="@style/PermissionGrantButtonNoUpgrade" />
+
+                <Button
+                    android:id="@+id/permission_no_upgrade_and_dont_ask_again_button"
+                    android:text="@string/grant_dialog_button_no_upgrade"
+                    style="@style/PermissionGrantButtonNoUpgrade" />
+
+                <Button
+                    android:id="@+id/permission_no_upgrade_one_time_button"
+                    android:text="@string/grant_dialog_button_no_upgrade_one_time"
+                    style="@style/PermissionGrantButtonNoUpgrade" />
+
+                <Button
+                    android:id="@+id/permission_no_upgrade_one_time_and_dont_ask_again_button"
+                    android:text="@string/grant_dialog_button_no_upgrade_one_time"
+                    style="@style/PermissionGrantButtonNoUpgrade" />
             </LinearLayout>
 
         </LinearLayout>

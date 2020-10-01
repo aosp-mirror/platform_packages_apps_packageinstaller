@@ -20,11 +20,16 @@
     <string name="ok" msgid="4417794827535157922">"Gerai"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"leidimai"</string>
     <string name="cancel" msgid="7279939269964834974">"Atšaukti"</string>
+    <string name="back" msgid="8739808065891653074">"Atgal"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Pašalinti arba išjungti"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Programa nerasta"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Atmesti"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Atmesti ir daugiau neklausti"</string>
+    <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"Išlaikyti režimą „Kai programa naudojama“ įjungtą"</string>
+    <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"Palikti „Tik šį kartą“"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Daugiau inform."</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Vis tiek atm."</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Atmesti"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> iš <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"Leisti programai &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Visada leisti programai &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -36,9 +41,16 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"nė vienas leidimas neišjungtas"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Leisti"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Leisti visą laiką"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Leisti, tik kai programa naudojama"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Naudojant programą"</string>
+    <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Tik šį kartą"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Leisti visą laiką"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Leisti valdyti visus failus"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Leisti pasiekti medijos failus"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Programos"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Programų leidimai"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Nenaudojamos programos"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Išjungti programą"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Jei išjungsite šią programą, „Android“ ir kitos programos gali nebeveikti, kaip numatyta. Atminkite, kad negalite ištrinti šios programos, nes ji buvo iš anksto įdiegta įrenginyje. Išjungę išjungsite šią programą ir paslėpsite ją įrenginyje."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Leidimų tvarkytuvė"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Daugiau neklausti"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Nėra jokių leidimų"</string>
@@ -53,8 +65,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Ši programa skirta senesnės versijos „Android“. Uždraudus leidimą ji gali nebeveikti, kaip numatyta."</string>
     <string name="default_permission_description" msgid="692254823411049573">"atlieka nežinomą veiksmą"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Leidžiama programų: <xliff:g id="COUNT_0">%1$d</xliff:g> iš <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
-    <string name="permission_usage_header" msgid="8802963718365732792">"Pastarasis naudojimas"</string>
-    <string name="permission_usage_view_details" msgid="7398825662321010957">"Žr. leidimų inform. suvestinę"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"Leidžiamos programos: <xliff:g id="COUNT_0">%1$d</xliff:g> iš <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Rodyti sistemą"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Slėpti sistemą"</string>
     <string name="no_apps" msgid="2377153782338039463">"Nėra jokių programų"</string>
@@ -69,13 +80,13 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Prieigą fone išjungė administratorius"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Prieigą fone įgalino administratorius"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Prieigą priekiniame plane įgalino administratorius"</string>
-    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"Leidimą nustatė sistemą"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="5463084832974856683">"Įrenginiui reikalingas šis leidimas, kad veiktų"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
-    <string name="permission_access_always" msgid="2315256378850460955">"Visada"</string>
-    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Tik naudojant programą"</string>
-    <string name="permission_access_never" msgid="4717648645876576508">"Niekada"</string>
+    <string name="permission_access_always" msgid="5419580764084361573">"Leisti visą laiką"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Leisti tik naudojant programą"</string>
+    <string name="permission_access_never" msgid="425385910378172045">"Atmesti"</string>
     <string name="loading" msgid="323483393167148377">"Įkeliama…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Visi leidimai"</string>
     <string name="other_permissions" msgid="1956312685853070715">"Kitos programos galimybės"</string>
@@ -93,78 +104,64 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Dabartiniai leidimai"</string>
     <string name="message_staging" msgid="641286607664721291">"Programa pateikiama etapais…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Nežinoma"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"Informacijos suvestinė"</string>
-    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
-      <item quantity="one">Paskutinį kartą pasiekta: <xliff:g id="TIME_2">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_3">%2$s</xliff:g> kartą</item>
-      <item quantity="few">Paskutinį kartą pasiekta: <xliff:g id="TIME_2">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_3">%2$s</xliff:g> kartus</item>
-      <item quantity="many">Paskutinį kartą pasiekta: <xliff:g id="TIME_2">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_3">%2$s</xliff:g> karto</item>
-      <item quantity="other">Paskutinį kartą pasiekta: <xliff:g id="TIME_2">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_3">%2$s</xliff:g> kartų</item>
-    </plurals>
-    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
-      <item quantity="one">Paskutinį kartą pasiekta: <xliff:g id="TIME_3">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_4">%2$s</xliff:g> kartą (<xliff:g id="NUM_5">%3$s</xliff:g> fone)</item>
-      <item quantity="few">Paskutinį kartą pasiekta: <xliff:g id="TIME_3">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_4">%2$s</xliff:g> kartus (<xliff:g id="NUM_5">%3$s</xliff:g> fone)</item>
-      <item quantity="many">Paskutinį kartą pasiekta: <xliff:g id="TIME_3">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_4">%2$s</xliff:g> karto (<xliff:g id="NUM_5">%3$s</xliff:g> fone)</item>
-      <item quantity="other">Paskutinį kartą pasiekta: <xliff:g id="TIME_3">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_4">%2$s</xliff:g> kartų (<xliff:g id="NUM_5">%3$s</xliff:g> fone)</item>
-    </plurals>
-    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
-      <item quantity="one">Paskutinį kartą pasiekta: <xliff:g id="TIME_3">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_4">%2$s</xliff:g> kartą\nTrukmė: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-      <item quantity="few">Paskutinį kartą pasiekta: <xliff:g id="TIME_3">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_4">%2$s</xliff:g> kartus\nTrukmė: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-      <item quantity="many">Paskutinį kartą pasiekta: <xliff:g id="TIME_3">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_4">%2$s</xliff:g> karto\nTrukmė: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-      <item quantity="other">Paskutinį kartą pasiekta: <xliff:g id="TIME_3">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_4">%2$s</xliff:g> kartų\nTrukmė: <xliff:g id="TIME_5">%3$s</xliff:g></item>
-    </plurals>
-    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
-      <item quantity="one">Paskutinį kartą pasiekta: <xliff:g id="TIME_4">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_5">%2$s</xliff:g> kartą (<xliff:g id="NUM_6">%3$s</xliff:g> fone)\nTrukmė: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-      <item quantity="few">Paskutinį kartą pasiekta: <xliff:g id="TIME_4">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_5">%2$s</xliff:g> kartus (<xliff:g id="NUM_6">%3$s</xliff:g> fone)\nTrukmė: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-      <item quantity="many">Paskutinį kartą pasiekta: <xliff:g id="TIME_4">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_5">%2$s</xliff:g> karto (<xliff:g id="NUM_6">%3$s</xliff:g> fone)\nTrukmė: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-      <item quantity="other">Paskutinį kartą pasiekta: <xliff:g id="TIME_4">%1$s</xliff:g>\nPasiekta <xliff:g id="NUM_5">%2$s</xliff:g> kartų (<xliff:g id="NUM_6">%3$s</xliff:g> fone)\nTrukmė: <xliff:g id="TIME_7">%3$s</xliff:g></item>
-    </plurals>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Bet koks leidimas"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"Bet koks laikas"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Pastarosios 7 dienos"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"Pastarosios 24 valandos"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Pastaroji 1 valanda"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Pastarosios 15 minučių"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Pastaroji minutė"</string>
-    <string name="no_permission_usages" msgid="698858628357371611">"Leidimai nenaudoti"</string>
-    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Pasiekta bet kuriuo metu"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Pasiekta per pastarąsias 7 dienas"</string>
-    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Pasiekta per pastarąsias 24 val."</string>
-    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Pasiekta per pastarąją valandą"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Pasiekta per pastarąsias 15 minučių"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Pasiekta per pastarąją minutę"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Populiariausių leidimų naudojimas bet kuriuo metu"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Populiar. leidimų naudojimas per pastarąsias 7 d."</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Populiar. leidimų naudoj. per pastarąsias 24 val."</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Populiar. leidimų naudojimas per pastarąją valandą"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Populiar. leidimų naudoj. per pastarąsias 15 min."</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Populiar. leidimų naudojimas per pastarąją minutę"</string>
-    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Programos"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtruota pagal: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Pašalinti filtrą"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtruoti pagal"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtruoti pagal leidimus"</string>
-    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Daugiausia leidimų"</string>
-    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Daugiausia kartų pasiekta"</string>
-    <string name="sort_spinner_recent" msgid="8391312947480880412">"Naujausi"</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"Atnaujinti"</string>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"Programos leidimų naudojimas"</string>
-    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Prieiga: Kartų: <xliff:g id="NUM">%1$s</xliff:g>. Visa trukmė: <xliff:g id="DURATION">%2$s</xliff:g>. Paskutinį kartą naudota prieš <xliff:g id="TIME">%3$s</xliff:g>."</string>
-    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Prieiga: Kartų: <xliff:g id="NUM">%1$s</xliff:g>. Paskutinį kartą naudota prieš <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"Filtruoti pagal laiką"</string>
+    <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Leisti"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Leisti valdyti visus failus"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Leisti pasiekti tik mediją"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Leisti visą laiką"</string>
-    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Leisti, tik kai programa naudojama"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Leisti tik naudojant programą"</string>
+    <string name="app_permission_button_ask" msgid="2757216269887794205">"Klausti kaskart"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Atmesti"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Leidimas: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="5704679725169517493">"Programos „<xliff:g id="APP">%2$s</xliff:g>“ prieiga prie <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%3$s</xliff:g> pasiekė: <xliff:g id="PERM">%2$s</xliff:g>."</string>
-    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ neturėjo prieigos prie: <xliff:g id="PERM">%2$s</xliff:g>."</string>
-    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Žiūrėti išsamią leidimų naudojimo informaciją"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: šios programos prieiga"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Žr. visus „<xliff:g id="APP">%1$s</xliff:g>“ leidimus"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Žr. visas programas, kurioms suteiktas šis leidimas"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Pašalinti leidimus, jei programa nenaudojama"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Siekiant apsaugoti duomenis, šios programos leidimai bus pašalinti, jei programos nenaudosite kelis mėnesius."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Siekiant apsaugoti duomenis, jei programos nenaudosite kelis mėnesius, bus pašalinti nurodyti leidimai: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Siekiant apsaugoti duomenis, leidimai buvo pašalinti iš programų, kurių nenaudojote kelis mėnesius"</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Jei norite vėl suteikti leidimus, atidarykite programą."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Šios programos automatinio pašalinimo funkcija šiuo metu išjungta."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Šiuo metu nėra suteikta jokių automatiškai panaikinamų leidimų"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Leidimas (<xliff:g id="PERM">%1$s</xliff:g>) bus pašalintas."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Leidimai (<xliff:g id="PERM_0">%1$s</xliff:g> ir <xliff:g id="PERM_1">%2$s</xliff:g>) bus pašalinti."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Leidimai, kurie bus pašalinti: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"Automatinis leidimų tvarkymas"</string>
+    <string name="off" msgid="4561379152328580345">"Išjungti"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Leidimas „<xliff:g id="PERMISSION_NAME">%s</xliff:g>“ pašalintas"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Leidimai „<xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g>“ ir „<xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g>“ pašalinti"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"Leidimas „<xliff:g id="PERMISSION_NAME">%1$s</xliff:g>“ ir dar <xliff:g id="NUMBER">%2$s</xliff:g> pašalinti"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Paskutinį kartą atidaryta daugiau nei prieš <xliff:g id="NUMBER">%s</xliff:g> mėn."</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"Programa paskutinį kartą atidaryta <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"Paskutinį kartą atidaryta <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Jei leisite valdyti visus failus, ši programa galės pasiekti, keisti ir ištrinti bet kuriuos failus, esančius šio įrenginio bendroje saugykloje arba susietų saugyklų įrenginiuose. Programa gali pasiekti failus nepaklaususi."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Leisti šiai programai pasiekti, keisti ir ištrinti failus, esančius šiame įrenginyje ar bet kuriuose susietų saugyklų įrenginiuose? Ši programa gali pasiekti failus nepaklaususi."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Programos, kurioms suteiktas šis leidimas, gali <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Programos, kurioms suteiktas šis leidimas, gali pasiekti jūsų fizinę veiklą, pvz., ėjimą, važiavimą dviračiu, vairavimą, žingsnių skaičių ir daugiau"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Programos, kurioms suteiktas šis leidimas, gali pasiekti jūsų kalendorių"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Programos, kurioms suteiktas šis leidimas, gali skaityti ir rašyti telefono skambučių žurnalą"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"Programos, kurioms suteiktas šis leidimas, gali fotografuoti ir įrašyti vaizdo įrašus"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Programos, kurioms suteiktas šis leidimas, gali pasiekti jūsų kontaktus"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"Programos, kurioms suteiktas šis leidimas, gali pasiekti šio įrenginio vietovę"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Programos, kurioms suteiktas šis leidimas, gali įrašyti garsą"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Programos, kurioms suteiktas šis leidimas, gal atlikti ir tvarkyti telefonų skambučius"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Programos, kurioms suteiktas šis leidimas, gali pasiekti jutiklių duomenis apie gyvybinius ženklus"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Programos, kurioms suteiktas šis leidimas, gali siųsti ir peržiūrėti SMS pranešimus"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Programos, kurioms suteiktas šis leidimas, gali pasiekti nuotraukas, mediją ir failus jūsų įrenginyje"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Paskutinį kartą pasiekta: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Šiuo metu atmesta / paskutinį kartą pasiekta: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Niekada nebuvo pasiekta"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Atmesta / niekada nebuvo pasiekta"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Leidžiama"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Leidžiama visą laiką"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Leidžiama, tik kol naudojama"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Leidžiama pasiekti tik mediją"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Leidžiama valdyti visus failus"</string>
+    <string name="ask_header" msgid="4471670860332046665">"Klausti kaskart"</string>
     <string name="denied_header" msgid="2277998574238617699">"Atmesta"</string>
-    <string name="detailed_usage_link" msgid="3990452346369247944">"Žr. išsamią naudojimo informaciją"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> diena</item>
       <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> dienos</item>
@@ -189,53 +186,167 @@
       <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> sekundės</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundžių</item>
     </plurals>
-    <string name="role_request_message_add" msgid="1977772335648650272">"Naudoti programą &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; kaip <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
-    <string name="role_request_message_replace" msgid="6367571247558110210">"Naudoti programą &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; vietoj &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; kaip <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
     <string name="permission_reminders" msgid="8040710767178843151">"Leidimų priminimai"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Programa „<xliff:g id="APP_NAME">%s</xliff:g>“ naudojo jūsų vietovę"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 nenaudojama programa"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"Nenaudojamų programų: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"Leidimai pašalinti siekiant užtikrinti jūsų privatumą. Palieskite ir peržiūrėkite"</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Nenaudojamų programų leidimai pašalinti"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Kai kurios programos nebuvo naudojamos kelis mėnesius. Palieskite ir peržiūrėkite."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> programa nebuvo naudojama kelis mėnesius. Palieskite ir peržiūrėkite</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> programos nebuvo naudojamos kelis mėnesius. Palieskite ir peržiūrėkite</item>
+      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> programos nebuvo naudojama kelis mėnesius. Palieskite ir peržiūrėkite</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> programų nebuvo naudojama kelis mėnesius. Palieskite ir peržiūrėkite</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Kai kurios programos nebuvo naudojamos kelis mėnesius"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> programa nebuvo naudojama kelis mėnesius</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> programos nebuvo naudojamos kelis mėnesius</item>
+      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> programos nebuvo naudojama kelis mėnesius</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> programų nebuvo naudojama kelis mėnesius</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Pašalinti leidimai"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Pašalinti leidimai"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Visos nenaudojamos programos"</string>
+    <string name="months_ago" msgid="6541240625299588045">"Prieš <xliff:g id="COUNT">%1$d</xliff:g> mėn."</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"Leidimai pašalinti siekiant užtikrinti jūsų privatumą"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Programa „<xliff:g id="APP_NAME">%s</xliff:g>“ gavo vietovės duomenis fone"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ši programa visada gali pasiekti jūsų vietovę. Palieskite, kad pakeistumėte."</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"Programos leidimai pašalinti siekiant užtikrinti privatumą"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"„<xliff:g id="APP_NAME">%s</xliff:g>“ nebuvo naudojama kelis mėnesius. Palieskite ir peržiūrėkite."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"„<xliff:g id="APP_NAME">%s</xliff:g>“ ir dar viena programa nebuvo naudojamos kelis mėnesius. Palieskite ir peržiūrėkite."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"„<xliff:g id="APP_NAME">%1$s</xliff:g>“ ir dar <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> progr. nebuvo naudojamos kelis mėnesius. Palieskite ir peržiūrėkite."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"Nenaudojama viena programa"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"Nenaudojamų programų: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"Leidimai bus pašalinti siekiant užtikrinti jūsų privatumą. Palieskite ir peržiūrėkite."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"Nenaudojamos programos"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Leidimai pašalinti iš"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Leidimai bus pašalinti iš"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"„<xliff:g id="PERM_NAME_0">%1$s</xliff:g>“ ir „<xliff:g id="PERM_NAME_1">%2$s</xliff:g>“"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"„<xliff:g id="PERM_NAME_0">%1$s</xliff:g>“, „<xliff:g id="PERM_NAME_1">%2$s</xliff:g>“ ir dar <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g>"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Siekiant apsaugoti duomenis, leidimai pašalinti iš programų, kurių nenaudojote kelis mėnesius"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Siekiant apsaugoti duomenis, leidimai buvo pašalinti iš kai kurių programų, kurių nenaudojote kelis mėnesius"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 programa nebuvo naudota kelis mėnesius."</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"Tiek programų nebuvo naudota kelis mėnesius: <xliff:g id="NUMBER_OF_APPS">%s</xliff:g>."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Tik tada, kai programa naudojama"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Medija"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Visi failai"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nesuteikta jokių leidimų"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Neatmesta jokių leidimų"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Neleidžiamos jokios programos"</string>
+    <string name="no_apps_allowed_full" msgid="5857725855406253991">"Nėra visiems failams leidžiamų programų"</string>
+    <string name="no_apps_allowed_scoped" msgid="409459956930431114">"Nėra tik medijos failams leidžiamų programų"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Neatmesta jokių programų"</string>
-    <string name="launch_app" msgid="5641437562665039291">"Atidaryti"</string>
-    <string name="uninstall_app" msgid="8756507666995809214">"Pašalinti"</string>
-    <string name="force_stop_app" msgid="4253426323145479826">"Priverstinai sustabdyti"</string>
+    <string name="car_permission_selected" msgid="2163426344720483487">"Pasirinkta"</string>
     <string name="settings" msgid="2884124136779508907">"Nustatymai"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"„<xliff:g id="SERVICE_NAME">%s</xliff:g>“ suteikta visateisė prieiga prie jūsų įrenginio"</string>
-    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> pritaikymo neįgaliesiems pasl. suteikta visateisė prieiga prie jūsų įrenginio"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> pritaikymo neįgaliesiems progr. suteikta visateisė prieiga prie jūsų įrenginio"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"„<xliff:g id="SERVICE_NAME">%s</xliff:g>“ gali peržiūrėti jūsų ekraną, veiksmus ir įvestis, atlikti veiksmus ir valdyti ekraną."</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Šios paslaugos gali peržiūrėti jūsų ekraną, veiksmus ir įvestis, atlikti veiksmus ir valdyti ekraną."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Šios programos gali peržiūrėti jūsų ekraną, veiksmus ir įvestis, atlikti veiksmus ir valdyti ekraną."</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Numat. skaitm. pagelbiklio pr."</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Skaitmeninio pagelbik. pr."</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"Pagalbinė programa gali padėti atsižvelgdama į peržiūrimo ekrano informaciją. Kai kurios programos palaiko tiek paleidimo priemonę, tiek įvesties balsu paslaugas, kad galėtų būti naudingos."</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją pagalbinę programą?"</string>
+    <string name="role_assistant_request_description" msgid="1086168907357494789">"Gali pasiekti SMS, skambučių žurnalą"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Numatytoji naršyklės programa"</string>
+    <string name="role_browser_short_label" msgid="6222206565850006894">"Naršyklės programa"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"Programos, leidžiančios pasiekti internetą ir rodomas nuorodas, kurias paliečiate"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją naršyklės programą?"</string>
+    <string name="role_browser_request_description" msgid="3204873553391043604">"Nereikia jokių leidimų"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"Numatytoji telefono progr."</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"Telefono programa"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"Programos, leidžiančios atlikti ir priimti telefonų skambučius naudojant įrenginį"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją telefono programą?"</string>
+    <string name="role_dialer_request_description" msgid="2931069491309771312">"Gali pasiekti skambučių žurnalą, siųsti SMS"</string>
+    <string name="role_dialer_search_keywords" msgid="6215791911228160821">"numerio rinkiklis"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"Numatytoji SMS programa"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"SMS programa"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Programos, leidžiančios naudoti telefono numerį trumpiesiems teksto pranešimams, nuotraukoms, vaizdo įrašams ir kt. siųsti ir gauti"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją SMS programą?"</string>
+    <string name="role_sms_request_description" msgid="4920787411350418630">"Gali pasiekti kontaktus, SMS, telefoną"</string>
+    <string name="role_sms_search_keywords" msgid="6818482413212931585">"teksto pranešimas, teksto pranešimų siuntimas, pranešimai, susirašinėjimas"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"Numat. kritin. padėties progr."</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"Kritinės padėties programa"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"Programos, leidžiančios įrašyti savo medicininę informaciją ir leisti ją pasiekti pagalbos numeriu atsiliepusiems žmonėms; gauti įspėjimus apie sudėtingas oro sąlygas ir nelaimes; pranešti kitiems, kai reikia pagalbos"</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją kritinės padėties programą?"</string>
+    <string name="role_emergency_request_description" msgid="2824966073894226992">"Nereikia jokių leidimų"</string>
+    <string name="role_emergency_search_keywords" msgid="7310029268876820646">"kritiniu atveju"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Numatytoji namų programa"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"Namų programa"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Programos, dažnai vadinamos paleidimo priemonėmis, pakeičiančios pagrindinius ekranus „Android“ įrenginyje ir leidžiančios pasiekti įrenginio turinį bei funkcijas"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją namų programą?"</string>
+    <string name="role_home_request_description" msgid="6437733879812403277">"Nereikia jokių leidimų"</string>
+    <string name="role_home_search_keywords" msgid="8277315231013298175">"paleidimo priemonė"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"Numatyt. skamb. peradr. progr."</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Skambučių peradresav. programa"</string>
+    <string name="role_call_redirection_description" msgid="769231030043298555">"Programos, leidžiančios peradresuoti siunčiamuosius skambučius kitu telefono numeriu"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją skambučių peradresavimo programą?"</string>
+    <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Nereikia jokių leidimų"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Numatytoji skambintojo ID ir šlamšto programa"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Skambint. ID ir šlamšto progr."</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"Programos, leidžiančios identifikuoti skambučius ir blokuoti šlamštą, automatinius skambučius ar nepageidaujamus numerius"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją skambintojo ID ir šlamšto programą?"</string>
+    <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nereikia jokių leidimų"</string>
+    <string name="request_role_current_default" msgid="7512045433655289638">"Dabartinė numatytoji"</string>
+    <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Daugiau neklausti"</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"Nustatyti numatytąja"</string>
+    <string name="default_app_search_keyword" msgid="6938709626391437391">"numatytosios programos"</string>
+    <string name="settings_button" msgid="4747434541214595321">"Nustatymai"</string>
     <string name="default_apps" msgid="8554530939151957828">"Numatytosios programos"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Nėra jokių numatytųjų programų"</string>
+    <string name="default_apps_more" msgid="3908067305593075127">"Daugiau numatytųjų programų"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Nuorodų atidarymas"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Numatytosios darbo programos"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Nėra"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Sistemos numatytoji programa)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nėra programų"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Pasirinkta"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Pasirinkta: <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"speciali prieiga prie programų"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Speciali prieiga prie programų"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Nėra spec. prieig. prie progr."</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Nėra jokių programų"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Pagalbinė programa"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"Naršyklės programa"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"Telefono programa"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"SMS programa"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"Kritinės padėties programa"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"Namų programa"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"Muzikos programa"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"Galerijos programa"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Automob. režimo tel. programa"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"Skambučių peradres. programa"</string>
-    <string name="role_label_call_screening" msgid="411212589764916370">"Skambučių stebėjimo programa"</string>
-    <string name="role_label_call_companion" msgid="7369723859682076467">"Papild. programos iškvietimas"</string>
-    <string name="role_label_car_projection" msgid="3792929094325391213">"Automob. projekcijos programa"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Nepalaikomas darbo profilis"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Pastaba. Jei esate nustatę ekrano užraktą ir iš naujo paleisite įrenginį, nebus galima atidaryti programos, kol neatrakinsite įrenginio."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"Padėjėjas galės skaityti informaciją apie sistemoje naudojamas programas, įskaitant ekrane matomą ar programose pasiekiamą informaciją."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Derinimo duomenų bendrinimas"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Bendrinti išsamius derinimo duomenis?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Programa „<xliff:g id="APP_NAME">%1$s</xliff:g>“ norėtų įkelti derinimo informaciją."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Derinimo duomenų bendrinimas"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Bendrinti derinimo duomenis?"</string>
+    <string name="incident_report_dialog_intro" msgid="153446034925770956">"Sistemoje aptikta problema."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"Programa „<xliff:g id="APP_NAME_0">%1$s</xliff:g>“ prašo iš šio įrenginio įkelti pranešimą apie riktą, užfiksuotą <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>. Į pranešimus apie riktus įtraukiama asmens informacija apie įrenginį arba programų į žurnalą įrašyta informacija, pavyzdžiui, naudotojų vardai, vietovių duomenys, įrenginių identifikatoriai ir tinklo informacija. Pranešimus apie riktus bendrinkite tik su tais žmonėmis ir programomis, kuriais pasitikite ir kuriems galite patikėti šią informaciją. Leisti programai „<xliff:g id="APP_NAME_1">%4$s</xliff:g>“ įkelti pranešimą apie riktą?"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Apdorojant „<xliff:g id="APP_NAME">%1$s</xliff:g>“ pranešimą apie riktą įvyko klaida, todėl išsamių derinimo duomenų bendrinimas buvo atmestas. Atsiprašome už nepatogumus."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Leisti"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Atmesti"</string>
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Išplėstiniai nustatymai"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Išplėstiniai nustatymai"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Rodyti sistemos programų naudojimą"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Rodyti sistemos programų leidimų naudojimą būsenos juostoje, informacijos suvestinėje ir kitur"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Paryškinti toliau nurodytų programų naudojimą"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Rodyti „Assistant“ aktyviklio aptikimą"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Rodyti piktogramą būsenos juostoje, kai naudojant mikrofoną aktyvinama pagalba balsu"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Suteikti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; galimybę pasiekti įrenginio nuotraukas ir mediją?"</string>
+    <string name="permgrouprequest_contacts" msgid="1493445560009228831">"Suteikti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; galimybę pasiekti kontaktus?"</string>
+    <string name="permgrouprequest_location" msgid="4367626296074714965">"Suteikti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; galimybę pasiekti įrenginio vietovę?"</string>
+    <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"Programa galės pasiekti vietovę, tik kai ją naudosite"</string>
+    <string name="permgroupbackgroundrequest_location" msgid="629669511579262660">"Suteikti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; galimybę pasiekti įrenginio vietovę?"</string>
+    <string name="permgroupbackgroundrequestdetail_location" msgid="662062069425575543">"Ši programa gali norėti pasiekti jūsų vietovę visą laiką, net kai programos nenaudojate. "<annotation id="link">"Leiskite skiltyje „Nustatymai“."</annotation></string>
+    <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"Pakeisti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; prieigą prie vietovės duomenų?"</string>
+    <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"Ši programa nori pasiekti jūsų vietovę visą laiką, net kai programos nenaudojate. "<annotation id="link">"Leiskite skiltyje „Nustatymai“."</annotation></string>
+    <string name="permgrouprequest_calendar" msgid="254840812783503926">"Suteikti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; galimybę pasiekti kalendorių?"</string>
+    <string name="permgrouprequest_sms" msgid="2622312529683649944">"Leisti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; siųsti ir peržiūrėti SMS pranešimus?"</string>
+    <string name="permgrouprequest_storage" msgid="1092300826793175064">"Suteikti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; galimybę pasiekti įrenginio nuotraukas, mediją ir failus?"</string>
+    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"Leisti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; įrašyti garsą?"</string>
+    <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"Leisti programai &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; pasiekti fizinės veiklos duomenis?"</string>
+    <string name="permgrouprequest_camera" msgid="5379726026447957660">"Leisti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; fotografuoti ir įrašyti vaizdo įrašus?"</string>
+    <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Leisti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; pasiekti jūsų telefono skambučių žurnalus?"</string>
+    <string name="permgrouprequest_phone" msgid="6240218310343431124">"Leisti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; skambinti ir tvarkyti telefono skambučius?"</string>
+    <string name="permgrouprequest_sensors" msgid="1939578702884234985">"Suteikti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; galimybę pasiekti jutiklių duomenis apie gyvybinius ženklus?"</string>
+    <string name="auto_granted_permissions" msgid="5726065128917092357">"Valdomi leidimai"</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Vietovė pasiekiama"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"IT administratorius leidžia „<xliff:g id="APP_NAME">%s</xliff:g>“ pasiekti jūsų vietovę"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Kai kurios parinktys nepasiekiamos, nes šiai programai reikia aptikti garsą"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Kai kurios parinktys nepasiekiamos, nes ši programa yra numatytasis skaitmeninis pagelbiklis"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Kai kurios parinktys nepasiekiamos, nes ši programa naudojama atliekant įvestį balsu"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Kai kurios parinktys nepasiekiamos, nes šią programą tvarko operatorius"</string>
 </resources>
