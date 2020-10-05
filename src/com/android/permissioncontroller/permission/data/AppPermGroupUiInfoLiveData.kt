@@ -17,6 +17,7 @@
 package com.android.permissioncontroller.permission.data
 
 import android.Manifest
+import android.Manifest.permission_group.STORAGE
 import android.app.Application
 import android.content.pm.PackageManager
 import android.content.pm.PermissionInfo
@@ -54,10 +55,10 @@ class AppPermGroupUiInfoLiveData private constructor(
 ) : SmartUpdateMediatorLiveData<AppPermGroupUiInfo>(), LocationUtils.LocationListener {
 
     private var isSpecialLocation = false
-    private val isMicrophone = permGroupName == Manifest.permission_group.MICROPHONE
     private val packageInfoLiveData = LightPackageInfoLiveData[packageName, user]
     private val permGroupLiveData = PermGroupLiveData[permGroupName]
     private val permissionStateLiveData = PermStateLiveData[packageName, permGroupName, user]
+    private val fullStorageLiveData = FullStoragePermissionAppsLiveData
 
     init {
         isSpecialLocation = LocationUtils.isLocationGroupAndProvider(app,
@@ -75,14 +76,20 @@ class AppPermGroupUiInfoLiveData private constructor(
         addSource(permissionStateLiveData) {
             updateIfActive()
         }
+
+        addSource(fullStorageLiveData) {
+            updateIfActive()
+        }
     }
 
     override fun onUpdate() {
         val packageInfo = packageInfoLiveData.value
         val permissionGroup = permGroupLiveData.value
         val permissionState = permissionStateLiveData.value
+        val fullStorageApps = fullStorageLiveData.value
 
-        if (packageInfo == null || permissionGroup == null || permissionState == null) {
+        if (packageInfo == null || permissionGroup == null || permissionState == null ||
+            fullStorageApps == null) {
             if (packageInfoLiveData.isInitialized && permGroupLiveData.isInitialized &&
                 permissionStateLiveData.isInitialized) {
                 invalidateSingle(Triple(packageName, permGroupName, user))
@@ -217,6 +224,9 @@ class AppPermGroupUiInfoLiveData private constructor(
         allPermInfos: Map<String, LightPermInfo>
     ): PermGrantState {
         val specialLocationState = getIsSpecialLocationState()
+        if (permGroupName == STORAGE && isFullFilesAccessGranted()) {
+            return PermGrantState.PERMS_ALLOWED
+        }
 
         var hasPermWithBackground = false
         var isUserFixed = false
@@ -281,6 +291,14 @@ class AppPermGroupUiInfoLiveData private constructor(
             return LocationUtils.isExtraLocationControllerPackageEnabled(userContext)
         }
         return null
+    }
+
+    private fun isFullFilesAccessGranted(): Boolean {
+        val fullStoragePackages = fullStorageLiveData.value!!
+        val packageState = fullStoragePackages.find {
+            it.packageName == packageName && it.user == user
+        } ?: return false
+        return !packageState.isLegacy && packageState.isGranted
     }
 
     // TODO moltmann-team: Actually change mic/camera to be a foreground only permission
