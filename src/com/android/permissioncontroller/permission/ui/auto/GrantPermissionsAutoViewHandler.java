@@ -19,7 +19,6 @@ package com.android.permissioncontroller.permission.ui.auto;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_ALWAYS_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_FOREGROUND_BUTTON;
-import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.ALLOW_ONE_TIME_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.DENY_AND_DONT_ASK_AGAIN_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.DENY_BUTTON;
 import static com.android.permissioncontroller.permission.ui.GrantPermissionsActivity.NO_UPGRADE_AND_DONT_ASK_AGAIN_BUTTON;
@@ -128,7 +127,7 @@ public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHand
 
         // Don't show the allow one time button as per automotive design decisions
         createListItem(itemList, R.string.grant_dialog_button_allow,
-                GRANTED_ALWAYS, ALLOW_BUTTON, ALLOW_ONE_TIME_BUTTON);
+                GRANTED_ALWAYS, ALLOW_BUTTON);
         createListItem(itemList, R.string.grant_dialog_button_allow_always,
                 GRANTED_ALWAYS, ALLOW_ALWAYS_BUTTON);
         createListItem(itemList, R.string.grant_dialog_button_allow_foreground,
