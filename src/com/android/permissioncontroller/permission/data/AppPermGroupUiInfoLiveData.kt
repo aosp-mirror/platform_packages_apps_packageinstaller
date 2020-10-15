@@ -18,6 +18,7 @@ package com.android.permissioncontroller.permission.data
 
 import android.Manifest
 import android.Manifest.permission_group.STORAGE
+import android.app.AppOpsManager
 import android.app.Application
 import android.content.pm.PackageManager
 import android.content.pm.PermissionInfo
@@ -33,6 +34,7 @@ import com.android.permissioncontroller.permission.model.livedatatypes.PermState
 import com.android.permissioncontroller.permission.utils.LocationUtils
 import com.android.permissioncontroller.permission.utils.Utils
 import com.android.permissioncontroller.permission.utils.Utils.isModernPermissionGroup
+import kotlinx.coroutines.Job
 
 /**
  * A LiveData representing UI properties of an App Permission Group:
@@ -52,13 +54,13 @@ class AppPermGroupUiInfoLiveData private constructor(
     private val packageName: String,
     private val permGroupName: String,
     private val user: UserHandle
-) : SmartUpdateMediatorLiveData<AppPermGroupUiInfo>(), LocationUtils.LocationListener {
+) : SmartAsyncMediatorLiveData<AppPermGroupUiInfo>(), LocationUtils.LocationListener {
 
     private var isSpecialLocation = false
     private val packageInfoLiveData = LightPackageInfoLiveData[packageName, user]
     private val permGroupLiveData = PermGroupLiveData[permGroupName]
     private val permissionStateLiveData = PermStateLiveData[packageName, permGroupName, user]
-    private val fullStorageLiveData = FullStoragePermissionAppsLiveData
+    private val isStorage = permGroupName == STORAGE
 
     init {
         isSpecialLocation = LocationUtils.isLocationGroupAndProvider(app,
@@ -76,30 +78,27 @@ class AppPermGroupUiInfoLiveData private constructor(
         addSource(permissionStateLiveData) {
             updateIfActive()
         }
-
-        addSource(fullStorageLiveData) {
-            updateIfActive()
-        }
     }
 
-    override fun onUpdate() {
+    override suspend fun loadDataAndPostValue(job: Job) {
+        if (job.isCancelled) {
+            return
+        }
         val packageInfo = packageInfoLiveData.value
         val permissionGroup = permGroupLiveData.value
         val permissionState = permissionStateLiveData.value
-        val fullStorageApps = fullStorageLiveData.value
 
-        if (packageInfo == null || permissionGroup == null || permissionState == null ||
-            fullStorageApps == null) {
+        if (packageInfo == null || permissionGroup == null || permissionState == null) {
             if (packageInfoLiveData.isInitialized && permGroupLiveData.isInitialized &&
                 permissionStateLiveData.isInitialized) {
                 invalidateSingle(Triple(packageName, permGroupName, user))
-                value = null
+                postValue(null)
             }
             return
         }
 
-        value = getAppPermGroupUiInfo(packageInfo, permissionGroup.groupInfo,
-            permissionGroup.permissionInfos, permissionState)
+        postValue(getAppPermGroupUiInfo(packageInfo, permissionGroup.groupInfo,
+            permissionGroup.permissionInfos, permissionState))
     }
 
     /**
@@ -130,7 +129,7 @@ class AppPermGroupUiInfoLiveData private constructor(
 
         val isSystemApp = !isUserSensitive(permissionState)
 
-        val isGranted = getGrantedIncludingBackground(permissionState, allPermInfos)
+        val isGranted = getGrantedIncludingBackground(permissionState, allPermInfos, packageInfo)
 
         return AppPermGroupUiInfo(shouldShow, isGranted, isSystemApp)
     }
@@ -221,10 +220,11 @@ class AppPermGroupUiInfoLiveData private constructor(
      */
     private fun getGrantedIncludingBackground(
         permissionState: Map<String, PermState>,
-        allPermInfos: Map<String, LightPermInfo>
+        allPermInfos: Map<String, LightPermInfo>,
+        pkg: LightPackageInfo
     ): PermGrantState {
         val specialLocationState = getIsSpecialLocationState()
-        if (permGroupName == STORAGE && isFullFilesAccessGranted()) {
+        if (isStorage && isFullFilesAccessGranted(pkg)) {
             return PermGrantState.PERMS_ALLOWED
         }
 
@@ -293,11 +293,18 @@ class AppPermGroupUiInfoLiveData private constructor(
         return null
     }
 
-    private fun isFullFilesAccessGranted(): Boolean {
-        val fullStoragePackages = fullStorageLiveData.value!!
-        val packageState = fullStoragePackages.find {
-            it.packageName == packageName && it.user == user
-        } ?: return false
+    private fun isFullFilesAccessGranted(pkg: LightPackageInfo): Boolean {
+        val packageState = if (!FullStoragePermissionAppsLiveData.isStale) {
+            val fullStoragePackages = FullStoragePermissionAppsLiveData.value ?: return false
+            fullStoragePackages.find {
+                it.packageName == packageName && it.user == user
+            } ?: return false
+        } else {
+            val appOpsManager = Utils.getUserContext(app, UserHandle.getUserHandleForUid(pkg.uid))
+                .getSystemService(AppOpsManager::class.java)!!
+            FullStoragePermissionAppsLiveData.getFullStorageStateForPackage(
+                appOpsManager, pkg) ?: return false
+        }
         return !packageState.isLegacy && packageState.isGranted
     }
 
