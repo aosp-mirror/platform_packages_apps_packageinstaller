@@ -25,6 +25,6 @@ import com.android.permissioncontroller.permission.utils.Utils
 object StandardPermGroupNamesLiveData : LiveData<List<String>>() {
 
     init {
-        value = Utils.getPlatformPermissionGroups()
+        postValue(Utils.getPlatformPermissionGroups())
     }
 }

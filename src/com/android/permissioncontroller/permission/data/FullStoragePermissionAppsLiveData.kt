@@ -28,6 +28,7 @@ import android.app.Application
 import android.os.Build
 import android.os.UserHandle
 import com.android.permissioncontroller.PermissionControllerApplication
+import com.android.permissioncontroller.permission.model.livedatatypes.LightPackageInfo
 import kotlinx.coroutines.Job
 
 /**
@@ -70,27 +71,8 @@ object FullStoragePermissionAppsLiveData :
             }
 
             for (packageInfo in userPackages) {
-                val sdk = packageInfo.targetSdkVersion
-                if (sdk < Build.VERSION_CODES.P) {
-                    fullStoragePackages.add(FullStoragePackageState(packageInfo.packageName, user,
-                        isLegacy = true, isGranted = true))
-                    continue
-                } else if (sdk <= Build.VERSION_CODES.Q &&
-                    appOpsManager.unsafeCheckOpNoThrow(OPSTR_LEGACY_STORAGE, packageInfo.uid,
-                        packageInfo.packageName) == MODE_ALLOWED) {
-                    fullStoragePackages.add(FullStoragePackageState(packageInfo.packageName, user,
-                        isLegacy = true, isGranted = true))
-                    continue
-                }
-                if (MANAGE_EXTERNAL_STORAGE in packageInfo.requestedPermissions) {
-                    val mode = appOpsManager.unsafeCheckOpNoThrow(OPSTR_MANAGE_EXTERNAL_STORAGE,
-                        packageInfo.uid, packageInfo.packageName)
-                    val granted = mode == MODE_ALLOWED || mode == MODE_FOREGROUND ||
-                        (mode == MODE_DEFAULT &&
-                            MANAGE_EXTERNAL_STORAGE in packageInfo.grantedPermissions)
-                    fullStoragePackages.add(FullStoragePackageState(packageInfo.packageName, user,
-                        isLegacy = false, isGranted = granted))
-                }
+                fullStoragePackages.add(getFullStorageStateForPackage(appOpsManager,
+                    packageInfo, user) ?: continue)
             }
         }
 
@@ -100,6 +82,44 @@ object FullStoragePermissionAppsLiveData :
     override fun onActive() {
         super.onActive()
         updateAsync()
+    }
+
+    /**
+     * Gets the full storage package information for a given package
+     *
+     * @param appOpsManager The App Ops manager to use, if applicable
+     * @param packageInfo The package whose state is to be determined
+     * @param userHandle A preexisting UserHandle object to use. Otherwise, one will be created
+     *
+     * @return the FullStoragePackageState for the package, or null if the package does not request
+     * full storage permissions
+     */
+    fun getFullStorageStateForPackage(
+        appOpsManager: AppOpsManager,
+        packageInfo: LightPackageInfo,
+        userHandle: UserHandle? = null
+    ): FullStoragePackageState? {
+        val sdk = packageInfo.targetSdkVersion
+        val user = userHandle ?: UserHandle.getUserHandleForUid(packageInfo.uid)
+        if (sdk < Build.VERSION_CODES.P) {
+            return FullStoragePackageState(packageInfo.packageName, user,
+                isLegacy = true, isGranted = true)
+        } else if (sdk <= Build.VERSION_CODES.Q &&
+            appOpsManager.unsafeCheckOpNoThrow(OPSTR_LEGACY_STORAGE, packageInfo.uid,
+                packageInfo.packageName) == MODE_ALLOWED) {
+            return FullStoragePackageState(packageInfo.packageName, user,
+                isLegacy = true, isGranted = true)
+        }
+        if (MANAGE_EXTERNAL_STORAGE in packageInfo.requestedPermissions) {
+            val mode = appOpsManager.unsafeCheckOpNoThrow(OPSTR_MANAGE_EXTERNAL_STORAGE,
+                packageInfo.uid, packageInfo.packageName)
+            val granted = mode == MODE_ALLOWED || mode == MODE_FOREGROUND ||
+                (mode == MODE_DEFAULT &&
+                    MANAGE_EXTERNAL_STORAGE in packageInfo.grantedPermissions)
+            return FullStoragePackageState(packageInfo.packageName, user,
+                isLegacy = false, isGranted = granted)
+        }
+        return null
     }
 
     /**
