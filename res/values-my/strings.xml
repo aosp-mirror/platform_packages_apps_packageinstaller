@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2792757108872430971">"ခွင့်ပြုချက် ထိန်းကိရိယာ"</string>
+    <string name="app_name" msgid="2792757108872430971">"ခွင့်ပြုချက်ထိန်း ကိရိယာ"</string>
     <string name="ok" msgid="4417794827535157922">"OK"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"ခွင့်ပြုချက်များ"</string>
     <string name="cancel" msgid="7279939269964834974">"မလုပ်တော့"</string>
@@ -54,7 +54,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"ဤအက်ပ်ကို Android ဗားရှင်းအဟောင်းတွင် သုံးရန် ရေးဆွဲထားပါသည်။ ခွင့်ပြုချက်ပေးရန် ငြင်းပယ်ပါက ရည်ရွယ်ထားသကဲ့သို့ ဆောင်ရွက်မည် မဟုတ်ပါ။"</string>
     <string name="default_permission_description" msgid="692254823411049573">"အမျိုးအမည်မသိ ဆောင်ရွက်ချက်တစ်ခု လုပ်ရန်"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"အက်ပ် <xliff:g id="COUNT_1">%2$d</xliff:g> ခုထဲမှ <xliff:g id="COUNT_0">%1$d</xliff:g> ခု ခွင့်ပြုသည်"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"စနစ်ကိုပြသရန်"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"စနစ်ကိုပြရန်"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"စနစ်ကို ဖျောက်ရန်"</string>
     <string name="no_apps" msgid="2377153782338039463">"အက်ပ် မရှိပါ"</string>
     <string name="location_settings" msgid="547378321761364906">"တည်နေရာ ဆက်တင်များ"</string>
@@ -173,16 +173,16 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> ခွင့်ပြုချက်အားလုံး ကြည့်ရန်"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်အားလုံးကို ကြည့်ရန်"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက လမ်းလျှောက်ခြင်း၊ စက်ဘီးစီးခြင်း၊ ကားမောင်းခြင်း၊ ခြေလှမ်းအရေအတွက်နှင့် အခြားအရာများကဲ့သို့ သင့်ကိုယ်လက်လှုပ်ရှားမှုကို ဝင်သုံးနိုင်သည်"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက လမ်းလျှောက်ခြင်း၊ စက်ဘီးစီးခြင်း၊ ကားမောင်းခြင်း၊ ခြေလှမ်းအရေအတွက်နှင့် အခြားအရာများကဲ့သို့ သင့်ကိုယ်လက်လှုပ်ရှားမှုကို ဝင်ကြည့်နိုင်သည်"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက သင့်ပြက္ခဒိန်ကို ဝင်သုံးနိုင်သည်"</string>
-    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များသည် ဖုန်းခေါ်ဆိုထားသော မှတ်တမ်းကို ဖတ်ခြင်း၊ ရေးခြင်းတို့ လုပ်နိုင်သည်"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များသည် ဖုန်းခေါ်ဆိုထားသော မှတ်တမ်းကို ဖတ်နိုင်၊ ရေးနိုင်သည်"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက ဓာတ်ပုံနှင့် ဗီဒီယိုများ ရိုက်ယူနိုင်သည်"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက သင့်အဆက်အသွယ်များကို ဝင်သုံးနိုင်သည်"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက ဤစက်ပစ္စည်း၏ တည်နေရာကို ဝင်သုံးနိုင်သည်"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက အသံဖမ်းယူနိုင်သည်"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက ဖုန်းခေါ်ဆိုမှုများကို ပြုလုပ်နိုင် စီမံနိုင်သည်"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက သင့်အဓိကကျသော လက္ခဏာများနှင့်ဆိုင်သည့် အာရုံခံစနစ် ဒေတာကို ဝင်သုံးနိုင်သည်"</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက SMS မက်ဆေ့ဂျ်များ ပို့ခြင်း၊ ကြည့်ခြင်းတို့ ပြုလုပ်နိုင်သည်"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက SMS မက်ဆေ့ဂျ်များ ပို့နိုင်၊ ကြည့်နိုင်သည်"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက သင့်စက်ပေါ်ရှိ ဓာတ်ပုံ၊ မီဒီယာနှင့် ဖိုင်များကို ဝင်သုံးနိုင်သည်"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"နောက်ဆုံး အသုံးပြုချိန်- <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"လက်ရှိငြင်းပယ်ထားသည် / နောက်ဆုံးဝင်သုံးချိန်− <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -214,9 +214,9 @@
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ဤအက်ပ်က သင်၏တည်နေရာကို အမြဲဝင်ကြည့်နိုင်ပါသည်။ ပြောင်းရန် တို့ပါ။"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"အက်ပ်ကို အသုံးပြုနေစဉ်သာ"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ခွင့်ပြုချက်များ ပေးမထားပါ"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"ခွင့်ပြုချက်များကို ငြင်းပယ်မထားပါ"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"အက်ပ်များကို ခွင့်ပြုမထားပါ"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"အက်ပ်များကို ငြင်းပယ်မထားပါ"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"ငြင်းပယ်ထားသည့် ခွင့်ပြုချက် မရှိပါ"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"ခွင့်ပြုထားသည့် အက်ပ်မရှိပါ"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"ငြင်းပယ်ထားသည့် အက်ပ်မရှိပါ"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"ရွေးထားသည်"</string>
     <string name="settings" msgid="2884124136779508907">"ဆက်တင်များ"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> သည် သင့်ကိရိယာအား အပြည့်အဝ အသုံးပြုခွင့်ရှိသည်"</string>
@@ -258,7 +258,7 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"အထွက်ခေါ်ဆိုမှုများကို နောက်ဖုန်းနံပါတ်တစ်ခုသို့ ထပ်ဆင့်ပို့ခွင့်ပြုသော အက်ပ်များ"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို သင့်မူရင်း ဖုန်းတစ်ဆင့်ပြန်ခေါ်သည့် အက်ပ်အဖြစ် သတ်မှတ်လိုပါသလား။"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"ခွင့်ပြုချက် မလိုပါ"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"မူရင်း ခေါ်ဆိုသူ ID နှင့် စပမ်းအက်ပ်"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"မူရင်းခေါ်ဆိုသူ ID နှင့် စပမ်းအက်ပ်"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"ခေါ်ဆိုသူ ID နှင့် စပမ်းအက်ပ်"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"ခေါ်ဆိုမှုများကို ခွဲခြားသတ်မှတ်ရန်၊ စပမ်းနှင့် အလိုအလျောက် ခေါ်ဆိုမှုစနစ်များကို ပိတ်ရန်နှင့် မလိုလားအပ်သည့် နံပါတ်များကို အမည်ပျက်စာရင်းသွင်းခြင်းတို့ ပြုလုပ်ခွင့်ပေးသည့် အက်ပ်များ"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို သင့်မူရင်း ခေါ်ဆိုသူ ID နှင့် စပမ်းအက်ပ်အဖြစ် သတ်မှတ်လိုပါသလား။"</string>

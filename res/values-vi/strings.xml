@@ -24,7 +24,7 @@
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Từ chối"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Từ chối và không hỏi lại"</string>
     <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"Không thay đổi quyền truy cập trong khi sử dụng"</string>
-    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"Tiếp tục và không hỏi lại"</string>
+    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"Không thay đổi và không hỏi lại"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Thông tin khác"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Vẫn từ chối"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -178,7 +178,7 @@
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Các ứng dụng có quyền này có thể đọc và ghi nhật ký cuộc gọi điện thoại"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Các ứng dụng có quyền này có thể chụp ảnh và quay video"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Các ứng dụng có quyền này có thể truy cập vào danh bạ của bạn"</string>
-    <string name="permission_description_summary_location" msgid="687820658574645201">"Các ứng dụng có quyền này có thể truy cập vào vị trí của thiết bị này"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"Các ứng dụng có quyền này có thể truy cập vào thông tin vị trí của thiết bị này"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Các ứng dụng có quyền này có thể ghi âm"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Các ứng dụng có quyền này có thể thực hiện và quản lý cuộc gọi điện thoại"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Các ứng dụng có quyền này có thể truy cập vào dữ liệu cảm biến về những dấu hiệu sinh tồn của bạn"</string>
@@ -258,10 +258,10 @@
     <string name="role_call_redirection_description" msgid="769231030043298555">"Các ứng dụng cho phép bạn chuyển tiếp cuộc gọi đi tới một số điện thoại khác"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng chuyển hướng cuộc gọi mặc định?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Không cần quyền"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Ứng dụng nhận dạng người gọi và chặn spam"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Ứng dụng chặn spam, số gọi đến"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"Các ứng dụng cho phép bạn xác định cuộc gọi, chặn spam và cuộc gọi tự động, đồng thời đưa các số không mong muốn vào danh sách cấm"</string>
-    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng chặn spam và số gọi đến mặc định?"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Ứng dụng nhận dạng người gọi và chặn cuộc gọi làm phiền mặc định"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Ứng dụng nhận dạng người gọi và chặn cuộc gọi làm phiền"</string>
+    <string name="role_call_screening_description" msgid="4470066768170089758">"Các ứng dụng cho phép bạn xác định cuộc gọi, chặn cuộc gọi làm phiền và cuộc gọi tự động, đồng thời đưa các số không mong muốn vào danh sách cấm"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng nhận dạng người gọi và chặn cuộc gọi làm phiền mặc định?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Không cần quyền"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Ứng dụng mặc định hiện tại"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Không hỏi lại"</string>
@@ -295,7 +295,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> muốn tải thông tin gỡ lỗi lên."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Chia sẻ dữ liệu gỡ lỗi"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Hệ thống đã phát hiện thấy một vấn đề."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> đang yêu cầu tải lên từ thiết bị này một báo cáo lỗi được thực hiện vào <xliff:g id="DATE">%2$s</xliff:g> lúc <xliff:g id="TIME">%3$s</xliff:g>. Báo cáo lỗi bao gồm thông tin cá nhân về thiết bị của bạn hoặc do ứng dụng ghi nhật ký, ví dụ như tên người dùng, dữ liệu vị trí, giá trị nhận dạng thiết bị và thông tin mạng. Chỉ chia sẻ báo cáo lỗi với người và ứng dụng bạn tin cậy đối với thông tin này. Bạn muốn cho phép <xliff:g id="APP_NAME_1">%4$s</xliff:g> tải báo cáo lỗi lên?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> đang yêu cầu tải lên một báo cáo lỗi trên thiết bị này được thực hiện vào <xliff:g id="DATE">%2$s</xliff:g> lúc <xliff:g id="TIME">%3$s</xliff:g>. Báo cáo lỗi bao gồm thông tin cá nhân về thiết bị của bạn hoặc do ứng dụng ghi nhật ký, ví dụ như tên người dùng, dữ liệu vị trí, mã nhận dạng thiết bị và thông tin mạng. Chỉ chia sẻ báo cáo lỗi với người và ứng dụng bạn tin cậy để truy cập thông tin này. Bạn muốn cho phép <xliff:g id="APP_NAME_1">%4$s</xliff:g> tải báo cáo lỗi lên?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Đã xảy ra lỗi khi xử lý báo cáo lỗi cho <xliff:g id="APP_NAME">%1$s</xliff:g>. Vì vậy, yêu cầu chia sẻ dữ liệu gỡ lỗi chi tiết đã bị từ chối. Rất tiếc vì sự gián đoạn này."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Cho phép"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Từ chối"</string>

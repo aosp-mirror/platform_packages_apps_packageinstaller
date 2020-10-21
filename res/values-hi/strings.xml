@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2792757108872430971">"अनुमति नियंत्रक"</string>
+    <string name="app_name" msgid="2792757108872430971">"अनुमति कंट्रोलर"</string>
     <string name="ok" msgid="4417794827535157922">"ठीक है"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"अनुमतियां"</string>
     <string name="cancel" msgid="7279939269964834974">"रद्द करें"</string>
@@ -170,18 +170,18 @@
     <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> ने आपके मैसेज (एसएमएस) नहीं ऐक्सेस किए"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> ने आपके डिवाइस की मेमोरी ऐक्सेस नहीं की"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"इस अनुमति के पिछली बार इस्तेमाल किए जाने का डेटा फ़िलहाल मौजूद नहीं है"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"सभी <xliff:g id="APP">%1$s</xliff:g> अनुमतियां देखें"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> को मिली अनुमतियां देखें"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"इस अनुमति वाले सभी ऐप्लिकेशन देखें"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"इस अनुमति वाली ऐप्लिकेशन <xliff:g id="DESCRIPTION">%1$s</xliff:g> कर सकते हैं"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"इसकी अनुमति वाले ऐप्लिकेशन आपकी शारीरिक गतिविधियों की जानकारी ऐक्सेस कर सकते हैं जिसमें चलने, साइकल चलाने, गाड़ी चलाने और कदमों की संख्या जैसी कई जानकारियां शामिल हैं"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"इसकी अनुमति वाले ऐप्लिकेशन, आपकी शारीरिक गतिविधियों की जानकारी ऐक्सेस कर सकते हैं. इसमें चलने, साइकल चलाने, गाड़ी चलाने, और कदमों की संख्या जैसी कई जानकारी शामिल है"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"इस अनुमति वाले ऐप्लिकेशन आपके कैलेंडर को ऐक्सेस कर सकते हैं"</string>
-    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"ऐसे ऐप्लिकेशन जिनके पास अनुमति है, वे फ़ोन कॉल लॉग को पढ़ सकते हैं और लिख सकते हैं"</string>
-    <string name="permission_description_summary_camera" msgid="6699611334403400091">"इस अनुमति वाले ऐप्लिकेशन फ़ोटो खींच सकते हैं और वीडियो रिकॉर्ड कर सकते हैं"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"ऐसे ऐप्लिकेशन जिनके पास अनुमति है, वे फ़ोन में कॉल लॉग को पढ़ सकते हैं और लिख सकते हैं"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"इस अनुमति वाले ऐप्लिकेशन, फ़ोटो खींच सकते हैं और वीडियो रिकॉर्ड कर सकते हैं"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"इस अनुमति वाले ऐप्लिकेशन आपके संपर्कों को ऐक्सेस कर सकते हैं"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"इस अनुमति वाले ऐप्लिकेशन डिवाइस की जगह की जानकारी ऐक्सेस कर सकते हैं"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"इस अनुमति वाले ऐप्लिकेशन ऑडियो रिकॉर्ड कर सकते हैं"</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"इस अनुमति वाले ऐप्लिकेशन फ़ोन कॉल कर सकते हैं और प्रबंधित कर सकते हैं"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"इस अनुमति वाले ऐप्लिकेशन आपके बारे में खास जानकारी देने वाली चीज़ों के बारे में बताने वाले सेंसर डेटा को ऐक्सेस कर सकते हैं"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"इस अनुमति वाले ऐप्लिकेशन, फ़ोन कॉल कर सकते हैं और कॉल प्रबंधित कर सकते हैं"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"इस अनुमति वाले ऐप्लिकेशन, आपके बारे में खास जानकारी देने वाली चीज़ों को बताने वाले सेंसर डेटा को ऐक्सेस कर सकते हैं"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"इस अनुमति वाले ऐप्लिकेशन मैसेज भेज और देख सकते हैं"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"इसकी अनुमति वाले ऐप्लिकेशन आपके डिवाइस के फ़ोटो, मीडिया, और फ़ाइलें ऐक्सेस कर सकते हैं"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"पिछली बार ऐक्सेस किया गया: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -214,7 +214,7 @@
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"यह ऐप्लिकेशन हमेशा आपकी जगह की जानकारी ऐक्सेस कर सकता है. बदलने के लिए टैप करें."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"सिर्फ़ ऐप्लिकेशन इस्तेमाल में होने के दौरान"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"कोई अनुमति नहीं मिली है"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"सभी अनुमतियां मंज़ूर की गई हैं"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"इस ऐप्लिकेशन के पास सभी अनुमतियां हैं"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"किसी ऐप्लिकेशन को अनुमति नहीं है"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"किसी ऐप्लिकेशन को नामंज़ूर नहीं किया गया है"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"चुनी गई अनुमति"</string>
@@ -230,7 +230,7 @@
     <string name="role_assistant_request_description" msgid="1086168907357494789">"मैसेज, कॉल लॉग का ऐक्सेस पाएं"</string>
     <string name="role_browser_label" msgid="814240075813716311">"डिफ़ॉल्ट ब्राउज़र ऐप्लिकेशन"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"ब्राउज़र ऐप्लिकेशन"</string>
-    <string name="role_browser_description" msgid="2326990202516329438">"ऐसे ऐप्लिकेशन जो आपको इंटरनेट का ऐक्सेस देते हैं और टैप करने के लिए डिसप्ले लिंक देते हैं"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"ऐसे ऐप्लिकेशन जिनसे आपको इंटरनेट का इस्तेमाल कर सकते हैं. साथ ही, टैप करने के लिए डिसप्ले लिंक मिलता है"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"<xliff:g id="APP_NAME">%1$s</xliff:g> को अपने डिफ़ॉल्ट ब्राउज़र ऐप्लिकेशन के तौर पर सेट करें?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"अनुमति की ज़रूरत नहीं है"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"डिफ़ॉल्ट फ़ोन ऐप्लिकेशन"</string>
@@ -240,7 +240,7 @@
     <string name="role_dialer_request_description" msgid="2931069491309771312">"कॉल लॉग का ऐक्सेस मिलता है, मैसेज भेजें"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"मैसेज का डिफ़ॉल्ट ऐप्लिकेशन"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"मैसेज (एसएमएस) ऐप्लिकेशन"</string>
-    <string name="role_sms_description" msgid="3228552135895420442">"ऐसे ऐप्लिकेशन जिनकी मदद से आप अपने फ़ोन नंबर का इस्तेमाल मैसेज, फ़ोटो, वीडियो के साथ ही दूसरी चीज़ें भेजने और पाने के लिए कर सकते हैं"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"ऐसे ऐप्लिकेशन जिनकी मदद से आप अपने फ़ोन नंबर से मैसेज, फ़ोटो, वीडियो के साथ ही दूसरी चीज़ें भेजने और पाने के लिए कर सकते हैं"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g> को अपने डिफ़ॉल्ट मैसेज ऐप्लिकेशन के तौर पर सेट करें?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"संपर्कों, मैसेज, फ़ोन का ऐक्सेस मिलता है"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"डिफ़ॉल्ट आपातकालीन ऐप्लिकेशन"</string>
@@ -259,7 +259,7 @@
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"क्या आप <xliff:g id="APP_NAME">%1$s</xliff:g> को अपने डिफ़ॉल्ट कॉल रीडायरेक्शन ऐप्लिकेशन के तौर पर सेट करना चाहते हैं?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"अनुमति की ज़रूरत नहीं है"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"डिफ़ॉल्ट कॉल आईडी और स्पैम ऐप्लिकेशन"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"कॉल आईडी और स्पैम ऐप्लिकेशन"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"कॉलर आईडी और स्पैम ऐप्लिकेशन"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"ऐसे ऐप्लिकेशन जिनकी मदद से आप आने वाले कॉल (इनकमिंग) की पहचान कर सकते हैं, स्पैम और रोबोकॉल को ब्लॉक कर सकते हैं, और अनचाहे नंबर को ब्लैकलिस्ट कर सकते हैं"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"क्या <xliff:g id="APP_NAME">%1$s</xliff:g> को अपना डिफ़ॉल्ट कॉलर आईडी और स्पैम आईडी के तौर पर सेट करना चाहते हैं?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"अनुमति की ज़रूरत नहीं है"</string>

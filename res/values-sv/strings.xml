@@ -98,7 +98,7 @@
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Alla behörigheter"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"När som helst"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Senaste 7 dagarna"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"Senaste 24 timmarna"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"De senaste 24 timmarna"</string>
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"Senaste timmen"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"De senaste 15 minuterna"</string>
     <string name="permission_usage_last_minute" msgid="1712931459994781087">"Senaste minuten"</string>
@@ -190,7 +190,7 @@
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Nekad/Aldrig använd"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Tillåts"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Tillåts alltid"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Tillåt bara vid användning"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Tillåts bara vid användning"</string>
     <string name="denied_header" msgid="2277998574238617699">"Nekas"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Visa utförlig information om användning"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -240,7 +240,7 @@
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Får åtkomst till samtalshistoriken och kan skicka sms"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"Standardapp för sms"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"Sms-app"</string>
-    <string name="role_sms_description" msgid="3228552135895420442">"Appar som använder ditt telefonnummer för att skicka och ta emot korta sms, foton, videor och annat"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Appar som använder ditt telefonnummer för att skicka och ta emot sms, foton, videor och annat"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp för sms?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Får åtkomst till sms, kontakter och telefon"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"Standardapp för nödsituationer"</string>
@@ -250,7 +250,7 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Inga behörigheter krävs"</string>
     <string name="role_home_label" msgid="6245106863177808486">"Standardstartskärmsapp"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Startskärmsapp"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"Appar som kallas Översikter ersätter startskärmarna på Android-enheten. Du får åtkomst till innehåll och funktioner på enheten via översikten"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Appar som kallas Översikter ersätter startskärmarna på Android-enheten. Du får åtkomst till innehåll och funktioner på enheten via översikten."</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp för startskärm?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Inga behörigheter krävs"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Standardapp för omdirigering"</string>
@@ -284,10 +284,10 @@
     <string name="car_default_app_selected" msgid="2813270284225505741">"Vald"</string>
     <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Vald – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"särskild appåtkomst"</string>
-    <string name="special_app_access" msgid="2561673957499408877">"Särskild åtkomst för app"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Särskild appåtkomst"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Ingen särskild åtkomst för app"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Inga appar"</string>
-    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Arbetsprofiler stöds inte"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Jobbprofiler stöds inte"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Obs! Om du startar om mobilen och har ställt in ett skärmlås kan appen inte startas förrän du låser upp mobilen."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"Assistenten kan läsa information om appar som används i systemet, inklusive information som visas på skärmen eller är åtkomlig i apparna."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Dela felsökningsinformation"</string>

@@ -42,7 +42,7 @@
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Дозволи цело време"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Апликации"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Дозволи за апликацијата"</string>
-    <string name="app_permission_manager" msgid="3802609813311662642">"Управник со дозволи"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Управувач со дозволи"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Не прашувај повторно"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Нема дозволи"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Дополнителни дозволи"</string>
@@ -53,7 +53,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Оваа апликација е дизајнирана за постара верзија на Android. Одбивањето на дозволата може да предизвика веќе да не функционира како што треба."</string>
     <string name="default_permission_description" msgid="692254823411049573">"изврши непознато дејство"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Дозволени се <xliff:g id="COUNT_0">%1$d</xliff:g> од <xliff:g id="COUNT_1">%2$d</xliff:g> апликации"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Со дозвола: <xliff:g id="COUNT_0">%1$d</xliff:g> од <xliff:g id="COUNT_1">%2$d</xliff:g> апликации"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Прикажи го системот"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Сокриј го системот"</string>
     <string name="no_apps" msgid="2377153782338039463">"Нема апликации"</string>
@@ -97,23 +97,23 @@
     <string name="permission_usage_summary_background" msgid="4789805581854248472">"Последен пристап: <xliff:g id="TIME">%1$s</xliff:g>\nПоследниот пристап беше во заднина"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Која било дозвола"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Кога било"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Последните 7 дена"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"Последните 24 часа"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Последниов час"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Последните 15 минути"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Минатите 7 дена"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Минатите 24 часа"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Минатиот час"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Минатите 15 минути"</string>
     <string name="permission_usage_last_minute" msgid="1712931459994781087">"Последна 1 минута"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Не се користени дозволи"</string>
     <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Најнов пристап во кое било време"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Најнов пристап во последните 7 дена"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Најнов пристап во последните 24 часа"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Најнов пристап во минатите 7 дена"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Најнов пристап во минатите 24 часа"</string>
     <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Најнов пристап во последниот 1 час"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Најнов пристап во последните 15 минути"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Најнов пристап во минатите 15 минути"</string>
     <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Најнов пристап во последната 1 минута"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Користење апликации во секое време"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Користење дозволи во последните 7 дена"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Користење дозволи во последните 24 часа"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Користење дозволи во минатите 7 дена"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Користење дозволи во минатите 24 часа"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Користење дозволи во последниот 1 час"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Користење дозволи во последните 15 минути"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Користење дозволи во минатите 15 минути"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Користење дозволи во последната 1 минута"</string>
     <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> апликација</item>
@@ -143,7 +143,7 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Дозволи цело време"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Дозволи само додека се користи апликацијата"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Одбиј"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Пристап до <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Дозвола за <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Пристап до <xliff:g id="PERM">%1$s</xliff:g> за апликацијава"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> пристапи до <xliff:g id="PERM">%2$s</xliff:g> пред <xliff:g id="TIME">%3$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашата физичка активност пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
@@ -180,18 +180,18 @@
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Апликациите со оваа дозвола може да пристапуваат до вашите контакти"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Апликациите со оваа дозвола може да пристапуваат до локацијата на уредов"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Апликациите со оваа дозвола може да снимаат аудио"</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Апликациите со оваа дозвола може да прават и да управуваат со телефонски повици"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Апликациите со оваа дозвола може да упатуваат телефонски повици и да управуваат со нив"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Апликациите со оваа дозвола може да пристапуваат до податоци од сензорите за виталните знаци"</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Апликациите со оваа дозвола може да испраќаат и прикажуваат SMS-пораки"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Апликациите со оваа дозвола може да испраќаат и прегледуваат SMS-пораки"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Апликациите со оваа дозвола може да пристапуваат до фотографии, аудиовизуелни содржини и датотеки на вашиот уред."</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Последен пристап: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Моментално одбиена/Последен пристап: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Никогаш не е пристапено"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Одбиена/Никогаш не е пристапено"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"Дозволени"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"Дозволени цело време"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Дозволени само кога се користат"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Одбиени"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Со дозвола"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Со постојана дозвола"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Со дозвола само кога се користат"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Без дозвола"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Прикажи го деталното користење"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ден</item>
@@ -215,8 +215,8 @@
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Само додека се користи апликацијата"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Нема овозможени дозволи"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Нема одбиени дозволи"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"Нема дозволени апликации"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"Нема одбиени апликации"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Нема апликации со дозвола"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Нема апликации без дозвола"</string>
     <string name="car_permission_selected" msgid="2163426344720483487">"Избрана"</string>
     <string name="settings" msgid="2884124136779508907">"Поставки"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> има целосен пристап до уредот"</string>
@@ -228,14 +228,14 @@
     <string name="role_assistant_description" msgid="8677846995018695304">"Апликациите за помош може да ви помогнат според информациите од прикажаниот екран. Некои апликации поддржуваат услуги и со стартер и со гласовен запис за да ви обезбедат интегрирана помош."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Да се постави <xliff:g id="APP_NAME">%1$s</xliff:g> како ваша стандардна апликација за помош?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Добива пристап до SMS, евиденцијата на повици"</string>
-    <string name="role_browser_label" msgid="814240075813716311">"Стандардна аплик. за прелист."</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Стандардна апл. за прелист."</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"Апликација за прелистување"</string>
-    <string name="role_browser_description" msgid="2326990202516329438">"Апликации што ви даваат пристап на интернет и ги прикажуваат линковите што ги допирате"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"Апликации што ви даваат пристап до интернет и ги прикажуваат линковите што ги допирате"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Да се постави <xliff:g id="APP_NAME">%1$s</xliff:g> како ваша стандардна апликација за прелистување?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Не се потреби дозволи"</string>
-    <string name="role_dialer_label" msgid="7920168918746178929">"Стандардна апликац. за телефон"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"Стандардна апл. за телефон"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"Апликација за телефон"</string>
-    <string name="role_dialer_description" msgid="2684882481061320467">"Апликации што ви овозможуваат да правите и примате телефонски повици на уредов"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"Апликации што ви овозможуваат да упатувате и примате телефонски повици преку уредов"</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"Да се постави <xliff:g id="APP_NAME">%1$s</xliff:g> како ваша стандардна апликација за телефон?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Добива пристап до евиденцијата на повици, испраќа SMS"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"Стандардна апликација за SMS"</string>
@@ -245,20 +245,20 @@
     <string name="role_sms_request_description" msgid="4920787411350418630">"Добива пристап до контактите, SMS, телефонот"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"Стандар. аплик. за итни случаи"</string>
     <string name="role_emergency_short_label" msgid="2546309839225058762">"Апликација за итни случаи"</string>
-    <string name="role_emergency_description" msgid="3567231505957373289">"Апликации што ви овозможуваат да ги снимите вашите медицински информации и да ги ставите на располагање на службите за спасување при итни случаи, да добивате предупредувања за лоши временски услови и несреќи, да ги известувате другите кога ви е потребна помош"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"Апликации што ви овозможуваат да ги снимите вашите медицински податоци и да ги ставите на располагање на службите за спасување при итни случаи, да добивате предупредувања за лоши временски услови и несреќи, да ги известувате другите кога ви е потребна помош"</string>
     <string name="role_emergency_request_title" msgid="6595296517085761522">"Да се постави <xliff:g id="APP_NAME">%1$s</xliff:g> како ваша стандардна апликација за итни случаи?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Не се потреби дозволи"</string>
-    <string name="role_home_label" msgid="6245106863177808486">"Станд. аплик. за почетен екран"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Станд. апл. за почетен екран"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Апликација за почетен екран"</string>
     <string name="role_home_description" msgid="6736956389161158052">"Апликации, честопати нарекувани стартери, што ги заменуваат почетните екрани на уредот со Android и ви даваат пристап до содржините и функциите на уредот"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Да се постави <xliff:g id="APP_NAME">%1$s</xliff:g> како ваша стандардна апликација за почетен екран?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Не се потреби дозволи"</string>
-    <string name="role_call_redirection_label" msgid="7555518736037919521">"Станд. аплик. за пренасочување"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"Станд. апл. за пренасочување"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Аплик. за пренасочување повици"</string>
     <string name="role_call_redirection_description" msgid="769231030043298555">"Апликации што ви овозможуваат да проследувате појдовни повици на друг телефонски број"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Да се постави <xliff:g id="APP_NAME">%1$s</xliff:g> како ваша стандардна апликација за пренасочување?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Не се потреби дозволи"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Стандардна апликација за ID на повикувач и спам"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Стандардна апл. за ID на повикувач и спам"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Апл. за ID на повикувач и спам"</string>
     <string name="role_call_screening_description" msgid="4470066768170089758">"Апликации што ви овозможуваат да идентификувате повици, да блокирате спам и автоматизирани повици и да ставате непожелни броеви на црната листа"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Да се постави <xliff:g id="APP_NAME">%1$s</xliff:g> како ваша стандардна апликација за ID на повикувач и спам?"</string>
@@ -295,7 +295,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> сака да прикачи информации за отстранување грешки."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Споделете податоци за отстранување грешки"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Системот откри проблем."</string>
-    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> бара да прикачи извештај за грешка од уредов снимен на <xliff:g id="DATE">%2$s</xliff:g> во <xliff:g id="TIME">%3$s</xliff:g>. Извештаите за грешки вклучуваат лични информации за вашиот уред или пак информации евидентирани од апликациите, на пр., кориснички имиња, податоци за локацијата, идентификатори на уредот и информации за мрежата. Споделувајте извештаи за грешки само со луѓе и апликации во кои имате доверба кога станува збор за овие информации. Да ѝ се дозволи на <xliff:g id="APP_NAME_1">%4$s</xliff:g> да прикачи извештај за грешка?"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> бара да прикачи извештај за грешка од уредов снимен на <xliff:g id="DATE">%2$s</xliff:g> во <xliff:g id="TIME">%3$s</xliff:g>. Извештаите за грешки вклучуваат лични податоци за вашиот уред или пак податоци евидентирани од апликациите, на пр., кориснички имиња, податоци за локацијата, идентификатори на уредот и податоци за мрежата. Споделувајте извештаи за грешки само со луѓе и апликации во кои имате доверба кога станува збор за овие податоци. Да ѝ се дозволи на <xliff:g id="APP_NAME_1">%4$s</xliff:g> да прикачи извештај за грешка?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Настана грешка при обработката на извештајот за грешки за <xliff:g id="APP_NAME">%1$s</xliff:g>. Затоа е одбиено споделувањето на податоците за отстранување грешки. Се извинуваме за прекинот."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Дозволи"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Одбиј"</string>
