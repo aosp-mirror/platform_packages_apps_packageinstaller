@@ -17,8 +17,8 @@
 package com.android.packageinstaller;
 
 import static android.app.AppOpsManager.MODE_ALLOWED;
-
 import static com.android.packageinstaller.PackageUtil.getMaxTargetSdkVersionForUid;
+import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
 import android.Manifest;
 import android.app.Activity;
@@ -87,6 +87,8 @@ public class UninstallerActivity extends Activity {
 
     @Override
     public void onCreate(Bundle icicle) {
+        getWindow().addPrivateFlags(PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
+
         // Never restore any state, esp. never create any fragments. The data in the fragment might
         // be stale, if e.g. the app was uninstalled while the activity was destroyed.
         super.onCreate(null);
