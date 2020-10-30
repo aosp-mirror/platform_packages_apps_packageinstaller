@@ -328,7 +328,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         return getInitializedValue(
             observe = { observer ->
                 observeStale(ForeverActiveLifecycle, observer)
-                if (forceUpdate) {
+                if (forceUpdate || (!staleOk && isStale)) {
                     updateIfActive()
                 }
             },
