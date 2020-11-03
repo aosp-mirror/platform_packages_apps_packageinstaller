@@ -102,10 +102,68 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"मौजूदा अनुमतियां"</string>
     <string name="message_staging" msgid="641286607664721291">"ऐप्लिकेशन तैयार किया जा रहा है…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ऐप्लिकेशन के बारे में कोई जानकारी नहीं है"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"डैशबोर्ड"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">पिछले ऐक्सेस की जानकारी: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> बार ऐक्सेस किया गया</item>
+      <item quantity="other">पिछले ऐक्सेस की जानकारी: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> बार ऐक्सेस किया गया</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">पिछले ऐक्सेस की जानकारी: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> बार ऐक्सेस किया गया (बैकग्राउंड में <xliff:g id="NUM_5">%3$s</xliff:g> बार)</item>
+      <item quantity="other">पिछले ऐक्सेस की जानकारी: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> बार ऐक्सेस किया गया (बैकग्राउंड में <xliff:g id="NUM_5">%3$s</xliff:g> बार)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">पिछले ऐक्सेस की जानकारी: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> बार ऐक्सेस किया गया\nअवधि: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">पिछले ऐक्सेस की जानकारी: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> बार ऐक्सेस किया गया\nअवधि: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">पिछले ऐक्सेस की जानकारी: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> बार ऐक्सेस किया गया (बैकग्राउंड में <xliff:g id="NUM_6">%3$s</xliff:g> बार)\nअवधि:<xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">पिछले ऐक्सेस की जानकारी: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> बार ऐक्सेस किया गया (बैकग्राउंड में <xliff:g id="NUM_6">%3$s</xliff:g> बार)\nअवधि:<xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"आखिरी बार ऐक्सेस: <xliff:g id="TIME">%1$s</xliff:g>\nको आखिरी बार बैकग्राउंड में ऐक्सेस किया गया था"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"कोई भी अनुमति"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"किसी भी समय"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"पिछले सात दिनों में"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"पिछले 24 घंटों में"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"पिछले एक घंटे में"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"पिछले 15 मिनट में"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"आखिरी एक मिनट"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"अनुमति का इस्तेमाल नहीं हुआ"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"किसी भी समय सबसे हाल ही में ऐक्सेस किए गए ऐप्लिकेशन"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"पिछले सात दिनों में सबसे हाल के ऐक्सेस"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"पिछले 24 घंटों में सबसे हाल में ऐक्सेस किए गए"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"पिछले एक घंटे में सबसे हाल में ऐक्सेस किए गए"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"पिछले 15 मिनट में सबसे हाल ही में ऐक्सेस किए गए ऐप्लिकेशन"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"पिछले एक मिनट में सबसे हाल में ऐक्सेस किए गए"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"किसी भी समय इस्तेमाल की गई अनुमति"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"पिछले सात दिनों में अनुमति का इस्तेमाल"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"पिछले 24 घंटों में इस्तेमाल की गई अनुमतियां"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"पिछले एक घंटे में अनुमति का इस्तेमाल"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"पिछले 15 मिनटों में अनुमति का इस्तेमाल"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"पिछले एक मिनट में अनुमति का इस्तेमाल"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ऐप्लिकेशन</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ऐप्लिकेशन</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"डैशबोर्ड में सभी को देखें"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"इससे फ़िल्टर किया गया: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"फ़िल्टर हटाएं"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"इसके मुताबिक फ़िल्टर करें"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"अनुमतियों के हिसाब से फ़िल्टर करें"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"समय के अनुसार फ़िल्टर करना"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"सबसे ज़्यादा ली गईं अनुमतियां"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"सबसे ज़्यादा बार किए गए ऐक्सेस"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"हाल ही में"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"ऐप इस्तेमाल के मुताबिक क्रम"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"समय के मुताबिक क्रम में लगाएं"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"रीफ़्रेश करें"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ऐप्लिकेशन</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ऐप्लिकेशन</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"ऐप्लिकेशन अनुमतियों इस्तेमाल"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"ऐक्सेस: <xliff:g id="NUM">%1$s</xliff:g> बार. कुल अवधि: <xliff:g id="DURATION">%2$s</xliff:g>. आखिरी बार <xliff:g id="TIME">%3$s</xliff:g> पहले इस्तेमाल किया गया."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ऐक्सेस: <xliff:g id="NUM">%1$s</xliff:g> बार. आखिरी बार <xliff:g id="TIME">%2$s</xliff:g> पहले इस्तेमाल किया गया."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"मंज़ूरी दें"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"सभी फ़ाइलें प्रबंधित करने की अनुमति दें"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"सिर्फ़ मीडिया फ़ाइलें ऐक्सेस करने की अनुमति दें"</string>
@@ -117,6 +175,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"इस ऐप्लिकेशन के लिए <xliff:g id="PERM">%1$s</xliff:g> इस्तेमाल करने की अनुमति"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> को मिली अनुमतियां देखें"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"इस अनुमति वाले सभी ऐप्लिकेशन देखें"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"Assistant माइक्रोफ़ोन के इस्तेमाल से जुड़ा डेटा दिखाएं"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"ऐप्लिकेशन का इस्तेमाल न होने पर अनुमतियां हटाएं"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"अगर इस ऐप्लिकेशन का इस्तेमाल कुछ महीनों तक नहीं किया गया, तो इसे दी गई अनुमतियां हटा दी जाएंगी. ऐसा आपके डेटा को सुरक्षित रखने के लिए किया जाएगा."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"अगर ऐप्लिकेशन कुछ महीनों से इस्तेमाल नहीं हुआ है, तो आपके डेटा को सुरक्षित रखने के लिए ये अनुमतियां हटा दी जाएंगी: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
@@ -276,7 +335,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"मौजूदा डिफ़ॉल्ट"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"फिर से न पूछें"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"डिफ़ॉल्ट के रूप में सेट करें"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"&lt;b&gt;फ़ोन कॉल&lt;/b&gt; के दौरान माइक्रोफ़ोन इस्तेमाल हो रहा है"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"&lt;b&gt;वीडियो कॉल&lt;/b&gt; के दौरान कैमरा और माइक्रोफ़ोन इस्तेमाल हो रहा है"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"&lt;b&gt;वीडियो कॉल&lt;/b&gt; के दौरान कैमरा इस्तेमाल हो रहा है"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"सिस्टम सेवा का इस्तेमाल करके, माइक्रोफ़ोन ऐक्सेस किया जा रहा है"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"सिस्टम सेवा का इस्तेमाल करके, कैमरा और माइक्रोफ़ोन ऐक्सेस किया जा रहा है"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"सिस्टम सेवा का इस्तेमाल करके, कैमरा ऐक्सेस किया जा रहा है"</string>
+    <string name="other_use" msgid="9076086164996623754">"अन्य इस्तेमाल:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"ठीक है"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g> का हाल ही में किया गया इस्तेमाल"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" और "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"डिफ़ॉल्ट ऐप्लिकेशन"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"माइक्रोफ़ोन और कैमरा"</string>
     <string name="settings_button" msgid="4747434541214595321">"सेटिंग"</string>
     <string name="default_apps" msgid="8554530939151957828">"डिफ़ॉल्ट ऐप्लिकेशन"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"कोई डिफ़ॉल्ट ऐप्लिकेशन नहीं."</string>
@@ -294,7 +365,7 @@
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"कोई ऐप्लिकेशन नहीं"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"वर्क प्रोफ़ाइल का इस्तेमाल नहीं किया जा सकता"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"ध्यान दें : अगर डिवाइस को रीस्टार्ट करते समय उसकी स्क्रीन लॉक है, तो यह ऐप्लिकेशन तब तक शुरू नहीं होगा, जब तक आप डिवाइस को अनलॉक नहीं करते."</string>
-    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Assistant आपके सिस्टम पर इस्तेमाल किए जा रहे ऐप्लिकेशन की जानकारी देख पाएगी. इसमें आपकी स्क्रीन पर दिखाई देने वाली या ऐप्लिकेशन की ऐक्सेस करने लायक जानकारी शामिल होगी."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"आपकी सहायक आपके सिस्टम पर इस्तेमाल किए जा रहे ऐप्लिकेशन की जानकारी देख पाएगी. इसमें आपकी स्क्रीन पर दिखाई देने वाली या ऐप्लिकेशन ऐक्सेस करने लायक जानकारी शामिल होगी."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"डीबग करने की प्रक्रिया का डेटा शेयर करें"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"डीबग करने की ज़्यादा जानकारी शेयर करना चाहते हैं?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> डीबग करने की जानकारी अपलोड करना चाहता है."</string>

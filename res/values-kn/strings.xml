@@ -102,10 +102,68 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"ಪ್ರಸ್ತುತ ಅನುಮತಿಗಳು"</string>
     <string name="message_staging" msgid="641286607664721291">"ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಲು ಸಿದ್ಧವಿರುವ ಆ್ಯಪ್…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ಅಪರಿಚಿತ"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ಡ್ಯಾಶ್‌ಬೋರ್ಡ್"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> ಪ್ರವೇಶ</item>
+      <item quantity="other">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> ಪ್ರವೇಶ</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ಪ್ರವೇಶ (<xliff:g id="NUM_5">%3$s</xliff:g>ಹಿನ್ನೆಲೆಯಲ್ಲಿ)</item>
+      <item quantity="other">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ಪ್ರವೇಶ (<xliff:g id="NUM_5">%3$s</xliff:g>ಹಿನ್ನೆಲೆಯಲ್ಲಿ)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ಪ್ರವೇಶ\nಸಮಯ: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ಪ್ರವೇಶ\nಸಮಯ: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> ಪ್ರವೇಶ (<xliff:g id="NUM_6">%3$s</xliff:g>ಹಿನ್ನೆಲೆಯಲ್ಲಿ)\nಸಮಯದಲ್ಲಿ: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> ಪ್ರವೇಶ (<xliff:g id="NUM_6">%3$s</xliff:g>ಹಿನ್ನೆಲೆಯಲ್ಲಿ)\nಸಮಯದಲ್ಲಿ: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"ಕೊನೆಯದಾಗಿ ಪ್ರವೇಶಿಸಿರುವುದು: <xliff:g id="TIME">%1$s</xliff:g>\nಹಿನ್ನೆಲೆಯಲ್ಲಿ ಕೊನೆಯದಾಗಿ ಪ್ರವೇಶಿಸಿರುವುದು"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"ಯಾವುದೇ ಅನುಮತಿ"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"ಯಾವುದಾದರೂ ಸಮಯದಲ್ಲಿ"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"ಕಳೆದ 7 ದಿನಗಳು"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"ಕೊನೆಯ 24 ಗಂಟೆಗಳು"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"1 ಗಂಟೆಯ ಹಿಂದೆ"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"ಹಿಂದಿನ 15 ನಿಮಿಷಗಳು"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"ಕಳೆದ 1 ನಿಮಿಷ"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"ಅನುಮತಿಯ ಬಳಕೆಗಳು ಇಲ್ಲ"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"ಯಾವುದೇ ಸಮಯದಲ್ಲಿನ ತೀರಾ ಇತ್ತೀಚಿನ ಪ್ರವೇಶ"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"ಕಳೆದ 7 ದಿನಗಳಲ್ಲಿನ ತೀರಾ ಇತ್ತೀಚಿನ ಪ್ರವೇಶ"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"ಕಳೆದ 24 ಗಂಟೆಗಳಲ್ಲಿನ ತೀರಾ ಇತ್ತೀಚಿನ ಪ್ರವೇಶ"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"ಕಳೆದ 1 ಗಂಟೆಯಲ್ಲಿನ ತೀರಾ ಇತ್ತೀಚಿನ ಪ್ರವೇಶ"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"ಕಳೆದ 15 ನಿಮಿಷಗಳಲ್ಲಿನ ತೀರಾ ಇತ್ತೀಚಿನ ಪ್ರವೇಶ"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"ಕಳೆದ 1 ನಿಮಿಷದಲ್ಲಿನ ತೀರಾ ಇತ್ತೀಚಿನ ಪ್ರವೇಶ"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"ಯಾವುದೇ ಸಮಯದಲ್ಲಿನ ಅನುಮತಿಯ ಬಳಕೆ"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"ಕಳೆದ 7 ದಿನಗಳಲ್ಲಿನ ಅನುಮತಿಯ ಬಳಕೆ"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"ಕಳೆದ 24 ಗಂಟೆಗಳಲ್ಲಿನ ಅನುಮತಿಯ ಬಳಕೆ"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"ಕಳೆದ 1 ಗಂಟೆಯಲ್ಲಿನ ಅನುಮತಿಯ ಬಳಕೆ"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"ಕಳೆದ 15 ನಿಮಿಷಗಳಲ್ಲಿನ ಅನುಮತಿಯ ಬಳಕೆ"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"ಕಳೆದ 1 ನಿಮಿಷದಲ್ಲಿನ ಅನುಮತಿಯ ಬಳಕೆ"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ಆ್ಯಪ್‌ಗಳು</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ಆ್ಯಪ್‌ಗಳು</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"ಎಲ್ಲವನ್ನೂ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ನಲ್ಲಿ ವೀಕ್ಷಿಸಿ"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"ಈ ಆಧಾರದ ಮೇಲೆ ಫಿಲ್ಟರ್ ಮಾಡಲಾಗಿದೆ: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"ಫಿಲ್ಟರ್ ತೆಗೆದುಹಾಕಿ"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"ಈ ಪ್ರಕಾರ ಫಿಲ್ಟರ್"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"ಅನುಮತಿಗಳ ಪ್ರಕಾರ ಫಿಲ್ಟರ್ ಮಾಡಿ"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"ಸಮಯದ ಪ್ರಕಾರ ಫಿಲ್ಟರ್ ಮಾಡಿ"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"ಹೆಚ್ಚಿನ ಅನುಮತಿಗಳು"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"ಹೆಚ್ಚಿನ ಪ್ರವೇಶಗಳು"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"ಇತ್ತೀಚಿನವು"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"ಆ್ಯಪ್ ಬಳಕೆಯ ಪ್ರಕಾರ ವಿಂಗಡಿಸಿ"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"ಸಮಯದ ಪ್ರಕಾರ ವಿಂಗಡಿಸಿ"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"ರಿಫ್ರೆಶ್ ಮಾಡಿ"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ಆ್ಯಪ್‌ಗಳು</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ಆ್ಯಪ್‌ಗಳು</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"ಆ್ಯಪ್‌ ಅನುಮತಿಗಳ ಬಳಕೆ"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"ಪ್ರವೇಶ: <xliff:g id="NUM">%1$s</xliff:g> ಬಾರಿ. ಒಟ್ಟು ಅವಧಿ: <xliff:g id="DURATION">%2$s</xliff:g>. <xliff:g id="TIME">%3$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಕೊನೆಯದಾಗಿ ಬಳಸಲಾಗಿದೆ."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ಪ್ರವೇಶ: <xliff:g id="NUM">%1$s</xliff:g> ಬಾರಿ. <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಕೊನೆಯದಾಗಿ ಬಳಸಲಾಗಿದೆ."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"ಅನುಮತಿಸಿ"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"ಎಲ್ಲಾ ಫೈಲ್‌ಗಳ ನಿರ್ವಹಣೆಯನ್ನು ಅನುಮತಿಸಿ"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"ಮಾಧ್ಯಮಕ್ಕೆ ಮಾತ್ರ ಪ್ರವೇಶಿಸಲು ಅನುಮತಿಸಿ"</string>
@@ -117,6 +175,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"ಈ <xliff:g id="PERM">%1$s</xliff:g> ಆ್ಯಪ್‌ಗಾಗಿ ಪ್ರವೇಶದ ಅನುಮತಿ"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ಎಲ್ಲಾ <xliff:g id="APP">%1$s</xliff:g> ಅನುಮತಿಗಳನ್ನು ವೀಕ್ಷಿಸಿ"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ಈ ಅನುಮತಿಯನ್ನು ಹೊಂದಿರುವ ಎಲ್ಲಾ ಆ್ಯಪ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"ಅಸಿಸ್ಟೆಂಟ್‌ನ ಮೈಕ್ರೋಫೋನ್ ಬಳಕೆಯನ್ನು ತೋರಿಸಿ"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"ಆ್ಯಪ್‌ ಬಳಸದಿದ್ದರೆ ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಿ"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"ಆ್ಯಪ್ ಅನ್ನು ಕೆಲವು ತಿಂಗಳುಗಳ ಕಾಲ ಬಳಸದಿದ್ದರೆ, ನಿಮ್ಮ ಡೇಟಾವನ್ನು ರಕ್ಷಿಸಲು ಈ ಆ್ಯಪ್‌ನ ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗುವುದು."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"ಆ್ಯಪ್ ಅನ್ನು ಕೆಲವು ತಿಂಗಳುಗಳ ಕಾಲ ಬಳಸದಿದ್ದರೆ, ನಿಮ್ಮ ಡೇಟಾವನ್ನು ರಕ್ಷಿಸಲು, ಈ ಕೆಳಗಿನ ಅನುಮತಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗುವುದು: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
@@ -276,7 +335,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"ಪ್ರಸ್ತುತ ಡೀಫಾಲ್ಟ್"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"ಮತ್ತೆ ಕೇಳಬೇಡ"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"ಡೀಫಾಲ್ಟ್ ಆಗಿ ಹೊಂದಿಸಿ"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"&lt;b&gt;ಫೋನ್ ಕರೆಯಲ್ಲಿ&lt;/b&gt; ಮೈಕ್ರೋಫೋನ್ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"&lt;b&gt;ವೀಡಿಯೋ ಕರೆಯಲ್ಲಿ&lt;/b&gt; ಕ್ಯಾಮರಾ ಮತ್ತು ಮೈಕ್ರೋಫೋನ್ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"&lt;b&gt;ವೀಡಿಯೋ ಕರೆಯಲ್ಲಿ&lt;/b&gt; ಕ್ಯಾಮರಾವನ್ನು ಬಳಸಲಾಗುತ್ತದೆ"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"ಸಿಸ್ಟಂ ಸೇವೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಮೈಕ್ರೋಫೋನ್ ಅನ್ನು ಪ್ರವೇಶಿಸಲಾಗುತ್ತದೆ"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"ಸಿಸ್ಟಂ ಸೇವೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಕ್ಯಾಮರಾ ಮತ್ತು ಮೈಕ್ರೋಫೋನ್ ಅನ್ನು ಪ್ರವೇಶಿಸಲಾಗುತ್ತದೆ"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"ಸಿಸ್ಟಂ ಸೇವೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಕ್ಯಾಮರಾವನ್ನು ಪ್ರವೇಶಿಸಲಾಗುತ್ತದೆ"</string>
+    <string name="other_use" msgid="9076086164996623754">"ಇತರ ಬಳಕೆ:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"ಅರ್ಥವಾಯಿತು"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g> ಅನ್ನು ಇತ್ತೀಚೆಗೆ ಬಳಕೆ ಮಾಡಿರುವುದು"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" ಮತ್ತು "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"ಡೀಫಾಲ್ಟ್ ಆ್ಯಪ್‌ಗಳು"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"ಮೈಕ್ರೊಫೋನ್ ಮತ್ತು ಕ್ಯಾಮರಾ"</string>
     <string name="settings_button" msgid="4747434541214595321">"ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="default_apps" msgid="8554530939151957828">"ಡೀಫಾಲ್ಟ್ ಆ್ಯಪ್‌ಗಳು"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"ಯಾವುದೇ ಡೀಫಾಲ್ಟ್‌ ಆ್ಯಪ್‌ಗಳಿಲ್ಲ"</string>
@@ -294,7 +365,7 @@
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"ಯಾವುದೇ ಆ್ಯಪ್‌ಗಳು ಇಲ್ಲ"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"ಗಮನಿಸಿ: ನೀವು ನಿಮ್ಮ ಸಾಧನವನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿದಲ್ಲಿ ಮತ್ತು ಪರದೆಯ ಲಾಕ್‌ ಹೊಂದಿದ್ದರೆ, ನಿಮ್ಮ ಸಾಧನವನ್ನು ಅನ್‌ಲಾಕ್‌ ಮಾಡುವವರೆಗೂ ಈ ಆ್ಯಪ್‌ ಅನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
-    <string name="assistant_confirmation_message" msgid="4529925223796676824">"ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಗೋಚರಿಸುವ ಅಥವಾ ಆ್ಯಪ್‌ಗಳಲ್ಲಿಯೇ ಪ್ರವೇಶಿಸಬಹುದಾದಂತಹ ಮಾಹಿತಿ ಸೇರಿದಂತೆ, ನಿಮ್ಮ ಸಿಸ್ಟಂನಲ್ಲಿ ಬಳಕೆಯಲ್ಲಿರುವ ಆ್ಯಪ್‌ಗಳ ಕುರಿತ ಮಾಹಿತಿಯನ್ನು ಓದಲು ಅಸಿಸ್ಟೆಂಟ್‌ಗೆ ಸಾಧ್ಯವಾಗುತ್ತದೆ."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಗೋಚರಿಸುವ ಅಥವಾ ಆ್ಯಪ್‌ಗಳಲ್ಲಿಯೇ ಪ್ರವೇಶಿಸಬಹುದಾದಂತಹ ಮಾಹಿತಿ ಸೇರಿದಂತೆ, ನಿಮ್ಮ ಸಿಸ್ಟಂನಲ್ಲಿ ಬಳಕೆಯಲ್ಲಿರುವ ಆ್ಯಪ್‌ಗಳ ಕುರಿತ ಮಾಹಿತಿಯನ್ನು ಓದಲು ಸಹಾಯಕಕ್ಕೆ ಸಾಧ್ಯವಾಗುತ್ತದೆ."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"ವಿವರವಾದ ಡೀಬಗ್ ಮಾಡುವಿಕೆಯ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಬೇಕೆ?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಆ್ಯಪ್, ಡೀಬಗ್ ಮಾಡುವಿಕೆಯ ಮಾಹಿತಿಯನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲು ಬಯಸುತ್ತದೆ."</string>
