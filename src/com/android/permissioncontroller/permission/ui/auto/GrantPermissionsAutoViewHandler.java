@@ -113,8 +113,7 @@ public class GrantPermissionsAutoViewHandler implements GrantPermissionsViewHand
         AlertDialogBuilder builder = new AlertDialogBuilder(mContext)
                 .setTitle(mGroupMessage)
                 .setSubtitle(mDetailMessage)
-                .setNegativeButton(R.string.grant_dialog_button_dismiss, (dialog, which) ->
-                        dialog.dismiss())
+                .setAllowDismissButton(false)
                 .setOnDismissListener((dialog) -> {
                     mDialog = null;
                     mResultListener.onPermissionGrantResult(mGroupName, DENIED);
