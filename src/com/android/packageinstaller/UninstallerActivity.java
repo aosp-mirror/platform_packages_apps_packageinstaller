@@ -16,6 +16,8 @@
 */
 package com.android.packageinstaller;
 
+import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
+
 import android.app.Activity;
 import android.app.ActivityThread;
 import android.app.DialogFragment;
@@ -78,6 +80,8 @@ public class UninstallerActivity extends Activity {
 
     @Override
     public void onCreate(Bundle icicle) {
+        getWindow().addPrivateFlags(PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
+
         super.onCreate(icicle);
         // Get intent information.
         // We expect an intent with URI of the form package://<packageName>#<className>
