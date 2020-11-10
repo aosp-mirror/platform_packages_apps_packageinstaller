@@ -19,28 +19,35 @@ package com.android.permissioncontroller.permission.data
 import android.app.AppOpsManager
 import android.app.AppOpsManager.OP_FLAGS_ALL_TRUSTED
 import android.app.Application
+import android.os.Parcel
+import android.os.Parcelable
 import android.os.UserHandle
+import android.util.Log
 import com.android.permissioncontroller.PermissionControllerApplication
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
-import java.util.function.Consumer
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import java.util.concurrent.Executor
 
 /**
  * LiveData that loads the last usage of each of a list of app ops for every package.
  *
  * <p>For app-ops with duration the end of the access is considered.
  *
+ * <p>Returns map op-name -> {@link OpAccess}
+ *
  * @param app The current application
  * @param opNames The names of the app ops we wish to search for
  * @param usageDurationMs how much ago can an access have happened to be considered
  */
-// TODO: listen for updates
 class OpUsageLiveData(
     private val app: Application,
     private val opNames: List<String>,
     private val usageDurationMs: Long
 ) : SmartAsyncMediatorLiveData<@JvmSuppressWildcards Map<String, List<OpAccess>>>(),
-        Consumer<AppOpsManager.HistoricalOps> {
-    val appOpsManager = app.getSystemService(AppOpsManager::class.java)!!
+        AppOpsManager.OnOpActiveChangedListener {
+    private val appOpsManager = app.getSystemService(AppOpsManager::class.java)!!
 
     override suspend fun loadDataAndPostValue(job: Job) {
         val now = System.currentTimeMillis()
@@ -54,30 +61,52 @@ class OpUsageLiveData(
         }
         for (packageOp in packageOps) {
             for (opEntry in packageOp.ops) {
-                val user = UserHandle.getUserHandleForUid(packageOp.uid)
-                val lastAccessTime: Long = opEntry.getLastAccessTime(OP_FLAGS_ALL_TRUSTED)
+                for ((attributionTag, attributedOpEntry) in opEntry.attributedOpEntries) {
+                    val user = UserHandle.getUserHandleForUid(packageOp.uid)
+                    val lastAccessTime: Long = attributedOpEntry.getLastAccessTime(
+                            OP_FLAGS_ALL_TRUSTED)
 
-                if (lastAccessTime == -1L) {
-                    // There was no access, so skip
-                    continue
-                }
-
-                var lastAccessDuration = opEntry.getLastDuration(OP_FLAGS_ALL_TRUSTED)
-
-                // Some accesses have no duration
-                if (lastAccessDuration == -1L) {
-                    lastAccessDuration = 0
-                }
-
-                if (opEntry.isRunning ||
-                        lastAccessTime + lastAccessDuration > (now - usageDurationMs)) {
-                    val accessList = opMap.getOrPut(opEntry.opStr) { mutableListOf() }
-                    val accessTime = if (opEntry.isRunning) {
-                        -1
-                    } else {
-                        lastAccessTime
+                    if (lastAccessTime == -1L) {
+                        // There was no access, so skip
+                        continue
                     }
-                    accessList.add(OpAccess(packageOp.packageName, user, accessTime))
+
+                    var lastAccessDuration = attributedOpEntry.getLastDuration(OP_FLAGS_ALL_TRUSTED)
+
+                    // Some accesses have no duration
+                    if (lastAccessDuration == -1L) {
+                        lastAccessDuration = 0
+                    }
+
+                    if (attributedOpEntry.isRunning ||
+                            lastAccessTime + lastAccessDuration > (now - usageDurationMs)) {
+                        val accessList = opMap.getOrPut(opEntry.opStr) { mutableListOf() }
+                        val accessTime = if (attributedOpEntry.isRunning) {
+                            OpAccess.IS_RUNNING
+                        } else {
+                            lastAccessTime
+                        }
+                        val proxy = attributedOpEntry.getLastProxyInfo(OP_FLAGS_ALL_TRUSTED)
+                        var proxyAccess: OpAccess? = null
+                        if (proxy != null && proxy.packageName != null) {
+                            proxyAccess = OpAccess(proxy.packageName!!, proxy.attributionTag,
+                                UserHandle.getUserHandleForUid(proxy.uid), accessTime)
+                        }
+                        accessList.add(OpAccess(packageOp.packageName, attributionTag,
+                            user, accessTime, proxyAccess))
+
+                        // TODO ntmyren: remove logs once b/160724034 is fixed
+                        Log.i("OpUsageLiveData", "adding ${opEntry.opStr} for " +
+                                "${packageOp.packageName}/$attributionTag, access time of " +
+                                "$lastAccessTime, isRunning: ${attributedOpEntry.isRunning} " +
+                                "current time $now, duration $lastAccessDuration, proxy: " +
+                                "${proxy?.packageName}")
+                    } else {
+                        Log.i("OpUsageLiveData", "NOT adding ${opEntry.opStr} for " +
+                                "${packageOp.packageName}/$attributionTag, access time of " +
+                                "$lastAccessTime, isRunning: ${attributedOpEntry.isRunning} " +
+                                "current time $now, duration $lastAccessDuration")
+                    }
                 }
             }
         }
@@ -85,31 +114,32 @@ class OpUsageLiveData(
         postValue(opMap)
     }
 
-    override fun accept(historicalOps: AppOpsManager.HistoricalOps) {
-        val opMap = mutableMapOf<String, MutableList<OpAccess>>()
-        for (i in 0 until historicalOps.uidCount) {
-            val historicalUidOps = historicalOps.getUidOpsAt(i)
-            val user = UserHandle.getUserHandleForUid(historicalUidOps.uid)
-            for (j in 0 until historicalUidOps.packageCount) {
-                val historicalPkgOps = historicalUidOps.getPackageOpsAt(j)
-                val pkgName = historicalPkgOps.packageName
-                for (k in 0 until historicalPkgOps.opCount) {
-                    val historicalAttributedOps = historicalPkgOps.getAttributedOpsAt(k)
-                    for (l in 0 until historicalAttributedOps.opCount) {
-                        val historicalOp = historicalAttributedOps.getOpAt(l)
-                        val opName = historicalOp.opName
+    override fun onActive() {
+        super.onActive()
 
-                        val accessList = opMap.getOrPut(opName) { mutableListOf() }
-                        accessList.add(OpAccess(pkgName, user, -1))
-                    }
-                }
+        // appOpsManager.startWatchingNoted() is not exposed, hence force update regularly :-(
+        GlobalScope.launch {
+            while (hasActiveObservers()) {
+                delay(1000)
+                onUpdate()
             }
+        }
+
+        try {
+            appOpsManager.startWatchingActive(opNames.toTypedArray(), Executor { it.run() }, this)
+        } catch (ignored: IllegalArgumentException) {
+            // older builds might not support all the app-ops requested
         }
     }
 
-    override fun onActive() {
-        super.onActive()
-        updateAsync()
+    override fun onInactive() {
+        super.onInactive()
+
+        appOpsManager.stopWatchingActive(this)
+    }
+
+    override fun onOpActiveChanged(op: String, uid: Int, packageName: String, active: Boolean) {
+        onUpdate()
     }
 
     companion object : DataRepository<Pair<List<String>, Long>, OpUsageLiveData>() {
@@ -123,10 +153,41 @@ class OpUsageLiveData(
     }
 }
 
-data class OpAccess(val packageName: String?, val user: UserHandle?, val lastAccessTime: Long) {
-    companion object {
-        const val IS_RUNNING = -1L
+data class OpAccess(
+    val packageName: String,
+    val attributionTag: String?,
+    val user: UserHandle,
+    val lastAccessTime: Long,
+    val proxyAccess: OpAccess? = null
+) : Parcelable {
+    val isRunning = lastAccessTime == IS_RUNNING
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(packageName)
+        parcel.writeString(attributionTag)
+        parcel.writeParcelable(user, flags)
+        parcel.writeLong(lastAccessTime)
     }
 
-    fun isRunning() = lastAccessTime == IS_RUNNING
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object {
+        const val IS_RUNNING = -1L
+
+        @JvmField
+        val CREATOR = object : Parcelable.Creator<OpAccess> {
+            override fun createFromParcel(parcel: Parcel): OpAccess {
+                return OpAccess(parcel.readString()!!,
+                        parcel.readString(),
+                        parcel.readParcelable(UserHandle::class.java.classLoader)!!,
+                        parcel.readLong())
+            }
+
+            override fun newArray(size: Int): Array<OpAccess?> {
+                return arrayOfNulls(size)
+            }
+        }
+    }
 }

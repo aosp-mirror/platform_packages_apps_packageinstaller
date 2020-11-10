@@ -111,9 +111,9 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
      * This usually results in an IPC when active and no action otherwise.
      */
     @MainThread
-    fun updateIfActive() {
+    fun update() {
         if (DEBUG_UPDATES) {
-            Log.i(LOG_TAG, "updateIfActive ${javaClass.simpleName} ${shortStackTrace()}")
+            Log.i(LOG_TAG, "update ${javaClass.simpleName} ${shortStackTrace()}")
         }
         onUpdate()
     }
@@ -232,7 +232,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
                     if (onUpdateFun != null) {
                         onUpdateFun(key)
                     } else {
-                        updateIfActive()
+                        update()
                     }
                 }
                 addSourceWithError(liveData, observer, stackTraceException)
@@ -299,7 +299,7 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         // if all sources are not stale, and we just requested stale updates, and we are stale,
         // update our value
         if (sources.all { !it.isStale } && hasStaleObserver && isStale) {
-            updateIfActive()
+            update()
         }
     }
 
@@ -322,14 +322,14 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
      * Get the [initialized][isInitialized] value, suspending until one is available
      *
      * @param staleOk whether [isStale] value is ok to return
-     * @param forceUpdate whether to call [updateIfActive] (usually triggers an IPC)
+     * @param forceUpdate whether to call [update] (usually triggers an IPC)
      */
     suspend fun getInitializedValue(staleOk: Boolean = false, forceUpdate: Boolean = false): T {
         return getInitializedValue(
             observe = { observer ->
                 observeStale(ForeverActiveLifecycle, observer)
                 if (forceUpdate || (!staleOk && isStale)) {
-                    updateIfActive()
+                    update()
                 }
             },
             isInitialized = { isInitialized && (staleOk || !isStale) })
