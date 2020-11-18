@@ -144,7 +144,7 @@ class AppPermissionViewModel(
         init {
             if (isStorage) {
                 addSource(FullStoragePermissionAppsLiveData) {
-                    updateIfActive()
+                    update()
                 }
             } else {
                 value = null
@@ -192,13 +192,13 @@ class AppPermissionViewModel(
                     if (value == null) {
                         logAppPermissionFragmentViewed()
                     }
-                    updateIfActive()
+                    update()
                 }
             }
 
             if (isStorage) {
                 addSource(fullStorageStateLiveData) {
-                    updateIfActive()
+                    update()
                 }
             }
         }

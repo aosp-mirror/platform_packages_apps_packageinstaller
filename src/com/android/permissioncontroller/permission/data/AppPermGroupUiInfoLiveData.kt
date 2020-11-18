@@ -68,15 +68,15 @@ class AppPermGroupUiInfoLiveData private constructor(
             LocationUtils.isLocationGroupAndControllerExtraPackage(app, permGroupName, packageName)
 
         addSource(packageInfoLiveData) {
-            updateIfActive()
+            update()
         }
 
         addSource(permGroupLiveData) {
-            updateIfActive()
+            update()
         }
 
         addSource(permissionStateLiveData) {
-            updateIfActive()
+            update()
         }
     }
 
@@ -315,14 +315,14 @@ class AppPermGroupUiInfoLiveData private constructor(
     }
 
     override fun onLocationStateChange(enabled: Boolean) {
-        updateIfActive()
+        update()
     }
 
     override fun onActive() {
         super.onActive()
         if (isSpecialLocation) {
             LocationUtils.addLocationListener(this)
-            updateIfActive()
+            update()
         }
     }
 
