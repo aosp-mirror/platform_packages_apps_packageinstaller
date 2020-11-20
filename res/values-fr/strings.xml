@@ -58,6 +58,7 @@
     <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Ouvrir les informations sur l\'application"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> autre</item>
+      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> more</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> autres</item>
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Cette application a été conçue pour une ancienne version d\'Android. Si vous refusez les autorisations, l\'application risque de ne plus fonctionner comme prévu."</string>
@@ -105,18 +106,22 @@
     <string name="permission_usage_title" msgid="6808284837306026819">"Tableau de bord"</string>
     <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
       <item quantity="one">Dernier accès : <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> accès</item>
+      <item quantity="many">Last access: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> accesses</item>
       <item quantity="other">Derniers accès : <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> accès</item>
     </plurals>
     <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
       <item quantity="one">Dernier accès : <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accès (<xliff:g id="NUM_5">%3$s</xliff:g> en arrière-plan)</item>
+      <item quantity="many">Last access: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accesses (<xliff:g id="NUM_5">%3$s</xliff:g> in background)</item>
       <item quantity="other">Derniers accès : <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accès (<xliff:g id="NUM_5">%3$s</xliff:g> en arrière-plan)</item>
     </plurals>
     <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
       <item quantity="one">Dernier accès : <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accès\nDurée : <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="many">Last access: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accesses\nDuration: <xliff:g id="TIME_5">%3$s</xliff:g></item>
       <item quantity="other">Derniers accès : <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accès\nDurée : <xliff:g id="TIME_5">%3$s</xliff:g></item>
     </plurals>
     <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
       <item quantity="one">Dernier accès : <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> accès (<xliff:g id="NUM_6">%3$s</xliff:g> en arrière-plan)\nDurée : <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="many">Last access: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> accesses (<xliff:g id="NUM_6">%3$s</xliff:g> in background)\nDuration: <xliff:g id="TIME_7">%3$s</xliff:g></item>
       <item quantity="other">Derniers accès : <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> accès (<xliff:g id="NUM_6">%3$s</xliff:g> en arrière-plan)\nDurée : <xliff:g id="TIME_7">%3$s</xliff:g></item>
     </plurals>
     <string name="permission_usage_summary_background" msgid="4789805581854248472">"Dernier accès : <xliff:g id="TIME">%1$s</xliff:g>\nDernier accès en arrière-plan"</string>
@@ -142,6 +147,7 @@
     <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Autorisations utilisées (dernière minute)"</string>
     <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> application</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> apps</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> applications</item>
     </plurals>
     <string name="permission_usage_view_details" msgid="4728049344017619500">"Tout afficher dans le tableau de bord"</string>
@@ -159,6 +165,7 @@
     <string name="permission_usage_refresh" msgid="2182775682810005148">"Actualiser"</string>
     <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> application</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> apps</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> applications</item>
     </plurals>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Utilisation des autorisations"</string>
@@ -221,18 +228,22 @@
     <string name="denied_header" msgid="2277998574238617699">"Accès refusé"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> jour</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> days</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> jours</item>
     </plurals>
     <plurals name="hours" formatted="false" msgid="2123927014975877155">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> heure</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> hours</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> heures</item>
     </plurals>
     <plurals name="minutes" formatted="false" msgid="4331145652577957044">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> minute</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> minutes</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minutes</item>
     </plurals>
     <plurals name="seconds" formatted="false" msgid="1632909606956324957">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> seconde</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> seconds</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> secondes</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Rappels relatifs aux autorisations"</string>
@@ -243,11 +254,13 @@
     <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Certaines applications n\'ont pas été utilisées depuis plusieurs mois. Appuyez ici pour en savoir plus."</string>
     <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> application inutilisée depuis plusieurs mois. Appuyez ici pour en savoir plus</item>
+      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> apps haven’t been used in a few months. Tap to review</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> applications inutilisées depuis plusieurs mois. Appuyez ici pour en savoir plus</item>
     </plurals>
     <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Certaines applications n\'ont pas été utilisées depuis plusieurs mois"</string>
     <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> application inutilisée depuis plusieurs mois</item>
+      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> apps haven’t been used in a few months</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> applications inutilisées depuis plusieurs mois</item>
     </plurals>
     <string name="permissions_removed_category_title" msgid="189425131292668991">"Autorisations supprimées"</string>
