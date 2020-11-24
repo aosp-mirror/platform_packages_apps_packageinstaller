@@ -81,6 +81,9 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
     private static final String AUTO_REVOKE_CATEGORY_KEY = "_AUTO_REVOKE_KEY";
     private static final String AUTO_REVOKE_SWITCH_KEY = "_AUTO_REVOKE_SWITCH_KEY";
     private static final String AUTO_REVOKE_SUMMARY_KEY = "_AUTO_REVOKE_SUMMARY_KEY";
+    private static final String ASSISTANT_MIC_CATEGORY_KEY = "_ASSISTANT_MIC_KEY";
+    private static final String ASSISTANT_MIC_SWITCH_KEY = "_ASSISTANT_MIC_SWITCH_KEY";
+    private static final String ASSISTANT_MIC_SUMMARY_KEY = "_ASSISTANT_MIC_SUMMARY_KEY";
 
     static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
@@ -346,10 +349,12 @@ public final class AppPermissionGroupsFragment extends SettingsWithLargeHeader {
         Preference autoRevokeSummary = autoRevokeCategory.findPreference(AUTO_REVOKE_SUMMARY_KEY);
 
         if (!state.isEnabledGlobal() || !state.getShouldShowSwitch()) {
+            autoRevokeCategory.setVisible(false);
             autoRevokeSwitch.setVisible(false);
             autoRevokeSummary.setVisible(false);
             return;
         }
+        autoRevokeCategory.setVisible(true);
         autoRevokeSwitch.setVisible(true);
         autoRevokeSummary.setVisible(true);
         autoRevokeSwitch.setChecked(state.isEnabledForApp());
