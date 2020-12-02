@@ -1455,7 +1455,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     // a handle to state it shouldn't have, so we have to kill the app. This matches
                     // the revoke runtime permission behavior.
                     if (permission.isAppOpAllowed()) {
-                        shouldKillApp |= allowAppOp(permission, uid);
+                        boolean wasChanged = allowAppOp(permission, uid);
+                        shouldKillApp |= wasChanged && !mAppSupportsRuntimePermissions;
                     } else {
                         shouldKillApp |= disallowAppOp(permission, uid);
                     }
