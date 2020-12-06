@@ -21,6 +21,7 @@
     <string name="permission_search_keyword" msgid="1652964722383449182">"rechten"</string>
     <string name="cancel" msgid="7279939269964834974">"Annuleren"</string>
     <string name="back" msgid="8739808065891653074">"Terug"</string>
+    <string name="uninstall_or_disable" msgid="2397169592250216844">"Verwijderen of uitschakelen"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"App niet gevonden"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Weigeren"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Weigeren en niet meer vragen"</string>
@@ -28,6 +29,7 @@
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"\'Alleen deze keer\' behouden"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Meer informatie"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Toch weigeren"</string>
+    <string name="grant_dialog_button_dismiss" msgid="7373256798518448276">"Sluiten"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> van <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; het volgende toestaan: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; altijd toestaan om <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -42,8 +44,13 @@
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"Tijdens gebruik van de app"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"Alleen deze keer"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Altijd toestaan"</string>
+    <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"Toestemming geven om alle bestanden te beheren"</string>
+    <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"Toegang tot mediabestanden toestaan"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Apps"</string>
     <string name="app_permissions" msgid="2778362347879465223">"App-rechten"</string>
+    <string name="unused_apps" msgid="3935514133237470759">"Niet-gebruikte apps"</string>
+    <string name="app_disable_dlg_positive" msgid="3928516331670255309">"App uitschakelen"</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Als je deze app uitschakelt, werken Android en andere apps mogelijk niet meer zoals bedoeld. Onthoud dat je deze app niet kunt verwijderen, omdat deze vooraf geïnstalleerd was op je apparaat. Uitschakelen betekent dat je deze app uitschakelt en verbergt op je apparaat."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Rechtenbeheer"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Niet meer vragen"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Geen rechten"</string>
@@ -53,9 +60,10 @@
       <item quantity="other">Nog <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">Nog <xliff:g id="COUNT_0">%1$d</xliff:g></item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Deze app is ontworpen voor een oudere versie van Android. Als u geen toestemming geeft, kan de app mogelijk niet functioneren zoals is bedoeld."</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Deze app is ontworpen voor een oudere versie van Android. Als u geen rechten geeft, kan de app mogelijk niet functioneren zoals is bedoeld."</string>
     <string name="default_permission_description" msgid="692254823411049573">"een onbekende actie uitvoeren"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Verleend aan <xliff:g id="COUNT_0">%1$d</xliff:g> van <xliff:g id="COUNT_1">%2$d</xliff:g> apps"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"Verleend aan <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> apps"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Systeem-apps weergeven"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Systeem-apps verbergen"</string>
     <string name="no_apps" msgid="2377153782338039463">"Geen apps"</string>
@@ -80,7 +88,7 @@
     <string name="loading" msgid="323483393167148377">"Laden…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Alle rechten"</string>
     <string name="other_permissions" msgid="1956312685853070715">"Andere app-mogelijkheden"</string>
-    <string name="permission_request_title" msgid="6779348653783761548">"Toestemmingsverzoek"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Rechtenverzoek"</string>
     <string name="screen_overlay_title" msgid="1632732130312696010">"Schermoverlay gedetecteerd"</string>
     <string name="screen_overlay_message" msgid="3222033787364955006">"Als u deze instelling voor rechten wilt wijzigen, moet u eerst de schermoverlay uitschakelen via Instellingen &gt; Apps"</string>
     <string name="screen_overlay_button" msgid="3554849308322944411">"Instellingen openen"</string>
@@ -94,11 +102,71 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Huidige rechten"</string>
     <string name="message_staging" msgid="641286607664721291">"App uitvoeren…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Onbekend"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Dashboard"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Laatste keer geopend: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> toegangsacties</item>
+      <item quantity="one">Laatste keer geopend: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> toegangsactie</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Laatste keer geopend: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> toegangsacties (<xliff:g id="NUM_5">%3$s</xliff:g> op de achtergrond)</item>
+      <item quantity="one">Laatste keer geopend: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> toegangsacties (<xliff:g id="NUM_2">%3$s</xliff:g> op de achtergrond)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Laatste keer geopend: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> toegangsacties\nDuur: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Laatste keer geopend: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> toegangsactie\nDuur: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Laatste keer geopend: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> toegangsacties (<xliff:g id="NUM_6">%3$s</xliff:g> op de achtergrond)\nDuur: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Laatste keer geopend: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> toegangsactie (<xliff:g id="NUM_2">%3$s</xliff:g> op de achtergrond)\nDuur: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Laatste keer geopend: <xliff:g id="TIME">%1$s</xliff:g>\nLaatst geopend op de achtergrond"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Minstens 1 recht"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Altijd"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Afgelopen 7 dagen"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Afgelopen 24 uur"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Afgelopen uur"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Afgelopen 15 minuten"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Afgelopen minuut"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Geen rechtengebruik"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Laatste toegang"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Laatste toegang in de afgelopen zeven dagen"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Laatste toegang in de afgelopen 24 uur"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Laatste toegang in het afgelopen uur"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Laatste toegang in de afgelopen vijftien minuten"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Laatste toegang in de afgelopen minuut"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Rechtengebruik"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Rechtengebruik in de afgelopen zeven dagen"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Rechtengebruik in de afgelopen 24 uur"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Rechtengebruik in het afgelopen uur"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Rechtengebruik in de afgelopen 15 minuten"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Rechtengebruik in de afgelopen minuut"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apps</item>
+      <item quantity="one">1 app</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"Alles weergeven op dashboard"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Gefilterd op: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Filter verwijderen"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filteren op"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filteren op rechten"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Filteren op tijd"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Meeste rechten"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Meeste toegangsacties"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Recent"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Sorteren op app-gebruik"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Sorteren op tijd"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Vernieuwen"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apps</item>
+      <item quantity="one">1 app</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Gebruik van app-rechten"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Toegang: <xliff:g id="NUM">%1$s</xliff:g> keer. Totale duur: <xliff:g id="DURATION">%2$s</xliff:g>. Laatst gebruikt: <xliff:g id="TIME">%3$s</xliff:g> geleden."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Toegang: <xliff:g id="NUM">%1$s</xliff:g> keer. Laatst gebruikt: <xliff:g id="TIME">%2$s</xliff:g> geleden."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Toestaan"</string>
+    <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Toestemming geven om alle bestanden te beheren"</string>
+    <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Alleen toegang tot media toestaan"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Altijd toestaan"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Toestaan bij gebruik van app"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Altijd vragen"</string>
@@ -107,6 +175,27 @@
     <string name="app_permission_header" msgid="228974007660007656">"Toegang tot <xliff:g id="PERM">%1$s</xliff:g> voor deze app"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Alle rechten van <xliff:g id="APP">%1$s</xliff:g> bekijken"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Alle apps met dit recht bekijken"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"Gebruik van Assistent-microfoon weergeven"</string>
+    <string name="auto_revoke_label" msgid="8755748230070160969">"Rechten verwijderen als app niet wordt gebruikt"</string>
+    <string name="auto_revoke_summary" msgid="308686883215278993">"Om je gegevens te beschermen worden de rechten voor deze app verwijderd als de app een aantal maanden niet is gebruikt."</string>
+    <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Om je gegevens te beschermen worden de volgende rechten verwijderd als de app een paar maanden niet is gebruikt: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
+    <string name="auto_revoked_apps_page_summary" msgid="2780912986594704165">"Om je gegevens te beschermen zijn de rechten verwijderd van apps die al een paar maanden niet zijn gebruikt."</string>
+    <string name="auto_revoke_open_app_message" msgid="7159193262034433811">"Als je weer rechten wilt toestaan, open je de app."</string>
+    <string name="auto_revoke_disabled" msgid="4480748641016277290">"Automatisch verwijderen is momenteel uitgeschakeld voor deze app."</string>
+    <string name="auto_revocable_permissions_none" msgid="2908881351941596829">"Er zijn momenteel geen automatisch herroepbare rechten verleend"</string>
+    <string name="auto_revocable_permissions_one" msgid="8790555940010364058">"Recht voor <xliff:g id="PERM">%1$s</xliff:g> wordt verwijderd."</string>
+    <string name="auto_revocable_permissions_two" msgid="1931722576733672966">"Rechten voor <xliff:g id="PERM_0">%1$s</xliff:g> en <xliff:g id="PERM_1">%2$s</xliff:g> worden verwijderd."</string>
+    <string name="auto_revocable_permissions_many" msgid="1091636791684380583">"Rechten die worden verwijderd: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
+    <string name="auto_manage_title" msgid="4059499629753336321">"Rechten automatisch beheren"</string>
+    <string name="off" msgid="4561379152328580345">"Uit"</string>
+    <string name="auto_revoked_app_summary_one" msgid="8225130145550153436">"Recht voor <xliff:g id="PERMISSION_NAME">%s</xliff:g> verwijderd"</string>
+    <string name="auto_revoked_app_summary_two" msgid="7221373533369007890">"Rechten voor <xliff:g id="PERMISSION_NAME_0">%1$s</xliff:g> en <xliff:g id="PERMISSION_NAME_1">%2$s</xliff:g> verwijderd"</string>
+    <string name="auto_revoked_app_summary_many" msgid="7190907278970377826">"<xliff:g id="PERMISSION_NAME">%1$s</xliff:g> en <xliff:g id="NUMBER">%2$s</xliff:g> andere rechten zijn verwijderd"</string>
+    <string name="last_opened_category_title" msgid="4204626487716958146">"Meer dan <xliff:g id="NUMBER">%s</xliff:g> maanden geleden voor het laatst geopend"</string>
+    <string name="last_opened_summary" msgid="8038737442154732">"App laatst geopend op <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="last_opened_summary_short" msgid="403134890404955437">"Laatst geopend op <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Als je beheer van alle bestanden toestaat, kan deze app alle bestanden in algemene opslag op dit apparaat of op gekoppelde opslagapparaten openen, aanpassen en verwijderen. De app kan toegang tot bestanden krijgen zonder dat aan je te vragen."</string>
+    <string name="special_file_access_dialog" msgid="7325467268782278105">"Toestaan dat deze app bestanden op het apparaat of gekoppelde opslagapparaten kan openen, aanpassen of verwijderen? Deze app kan toegang tot bestanden krijgen zonder dat aan je te vragen."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apps met dit recht kunnen <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apps met dit recht hebben toegang tot je fysieke activiteit, zoals wandelen, fietsen, autorijden, aantal stappen en meer"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Apps met dit recht hebben toegang tot je agenda"</string>
@@ -126,8 +215,8 @@
     <string name="allowed_header" msgid="6279244592227088158">"Toegestaan"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Altijd toegestaan"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Alleen toegestaan tijdens gebruik"</string>
-    <string name="allowed_storage_scoped" msgid="3967195189363409314">"Toegestaan voor alleen media"</string>
-    <string name="allowed_storage_full" msgid="6802526449595533370">"Toegestaan voor alle bestanden"</string>
+    <string name="allowed_storage_scoped" msgid="2472018207553284700">"Alleen toegang tot media toegestaan"</string>
+    <string name="allowed_storage_full" msgid="4167507647800726342">"Toestemming om alle bestanden te beheren"</string>
     <string name="ask_header" msgid="4471670860332046665">"Altijd vragen"</string>
     <string name="denied_header" msgid="2277998574238617699">"Geweigerd"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -147,9 +236,46 @@
       <item quantity="one">1 seconde</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Herinneringen voor rechten"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_one" msgid="5769691038915584486">"1 niet-gebruikte app"</string>
+    <string name="auto_revoke_permission_reminder_notification_title_many" msgid="9035362208572362215">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> niet-gebruikte apps"</string>
+    <string name="auto_revoke_permission_reminder_notification_content" msgid="5952076530125261716">"De rechten zijn verwijderd om je privacy te beschermen. Tik om dit te bekijken."</string>
+    <string name="auto_revoke_permission_notification_title" msgid="7216492977743895366">"Rechten verwijderd voor niet-gebruikte apps"</string>
+    <string name="auto_revoke_permission_notification_content" msgid="7535335306414309309">"Bepaalde apps zijn al een paar maanden niet gebruikt. Tik om te bekijken."</string>
+    <plurals name="auto_revoke_permission_notification_content_count" formatted="false" msgid="3130723967533728039">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> apps zijn al een paar maanden niet gebruikt. Tik om te bekijken.</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> app is al een paar maanden niet gebruikt. Tik om te bekijken.</item>
+    </plurals>
+    <string name="auto_revoke_setting_subtitle" msgid="8151093881906344464">"Bepaalde apps zijn al een paar maanden niet gebruikt"</string>
+    <plurals name="auto_revoke_setting_subtitle_count" formatted="false" msgid="8360897918922510305">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> apps zijn al een paar maanden niet gebruikt</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> app is al een paar maanden niet gebruikt</item>
+    </plurals>
+    <string name="permissions_removed_category_title" msgid="189425131292668991">"Verwijderde rechten"</string>
+    <string name="permission_removed_page_title" msgid="6249023142431438359">"Rechten verwijderd"</string>
+    <string name="all_unused_apps_category_title" msgid="7882561467377852786">"Alle niet-gebruikte apps"</string>
+    <string name="months_ago" msgid="6541240625299588045">"<xliff:g id="COUNT">%1$d</xliff:g> maanden geleden"</string>
+    <string name="auto_revoke_preference_summary" msgid="422689541593333180">"De rechten zijn verwijderd om je privacy te beschermen"</string>
     <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> had toegang tot je locatie op de achtergrond"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Deze app heeft altijd toegang tot je locatie. Tik om dit te wijzigen."</string>
+    <string name="auto_revoke_after_notification_title" msgid="6256474332719286120">"App-rechten verwijderd om privacy te beschermen"</string>
+    <string name="auto_revoke_after_notification_content_one" msgid="2599193525413390339">"<xliff:g id="APP_NAME">%s</xliff:g> is al een paar maanden niet gebruikt. Tik om dit te bekijken."</string>
+    <string name="auto_revoke_after_notification_content_two" msgid="1866307724849983054">"<xliff:g id="APP_NAME">%s</xliff:g> en één andere app zijn al een paar maanden niet gebruikt. Tik om dit te bekijken."</string>
+    <string name="auto_revoke_after_notification_content_many" msgid="830111995719692890">"<xliff:g id="APP_NAME">%1$s</xliff:g> en nog <xliff:g id="NUMBER_OF_APPS">%2$s</xliff:g> apps zijn al een paar maanden niet gebruikt. Tik om dit te bekijken."</string>
+    <string name="auto_revoke_before_notification_title_one" msgid="5487334486889306216">"1 app wordt niet gebruikt"</string>
+    <string name="auto_revoke_before_notification_title_many" msgid="1512657862051262697">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps worden niet gebruikt"</string>
+    <string name="auto_revoke_before_notification_content_one" msgid="2070547291547064792">"De rechten worden verwijderd om je privacy te beschermen. Tik om dit te bekijken."</string>
+    <string name="unused_apps_title" msgid="4528745145780586943">"Niet-gebruikte apps"</string>
+    <string name="unused_apps_subtitle_after" msgid="7664277360480735253">"Rechten verwijderd van"</string>
+    <string name="unused_apps_subtitle_before" msgid="6907087239793765525">"Rechten worden verwijderd van"</string>
+    <string name="unused_permissions_subtitle_two" msgid="8377946866912481356">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g> en <xliff:g id="PERM_NAME_1">%2$s</xliff:g>"</string>
+    <string name="unused_permissions_subtitle_many" msgid="3293109339018555084">"<xliff:g id="PERM_NAME_0">%1$s</xliff:g>, <xliff:g id="PERM_NAME_1">%2$s</xliff:g> en nog <xliff:g id="NUMBER_OF_PERMISSIONS">%3$s</xliff:g> meer"</string>
+    <string name="unused_app_permissions_removed_summary" msgid="323483158593998019">"Ter bescherming van je gegevens zijn de rechten verwijderd van apps die al een paar maanden niet zijn gebruikt"</string>
+    <string name="unused_app_permissions_removed_summary_some" msgid="6280714834316090266">"Ter bescherming van je gegevens zijn de rechten verwijderd van bepaalde apps die al een paar maanden niet zijn gebruikt"</string>
+    <string name="one_unused_app_summary" msgid="4609894550969723046">"1 app is al een paar maanden niet meer gebruikt"</string>
+    <string name="num_unused_apps_summary" msgid="2950515592303103371">"<xliff:g id="NUMBER_OF_APPS">%s</xliff:g> apps zijn al een paar maanden niet meer gebruikt"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Alleen terwijl de app wordt gebruikt"</string>
+    <string name="permission_subtitle_media_only" msgid="4163630471124702816">"Media"</string>
+    <string name="permission_subtitle_all_files" msgid="8017896678339448565">"Alle bestanden"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Geen rechten verleend"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Geen rechten geweigerd"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Geen apps toegestaan"</string>
@@ -162,8 +288,8 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> toegankelijkheidsapps hebben volledige toegang tot je apparaat"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> kan je scherm, acties en invoer bekijken, acties uitvoeren en de weergave beheren."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Deze apps kunnen je scherm, acties en invoer bekijken, acties uitvoeren en de weergave beheren."</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"Standaard-app voor assistentie"</string>
-    <string name="role_assistant_short_label" msgid="3048707738783655050">"App voor assistentie"</string>
+    <string name="role_assistant_label" msgid="4296361982493275449">"Standaard digitale-assistent-app"</string>
+    <string name="role_assistant_short_label" msgid="2965228260285438681">"Digitale-assistent-app"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Assistentie-apps kunnen je helpen op basis van de informatie op het scherm dat je bekijkt. Bepaalde apps ondersteunen launcher- en spraakinvoerservices voor geïntegreerde ondersteuning."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"<xliff:g id="APP_NAME">%1$s</xliff:g> instellen als standaard-app voor assistentie?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Krijgt toegang tot sms en gesprekslijst"</string>
@@ -203,13 +329,25 @@
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Geen rechten nodig"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Standaard-app voor beller-ID\'s en spam"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"App voor beller-ID\'s en spam"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"Apps waarmee je gesprekken kunt herkennen, spam en robocalls kunt blokkeren en ongewenste nummers op de zwarte lijst kunt zetten"</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"Apps waarmee je gesprekken kunt identificeren en spam, robocalls of ongewenste nummers kunt blokkeren"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> instellen als standaard-app voor beller-ID\'s en spam?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Geen rechten nodig"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Huidige standaard-app"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Niet meer vragen"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Standaard instellen"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Microfoon wordt gebruikt in &lt;b&gt;telefoongesprek&lt;/b&gt;"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"Camera en microfoon worden gebruikt in &lt;b&gt;videogesprek&lt;/b&gt;"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"Camera wordt gebruikt in &lt;b&gt;videogesprek&lt;/b&gt;"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Microfoon wordt gebruikt via systeemservice"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Camera en microfoon worden gebruikt via systeemservice"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Camera wordt gebruikt via systeemservice"</string>
+    <string name="other_use" msgid="9076086164996623754">"Ander gebruik:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"OK"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Recent gebruik van <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" en "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"standaard-apps"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"Microfoon en camera"</string>
     <string name="settings_button" msgid="4747434541214595321">"Instellingen"</string>
     <string name="default_apps" msgid="8554530939151957828">"Standaard-apps"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Geen standaard-apps"</string>
@@ -231,7 +369,7 @@
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Foutopsporingsgegevens delen"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Gedetailleerde foutopsporingsgegevens delen?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> wil foutopsporingsinformatie uploaden."</string>
-    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Foutopsporingsgegevens delen"</string>
+    <string name="incident_report_dialog_title" msgid="5198082190470192379">"Foutopsporingsgegevens delen?"</string>
     <string name="incident_report_dialog_intro" msgid="153446034925770956">"Het systeem heeft een probleem gedetecteerd."</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> wil een bugrapport van dit apparaat uploaden dat is gemaakt op <xliff:g id="DATE">%2$s</xliff:g> om <xliff:g id="TIME">%3$s</xliff:g>. Bugrapporten omvatten persoonlijke informatie over je apparaat of gegevens die zijn geregistreerd door apps, zoals gebruikersnamen, locatiegegevens, apparaat-ID\'s en netwerkgegevens. Deel alleen bugrapporten met mensen en apps die je met deze informatie vertrouwt. Wil je <xliff:g id="APP_NAME_1">%4$s</xliff:g> toestaan een bugrapport te uploaden?"</string>
     <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Er is een fout opgetreden bij het verwerken van het bugrapport voor <xliff:g id="APP_NAME">%1$s</xliff:g>. Het delen van de gedetailleerde foutopsporingsgegevens is daarom geweigerd. Onze excuses voor de onderbreking."</string>
@@ -243,8 +381,8 @@
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Gebruik van rechten door systeem-apps weergeven op statusbalk, dashboard en elders"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Gebruik laten zien voor het volgende"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Assistent-activeringsdetectie weergeven"</string>
-    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Pictogram op statusbalk weergeven wanneer microfoon wordt gebruikt om de Spraakassistent te activeren"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="8503400511548542256">"Toestaan dat &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; de mediabestanden van dit apparaat leest?"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Icoon op statusbalk weergeven als microfoon wordt gebruikt om de Spraakassistent te activeren"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; toegang geven tot foto\'s en media op je apparaat?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; toegang geven tot je contacten?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; toegang geven tot de locatie van dit apparaat?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"De app heeft alleen toegang tot de locatie wanneer je de app gebruikt"</string>
@@ -262,6 +400,10 @@
     <string name="permgrouprequest_phone" msgid="6240218310343431124">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; toestaan om telefoongesprekken te starten en te beheren?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; toegang geven tot sensorgegevens over je vitale functies?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"Beheerde rechten"</string>
-    <string name="auto_granted_location_permission_notification_title" msgid="5058977868989759266">"Een app heeft toegang tot je locatie"</string>
-    <string name="auto_granted_permission_notification_body" msgid="6650181834574213734">"<xliff:g id="APP_NAME">%s</xliff:g> heeft nu toegang tot je locatie. Neem contact op met de IT-beheerder voor meer informatie."</string>
+    <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"Locatie is toegankelijk"</string>
+    <string name="auto_granted_permission_notification_body" msgid="492268790630112781">"Je IT-beheerder verleent <xliff:g id="APP_NAME">%s</xliff:g> toegang tot je locatie"</string>
+    <string name="fg_capabilities_sound_trigger" msgid="4937457992874270459">"Sommige opties zijn niet beschikbaar omdat deze app geluid moet detecteren"</string>
+    <string name="fg_capabilities_assistant" msgid="6285681832588297471">"Sommige opties zijn niet beschikbaar omdat deze app je standaard digitale assistent is"</string>
+    <string name="fg_capabilities_voice_interaction" msgid="5211466473396010463">"Sommige opties zijn niet beschikbaar omdat deze app wordt gebruikt voor spraakinvoer"</string>
+    <string name="fg_capabilities_carrier" msgid="4063467791736574406">"Sommige opties zijn niet beschikbaar omdat deze app door je provider wordt beheerd"</string>
 </resources>
