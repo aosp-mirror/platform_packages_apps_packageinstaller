@@ -103,10 +103,74 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Pašreizējās atļaujas"</string>
     <string name="message_staging" msgid="641286607664721291">"Lietotne tiek izstādīta…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Nezināma"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Informācijas panelis"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="zero">Pēdējā piekļuve: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> piekļuves gadījumi</item>
+      <item quantity="one">Pēdējā piekļuve: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> piekļuves gadījums</item>
+      <item quantity="other">Pēdējā piekļuve: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> piekļuves gadījumi</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="zero">Pēdējā piekļuve: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> piekļuves gadījumi (<xliff:g id="NUM_5">%3$s</xliff:g> fonā)</item>
+      <item quantity="one">Pēdējā piekļuve: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> piekļuves gadījums (<xliff:g id="NUM_5">%3$s</xliff:g> fonā)</item>
+      <item quantity="other">Pēdējā piekļuve: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> piekļuves gadījumi (<xliff:g id="NUM_5">%3$s</xliff:g> fonā)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="zero">Pēdējā piekļuve: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> piekļuves gadījumi\nIlgums: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Pēdējā piekļuve: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> piekļuves gadījums\nIlgums: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Pēdējā piekļuve: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> piekļuves gadījumi\nIlgums: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="zero">Pēdējā piekļuve: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> piekļuves gadījumi (<xliff:g id="NUM_6">%3$s</xliff:g> fonā)\nIlgums: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Pēdējā piekļuve: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> piekļuves gadījums (<xliff:g id="NUM_6">%3$s</xliff:g> fonā)\nIlgums: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Pēdējā piekļuve: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> piekļuves gadījumi (<xliff:g id="NUM_6">%3$s</xliff:g> fonā)\nIlgums: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Pēdējā piekļuve: <xliff:g id="TIME">%1$s</xliff:g>\nPēdējā piekļuve fonā"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Jebkura atļauja"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Jebkurā laikā"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Pēdējās 7 dienās"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Pēdējās 24 stundās"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Pēdējā stundā"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Pēdējās 15 minūtēs"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Pēdējā minūtē"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Nav lietota neviena atļauja"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Nesenākā piekļuve jebkurā laikā"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Nesenākā piekļuve pēdējo 7 dienu laikā"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Nesenākā piekļuve pēdējās 24 stundās"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Nesenākā piekļuve pēdējās stundas laikā"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Nesenākā piekļuve pēdējo 15 minūšu laikā"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Nesenākā piekļuve pēdējās minūtes laikā"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Atļaujas lietojums jebkurā laikā"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Atļauju lietojums pēdējās 7 dienās"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Atļauju lietojums pēdējo 24 stundu laikā"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Atļauju lietojums pēdējās stundas laikā"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Atļauju lietojums pēdējās 15 minūtēs"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Atļauju lietojums pēdējā minūtē"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="zero"><xliff:g id="NUMBER">%s</xliff:g> lietotnes</item>
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> lietotne</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> lietotnes</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"Skatīt visu rīkā Permission Dashboard"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrēts pēc: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Noņemt filtru"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrēt pēc"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrēt pēc atļaujām"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Filtrēt pēc laika"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Lielākā daļa atļauju"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Lielākais piekļuvju skaits"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Jaunākās"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Kārtot pēc lietotnes lietojuma"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Kārtot pēc laika"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Atsvaidzināt"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="zero"><xliff:g id="NUMBER">%s</xliff:g> lietotņu</item>
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> lietotne</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> lietotnes</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Lietotņu atļauju lietojums"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Piekļuve: <xliff:g id="NUM">%1$s</xliff:g> reizes. Kopējais ilgums: <xliff:g id="DURATION">%2$s</xliff:g>. Pēdējā lietošanas reize pirms šāda laika: <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Piekļuve: <xliff:g id="NUM">%1$s</xliff:g> reizes. Pēdējā lietošanas reize pirms šāda laika: <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Atļaut"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Atļaut pārvaldīt visus failus"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Atļaut piekļūt tikai multivides failiem"</string>
@@ -118,6 +182,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: šīs lietotnes piekļuve"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Skatīt visas lietotnei <xliff:g id="APP">%1$s</xliff:g> piešķirtās atļaujas"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Skatīt visas lietotnes, kam ir šī atļauja"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"Rādīt Asistenta mikrofona lietojumu"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Noņemt atļaujas, ja lietotne netiek izmantota"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Lai aizsargātu jūsu datus, šīs lietotnes atļaujas tiks atsauktas, ja lietotne nebūs izmantota vairākus mēnešus."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Lai aizsargātu datus, ja lietotne nebūs izmantota vairākus mēnešus, tiks atsauktas tālāk norādītās atļaujas: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
@@ -283,7 +348,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Pašreizējais noklusējums"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Nejautāt atkārtoti"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Iest. kā noklusējumu"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Mikrofons tiek izmantots &lt;b&gt;tālruņa zvanā&lt;/b&gt;."</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"Kamera un mikrofons tiek izmantots &lt;b&gt;videozvanā&lt;/b&gt;."</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"Kamera tiek izmantota &lt;b&gt;videozvanā&lt;/b&gt;."</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Mikrofons pašlaik tiek izmantots sistēmas pakalpojumā."</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Kamera un mikrofons pašlaik tiek izmantots sistēmas pakalpojumā."</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Kamera pašlaik tiek izmantota sistēmas pakalpojumā."</string>
+    <string name="other_use" msgid="9076086164996623754">"Cits lietojums:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Labi"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Pēdējās darbības: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" un "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"noklusējuma lietotnes"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"Mikrofons un kamera"</string>
     <string name="settings_button" msgid="4747434541214595321">"Iestatījumi"</string>
     <string name="default_apps" msgid="8554530939151957828">"Noklusējuma lietotnes"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Nav noklusējuma lietotņu"</string>

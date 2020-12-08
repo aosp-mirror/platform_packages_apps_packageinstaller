@@ -46,6 +46,8 @@ import com.android.permissioncontroller.Constants;
 import com.android.permissioncontroller.DeviceUtils;
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
+import com.android.permissioncontroller.permission.debug.PermissionUsageFragment;
+import com.android.permissioncontroller.permission.debug.UtilsKt;
 import com.android.permissioncontroller.permission.ui.auto.AutoAllAppPermissionsFragment;
 import com.android.permissioncontroller.permission.ui.auto.AutoAppPermissionsFragment;
 import com.android.permissioncontroller.permission.ui.auto.AutoManageStandardPermissionsFragment;
@@ -140,6 +142,16 @@ public final class ManagePermissionsActivity extends FragmentActivity {
 
                 }
                 break;
+
+            case Intent.ACTION_REVIEW_PERMISSION_USAGE: {
+                if (!UtilsKt.shouldShowPermissionsDashboard()) {
+                    finish();
+                    return;
+                }
+
+                String groupName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_GROUP_NAME);
+                androidXFragment = PermissionUsageFragment.newInstance(groupName, Long.MAX_VALUE);
+            } break;
 
             case Intent.ACTION_MANAGE_APP_PERMISSION: {
                 if (DeviceUtils.isAuto(this) || DeviceUtils.isTelevision(this)

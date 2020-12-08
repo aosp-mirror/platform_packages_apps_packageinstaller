@@ -102,10 +102,68 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Autorisations actuelles"</string>
     <string name="message_staging" msgid="641286607664721291">"Pré-production de l\'application en cours…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Inconnu"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Tableau de bord"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">Dernier accès : <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> accès</item>
+      <item quantity="other">Dernier accès : <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> accès</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">Dernier accès : <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accès (<xliff:g id="NUM_5">%3$s</xliff:g> en arrière-plan)</item>
+      <item quantity="other">Dernier accès : <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accès (<xliff:g id="NUM_5">%3$s</xliff:g> en arrière-plan)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">Dernier accès : <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accès\nDurée : <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Dernier accès : <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accès\nDurée : <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">Dernier accès : <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> accès (<xliff:g id="NUM_6">%3$s</xliff:g> en arrière-plan)\nDurée : <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Dernier accès : <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> accès (<xliff:g id="NUM_6">%3$s</xliff:g> en arrière-plan)\nDurée : <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Dernier accès : <xliff:g id="TIME">%1$s</xliff:g>\nDernier accès effectué en arrière-plan"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Toute autorisation"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"À tout moment"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Les 7 derniers jours"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Les 24 dernières heures"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"La dernière heure"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Les 15 dernières minutes"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Dernière minute"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Aucune autoris. d\'utilisation"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"L\'accès le plus récent en tout temps"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Accès le plus récent au cours des 7 derniers jours"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Accès les plus récents (24 dernières heures)"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Accès le plus récent au cours de la dernière heure"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Accès le plus récent au cours des 15 dernières min."</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Accès le plus récent au cours de la dernière minute"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Usage des autorisations en tout temps"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Usage des autorisations au cours des 7 derniers jours"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Autorisations utilisées (24 dernières heures)"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Utilisation des autorisat. dans la dernière heure"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Utilisation des autor. dans les 15 dern. minutes"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Utilisation des autorisat. dans la dernière minute"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> application</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> applications</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"Tout afficher dans le tableau de bord"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtré par : <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Supprimer le filtre"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrer par"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrer par autorisation"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Filtrer par heure"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Le plus d\'autorisations"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Le plus d\'accès"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Récents"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Trier par utilisation d\'appli"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Trier par heure"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Actualiser"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> application</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> applications</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Util. des autoris. de l\'appli"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Accès : <xliff:g id="NUM">%1$s</xliff:g> fois. Durée totale : <xliff:g id="DURATION">%2$s</xliff:g>. Dernière utilisation : il y a <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Accès : <xliff:g id="NUM">%1$s</xliff:g> fois. Dernière utilisation : il y a <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Autoriser"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Autoriser à gérer tous les fichiers"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Autoriser à accéder aux éléments multimédias seulement"</string>
@@ -117,6 +175,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"Accès pour cette application : <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Afficher toutes les autorisations pour <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Afficher toutes les applications qui possèdent cette autorisation"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"Afficher l\'usage du microphone de l\'assistant"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Supprimer les autorisations si l\'application est inutilisée"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Afin de protéger vos données, les autorisations pour cette application seront supprimées si elle n\'est pas utilisée pendant quelques mois."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Afin de protéger vos données, si l\'application n\'est pas utilisée pendant quelques mois, les autorisations suivantes seront supprimées : <xliff:g id="PERMS">%1$s</xliff:g>"</string>
@@ -258,9 +317,9 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Aucune autorisation nécessaire"</string>
     <string name="role_emergency_search_keywords" msgid="7310029268876820646">"En cas d\'urgence"</string>
     <string name="role_home_label" msgid="6245106863177808486">"Appli d\'accueil par défaut"</string>
-    <string name="role_home_short_label" msgid="4565882523300643525">"Application d\'accueil"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"Application sur l\'écran d\'accueil"</string>
     <string name="role_home_description" msgid="6736956389161158052">"Applications qui remplacent les écrans d\'accueil sur votre appareil Android et qui vous donnent accès au contenu et aux fonctionnalités de votre appareil"</string>
-    <string name="role_home_request_title" msgid="2964609319767315444">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme application d\'accueil par défaut?"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme application d\'écran d\'accueil par défaut?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Aucune autorisation nécessaire"</string>
     <string name="role_home_search_keywords" msgid="8277315231013298175">"lanceur d\'applications"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Appli redirect. appel par déf."</string>
@@ -276,7 +335,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Application par défaut actuelle"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Ne plus me demander"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Définir par défaut"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Le micro est utilisé pour un &lt;b&gt;appel téléphonique&lt;/b&gt;"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"L\'appareil photo et le micro sont utilisés pour un &lt;b&gt;appel vidéo&lt;/b&gt;"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"L\'appareil photo est utilisé pour un &lt;b&gt;appel vidéo&lt;/b&gt;"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Un service système utilise le micro"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Un service système utilise l\'appareil photo et le micro"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Un service système utilise l\'appareil photo"</string>
+    <string name="other_use" msgid="9076086164996623754">"Autre utilisation :"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"OK"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Utilisation récente de l\'élément suivant : <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" et "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"applications par défaut"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"Microphone et appareil photo"</string>
     <string name="settings_button" msgid="4747434541214595321">"Paramètres"</string>
     <string name="default_apps" msgid="8554530939151957828">"Applications par défaut"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Aucune application par défaut"</string>

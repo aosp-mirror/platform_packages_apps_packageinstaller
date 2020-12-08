@@ -104,10 +104,80 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"הרשאות קיימות"</string>
     <string name="message_staging" msgid="641286607664721291">"מכין אפליקציה להתקנה…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"לא ידוע"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"מרכז שליטה"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> קבלות גישה</item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> קבלות גישה</item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> קבלות גישה</item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_5">%3$s</xliff:g> ברקע)</item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_5">%3$s</xliff:g> ברקע)</item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_5">%3$s</xliff:g> ברקע)</item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>, <xliff:g id="NUM_2">%3$s</xliff:g> ברקע)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה\nמשך הזמן: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה\nמשך הזמן: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה\nמשך הזמן: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>)\nמשך הזמן: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_6">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_6">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_6">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>, <xliff:g id="NUM_2">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"גישה אחרונה: <xliff:g id="TIME">%1$s</xliff:g>\nגישה אחרונה ברקע"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"כל הרשאה שהיא"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"בכל עת"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 הימים האחרונים"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"ב-24 השעות החולפות"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"בשעה האחרונה"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"15 הדקות האחרונות"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"הדקה האחרונה"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"אין שימוש בהרשאות"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"הגישה האחרונה בכל מסגרת זמן"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"הגישה האחרונה ב-7 הימים האחרונים"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"הגישה האחרונה ב-24 השעות האחרונות"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"הגישה האחרונה בשעה האחרונה"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"הגישה האחרונה ב-15 הדקות האחרונות"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"הגישה האחרונה בדקה האחרונה"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"שימוש בהרשאות בכל מסגרת זמן"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"שימוש בהרשאות ב-7 הימים האחרונים"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"שימוש בהרשאות ב-24 השעות האחרונות"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"שימוש בהרשאות בשעה האחרונה"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"שימוש בהרשאות ב-15 הדקות האחרונות"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"שימוש בהרשאות בדקה האחרונה"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="two"><xliff:g id="NUMBER">%s</xliff:g> אפליקציות</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> אפליקציות</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> אפליקציות</item>
+      <item quantity="one">אפליקציה אחת</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"הצגת כל הפרטים במרכז השליטה"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"סינון לפי: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"הסרת המסנן"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"סינון לפי"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"סינון לפי הרשאות"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"סינון לפי שעה"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"הכי הרבה הרשאות"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"הכי הרבה קבלות גישה"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"מהזמן האחרון"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"מיון לפי שימוש באפליקציה"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"מיון לפי שעה"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"רענון"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="two"><xliff:g id="NUMBER">%s</xliff:g> אפליקציות</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> אפליקציות</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> אפליקציות</item>
+      <item quantity="one">אפליקציה אחת</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"שימוש בהרשאות האפליקציה"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"גישה: <xliff:g id="NUM">%1$s</xliff:g> פעמים. משך זמן כולל: <xliff:g id="DURATION">%2$s</xliff:g>. שימוש אחרון לפני <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"גישה: <xliff:g id="NUM">%1$s</xliff:g> פעמים. שימוש אחרון לפני <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"יש אישור"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"אישור לניהול כל הקבצים"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"אישור גישה למדיה בלבד"</string>
@@ -119,6 +189,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"אפליקציה זו יכולה לגשת אל: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"הצגת כל ההרשאות של \'<xliff:g id="APP">%1$s</xliff:g>\'"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"הצגת כל האפליקציות עם ההרשאה הזו"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"‏הצגת השימוש במיקרופון של ה-Assistant"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"יש להסיר הרשאות אם האפליקציה לא נמצאת בשימוש"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"כדי להגן על הנתונים שלך, אם האפליקציה הזו לא תהיה בשימוש במשך מספר חודשים, ההרשאות שניתנו לה יוסרו."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"כדי להגן על הנתונים שלך, אם האפליקציה לא תהיה בשימוש במשך מספר חודשים, ההרשאות הבאות יוסרו: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
@@ -290,7 +361,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"ברירת המחדל הנוכחית"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"לא לשאול שוב"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"הגדרה כברירת מחדל"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"‏המיקרופון משמש ל&lt;b&gt;שיחת טלפון&lt;/b&gt;"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"‏המצלמה והמיקרופון בשימוש ב&lt;b&gt;שיחת וידאו&lt;/b&gt;"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"‏המצלמה משמשת ל&lt;b&gt;שיחת וידאו&lt;/b&gt;"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"מתבצעת גישה למיקרופון באמצעות שירות מערכת"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"מתבצעת גישה למצלמה ולמיקרופון באמצעות שירות מערכת"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"מתבצעת גישה למצלמה באמצעות שירות מערכת"</string>
+    <string name="other_use" msgid="9076086164996623754">"שימוש אחר:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"הבנתי"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"שימוש אחרון ב<xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" וגם "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"אפליקציות ברירת מחדל"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"מיקרופון ומצלמה"</string>
     <string name="settings_button" msgid="4747434541214595321">"הגדרות"</string>
     <string name="default_apps" msgid="8554530939151957828">"אפליקציות ברירת מחדל"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"אין אפליקציות ברירת מחדל"</string>
@@ -308,7 +391,7 @@
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"אין אפליקציות"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"לא תומכת בפרופיל עבודה"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"הערה: אם ביצעת הפעלה מחדש למכשיר ונעילת המסך מוגדרת, ניתן יהיה להפעיל את האפליקציה הזו רק לאחר ביטול נעילת המכשיר."</string>
-    <string name="assistant_confirmation_message" msgid="4529925223796676824">"‏ה-Assistant יוכל לקרוא מידע על אפליקציות שבהן נעשה שימוש במערכת שלך, כולל מידע המופיע במסך או שניתן לגשת אליו באפליקציות."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"האסיסטנט יוכל לקרוא מידע על אפליקציות שבהן נעשה שימוש במערכת שלך, כולל מידע המופיע במסך או שניתן לגשת אליו באפליקציות."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"שיתוף נתונים של ניפוי באגים"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"לשתף נתונים מפורטים של ניפוי באגים?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"האפליקציה <xliff:g id="APP_NAME">%1$s</xliff:g> מבקשת להעלות נתונים של ניפוי באגים."</string>
