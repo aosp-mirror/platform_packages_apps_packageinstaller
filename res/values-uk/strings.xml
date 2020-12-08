@@ -104,10 +104,80 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Поточні дозволи"</string>
     <string name="message_staging" msgid="641286607664721291">"Підготовка додатка…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Невідомо"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Інформаційна панель"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">Останні сеанси доступу: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> сеанс</item>
+      <item quantity="few">Останні сеанси доступу: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> сеанси</item>
+      <item quantity="many">Останні сеанси доступу: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> сеансів</item>
+      <item quantity="other">Останні сеанси доступу: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> сеансу</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">Останні сеанси доступу: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> сеанс (<xliff:g id="NUM_5">%3$s</xliff:g> у фоновому режимі)</item>
+      <item quantity="few">Останні сеанси доступу: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> сеанси (<xliff:g id="NUM_5">%3$s</xliff:g> у фоновому режимі)</item>
+      <item quantity="many">Останні сеанси доступу: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> сеансів (<xliff:g id="NUM_5">%3$s</xliff:g> у фоновому режимі)</item>
+      <item quantity="other">Останні сеанси доступу: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> сеансу (<xliff:g id="NUM_5">%3$s</xliff:g> у фоновому режимі)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">Останні сеанси доступу: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> сеанс\nТривалість: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="few">Останні сеанси доступу: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> сеанси\nТривалість: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="many">Останні сеанси доступу: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> сеансів\nТривалість: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Останні сеанси доступу: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> сеансу\nТривалість: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">Останні сеанси доступу: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> сеанс (<xliff:g id="NUM_6">%3$s</xliff:g> у фоновому режимі)\nТривалість: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="few">Останні сеанси доступу: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> сеанси (<xliff:g id="NUM_6">%3$s</xliff:g> у фоновому режимі)\nТривалість: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="many">Останні сеанси доступу: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> сеансів (<xliff:g id="NUM_6">%3$s</xliff:g> у фоновому режимі)\nТривалість: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Останні сеанси доступу: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> сеансу (<xliff:g id="NUM_6">%3$s</xliff:g> у фоновому режимі)\nТривалість: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Останній доступ: <xliff:g id="TIME">%1$s</xliff:g>\nВостаннє доступ здійснювався у фоновому режимі"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Будь-який дозвіл"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"У будь-який час"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Останні 7 днів"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Останні 24 години"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Остання година"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Останні 15 хвилин"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Остання хвилина"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Дозволи не використовувалися"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Доступ за останній час"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Доступ за останні 7 днів"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Доступ за останні 24 години"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Доступ за останню годину"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Доступ за останні 15 хвилин"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Доступ за останню хвилину"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Використання дозволів за весь час"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Використання дозволів за останні 7 днів"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Використання дозволів за останні 24 години"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Використання дозволів за останню годину"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Використання дозволів за останні 15 хвилин"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Використання дозволів за останню хвилину"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> додаток</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> додатки</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> додатків</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> додатка</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"Переглянути деталі на інформаційній панелі"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Відфільтровано за параметром \"<xliff:g id="PERM">%1$s</xliff:g>\""</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Вилучити фільтр"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Фільтр"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Фільтрувати за дозволами"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Фільтрувати за часом"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Найбільше дозволів"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Найбільше сеансів доступу"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Нещодавні сеанси доступу"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Сортувати за додатком"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Сортувати за часом"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Оновити"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> додаток</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> додатки</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> додатків</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> додатка</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Використання дозволів додатка"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Доступ: <xliff:g id="NUM">%1$s</xliff:g> раз. Загальна тривалість: <xliff:g id="DURATION">%2$s</xliff:g>. Востаннє використано <xliff:g id="TIME">%3$s</xliff:g> тому."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Доступ: <xliff:g id="NUM">%1$s</xliff:g> раз. Востаннє використано <xliff:g id="TIME">%2$s</xliff:g> тому."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Дозволити"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Дозволити керувати всіма файлами"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Надати доступ лише до медіафайлів"</string>
@@ -119,6 +189,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: доступ для цього додатка"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Переглянути всі дозволи додатка <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Переглянути всі додатки з цим дозволом"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"Показати статус мікрофона Асистента"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Відкликати дозволи, якщо додаток не використовується"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Щоб захистити ваші дані, дозволи для цього додатка буде автоматично скасовано, якщо ви не будете користуватися ним кілька місяців."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Якщо додаток не використовується впродовж кількох місяців, для захисту ваших даних буде скасовано такі дозволи: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
@@ -251,7 +322,7 @@
     <string name="role_browser_label" msgid="814240075813716311">"Веб-переглядач за умовчанням"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"Веб-переглядач"</string>
     <string name="role_browser_description" msgid="2326990202516329438">"Додатки, за допомогою яких можна переглядати сайти й переходити за посиланнями"</string>
-    <string name="role_browser_request_title" msgid="751745081301397114">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як веб-переглядач за умовчанням?"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"Зробити <xliff:g id="APP_NAME">%1$s</xliff:g> веб-переглядачем за умовчанням?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Дозволи не потрібні"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"Дзвінки за умовчанням"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"Додаток для викликів"</string>
@@ -290,7 +361,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Поточний за умовчанням"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Не запитувати знову"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Вибрати за умовчанням"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Мікрофон використовується під час &lt;b&gt;телефонного виклику&lt;/b&gt;"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"Камера та мікрофон використовуються під час &lt;b&gt;відеодзвінку&lt;/b&gt;"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"Камера використовується під час &lt;b&gt;відеодзвінку&lt;/b&gt;"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Мікрофон використовується системною службою"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Камера та мікрофон використовуються системною службою"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Камера використовується системною службою"</string>
+    <string name="other_use" msgid="9076086164996623754">"Інше використання:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"ОК"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g>: використання останнім часом"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" і "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"додатки за умовчанням"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"Мікрофон і камера"</string>
     <string name="settings_button" msgid="4747434541214595321">"Налаштування"</string>
     <string name="default_apps" msgid="8554530939151957828">"Додатки за умовчанням"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Немає додатків за умовчанням"</string>

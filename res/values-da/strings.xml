@@ -102,10 +102,68 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Aktuelle tilladelser"</string>
     <string name="message_staging" msgid="641286607664721291">"Forbereder appen…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Ukendt"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Kontrolpanel"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">Seneste adgang: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> adgang</item>
+      <item quantity="other">Seneste adgang: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> adgange</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">Seneste adgang: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> adgange (<xliff:g id="NUM_5">%3$s</xliff:g> i baggrunden)</item>
+      <item quantity="other">Seneste adgang: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> adgange (<xliff:g id="NUM_5">%3$s</xliff:g> i baggrunden)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">Seneste adgang: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> adgang\nVarighed: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Seneste adgang: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> adgange\nVarighed: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">Seneste adgang: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> adgang (<xliff:g id="NUM_6">%3$s</xliff:g> i baggrunden)\nVarighed: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Seneste adgang: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> adgange (<xliff:g id="NUM_6">%3$s</xliff:g> i baggrunden)\nVarighed: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Seneste adgang: <xliff:g id="TIME">%1$s</xliff:g>\nSenest anvendt i baggrunden"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Alle tilladelser"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Nogensinde"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"De seneste 7 dage"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"De seneste 24 timer"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Den seneste time"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"De seneste 15 minutter"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Seneste minut"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Ingen brug af tilladelsen"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Seneste adgang nogensinde"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Seneste adgang i de sidste 7 dage"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Seneste adgang i de sidste 24 timer"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Seneste adgang den seneste time"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Seneste adgang i de sidste 15 minutter"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Seneste adgang det seneste minut"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Anvendte tilladelser nogensinde"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Anvendte tilladelser i de sidste 7 dage"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Anvendte tilladelser i de sidste 24 timer"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Anvendte tilladelser den seneste time"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Anvendte tilladelser i de sidste 15 minutter"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Anvendte tilladelser det seneste minut"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> app</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apps</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"Se alt i kontrolpanelet"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtreret efter: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Fjern filter"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrér efter"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrér efter tilladelser"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Filtrér efter tidspunkt"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Flest tilladelser"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Flest adgange"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Seneste"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Sortér efter appbrug"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Sortér efter tidspunkt"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Opdater"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> app</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apps</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Brug af apptilladelser"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Adgang: <xliff:g id="NUM">%1$s</xliff:g> gange. Samlet varighed: <xliff:g id="DURATION">%2$s</xliff:g>. Senest brugt for <xliff:g id="TIME">%3$s</xliff:g> siden."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Adgang: <xliff:g id="NUM">%1$s</xliff:g> gange. Senest brugt for <xliff:g id="TIME">%2$s</xliff:g> siden."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Tillad"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Tillad administration af alle filer"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Tillad kun adgang til mediefiler"</string>
@@ -117,6 +175,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"Adgang til <xliff:g id="PERM">%1$s</xliff:g> for denne app"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Se alle tilladelser for <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Se alle apps med denne tilladelse"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"Vis brug af Assistent-mikrofonen"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Fjern tilladelser, hvis appen ikke bruges"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Hvis appen ikke bliver brugt i et par måneder, fjernes tilladelser for appen for at beskytte dine data."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Hvis appen ikke bliver brugt i et par måneder, fjernes følgende tilladelser for at beskytte dine data: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
@@ -276,7 +335,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Nuværende standardapp"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Spørg ikke igen"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Angiv som standard"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Mikrofonen anvendes i et &lt;b&gt;telefonopkald&lt;/b&gt;"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"Kameraet og mikrofonen anvendes i et &lt;b&gt;videoopkald&lt;/b&gt;"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"Kameraet anvendes i et &lt;b&gt;videoopkald&lt;/b&gt;"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Mikrofonen anvendes af en systemtjeneste"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Kameraet og mikrofonen anvendes af en systemtjeneste"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Kameraet anvendes af en systemtjeneste"</string>
+    <string name="other_use" msgid="9076086164996623754">"Anden brug:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"OK"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Seneste brug af <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" og "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"standardapps"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"Mikrofon og kamera"</string>
     <string name="settings_button" msgid="4747434541214595321">"Indstillinger"</string>
     <string name="default_apps" msgid="8554530939151957828">"Standardapps"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Ingen standardapps."</string>

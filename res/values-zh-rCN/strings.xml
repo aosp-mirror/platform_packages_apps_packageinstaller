@@ -102,10 +102,68 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"当前权限"</string>
     <string name="message_staging" msgid="641286607664721291">"正在准备安装应用…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"未知"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"信息中心"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">上次访问时间：<xliff:g id="TIME_2">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_3">%2$s</xliff:g> 次</item>
+      <item quantity="one">上次访问时间：<xliff:g id="TIME_0">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_1">%2$s</xliff:g> 次</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">上次访问时间：<xliff:g id="TIME_3">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_4">%2$s</xliff:g> 次（其中有 <xliff:g id="NUM_5">%3$s</xliff:g> 次是后台访问）</item>
+      <item quantity="one">上次访问时间：<xliff:g id="TIME_0">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_1">%2$s</xliff:g> 次（其中有 <xliff:g id="NUM_2">%3$s</xliff:g> 次是后台访问）</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">上次访问时间：<xliff:g id="TIME_3">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_4">%2$s</xliff:g> 次，\n时长：<xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">上次访问时间：<xliff:g id="TIME_0">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_1">%2$s</xliff:g> 次，\n时长：<xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">上次访问时间：<xliff:g id="TIME_4">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_5">%2$s</xliff:g> 次（其中有 <xliff:g id="NUM_6">%3$s</xliff:g> 次是后台访问）\n时长：<xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">上次访问时间：<xliff:g id="TIME_0">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_1">%2$s</xliff:g> 次（其中有 <xliff:g id="NUM_2">%3$s</xliff:g> 次是后台访问）\n时长：<xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"上次访问时间：<xliff:g id="TIME">%1$s</xliff:g>\n（在后台访问）"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"不限权限"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"不限时间"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"过去 7 天"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"过去 24 小时"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"过去 1 小时"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"过去 15 分钟"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"过去 1 分钟"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"没有使用此权限的应用"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"最近使用的访问权限（不限时间）"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"最近使用的访问权限（过去 7 天内）"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"最近使用的访问权限（过去 24 小时内）"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"最近使用的访问权限（过去 1 小时内）"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"最近使用的访问权限（过去 15 分钟内）"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"最近使用的访问权限（过去 1 分钟内）"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"权限使用频率（不限时间）"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"过去 7 天内权限的使用频率"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"过去 24 小时内的权限使用频率"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"过去 1 小时内的权限使用频率"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"过去 15 分钟内的权限使用频率"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"过去 1 分钟内的权限使用频率"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> 个应用</item>
+      <item quantity="one">1 个应用</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"在信息中心查看全部详细信息"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"过滤条件：<xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"移除过滤条件"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"过滤条件"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"按权限过滤"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"按时间过滤"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"使用的权限数量最多"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"访问次数最多"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"最近"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"按应用使用情况排序"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"按时间排序"</string>
     <string name="item_separator" msgid="8266062815210378175">"、 "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"刷新"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> 个应用</item>
+      <item quantity="one">1 个应用</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"应用权限使用情况"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"访问次数：<xliff:g id="NUM">%1$s</xliff:g> 次。总时长：<xliff:g id="DURATION">%2$s</xliff:g>。上次使用时间：<xliff:g id="TIME">%3$s</xliff:g>前。"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"访问次数：<xliff:g id="NUM">%1$s</xliff:g> 次。上次使用时间：<xliff:g id="TIME">%2$s</xliff:g>前。"</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"允许"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"允许管理所有文件"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"仅允许访问媒体文件"</string>
@@ -117,6 +175,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"是否允许这个应用访问<xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看“<xliff:g id="APP">%1$s</xliff:g>”的所有权限"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"查看具有此权限的所有应用"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"显示 Google 助理麦克风使用情况"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"如果未使用此应用，则移除相关权限"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"为了保护您的数据，如果您连续几个月未使用此应用，系统会移除它的权限。"</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"为了保护您的数据，如果您连续几个月未使用此应用，系统会移除其以下权限：<xliff:g id="PERMS">%1$s</xliff:g>"</string>
@@ -276,7 +335,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"当前默认应用"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"不再询问"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"设为默认应用"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"&lt;b&gt;手机通话&lt;/b&gt;正在使用麦克风"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"&lt;b&gt;视频通话&lt;/b&gt;正在使用摄像头和麦克风"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"&lt;b&gt;视频通话&lt;/b&gt;正在使用摄像头"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"系统服务正在访问麦克风"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"系统服务正在访问摄像头和麦克风"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"系统服务正在访问摄像头"</string>
+    <string name="other_use" msgid="9076086164996623754">"目前正在使用麦克风或摄像头的其他应用和系统服务："</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"知道了"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"最近使用<xliff:g id="TYPES_LIST">%s</xliff:g>的应用"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">"、 "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" 和 "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"默认应用"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"麦克风和摄像头"</string>
     <string name="settings_button" msgid="4747434541214595321">"设置"</string>
     <string name="default_apps" msgid="8554530939151957828">"默认应用"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"没有任何默认应用"</string>
@@ -294,7 +365,7 @@
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"没有应用"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"不支持工作资料"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"注意：如果您重启设备并设置了屏幕锁定，则必须将设备解锁才能运行此应用。"</string>
-    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Google 助理将可读取您系统中使用的应用的相关信息，其中包括您屏幕上显示的信息或应用中可使用的信息。"</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"这个小助手将能够读取与您系统中正在使用的应用相关的信息，包括屏幕上显示的信息或应用中可使用的信息。"</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"分享调试数据"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"是否分享详细调试数据？"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>请求上传调试信息。"</string>

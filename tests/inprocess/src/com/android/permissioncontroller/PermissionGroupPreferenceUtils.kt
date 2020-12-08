@@ -44,8 +44,8 @@ fun getUsageCountsFromUi(groupLabel: CharSequence): UsageCount {
  * Usage counts as read via {@link #getUsageCountsFromUi}.
  */
 data class UsageCount(
-    /** Number of apps with permission granted */
-    val granted: Int,
-    /** Number of apps that request permissions */
-    val total: Int
+        /** Number of apps with permission granted */
+        val granted: Int,
+        /** Number of apps that request permissions */
+        val total: Int
 )

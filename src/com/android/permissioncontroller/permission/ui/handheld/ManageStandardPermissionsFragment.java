@@ -17,10 +17,14 @@ package com.android.permissioncontroller.permission.ui.handheld;
 
 import static com.android.permissioncontroller.Constants.EXTRA_SESSION_ID;
 import static com.android.permissioncontroller.Constants.INVALID_SESSION_ID;
+import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldShowPermissionsDashboard;
 import static com.android.permissioncontroller.permission.ui.handheld.UtilsKt.pressBack;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import androidx.lifecycle.ViewModelProvider;
@@ -28,6 +32,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
 import com.android.permissioncontroller.R;
+import com.android.permissioncontroller.permission.ui.ManagePermissionsActivity;
 import com.android.permissioncontroller.permission.ui.model.ManageStandardPermissionsViewModel;
 import com.android.permissioncontroller.permission.ui.model.ManageStandardPermissionsViewModelFactory;
 import com.android.permissioncontroller.permission.utils.Utils;
@@ -39,6 +44,8 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
     private static final String EXTRA_PREFS_KEY = "extra_prefs_key";
     private static final String AUTO_REVOKE_KEY = "auto_revoke_key";
     private static final String LOG_TAG = ManageStandardPermissionsFragment.class.getSimpleName();
+
+    private static final int MENU_PERMISSION_USAGE = MENU_HIDE_SYSTEM + 1;
 
     private ManageStandardPermissionsViewModel mViewModel;
 
@@ -87,11 +94,25 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            pressBack(this);
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                pressBack(this);
+                return true;
+            case MENU_PERMISSION_USAGE:
+                getActivity().startActivity(new Intent(Intent.ACTION_REVIEW_PERMISSION_USAGE)
+                        .setClass(getContext(), ManagePermissionsActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        if (shouldShowPermissionsDashboard()) {
+            menu.add(Menu.NONE, MENU_PERMISSION_USAGE, Menu.NONE, R.string.permission_usage_title);
+        }
     }
 
     @Override
