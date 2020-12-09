@@ -56,14 +56,15 @@ fun updateUserSensitiveForUser(user: UserHandle, callback: Runnable) {
 private fun updateUserSensitiveForUidsInternal(
     uidsUserSensitivity: Map<Int, UidSensitivityState>,
     user: UserHandle,
-    callback: Runnable
+    callback: Runnable?
 ) {
-    val pm = Utils.getUserContext(PermissionControllerApplication.get(), user).packageManager
+    val userContext = Utils.getUserContext(PermissionControllerApplication.get(), user)
+    val pm = userContext.packageManager
 
-        for ((uid, uidState) in uidsUserSensitivity) {
+    for ((uid, uidState) in uidsUserSensitivity) {
             for (pkg in uidState.packages) {
                 for (perm in pkg.requestedPermissions) {
-                    val flags = uidState.permStates[perm] ?: continue
+                    var flags = uidState.permStates[perm] ?: continue
 
                     try {
                         val oldFlags = pm.getPermissionFlags(perm, pkg.packageName, user) and
@@ -83,7 +84,7 @@ private fun updateUserSensitiveForUidsInternal(
                 }
             }
         }
-    callback.run()
+    callback?.run()
 }
 
 /**
@@ -92,7 +93,8 @@ private fun updateUserSensitiveForUidsInternal(
  * @param uid The uid to be updated
  * @param callback A callback which will be executed when finished
  */
-fun updateUserSensitiveForUid(uid: Int, callback: Runnable) {
+@JvmOverloads
+fun updateUserSensitiveForUid(uid: Int, callback: Runnable? = null) {
     GlobalScope.launch(IPC) {
         val uidSensitivityState = UserSensitivityLiveData[uid].getInitializedValue()
         if (uidSensitivityState != null) {
@@ -100,7 +102,7 @@ fun updateUserSensitiveForUid(uid: Int, callback: Runnable) {
                 UserHandle.getUserHandleForUid(uid), callback)
         } else {
             Log.e(LOG_TAG, "No packages associated with uid $uid, not updating flags")
-            callback.run()
+            callback?.run()
         }
     }
 }

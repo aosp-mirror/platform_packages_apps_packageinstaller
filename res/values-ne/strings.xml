@@ -47,22 +47,22 @@
     <string name="grant_dialog_button_allow_all_files" msgid="1581085085495813735">"सबै फाइलहरू व्यवस्थापन गर्ने अनुमति दिइयोस्"</string>
     <string name="grant_dialog_button_allow_media_only" msgid="3516456055703710144">"मिडिया फाइल प्रयोग गर्ने अनुमति दिइयोस्"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"एपहरू"</string>
-    <string name="app_permissions" msgid="2778362347879465223">"अनुप्रयोगसम्बन्धी अनुमति"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"एपसम्बन्धी अनुमति"</string>
     <string name="unused_apps" msgid="3935514133237470759">"प्रयोग नगरिएका एपहरू"</string>
     <string name="app_disable_dlg_positive" msgid="3928516331670255309">"एप असक्षम पार्नुहोस्"</string>
     <string name="app_disable_dlg_text" msgid="5218197617670218828">"तपाईंले यो एप असक्षम पार्नुभयो भने Android र अन्य एपहरूले अब उप्रान्त अपेक्षाअनुसार कार्य नगर्न सक्छन्। स्मरण रहोस्, तपाईं यो एप तपाईंको यन्त्रसँग पहिल्यै स्थापना भएर आएको हुँदा तपाईं यसलाई मेटाउन सक्नुहुन्न। यो एप असक्षम पारेर, तपाईं यसलाई निष्क्रिय पार्नुहुन्छ तथा यसलाई आफ्नो यन्त्रमा लुकाउनुहुन्छ।"</string>
-    <string name="app_permission_manager" msgid="3802609813311662642">"अनुमतिका प्रबन्धक"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"पर्मिसन म्यानेजर"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"फेरि नसोध्नुहोला"</string>
     <string name="no_permissions" msgid="2193893107241172888">"अनुमति दिन भनी कुनै अनुरोध छैन"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"अतिरिक्त अनुमति"</string>
-    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"अनुप्रयोगसम्बन्धी जानकारी खोल्नुहोस्"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"एपसम्बन्धी जानकारी खोल्नुहोस्"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other">थप <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">थप <xliff:g id="COUNT_0">%1$d</xliff:g></item>
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"यो एप Android को कुनै पुरानो संस्करणका लागि डिजाइन गरिएको थियो। अनुमति नदिइनुले यसलाई अब उप्रान्त चाहेअनुसार काम गर्न नसक्ने बनाउन पनि सक्छ।"</string>
     <string name="default_permission_description" msgid="692254823411049573">"कुनै अज्ञात कारबाही गर्नुहोस्"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> मध्ये <xliff:g id="COUNT_0">%1$d</xliff:g> अनुप्रयोगहरूलाई अनुमति दिइएको छ"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> मध्ये <xliff:g id="COUNT_0">%1$d</xliff:g> एपहरूलाई अनुमति दिइएको छ"</string>
     <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> एपहरूलाई अनुमति दिइएको छ"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"प्रणाली देखाउनुहोस्"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"प्रणाली लुकाउनुहोस्"</string>
@@ -87,7 +87,7 @@
     <string name="permission_access_never" msgid="425385910378172045">"अस्वीकार गर्नुहोस्"</string>
     <string name="loading" msgid="323483393167148377">"लोड गर्दै…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"सबै अनुमति"</string>
-    <string name="other_permissions" msgid="1956312685853070715">"अनुप्रयोगका अन्य क्षमताहरू"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"एपका अन्य क्षमताहरू"</string>
     <string name="permission_request_title" msgid="6779348653783761548">"अनुमति दिन भनी गरिएको अनुरोध"</string>
     <string name="screen_overlay_title" msgid="1632732130312696010">"स्क्रिन ओभरले पत्ता लाग्यो"</string>
     <string name="screen_overlay_message" msgid="3222033787364955006">"यो अनुमतिसम्बन्धी सेटिङ बदल्न तपाईंले पहिला सेटिङ &gt; अनुप्रयोगमा गई स्क्रिन ओभरले निष्क्रिय पार्नु पर्छ।"</string>
@@ -102,10 +102,68 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"एपले हाल प्रयोग गर्ने अनुमति"</string>
     <string name="message_staging" msgid="641286607664721291">"एप स्थापना गर्न तयारी गर्दै…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"अज्ञात"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ड्यासबोर्ड"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> पहुँच</item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_3">%1$s</xliff:g> <xliff:g id="NUM_4">%2$s</xliff:g> \n पहुँचहरू (<xliff:g id="NUM_5">%3$s</xliff:g>पृष्ठभूमिमा)</item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच (<xliff:g id="NUM_2">%3$s</xliff:g> पृष्ठभूमिमा)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> पहुँच\nअवधि: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच\nअवधि: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> पहुँचहरू (<xliff:g id="NUM_6">%3$s</xliff:g> पृष्ठभूमिमा)\nअवधि: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच (<xliff:g id="NUM_2">%3$s</xliff:g> पृष्ठभूमिमा)\nअवधि: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"पछिल्लो पटक पहुँच गरिएको समय: पृष्ठभूमिमा पछिल्लो पटक पहुँच गरिएको <xliff:g id="TIME">%1$s</xliff:g>\n"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"कुनै पनि अनुमति"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"कुनै पनि समय"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"पछिल्ला ७ दिन"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"पछिल्लो २४ घन्टा"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"पछिल्लो १ घन्टा"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"पछिल्लो १५ मिनेट"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"पछिल्लो १ मिनेट"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"उपयोगको अनुमति छैन"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"पछिल्लो पटक जुनसुकै बेला गरिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"गत ७ दिनमा पछिल्लो पटक गरिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"पछिल्लो २४ घन्टामा पछिल्लो पटक गरिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"पछिल्लो १ घन्टामा पछिल्लो पटक गरिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"पछिल्लो १५ मिनेटमा पछिल्लो पटक गरिएको पहुँच"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"पछिल्लो १ मिनेटमा पछिल्लो पटक गरिएको पहुँच"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"जुनसुकै बेला गरिएको अनुमतिको प्रयोग"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"पछिल्लो ७ दिनमा गरिएको अनुमतिको प्रयोग"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"पछिल्लो २४ घन्टामा गरिएको अनुमतिको प्रयोग"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"पछिल्लो १ घन्टामा गरिएको अनुमतिको प्रयोग"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"पछिल्लो १५ मिनेटमा गरिएको अनुमतिको प्रयोग"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"पछिल्लो १ मिनेटमा गरिएको अनुमतिको प्रयोग"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> एपहरू</item>
+      <item quantity="one">१ एप</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"ड्यासबोर्डमा सबै कुरा हेर्नुहोस्"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"यसअनुसार फिल्टर गरिएको: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"फिल्टर हटाउनुहोस्"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"यसअनुसार फिल्टर गर्नुहोस्"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"अनुमतिअनुसार फिल्टर गर्नुहोस्"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"समयका आधारमा फिल्टर गर्नुहोस्"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"सबैभन्दा धेेरै प्रयोग गरिएको अनुमति"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"सबैभन्दा धेरै पटक पहुँच राखिएको"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"हालसालैका"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"एपको प्रयोगअनुसार क्रमबद्ध गर्नु…"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"समयअनुसार क्रमबद्ध गर्नुहोस्"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"पुनः ताजा गर्नुहोस्"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> एपहरू</item>
+      <item quantity="one">१ एप</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"एपको अनुमतिको उपयोग"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"पहुँच: <xliff:g id="NUM">%1$s</xliff:g> पटक। कुल समय: <xliff:g id="DURATION">%2$s</xliff:g>। पछिल्लो पटक <xliff:g id="TIME">%3$s</xliff:g> अघि प्रयोग गरिएको।"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"पहुँच: <xliff:g id="NUM">%1$s</xliff:g> पटक। पछिल्लो पटक <xliff:g id="TIME">%2$s</xliff:g> अघि प्रयोग गरिएको।"</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"अनुमति दिनुहोस्"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"सबै फाइलहरू व्यवस्थापन गर्ने अनुमति दिइयोस्"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"केवल मिडिया प्रयोग गर्ने अनुमति दिइयोस्"</string>
@@ -117,6 +175,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"यस एपमाथि <xliff:g id="PERM">%1$s</xliff:g> पहुँच"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> का सबै अनुमतिहरू हेर्नुहोस्"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"यो अनुमति पाएका सबै एपहरू हेर्नुहोस्"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"सहायकको माइक्रोफोन प्रयोगसम्बन्धी डेटा देखाउनुहोस्"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"यो एप प्रयोग हुँदैन भने त्यसलाई दिइएका अनुमतिहरू रद्द गरियोस्"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"तपाईंका डेटाको सुरक्षार्थ यो एप केही महिनासम्म प्रयोग नगरिएका खण्डमा यसलाई दिइएका अनुमति रद्द गरिने छन्।"</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"तपाईंका डेटाको सुरक्षार्थ यो एप केही महिनासम्म प्रयोग नगरिएका खण्डमा निम्न अनुमति रद्द गरिने छन्: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
@@ -232,51 +291,63 @@
     <string name="role_assistant_label" msgid="4296361982493275449">"पूर्वनिर्धारित डिजिटल सहायक एप"</string>
     <string name="role_assistant_short_label" msgid="2965228260285438681">"डिजिटल सहायक एप"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"सहायक एपहरूले तपाईंले हेर्दै गर्नुभएको स्क्रिनबाट प्राप्त जानकारीमा आधारित भई तपाईंलाई मद्दत गर्न सक्छन्।केही एपहरूले तपाईंलाई एकीकृत सहायता दिन दुवै लन्चर र आवाज संलग्न इनपुट सेवाहरूलाई समर्थन गर्दछन्।"</string>
-    <string name="role_assistant_request_title" msgid="1838385568238889604">"तपाईंको पूर्वनिर्धारित सहायक अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"तपाईंको पूर्वनिर्धारित सहायक एपका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"यसले SMS र कल लगमाथि पहुँच प्राप्त गर्छ"</string>
     <string name="role_browser_label" msgid="814240075813716311">"ब्राउजरसम्बन्धी पूर्वनिर्धारित एप"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"ब्राउजरसम्बन्धी एप"</string>
     <string name="role_browser_description" msgid="2326990202516329438">"तपाईंलाई इन्टरनेट चलाउने दिने एपहरू र तपाईंले ट्याप गर्ने डिस्प्ले लिंकहरू"</string>
-    <string name="role_browser_request_title" msgid="751745081301397114">"आफ्नो पूर्वनिर्धारित ब्राउजर अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"आफ्नो पूर्वनिर्धारित ब्राउजर एपका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"कुनै पनि अनुमति आवश्यक छैन"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"पूर्वनिर्धारित फोन एप"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"फोन एप"</string>
     <string name="role_dialer_description" msgid="2684882481061320467">"तपाईंलाई आफ्नो यन्त्रमार्फत टेलिफोन कल गर्न र उठाउन दिने एपहरू"</string>
-    <string name="role_dialer_request_title" msgid="3203802247886151514">"तपाईंको पूर्वनिर्धारित फोन अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"तपाईंको पूर्वनिर्धारित फोन एपका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"यसले कल लग र SMS पठाउने सेवामाथि पहुँच प्राप्त गर्छ"</string>
     <string name="role_dialer_search_keywords" msgid="6215791911228160821">"डायलर"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"पूर्वनिर्धारित SMS एप"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"SMS एप"</string>
     <string name="role_sms_description" msgid="3228552135895420442">"तपाईंलाई छोटा पाठ सन्देश, फोटो, भिडियो र थप कुरा पठाउन र प्राप्त गर्न आफ्नो फोन नम्बर प्रयोग गर्न दिने एपहरू"</string>
-    <string name="role_sms_request_title" msgid="3667393846881324409">"आफ्नो पूर्वनिर्धारित SMS अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"आफ्नो पूर्वनिर्धारित SMS एपका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"यसले सम्पर्क, SMS र फोनमाथि पहुँच प्राप्त गर्छ"</string>
     <string name="role_sms_search_keywords" msgid="6818482413212931585">"पाठ सन्देश, पाठ सन्देश पठाउने, सन्देशहरू, सन्देश प्रवाह"</string>
-    <string name="role_emergency_label" msgid="8986482330376454686">"पूर्वनिर्धारित आपत्कालीन एप"</string>
-    <string name="role_emergency_short_label" msgid="2546309839225058762">"आपत्कालीन एप"</string>
-    <string name="role_emergency_description" msgid="3567231505957373289">"तपाईंलाई आफ्नो स्वास्थ्यसम्बन्धी जानकारी रेकर्ड गर्न र आपत्कालीन अवस्थामा सहयोग गर्ने मान्छेहरूलाई उक्त जानकारीमाथि पहुँच प्रदान गर्न; कठोर मौसम तथा विपत्तिसम्बन्धी अलर्टहरू प्रदान गर्न; तपाईंलाई आवश्यकता पर्दा अरू मान्छेहरूलाई जानकारी दिन अनुमति दिने एपहरू"</string>
-    <string name="role_emergency_request_title" msgid="6595296517085761522">"आफ्नो पूर्वनिर्धारित आपत्कालीन अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"पूर्वनिर्धारित आपत्‌कालीन एप"</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"आपत्‌कालीन एप"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"तपाईंलाई आफ्नो स्वास्थ्यसम्बन्धी जानकारी रेकर्ड गर्न र आपत्‌कालीन अवस्थामा सहयोग गर्ने मान्छेहरूलाई उक्त जानकारीमाथि पहुँच प्रदान गर्न; कठोर मौसम तथा विपत्तिसम्बन्धी अलर्टहरू प्रदान गर्न; तपाईंलाई आवश्यकता पर्दा अरू मान्छेहरूलाई जानकारी दिन अनुमति दिने एपहरू"</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"आफ्नो पूर्वनिर्धारित आपत्‌कालीन एपका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"कुनै पनि अनुमति आवश्यक छैन"</string>
     <string name="role_emergency_search_keywords" msgid="7310029268876820646">"ICE"</string>
     <string name="role_home_label" msgid="6245106863177808486">"पूर्वनिर्धारित गृह एप"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"गृह एप"</string>
     <string name="role_home_description" msgid="6736956389161158052">"तपाईंको यन्त्रमा गृह स्क्रिन प्रतिस्थापित गर्ने र तपाईंलाई आफ्नो Android यन्त्रका सामग्री र सुविधाहरूमाथि पहुँच गर्न दिने (लन्चर पनि भनिने) एपहरू"</string>
-    <string name="role_home_request_title" msgid="2964609319767315444">"आफ्नो पूर्वनिर्धारित गृह अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"आफ्नो पूर्वनिर्धारित गृह एपका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"कुनै पनि अनुमति आवश्यक छैन"</string>
     <string name="role_home_search_keywords" msgid="8277315231013298175">"लन्चर"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"कल रिडिरेक्ट गर्ने पूर्वनिर्धारित एप"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"कल रिडिरेक्ट गर्ने एप"</string>
     <string name="role_call_redirection_description" msgid="769231030043298555">"तपाईंलाई बहिर्गमन कल अर्को फोन नम्बरमा फर्वार्ड गर्न दिने एपहरू"</string>
-    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"तपाईंको कल रिडिरेक्ट गर्ने पूर्वनिर्धारित अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"तपाईंको कल रिडिरेक्ट गर्ने पूर्वनिर्धारित एपका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"कुनै पनि अनुमति आवश्यक छैन"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"कल गर्ने व्यक्तिको पूर्वनिर्धारित ID र स्प्याम एप"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"कल गर्ने व्यक्तिको ID रamp; स्प्यामसम्बन्धी एप"</string>
     <string name="role_call_screening_description" msgid="4406678458741015733">"तपाईंलाई कल गर्ने व्यक्तिको पहिचान गर्न तथा स्प्याम कल, robocall वा अन्य नम्बरबाट आउने अनावश्यक कलहरूमाथि रोक लगाउन मद्दत गर्ने एपहरू"</string>
-    <string name="role_call_screening_request_title" msgid="4775643776524356653">"आफ्नो पूर्वनिर्धारित कल गर्ने व्यक्तिको ID र स्प्याम अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"आफ्नो पूर्वनिर्धारित कल गर्ने व्यक्तिको ID र स्प्याम एपका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"कुनै पनि अनुमति आवश्यक छैन"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"हालको पूर्वनिर्धारित एप"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"फेरि नसोध्नुहोस्"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"डिफल्ट सेट गर्नुहोस्"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"माइक्रोफोन हाल &lt;b&gt;फोन कल&lt;/b&gt;मा प्रयोग भइरहेको छ"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"क्यामेरा र माइक्रोफोन हाल &lt;b&gt;भिडियो कल&lt;/b&gt;मा प्रयोग भइरहेको छ"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"क्यामेरा हाल &lt;b&gt;भिडियो कल&lt;/b&gt;मा प्रयोग भइरहेको छ"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"सिस्टमको सेवाले हाल माइक्रोफोन प्रयोग गरिरहेको छ"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"सिस्टमको सेवाले हाल क्यामेरा र माइक्रोफोन प्रयोग गरिरहेको छ"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"सिस्टमको सेवाले हाल क्यामेरा प्रयोग गरिरहेको छ"</string>
+    <string name="other_use" msgid="9076086164996623754">"अन्य प्रयोग:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"बुझेँ"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g>को हालै गरिएको प्रयोग"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" र "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"पूर्वनिर्धारित एपहरू"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"माइक्रोफोन तथा क्यामेरा"</string>
     <string name="settings_button" msgid="4747434541214595321">"सेटिङहरू"</string>
     <string name="default_apps" msgid="8554530939151957828">"पूर्वनिर्धारित एपहरू"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"कुनै पनि पूर्वनिर्धारित एप छैन"</string>
@@ -288,13 +359,13 @@
     <string name="default_app_no_apps" msgid="5344668465735677271">"कुनै पनि एप छैन"</string>
     <string name="car_default_app_selected" msgid="2813270284225505741">"चयन गरिएको"</string>
     <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"चयन गरिएको - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
-    <string name="special_app_access_search_keyword" msgid="462008045110320714">"अनुप्रयोगसम्बन्धी विशेष पहुँच"</string>
-    <string name="special_app_access" msgid="2561673957499408877">"अनुप्रयोगसम्बन्धी विशेष पहुँच"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"एपसम्बन्धी विशेष पहुँच"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"एपसम्बन्धी विशेष पहुँच"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"एपसम्बन्धी कुनै विशेष पहुँच छैन"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"कुनै पनि एप छैन"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"कार्य प्रोफाइल समर्थन गर्दैन"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"टिपोट: तपाईंले आफ्नो यन्त्र पुनः सुरु गर्नुभयो र त्यसमा स्क्रिन लक सेट गरिएको छ भने तपाईंले आफ्नो यन्त्र अनलक नगरेसम्म यो एप सुरु हुन सक्दैन।"</string>
-    <string name="assistant_confirmation_message" msgid="4529925223796676824">"सहायकले तपाईंको स्क्रिनमा देखिने वा अनुप्रयोगभित्रबाट पहुँच राख्न सकिने जानकारीलगायत तपाईंको प्रणालीमा प्रयोगमा रहेका अनुप्रयोगसम्बन्धी जानकारी पढ्न सक्ने छ।"</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"सहायकले तपाईंको स्क्रिनमा देखिने वा अनुप्रयोगभित्रबाट पहुँच राख्न सकिने जानकारीलगायत तपाईंको प्रणालीमा प्रयोगमा रहेका एपसम्बन्धी जानकारी पढ्न सक्ने छ।"</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"डिबग प्रक्रियासम्बन्धी डेटा सेयर गर्नुहोस्"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"डिबग प्रक्रियाको विस्तृत डेटा आदान प्रदान गर्ने?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> डिबग प्रक्रियासम्बन्धी जानकारी अपलोड गर्न चाहन्छ।"</string>

@@ -39,8 +39,8 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
     private static final String LOG_TAG = PermissionsFrameFragment.class.getSimpleName();
 
     static final int MENU_ALL_PERMS = Menu.FIRST + 1;
-    static final int MENU_SHOW_SYSTEM = Menu.FIRST + 2;
-    static final int MENU_HIDE_SYSTEM = Menu.FIRST + 3;
+    public static final int MENU_SHOW_SYSTEM = Menu.FIRST + 2;
+    public static final int MENU_HIDE_SYSTEM = Menu.FIRST + 3;
 
     private ViewGroup mPreferencesContainer;
 

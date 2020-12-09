@@ -78,6 +78,13 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
         return mGranted;
     }
 
+    /**
+     * @return The PermissionApps object for this permission group.
+     */
+    public PermissionApps getPermissionApps() {
+        return mPermApps;
+    }
+
     @Override
     public int compareTo(PermissionGroup another) {
         return mLabel.toString().compareTo(another.mLabel.toString());

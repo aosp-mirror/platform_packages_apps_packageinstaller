@@ -171,6 +171,14 @@ public class AssistantRoleBehavior implements RoleBehavior {
         return hasAssistantActivity;
     }
 
+    @Override
+    public void grant(@NonNull Role role, @NonNull String packageName, @NonNull Context context) {
+    }
+
+    @Override
+    public void revoke(@NonNull Role role, @NonNull String packageName, @NonNull Context context) {
+    }
+
     private boolean isAssistantVoiceInteractionService(@NonNull PackageManager pm,
             @NonNull ServiceInfo si) {
         if (!android.Manifest.permission.BIND_VOICE_INTERACTION.equals(si.permission)) {
