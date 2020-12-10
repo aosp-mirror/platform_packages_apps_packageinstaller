@@ -22,6 +22,7 @@ import static com.android.permissioncontroller.PermissionControllerStatsLog.PERM
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__DENIED;
 import static com.android.permissioncontroller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__UNDEFINED;
+import static com.android.permissioncontroller.permission.debug.UtilsKt.shouldShowPermissionsDashboard;
 import static com.android.permissioncontroller.permission.ui.Category.ALLOWED;
 import static com.android.permissioncontroller.permission.ui.Category.ALLOWED_FOREGROUND;
 import static com.android.permissioncontroller.permission.ui.Category.ASK;
@@ -52,6 +53,7 @@ import androidx.preference.PreferenceCategory;
 import com.android.permissioncontroller.PermissionControllerStatsLog;
 import com.android.permissioncontroller.R;
 import com.android.permissioncontroller.permission.ui.Category;
+import com.android.permissioncontroller.permission.ui.ManagePermissionsActivity;
 import com.android.permissioncontroller.permission.ui.model.PermissionAppsViewModel;
 import com.android.permissioncontroller.permission.ui.model.PermissionAppsViewModelFactory;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
@@ -81,6 +83,8 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
     private static final String STORAGE_ALLOWED_FULL = "allowed_storage_full";
     private static final String STORAGE_ALLOWED_SCOPED = "allowed_storage_scoped";
     private static final int SHOW_LOAD_DELAY_MS = 200;
+
+    private static final int MENU_PERMISSION_USAGE = MENU_HIDE_SYSTEM + 1;
 
     /**
      * Create a bundle with the arguments needed by this fragment
@@ -152,6 +156,10 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
             updateMenu(mViewModel.getShouldShowSystemLiveData().getValue());
         }
 
+        if (shouldShowPermissionsDashboard()) {
+            menu.add(Menu.NONE, MENU_PERMISSION_USAGE, Menu.NONE, R.string.permission_usage_title);
+        }
+
         HelpUtils.prepareHelpMenuItem(getActivity(), menu, R.string.help_app_permissions,
                 getClass().getName());
     }
@@ -167,6 +175,11 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader {
             case MENU_HIDE_SYSTEM:
                 mViewModel.updateShowSystem(item.getItemId() == MENU_SHOW_SYSTEM);
                 break;
+            case MENU_PERMISSION_USAGE:
+                getActivity().startActivity(new Intent(Intent.ACTION_REVIEW_PERMISSION_USAGE)
+                        .setClass(getContext(), ManagePermissionsActivity.class)
+                        .putExtra(Intent.EXTRA_PERMISSION_GROUP_NAME, mPermGroupName));
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
