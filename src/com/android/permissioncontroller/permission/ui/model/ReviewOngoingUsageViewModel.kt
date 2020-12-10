@@ -342,51 +342,55 @@ class ReviewOngoingUsageViewModel(
                 return
             }
             val usages = permGroupUsages.value?.get(MICROPHONE) ?: emptyList()
-            // a map of current chain end -> in progress chain
-            val inProgressChains = mutableMapOf<PackageAttribution, MutableList<OpAccess>>()
+            // a map of chain start -> in progress chain
+            val proxyChains = mutableMapOf<PackageAttribution, MutableList<OpAccess>>()
 
-            val remainingProxyChainUsages = usages.toMutableList()
+            val remainingProxyChainUsages = mutableMapOf<PackageAttribution, OpAccess>()
+            for (usage in usages) {
+                remainingProxyChainUsages[getPackageAttr(usage)] = usage
+            }
             // find all one-link chains (that is, all proxied apps whose proxy is not included in
             // the usage list)
             for (usage in usages) {
                 val usageAttr = getPackageAttr(usage)
                 val proxyAttr = getPackageAttr(usage.proxyAccess ?: continue)
                 if (!usages.any { getPackageAttr(it) == proxyAttr }) {
-                    inProgressChains[usageAttr] = mutableListOf(usage)
-                    remainingProxyChainUsages.remove(usage)
+                    proxyChains[usageAttr] = mutableListOf(usage)
+                    remainingProxyChainUsages.remove(usageAttr)
                 }
             }
 
             // find all possible starting points for chains
-            for (usage in remainingProxyChainUsages.toList()) {
-                // if this usage has no proxy, but proxies another usage, it is the start of a chain
-                val usageAttr = getPackageAttr(usage)
-                if (usage.proxyAccess == null && remainingProxyChainUsages.any {
-                        it.proxyAccess != null && getPackageAttr(it.proxyAccess) == usageAttr
-                    }) {
-                    inProgressChains[usageAttr] = mutableListOf(usage)
-                }
-
-                // if this usage is a chain start, or no usage have this usage as a proxy, remove it
-                if (usage.proxyAccess == null) {
-                    remainingProxyChainUsages.remove(usage)
+            for ((usageAttr, usage) in remainingProxyChainUsages.toMap()) {
+                // If this usage has a proxy, but is not a proxy, it is the start of a chain.
+                // If it has no proxy, and isn't a proxy, remove it.
+                if (!remainingProxyChainUsages.values.any { it.proxyAccess != null &&
+                                getPackageAttr(it.proxyAccess) == usageAttr }) {
+                    if (usage.proxyAccess != null) {
+                        proxyChains[usageAttr] = mutableListOf(usage)
+                    } else {
+                        remainingProxyChainUsages.remove(usageAttr)
+                    }
                 }
             }
 
-            // assemble the remaining chains
-            while (remainingProxyChainUsages.isNotEmpty()) {
-                for (usage in remainingProxyChainUsages.toList()) {
-                    val usageAttr = getPackageAttr(usage)
-                    val proxyAttr = getPackageAttr(usage.proxyAccess!!)
-                    val inProgressChain = inProgressChains[proxyAttr] ?: continue
-                    inProgressChain.add(usage)
-                    inProgressChains.remove(proxyAttr)
-                    inProgressChains[usageAttr] = inProgressChain
-                    remainingProxyChainUsages.remove(usage)
+            // assemble the chains
+            for ((startUsageAttr, proxyChain) in proxyChains) {
+                var currentUsage = remainingProxyChainUsages[startUsageAttr] ?: continue
+                while (currentUsage.proxyAccess != null) {
+                    val currPackageAttr = getPackageAttr(currentUsage.proxyAccess!!)
+                    currentUsage = remainingProxyChainUsages[currPackageAttr] ?: break
+                    if (proxyChain.any { it == currentUsage }) {
+                        // we have a cycle, and should break
+                        break
+                    }
+                    proxyChain.add(currentUsage)
                 }
+                // invert the lists, so the element without a proxy is first on the list
+                proxyChain.reverse()
             }
 
-            value = inProgressChains.values.toSet()
+            value = proxyChains.values.toSet()
         }
     }
 
