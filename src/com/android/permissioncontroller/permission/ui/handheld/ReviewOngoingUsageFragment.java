@@ -26,6 +26,7 @@ import static com.android.permissioncontroller.PermissionControllerStatsLog.PRIV
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.icu.text.ListFormatter;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.text.Html;
@@ -52,6 +53,7 @@ import com.android.permissioncontroller.permission.utils.Utils;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -117,24 +119,18 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
      * Get a list of permission labels.
      *
      * @param groups map<perm group name, perm group label>
-     * @param specialMessage Whether or not one of the groups has a modified message. Do not use
-     *                       static strings if so
      *
      * @return A localized string with the list of permissions
      */
-    private CharSequence getListOfPermissionLabels(ArrayMap<String, CharSequence> groups,
-            boolean specialMessage) {
+    private CharSequence getListOfPermissionLabels(ArrayMap<String, CharSequence> groups) {
         int numGroups = groups.size();
 
         if (numGroups == 1) {
             return groups.valueAt(0);
-        } else if (numGroups == 2 && groups.containsKey(MICROPHONE) && groups.containsKey(CAMERA)
-                && !specialMessage) {
+        } else if (numGroups == 2 && groups.containsKey(MICROPHONE) && groups.containsKey(CAMERA)) {
             // Special case camera + mic permission to be localization friendly
             return getContext().getString(R.string.permgroup_list_microphone_and_camera);
         } else {
-            // TODO: Use internationalization safe concatenation
-
             ArrayList<CharSequence> sortedGroups = new ArrayList<>(groups.values());
             Collator collator = Collator.getInstance(
                     getResources().getConfiguration().getLocales().get(0));
@@ -163,8 +159,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
         ViewGroup appsList = contentView.requireViewById(R.id.items_container);
         Map<PackageAttribution, Set<String>> appUsages = allUsages.getAppUsages();
         Collection<String> callUsage = allUsages.getCallUsages();
-        Set<String> systemUsage = allUsages.getSystemUsages();
-        Map<PackageAttribution, CharSequence> attrTagPkgs = allUsages.getShownAttributionTags();
+        Map<PackageAttribution, List<CharSequence>> attrLabels = allUsages.getShownAttributions();
 
         // Compute all of the permission group labels that were used.
         ArrayMap<String, CharSequence> usedGroups = new ArrayMap<>();
@@ -177,14 +172,11 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
         TextView otherUseHeader = contentView.requireViewById(R.id.other_use_header);
         TextView otherUseContent = contentView.requireViewById(R.id.other_use_content);
-        TextView systemUseContent = contentView.requireViewById(R.id.system_use_content);
-        View otherUseSpacer = contentView.requireViewById(R.id.other_use_inside_spacer);
 
         boolean hasCallUsage = !callUsage.isEmpty();
-        boolean hasSystemUsage = !systemUsage.isEmpty();
         boolean hasAppUsages = !appUsages.isEmpty();
 
-        if (!hasCallUsage && !hasSystemUsage) {
+        if (!hasCallUsage) {
             otherUseHeader.setVisibility(View.GONE);
             otherUseContent.setVisibility(View.GONE);
         }
@@ -194,16 +186,8 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             appsList.setVisibility(View.GONE);
         }
 
-        if (!hasCallUsage || !hasSystemUsage) {
-            otherUseSpacer.setVisibility(View.GONE);
-        }
-
         if (!hasCallUsage) {
             otherUseContent.setVisibility(View.GONE);
-        }
-
-        if (!hasSystemUsage) {
-            systemUseContent.setVisibility(View.GONE);
         }
 
         if (hasCallUsage) {
@@ -229,20 +213,6 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             }
         }
 
-        if (hasSystemUsage) {
-            if (systemUsage.contains(MICROPHONE) && systemUsage.contains(CAMERA)) {
-                systemUseContent.setText(getString(R.string.system_uses_microphone_and_camera));
-            } else if (systemUsage.contains(CAMERA)) {
-                systemUseContent.setText(getString(R.string.system_uses_camera));
-            } else if (systemUsage.contains(MICROPHONE)) {
-                systemUseContent.setText(getString(R.string.system_uses_microphone));
-            }
-
-            for (String usage : systemUsage) {
-                usedGroups.put(usage, KotlinUtils.INSTANCE.getPermGroupLabel(context, usage));
-            }
-        }
-
         // Add the layout for each app.
         for (Map.Entry<PackageAttribution, Set<String>> usage : appUsages.entrySet()) {
             String packageName = usage.getKey().getPackageName();
@@ -262,7 +232,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             ArrayMap<String, CharSequence> usedGroupsThisApp = new ArrayMap<>();
 
             ViewGroup iconFrame = itemView.requireViewById(R.id.icons);
-            boolean hasSpecialGroupMessage = false;
+            CharSequence specialGroupMessage = null;
             for (String group : groups) {
                 ViewGroup groupView = (ViewGroup) inflater.inflate(R.layout.image_view, null);
                 ((ImageView) groupView.requireViewById(R.id.icon)).setImageDrawable(
@@ -271,10 +241,10 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
                 iconFrame.addView(groupView);
 
                 CharSequence groupLabel = KotlinUtils.INSTANCE.getPermGroupLabel(context, group);
-                if (group.equals(MICROPHONE) && attrTagPkgs.containsKey(usage.getKey())) {
-                    // TODO ntmyren: add correct string concatenation
-                    groupLabel = groupLabel + " via " + attrTagPkgs.get(usage.getKey());
-                    hasSpecialGroupMessage = true;
+                if (group.equals(MICROPHONE) && attrLabels.containsKey(usage.getKey())) {
+                    specialGroupMessage = ListFormatter.getInstance().format(
+                            attrLabels.get(usage.getKey()));
+                    continue;
                 }
 
                 usedGroupsThisApp.put(group, groupLabel);
@@ -282,8 +252,8 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             iconFrame.setVisibility(View.VISIBLE);
 
             TextView permissionsList = itemView.requireViewById(R.id.permissionsList);
-            permissionsList.setText(getListOfPermissionLabels(usedGroupsThisApp,
-                    hasSpecialGroupMessage));
+            permissionsList.setText(specialGroupMessage != null
+                    ? specialGroupMessage : getListOfPermissionLabels(usedGroupsThisApp));
 
             itemView.setOnClickListener((v) -> {
                 PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
@@ -314,7 +284,7 @@ public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             return getString(R.string.ongoing_usage_dialog_title_mic_camera);
         } else {
             return getString(R.string.ongoing_usage_dialog_title,
-                    getListOfPermissionLabels(usedGroups, false));
+                    getListOfPermissionLabels(usedGroups));
         }
     }
 

@@ -44,14 +44,6 @@
             android:id="@+id/other_use_content"
             style="@style/PermissionUsageDialogOtherUseContent"/>
 
-        <View
-            android:id="@+id/other_use_inside_spacer"
-            style="@style/PermissionUsageDialogOtherUseInsideSpacer"/>
-
-        <TextView
-            android:id="@+id/system_use_content"
-            style="@style/PermissionUsageDialogSystemUseContent"/>
-
     </LinearLayout>
 
 </ScrollView>
