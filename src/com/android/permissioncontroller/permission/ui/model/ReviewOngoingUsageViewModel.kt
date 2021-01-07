@@ -495,20 +495,8 @@ class ReviewOngoingUsageViewModel(
                     continue
                 }
 
-                // if the proxy access is missing, for some reason, remove the proxied
-                // attribution, add a proxy attribution
+                // if the proxy access is missing, for some reason, do not show the proxy
                 if (chain.size == 1) {
-                    val usageAttr = getPackageAttr(chain[0])
-                    val proxyAttr = getPackageAttr(chain[0].proxyAccess!!)
-                    val appList = appUsages[usageAttr]!!.toMutableSet().apply { remove(MICROPHONE) }
-                    if (appList.isEmpty()) {
-                        appUsages.remove(usageAttr)
-                    } else {
-                        appUsages[usageAttr] = appList
-                    }
-                    val proxyList = appUsages[proxyAttr]?.toMutableSet() ?: mutableSetOf()
-                    appUsages[proxyAttr] = proxyList.apply { add(MICROPHONE) }
-
                     continue
                 }
 
