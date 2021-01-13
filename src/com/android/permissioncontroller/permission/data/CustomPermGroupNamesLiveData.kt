@@ -37,7 +37,7 @@ object CustomPermGroupNamesLiveData : SmartUpdateMediatorLiveData<List<String>>(
         Log.i("CustomPermGroupNames", "observing UserPackageInfoLiveData for all " +
             "users in CustomPermGroupNamesLiveData")
         addSource(packagesLiveData) {
-            updateIfActive()
+            update()
         }
     }
 

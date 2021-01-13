@@ -62,8 +62,8 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"‏یہ ایپ Android کے ایک پرانے ورژن کیلئے ڈیزائن کی گئی تھی۔ اجازت دینے سے انکار کرنے پر ممکن ہے کہ یہ مزید ٹھیک سے کام نہ کرے۔"</string>
     <string name="default_permission_description" msgid="692254823411049573">"ایک نامعلوم کارروائی انجام دیں"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> میں سے <xliff:g id="COUNT_0">%1$d</xliff:g> ایپس کو اجازت دے دی گئی"</string>
-    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> ایپس کو اجازت دے دی گئی"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> میں سے <xliff:g id="COUNT_0">%1$d</xliff:g> ایپس کو اجازت دی گئی ہے"</string>
+    <string name="app_permissions_group_summary2" msgid="6879351603140930642">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> ایپس کو اجازت دی گئی ہے"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"سسٹم دکھائیں"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"سسٹم چھپائیں"</string>
     <string name="no_apps" msgid="2377153782338039463">"کوئی ایپ نہیں ہے"</string>
@@ -329,7 +329,7 @@
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"کوئی اجازت درکار نہیں ہے"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"‏ڈیفالٹ کالر ID اور اسپام ایپ"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"‏کالر ID اور اسپام کی ایپ"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"وہ ایپس جو آپ کو کالز کی شناخت کرنے، اسپام اور روبو کالز کو مسدود کرنے، اور غیر مطلوبہ نمبرز کو بلیک لسٹ کرنے کی اجازت دیتی ہیں"</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"ایسے ایپس جو آپ کی کالز کی شناخت کرنے اور اسپام، روبوکالز، یا ناپسندیدہ نمبروں کو مسدود کرنے کی اجازت دیتی ہیں"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"‏<xliff:g id="APP_NAME">%1$s</xliff:g> کو کالر ID اور اسپام کی آپ کی ڈیفالٹ ایپ کے بطور سیٹ کریں؟"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"کوئی اجازت درکار نہیں ہے"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"موجودہ ڈیفالٹ"</string>
@@ -344,6 +344,9 @@
     <string name="other_use" msgid="9076086164996623754">"دیگر استعمال:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"سمجھ آ گئی"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g> کا حالیہ استعمال"</string>
+    <string name="ongoing_usage_dialog_title_mic" msgid="6894507213986512796">"مائیکروفون کا حالیہ استعمال"</string>
+    <string name="ongoing_usage_dialog_title_camera" msgid="8144887777239572315">"کیمرا کا حالیہ استعمال"</string>
+    <string name="ongoing_usage_dialog_title_mic_camera" msgid="4926106474407100024">"مائیکروفون اور کیمرا کا حالیہ استعمال"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">"، "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" اور "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"ڈیفالٹ ایپس"</string>

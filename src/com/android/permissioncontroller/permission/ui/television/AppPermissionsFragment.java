@@ -23,7 +23,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -54,7 +53,6 @@ import com.android.permissioncontroller.permission.model.livedatatypes.AutoRevok
 import com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity;
 import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModel;
 import com.android.permissioncontroller.permission.ui.model.AppPermissionGroupsViewModelFactory;
-import com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.LocationUtils;
 import com.android.permissioncontroller.permission.utils.SafetyNetLogger;
@@ -389,7 +387,11 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                     }
                 }
             } else {
-                preference.setSummary(R.string.permission_access_never);
+                if (group.isOneTime()) {
+                    preference.setSummary(R.string.app_permission_button_ask);
+                } else {
+                    preference.setSummary(R.string.permission_access_never);
+                }
             }
         }
     }
@@ -416,11 +418,12 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         if (state == null || autoRevokeSwitch == null) {
             return;
         }
-        if (!state.isEnabledGlobal() || !state.getShouldShowSwitch()) {
+        if (!state.isEnabledGlobal()) {
             autoRevokeSwitch.setVisible(false);
             return;
         }
         autoRevokeSwitch.setVisible(true);
+        autoRevokeSwitch.setEnabled(state.getShouldAllowUserToggle());
         autoRevokeSwitch.setChecked(state.isEnabledForApp());
     }
 

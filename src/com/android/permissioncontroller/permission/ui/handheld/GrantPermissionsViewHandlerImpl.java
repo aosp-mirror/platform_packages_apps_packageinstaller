@@ -142,6 +142,10 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mDetailMessage = savedInstanceState.getCharSequence(ARG_GROUP_DETAIL_MESSAGE);
         mButtonVisibilities = savedInstanceState.getBooleanArray(ARG_DIALOG_BUTTON_VISIBILITIES);
 
+        if (mGroupName == null || mButtonVisibilities == null) {
+            // The dialog wasn't shown when the activity was destroyed.
+            return;
+        }
         updateAll();
     }
 
