@@ -31,7 +31,7 @@ object AllPackageInfosLiveData :
 
     init {
         addSource(UsersLiveData) {
-            updateIfActive()
+            update()
         }
     }
 
