@@ -506,7 +506,6 @@ suspend fun isPackageAutoRevokeExempt(
             .getInitializedValue()
     if (whitelistAppOpMode == MODE_DEFAULT) {
         // Initial state - whitelist not explicitly overridden by either user or installer
-
         if (DEBUG_OVERRIDE_THRESHOLDS) {
             // Suppress exemptions to allow debugging
             return false
@@ -696,7 +695,7 @@ class ExemptServicesLiveData(val user: UserHandle)
     )
 
     init {
-        serviceLiveDatas.forEach { addSource(it) { updateIfActive() } }
+        serviceLiveDatas.forEach { addSource(it) { update() } }
     }
 
     override fun onUpdate() {
@@ -894,18 +893,18 @@ private class AutoRevokeDumpLiveData(context: Context) :
 
     init {
         addSource(revokedPermGroupNames) {
-            updateIfActive()
+            update()
         }
 
         addSource(users) {
             services?.values?.forEach { removeSource(it) }
             services = null
 
-            updateIfActive()
+            update()
         }
 
         addSource(usages) {
-            updateIfActive()
+            update()
         }
 
         addSource(packages) {
@@ -913,7 +912,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
             pkgPermGroupNames = null
             pkgPermGroups.values.forEach { it?.values?.forEach { removeSource(it) } }
 
-            updateIfActive()
+            update()
         }
     }
 
@@ -933,7 +932,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
                 services!![user] = newServices
 
                 addSource(newServices) {
-                    updateIfActive()
+                    update()
                 }
             }
         }
@@ -951,7 +950,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
                         pkgPermGroups[user to pkg.packageName]?.forEach { removeSource(it.value) }
                         pkgPermGroups.remove(user to pkg.packageName)
 
-                        updateIfActive()
+                        update()
                     }
                 }
             }
@@ -977,7 +976,7 @@ private class AutoRevokeDumpLiveData(context: Context) :
 
                             pkgPermGroups[user to pkg.packageName]!![groupName] = newPkgPermGroup
 
-                            addSource(newPkgPermGroup) { updateIfActive() }
+                            addSource(newPkgPermGroup) { update() }
                         }
                     }
                 }

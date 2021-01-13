@@ -50,7 +50,7 @@
     <string name="app_permissions" msgid="2778362347879465223">"Kebenaran apl"</string>
     <string name="unused_apps" msgid="3935514133237470759">"Apl yang tidak digunakan"</string>
     <string name="app_disable_dlg_positive" msgid="3928516331670255309">"Lumpuhkan apl"</string>
-    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Jika anda melumpuhkan apl ini, Android dan apl lain mungkin tidak berfungsi seperti yang dimaksudkan lagi. Jangan lupa, anda tidak boleh memadamkan apl ini kerana apl diprapasang pada peranti anda. Dengan melumpuhkan apl, anda mematikan dan menyembunyikan apl ini pada peranti anda."</string>
+    <string name="app_disable_dlg_text" msgid="5218197617670218828">"Jika anda melumpuhkan apl ini, Android dan apl lain mungkin tidak berfungsi seperti yang sepatutnya. Jangan lupa, anda tidak boleh memadamkan apl ini kerana apl diprapasang pada peranti anda. Dengan melumpuhkan apl, anda mematikan dan menyembunyikan apl ini pada peranti anda."</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Pengurus kebenaran"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Jangan tanya lagi"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Tiada kebenaran"</string>
@@ -156,7 +156,7 @@
     <string name="sort_by_app" msgid="1912228966803416485">"Isih mengikut penggunaan apl"</string>
     <string name="sort_by_time" msgid="8280378662234104410">"Isih mengikut waktu"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
-    <string name="permission_usage_refresh" msgid="2182775682810005148">"Muat smula"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Muat semula"</string>
     <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apl</item>
       <item quantity="one">1 apl</item>
@@ -329,7 +329,7 @@
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Kebenaran tidak diperlukan"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"ID pemanggil &amp; apl spam lalai"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"ID Pemanggil &amp; apl spam"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"Apl yang membenarkan anda mengenal pasti panggilan, menyekat spam dan panggilan robot serta menyenaraihitamkan nombor yang tidak dikehendaki"</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"Apl yang membenarkan anda mengenal pasti panggilan dan menyekat spam, robopanggilan atau nombor yang tidak dikehendaki"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai ID pemanggil &amp; apl spam lalai anda?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Kebenaran tidak diperlukan"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Lalai semasa"</string>
@@ -344,6 +344,9 @@
     <string name="other_use" msgid="9076086164996623754">"Kegunaan lain:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"OK"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Penggunaan <xliff:g id="TYPES_LIST">%s</xliff:g> baru-baru ini"</string>
+    <string name="ongoing_usage_dialog_title_mic" msgid="6894507213986512796">"Penggunaan Mikrofon baru-baru ini"</string>
+    <string name="ongoing_usage_dialog_title_camera" msgid="8144887777239572315">"Penggunaan Kamera baru-baru ini"</string>
+    <string name="ongoing_usage_dialog_title_mic_camera" msgid="4926106474407100024">"Penggunaan Mikrofon &amp; Kamera baru-baru ini"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" dan "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"apl lalai"</string>

@@ -21,8 +21,6 @@ import android.app.AppOpsManager.MODE_ALLOWED
 import android.app.AppOpsManager.MODE_IGNORED
 import android.app.AppOpsManager.OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED
 import android.Manifest
-import android.app.role.RoleManager
-import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.os.UserHandle
 import android.util.Log
@@ -30,8 +28,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.android.permissioncontroller.Constants.ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY
-import com.android.permissioncontroller.Constants.PREFERENCES_FILE
 import com.android.permissioncontroller.PermissionControllerApplication
 import com.android.permissioncontroller.PermissionControllerStatsLog
 import com.android.permissioncontroller.PermissionControllerStatsLog.APP_PERMISSION_GROUPS_FRAGMENT_AUTO_REVOKE_ACTION
@@ -106,16 +102,16 @@ class AppPermissionGroupsViewModel(
 
         init {
             addSource(packagePermsLiveData) {
-                updateIfActive()
+                update()
             }
             addSource(fullStoragePermsLiveData) {
-                updateIfActive()
+                update()
             }
             addSource(autoRevokeLiveData) {
                 removeSource(autoRevokeLiveData)
-                updateIfActive()
+                update()
             }
-            updateIfActive()
+            update()
         }
 
         override fun onUpdate() {

@@ -60,13 +60,13 @@ class UserSensitivityLiveData private constructor(
 
         if (getAllUids) {
             addSource(userPackageInfosLiveData) {
-                updateIfActive()
+                update()
             }
             addSource(LauncherPackagesLiveData) {
-                updateIfActive()
+                update()
             }
         } else {
-            updateIfActive()
+            update()
         }
     }
 
