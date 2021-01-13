@@ -869,7 +869,7 @@
     <!-- Short label for the call screening role. [CHAR LIMIT=30] -->
     <string name="role_call_screening_short_label">Caller ID &amp; spam app</string>
     <!-- Description for the call screening role. [CHAR LIMIT=NONE] -->
-    <string name="role_call_screening_description">Apps that allow you to identify calls, block spam and robocalls, and blacklist unwanted numbers</string>
+    <string name="role_call_screening_description">Apps that allow you to identify calls and block spam, robocalls, or unwanted numbers</string>
     <!-- Template for the title when an app requests to become the default call screening app. [CHAR LIMIT=100] -->
     <string name="role_call_screening_request_title">Set <xliff:g id="app_name" example="Super Call Screening">%1$s</xliff:g> as your default caller ID &amp; spam app?</string>
     <!-- Description when an app requests to become the default call screening app. [CHAR LIMIT=60] -->
@@ -906,6 +906,15 @@
 
     <!-- Title for Ongoing usage dialog title when multiple apps are using app ops [CHAR LIMIT=NONE] -->
     <string name="ongoing_usage_dialog_title">Recent use of <xliff:g id="types_list" example="camera( and location)">%s</xliff:g></string>
+
+    <!-- Title for Ongoing usage dialog title when apps are using microphone [CHAR LIMIT=NONE] -->
+    <string name="ongoing_usage_dialog_title_mic">Recent use of Microphone</string>
+
+    <!-- Title for Ongoing usage dialog title when apps are using camera [CHAR LIMIT=NONE] -->
+    <string name="ongoing_usage_dialog_title_camera">Recent use of Camera</string>
+
+    <!-- Title for Ongoing usage dialog title when apps are using camera and microphone [CHAR LIMIT=NONE] -->
+    <string name="ongoing_usage_dialog_title_mic_camera">Recent use of Microphone &amp; Camera</string>
 
     <!-- Separator for permissions. Include spaces before and after if needed [CHAR LIMIT=10] -->
     <string name="ongoing_usage_dialog_separator">,\u0020</string>

@@ -33,7 +33,7 @@ class AutoRevokeState(
 ) {
 
     /**
-     * If the auto revoke switch should be shown.
+     * If the auto revoke switch should be provided for the user to control.
      */
-    val shouldShowSwitch = revocableGroupNames.isNotEmpty()
+    val shouldAllowUserToggle = revocableGroupNames.isNotEmpty()
 }
