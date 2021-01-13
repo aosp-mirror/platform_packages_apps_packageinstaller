@@ -47,6 +47,7 @@ import android.app.Application;
 import android.app.role.RoleManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -1076,12 +1077,16 @@ public final class Utils {
                 .contains(packageName)) {
             return ForegroundCapableType.ASSISTANT;
         }
-        String voiceInteraction = Settings.Secure.getString(context.getContentResolver(),
-                "voice_interaction_service");
-        if (!TextUtils.isEmpty(voiceInteraction)) {
-            ComponentName component = ComponentName.unflattenFromString(voiceInteraction);
-            if (component != null && TextUtils.equals(packageName, component.getPackageName())) {
-                return ForegroundCapableType.VOICE_INTERACTION;
+        ContentResolver contentResolver = context.getContentResolver();
+        if (contentResolver != null) {
+            String voiceInteraction = Settings.Secure.getString(contentResolver,
+                    "voice_interaction_service");
+            if (!TextUtils.isEmpty(voiceInteraction)) {
+                ComponentName component = ComponentName.unflattenFromString(voiceInteraction);
+                if (component != null
+                        && TextUtils.equals(packageName, component.getPackageName())) {
+                    return ForegroundCapableType.VOICE_INTERACTION;
+                }
             }
         }
 

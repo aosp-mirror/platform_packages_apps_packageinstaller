@@ -16,12 +16,15 @@
 
 package com.android.permissioncontroller.permission
 
+import android.Manifest.permission.CAMERA
 import android.app.AppOpsManager
 import android.app.AppOpsManager.MODE_ALLOWED
 import android.app.AppOpsManager.OPSTR_CAMERA
 import android.content.ComponentName
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
+import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
+import android.os.Process.myUserHandle
 import android.provider.DeviceConfig
 import android.provider.DeviceConfig.NAMESPACE_PRIVACY
 import androidx.test.platform.app.InstrumentationRegistry
@@ -76,6 +79,14 @@ open class PermissionHub2Test {
         context.startActivity(
                 Intent().setComponent(ComponentName.createRelative(APP, ".DummyActivity"))
                         .setFlags(FLAG_ACTIVITY_NEW_TASK))
+
+        eventually {
+            assertThat(
+                    SystemUtil.callWithShellPermissionIdentity {
+                        context.packageManager.getPermissionFlags(CAMERA, APP, myUserHandle()) and
+                                FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
+                    }).isNotEqualTo(0)
+        }
 
         eventually {
             assertThat(

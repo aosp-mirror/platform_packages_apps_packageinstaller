@@ -54,6 +54,7 @@ android_app {
     updatable: true,
     privileged: true,
     certificate: "platform",
+    rename_resources_package: false,
 
     srcs: [":permissioncontroller-sources"],
 
