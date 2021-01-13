@@ -201,7 +201,7 @@
     <string name="last_opened_category_title" msgid="4204626487716958146">"Posljednji put otvoreno prije više od <xliff:g id="NUMBER">%s</xliff:g> mj."</string>
     <string name="last_opened_summary" msgid="8038737442154732">"Aplikacija je posljednji put otvorena na dan <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="last_opened_summary_short" msgid="403134890404955437">"Posljednji put otvoreno na dan <xliff:g id="DATE">%s</xliff:g>"</string>
-    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Ako dozvolite upravljanje svim fajlovima, ova aplikacija može pristupati, mijenjati i brisati sve fajlove na zajedničkoj pohrani na ovom uređaju ili povezanim uređajima za pohranu. Aplikacija može pristupati fajlovima bez prethodnog pitanja."</string>
+    <string name="app_permission_footer_special_file_access" msgid="2257708354000512325">"Ako dozvolite upravljanje svim fajlovima, ova aplikacija može pristupati, mijenjati i brisati sve fajlove u zajedničkoj pohrani na ovom uređaju ili na povezanim uređajima za pohranu. Aplikacija može pristupati fajlovima bez prethodnog pitanja."</string>
     <string name="special_file_access_dialog" msgid="7325467268782278105">"Dozvoliti ovoj aplikaciji da pristupa, mijenja i briše fajlove na uređaju ili na svim povezanim uređajima za pohranu? Ova aplikacija može pristupati fajlovima bez prethodnog pitanja."</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacije s ovim odobrenjem mogu <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacije s ovim odobrenjem mogu pristupiti informacijama o vašim fizičkim aktivnostima kao što su hodanje, vožnja bicikla, vožnja, broj koraka i još mnogo toga"</string>
@@ -342,7 +342,7 @@
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Nije potrebno odobrenje"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Zadana apl. za ID pozivaoca/neželjene pozive"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Apl. za ID pozivaoca i neželj. pozive"</string>
-    <string name="role_call_screening_description" msgid="4470066768170089758">"Aplikacije koje vam omogućavaju identificiranje poziva, blokiranje neželjenih i automatiziranih telefonskih poziva te stavljanje neželjenih brojeva na listu blokiranih"</string>
+    <string name="role_call_screening_description" msgid="4406678458741015733">"Aplikacije koje vam omogućavaju da identificirate pozive i blokirate neželjene pozive, automatizirane telefonske pozive ili neželjene brojeve"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Postaviti aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> kao zadanu aplikaciju za prikaz ID-a pozivaoca i blokadu neželjenih poziva?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nije potrebno odobrenje"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Trenutno zadano"</string>
@@ -357,6 +357,9 @@
     <string name="other_use" msgid="9076086164996623754">"Druga upotreba:"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Razumijem"</string>
     <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Nedavno korištenje: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_title_mic" msgid="6894507213986512796">"Nedavno korištenje mikrofona"</string>
+    <string name="ongoing_usage_dialog_title_camera" msgid="8144887777239572315">"Nedavno korištenje kamere"</string>
+    <string name="ongoing_usage_dialog_title_mic_camera" msgid="4926106474407100024">"Nedavno korištenje mikrofona i kamere"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" i "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"zadane aplikacije"</string>

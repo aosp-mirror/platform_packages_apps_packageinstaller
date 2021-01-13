@@ -636,8 +636,13 @@ public class LocationAccessCheck {
 
         int numProfiles = profiles.size();
         for (int profileNum = 0; profileNum < numProfiles; profileNum++) {
-            NotificationManager notificationManager = getSystemServiceSafe(mContext,
-                    NotificationManager.class, profiles.get(profileNum));
+            NotificationManager notificationManager;
+            try {
+                notificationManager = getSystemServiceSafe(mContext, NotificationManager.class,
+                        profiles.get(profileNum));
+            } catch (IllegalStateException e) {
+                continue;
+            }
 
             StatusBarNotification[] notifications = notificationManager.getActiveNotifications();
 

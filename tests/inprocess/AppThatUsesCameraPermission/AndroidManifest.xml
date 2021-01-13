@@ -19,6 +19,8 @@
           package="com.android.permissioncontroller.tests.appthatrequestpermission">
     <uses-permission android:name="android.permission.CAMERA"/>
 
+    <attribution android:tag="testTag" android:label="@string/test_attribution_label" />
+
     <application android:label="CameraRequestApp">
         <activity android:name=".DummyActivity"
                   android:exported="true"/>
