@@ -49,14 +49,14 @@ class PermGroupsPackagesLiveData private constructor(
             setSourcesToDifference(groupNames, permGroupLiveDatas, getLiveData) {
                 if (packagesLiveData.isInitialized &&
                     permGroupLiveDatas.all { it.value.isInitialized }) {
-                    updateIfActive()
+                    update()
                 }
             }
         }
 
         addSource(packagesLiveData) {
             if (permGroupLiveDatas.all { it.value.isInitialized }) {
-                updateIfActive()
+                update()
             }
         }
     }

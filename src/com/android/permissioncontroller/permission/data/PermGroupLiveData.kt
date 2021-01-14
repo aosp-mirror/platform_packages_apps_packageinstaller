@@ -59,7 +59,7 @@ class PermGroupLiveData private constructor(
      * @param packageName the package which was added or changed
      */
     override fun onPackageUpdate(packageName: String) {
-        updateIfActive()
+        update()
     }
 
     /**
@@ -124,7 +124,7 @@ class PermGroupLiveData private constructor(
      * because there is currently no listener for permission changes.
      */
     override fun onActive() {
-        updateIfActive()
+        update()
 
         super.onActive()
 

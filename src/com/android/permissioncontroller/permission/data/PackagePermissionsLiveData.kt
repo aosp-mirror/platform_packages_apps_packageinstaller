@@ -49,7 +49,7 @@ class PackagePermissionsLiveData private constructor(
                 value = null
                 return@addSource
             }
-            updateIfActive()
+            update()
         }
     }
 

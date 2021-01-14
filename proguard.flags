@@ -14,6 +14,12 @@
 
 -keep class com.android.car.ui.** {*;}
 
+# Keep as this is only used by instrumentation tests for now. This can be removed once the class is
+# used from code
+-keep class com.android.permissioncontroller.permission.data.AttributionLabelLiveData* {
+    *;
+}
+
 # for proto names for Proto.toString
 -keepclassmembers class * extends com.google.protobuf.GeneratedMessageLite {
   *** get*();
