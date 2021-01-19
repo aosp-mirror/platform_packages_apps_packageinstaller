@@ -56,7 +56,7 @@ fun shouldShowPermissionsDashboard(): Boolean {
  */
 fun isCameraMicIconsFlagEnabled(): Boolean {
     return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
-        PROPERTY_CAMERA_MIC_ICONS_ENABLED, false)
+        PROPERTY_CAMERA_MIC_ICONS_ENABLED, true)
 }
 
 /**
