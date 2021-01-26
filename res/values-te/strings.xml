@@ -102,7 +102,7 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"ప్రస్తుత అనుమతులు"</string>
     <string name="message_staging" msgid="641286607664721291">"యాప్‌ను అందిస్తోంది…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"తెలియదు"</string>
-    <string name="permission_usage_title" msgid="6808284837306026819">"డాష్‌బోర్డ్"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"డ్యాష్‌బోర్డ్"</string>
     <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
       <item quantity="other">చివరి యాక్సెస్: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> యాక్సెస్‌లు</item>
       <item quantity="one">చివరి యాక్సెస్: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> యాక్సెస్</item>
@@ -381,7 +381,7 @@
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"అధునాతన సెట్టింగ్‌లు"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"అధునాతన సెట్టింగ్‌లు"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"సిస్టమ్ యాప్ వినియోగాన్ని చూపు"</string>
-    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"\'స్థితి బార్‌, డాష్‌బోర్డ్ &amp; మరెక్కడైనా\'లో సిస్టమ్ యాప్ వినియోగించే అనుమతులను చూపు"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"\'స్థితి బార్‌, డ్యాష్‌బోర్డ్ &amp; మరెక్కడైనా\'లో సిస్టమ్ యాప్ వినియోగించే అనుమతులను చూపు"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"అనుసరిస్తున్న వినియోగాన్ని హైలైట్ చేయండి"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="772256764681129627">"అసిస్టెంట్ ట్రిగ్గర్ గుర్తింపును చూపించడం"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"వాయిస్ అసిస్టెంట్‌ను యాక్టివేట్ చేయడానికి మైక్రోఫోన్‌ను ఉపయోగించినప్పుడు, స్థితి పట్టీలో చిహ్నాన్ని చూపు"</string>
@@ -394,13 +394,13 @@
     <string name="permgroupupgraderequest_location" msgid="8084292647416835405">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; కోసం లొకేష‌న్‌ యాక్సెస్‌ను మార్చాలా?"</string>
     <string name="permgroupupgraderequestdetail_location" msgid="7847444194059562705">"మీరు యాప్ ఉపయోగించనప్పుడు కూడా ఈ యాప్ మీ లొకేష‌న్‌ను ఎప్పటికప్పుడు యాక్సెస్ చేయాల‌ని అనుకుంటోంది."<annotation id="link">"సెట్టింగ్‌లలో అనుమతించండి."</annotation></string>
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"మీ క్యాలెండర్‌ని యాక్సెస్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ని అనుమతించాలా?"</string>
-    <string name="permgrouprequest_sms" msgid="2622312529683649944">"SMS సందేశాలు పంపడం, చూడటం చేయగలిగేలా &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ను అనుమతించాలా?"</string>
+    <string name="permgrouprequest_sms" msgid="2622312529683649944">"SMS మెసేజ్‌లు పంపడం, చూడటం చేయగలిగేలా &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ను అనుమతించాలా?"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"మీ పరికరంలోని ఫోటోలు, మీడియా మరియు ఫైల్‌లను యాక్సెస్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ను అనుమతించాలా?"</string>
     <string name="permgrouprequest_microphone" msgid="3490533265167914830">"ఆడియోను రికార్డ్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ను అనుమతించాలా?"</string>
     <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"మీ భౌతిక కార్యకలాపాన్ని యాక్సెస్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ను అనుమతించాలా?"</string>
     <string name="permgrouprequest_camera" msgid="5379726026447957660">"ఫోటోలు తీయడానికి, వీడియో రికార్డ్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ను అనుమతించాలా?"</string>
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"మీ ఫోన్ కాల్ లాగ్‌లను యాక్సెస్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ని అనుమతించాలా?"</string>
-    <string name="permgrouprequest_phone" msgid="6240218310343431124">"ఫోన్ కాల్‌లు చేయడానికి మరియు నిర్వహించడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ని అనుమతించాలా?"</string>
+    <string name="permgrouprequest_phone" msgid="6240218310343431124">"ఫోన్‌ కాల్స్‌ చేయడానికి, మేనేజ్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ని అనుమతించాలా?"</string>
     <string name="permgrouprequest_sensors" msgid="1939578702884234985">"మీ అత్యంత కీలకమైన గుర్తుల గురించి సెన్సార్ డేటాని యాక్సెస్ చేయడానికి &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ని అనుమతించాలా?"</string>
     <string name="auto_granted_permissions" msgid="5726065128917092357">"నియంత్రణలో ఉన్న అనుమతులు"</string>
     <string name="auto_granted_location_permission_notification_title" msgid="6496820273286832200">"లొకేషన్‌ను యాక్సెస్ చేయవచ్చు"</string>
