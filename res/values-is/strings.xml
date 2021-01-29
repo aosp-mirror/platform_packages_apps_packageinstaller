@@ -102,10 +102,68 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Núgildandi heimildir"</string>
     <string name="message_staging" msgid="641286607664721291">"Setur upp forrit…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Óþekkt"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Stjórnborð"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">Síðast notuð: <xliff:g id="TIME_2">%1$s</xliff:g>\n Notuð <xliff:g id="NUM_3">%2$s</xliff:g> sinni</item>
+      <item quantity="other">Síðast notuð: <xliff:g id="TIME_2">%1$s</xliff:g>\n Notuð <xliff:g id="NUM_3">%2$s</xliff:g> sinnum</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">Síðast notuð: <xliff:g id="TIME_3">%1$s</xliff:g>\n Notuð <xliff:g id="NUM_4">%2$s</xliff:g> sinni (<xliff:g id="NUM_5">%3$s</xliff:g> sinni í bakgrunni)</item>
+      <item quantity="other">Síðast notuð: <xliff:g id="TIME_3">%1$s</xliff:g>\n Notuð <xliff:g id="NUM_4">%2$s</xliff:g> sinnum (<xliff:g id="NUM_5">%3$s</xliff:g> sinnum í bakgrunni)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">Síðast notuð: <xliff:g id="TIME_3">%1$s</xliff:g>\n Notuð <xliff:g id="NUM_4">%2$s</xliff:g> sinni\nLengd: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Síðast notuð: <xliff:g id="TIME_3">%1$s</xliff:g>\n Notuð <xliff:g id="NUM_4">%2$s</xliff:g> sinni\nLengd: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">Síðast notuð: <xliff:g id="TIME_4">%1$s</xliff:g>\n Notuð <xliff:g id="NUM_5">%2$s</xliff:g> sinni (<xliff:g id="NUM_6">%3$s</xliff:g> sinni í bakgrunni)\nLengd: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Síðast notuð: <xliff:g id="TIME_4">%1$s</xliff:g>\n Notuð <xliff:g id="NUM_5">%2$s</xliff:g> sinnum (<xliff:g id="NUM_6">%3$s</xliff:g> sinnum í bakgrunni)\nLengd: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Síðast notuð: <xliff:g id="TIME">%1$s</xliff:g>\nSíðast notuð í bakgrunni"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Hvaða heimild sem er"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Hvenær sem er"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Síðustu sjö daga"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Síðasta sólarhring"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Síðustu klukkustund"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Síðustu 15 mínútur"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Síðasta mínúta"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Engin heimildanotkun"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Síðasti aðgangur, hvenær sem er"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Síðasti aðgangur síðustu 7 daga"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Síðasti aðgangur síðasta sólarhring"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Síðasti aðgangur síðustu klukkustund"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Síðasti aðgangur síðustu 15 mínúturnar"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Síðasti aðgangur síðustu mínútu"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Heimildanotkun hvenær sem er"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Heimildanotkun síðustu 7 daga"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Heimildanotkun síðasta sólarhringinn"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Heimildanotkun síðustu klukkustund"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Heimildanotkun síðustu 15 mínútur"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Heimildanotkun síðustu mínútu"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> forrit</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> forrit</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"Sjá allt á stjórnborði"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Síað eftir: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Fjarlægja síu"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Sía eftir"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Sía eftir heimildum"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Sía eftir tíma"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Flestar heimildir"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Mesta notkun"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Nýlegt"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Raða eftir notkun forrita"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Raða eftir tíma"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Endurnýja"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> forrit</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> forrit</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Notkun heimilda forrits"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Aðgangur: <xliff:g id="NUM">%1$s</xliff:g> sinnum. Heildarlengd: <xliff:g id="DURATION">%2$s</xliff:g>. Síðast notað fyrir <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Aðgangur: <xliff:g id="NUM">%1$s</xliff:g> sinnum. Síðast notað fyrir <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Leyfa"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Leyfa stjórnun allra skráa"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Leyfa aðeins aðgang að margmiðlunarefni"</string>
@@ -117,6 +175,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: Aðgangur fyrir þetta forrit"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Sjá allar heimildir fyrir „<xliff:g id="APP">%1$s</xliff:g>“"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Sjá öll forrit með þessa heimild"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"Sýna hljóðnemanotkun hjálpara"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Fjarlægja heimildir ef forrit er ekki notað"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Til að vernda gögnin þín verða heimildir þessa forrits fjarlægðar ef það er ekki notað í nokkra mánuði."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Til að vernda gögnin þín verða eftirfarandi heimildir fjarlægðar ef forritið er ekki notað í nokkra mánuði: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
@@ -276,7 +335,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Núverandi sjálfgefið forrit"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Ekki spyrja aftur"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Velja sem sjálfgefið"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Hljóðnemi er í notkun í &lt;b&gt;símtali&lt;/b&gt;"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"Myndavél og hljóðnemi eru í notkun í &lt;b&gt;myndsímtali&lt;/b&gt;"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"Myndavél er í notkun í &lt;b&gt;myndsímtali&lt;/b&gt;"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Kerfisþjónusta er að nota hljóðnema"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Kerfisþjónusta er að nota myndavél og hljóðnema"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Kerfisþjónusta er að nota myndavél"</string>
+    <string name="other_use" msgid="9076086164996623754">"Önnur notkun:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Ég skil"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Nýleg notkun: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" og "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"sjálfgefin forrit"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"Hljóðnemi og myndavél"</string>
     <string name="settings_button" msgid="4747434541214595321">"Áfram"</string>
     <string name="default_apps" msgid="8554530939151957828">"Sjálfgefin forrit"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Engin sjálfgefin forrit"</string>
@@ -322,7 +393,7 @@
     <string name="permgrouprequest_calendar" msgid="254840812783503926">"Viltu veita &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aðgang að dagatalinu þínu?"</string>
     <string name="permgrouprequest_sms" msgid="2622312529683649944">"Viltu leyfa &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að senda og skoða SMS-skilaboð?"</string>
     <string name="permgrouprequest_storage" msgid="1092300826793175064">"Viltu veita &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aðgang að myndum, efni og skrám í tækinu?"</string>
-    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"Viltu leyfa forritinu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að taka upp hljóð?"</string>
+    <string name="permgrouprequest_microphone" msgid="3490533265167914830">"Leyfa forritinu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að taka upp hljóð?"</string>
     <string name="permgrouprequest_activityRecognition" msgid="6217921552252496983">"Viltu leyfa &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að fá aðgang að hreyfingu þinni?"</string>
     <string name="permgrouprequest_camera" msgid="5379726026447957660">"Viltu leyfa &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að taka myndir og myndskeið?"</string>
     <string name="permgrouprequest_calllog" msgid="8654341234544121138">"Viltu veita &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aðgang að símtalaskrám símans?"</string>
