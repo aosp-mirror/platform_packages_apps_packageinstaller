@@ -421,6 +421,19 @@ public class PermissionApps {
             return mAppPermissionGroup;
         }
 
+        /**
+         * Load this app's label and icon if they were not previously loaded.
+         *
+         * @param appDataCache the cache of already-loaded labels and icons.
+         */
+        public void loadLabelAndIcon(@NonNull AppDataCache appDataCache) {
+            if (mInfo.packageName.equals(mLabel) || mIcon == null) {
+                Pair<String, Drawable> appData = appDataCache.getAppData(getUid(), mInfo);
+                mLabel = appData.first;
+                mIcon = appData.second;
+            }
+        }
+
         @Override
         public int compareTo(PermissionApp another) {
             final int result = mLabel.compareTo(another.mLabel);
@@ -519,5 +532,34 @@ public class PermissionApps {
 
     public interface Callback {
         void onPermissionsLoaded(PermissionApps permissionApps);
+    }
+
+    /**
+     * Class used to asynchronously load apps' labels and icons.
+     */
+    public static class AppDataLoader extends AsyncTask<PermissionApp, Void, Void> {
+
+        private final Context mContext;
+        private final Runnable mCallback;
+
+        public AppDataLoader(Context context, Runnable callback) {
+            mContext = context;
+            mCallback = callback;
+        }
+
+        @Override
+        protected Void doInBackground(PermissionApp... args) {
+            AppDataCache appDataCache = new AppDataCache(mContext.getPackageManager(), mContext);
+            int numArgs = args.length;
+            for (int i = 0; i < numArgs; i++) {
+                args[i].loadLabelAndIcon(appDataCache);
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            mCallback.run();
+        }
     }
 }
