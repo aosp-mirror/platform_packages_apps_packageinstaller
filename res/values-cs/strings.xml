@@ -104,10 +104,80 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Aktuální oprávnění"</string>
     <string name="message_staging" msgid="641286607664721291">"Příprava instalace…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Neznámé"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Panel"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="few">Poslední přístup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> přístupy</item>
+      <item quantity="many">Poslední přístup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> přístupu</item>
+      <item quantity="other">Poslední přístup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> přístupů</item>
+      <item quantity="one">Poslední přístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> přístup</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="few">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupy (<xliff:g id="NUM_5">%3$s</xliff:g> na pozadí)</item>
+      <item quantity="many">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupu (<xliff:g id="NUM_5">%3$s</xliff:g> na pozadí)</item>
+      <item quantity="other">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupů (<xliff:g id="NUM_5">%3$s</xliff:g> na pozadí)</item>
+      <item quantity="one">Poslední přístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> přístup (<xliff:g id="NUM_2">%3$s</xliff:g> na pozadí)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="few">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupy\nTrvání: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="many">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupu\nTrvání: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Poslední přístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> přístupů\nTrvání: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Poslední přístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> přístup\nTrvání: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="few">Poslední přístup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> přístupy (<xliff:g id="NUM_6">%3$s</xliff:g> na pozadí)\nTrvání: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="many">Poslední přístup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> přístupu (<xliff:g id="NUM_6">%3$s</xliff:g> na pozadí)\nTrvání: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Poslední přístup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> přístupů (<xliff:g id="NUM_6">%3$s</xliff:g> na pozadí)\nTrvání: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Poslední přístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> přístup (<xliff:g id="NUM_2">%3$s</xliff:g> na pozadí)\nTrvání: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Poslední přístup: <xliff:g id="TIME">%1$s</xliff:g>\nPoslední přístup na pozadí"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Všechna oprávnění"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Kdykoli"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Posledních 7 dnů"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Posledních 24 hodin"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Poslední hodina"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Posledních 15 minut"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Poslední minuta"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Žádné využití oprávnění"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Poslední využití kdykoli"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Poslední použití za 7 dnů"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Poslední využití za uplynulých 24 hodin"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Poslední využití za uplynulou hodinu"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Poslední využití za uplynulých 15 minut"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Poslední využití za uplynulou minutu"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Využití oprávnění kdykoli"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Využití oprávnění za posledních 7 dnů"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Využití oprávnění za posledních 24 hodin"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Využití oprávnění za poslední hodinu"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Využití oprávnění za posledních 15 minut"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Využití oprávnění za poslední minutu"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> aplikace</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> aplikace</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> aplikací</item>
+      <item quantity="one">1 aplikace</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"Zobrazit vše na panelu"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrováno podle: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Odstranit filtr"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrovat podle"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrovat podle oprávnění"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Filtrovat podle času"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Nejvíce oprávnění"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Nejvíce použití"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Nedávné"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Seřadit podle využití aplikací"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Seřadit podle času"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Obnovit"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> aplikace</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> aplikace</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> aplikací</item>
+      <item quantity="one">1 aplikace</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Využití oprávnění aplikace"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Přístup: <xliff:g id="NUM">%1$s</xliff:g>×. Celkový čas: <xliff:g id="DURATION">%2$s</xliff:g>. Naposledy použito před <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Přístup: <xliff:g id="NUM">%1$s</xliff:g>×. Naposledy použito před <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Povolit"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Povolit správu všech souborů"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Povolit pouze přístup k médiím"</string>
@@ -119,6 +189,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"Aplikace má přístup k: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Zobrazit všechna oprávnění aplikace <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Zobrazit všechny aplikace s tímto oprávněním"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"Zobrazit používání mikrofonu asistentem"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Odebrat oprávnění, pokud aplikace není používána"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Pokud tuto aplikaci několik měsíců nepoužijete, kvůli ochraně vašich dat jí budou odebrána oprávnění."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Pokud tuto aplikaci několik měsíců nepoužijete, budou jí kvůli ochraně vašich dat odebrána následující oprávnění: <xliff:g id="PERMS">%1$s</xliff:g>"</string>
@@ -290,7 +361,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Aktuálně výchozí"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Příště se neptat"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Změnit na výchozí"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Mikrofon je používán při &lt;b&gt;telefonním hovoru&lt;/b&gt;"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"Fotoaparát a mikrofon jsou používány při &lt;b&gt;videohovoru&lt;/b&gt;"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"Fotoaparát je používán při &lt;b&gt;videohovoru&lt;/b&gt;"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Mikrofon používá systémová služba"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Fotoaparát a mikrofon používá systémová služba"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Fotoaparát používá systémová služba"</string>
+    <string name="other_use" msgid="9076086164996623754">"Další využití:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Rozumím"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Nedávné využití: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" a "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"výchozí aplikace"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"Mikrofon a fotoaparát"</string>
     <string name="settings_button" msgid="4747434541214595321">"Nastavení"</string>
     <string name="default_apps" msgid="8554530939151957828">"Výchozí aplikace"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Žádné výchozí aplikace"</string>

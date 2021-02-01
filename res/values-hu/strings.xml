@@ -102,10 +102,68 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Jelenlegi engedélyek"</string>
     <string name="message_staging" msgid="641286607664721291">"Alkalmazás fokozatos közzététele…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Ismeretlen"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Irányítópult"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Legutóbbi hozzáférés: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> hozzáférés</item>
+      <item quantity="one">Legutóbbi hozzáférés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> hozzáférés</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Legutóbbi hozzáférés: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> hozzáférés (<xliff:g id="NUM_5">%3$s</xliff:g> a háttérben)</item>
+      <item quantity="one">Legutóbbi hozzáférés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> hozzáférés (<xliff:g id="NUM_2">%3$s</xliff:g> a háttérben)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Legutóbbi hozzáférés: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> hozzáférés\nIdőtartam: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Legutóbbi hozzáférés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> hozzáférés\nIdőtartam: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Legutóbbi hozzáférés: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> hozzáférés (<xliff:g id="NUM_6">%3$s</xliff:g> a háttérben)\nIdőtartam: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Legutóbbi hozzáférés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> hozzáférés (<xliff:g id="NUM_2">%3$s</xliff:g> a háttérben)\nIdőtartam: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Legutóbbi hozzáférés: <xliff:g id="TIME">%1$s</xliff:g>\nLegutóbbi hozzáférés a háttérben"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Bármely engedély"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Bármikor"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Elmúlt 7 nap"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Elmúlt 24 óra"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Elmúlt 1 óra"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Elmúlt 15 perc"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Elmúlt 1 perc"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Nincs engedélyhasználat"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Legutóbbi hozzáférés bármikor"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Legutóbbi hozzáférés az elmúlt hét nap során"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Legutóbbi hozzáférés az elmúlt 24 órában"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Legutóbbi hozzáférés az elmúlt egy órában"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Legutóbbi hozzáférés az elmúlt 15 percben"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Legutóbbi hozzáférés az elmúlt egy percben"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Engedélyhasználat bármikor"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Engedélyhasználat az elmúlt hét nap során"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Engedélyhasználat az elmúlt 24 órában"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Engedélyhasználat az elmúlt egy órában"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Engedélyhasználat az elmúlt 15 percben"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Engedélyhasználat az elmúlt egy percben"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> alkalmazás</item>
+      <item quantity="one">1 alkalmazás</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"Összes megtekintése az irányítópulton"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Szűrés alapja: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Szűrő eltávolítása"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Szűrő:"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Szűrés engedélyek szerint"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Szűrés idő szerint"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Legtöbb engedély"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Legtöbb hozzáférés"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Legutóbbiak"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Rendezés használat szerint"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Rendezés idő szerint"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Frissítés"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> alkalmazás</item>
+      <item quantity="one">1 alkalmazás</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Alkalmazásengedély-használat"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Hozzáférés: <xliff:g id="NUM">%1$s</xliff:g> alkalommal. Teljes időtartam: <xliff:g id="DURATION">%2$s</xliff:g>. Utoljára használva ennyi ideje: <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Hozzáférés: <xliff:g id="NUM">%1$s</xliff:g> alkalommal. Utoljára használva ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>"</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Engedélyezés"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Az összes fájl kezelésének engedélyezése"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Csak a médiatartalmakhoz való hozzáférés engedélyezése"</string>
@@ -117,6 +175,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"Alkalmazás hozzáférése a következőhöz: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"A(z) <xliff:g id="APP">%1$s</xliff:g> összes engedélyének megtekintése"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Az ezzel az engedéllyel rendelkező összes alkalmazás megtekintése"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"Mikrofon Segéd általi használatának megjelenítése"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Engedélyek eltávolítása, ha nem használja az alkalmazást"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Az adatok védelme érdekében az ennek az alkalmazásnak adott engedélyek visszavonásra kerülnek, ha néhány hónapon át nem használja az alkalmazást."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Ha néhány hónapon át nem használja az alkalmazást, az adatok védelme érdekében a rendszer visszavonja a következő engedélyeket: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
@@ -276,7 +335,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Aktuális alapérték"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Ne jelenjen meg többé"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Alapértelmezett"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"A mikrofon &lt;b&gt;telefonhívás&lt;/b&gt; miatt használatban van"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"A kamera és a mikrofon &lt;b&gt;videohívás&lt;/b&gt; miatt használatban van"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"A kamera &lt;b&gt;videohívás&lt;/b&gt; miatt használatban van"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"A mikrofont rendszerszolgáltatás használja"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"A kamerát és a mikrofont rendszerszolgáltatás használja"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"A kamerát rendszerszolgáltatás használja"</string>
+    <string name="other_use" msgid="9076086164996623754">"További használat:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Értem"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"<xliff:g id="TYPES_LIST">%s</xliff:g> jelenlegi használata"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" és "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"alapértelmezett alkalmazások"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"Mikrofon és kamera"</string>
     <string name="settings_button" msgid="4747434541214595321">"Beállítások"</string>
     <string name="default_apps" msgid="8554530939151957828">"Alapértelmezett alkalmazások"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Nincsenek alapértelmezettek"</string>
