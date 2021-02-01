@@ -328,8 +328,10 @@ abstract class SmartUpdateMediatorLiveData<T> : MediatorLiveData<T>(),
         return getInitializedValue(
             observe = { observer ->
                 observeStale(ForeverActiveLifecycle, observer)
-                if (forceUpdate) {
-                    updateIfActive()
+                if (forceUpdate || (!staleOk && isStale)) {
+                    GlobalScope.launch(Main) {
+                        deepUpdate()
+                    }
                 }
             },
             isInitialized = { isInitialized && (staleOk || !isStale) })

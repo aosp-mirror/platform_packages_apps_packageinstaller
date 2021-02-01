@@ -102,10 +102,68 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Huidige toestemmings"</string>
     <string name="message_staging" msgid="641286607664721291">"Voer tans program uit …"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Onbekend"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Kontroleskerm"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Jongste gebruik: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> keer gebruik</item>
+      <item quantity="one">Jongste gebruik: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> keer gebruik</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Jongste gebruik: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> keer gebruik (<xliff:g id="NUM_5">%3$s</xliff:g> keer op agtergrond)</item>
+      <item quantity="one">Jongste gebruik: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> keer gebruik (<xliff:g id="NUM_2">%3$s</xliff:g> keer op agtergrond)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Jongste gebruik: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> keer gebruik\nTydsduur: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Jongste gebruik: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> keer gebruik\nTydsduur: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Jongste gebruik: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> keer gebruik (<xliff:g id="NUM_6">%3$s</xliff:g> keer op agtergrond)\nTydsduur: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Jongste gebruik: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> keer gebruik (<xliff:g id="NUM_2">%3$s</xliff:g> keer op agtergrond)\nTydsduur: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Laaste toegang: <xliff:g id="TIME">%1$s</xliff:g>\nLaaste toegang was in die agtergrond"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Enige toestemming"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Enige tyd"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Afgelope 7 dae"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Afgelope 24 uur"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Afgelope 1 uur"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Afgelope 15 minute"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Afgelope 1 minuut"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Geen toestemminggebruike nie"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Mees onlangse toegang in enige tydperk"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Mees onlangse toegang in afgelope 7 dae"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Mees onlangse toegang in afgelope 24 uur"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Mees onlangse toegang in afgelope 1 uur"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Mees onlangse toegang in afgelope 15 minute"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Mees onlangse toegang in afgelope 1 minuut"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Toestemmingtoegang in enige tydperk"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Toestemminggebruik in afgelope 7 dae"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Toestemminggebruik in afgelope 24 uur"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Toestemminggebruik in afgelope 1 uur"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Toestemminggebruik in afgelope 15 minute"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Toestemminggebruik in afgelope 1 minuut"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> programme</item>
+      <item quantity="one">1 program</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"Sien alles in Dashboard"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Gefiltreer volgens: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Verwyder filter"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtreer volgens"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtreer volgens toestemmings"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Filtreer volgens tyd"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Meeste toestemmings"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Meeste toegange"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Onlangs"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Rangskik volgens gebruik"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Rangskik volgens tyd"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Herlaai"</string>
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> programme</item>
+      <item quantity="one">1 program</item>
+    </plurals>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Programtoestemmingsgebruik"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Toegang: <xliff:g id="NUM">%1$s</xliff:g> keer. Totale tydsduur: <xliff:g id="DURATION">%2$s</xliff:g>. <xliff:g id="TIME">%3$s</xliff:g> gelede laas gebruik."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Toegang: <xliff:g id="NUM">%1$s</xliff:g> keer. <xliff:g id="TIME">%2$s</xliff:g> gelede laas gebruik."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Laat toe"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"Laat toe dat alle lêers bestuur word"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"Laat net toegang tot media toe"</string>
@@ -117,6 +175,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>-toegang vir hierdie program"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Sien al <xliff:g id="APP">%1$s</xliff:g> se toestemmings"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Sien alle programme met hierdie toestemming"</string>
+    <string name="assistant_mic_label" msgid="1811192380583756826">"Wys Assistent-mikrofoongebruik"</string>
     <string name="auto_revoke_label" msgid="8755748230070160969">"Verwyder toestemmings as program nie gebruik word nie"</string>
     <string name="auto_revoke_summary" msgid="308686883215278993">"Om jou data te beskerm, sal toestemmings vir hierdie program verwyder word as die program \'n paar maande nie gebruik word nie."</string>
     <string name="auto_revoke_summary_with_permissions" msgid="5460568151204648005">"Om jou data te beskerm, sal die volgende toestemmings verwyder word as dit vir \'n paar maande nie gebruik word nie: <xliff:g id="PERMS">%1$s</xliff:g>."</string>
@@ -276,7 +335,19 @@
     <string name="request_role_current_default" msgid="7512045433655289638">"Huidige verstek"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Moenie weer vra nie"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Stel as verstek"</string>
+    <string name="phone_call_uses_microphone" msgid="8526072517150019104">"Mikrofoon word gebruik in &lt;b&gt;foonoproep&lt;/b&gt;"</string>
+    <string name="phone_call_uses_microphone_and_camera" msgid="3200724412615066778">"Kamera en mikrofoon word gebruik in &lt;b&gt;video-oproep&lt;/b&gt;"</string>
+    <string name="phone_call_uses_camera" msgid="4755426610656986999">"Kamera word gebruik in &lt;b&gt;video-oproep&lt;/b&gt;"</string>
+    <string name="system_uses_microphone" msgid="5472800603226495574">"Stelseldiens het tans toegang tot mikrofoon"</string>
+    <string name="system_uses_microphone_and_camera" msgid="5359556706104231621">"Stelseldiens het tans toegang tot kamera en mikrofoon"</string>
+    <string name="system_uses_camera" msgid="4961711670120922150">"Stelseldiens het tans toegang tot kamera"</string>
+    <string name="other_use" msgid="9076086164996623754">"Ander gebruik:"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Het dit"</string>
+    <string name="ongoing_usage_dialog_title" msgid="6545358148523337174">"Onlangse gebruik van <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" en "</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"verstekprogramme"</string>
+    <string name="permgroup_list_microphone_and_camera" msgid="4994780803223060037">"Mikrofoon en kamera"</string>
     <string name="settings_button" msgid="4747434541214595321">"Instellings"</string>
     <string name="default_apps" msgid="8554530939151957828">"Verstekprogramme"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Geen verstekprogramme nie"</string>
