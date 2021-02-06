@@ -24,7 +24,7 @@
     <string name="uninstall_or_disable" msgid="2397169592250216844">"ביטול התקנה או השבתה"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"האפליקציה לא נמצאה"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"אני לא מרשה"</string>
-    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"יש לדחות ואין לשאול שוב"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"לא, ואל תשאלו שוב"</string>
     <string name="grant_dialog_button_no_upgrade" msgid="9032569142389221215">"אני רוצה להשאיר את האפשרות \"כשהאפליקציה נמצאת בשימוש\""</string>
     <string name="grant_dialog_button_no_upgrade_one_time" msgid="5984372927399472031">"אני רוצה לשמור על ההגדרה “רק הפעם”"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"מידע נוסף"</string>
@@ -40,7 +40,7 @@
     <string name="permission_revoked_all" msgid="6356577996164232918">"כל ההרשאות מושבתות"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"אין הרשאות מושבתות"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"יש אישור"</string>
-    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"מותר, כל הזמן"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"כן, כל הזמן"</string>
     <string name="grant_dialog_button_allow_foreground" msgid="3921023528122697550">"בעת שימוש באפליקציה"</string>
     <string name="grant_dialog_button_allow_one_time" msgid="3290372652702487431">"רק הפעם"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"להתיר כל הזמן"</string>
@@ -85,7 +85,7 @@
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
     <string name="permission_access_always" msgid="5419580764084361573">"להתיר כל הזמן"</string>
-    <string name="permission_access_only_foreground" msgid="2857031150724321567">"מותר רק כשהאפליקציה בשימוש"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"רק כשהאפליקציה בשימוש"</string>
     <string name="permission_access_never" msgid="425385910378172045">"אני לא מרשה"</string>
     <string name="loading" msgid="323483393167148377">"טוען…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"כל ההרשאות"</string>
@@ -181,8 +181,8 @@
     <string name="app_permission_button_allow" msgid="1358817292836175593">"יש אישור"</string>
     <string name="app_permission_button_allow_all_files" msgid="4981526745327887198">"אישור לניהול כל הקבצים"</string>
     <string name="app_permission_button_allow_media_only" msgid="4093190111622941620">"אישור גישה למדיה בלבד"</string>
-    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"מותר, כל הזמן"</string>
-    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"מותר רק כשהאפליקציה בשימוש"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"כן, כל הזמן"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"רק כשהאפליקציה בשימוש"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"יש לשאול בכל פעם"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"אני לא מרשה"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"הרשאה לאפליקציית <xliff:g id="PERM">%1$s</xliff:g>"</string>
@@ -408,7 +408,7 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"הדגשת השימוש לאפליקציות הבאות"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"‏הצגת הזיהוי של הפעלת Assistant"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"הצגת הסמל בשורת הסטטוס כשהמיקרופון בשימוש לצורך הפעלת האסיסטנט"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; הרשאת גישה לתמונות ולמדיה במכשיר שלך?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; גישה לתמונות ולמדיה במכשיר שלך?"</string>
     <string name="permgrouprequest_contacts" msgid="1493445560009228831">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; הרשאת גישה לאנשי הקשר שלך?"</string>
     <string name="permgrouprequest_location" msgid="4367626296074714965">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; הרשאת גישה למיקום המכשיר?"</string>
     <string name="permgrouprequestdetail_location" msgid="4985222951894409507">"לאפליקציה תהיה גישה אל נתוני המיקום רק בזמן השימוש באפליקציה"</string>
