@@ -143,6 +143,7 @@ class AttributionLabelLiveData private constructor(
 
         // Listen for changes to the attributions
         PackageBroadcastReceiver.addChangeCallback(packageName, this)
+        update()
     }
 
     override fun onInactive() {
