@@ -46,6 +46,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.content.pm.PackageManager.FLAG_PERMISSION_AUTO_REVOKED
 import android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET
 import android.content.pm.PackageManager.PERMISSION_GRANTED
@@ -190,6 +191,13 @@ suspend fun dumpAutoRevokePermissions(context: Context): AutoRevokePermissionsDu
 class AutoRevokeOnBootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent?) {
+
+        // Auto-revoke is not enabled on Automotive devices
+        if (context.packageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {
+            DumpableLog.i(LOG_TAG, "Auto-revoke not scheduled on Automotive devices")
+            return
+        }
+
         // Init firstBootTime
         val firstBootTime = context.firstBootTime
 
