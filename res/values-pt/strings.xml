@@ -171,7 +171,7 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Permitir durante o uso do app"</string>
     <string name="app_permission_button_ask" msgid="2757216269887794205">"Perguntar sempre"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Negar"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Acesso aos recursos de <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Acesso para <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Permitir que este app acesse: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ver todas as permissões do app <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ver todos os apps que têm esta permissão"</string>
@@ -206,7 +206,7 @@
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Apps que têm esta permissão podem gravar áudio"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Apps que têm esta permissão podem fazer e gerenciar chamadas telefônicas"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Apps com esta permissão têm acesso aos seus sinais vitais coletados pelo sensor"</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Apps que têm esta permissão podem enviar e ver mensagens SMS"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Apps que têm esta permissão podem ver e enviar mensagens SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Apps com esta permissão podem acessar fotos, mídia e arquivos no seu dispositivo"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Último acesso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Negado atualmente/último acesso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -293,10 +293,10 @@
     <string name="role_assistant_description" msgid="8677846995018695304">"Apps assistivos podem ajudar com base nas informações da tela que você vê no momento. Alguns apps são compatíveis com a tela de início e com serviços de entrada de texto por voz para oferecer assistência integrada."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como seu app assistivo padrão?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Recebe acesso a SMS e registro de chamadas"</string>
-    <string name="role_browser_label" msgid="814240075813716311">"App padrão de navegador"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"App do navegador padrão"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"App de navegação"</string>
     <string name="role_browser_description" msgid="2326990202516329438">"Apps que permitem acesso à Internet e links clicáveis"</string>
-    <string name="role_browser_request_title" msgid="751745081301397114">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app padrão de navegador?"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como navegador padrão?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Nenhuma permissão necessária"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"App de telefone padrão"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"App Telefone"</string>
