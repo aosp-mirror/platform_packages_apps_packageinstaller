@@ -224,7 +224,7 @@
    <string name="permission_access_only_foreground">Allow only while using the app</string>
 
    <!-- [CHAR LIMIT=60] App can never access the resource protected by the permission (Not while app is in foregound and not while app is in background) -->
-   <string name="permission_access_never">Deny</string>
+   <string name="permission_access_never">Don\u2019t allow</string>
 
     <!-- Text displayed until loading is done [CHAR LIMIT=50] -->
    <string name="loading">Loading\u2026</string>
@@ -462,7 +462,7 @@
     <string name="app_permission_button_ask">Ask every time</string>
 
     <!-- Title for the dialog button to deny with prejudice a permission grant. [CHAR LIMIT=60] -->
-    <string name="app_permission_button_deny">Deny</string>
+    <string name="app_permission_button_deny">Don\u2019t allow</string>
 
     <!-- Title for app permission [CHAR LIMIT=30] -->
     <string name="app_permission_title"><xliff:g id="perm" example="location">%1$s</xliff:g> permission</string>
@@ -606,7 +606,7 @@
     <string name="ask_header">Ask every time</string>
 
     <!-- Header for denied permissions/apps [CHAR LIMIT=40] -->
-    <string name="denied_header">Denied</string>
+    <string name="denied_header">Not allowed</string>
 
     <!-- Time in days -->
     <plurals name="days">
