@@ -35,6 +35,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.permission.PermissionControllerService;
 import android.permission.PermissionManager;
 import android.permission.RuntimePermissionPresentationInfo;
@@ -49,6 +50,7 @@ import androidx.annotation.Nullable;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
+import com.android.packageinstaller.permission.utils.AdminRestrictedPermissionsUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -528,6 +530,8 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
         AppPermissions app = new AppPermissions(this, pkgInfo, false, true, null);
 
+        final boolean isManagedProfile = getSystemService(UserManager.class).isManagedProfile();
+
         int numPerms = expandedPermissions.size();
         for (int i = 0; i < numPerms; i++) {
             String permName = expandedPermissions.get(i);
@@ -543,8 +547,14 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
             switch (grantState) {
                 case PERMISSION_GRANT_STATE_GRANTED:
-                    perm.setPolicyFixed(true);
-                    group.grantRuntimePermissions(false, new String[]{permName});
+                    if (AdminRestrictedPermissionsUtils.mayAdminGrantPermission(perm.getName(),
+                            isManagedProfile)) {
+                        perm.setPolicyFixed(true);
+                        group.grantRuntimePermissions(false, new String[]{permName});
+                    } else {
+                        // similar to PERMISSION_GRANT_STATE_DEFAULT
+                        perm.setPolicyFixed(false);
+                    }
                     break;
                 case PERMISSION_GRANT_STATE_DENIED:
                     perm.setPolicyFixed(true);
