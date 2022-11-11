@@ -36,6 +36,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.permission.PermissionManager;
 import android.permission.RuntimePermissionPresentationInfo;
 import android.permission.RuntimePermissionUsageInfo;
@@ -56,6 +57,7 @@ import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGr
 import com.android.permissioncontroller.permission.model.livedatatypes.AppPermGroupUiInfo.PermGrantState;
 import com.android.permissioncontroller.permission.ui.AutoGrantPermissionsNotifier;
 import com.android.permissioncontroller.permission.utils.ArrayUtils;
+import com.android.permissioncontroller.permission.utils.AdminRestrictedPermissionsUtils;
 import com.android.permissioncontroller.permission.utils.KotlinUtils;
 import com.android.permissioncontroller.permission.utils.UserSensitiveFlagsUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
@@ -518,6 +520,8 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
         AutoGrantPermissionsNotifier autoGrantPermissionsNotifier =
                 new AutoGrantPermissionsNotifier(this, pkgInfo);
 
+        final boolean isManagedProfile = getSystemService(UserManager.class).isManagedProfile();
+
         int numPerms = expandedPermissions.size();
         for (int i = 0; i < numPerms; i++) {
             String permName = expandedPermissions.get(i);
@@ -533,9 +537,15 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
 
             switch (grantState) {
                 case PERMISSION_GRANT_STATE_GRANTED:
-                    perm.setPolicyFixed(true);
-                    group.grantRuntimePermissions(false, false, new String[]{permName});
-                    autoGrantPermissionsNotifier.onPermissionAutoGranted(permName);
+                    if (AdminRestrictedPermissionsUtils.mayAdminGrantPermission(perm.getName(),
+                            isManagedProfile)) {
+                        perm.setPolicyFixed(true);
+                        group.grantRuntimePermissions(false, false, new String[]{permName});
+                        autoGrantPermissionsNotifier.onPermissionAutoGranted(permName);
+                    } else {
+                        // similar to PERMISSION_GRANT_STATE_DEFAULT
+                        perm.setPolicyFixed(false);
+                    }
                     break;
                 case PERMISSION_GRANT_STATE_DENIED:
                     perm.setPolicyFixed(true);
